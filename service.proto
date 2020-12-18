@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+
+option go_package = "github.com/grapery/grapery/api/service";
+package grapery.api;
+
+
+
+message Ping { string ping = 1; }
+
+message Pong { string pong = 1; }
+
+message UserInfo {
+  uint64 UserID = 1;
+  string userName = 2;
+}
+
+message LoginResponse {}
+
+message LoginRequest {
+  string value = 1;
+}
+
+message LogoutResponse {}
+
+message LogoutRequest {}
+
+service Grapery {
+  rpc PingPong(Ping) returns(Pong) {
+    option(google.api.http) = {post : "/v1/example/ping" body : "*"};
+  }
+  rpc Login(LoginRequest) returns(LoginResponse) {
+    option(google.api.http) = {post : "/v1/login" body : "*"};
+  }
+  rpc Logout(LogoutRequest) returns(LogoutResponse) {
+    option(google.api.http) = {post : "/v1/login" body : "*"};
+  }
+}
