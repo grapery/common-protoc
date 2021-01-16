@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "github.com/grapery/grapery/common-protoc/service.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/example/ping": {
+      "post": {
+        "operationId": "PingPong",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiPong"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiPing"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/login": {
+      "post": {
+        "operationId": "Logout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLogoutResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLogoutRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "apiLoginRequest": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "apiLoginResponse": {
+      "type": "object"
+    },
+    "apiLogoutRequest": {
+      "type": "object"
+    },
+    "apiLogoutResponse": {
+      "type": "object"
+    },
+    "apiPing": {
+      "type": "object",
+      "properties": {
+        "ping": {
+          "type": "string"
+        }
+      }
+    },
+    "apiPong": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

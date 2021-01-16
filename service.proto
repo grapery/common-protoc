@@ -9,8 +9,6 @@ import "protoc-gen-openapiv2/options/openapiv2.proto";
 option go_package = "github.com/grapery/grapery/api/service";
 package grapery.api;
 
-
-
 message Ping { string ping = 1; }
 
 message Pong { string pong = 1; }
@@ -22,9 +20,7 @@ message UserInfo {
 
 message LoginResponse {}
 
-message LoginRequest {
-  string value = 1;
-}
+message LoginRequest { string value = 1; }
 
 message LogoutResponse {}
 
