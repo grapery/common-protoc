@@ -6,8 +6,41 @@ import "google/protobuf/timestamp.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "protoc-gen-openapiv2/options/openapiv2.proto";
 
-option go_package = "github.com/grapery/grapery/api/service";
+option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
+
+enum ActiveType {
+  ActiveTypeUnknown = 0;
+  ActiveTypeShortWord = 1;
+  ActiveTypeLongWord = 2;
+  ActiveTypePicture = 3;
+  ActiveTypeVideo = 4;
+  ActiveTypeMusic = 5;
+}
+
+enum RegisterType {
+  ResigterUnknown = 0;
+  RegisterWithPhone = 1;
+  RegisterWithEmail = 2;
+}
+
+enum LoginType {
+  LoginUnknown = 0;
+  LoginWithPhone = 1;
+  LoginWithEmail = 2;
+}
+
+enum GroupType {
+  GroupUnknown = 0;
+  PublicGroup = 1;
+  PrivateGroup = 2;
+}
+
+enum ProjectType {
+  ProjectUnknown = 0;
+  PublicProject = 1;
+  PrivateProject = 2;
+}
 
 message Ping { string ping = 1; }
 
@@ -18,22 +51,51 @@ message UserInfo {
   string userName = 2;
 }
 
-message LoginResponse {}
+message RegsiterReq {
+  string email = 1;
+  string phone = 2;
+  string password = 3;
+  RegisterType rtype = 4;
+}
 
-message LoginRequest { string value = 1; }
+message RegisterResp {
+  int64 status = 1;
+  int64 userID = 2;
+}
+
+message LoginResponse {
+  int64 status = 1;
+  int64 userID = 2;
+}
+
+message LoginRequest {
+  string email = 1;
+  string phone = 2;
+  string password = 3;
+  LoginType ltype = 4;
+}
 
 message LogoutResponse {}
 
 message LogoutRequest {}
 
 service Grapery {
-  rpc PingPong(Ping) returns(Pong) {
-    option(google.api.http) = {post : "/v1/example/ping" body : "*"};
+  rpc PingPong(Ping) returns (Pong) {
+    option (google.api.http) = {
+      post : "/v1/example/ping"
+      body : "*"
+    };
   }
-  rpc Login(LoginRequest) returns(LoginResponse) {
-    option(google.api.http) = {post : "/v1/login" body : "*"};
+  rpc Login(LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post : "/v1/login"
+      body : "*"
+    };
   }
-  rpc Logout(LogoutRequest) returns(LogoutResponse) {
-    option(google.api.http) = {post : "/v1/login" body : "*"};
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {
+    option (google.api.http) = {
+      post : "/v1/login"
+      body : "*"
+    };
   }
 }
