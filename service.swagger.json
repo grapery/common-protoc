@@ -11,14 +11,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/example/ping": {
+    "/v1/login": {
       "post": {
-        "operationId": "PingPong",
+        "operationId": "Login",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiPong"
+              "$ref": "#/definitions/apiLoginResponse"
             }
           }
         },
@@ -28,7 +28,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiPing"
+              "$ref": "#/definitions/apiLoginRequest"
             }
           }
         ],
@@ -37,7 +37,7 @@
         ]
       }
     },
-    "/v1/login": {
+    "/v1/logout": {
       "post": {
         "operationId": "Logout",
         "responses": {
@@ -62,6 +62,105 @@
           "Grapery"
         ]
       }
+    },
+    "/v1/user/{userID}": {
+      "post": {
+        "operationId": "UserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/follower": {
+      "post": {
+        "operationId": "UserFollower",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowerResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/following": {
+      "post": {
+        "operationId": "userFollowing",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowingResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
     }
   },
   "definitions": {
@@ -77,52 +176,116 @@
     "apiLoginRequest": {
       "type": "object",
       "properties": {
-        "email": {
-          "type": "string"
+        "loginType": {
+          "$ref": "#/definitions/apiAuthType"
         },
-        "phone": {
+        "account": {
           "type": "string"
         },
         "password": {
           "type": "string"
-        },
-        "ltype": {
-          "$ref": "#/definitions/apiAuthType"
         }
       }
     },
     "apiLoginResponse": {
       "type": "object",
       "properties": {
-        "status": {
-          "type": "string",
-          "format": "int64"
-        },
         "userID": {
           "type": "string",
-          "format": "int64"
+          "format": "uint64"
         }
       }
     },
     "apiLogoutRequest": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiLogoutResponse": {
       "type": "object"
     },
-    "apiPing": {
+    "apiUserFollowerRequest": {
       "type": "object",
       "properties": {
-        "ping": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserFollowerResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiUserInfo"
+          }
+        }
+      }
+    },
+    "apiUserFollowingRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserFollowingResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiUserInfo"
+          }
+        }
+      }
+    },
+    "apiUserInfo": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "avatorUrl": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "desc": {
           "type": "string"
         }
       }
     },
-    "apiPong": {
+    "apiUserInfoRequest": {
       "type": "object",
       "properties": {
-        "pong": {
-          "type": "string"
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserInfoResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiUserInfo"
         }
       }
     }

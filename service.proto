@@ -30,50 +30,82 @@ enum VisibleType {
   Private = 2;
 }
 
-message Ping { string ping = 1; }
-
-message Pong { string pong = 1; }
-
 message UserInfo {
-  uint64 UserID = 1;
-  string userName = 2;
+  uint64 userID = 1;
+  string nickname = 2;
+  string avatorUrl = 3;
+  string email = 4;
+  string location = 5;
+  string desc = 6;
 }
 
-message RegsiterReq {
-  string email = 1;
-  string phone = 2;
-  string password = 3;
-  AuthType rtype = 4;
-}
+message GroupInfo {}
 
-message RegisterResp {
-  int64 status = 1;
-  int64 userID = 2;
-}
+message ProjectInfo {}
 
-message LoginResponse {
-  int64 status = 1;
-  int64 userID = 2;
-}
+message ItemInfo {}
 
 message LoginRequest {
-  string email = 1;
-  string phone = 2;
+  AuthType loginType = 1;
+  string account = 2;
   string password = 3;
-  AuthType ltype = 4;
 }
+
+message LoginResponse { uint64 userID = 1; }
+
+message LogoutRequest { uint64 userID = 1; }
 
 message LogoutResponse {}
 
-message LogoutRequest {}
+message LogtouResponse {}
+
+message RegisterRequest {
+  AuthType loginType = 1;
+  string account = 2;
+  string password = 3;
+}
+
+message RegisterResponse {}
+
+message ResetPasswordRequest {
+  AuthType loginType = 1;
+  string account = 2;
+  string oldPwd = 3;
+  string newPwd = 4;
+}
+
+message ResetPasswordResponse { uint64 userID = 1; }
+
+message UserInfoRequest { uint64 userID = 1; }
+
+message UserInfoResponse { UserInfo info = 1; }
+
+message UserFollowingRequest { uint64 userID = 1; }
+
+message UserFollowingResponse { repeated UserInfo list = 1; }
+
+message UserFollowerRequest { uint64 userID = 1; }
+
+message UserFollowerResponse { repeated UserInfo list = 1; }
+
+message UserGroupRequest { uint64 userID = 1; }
+
+message UserGroupResponse { repeated GroupInfo list = 1; }
+
+message UserFollowingGroupRequest { uint64 userID = 1; }
+
+message UserFollowingGroupResponse { repeated GroupInfo list = 1; }
+
+message UserUpdateRequest {
+  uint64 userID = 1;
+  string nickname = 2;
+  string avatorUrl = 3;
+  string desc = 4;
+}
+
+message UserUpdateResponse {}
 
 service Grapery {
-  rpc PingPong(Ping) returns (Pong) {
-    option (google.api.http) = {
-      post : "/v1/example/ping"
-      body : "*"
-    };
-  }
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post : "/v1/login"
@@ -82,8 +114,29 @@ service Grapery {
   }
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
-      post : "/v1/login"
+      post : "/v1/logout"
       body : "*"
     };
   }
+
+  rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{userID}"
+      body : "*"
+    };
+  }
+
+  rpc userFollowing(UserFollowingRequest) returns (UserFollowingResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{userID}/following"
+      body : "*"
+    };
+  };
+
+  rpc UserFollower(UserFollowerRequest) returns (UserFollowerResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{userID}/follower"
+      body : "*"
+    };
+  };
 }
