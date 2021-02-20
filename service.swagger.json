@@ -65,6 +65,15 @@
     }
   },
   "definitions": {
+    "apiAuthType": {
+      "type": "string",
+      "enum": [
+        "NotAuth",
+        "WithPhone",
+        "WithEmail"
+      ],
+      "default": "NotAuth"
+    },
     "apiLoginRequest": {
       "type": "object",
       "properties": {
@@ -78,7 +87,7 @@
           "type": "string"
         },
         "ltype": {
-          "$ref": "#/definitions/apiLoginType"
+          "$ref": "#/definitions/apiAuthType"
         }
       }
     },
@@ -94,15 +103,6 @@
           "format": "int64"
         }
       }
-    },
-    "apiLoginType": {
-      "type": "string",
-      "enum": [
-        "LoginUnknown",
-        "LoginWithPhone",
-        "LoginWithEmail"
-      ],
-      "default": "LoginUnknown"
     },
     "apiLogoutRequest": {
       "type": "object"

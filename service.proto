@@ -10,36 +10,24 @@ option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
 enum ActiveType {
-  ActiveTypeUnknown = 0;
-  ActiveTypeShortWord = 1;
-  ActiveTypeLongWord = 2;
-  ActiveTypePicture = 3;
-  ActiveTypeVideo = 4;
-  ActiveTypeMusic = 5;
+  NotSupport = 0;
+  ShortWord = 1;
+  LongWord = 2;
+  Picture = 3;
+  Video = 4;
+  Music = 5;
 }
 
-enum RegisterType {
-  ResigterUnknown = 0;
-  RegisterWithPhone = 1;
-  RegisterWithEmail = 2;
+enum AuthType {
+  NotAuth = 0;
+  WithPhone = 1;
+  WithEmail = 2;
 }
 
-enum LoginType {
-  LoginUnknown = 0;
-  LoginWithPhone = 1;
-  LoginWithEmail = 2;
-}
-
-enum GroupType {
-  GroupUnknown = 0;
-  PublicGroup = 1;
-  PrivateGroup = 2;
-}
-
-enum ProjectType {
-  ProjectUnknown = 0;
-  PublicProject = 1;
-  PrivateProject = 2;
+enum VisibleType {
+  Normal = 0;
+  Public = 1;
+  Private = 2;
 }
 
 message Ping { string ping = 1; }
@@ -55,7 +43,7 @@ message RegsiterReq {
   string email = 1;
   string phone = 2;
   string password = 3;
-  RegisterType rtype = 4;
+  AuthType rtype = 4;
 }
 
 message RegisterResp {
@@ -72,7 +60,7 @@ message LoginRequest {
   string email = 1;
   string phone = 2;
   string password = 3;
-  LoginType ltype = 4;
+  AuthType ltype = 4;
 }
 
 message LogoutResponse {}
