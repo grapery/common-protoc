@@ -167,11 +167,11 @@
     "apiAuthType": {
       "type": "string",
       "enum": [
-        "NotAuth",
+        "NotSupport",
         "WithPhone",
         "WithEmail"
       ],
-      "default": "NotAuth"
+      "default": "NotSupport"
     },
     "apiLoginRequest": {
       "type": "object",

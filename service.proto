@@ -10,7 +10,7 @@ option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
 enum ActiveType {
-  NotSupport = 0;
+  All = 0;
   ShortWord = 1;
   LongWord = 2;
   Picture = 3;
@@ -19,7 +19,7 @@ enum ActiveType {
 }
 
 enum AuthType {
-  NotAuth = 0;
+  NotSupport = 0;
   WithPhone = 1;
   WithEmail = 2;
 }
@@ -28,6 +28,7 @@ enum VisibleType {
   Normal = 0;
   Public = 1;
   Private = 2;
+  Someone = 3;
 }
 
 message UserInfo {
@@ -43,7 +44,15 @@ message GroupInfo {}
 
 message ProjectInfo {}
 
+message ActiveInfo {}
+
 message ItemInfo {}
+
+message UserProfileInfo {}
+
+message GroupProfileInfo {}
+
+message ProjectProfileInfo {}
 
 message LoginRequest {
   AuthType loginType = 1;
@@ -104,6 +113,114 @@ message UserUpdateRequest {
 }
 
 message UserUpdateResponse {}
+
+message StartFollowUserRequest { uint64 targetID = 1; }
+message StartFollowUserResponse { uint64 targetID = 1; }
+message StopFollowUserRequest { uint64 targetID = 1; }
+message StopFollowUserResponse { uint64 targetID = 1; }
+message FetchUserActivesRequest { ActiveType atype = 1; }
+message FetchUserActivesResponse { repeated ActiveInfo list = 1; }
+message SearchUserRequest {
+  string name = 1;
+  uint64 groupID = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchUserResponse {
+  repeated UserInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+//--------------------------------------------------//
+
+message CreateGroupReqeust { string name = 1; }
+message CreateGroupResponse {}
+
+message GetGroupReqeust { uint64 groupID = 1; }
+message GetGroupResponse { GroupInfo info = 1; }
+
+message GetGroupActivesRequest {
+  uint64 groupId = 1;
+  ActiveType atype = 2;
+}
+
+message GetGroupActivesResponse { repeated ActiveInfo list = 1; }
+
+message UpdateGroupInfoRequest { GroupInfo info = 1; }
+message UpdateGroupInfoResponse {}
+message DeleteGroupRequest { uint64 groupID = 1; }
+message DeleteGroupResponse {}
+message FetchGroupMembersRequest {
+  uint64 groupID = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message FetchGroupMembersResponse {
+  repeated UserInfo list = 1;
+  uint64 offset = 2;
+  uint64 total = 3;
+}
+
+message FetchGroupProjectsReqeust {
+  uint64 groupID = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message GetProjectRequest {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+
+message GetProjectResponse { ProjectInfo info = 1; }
+
+message CreateProjectRequest { string name = 1; }
+message CreateProjectResponse { ProjectInfo info = 1; }
+message UpdateProjectRequest { ProjectInfo info = 1; }
+message UpdateProjectResponse { ProjectInfo info = 1; }
+message DeleteProjectRequest {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+message DeleteProjectResponse {}
+
+message GetProjectProfileRequest {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+
+message GetProjectProfileResponse { ProjectProfileInfo info = 1; }
+
+message UpdateProjectProfileReqeust {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+  ProjectProfileInfo info = 3;
+}
+
+message UpdateProjectProfileResponse { ProjectProfileInfo info = 1; }
+
+message StarProjectRequest {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+
+message StarProjectResponse {}
+
+message UnStarProjectRequest {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+
+message WatchProjectReqeust {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+}
+
+message WatchProjectResponse {}
+
+message UnStarProjectResponse {}
 
 service Grapery {
   rpc Login(LoginRequest) returns (LoginResponse) {
