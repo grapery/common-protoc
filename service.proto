@@ -9,6 +9,13 @@ import "protoc-gen-openapiv2/options/openapiv2.proto";
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
+enum GroupStatus {
+  NotReady = 0;
+  Normal = 1;
+  ViewOnly = 2;
+  Abandon = 3;
+}
+
 enum ActiveType {
   Nothing = 0;
   Like = 1;
@@ -36,7 +43,7 @@ enum AuthType {
 }
 
 enum VisibleType {
-  Normal = 0;
+  NotAllow = 0;
   Public = 1;
   Private = 2;
   Someone = 3;
