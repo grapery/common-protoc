@@ -11,6 +11,788 @@
     "application/json"
   ],
   "paths": {
+    "/v1/group": {
+      "post": {
+        "operationId": "CreateGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateGroupReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/search": {
+      "post": {
+        "operationId": "SearchGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSearchGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSearchGroupReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}": {
+      "post": {
+        "operationId": "GetGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/actives": {
+      "post": {
+        "operationId": "GetGroupActives",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupActivesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupActivesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/members": {
+      "post": {
+        "operationId": "FetchGroupMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupMembersResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupMembersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project": {
+      "post": {
+        "operationId": "CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}": {
+      "post": {
+        "operationId": "GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/profile": {
+      "post": {
+        "operationId": "GetProjectProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectProfileResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/remove": {
+      "post": {
+        "operationId": "DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/star": {
+      "post": {
+        "operationId": "StarProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiStarProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiStarProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/unstar": {
+      "post": {
+        "operationId": "UnStarProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUnStarProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUnStarProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/update": {
+      "post": {
+        "operationId": "UpdateProjectProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/project/{projectID}/watch": {
+      "post": {
+        "operationId": "WatchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiWatchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "projectID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiWatchProjectReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects": {
+      "post": {
+        "operationId": "FetchGroupProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupProjectsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupProjectsReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/item": {
+      "post": {
+        "operationId": "CreateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/item/{itemID}/like": {
+      "post": {
+        "operationId": "LikeItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/item/{itemID}/remove": {
+      "post": {
+        "operationId": "DeleteItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/item/{itemID}/update": {
+      "post": {
+        "operationId": "UpdateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/items": {
+      "post": {
+        "operationId": "GetItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/projects/search": {
+      "post": {
+        "operationId": "SearchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSearchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSearchProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/remove": {
+      "post": {
+        "operationId": "DeleteGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/group/{groupID}/update": {
+      "post": {
+        "operationId": "UpdateGroupInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateGroupInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateGroupInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
     "/v1/login": {
       "post": {
         "operationId": "Login",
@@ -63,6 +845,58 @@
         ]
       }
     },
+    "/v1/register": {
+      "post": {
+        "operationId": "Register",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiRegisterResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiRegisterRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/reset/pwd": {
+      "post": {
+        "operationId": "ResetPwd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiResetPasswordResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiResetPasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
     "/v1/user/{userID}": {
       "post": {
         "operationId": "UserInfo",
@@ -88,6 +922,39 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/apiUserInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/actives": {
+      "post": {
+        "operationId": "FetchUserActives",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiFetchUserActivesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiFetchUserActivesRequest"
             }
           }
         ],
@@ -161,9 +1028,229 @@
           "Grapery"
         ]
       }
+    },
+    "/v1/user/{userID}/following/add/{targetID}": {
+      "post": {
+        "operationId": "StartFollowUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiStartFollowUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "targetID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiStartFollowUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/following/remove/{targetID}": {
+      "post": {
+        "operationId": "StopFollowUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiStopFollowUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "targetID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiStopFollowUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/groups": {
+      "post": {
+        "operationId": "UserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/groups/following": {
+      "post": {
+        "operationId": "UserFollowingGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowingGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserFollowingGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/user/{userID}/update": {
+      "post": {
+        "operationId": "UserUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserUpdateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
+    },
+    "/v1/users/search": {
+      "post": {
+        "operationId": "SearchUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSearchUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSearchUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Grapery"
+        ]
+      }
     }
   },
   "definitions": {
+    "apiActiveInfo": {
+      "type": "object"
+    },
+    "apiActiveType": {
+      "type": "string",
+      "enum": [
+        "Nothing",
+        "Like",
+        "Share",
+        "Comment",
+        "Collect",
+        "DisAgree"
+      ],
+      "default": "Nothing"
+    },
     "apiAuthType": {
       "type": "string",
       "enum": [
@@ -172,6 +1259,352 @@
         "WithEmail"
       ],
       "default": "NotSupport"
+    },
+    "apiCreateGroupReqeust": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "apiCreateGroupResponse": {
+      "type": "object"
+    },
+    "apiCreateItemRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "atype": {
+          "$ref": "#/definitions/apiActiveType"
+        }
+      }
+    },
+    "apiCreateItemResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiItemInfo"
+        }
+      }
+    },
+    "apiCreateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "apiCreateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiProjectInfo"
+        }
+      }
+    },
+    "apiDeleteGroupRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiDeleteGroupResponse": {
+      "type": "object"
+    },
+    "apiDeleteItemRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "itemID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiDeleteItemResponse": {
+      "type": "object"
+    },
+    "apiDeleteProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiDeleteProjectResponse": {
+      "type": "object"
+    },
+    "apiFetchGroupMembersRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiFetchGroupMembersResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiUserInfo"
+          }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "total": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiFetchGroupProjectsReqeust": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiFetchGroupProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiFetchUserActivesRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "atype": {
+          "$ref": "#/definitions/apiActiveType"
+        }
+      }
+    },
+    "apiFetchUserActivesResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiActiveInfo"
+          }
+        }
+      }
+    },
+    "apiGetGroupActivesRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "atype": {
+          "$ref": "#/definitions/apiActiveType"
+        }
+      }
+    },
+    "apiGetGroupActivesResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiActiveInfo"
+          }
+        }
+      }
+    },
+    "apiGetGroupReqeust": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetGroupResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiGroupInfo"
+        }
+      }
+    },
+    "apiGetItemResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiItemInfo"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetItemsRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetProjectProfileRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetProjectProfileResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiProjectProfileInfo"
+        }
+      }
+    },
+    "apiGetProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetProjectResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiProjectInfo"
+        }
+      }
+    },
+    "apiGroupInfo": {
+      "type": "object"
+    },
+    "apiItemInfo": {
+      "type": "object"
+    },
+    "apiLikeItemRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "itemID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "islike": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "apiLikeItemResponse": {
+      "type": "object"
     },
     "apiLoginRequest": {
       "type": "object",
@@ -208,6 +1641,295 @@
     "apiLogoutResponse": {
       "type": "object"
     },
+    "apiProjectInfo": {
+      "type": "object"
+    },
+    "apiProjectProfileInfo": {
+      "type": "object"
+    },
+    "apiRegisterRequest": {
+      "type": "object",
+      "properties": {
+        "loginType": {
+          "$ref": "#/definitions/apiAuthType"
+        },
+        "account": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "apiRegisterResponse": {
+      "type": "object"
+    },
+    "apiResetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "loginType": {
+          "$ref": "#/definitions/apiAuthType"
+        },
+        "account": {
+          "type": "string"
+        },
+        "oldPwd": {
+          "type": "string"
+        },
+        "newPwd": {
+          "type": "string"
+        }
+      }
+    },
+    "apiResetPasswordResponse": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiSearchGroupReqeust": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSearchGroupResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiGroupInfo"
+          }
+        }
+      }
+    },
+    "apiSearchProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSearchProjectResponse": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
+        }
+      }
+    },
+    "apiSearchUserRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiSearchUserResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiUserInfo"
+          }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiStarProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiStarProjectResponse": {
+      "type": "object"
+    },
+    "apiStartFollowUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "targetID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiStartFollowUserResponse": {
+      "type": "object"
+    },
+    "apiStopFollowUserRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "targetID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiStopFollowUserResponse": {
+      "type": "object"
+    },
+    "apiUnStarProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUnStarProjectResponse": {
+      "type": "object"
+    },
+    "apiUpdateGroupInfoRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "info": {
+          "$ref": "#/definitions/apiGroupInfo"
+        }
+      }
+    },
+    "apiUpdateGroupInfoResponse": {
+      "type": "object"
+    },
+    "apiUpdateItemRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "itemID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "info": {
+          "$ref": "#/definitions/apiItemInfo"
+        }
+      }
+    },
+    "apiUpdateItemResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiItemInfo"
+        }
+      }
+    },
+    "apiUpdateProjectProfileReqeust": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "info": {
+          "$ref": "#/definitions/apiProjectProfileInfo"
+        }
+      }
+    },
+    "apiUpdateProjectProfileResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiProjectProfileInfo"
+        }
+      }
+    },
+    "apiUpdateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "info": {
+          "$ref": "#/definitions/apiProjectInfo"
+        }
+      }
+    },
+    "apiUpdateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/apiProjectInfo"
+        }
+      }
+    },
     "apiUserFollowerRequest": {
       "type": "object",
       "properties": {
@@ -228,6 +1950,26 @@
         }
       }
     },
+    "apiUserFollowingGroupRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserFollowingGroupResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiGroupInfo"
+          }
+        }
+      }
+    },
     "apiUserFollowingRequest": {
       "type": "object",
       "properties": {
@@ -244,6 +1986,26 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/apiUserInfo"
+          }
+        }
+      }
+    },
+    "apiUserGroupRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserGroupResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiGroupInfo"
           }
         }
       }
@@ -288,6 +2050,43 @@
           "$ref": "#/definitions/apiUserInfo"
         }
       }
+    },
+    "apiUserUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "avatorUrl": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
+      }
+    },
+    "apiUserUpdateResponse": {
+      "type": "object"
+    },
+    "apiWatchProjectReqeust": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiWatchProjectResponse": {
+      "type": "object"
     }
   }
 }
