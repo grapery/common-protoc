@@ -9,6 +9,12 @@ import "protoc-gen-openapiv2/options/openapiv2.proto";
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
+enum GenderType {
+  None = 0;
+  Man = 1;
+  WOmen = 2;
+}
+
 enum UserStatus {
   Rest = 0;
   Study = 1;
@@ -79,6 +85,7 @@ message GroupProfileInfo {}
 
 message ProjectProfileInfo {}
 
+// here us req-resp list
 message LoginRequest {
   AuthType loginType = 1;
   string account = 2;
@@ -110,9 +117,17 @@ message ResetPasswordRequest {
 
 message ResetPasswordResponse { uint64 userID = 1; }
 
+// user ,group .project.item
 message UserInfoRequest { uint64 userID = 1; }
 
 message UserInfoResponse { UserInfo info = 1; }
+
+message UpdateUserAvatorRequest {
+  uint64 userID = 1;
+  string avatorUrl = 2;
+}
+
+message UpdateUserAvatorResponse { UserInfo info = 1; }
 
 message UserFollowingRequest { uint64 userID = 1; }
 
@@ -359,6 +374,14 @@ service Grapery {
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/v1/user/{userID}"
+      body : "*"
+    };
+  }
+
+  rpc UpdateUserAvator(UpdateUserAvatorRequest)
+      returns (UpdateUserAvatorResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{userID}/avator"
       body : "*"
     };
   }
