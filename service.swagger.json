@@ -1031,7 +1031,7 @@
     },
     "/v1/user/{userID}/following": {
       "post": {
-        "operationId": "userFollowing",
+        "operationId": "UserFollowing",
         "responses": {
           "200": {
             "description": "A successful response.",

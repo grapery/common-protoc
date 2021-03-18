@@ -399,7 +399,7 @@ service Grapery {
     };
   }
 
-  rpc userFollowing(UserFollowingRequest) returns (UserFollowingResponse) {
+  rpc UserFollowing(UserFollowingRequest) returns (UserFollowingResponse) {
     option (google.api.http) = {
       post : "/v1/user/{userID}/following"
       body : "*"
