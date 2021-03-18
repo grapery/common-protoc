@@ -33,7 +33,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -59,7 +59,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -92,7 +92,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -125,7 +125,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -158,7 +158,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -191,7 +191,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -231,7 +231,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -271,7 +271,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -311,7 +311,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -351,7 +351,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -391,7 +391,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -426,12 +426,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileReqeust"
+              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
             }
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -471,7 +471,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -504,7 +504,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -537,7 +537,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Item"
         ]
       }
     },
@@ -577,7 +577,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Item"
         ]
       }
     },
@@ -617,7 +617,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Item"
         ]
       }
     },
@@ -657,7 +657,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Item"
         ]
       }
     },
@@ -690,7 +690,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Item"
         ]
       }
     },
@@ -723,7 +723,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Project"
         ]
       }
     },
@@ -756,7 +756,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -789,7 +789,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Org"
         ]
       }
     },
@@ -815,7 +815,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Auth"
         ]
       }
     },
@@ -841,7 +841,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Auth"
         ]
       }
     },
@@ -867,7 +867,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Auth"
         ]
       }
     },
@@ -893,7 +893,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "Auth"
         ]
       }
     },
@@ -926,7 +926,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -959,7 +959,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -992,7 +992,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1025,7 +1025,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1058,7 +1058,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1098,7 +1098,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1138,7 +1138,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1171,7 +1171,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1204,7 +1204,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1237,7 +1237,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     },
@@ -1263,7 +1263,7 @@
           }
         ],
         "tags": [
-          "Grapery"
+          "User"
         ]
       }
     }
@@ -1916,7 +1916,7 @@
         }
       }
     },
-    "apiUpdateProjectProfileReqeust": {
+    "apiUpdateProjectProfileRequest": {
       "type": "object",
       "properties": {
         "groupID": {

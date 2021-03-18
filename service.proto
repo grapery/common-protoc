@@ -261,7 +261,7 @@ message GetProjectProfileRequest {
 
 message GetProjectProfileResponse { ProjectProfileInfo info = 1; }
 
-message UpdateProjectProfileReqeust {
+message UpdateProjectProfileRequest {
   uint64 groupID = 1;
   uint64 projectID = 2;
   ProjectProfileInfo info = 3;
@@ -357,7 +357,7 @@ message LikeItemRequest {
 
 message LikeItemResponse {}
 
-service Grapery {
+service Auth {
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post : "/v1/login"
@@ -370,7 +370,21 @@ service Grapery {
       body : "*"
     };
   }
+  rpc Register(RegisterRequest) returns (RegisterResponse) {
+    option (google.api.http) = {
+      post : "/v1/register"
+      body : "*"
+    };
+  }
+  rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
+    option (google.api.http) = {
+      post : "/v1/reset/pwd"
+      body : "*"
+    };
+  }
+}
 
+service User {
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/v1/user/{userID}"
@@ -382,19 +396,6 @@ service Grapery {
       returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
       post : "/v1/user/{userID}/avator"
-      body : "*"
-    };
-  }
-
-  rpc Register(RegisterRequest) returns (RegisterResponse) {
-    option (google.api.http) = {
-      post : "/v1/register"
-      body : "*"
-    };
-  }
-  rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
-    option (google.api.http) = {
-      post : "/v1/reset/pwd"
       body : "*"
     };
   }
@@ -457,6 +458,9 @@ service Grapery {
       body : "*"
     };
   }
+}
+
+service Org {
   rpc CreateGroup(CreateGroupReqeust) returns (CreateGroupResponse) {
     option (google.api.http) = {
       post : "/v1/group"
@@ -509,6 +513,9 @@ service Grapery {
       body : "*"
     };
   }
+}
+
+service Project {
   rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
       post : "/v1/group/{groupID}/project/{projectID}"
@@ -540,7 +547,7 @@ service Grapery {
       body : "*"
     };
   }
-  rpc UpdateProjectProfile(UpdateProjectProfileReqeust)
+  rpc UpdateProjectProfile(UpdateProjectProfileRequest)
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
       post : "/v1/group/{groupID}/project/{projectID}/update"
@@ -572,6 +579,10 @@ service Grapery {
       body : "*"
     };
   }
+}
+
+service Item {
+
   rpc GetItems(GetItemsRequest) returns (GetItemResponse) {
     option (google.api.http) = {
       post : "/v1/group/{groupID}/projects/items"
