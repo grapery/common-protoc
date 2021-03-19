@@ -1270,7 +1270,24 @@
   },
   "definitions": {
     "apiActiveInfo": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "activeType": {
+          "$ref": "#/definitions/apiActiveType"
+        },
+        "itemInfo": {
+          "$ref": "#/definitions/apiItemInfo"
+        },
+        "projectInfo": {
+          "$ref": "#/definitions/apiProjectInfo"
+        },
+        "groupInfo": {
+          "$ref": "#/definitions/apiGroupInfo"
+        }
+      }
     },
     "apiActiveType": {
       "type": "string",
@@ -1606,10 +1623,51 @@
       }
     },
     "apiGroupInfo": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatorUrl": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "owner": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiTags"
+          }
+        }
+      }
     },
     "apiItemInfo": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "userID": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiLikeItemRequest": {
       "type": "object",
@@ -1676,7 +1734,46 @@
       "type": "object"
     },
     "apiProjectInfo": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "groupID": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatorUrl": {
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "owner": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiTags"
+          }
+        },
+        "visable": {
+          "$ref": "#/definitions/apiVisibleType"
+        },
+        "isAchieve": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "isClose": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
     },
     "apiProjectProfileInfo": {
       "type": "object"
@@ -1856,6 +1953,22 @@
     },
     "apiStopFollowUserResponse": {
       "type": "object"
+    },
+    "apiTags": {
+      "type": "object",
+      "properties": {
+        "groupID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "creatorID": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
     },
     "apiUnStarProjectRequest": {
       "type": "object",
@@ -2071,7 +2184,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "nickname": {
+        "name": {
           "type": "string"
         },
         "avatorUrl": {
@@ -2126,6 +2239,16 @@
     },
     "apiUserUpdateResponse": {
       "type": "object"
+    },
+    "apiVisibleType": {
+      "type": "string",
+      "enum": [
+        "NotAllow",
+        "Public",
+        "Private",
+        "Someone"
+      ],
+      "default": "NotAllow"
     },
     "apiWatchProjectReqeust": {
       "type": "object",

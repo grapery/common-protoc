@@ -9,10 +9,22 @@ import "protoc-gen-openapiv2/options/openapiv2.proto";
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
+enum LikeType {
+  Browser = 0;
+  // orange,激进的
+  Left = 1;
+  // blue，温和的
+  Middle = 2;
+  // green 保守的
+  Right = 3;
+}
+
 enum GenderType {
+  // 不公开性别
   None = 0;
   Man = 1;
-  WOmen = 2;
+  Women = 2;
+  Double = 3;
 }
 
 enum UserStatus {
@@ -62,22 +74,58 @@ enum VisibleType {
   Someone = 3;
 }
 
+message Tags {
+  uint64 groupID = 1;
+  uint64 creatorID = 2;
+  string name = 3;
+}
+
 message UserInfo {
   uint64 userID = 1;
-  string nickname = 2;
+  string name = 2;
   string avatorUrl = 3;
   string email = 4;
   string location = 5;
   string desc = 6;
+  // uint64 LastActiveTime = 7;
 }
 
-message GroupInfo {}
+message GroupInfo {
+  uint64 groupID = 1;
+  string name = 2;
+  string avatorUrl = 3;
+  string desc = 4;
+  UserInfo creator = 5;
+  UserInfo owner = 6;
+  repeated Tags tags = 7;
+}
 
-message ProjectInfo {}
+message ProjectInfo {
+  uint64 projectID = 1;
+  uint32 groupID = 2;
+  string name = 3;
+  string avatorUrl = 4;
+  UserInfo creator = 5;
+  UserInfo owner = 6;
+  repeated Tags tags = 7;
+  VisibleType visable = 8;
+  bool isAchieve = 9;
+  bool isClose = 10;
+}
 
-message ActiveInfo {}
+message ActiveInfo {
+  UserInfo user = 1;
+  ActiveType activeType = 2;
+  ItemInfo itemInfo = 3;
+  ProjectInfo projectInfo = 4;
+  GroupInfo groupInfo = 5;
+}
 
-message ItemInfo {}
+message ItemInfo {
+  uint64 groupID = 1;
+  uint64 projectID = 2;
+  uint64 userID = 3;
+}
 
 message UserProfileInfo {}
 
