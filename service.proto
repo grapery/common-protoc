@@ -121,10 +121,30 @@ message ActiveInfo {
   GroupInfo groupInfo = 5;
 }
 
+message WordDetail {}
+message PictureDetail {}
+message VideoDetail {}
+message MusicDetail {}
+message VoiceDetail {}
+message ShareDetail {}
+
+message ItemDetail {
+  oneof detail {
+    WordDetail word = 1;
+    PictureDetail pictures = 2;
+    VideoDetail video = 3;
+    MusicDetail music = 4;
+    VoiceDetail voice = 5;
+    ShareDetail share = 6;
+  }
+}
+
 message ItemInfo {
   uint64 groupID = 1;
   uint64 projectID = 2;
   uint64 userID = 3;
+  string title = 4;
+  ItemDetail content = 5;
 }
 
 message UserProfileInfo {}

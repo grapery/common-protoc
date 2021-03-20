@@ -1652,6 +1652,29 @@
         }
       }
     },
+    "apiItemDetail": {
+      "type": "object",
+      "properties": {
+        "word": {
+          "$ref": "#/definitions/apiWordDetail"
+        },
+        "pictures": {
+          "$ref": "#/definitions/apiPictureDetail"
+        },
+        "video": {
+          "$ref": "#/definitions/apiVideoDetail"
+        },
+        "music": {
+          "$ref": "#/definitions/apiMusicDetail"
+        },
+        "voice": {
+          "$ref": "#/definitions/apiVoiceDetail"
+        },
+        "share": {
+          "$ref": "#/definitions/apiShareDetail"
+        }
+      }
+    },
     "apiItemInfo": {
       "type": "object",
       "properties": {
@@ -1666,6 +1689,12 @@
         "userID": {
           "type": "string",
           "format": "uint64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/apiItemDetail"
         }
       }
     },
@@ -1731,6 +1760,12 @@
       }
     },
     "apiLogoutResponse": {
+      "type": "object"
+    },
+    "apiMusicDetail": {
+      "type": "object"
+    },
+    "apiPictureDetail": {
       "type": "object"
     },
     "apiProjectInfo": {
@@ -1905,6 +1940,9 @@
           "format": "uint64"
         }
       }
+    },
+    "apiShareDetail": {
+      "type": "object"
     },
     "apiStarProjectRequest": {
       "type": "object",
@@ -2240,6 +2278,9 @@
     "apiUserUpdateResponse": {
       "type": "object"
     },
+    "apiVideoDetail": {
+      "type": "object"
+    },
     "apiVisibleType": {
       "type": "string",
       "enum": [
@@ -2249,6 +2290,9 @@
         "Someone"
       ],
       "default": "NotAllow"
+    },
+    "apiVoiceDetail": {
+      "type": "object"
     },
     "apiWatchProjectReqeust": {
       "type": "object",
@@ -2264,6 +2308,9 @@
       }
     },
     "apiWatchProjectResponse": {
+      "type": "object"
+    },
+    "apiWordDetail": {
       "type": "object"
     }
   }
