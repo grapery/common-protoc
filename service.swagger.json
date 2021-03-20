@@ -1577,6 +1577,14 @@
         "projectID": {
           "type": "string",
           "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1695,8 +1703,25 @@
         },
         "content": {
           "$ref": "#/definitions/apiItemDetail"
+        },
+        "itype": {
+          "$ref": "#/definitions/apiItemType"
         }
       }
+    },
+    "apiItemType": {
+      "type": "string",
+      "enum": [
+        "All",
+        "ShortWord",
+        "Paper",
+        "Picture",
+        "Video",
+        "Music",
+        "Link",
+        "Location"
+      ],
+      "default": "All"
     },
     "apiLikeItemRequest": {
       "type": "object",
@@ -1872,6 +1897,14 @@
           "items": {
             "$ref": "#/definitions/apiGroupInfo"
           }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1884,6 +1917,14 @@
         },
         "name": {
           "type": "string"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1899,6 +1940,14 @@
           "items": {
             "$ref": "#/definitions/apiProjectInfo"
           }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },

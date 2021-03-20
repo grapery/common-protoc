@@ -145,6 +145,7 @@ message ItemInfo {
   uint64 userID = 3;
   string title = 4;
   ItemDetail content = 5;
+  ItemType itype = 6;
 }
 
 message UserProfileInfo {}
@@ -284,7 +285,11 @@ message FetchGroupMembersResponse {
 }
 
 message SearchGroupReqeust { string name = 1; }
-message SearchGroupResponse { repeated GroupInfo list = 1; }
+message SearchGroupResponse {
+  repeated GroupInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
 
 message FetchGroupProjectsReqeust {
   uint64 groupID = 1;
@@ -361,19 +366,29 @@ message WatchProjectResponse {}
 message SearchProjectRequest {
   uint64 groupID = 1;
   string name = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
 message SearchProjectResponse {
   uint64 groupID = 1;
   repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
 message GetItemsRequest {
   uint64 groupID = 1;
   uint64 projectID = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
-message GetItemsResponse { repeated ItemInfo list = 1; }
+message GetItemsResponse {
+  repeated ItemInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
 
 message GetItemRequest {
   uint64 groupID = 1;
