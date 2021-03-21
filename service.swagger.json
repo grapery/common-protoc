@@ -63,7 +63,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}": {
+    "/v1/group/{group_id}": {
       "post": {
         "operationId": "GetGroup",
         "responses": {
@@ -76,7 +76,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -96,7 +96,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/actives": {
+    "/v1/group/{group_id}/actives": {
       "post": {
         "operationId": "GetGroupActives",
         "responses": {
@@ -109,7 +109,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -129,7 +129,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/members": {
+    "/v1/group/{group_id}/members": {
       "post": {
         "operationId": "FetchGroupMembers",
         "responses": {
@@ -142,7 +142,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -162,7 +162,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project": {
+    "/v1/group/{group_id}/project": {
       "post": {
         "operationId": "CreateProject",
         "responses": {
@@ -175,7 +175,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -195,7 +195,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}": {
+    "/v1/group/{group_id}/project/{project_id}": {
       "post": {
         "operationId": "GetProject",
         "responses": {
@@ -208,14 +208,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -235,7 +235,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/profile": {
+    "/v1/group/{group_id}/project/{project_id}/profile": {
       "post": {
         "operationId": "GetProjectProfile",
         "responses": {
@@ -248,14 +248,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -275,7 +275,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/remove": {
+    "/v1/group/{group_id}/project/{project_id}/remove": {
       "post": {
         "operationId": "DeleteProject",
         "responses": {
@@ -288,14 +288,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -315,7 +315,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/star": {
+    "/v1/group/{group_id}/project/{project_id}/star": {
       "post": {
         "operationId": "StarProject",
         "responses": {
@@ -328,14 +328,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -355,7 +355,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/unstar": {
+    "/v1/group/{group_id}/project/{project_id}/unstar": {
       "post": {
         "operationId": "UnStarProject",
         "responses": {
@@ -368,14 +368,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -395,7 +395,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/update": {
+    "/v1/group/{group_id}/project/{project_id}/update": {
       "post": {
         "operationId": "UpdateProjectProfile",
         "responses": {
@@ -408,14 +408,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -435,7 +435,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/project/{projectID}/watch": {
+    "/v1/group/{group_id}/project/{project_id}/watch": {
       "post": {
         "operationId": "WatchProject",
         "responses": {
@@ -448,14 +448,14 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "projectID",
+            "name": "project_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -475,7 +475,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects": {
+    "/v1/group/{group_id}/projects": {
       "post": {
         "operationId": "FetchGroupProjects",
         "responses": {
@@ -488,7 +488,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -508,7 +508,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/item": {
+    "/v1/group/{group_id}/projects/item": {
       "post": {
         "operationId": "CreateItem",
         "responses": {
@@ -521,7 +521,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -541,7 +541,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/item/{itemID}/like": {
+    "/v1/group/{group_id}/projects/item/{itemID}/like": {
       "post": {
         "operationId": "LikeItem",
         "responses": {
@@ -554,7 +554,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -581,7 +581,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/item/{itemID}/remove": {
+    "/v1/group/{group_id}/projects/item/{itemID}/remove": {
       "post": {
         "operationId": "DeleteItem",
         "responses": {
@@ -594,7 +594,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -621,7 +621,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/item/{itemID}/update": {
+    "/v1/group/{group_id}/projects/item/{itemID}/update": {
       "post": {
         "operationId": "UpdateItem",
         "responses": {
@@ -634,7 +634,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -661,7 +661,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/items": {
+    "/v1/group/{group_id}/projects/items": {
       "post": {
         "operationId": "GetItems",
         "responses": {
@@ -674,7 +674,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -694,7 +694,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/projects/search": {
+    "/v1/group/{group_id}/projects/search": {
       "post": {
         "operationId": "SearchProject",
         "responses": {
@@ -707,7 +707,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -727,7 +727,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/remove": {
+    "/v1/group/{group_id}/remove": {
       "post": {
         "operationId": "DeleteGroup",
         "responses": {
@@ -740,7 +740,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -760,7 +760,7 @@
         ]
       }
     },
-    "/v1/group/{groupID}/update": {
+    "/v1/group/{group_id}/update": {
       "post": {
         "operationId": "UpdateGroupInfo",
         "responses": {
@@ -773,7 +773,7 @@
         },
         "parameters": [
           {
-            "name": "groupID",
+            "name": "group_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -897,7 +897,7 @@
         ]
       }
     },
-    "/v1/user/{userID}": {
+    "/v1/user/{user_id}": {
       "post": {
         "operationId": "UserInfo",
         "responses": {
@@ -910,7 +910,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -930,7 +930,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/actives": {
+    "/v1/user/{user_id}/actives": {
       "post": {
         "operationId": "FetchUserActives",
         "responses": {
@@ -943,7 +943,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -963,7 +963,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/avator": {
+    "/v1/user/{user_id}/avator": {
       "post": {
         "operationId": "UpdateUserAvator",
         "responses": {
@@ -976,7 +976,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -996,7 +996,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/follower": {
+    "/v1/user/{user_id}/follower": {
       "post": {
         "operationId": "UserFollower",
         "responses": {
@@ -1009,7 +1009,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1029,7 +1029,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/following": {
+    "/v1/user/{user_id}/following": {
       "post": {
         "operationId": "UserFollowing",
         "responses": {
@@ -1042,7 +1042,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1062,7 +1062,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/following/add/{targetID}": {
+    "/v1/user/{user_id}/following/add/{targetID}": {
       "post": {
         "operationId": "StartFollowUser",
         "responses": {
@@ -1075,7 +1075,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1102,7 +1102,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/following/remove/{targetID}": {
+    "/v1/user/{user_id}/following/remove/{targetID}": {
       "post": {
         "operationId": "StopFollowUser",
         "responses": {
@@ -1115,7 +1115,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1142,7 +1142,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/groups": {
+    "/v1/user/{user_id}/groups": {
       "post": {
         "operationId": "UserGroup",
         "responses": {
@@ -1155,7 +1155,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1175,7 +1175,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/groups/following": {
+    "/v1/user/{user_id}/groups/following": {
       "post": {
         "operationId": "UserFollowingGroup",
         "responses": {
@@ -1188,7 +1188,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1208,7 +1208,7 @@
         ]
       }
     },
-    "/v1/user/{userID}/update": {
+    "/v1/user/{user_id}/update": {
       "post": {
         "operationId": "UserUpdate",
         "responses": {
@@ -1221,7 +1221,7 @@
         },
         "parameters": [
           {
-            "name": "userID",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1292,14 +1292,14 @@
     "apiActiveType": {
       "type": "string",
       "enum": [
-        "Nothing",
+        "AllActive",
         "Like",
         "Share",
         "Comment",
         "Collect",
         "DisAgree"
       ],
-      "default": "Nothing"
+      "default": "AllActive"
     },
     "apiAuthType": {
       "type": "string",
@@ -1313,7 +1313,7 @@
     "apiCreateGroupReqeust": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1333,11 +1333,11 @@
     "apiCreateItemRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1360,7 +1360,7 @@
     "apiCreateProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1380,11 +1380,11 @@
     "apiDeleteGroupRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1396,11 +1396,11 @@
     "apiDeleteItemRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1416,11 +1416,11 @@
     "apiDeleteProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1432,7 +1432,7 @@
     "apiFetchGroupMembersRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1468,7 +1468,7 @@
     "apiFetchGroupProjectsReqeust": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1504,7 +1504,7 @@
     "apiFetchUserActivesRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1527,7 +1527,7 @@
     "apiGetGroupActivesRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1566,11 +1566,11 @@
     "apiGetGroupReqeust": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1606,11 +1606,11 @@
     "apiGetItemsRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1627,11 +1627,11 @@
     "apiGetProjectProfileRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1648,11 +1648,11 @@
     "apiGetProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1669,14 +1669,14 @@
     "apiGroupInfo": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
         "name": {
           "type": "string"
         },
-        "avatorUrl": {
+        "avatar": {
           "type": "string"
         },
         "desc": {
@@ -1722,15 +1722,15 @@
     "apiItemInfo": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1748,7 +1748,7 @@
     "apiItemType": {
       "type": "string",
       "enum": [
-        "All",
+        "AllItem",
         "ShortWord",
         "Paper",
         "Picture",
@@ -1757,16 +1757,16 @@
         "Link",
         "Location"
       ],
-      "default": "All"
+      "default": "AllItem"
     },
     "apiLikeItemRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1774,7 +1774,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1790,7 +1790,7 @@
     "apiLoginRequest": {
       "type": "object",
       "properties": {
-        "loginType": {
+        "login_type": {
           "$ref": "#/definitions/apiAuthType"
         },
         "account": {
@@ -1805,7 +1805,7 @@
     "apiLoginResponse": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1814,7 +1814,7 @@
     "apiLogoutRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1832,18 +1832,18 @@
     "apiProjectInfo": {
       "type": "object",
       "properties": {
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
-        "groupID": {
+        "group_id": {
           "type": "integer",
           "format": "int64"
         },
         "name": {
           "type": "string"
         },
-        "avatorUrl": {
+        "avatar": {
           "type": "string"
         },
         "creator": {
@@ -1877,7 +1877,7 @@
     "apiRegisterRequest": {
       "type": "object",
       "properties": {
-        "loginType": {
+        "login_type": {
           "$ref": "#/definitions/apiAuthType"
         },
         "account": {
@@ -1894,7 +1894,7 @@
     "apiResetPasswordRequest": {
       "type": "object",
       "properties": {
-        "loginType": {
+        "login_type": {
           "$ref": "#/definitions/apiAuthType"
         },
         "account": {
@@ -1911,7 +1911,7 @@
     "apiResetPasswordResponse": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1947,7 +1947,7 @@
     "apiSearchProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1967,7 +1967,7 @@
     "apiSearchProjectResponse": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1993,7 +1993,7 @@
         "name": {
           "type": "string"
         },
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2032,11 +2032,11 @@
     "apiStarProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2048,7 +2048,7 @@
     "apiStartFollowUserRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2064,7 +2064,7 @@
     "apiStopFollowUserRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2080,7 +2080,7 @@
     "apiTags": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2096,11 +2096,11 @@
     "apiUnStarProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2112,7 +2112,7 @@
     "apiUpdateGroupInfoRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2132,11 +2132,11 @@
     "apiUpdateItemRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2160,11 +2160,11 @@
     "apiUpdateProjectProfileRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2184,11 +2184,11 @@
     "apiUpdateProjectRequest": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2208,11 +2208,11 @@
     "apiUpdateUserAvatorRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
-        "avatorUrl": {
+        "avatar": {
           "type": "string"
         }
       }
@@ -2228,7 +2228,7 @@
     "apiUserFollowerRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2248,7 +2248,7 @@
     "apiUserFollowingGroupRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2268,7 +2268,7 @@
     "apiUserFollowingRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2288,7 +2288,7 @@
     "apiUserGroupRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2308,14 +2308,14 @@
     "apiUserInfo": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
         "name": {
           "type": "string"
         },
-        "avatorUrl": {
+        "avatar": {
           "type": "string"
         },
         "email": {
@@ -2332,7 +2332,7 @@
     "apiUserInfoRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2350,14 +2350,14 @@
     "apiUserUpdateRequest": {
       "type": "object",
       "properties": {
-        "userID": {
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
         "nickname": {
           "type": "string"
         },
-        "avatorUrl": {
+        "avatar": {
           "type": "string"
         },
         "desc": {
@@ -2374,12 +2374,12 @@
     "apiVisibleType": {
       "type": "string",
       "enum": [
-        "NotAllow",
+        "AllPublic",
         "Public",
         "Private",
         "Someone"
       ],
-      "default": "NotAllow"
+      "default": "AllPublic"
     },
     "apiVoiceDetail": {
       "type": "object"
@@ -2387,11 +2387,11 @@
     "apiWatchProjectReqeust": {
       "type": "object",
       "properties": {
-        "groupID": {
+        "group_id": {
           "type": "string",
           "format": "uint64"
         },
-        "projectID": {
+        "project_id": {
           "type": "string",
           "format": "uint64"
         }

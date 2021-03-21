@@ -42,7 +42,7 @@ enum GroupStatus {
 }
 
 enum ActiveType {
-  Nothing = 0;
+  AllActive = 0;
   Like = 1;
   Share = 2;
   Comment = 3;
@@ -51,7 +51,7 @@ enum ActiveType {
 }
 
 enum ItemType {
-  All = 0;
+  AllItem = 0;
   ShortWord = 1;
   Paper = 2;
   Picture = 3;
@@ -68,22 +68,22 @@ enum AuthType {
 }
 
 enum VisibleType {
-  NotAllow = 0;
+  AllPublic = 0;
   Public = 1;
   Private = 2;
   Someone = 3;
 }
 
 message Tags {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   uint64 creatorID = 2;
   string name = 3;
 }
 
 message UserInfo {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   string name = 2;
-  string avatorUrl = 3;
+  string avatar = 3;
   string email = 4;
   string location = 5;
   string desc = 6;
@@ -91,9 +91,9 @@ message UserInfo {
 }
 
 message GroupInfo {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   string name = 2;
-  string avatorUrl = 3;
+  string avatar = 3;
   string desc = 4;
   UserInfo creator = 5;
   UserInfo owner = 6;
@@ -101,10 +101,10 @@ message GroupInfo {
 }
 
 message ProjectInfo {
-  uint64 projectID = 1;
-  uint32 groupID = 2;
+  uint64 project_id = 1;
+  uint32 group_id = 2;
   string name = 3;
-  string avatorUrl = 4;
+  string avatar = 4;
   UserInfo creator = 5;
   UserInfo owner = 6;
   repeated Tags tags = 7;
@@ -140,9 +140,9 @@ message ItemDetail {
 }
 
 message ItemInfo {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
-  uint64 userID = 3;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
   string title = 4;
   ItemDetail content = 5;
   ItemType itype = 6;
@@ -156,21 +156,21 @@ message ProjectProfileInfo {}
 
 // here us req-resp list
 message LoginRequest {
-  AuthType loginType = 1;
+  AuthType login_type = 1;
   string account = 2;
   string password = 3;
 }
 
-message LoginResponse { uint64 userID = 1; }
+message LoginResponse { uint64 user_id = 1; }
 
-message LogoutRequest { uint64 userID = 1; }
+message LogoutRequest { uint64 user_id = 1; }
 
 message LogoutResponse {}
 
 message LogtouResponse {}
 
 message RegisterRequest {
-  AuthType loginType = 1;
+  AuthType login_type = 1;
   string account = 2;
   string password = 3;
 }
@@ -178,69 +178,69 @@ message RegisterRequest {
 message RegisterResponse {}
 
 message ResetPasswordRequest {
-  AuthType loginType = 1;
+  AuthType login_type = 1;
   string account = 2;
   string oldPwd = 3;
   string newPwd = 4;
 }
 
-message ResetPasswordResponse { uint64 userID = 1; }
+message ResetPasswordResponse { uint64 user_id = 1; }
 
 // user ,group .project.item
-message UserInfoRequest { uint64 userID = 1; }
+message UserInfoRequest { uint64 user_id = 1; }
 
 message UserInfoResponse { UserInfo info = 1; }
 
 message UpdateUserAvatorRequest {
-  uint64 userID = 1;
-  string avatorUrl = 2;
+  uint64 user_id = 1;
+  string avatar = 2;
 }
 
 message UpdateUserAvatorResponse { UserInfo info = 1; }
 
-message UserFollowingRequest { uint64 userID = 1; }
+message UserFollowingRequest { uint64 user_id = 1; }
 
 message UserFollowingResponse { repeated UserInfo list = 1; }
 
-message UserFollowerRequest { uint64 userID = 1; }
+message UserFollowerRequest { uint64 user_id = 1; }
 
 message UserFollowerResponse { repeated UserInfo list = 1; }
 
-message UserGroupRequest { uint64 userID = 1; }
+message UserGroupRequest { uint64 user_id = 1; }
 
 message UserGroupResponse { repeated GroupInfo list = 1; }
 
-message UserFollowingGroupRequest { uint64 userID = 1; }
+message UserFollowingGroupRequest { uint64 user_id = 1; }
 
 message UserFollowingGroupResponse { repeated GroupInfo list = 1; }
 
 message UserUpdateRequest {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   string nickname = 2;
-  string avatorUrl = 3;
+  string avatar = 3;
   string desc = 4;
 }
 
 message UserUpdateResponse {}
 
 message StartFollowUserRequest {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   uint64 targetID = 2;
 }
 message StartFollowUserResponse {}
 message StopFollowUserRequest {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   uint64 targetID = 2;
 }
 message StopFollowUserResponse {}
 message FetchUserActivesRequest {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   ActiveType atype = 2;
 }
 message FetchUserActivesResponse { repeated ActiveInfo list = 1; }
 message SearchUserRequest {
   string name = 1;
-  uint64 groupID = 2;
+  uint64 group_id = 2;
   uint64 offset = 3;
   uint64 number = 4;
 }
@@ -253,20 +253,20 @@ message SearchUserResponse {
 //--------------------------------------------------//
 
 message CreateGroupReqeust {
-  uint64 userID = 1;
+  uint64 user_id = 1;
   string name = 2;
 }
 message CreateGroupResponse { GroupInfo info = 1; }
 
 message GetGroupReqeust {
-  uint64 groupID = 1;
-  uint64 userID = 2;
+  uint64 group_id = 1;
+  uint64 user_id = 2;
   string name = 3;
 }
 message GetGroupResponse { GroupInfo info = 1; }
 
 message GetGroupActivesRequest {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   ActiveType atype = 2;
   uint64 offset = 3;
   uint64 number = 4;
@@ -279,17 +279,17 @@ message GetGroupActivesResponse {
 }
 
 message UpdateGroupInfoRequest {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   GroupInfo info = 2;
 }
 message UpdateGroupInfoResponse { GroupInfo info = 1; }
 message DeleteGroupRequest {
-  uint64 groupID = 1;
-  uint64 userID = 2;
+  uint64 group_id = 1;
+  uint64 user_id = 2;
 }
 message DeleteGroupResponse {}
 message FetchGroupMembersRequest {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   uint64 offset = 2;
   uint64 number = 3;
 }
@@ -308,7 +308,7 @@ message SearchGroupResponse {
 }
 
 message FetchGroupProjectsReqeust {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   uint64 offset = 2;
   uint64 number = 3;
 }
@@ -320,82 +320,82 @@ message FetchGroupProjectsResponse {
 }
 
 message GetProjectRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 
 message GetProjectResponse { ProjectInfo info = 1; }
 
 message CreateProjectRequest {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   string name = 2;
 }
 message CreateProjectResponse { ProjectInfo info = 1; }
 message UpdateProjectRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   ProjectInfo info = 3;
 }
 message UpdateProjectResponse { ProjectInfo info = 1; }
 message DeleteProjectRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 message DeleteProjectResponse {}
 
 message GetProjectProfileRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 
 message GetProjectProfileResponse { ProjectProfileInfo info = 1; }
 
 message UpdateProjectProfileRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   ProjectProfileInfo info = 3;
 }
 
 message UpdateProjectProfileResponse { ProjectProfileInfo info = 1; }
 
 message StarProjectRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 
 message StarProjectResponse {}
 
 message UnStarProjectRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 
 message UnStarProjectResponse {}
 
 message WatchProjectReqeust {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
 }
 
 message WatchProjectResponse {}
 
 message SearchProjectRequest {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   string name = 2;
   uint64 offset = 3;
   uint64 number = 4;
 }
 
 message SearchProjectResponse {
-  uint64 groupID = 1;
+  uint64 group_id = 1;
   repeated ProjectInfo list = 2;
   uint64 offset = 3;
   uint64 number = 4;
 }
 
 message GetItemsRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   uint64 offset = 3;
   uint64 number = 4;
 }
@@ -407,8 +407,8 @@ message GetItemsResponse {
 }
 
 message GetItemRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   uint64 itemID = 3;
   uint64 offset = 4;
   uint64 number = 5;
@@ -421,8 +421,8 @@ message GetItemResponse {
 }
 
 message CreateItemRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   string name = 3;
   ActiveType atype = 4;
 }
@@ -430,8 +430,8 @@ message CreateItemRequest {
 message CreateItemResponse { ItemInfo info = 1; }
 
 message UpdateItemRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   uint64 itemID = 3;
   ItemInfo info = 4;
 }
@@ -439,18 +439,18 @@ message UpdateItemRequest {
 message UpdateItemResponse { ItemInfo info = 1; }
 
 message DeleteItemRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   uint64 itemID = 3;
 }
 
 message DeleteItemResponse {}
 
 message LikeItemRequest {
-  uint64 groupID = 1;
-  uint64 projectID = 2;
+  uint64 group_id = 1;
+  uint64 project_id = 2;
   uint64 itemID = 3;
-  uint64 userID = 4;
+  uint64 user_id = 4;
   bool islike = 5;
 }
 
@@ -486,7 +486,7 @@ service Auth {
 service User {
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}"
+      post : "/v1/user/{user_id}"
       body : "*"
     };
   }
@@ -494,60 +494,60 @@ service User {
   rpc UpdateUserAvator(UpdateUserAvatorRequest)
       returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/avator"
+      post : "/v1/user/{user_id}/avator"
       body : "*"
     };
   }
 
   rpc UserFollowing(UserFollowingRequest) returns (UserFollowingResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/following"
+      post : "/v1/user/{user_id}/following"
       body : "*"
     };
   };
 
   rpc UserFollower(UserFollowerRequest) returns (UserFollowerResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/follower"
+      post : "/v1/user/{user_id}/follower"
       body : "*"
     };
   };
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/groups"
+      post : "/v1/user/{user_id}/groups"
       body : "*"
     };
   }
   rpc UserFollowingGroup(UserFollowingGroupRequest)
       returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/groups/following"
+      post : "/v1/user/{user_id}/groups/following"
       body : "*"
     };
   }
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/update"
+      post : "/v1/user/{user_id}/update"
       body : "*"
     };
   }
   rpc StartFollowUser(StartFollowUserRequest)
       returns (StartFollowUserResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/following/add/{targetID}"
+      post : "/v1/user/{user_id}/following/add/{targetID}"
       body : "*"
     };
   }
   rpc StopFollowUser(StopFollowUserRequest) returns (StopFollowUserResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/following/remove/{targetID}"
+      post : "/v1/user/{user_id}/following/remove/{targetID}"
       body : "*"
     };
   }
   rpc FetchUserActives(FetchUserActivesRequest)
       returns (FetchUserActivesResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{userID}/actives"
+      post : "/v1/user/{user_id}/actives"
       body : "*"
     };
   }
@@ -568,34 +568,34 @@ service Org {
   }
   rpc GetGroup(GetGroupReqeust) returns (GetGroupResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}"
+      post : "/v1/group/{group_id}"
       body : "*"
     };
   }
   rpc GetGroupActives(GetGroupActivesRequest)
       returns (GetGroupActivesResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/actives"
+      post : "/v1/group/{group_id}/actives"
       body : "*"
     };
   }
   rpc UpdateGroupInfo(UpdateGroupInfoRequest)
       returns (UpdateGroupInfoResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/update"
+      post : "/v1/group/{group_id}/update"
       body : "*"
     };
   }
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/remove"
+      post : "/v1/group/{group_id}/remove"
       body : "*"
     };
   }
   rpc FetchGroupMembers(FetchGroupMembersRequest)
       returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/members"
+      post : "/v1/group/{group_id}/members"
       body : "*"
     };
   }
@@ -608,7 +608,7 @@ service Org {
   rpc FetchGroupProjects(FetchGroupProjectsReqeust)
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects"
+      post : "/v1/group/{group_id}/projects"
       body : "*"
     };
   }
@@ -617,64 +617,64 @@ service Org {
 service Project {
   rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}"
+      post : "/v1/group/{group_id}/project/{project_id}"
       body : "*"
     };
   }
   rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project"
+      post : "/v1/group/{group_id}/project"
       body : "*"
     };
   }
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/update"
+      post : "/v1/group/{group_id}/project/{project_id}/update"
       body : "*"
     };
   }
   rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/remove"
+      post : "/v1/group/{group_id}/project/{project_id}/remove"
       body : "*"
     };
   }
   rpc GetProjectProfile(GetProjectProfileRequest)
       returns (GetProjectProfileResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/profile"
+      post : "/v1/group/{group_id}/project/{project_id}/profile"
       body : "*"
     };
   }
   rpc UpdateProjectProfile(UpdateProjectProfileRequest)
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/update"
+      post : "/v1/group/{group_id}/project/{project_id}/update"
       body : "*"
     };
   }
   rpc StarProject(StarProjectRequest) returns (StarProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/star"
+      post : "/v1/group/{group_id}/project/{project_id}/star"
       body : "*"
     };
   }
   rpc UnStarProject(UnStarProjectRequest) returns (UnStarProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/unstar"
+      post : "/v1/group/{group_id}/project/{project_id}/unstar"
       body : "*"
     };
   }
 
   rpc WatchProject(WatchProjectReqeust) returns (WatchProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/project/{projectID}/watch"
+      post : "/v1/group/{group_id}/project/{project_id}/watch"
       body : "*"
     };
   }
   rpc SearchProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/search"
+      post : "/v1/group/{group_id}/projects/search"
       body : "*"
     };
   }
@@ -684,31 +684,31 @@ service Item {
 
   rpc GetItems(GetItemsRequest) returns (GetItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/items"
+      post : "/v1/group/{group_id}/projects/items"
       body : "*"
     };
   }
   rpc CreateItem(CreateItemRequest) returns (CreateItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/item"
+      post : "/v1/group/{group_id}/projects/item"
       body : "*"
     };
   }
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/item/{itemID}/update"
+      post : "/v1/group/{group_id}/projects/item/{itemID}/update"
       body : "*"
     };
   }
   rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/item/{itemID}/remove"
+      post : "/v1/group/{group_id}/projects/item/{itemID}/remove"
       body : "*"
     };
   }
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{groupID}/projects/item/{itemID}/like"
+      post : "/v1/group/{group_id}/projects/item/{itemID}/like"
       body : "*"
     };
   }
