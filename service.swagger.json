@@ -261,6 +261,199 @@
         ]
       }
     },
+    "/v1/group/{group_id}/project/item": {
+      "post": {
+        "operationId": "CreateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/project/item/{item_id}": {
+      "post": {
+        "operationId": "GetItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/project/item/{item_id}/like": {
+      "post": {
+        "operationId": "LikeItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/project/item/{item_id}/remove": {
+      "post": {
+        "operationId": "DeleteItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/project/item/{item_id}/update": {
+      "post": {
+        "operationId": "UpdateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "item_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
     "/v1/group/{group_id}/project/{project_id}": {
       "post": {
         "operationId": "GetProject",
@@ -298,6 +491,46 @@
         ],
         "tags": [
           "Project"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/project/{project_id}/items": {
+      "post": {
+        "operationId": "GetItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
         ]
       }
     },
@@ -611,192 +844,6 @@
         ],
         "tags": [
           "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/item": {
-      "post": {
-        "operationId": "CreateItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiCreateItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiCreateItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/item/{item_id}/like": {
-      "post": {
-        "operationId": "LikeItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiLikeItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiLikeItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/item/{item_id}/remove": {
-      "post": {
-        "operationId": "DeleteItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiDeleteItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiDeleteItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/item/{item_id}/update": {
-      "post": {
-        "operationId": "UpdateItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUpdateItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUpdateItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/items": {
-      "post": {
-        "operationId": "GetItems",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetItemsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
         ]
       }
     },
@@ -1726,19 +1773,28 @@
         }
       }
     },
+    "apiGetItemRequest": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "item_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
     "apiGetItemResponse": {
       "type": "object",
       "properties": {
         "info": {
           "$ref": "#/definitions/apiItemInfo"
-        },
-        "offset": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "number": {
-          "type": "string",
-          "format": "uint64"
         }
       }
     },
@@ -1752,6 +1808,25 @@
         "project_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetItemsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiItemInfo"
+          }
         },
         "offset": {
           "type": "string",

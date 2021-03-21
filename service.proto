@@ -435,15 +435,9 @@ message GetItemRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
   uint64 item_id = 3;
-  uint64 offset = 4;
-  uint64 number = 5;
 }
 
-message GetItemResponse {
-  ItemInfo info = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
-}
+message GetItemResponse { ItemInfo info = 1; }
 
 message CreateItemRequest {
   uint64 group_id = 1;
@@ -743,33 +737,41 @@ service Project {
 
 service Item {
 
-  rpc GetItems(GetItemsRequest) returns (GetItemResponse) {
+  rpc GetItems(GetItemsRequest) returns (GetItemsResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/items"
+      post : "/v1/group/{group_id}/project/{project_id}/items"
       body : "*"
     };
   }
+
+  rpc GetItem(GetItemRequest) returns (GetItemResponse) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/project/item/{item_id}"
+      body : "*"
+    };
+  }
+
   rpc CreateItem(CreateItemRequest) returns (CreateItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item"
+      post : "/v1/group/{group_id}/project/item"
       body : "*"
     };
   }
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{item_id}/update"
+      post : "/v1/group/{group_id}/project/item/{item_id}/update"
       body : "*"
     };
   }
   rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{item_id}/remove"
+      post : "/v1/group/{group_id}/project/item/{item_id}/remove"
       body : "*"
     };
   }
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{item_id}/like"
+      post : "/v1/group/{group_id}/project/item/{item_id}/like"
       body : "*"
     };
   }
