@@ -323,6 +323,20 @@ message FetchGroupProjectsResponse {
   uint64 number = 3;
 }
 
+message JoinGroupRequest {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+}
+
+message JoinGroupResponse {}
+
+message LeaveGroupRequest {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+}
+
+message LeaveGroupResponse {}
+
 message GetProjectRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
@@ -627,6 +641,20 @@ service Org {
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/projects"
+      body : "*"
+    };
+  }
+
+  rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/join"
+      body : "*"
+    };
+  }
+
+  rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/leave"
       body : "*"
     };
   }

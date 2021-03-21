@@ -129,6 +129,72 @@
         ]
       }
     },
+    "/v1/group/{group_id}/join": {
+      "post": {
+        "operationId": "JoinGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiJoinGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiJoinGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/group/{group_id}/leave": {
+      "post": {
+        "operationId": "LeaveGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLeaveGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLeaveGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
     "/v1/group/{group_id}/members": {
       "post": {
         "operationId": "FetchGroupMembers",
@@ -1791,6 +1857,38 @@
         "Location"
       ],
       "default": "AllItem"
+    },
+    "apiJoinGroupRequest": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiJoinGroupResponse": {
+      "type": "object"
+    },
+    "apiLeaveGroupRequest": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiLeaveGroupResponse": {
+      "type": "object"
     },
     "apiLikeItemRequest": {
       "type": "object",
