@@ -179,7 +179,7 @@ message RegisterResponse {}
 
 message ResetPasswordRequest {
   AuthType login_type = 1;
-  string account = 2;
+  uint64 user_id = 2;
   string oldPwd = 3;
   string newPwd = 4;
 }
@@ -206,6 +206,10 @@ message UserFollowerRequest { uint64 user_id = 1; }
 
 message UserFollowerResponse { repeated UserInfo list = 1; }
 
+message UserWatchingRequest { uint64 user_id = 1; }
+
+message UserWatchingResponse { repeated ProjectInfo list = 1; }
+
 message UserGroupRequest { uint64 user_id = 1; }
 
 message UserGroupResponse { repeated GroupInfo list = 1; }
@@ -225,12 +229,12 @@ message UserUpdateResponse {}
 
 message StartFollowUserRequest {
   uint64 user_id = 1;
-  uint64 targetID = 2;
+  uint64 target_id = 2;
 }
 message StartFollowUserResponse {}
 message StopFollowUserRequest {
   uint64 user_id = 1;
-  uint64 targetID = 2;
+  uint64 target_id = 2;
 }
 message StopFollowUserResponse {}
 message FetchUserActivesRequest {
@@ -409,7 +413,7 @@ message GetItemsResponse {
 message GetItemRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
-  uint64 itemID = 3;
+  uint64 item_id = 3;
   uint64 offset = 4;
   uint64 number = 5;
 }
@@ -432,7 +436,7 @@ message CreateItemResponse { ItemInfo info = 1; }
 message UpdateItemRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
-  uint64 itemID = 3;
+  uint64 item_id = 3;
   ItemInfo info = 4;
 }
 
@@ -441,7 +445,7 @@ message UpdateItemResponse { ItemInfo info = 1; }
 message DeleteItemRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
-  uint64 itemID = 3;
+  uint64 item_id = 3;
 }
 
 message DeleteItemResponse {}
@@ -449,7 +453,7 @@ message DeleteItemResponse {}
 message LikeItemRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
-  uint64 itemID = 3;
+  uint64 item_id = 3;
   uint64 user_id = 4;
   bool islike = 5;
 }
@@ -506,18 +510,27 @@ service User {
     };
   };
 
+  rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{user_id}/watching"
+      body : "*"
+    };
+  };
+
   rpc UserFollower(UserFollowerRequest) returns (UserFollowerResponse) {
     option (google.api.http) = {
       post : "/v1/user/{user_id}/follower"
       body : "*"
     };
   };
+
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
       post : "/v1/user/{user_id}/groups"
       body : "*"
     };
   }
+
   rpc UserFollowingGroup(UserFollowingGroupRequest)
       returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
@@ -525,25 +538,29 @@ service User {
       body : "*"
     };
   }
+
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
       post : "/v1/user/{user_id}/update"
       body : "*"
     };
   }
+
   rpc StartFollowUser(StartFollowUserRequest)
       returns (StartFollowUserResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{user_id}/following/add/{targetID}"
+      post : "/v1/user/{user_id}/following/add/{target_id}"
       body : "*"
     };
   }
+
   rpc StopFollowUser(StopFollowUserRequest) returns (StopFollowUserResponse) {
     option (google.api.http) = {
-      post : "/v1/user/{user_id}/following/remove/{targetID}"
+      post : "/v1/user/{user_id}/following/remove/{target_id}"
       body : "*"
     };
   }
+
   rpc FetchUserActives(FetchUserActivesRequest)
       returns (FetchUserActivesResponse) {
     option (google.api.http) = {
@@ -551,6 +568,7 @@ service User {
       body : "*"
     };
   }
+
   rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
     option (google.api.http) = {
       post : "/v1/users/search"
@@ -696,19 +714,19 @@ service Item {
   }
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{itemID}/update"
+      post : "/v1/group/{group_id}/projects/item/{item_id}/update"
       body : "*"
     };
   }
   rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{itemID}/remove"
+      post : "/v1/group/{group_id}/projects/item/{item_id}/remove"
       body : "*"
     };
   }
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
-      post : "/v1/group/{group_id}/projects/item/{itemID}/like"
+      post : "/v1/group/{group_id}/projects/item/{item_id}/like"
       body : "*"
     };
   }

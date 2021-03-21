@@ -541,7 +541,7 @@
         ]
       }
     },
-    "/v1/group/{group_id}/projects/item/{itemID}/like": {
+    "/v1/group/{group_id}/projects/item/{item_id}/like": {
       "post": {
         "operationId": "LikeItem",
         "responses": {
@@ -561,7 +561,7 @@
             "format": "uint64"
           },
           {
-            "name": "itemID",
+            "name": "item_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -581,7 +581,7 @@
         ]
       }
     },
-    "/v1/group/{group_id}/projects/item/{itemID}/remove": {
+    "/v1/group/{group_id}/projects/item/{item_id}/remove": {
       "post": {
         "operationId": "DeleteItem",
         "responses": {
@@ -601,7 +601,7 @@
             "format": "uint64"
           },
           {
-            "name": "itemID",
+            "name": "item_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -621,7 +621,7 @@
         ]
       }
     },
-    "/v1/group/{group_id}/projects/item/{itemID}/update": {
+    "/v1/group/{group_id}/projects/item/{item_id}/update": {
       "post": {
         "operationId": "UpdateItem",
         "responses": {
@@ -641,7 +641,7 @@
             "format": "uint64"
           },
           {
-            "name": "itemID",
+            "name": "item_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1062,7 +1062,7 @@
         ]
       }
     },
-    "/v1/user/{user_id}/following/add/{targetID}": {
+    "/v1/user/{user_id}/following/add/{target_id}": {
       "post": {
         "operationId": "StartFollowUser",
         "responses": {
@@ -1082,7 +1082,7 @@
             "format": "uint64"
           },
           {
-            "name": "targetID",
+            "name": "target_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1102,7 +1102,7 @@
         ]
       }
     },
-    "/v1/user/{user_id}/following/remove/{targetID}": {
+    "/v1/user/{user_id}/following/remove/{target_id}": {
       "post": {
         "operationId": "StopFollowUser",
         "responses": {
@@ -1122,7 +1122,7 @@
             "format": "uint64"
           },
           {
-            "name": "targetID",
+            "name": "target_id",
             "in": "path",
             "required": true,
             "type": "string",
@@ -1233,6 +1233,39 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/apiUserUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/user/{user_id}/watching": {
+      "post": {
+        "operationId": "UserWatching",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserWatchingResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserWatchingRequest"
             }
           }
         ],
@@ -1404,7 +1437,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "itemID": {
+        "item_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1770,7 +1803,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "itemID": {
+        "item_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1897,8 +1930,9 @@
         "login_type": {
           "$ref": "#/definitions/apiAuthType"
         },
-        "account": {
-          "type": "string"
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         },
         "oldPwd": {
           "type": "string"
@@ -2052,7 +2086,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "targetID": {
+        "target_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2068,7 +2102,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "targetID": {
+        "target_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2140,7 +2174,7 @@
           "type": "string",
           "format": "uint64"
         },
-        "itemID": {
+        "item_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2367,6 +2401,26 @@
     },
     "apiUserUpdateResponse": {
       "type": "object"
+    },
+    "apiUserWatchingRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserWatchingResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
+        }
+      }
     },
     "apiVideoDetail": {
       "type": "object"
