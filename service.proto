@@ -397,6 +397,13 @@ message WatchProjectReqeust {
 
 message WatchProjectResponse {}
 
+message UnWatchProjectReqeust {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+}
+
+message UnWatchProjectResponse {}
+
 message SearchProjectRequest {
   uint64 group_id = 1;
   string name = 2;
@@ -718,6 +725,14 @@ service Project {
       body : "*"
     };
   }
+
+  rpc UnWatchProject(UnWatchProjectReqeust) returns (UnWatchProjectResponse) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/project/{project_id}/unwatch"
+      body : "*"
+    };
+  }
+
   rpc SearchProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/projects/search"

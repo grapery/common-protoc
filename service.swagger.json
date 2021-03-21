@@ -461,6 +461,46 @@
         ]
       }
     },
+    "/v1/group/{group_id}/project/{project_id}/unwatch": {
+      "post": {
+        "operationId": "UnWatchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUnWatchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUnWatchProjectReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "Project"
+        ]
+      }
+    },
     "/v1/group/{group_id}/project/{project_id}/update": {
       "post": {
         "operationId": "UpdateProjectProfile",
@@ -2239,6 +2279,22 @@
       }
     },
     "apiUnStarProjectResponse": {
+      "type": "object"
+    },
+    "apiUnWatchProjectReqeust": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUnWatchProjectResponse": {
       "type": "object"
     },
     "apiUpdateGroupInfoRequest": {
