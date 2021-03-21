@@ -252,25 +252,41 @@ message SearchUserResponse {
 }
 //--------------------------------------------------//
 
-message CreateGroupReqeust { string name = 1; }
-message CreateGroupResponse {}
+message CreateGroupReqeust {
+  uint64 userID = 1;
+  string name = 2;
+}
+message CreateGroupResponse { GroupInfo info = 1; }
 
-message GetGroupReqeust { uint64 groupID = 1; }
+message GetGroupReqeust {
+  uint64 groupID = 1;
+  uint64 userID = 2;
+  string name = 3;
+}
 message GetGroupResponse { GroupInfo info = 1; }
 
 message GetGroupActivesRequest {
   uint64 groupID = 1;
   ActiveType atype = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
-message GetGroupActivesResponse { repeated ActiveInfo list = 1; }
+message GetGroupActivesResponse {
+  repeated ActiveInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
 
 message UpdateGroupInfoRequest {
   uint64 groupID = 1;
   GroupInfo info = 2;
 }
-message UpdateGroupInfoResponse {}
-message DeleteGroupRequest { uint64 groupID = 1; }
+message UpdateGroupInfoResponse { GroupInfo info = 1; }
+message DeleteGroupRequest {
+  uint64 groupID = 1;
+  uint64 userID = 2;
+}
 message DeleteGroupResponse {}
 message FetchGroupMembersRequest {
   uint64 groupID = 1;
