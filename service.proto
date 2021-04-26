@@ -177,6 +177,13 @@ message RegisterRequest {
 
 message RegisterResponse {}
 
+message ConfirmRequest {
+  AuthType login_type = 1;
+  string account = 2;
+}
+
+message ConfirmResponse {}
+
 message ResetPasswordRequest {
   AuthType login_type = 1;
   uint64 user_id = 2;
