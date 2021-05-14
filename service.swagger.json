@@ -614,86 +614,6 @@
         ]
       }
     },
-    "/v1/group/{group_id}/project/{project_id}/star": {
-      "post": {
-        "operationId": "StarProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiStarProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiStarProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/unstar": {
-      "post": {
-        "operationId": "UnStarProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUnStarProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUnStarProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
     "/v1/group/{group_id}/project/{project_id}/unwatch": {
       "post": {
         "operationId": "UnWatchProject",
@@ -1609,6 +1529,10 @@
         "project_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1867,6 +1791,10 @@
           "format": "uint64"
         },
         "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2276,22 +2204,6 @@
     "apiShareDetail": {
       "type": "object"
     },
-    "apiStarProjectRequest": {
-      "type": "object",
-      "properties": {
-        "group_id": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "project_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiStarProjectResponse": {
-      "type": "object"
-    },
     "apiStartFollowUserRequest": {
       "type": "object",
       "properties": {
@@ -2340,22 +2252,6 @@
         }
       }
     },
-    "apiUnStarProjectRequest": {
-      "type": "object",
-      "properties": {
-        "group_id": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "project_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiUnStarProjectResponse": {
-      "type": "object"
-    },
     "apiUnWatchProjectReqeust": {
       "type": "object",
       "properties": {
@@ -2364,6 +2260,10 @@
           "format": "uint64"
         },
         "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -2452,6 +2352,10 @@
           "format": "uint64"
         },
         "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -2675,6 +2579,10 @@
           "format": "uint64"
         },
         "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }

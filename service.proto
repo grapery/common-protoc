@@ -347,6 +347,7 @@ message LeaveGroupResponse {}
 message GetProjectRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
+  uint64 user_id = 3;
 }
 
 message GetProjectResponse { ProjectInfo info = 1; }
@@ -359,12 +360,14 @@ message CreateProjectResponse { ProjectInfo info = 1; }
 message UpdateProjectRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
-  ProjectInfo info = 3;
+  uint64 user_id = 3;
+  ProjectInfo info = 4;
 }
 message UpdateProjectResponse { ProjectInfo info = 1; }
 message DeleteProjectRequest {
   uint64 group_id = 1;
   uint64 project_id = 2;
+  uint64 user_id = 3;
 }
 message DeleteProjectResponse {}
 
@@ -383,23 +386,23 @@ message UpdateProjectProfileRequest {
 
 message UpdateProjectProfileResponse { ProjectProfileInfo info = 1; }
 
-message StarProjectRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
+message GetWatchingProjectRequest {
+  uint64 user_id = 1;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
-message StarProjectResponse {}
-
-message UnStarProjectRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
+message GetWatchingProjectResponse {
+  uint64 user_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
-
-message UnStarProjectResponse {}
 
 message WatchProjectReqeust {
   uint64 group_id = 1;
   uint64 project_id = 2;
+  uint64 user_id = 3;
 }
 
 message WatchProjectResponse {}
@@ -407,6 +410,7 @@ message WatchProjectResponse {}
 message UnWatchProjectReqeust {
   uint64 group_id = 1;
   uint64 project_id = 2;
+  uint64 user_id = 3;
 }
 
 message UnWatchProjectResponse {}
@@ -704,18 +708,6 @@ service Project {
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/project/{project_id}/update"
-      body : "*"
-    };
-  }
-  rpc StarProject(StarProjectRequest) returns (StarProjectResponse) {
-    option (google.api.http) = {
-      post : "/v1/group/{group_id}/project/{project_id}/star"
-      body : "*"
-    };
-  }
-  rpc UnStarProject(UnStarProjectRequest) returns (UnStarProjectResponse) {
-    option (google.api.http) = {
-      post : "/v1/group/{group_id}/project/{project_id}/unstar"
       body : "*"
     };
   }
