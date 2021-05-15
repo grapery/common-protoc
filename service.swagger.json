@@ -769,7 +769,7 @@
     },
     "/v1/group/{group_id}/projects/search": {
       "post": {
-        "operationId": "SearchProject",
+        "operationId": "SearchGroupProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -918,6 +918,58 @@
         ]
       }
     },
+    "/v1/projects/explore": {
+      "post": {
+        "operationId": "ExploreProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiExploreProjectsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiExploreProjectsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Project"
+        ]
+      }
+    },
+    "/v1/projects/search": {
+      "post": {
+        "operationId": "SearchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSearchAllProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSearchAllProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Project"
+        ]
+      }
+    },
     "/v1/register": {
       "post": {
         "operationId": "Register",
@@ -1061,72 +1113,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/apiUpdateUserAvatorRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
-    "/v1/user/{user_id}/follower": {
-      "post": {
-        "operationId": "UserFollower",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUserFollowerResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUserFollowerRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
-    "/v1/user/{user_id}/following": {
-      "post": {
-        "operationId": "UserFollowing",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUserFollowingResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUserFollowingRequest"
             }
           }
         ],
@@ -1538,6 +1524,46 @@
     },
     "apiDeleteProjectResponse": {
       "type": "object"
+    },
+    "apiExploreProjectsRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiExploreProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiFetchGroupMembersRequest": {
       "type": "object",
@@ -2092,6 +2118,49 @@
         }
       }
     },
+    "apiSearchAllProjectRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiSearchAllProjectResponse": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
     "apiSearchGroupReqeust": {
       "type": "object",
       "properties": {
@@ -2392,26 +2461,6 @@
         }
       }
     },
-    "apiUserFollowerRequest": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiUserFollowerResponse": {
-      "type": "object",
-      "properties": {
-        "list": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/apiUserInfo"
-          }
-        }
-      }
-    },
     "apiUserFollowingGroupRequest": {
       "type": "object",
       "properties": {
@@ -2428,26 +2477,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/apiGroupInfo"
-          }
-        }
-      }
-    },
-    "apiUserFollowingRequest": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiUserFollowingResponse": {
-      "type": "object",
-      "properties": {
-        "list": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/apiUserInfo"
           }
         }
       }

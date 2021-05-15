@@ -205,14 +205,6 @@ message UpdateUserAvatorRequest {
 
 message UpdateUserAvatorResponse { UserInfo info = 1; }
 
-message UserFollowingRequest { uint64 user_id = 1; }
-
-message UserFollowingResponse { repeated UserInfo list = 1; }
-
-message UserFollowerRequest { uint64 user_id = 1; }
-
-message UserFollowerResponse { repeated UserInfo list = 1; }
-
 message UserWatchingRequest { uint64 user_id = 1; }
 
 message UserWatchingResponse { repeated ProjectInfo list = 1; }
@@ -415,6 +407,19 @@ message UnWatchProjectReqeust {
 
 message UnWatchProjectResponse {}
 
+message ExploreProjectsRequest {
+  uint64 user_id = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message ExploreProjectsResponse {
+  uint64 user_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
 message SearchProjectRequest {
   uint64 group_id = 1;
   string name = 2;
@@ -424,6 +429,20 @@ message SearchProjectRequest {
 
 message SearchProjectResponse {
   uint64 group_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchAllProjectRequest {
+  uint64 user_id = 1;
+  string name = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchAllProjectResponse {
+  uint64 user_id = 1;
   repeated ProjectInfo list = 2;
   uint64 offset = 3;
   uint64 number = 4;
@@ -529,23 +548,9 @@ service User {
     };
   }
 
-  rpc UserFollowing(UserFollowingRequest) returns (UserFollowingResponse) {
-    option (google.api.http) = {
-      post : "/v1/user/{user_id}/following"
-      body : "*"
-    };
-  };
-
   rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
     option (google.api.http) = {
       post : "/v1/user/{user_id}/watching"
-      body : "*"
-    };
-  };
-
-  rpc UserFollower(UserFollowerRequest) returns (UserFollowerResponse) {
-    option (google.api.http) = {
-      post : "/v1/user/{user_id}/follower"
       body : "*"
     };
   };
@@ -726,9 +731,24 @@ service Project {
     };
   }
 
-  rpc SearchProject(SearchProjectRequest) returns (SearchProjectResponse) {
+  rpc SearchGroupProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/projects/search"
+      body : "*"
+    };
+  }
+
+  rpc SearchProject(SearchAllProjectRequest)
+      returns (SearchAllProjectResponse) {
+    option (google.api.http) = {
+      post : "/v1/projects/search"
+      body : "*"
+    };
+  }
+
+  rpc ExploreProject(ExploreProjectsRequest) returns (ExploreProjectsResponse) {
+    option (google.api.http) = {
+      post : "/v1/projects/explore"
       body : "*"
     };
   }
