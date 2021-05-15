@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+import "github.com/grapery/grapery/common-protoc/view_model.proto";
+
+option go_package = "github.com/grapery/grapery/api";
+package grapery.api;
+
+message LoginRequest {
+  AuthType login_type = 1;
+  string account = 2;
+  string password = 3;
+}
+
+message LoginResponse { uint64 user_id = 1; }
+
+message LogoutRequest { uint64 user_id = 1; }
+
+message LogoutResponse {}
+
+message LogtouResponse {}
+
+message RegisterRequest {
+  AuthType login_type = 1;
+  string account = 2;
+  string password = 3;
+}
+
+message RegisterResponse {}
+
+message ConfirmRequest {
+  AuthType login_type = 1;
+  string account = 2;
+}
+
+message ConfirmResponse {}
+
+message ResetPasswordRequest {
+  AuthType login_type = 1;
+  uint64 user_id = 2;
+  string oldPwd = 3;
+  string newPwd = 4;
+}
+
+message ResetPasswordResponse { uint64 user_id = 1; }
+
+// user ,group .project.item
+message UserInfoRequest { uint64 user_id = 1; }
+
+message UserInfoResponse { UserInfo info = 1; }
+
+message UpdateUserAvatorRequest {
+  uint64 user_id = 1;
+  string avatar = 2;
+}
+
+message UpdateUserAvatorResponse { UserInfo info = 1; }
+
+message UserWatchingRequest { uint64 user_id = 1; }
+
+message UserWatchingResponse { repeated ProjectInfo list = 1; }
+
+message UserGroupRequest { uint64 user_id = 1; }
+
+message UserGroupResponse { repeated GroupInfo list = 1; }
+
+message UserFollowingGroupRequest { uint64 user_id = 1; }
+
+message UserFollowingGroupResponse { repeated GroupInfo list = 1; }
+
+message UserUpdateRequest {
+  uint64 user_id = 1;
+  string nickname = 2;
+  string avatar = 3;
+  string desc = 4;
+}
+
+message UserUpdateResponse {}
+
+message StartFollowUserRequest {
+  uint64 user_id = 1;
+  uint64 target_id = 2;
+}
+message StartFollowUserResponse {}
+message StopFollowUserRequest {
+  uint64 user_id = 1;
+  uint64 target_id = 2;
+}
+message StopFollowUserResponse {}
+message FetchUserActivesRequest {
+  uint64 user_id = 1;
+  ActiveType atype = 2;
+}
+message FetchUserActivesResponse { repeated ActiveInfo list = 1; }
+message SearchUserRequest {
+  string name = 1;
+  uint64 group_id = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchUserResponse {
+  repeated UserInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+//--------------------------------------------------//

@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+import "github.com/grapery/grapery/common-protoc/view_model.proto";
+
+option go_package = "github.com/grapery/grapery/api";
+package grapery.api;
+
+message CreateGroupReqeust {
+  uint64 user_id = 1;
+  string name = 2;
+}
+message CreateGroupResponse { GroupInfo info = 1; }
+
+message GetGroupReqeust {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+  string name = 3;
+}
+message GetGroupResponse { GroupInfo info = 1; }
+
+message GetGroupActivesRequest {
+  uint64 group_id = 1;
+  ActiveType atype = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message GetGroupActivesResponse {
+  repeated ActiveInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message UpdateGroupInfoRequest {
+  uint64 group_id = 1;
+  GroupInfo info = 2;
+}
+message UpdateGroupInfoResponse { GroupInfo info = 1; }
+message DeleteGroupRequest {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+}
+message DeleteGroupResponse {}
+message FetchGroupMembersRequest {
+  uint64 group_id = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message FetchGroupMembersResponse {
+  repeated UserInfo list = 1;
+  uint64 offset = 2;
+  uint64 total = 3;
+}
+
+message SearchGroupReqeust { string name = 1; }
+message SearchGroupResponse {
+  repeated GroupInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message FetchGroupProjectsReqeust {
+  uint64 group_id = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message FetchGroupProjectsResponse {
+  repeated ProjectInfo list = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message JoinGroupRequest {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+}
+
+message JoinGroupResponse {}
+
+message LeaveGroupRequest {
+  uint64 group_id = 1;
+  uint64 user_id = 2;
+}
+
+message LeaveGroupResponse {}

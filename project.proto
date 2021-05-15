@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+import "github.com/grapery/grapery/common-protoc/view_model.proto";
+
+option go_package = "github.com/grapery/grapery/api";
+package grapery.api;
+
+message GetProjectRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+}
+
+message GetProjectResponse { ProjectInfo info = 1; }
+
+message CreateProjectRequest {
+  uint64 group_id = 1;
+  string name = 2;
+}
+message CreateProjectResponse { ProjectInfo info = 1; }
+message UpdateProjectRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+  ProjectInfo info = 4;
+}
+message UpdateProjectResponse { ProjectInfo info = 1; }
+message DeleteProjectRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+}
+message DeleteProjectResponse {}
+
+message GetProjectProfileRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+}
+
+message GetProjectProfileResponse { ProjectProfileInfo info = 1; }
+
+message UpdateProjectProfileRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  ProjectProfileInfo info = 3;
+}
+
+message UpdateProjectProfileResponse { ProjectProfileInfo info = 1; }
+
+message GetWatchingProjectRequest {
+  uint64 user_id = 1;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message GetWatchingProjectResponse {
+  uint64 user_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message WatchProjectReqeust {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+}
+
+message WatchProjectResponse {}
+
+message UnWatchProjectReqeust {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+}
+
+message UnWatchProjectResponse {}
+
+message ExploreProjectsRequest {
+  uint64 user_id = 1;
+  uint64 offset = 2;
+  uint64 number = 3;
+}
+
+message ExploreProjectsResponse {
+  uint64 user_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchProjectRequest {
+  uint64 group_id = 1;
+  string name = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchProjectResponse {
+  uint64 group_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchAllProjectRequest {
+  uint64 user_id = 1;
+  string name = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
+message SearchAllProjectResponse {
+  uint64 user_id = 1;
+  repeated ProjectInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
