@@ -36,21 +36,6 @@ message DeleteProjectRequest {
 }
 message DeleteProjectResponse {}
 
-message GetProjectProfileRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-}
-
-message GetProjectProfileResponse { ProjectProfileInfo info = 1; }
-
-message UpdateProjectProfileRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  ProjectProfileInfo info = 3;
-}
-
-message UpdateProjectProfileResponse { ProjectProfileInfo info = 1; }
-
 message GetWatchingProjectRequest {
   uint64 user_id = 1;
   uint64 offset = 3;
@@ -82,8 +67,9 @@ message UnWatchProjectResponse {}
 
 message ExploreProjectsRequest {
   uint64 user_id = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  uint64 group_id = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
 }
 
 message ExploreProjectsResponse {
@@ -120,3 +106,25 @@ message SearchAllProjectResponse {
   uint64 offset = 3;
   uint64 number = 4;
 }
+
+message GetProjectProfileRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+}
+
+message GetProjectProfileResponse {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+  ProjectProfileInfo info = 4;
+}
+
+message UpdateProjectProfileRequest {
+  uint64 group_id = 1;
+  uint64 project_id = 2;
+  uint64 user_id = 3;
+  ProjectProfileInfo info = 4;
+}
+
+message UpdateProjectProfileResponse {}

@@ -1452,6 +1452,10 @@
           "type": "string",
           "format": "uint64"
         },
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
         "offset": {
           "type": "string",
           "format": "uint64"
@@ -1718,12 +1722,28 @@
         "project_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
     "apiGetProjectProfileResponse": {
       "type": "object",
       "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
         "info": {
           "$ref": "#/definitions/apiProjectProfileInfo"
         }
@@ -1991,7 +2011,46 @@
       }
     },
     "apiProjectProfileInfo": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "group_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "WatchingCount": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "InvolvedCount": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "Avatar": {
+          "type": "string"
+        },
+        "visable": {
+          "$ref": "#/definitions/apiVisibleType"
+        },
+        "isAchieve": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "isClose": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "isPrivate": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
     },
     "apiRegisterRequest": {
       "type": "object",
@@ -2287,18 +2346,17 @@
           "type": "string",
           "format": "uint64"
         },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
         "info": {
           "$ref": "#/definitions/apiProjectProfileInfo"
         }
       }
     },
     "apiUpdateProjectProfileResponse": {
-      "type": "object",
-      "properties": {
-        "info": {
-          "$ref": "#/definitions/apiProjectProfileInfo"
-        }
-      }
+      "type": "object"
     },
     "apiUpdateProjectRequest": {
       "type": "object",
