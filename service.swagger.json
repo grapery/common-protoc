@@ -1121,86 +1121,6 @@
         ]
       }
     },
-    "/v1/user/{user_id}/following/add/{target_id}": {
-      "post": {
-        "operationId": "StartFollowUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiStartFollowUserResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "target_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiStartFollowUserRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
-    "/v1/user/{user_id}/following/remove/{target_id}": {
-      "post": {
-        "operationId": "StopFollowUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiStopFollowUserResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "target_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiStopFollowUserRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
     "/v1/user/{user_id}/groups": {
       "post": {
         "operationId": "UserGroup",
@@ -2272,38 +2192,6 @@
     "apiShareDetail": {
       "type": "object"
     },
-    "apiStartFollowUserRequest": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "target_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiStartFollowUserResponse": {
-      "type": "object"
-    },
-    "apiStopFollowUserRequest": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "target_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
-    "apiStopFollowUserResponse": {
-      "type": "object"
-    },
     "apiTags": {
       "type": "object",
       "properties": {
@@ -2472,11 +2360,23 @@
     "apiUserFollowingGroupResponse": {
       "type": "object",
       "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
         "list": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/apiGroupInfo"
           }
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },

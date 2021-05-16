@@ -69,7 +69,12 @@ message UserGroupResponse { repeated GroupInfo list = 1; }
 
 message UserFollowingGroupRequest { uint64 user_id = 1; }
 
-message UserFollowingGroupResponse { repeated GroupInfo list = 1; }
+message UserFollowingGroupResponse {
+  uint64 user_id = 1;
+  repeated GroupInfo list = 2;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
 
 message UserUpdateRequest {
   uint64 user_id = 1;
@@ -80,16 +85,6 @@ message UserUpdateRequest {
 
 message UserUpdateResponse {}
 
-message StartFollowUserRequest {
-  uint64 user_id = 1;
-  uint64 target_id = 2;
-}
-message StartFollowUserResponse {}
-message StopFollowUserRequest {
-  uint64 user_id = 1;
-  uint64 target_id = 2;
-}
-message StopFollowUserResponse {}
 message FetchUserActivesRequest {
   uint64 user_id = 1;
   ActiveType atype = 2;

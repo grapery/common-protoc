@@ -87,21 +87,6 @@ service User {
     };
   }
 
-  rpc StartFollowUser(StartFollowUserRequest)
-      returns (StartFollowUserResponse) {
-    option (google.api.http) = {
-      post : "/v1/user/{user_id}/following/add/{target_id}"
-      body : "*"
-    };
-  }
-
-  rpc StopFollowUser(StopFollowUserRequest) returns (StopFollowUserResponse) {
-    option (google.api.http) = {
-      post : "/v1/user/{user_id}/following/remove/{target_id}"
-      body : "*"
-    };
-  }
-
   rpc FetchUserActives(FetchUserActivesRequest)
       returns (FetchUserActivesResponse) {
     option (google.api.http) = {
