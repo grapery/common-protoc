@@ -2159,6 +2159,21 @@
     "apiPictureDetail": {
       "type": "object",
       "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiPictureInfo"
+          }
+        },
+        "num": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiPictureInfo": {
+      "type": "object",
+      "properties": {
         "resource_url": {
           "type": "string"
         },
@@ -2757,7 +2772,22 @@
     "apiVideoDetail": {
       "type": "object",
       "properties": {
-        "resourceUrl": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiVideoInfo"
+          }
+        },
+        "num": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiVideoInfo": {
+      "type": "object",
+      "properties": {
+        "resource_url": {
           "type": "string"
         },
         "size": {

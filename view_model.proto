@@ -137,19 +137,33 @@ message WordDetail {
   string content = 1;
   uint64 length = 2;
 }
-message PictureDetail {
+
+message PictureInfo {
   string resource_url = 1;
   uint64 size = 2;
 }
-message VideoDetail {
-  string resourceUrl = 1;
+
+message PictureDetail {
+  repeated PictureInfo list = 1;
+  uint64 num = 2;
+}
+
+message VideoInfo {
+  string resource_url = 1;
   uint64 size = 2;
   uint64 timeLength = 3;
 }
+
+message VideoDetail {
+  repeated VideoInfo list = 1;
+  uint64 num = 2;
+}
+
 message MusicShareDetail {
   string resourceUrl = 1;
   uint64 source = 2;
 }
+
 message VoiceDetail {
   string resourceUrl = 1;
   uint64 size = 2;
