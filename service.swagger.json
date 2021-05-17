@@ -129,6 +129,39 @@
         ]
       }
     },
+    "/v1/group/{group_id}/items": {
+      "post": {
+        "operationId": "GetGroupItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
     "/v1/group/{group_id}/join": {
       "post": {
         "operationId": "JoinGroup",
@@ -496,12 +529,12 @@
     },
     "/v1/group/{group_id}/project/{project_id}/items": {
       "post": {
-        "operationId": "GetItems",
+        "operationId": "GetProjectItems",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetItemsResponse"
+              "$ref": "#/definitions/apiGetProjectItemsResponse"
             }
           }
         },
@@ -525,7 +558,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetItemsRequest"
+              "$ref": "#/definitions/apiGetProjectItemsRequest"
             }
           }
         ],
@@ -1187,6 +1220,39 @@
         ]
       }
     },
+    "/v1/user/{user_id}/items": {
+      "post": {
+        "operationId": "GetUserItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetUserItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetUserItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Item"
+        ]
+      }
+    },
     "/v1/user/{user_id}/update": {
       "post": {
         "operationId": "UserUpdate",
@@ -1358,6 +1424,10 @@
         },
         "atype": {
           "$ref": "#/definitions/apiActiveType"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1417,6 +1487,10 @@
           "format": "uint64"
         },
         "item_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1623,6 +1697,54 @@
         }
       }
     },
+    "apiGetGroupItemsRequest": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetGroupItemsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiItemInfo"
+          }
+        },
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
     "apiGetGroupReqeust": {
       "type": "object",
       "properties": {
@@ -1661,6 +1783,10 @@
         "item_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -1672,7 +1798,7 @@
         }
       }
     },
-    "apiGetItemsRequest": {
+    "apiGetProjectItemsRequest": {
       "type": "object",
       "properties": {
         "group_id": {
@@ -1680,6 +1806,10 @@
           "format": "uint64"
         },
         "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1693,7 +1823,7 @@
         }
       }
     },
-    "apiGetItemsResponse": {
+    "apiGetProjectItemsResponse": {
       "type": "object",
       "properties": {
         "list": {
@@ -1701,6 +1831,18 @@
           "items": {
             "$ref": "#/definitions/apiItemInfo"
           }
+        },
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         },
         "offset": {
           "type": "string",
@@ -1774,6 +1916,46 @@
         }
       }
     },
+    "apiGetUserItemsRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetUserItemsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiItemInfo"
+          }
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
     "apiGroupInfo": {
       "type": "object",
       "properties": {
@@ -1817,7 +1999,7 @@
           "$ref": "#/definitions/apiVideoDetail"
         },
         "music": {
-          "$ref": "#/definitions/apiMusicDetail"
+          "$ref": "#/definitions/apiMusicShareDetail"
         },
         "voice": {
           "$ref": "#/definitions/apiVoiceDetail"
@@ -1962,11 +2144,29 @@
     "apiLogoutResponse": {
       "type": "object"
     },
-    "apiMusicDetail": {
-      "type": "object"
+    "apiMusicShareDetail": {
+      "type": "object",
+      "properties": {
+        "resourceUrl": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiPictureDetail": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "resource_url": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiProjectInfo": {
       "type": "object",
@@ -2249,7 +2449,16 @@
       }
     },
     "apiShareDetail": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "resourceUrl": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiTags": {
       "type": "object",
@@ -2324,6 +2533,10 @@
         },
         "info": {
           "$ref": "#/definitions/apiItemInfo"
+        },
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
         }
       }
     },
@@ -2542,7 +2755,20 @@
       }
     },
     "apiVideoDetail": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "resourceUrl": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "timeLength": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiVisibleType": {
       "type": "string",
@@ -2555,7 +2781,20 @@
       "default": "AllPublic"
     },
     "apiVoiceDetail": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "resourceUrl": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "timeLength": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     },
     "apiWatchProjectReqeust": {
       "type": "object",
@@ -2578,7 +2817,16 @@
       "type": "object"
     },
     "apiWordDetail": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "length": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
     }
   }
 }

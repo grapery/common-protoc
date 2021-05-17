@@ -251,9 +251,23 @@ service Project {
 
 service Item {
 
-  rpc GetItems(GetItemsRequest) returns (GetItemsResponse) {
+  rpc GetProjectItems(GetProjectItemsRequest)
+      returns (GetProjectItemsResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/project/{project_id}/items"
+      body : "*"
+    };
+  }
+  rpc GetGroupItems(GetGroupItemsRequest) returns (GetGroupItemsResponse) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/items"
+      body : "*"
+    };
+  }
+
+  rpc GetUserItems(GetUserItemsRequest) returns (GetUserItemsResponse) {
+    option (google.api.http) = {
+      post : "/v1/user/{user_id}/items"
       body : "*"
     };
   }
