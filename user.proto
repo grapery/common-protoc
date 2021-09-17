@@ -40,15 +40,21 @@ message ConfirmResponse {}
 
 message ResetPasswordRequest {
   AuthType login_type = 1;
-  uint64 user_id = 2;
+  string account = 2;
   string oldPwd = 3;
   string newPwd = 4;
 }
 
-message ResetPasswordResponse { uint64 user_id = 1; }
+message ResetPasswordResponse {
+  string account = 1;
+  int64 status = 2;
+}
 
 // user ,group .project.item
-message UserInfoRequest { uint64 user_id = 1; }
+message UserInfoRequest {
+  uint64 user_id = 1;
+  string account = 2;
+}
 
 message UserInfoResponse { UserInfo info = 1; }
 

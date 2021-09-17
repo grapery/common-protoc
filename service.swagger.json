@@ -2290,9 +2290,8 @@
         "login_type": {
           "$ref": "#/definitions/apiAuthType"
         },
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
+        "account": {
+          "type": "string"
         },
         "oldPwd": {
           "type": "string"
@@ -2305,9 +2304,12 @@
     "apiResetPasswordResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "account": {
+          "type": "string"
+        },
+        "status": {
           "type": "string",
-          "format": "uint64"
+          "format": "int64"
         }
       }
     },
@@ -2716,6 +2718,9 @@
         "user_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "account": {
+          "type": "string"
         }
       },
       "title": "user ,group .project.item"
