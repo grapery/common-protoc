@@ -31,6 +31,8 @@ enum UserStatus {
   Study = 1;
   Busy = 2;
   Working = 3;
+  Invisible = 4;
+  Idle = 5;
 }
 
 enum GroupStatus {
