@@ -8,3 +8,30 @@ import "github.com/grapery/grapery/common-protoc/view_model.proto";
 
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
+
+message GetGroupTeamsReq {
+  int64 GroupID = 1;
+  int64 userID = 2;
+  int64 Offset = 3;
+  int64 Limit = 4;
+}
+
+message GetGroupTeamsResp {
+  int64 GroupID = 1;
+  int64 userID = 2;
+  repeated TeamInfo list = 3;
+  int64 Offset = 4;
+  int64 Limit = 5;
+}
+
+message CreateGroupTeamsReq {
+  int64 GroupID = 1;
+  int64 userID = 2;
+  string name = 3;
+}
+
+message CreateGroupTeamsResp {
+  int64 GroupID = 1;
+  int64 userID = 2;
+  TeamInfo info = 3;
+}

@@ -172,6 +172,21 @@ service Org {
   }
 }
 
+service Team {
+  rpc GetAllTeams(GetGroupTeamsReq) returns (GetGroupTeamsResp) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/teams/all"
+      body : "*"
+    };
+  }
+  rpc CreateTeam(CreateGroupTeamsReq) returns (CreateGroupTeamsResp) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/teams/build"
+      body : "*"
+    };
+  }
+}
+
 service Project {
   rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
@@ -300,6 +315,37 @@ service Item {
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/project/item/{item_id}/like"
+      body : "*"
+    };
+  }
+}
+
+service Comment {
+  rpc CreateComent(CreateCommentReq) returns (CreateCommentResp) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/project/item/{item_id}/comment"
+      body : "*"
+    };
+  }
+
+  rpc GetItemComent(GetItemCommentReq) returns (GetItemCommentResp) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/project/item/{item_id}/comment/list"
+      body : "*"
+    };
+  }
+
+  rpc GetGroupItemComent(GetUserProjectCommentReq)
+      returns (GetUserProjectCommentResp) {
+    option (google.api.http) = {
+      post : "/v1/group/{group_id}/project/{project_id}/comment/list"
+      body : "*"
+    };
+  }
+
+  rpc GetAllComent(GetUserCommentReq) returns (GetUserCommentResp) {
+    option (google.api.http) = {
+      post : "/v1/user/{user_id}/comment/list"
       body : "*"
     };
   }

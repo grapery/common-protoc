@@ -8,3 +8,15 @@ import "github.com/grapery/grapery/common-protoc/view_model.proto";
 
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
+
+message CreateCommentReq {}
+message CreateCommentResp {}
+
+message GetItemCommentReq {}
+message GetItemCommentResp {}
+
+message GetUserProjectCommentReq {}
+message GetUserProjectCommentResp {}
+
+message GetUserCommentReq {}
+message GetUserCommentResp {}
