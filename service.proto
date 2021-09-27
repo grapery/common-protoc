@@ -320,7 +320,7 @@ service Item {
   }
 }
 
-service Comment {
+service Comments {
   rpc CreateComent(CreateCommentReq) returns (CreateCommentResp) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/project/item/{item_id}/comment"
