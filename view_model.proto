@@ -88,7 +88,6 @@ message UserInfo {
   string email = 4;
   string location = 5;
   string desc = 6;
-  // uint64 LastActiveTime = 7;
 }
 
 message GroupInfo {
@@ -206,12 +205,4 @@ message UserProfileInfo {
 message GroupProfileInfo {
   int64 group_id = 1;
   int64 Mtime = 2;
-}
-
-message TeamInfo {
-  int64 group_id = 1;
-  string name = 2;
-  string Description = 3;
-  int64 Ctime = 4;
-  int64 count = 5;
 }

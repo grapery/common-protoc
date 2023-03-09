@@ -8,7 +8,6 @@ import "protoc-gen-openapiv2/options/openapiv2.proto";
 import "github.com/grapery/grapery/common-protoc/user.proto";
 import "github.com/grapery/grapery/common-protoc/group.proto";
 import "github.com/grapery/grapery/common-protoc/project.proto";
-import "github.com/grapery/grapery/common-protoc/team.proto";
 import "github.com/grapery/grapery/common-protoc/comment.proto";
 import "github.com/grapery/grapery/common-protoc/item.proto";
 
@@ -167,21 +166,6 @@ service Org {
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
       post : "/v1/group/{group_id}/leave"
-      body : "*"
-    };
-  }
-}
-
-service Team {
-  rpc GetAllTeams(GetGroupTeamsReq) returns (GetGroupTeamsResp) {
-    option (google.api.http) = {
-      post : "/v1/group/{group_id}/teams/all"
-      body : "*"
-    };
-  }
-  rpc CreateTeam(CreateGroupTeamsReq) returns (CreateGroupTeamsResp) {
-    option (google.api.http) = {
-      post : "/v1/group/{group_id}/teams/build"
       body : "*"
     };
   }
