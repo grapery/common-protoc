@@ -27,6 +27,22 @@
         ]
       }
     },
+    "/v1/explore": {
+      "get": {
+        "operationId": "Explore",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiExploreResponse"
+            }
+          }
+        },
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
     "/v1/group": {
       "post": {
         "operationId": "CreateGroup",
@@ -885,6 +901,22 @@
         ]
       }
     },
+    "/v1/trending": {
+      "get": {
+        "operationId": "Trending",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiTrendingResponse"
+            }
+          }
+        },
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
     "/v1/user/actives": {
       "post": {
         "operationId": "FetchUserActives",
@@ -1367,6 +1399,9 @@
           "format": "uint64"
         }
       }
+    },
+    "apiExploreResponse": {
+      "type": "object"
     },
     "apiFetchGroupMembersRequest": {
       "type": "object",
@@ -2299,6 +2334,9 @@
           "type": "string"
         }
       }
+    },
+    "apiTrendingResponse": {
+      "type": "object"
     },
     "apiUnWatchProjectReqeust": {
       "type": "object",

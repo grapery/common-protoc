@@ -22,7 +22,24 @@ message AboutRequest {}
 
 message AboutResponse { string content = 1; }
 
+message ExploreRequest {}
+message ExploreResponse {}
+
+message TrendingRequest {}
+message TrendingResponse {}
+
 service TeamsAPI {
+
+  rpc Explore(ExploreRequest) returns (ExploreResponse) {
+    option (google.api.http) = {
+      get : "/v1/explore"
+    };
+  }
+  rpc Trending(TrendingRequest) returns (TrendingResponse) {
+    option (google.api.http) = {
+      get : "/v1/trending"
+    };
+  }
 
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
