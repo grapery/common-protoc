@@ -9,13 +9,6 @@ import "github.com/grapery/grapery/common-protoc/view_model.proto";
 option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
-enum ContentType {
-  ShortDesc = 0;
-  Picture = 1;
-  Music = 2;
-  Question = 3;
-}
-
 // 视频，图片，短说，长文，音乐，项目，问题
 message Content {
   int32 Ctype = 1;
@@ -24,10 +17,16 @@ message Content {
   string data = 4;
 }
 
-message CreateCommentReq {}
+message CreateCommentReq {
+  int32 group_id = 1;
+  int32 item_id = 2;
+}
 message CreateCommentResp {}
 
-message GetItemCommentReq {}
+message GetItemCommentReq {
+  int32 group_id = 1;
+  int32 item_id = 2;
+}
 message GetItemCommentResp {}
 
 message GetUserProjectCommentReq {}

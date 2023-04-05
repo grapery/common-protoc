@@ -33,7 +33,683 @@
           }
         ],
         "tags": [
-          "Org"
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/actives": {
+      "post": {
+        "operationId": "GetGroupActives",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupActivesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupActivesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info": {
+      "post": {
+        "operationId": "GetGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/members": {
+      "post": {
+        "operationId": "FetchGroupMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupMembersResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupMembersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project": {
+      "post": {
+        "operationId": "CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/list": {
+      "post": {
+        "operationId": "GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/profile": {
+      "post": {
+        "operationId": "GetProjectProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectProfileResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/remove": {
+      "post": {
+        "operationId": "DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/unwatch": {
+      "post": {
+        "operationId": "UnWatchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUnWatchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUnWatchProjectReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/update": {
+      "post": {
+        "operationId": "UpdateProjectProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/project/watch": {
+      "post": {
+        "operationId": "WatchProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiWatchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiWatchProjectReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/projects/search": {
+      "post": {
+        "operationId": "SearchGroupProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiSearchProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiSearchProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/remove": {
+      "post": {
+        "operationId": "DeleteGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/info/update": {
+      "post": {
+        "operationId": "UpdateGroupInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateGroupInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateGroupInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/items": {
+      "post": {
+        "operationId": "GetGroupItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetGroupItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/join": {
+      "post": {
+        "operationId": "JoinGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiJoinGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiJoinGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/leave": {
+      "post": {
+        "operationId": "LeaveGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLeaveGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLeaveGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/comment/list": {
+      "post": {
+        "operationId": "GetGroupItemComment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetUserProjectCommentResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetUserProjectCommentReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/info/items": {
+      "post": {
+        "operationId": "GetProjectItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/add": {
+      "post": {
+        "operationId": "CreateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/comment/add": {
+      "post": {
+        "operationId": "CreateComment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateCommentResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiCreateCommentReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/comment/list": {
+      "post": {
+        "operationId": "GetItemComment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetItemCommentResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetItemCommentReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/info": {
+      "post": {
+        "operationId": "GetItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/like": {
+      "post": {
+        "operationId": "LikeItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLikeItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/remove": {
+      "post": {
+        "operationId": "DeleteItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiDeleteItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/project/item/update": {
+      "post": {
+        "operationId": "UpdateItem",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/group/projects": {
+      "post": {
+        "operationId": "FetchGroupProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupProjectsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiFetchGroupProjectsReqeust"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
         ]
       }
     },
@@ -59,843 +735,7 @@
           }
         ],
         "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}": {
-      "post": {
-        "operationId": "GetGroup",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupReqeust"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/actives": {
-      "post": {
-        "operationId": "GetGroupActives",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupActivesResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupActivesRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/items": {
-      "post": {
-        "operationId": "GetGroupItems",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupItemsResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetGroupItemsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/join": {
-      "post": {
-        "operationId": "JoinGroup",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiJoinGroupResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiJoinGroupRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/leave": {
-      "post": {
-        "operationId": "LeaveGroup",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiLeaveGroupResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiLeaveGroupRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/members": {
-      "post": {
-        "operationId": "FetchGroupMembers",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiFetchGroupMembersResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiFetchGroupMembersRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project": {
-      "post": {
-        "operationId": "CreateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiCreateProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiCreateProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/item": {
-      "post": {
-        "operationId": "CreateItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiCreateItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiCreateItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/item/{item_id}": {
-      "post": {
-        "operationId": "GetItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/item/{item_id}/like": {
-      "post": {
-        "operationId": "LikeItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiLikeItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiLikeItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/item/{item_id}/remove": {
-      "post": {
-        "operationId": "DeleteItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiDeleteItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiDeleteItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/item/{item_id}/update": {
-      "post": {
-        "operationId": "UpdateItem",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUpdateItemResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "item_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUpdateItemRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}": {
-      "post": {
-        "operationId": "GetProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/items": {
-      "post": {
-        "operationId": "GetProjectItems",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectItemsResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectItemsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/profile": {
-      "post": {
-        "operationId": "GetProjectProfile",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectProfileResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetProjectProfileRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/remove": {
-      "post": {
-        "operationId": "DeleteProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiDeleteProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiDeleteProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/unwatch": {
-      "post": {
-        "operationId": "UnWatchProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUnWatchProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUnWatchProjectReqeust"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/update": {
-      "post": {
-        "operationId": "UpdateProjectProfile",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/project/{project_id}/watch": {
-      "post": {
-        "operationId": "WatchProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiWatchProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "project_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiWatchProjectReqeust"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects": {
-      "post": {
-        "operationId": "FetchGroupProjects",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiFetchGroupProjectsResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiFetchGroupProjectsReqeust"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/projects/search": {
-      "post": {
-        "operationId": "SearchGroupProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiSearchProjectResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiSearchProjectRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Project"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/remove": {
-      "post": {
-        "operationId": "DeleteGroup",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiDeleteGroupResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiDeleteGroupRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
-        ]
-      }
-    },
-    "/v1/group/{group_id}/update": {
-      "post": {
-        "operationId": "UpdateGroupInfo",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUpdateGroupInfoResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "group_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUpdateGroupInfoRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Org"
+          "TeamsAPI"
         ]
       }
     },
@@ -921,7 +761,7 @@
           }
         ],
         "tags": [
-          "Auth"
+          "TeamsAPI"
         ]
       }
     },
@@ -947,7 +787,7 @@
           }
         ],
         "tags": [
-          "Auth"
+          "TeamsAPI"
         ]
       }
     },
@@ -973,7 +813,7 @@
           }
         ],
         "tags": [
-          "Project"
+          "TeamsAPI"
         ]
       }
     },
@@ -999,7 +839,7 @@
           }
         ],
         "tags": [
-          "Project"
+          "TeamsAPI"
         ]
       }
     },
@@ -1025,7 +865,7 @@
           }
         ],
         "tags": [
-          "Auth"
+          "TeamsAPI"
         ]
       }
     },
@@ -1051,44 +891,11 @@
           }
         ],
         "tags": [
-          "Auth"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}": {
-      "post": {
-        "operationId": "UserInfo",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiUserInfoResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiUserInfoRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
-    "/v1/user/{user_id}/actives": {
+    "/v1/user/actives": {
       "post": {
         "operationId": "FetchUserActives",
         "responses": {
@@ -1101,13 +908,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1117,11 +917,37 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}/avator": {
+    "/v1/user/info": {
+      "post": {
+        "operationId": "UserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/user/info/avator": {
       "post": {
         "operationId": "UpdateUserAvator",
         "responses": {
@@ -1134,13 +960,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1150,11 +969,11 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}/groups": {
+    "/v1/user/info/groups": {
       "post": {
         "operationId": "UserGroup",
         "responses": {
@@ -1167,13 +986,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1183,11 +995,11 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}/groups/following": {
+    "/v1/user/info/groups/following": {
       "post": {
         "operationId": "UserFollowingGroup",
         "responses": {
@@ -1200,13 +1012,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1216,44 +1021,11 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}/items": {
-      "post": {
-        "operationId": "GetUserItems",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetUserItemsResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetUserItemsRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Item"
-        ]
-      }
-    },
-    "/v1/user/{user_id}/update": {
+    "/v1/user/info/update": {
       "post": {
         "operationId": "UserUpdate",
         "responses": {
@@ -1266,13 +1038,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1282,11 +1047,11 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     },
-    "/v1/user/{user_id}/watching": {
+    "/v1/user/info/watching": {
       "post": {
         "operationId": "UserWatching",
         "responses": {
@@ -1299,13 +1064,6 @@
         },
         "parameters": [
           {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uint64"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1315,7 +1073,33 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/v1/user/items": {
+      "post": {
+        "operationId": "GetUserItems",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetUserItemsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetUserItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
         ]
       }
     },
@@ -1341,7 +1125,7 @@
           }
         ],
         "tags": [
-          "User"
+          "TeamsAPI"
         ]
       }
     }
@@ -1387,6 +1171,22 @@
         "WithEmail"
       ],
       "default": "NotSupport"
+    },
+    "apiCreateCommentReq": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "apiCreateCommentResp": {
+      "type": "object"
     },
     "apiCreateGroupReqeust": {
       "type": "object",
@@ -1769,6 +1569,22 @@
         }
       }
     },
+    "apiGetItemCommentReq": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "apiGetItemCommentResp": {
+      "type": "object"
+    },
     "apiGetItemRequest": {
       "type": "object",
       "properties": {
@@ -1955,6 +1771,12 @@
           "format": "uint64"
         }
       }
+    },
+    "apiGetUserProjectCommentReq": {
+      "type": "object"
+    },
+    "apiGetUserProjectCommentResp": {
+      "type": "object"
     },
     "apiGroupInfo": {
       "type": "object",
