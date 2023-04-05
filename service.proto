@@ -27,22 +27,14 @@ service TeamsAPI {
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
       get : "/v1/version"
-      body : "*"
     };
   }
   rpc About(AboutRequest) returns (AboutResponse) {
     option (google.api.http) = {
       get : "/v1/about"
-      body : "*"
     };
   }
 
-  rpc Login(LoginRequest) returns (LoginResponse) {
-    option (google.api.http) = {
-      post : "/v1/login"
-      body : "*"
-    };
-  }
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post : "/v1/logout"

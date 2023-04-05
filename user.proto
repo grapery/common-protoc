@@ -10,39 +10,39 @@ option go_package = "github.com/grapery/grapery/api";
 package grapery.api;
 
 message LoginRequest {
-  AuthType login_type = 1;
-  string account = 2;
-  string password = 3;
+  string account = 1;
+  string password = 2;
 }
 
-message LoginResponse { uint64 user_id = 1; }
+message LoginResponse {
+  uint64 user_id = 1;
+  string token = 2;
+}
 
-message LogoutRequest { uint64 user_id = 1; }
+message LogoutRequest {
+  uint64 user_id = 1;
+  string token = 2;
+}
 
 message LogoutResponse {}
 
 message LogtouResponse {}
 
 message RegisterRequest {
-  AuthType login_type = 1;
-  string account = 2;
-  string password = 3;
+  string account = 1;
+  string password = 2;
 }
 
-message RegisterResponse {}
+message RegisterResponse { int32 status = 1; }
 
-message ConfirmRequest {
-  AuthType login_type = 1;
-  string account = 2;
-}
+message ConfirmRequest { string account = 1; }
 
-message ConfirmResponse {}
+message ConfirmResponse { int32 status = 1; }
 
 message ResetPasswordRequest {
-  AuthType login_type = 1;
-  string account = 2;
-  string oldPwd = 3;
-  string newPwd = 4;
+  string account = 1;
+  string oldPwd = 2;
+  string newPwd = 3;
 }
 
 message ResetPasswordResponse {

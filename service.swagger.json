@@ -11,6 +11,22 @@
     "application/json"
   ],
   "paths": {
+    "/v1/about": {
+      "get": {
+        "operationId": "About",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiAboutResponse"
+            }
+          }
+        },
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
     "/v1/group": {
       "post": {
         "operationId": "CreateGroup",
@@ -739,32 +755,6 @@
         ]
       }
     },
-    "/v1/login": {
-      "post": {
-        "operationId": "Login",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiLoginResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiLoginRequest"
-            }
-          }
-        ],
-        "tags": [
-          "TeamsAPI"
-        ]
-      }
-    },
     "/v1/logout": {
       "post": {
         "operationId": "Logout",
@@ -1128,9 +1118,33 @@
           "TeamsAPI"
         ]
       }
+    },
+    "/v1/version": {
+      "get": {
+        "operationId": "Version",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiVersionResponse"
+            }
+          }
+        },
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
     }
   },
   "definitions": {
+    "apiAboutResponse": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      }
+    },
     "apiActiveInfo": {
       "type": "object",
       "properties": {
@@ -1162,15 +1176,6 @@
         "DisAgree"
       ],
       "default": "AllActive"
-    },
-    "apiAuthType": {
-      "type": "string",
-      "enum": [
-        "NotSupport",
-        "WithPhone",
-        "WithEmail"
-      ],
-      "default": "NotSupport"
     },
     "apiCreateCommentReq": {
       "type": "object",
@@ -1931,35 +1936,15 @@
     "apiLikeItemResponse": {
       "type": "object"
     },
-    "apiLoginRequest": {
-      "type": "object",
-      "properties": {
-        "login_type": {
-          "$ref": "#/definitions/apiAuthType"
-        },
-        "account": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "apiLoginResponse": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
     "apiLogoutRequest": {
       "type": "object",
       "properties": {
         "user_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "token": {
+          "type": "string"
         }
       }
     },
@@ -2092,9 +2077,6 @@
     "apiRegisterRequest": {
       "type": "object",
       "properties": {
-        "login_type": {
-          "$ref": "#/definitions/apiAuthType"
-        },
         "account": {
           "type": "string"
         },
@@ -2104,14 +2086,17 @@
       }
     },
     "apiRegisterResponse": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
     },
     "apiResetPasswordRequest": {
       "type": "object",
       "properties": {
-        "login_type": {
-          "$ref": "#/definitions/apiAuthType"
-        },
         "account": {
           "type": "string"
         },
@@ -2593,6 +2578,14 @@
           "items": {
             "$ref": "#/definitions/apiProjectInfo"
           }
+        }
+      }
+    },
+    "apiVersionResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
         }
       }
     },
