@@ -29,8 +29,5 @@ message GetItemCommentReq {
 }
 message GetItemCommentResp {}
 
-message GetUserProjectCommentReq {}
-message GetUserProjectCommentResp {}
-
 message GetUserCommentReq {}
 message GetUserCommentResp {}

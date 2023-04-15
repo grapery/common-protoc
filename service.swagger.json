@@ -485,32 +485,6 @@
         ]
       }
     },
-    "/v1/group/project/comment/list": {
-      "post": {
-        "operationId": "GetGroupItemComment",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/apiGetUserProjectCommentResp"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/apiGetUserProjectCommentReq"
-            }
-          }
-        ],
-        "tags": [
-          "TeamsAPI"
-        ]
-      }
-    },
     "/v1/group/project/info/items": {
       "post": {
         "operationId": "GetProjectItems",
@@ -1811,12 +1785,6 @@
           "format": "uint64"
         }
       }
-    },
-    "apiGetUserProjectCommentReq": {
-      "type": "object"
-    },
-    "apiGetUserProjectCommentResp": {
-      "type": "object"
     },
     "apiGroupInfo": {
       "type": "object",

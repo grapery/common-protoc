@@ -338,12 +338,4 @@ service TeamsAPI {
       body : "*"
     };
   }
-
-  rpc GetGroupItemComment(GetUserProjectCommentReq)
-      returns (GetUserProjectCommentResp) {
-    option (google.api.http) = {
-      post : "/v1/group/project/comment/list"
-      body : "*"
-    };
-  }
 }
