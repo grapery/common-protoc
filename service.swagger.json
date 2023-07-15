@@ -11,7 +11,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/about": {
+    "/api/v1/about": {
       "get": {
         "operationId": "About",
         "responses": {
@@ -27,7 +27,7 @@
         ]
       }
     },
-    "/v1/explore": {
+    "/api/v1/explore": {
       "get": {
         "operationId": "Explore",
         "responses": {
@@ -43,7 +43,7 @@
         ]
       }
     },
-    "/v1/group": {
+    "/api/v1/group": {
       "post": {
         "operationId": "CreateGroup",
         "responses": {
@@ -69,7 +69,7 @@
         ]
       }
     },
-    "/v1/group/actives": {
+    "/api/v1/group/actives": {
       "post": {
         "operationId": "GetGroupActives",
         "responses": {
@@ -95,7 +95,7 @@
         ]
       }
     },
-    "/v1/group/info": {
+    "/api/v1/group/info": {
       "post": {
         "operationId": "GetGroup",
         "responses": {
@@ -121,7 +121,7 @@
         ]
       }
     },
-    "/v1/group/info/members": {
+    "/api/v1/group/info/members": {
       "post": {
         "operationId": "FetchGroupMembers",
         "responses": {
@@ -147,7 +147,7 @@
         ]
       }
     },
-    "/v1/group/info/project": {
+    "/api/v1/group/info/project": {
       "post": {
         "operationId": "CreateProject",
         "responses": {
@@ -173,7 +173,7 @@
         ]
       }
     },
-    "/v1/group/info/project/list": {
+    "/api/v1/group/info/project/list": {
       "post": {
         "operationId": "GetProject",
         "responses": {
@@ -199,7 +199,7 @@
         ]
       }
     },
-    "/v1/group/info/project/profile": {
+    "/api/v1/group/info/project/profile": {
       "post": {
         "operationId": "GetProjectProfile",
         "responses": {
@@ -225,7 +225,7 @@
         ]
       }
     },
-    "/v1/group/info/project/remove": {
+    "/api/v1/group/info/project/remove": {
       "post": {
         "operationId": "DeleteProject",
         "responses": {
@@ -251,7 +251,7 @@
         ]
       }
     },
-    "/v1/group/info/project/unwatch": {
+    "/api/v1/group/info/project/unwatch": {
       "post": {
         "operationId": "UnWatchProject",
         "responses": {
@@ -277,7 +277,7 @@
         ]
       }
     },
-    "/v1/group/info/project/update": {
+    "/api/v1/group/info/project/update": {
       "post": {
         "operationId": "UpdateProjectProfile",
         "responses": {
@@ -303,7 +303,7 @@
         ]
       }
     },
-    "/v1/group/info/project/watch": {
+    "/api/v1/group/info/project/watch": {
       "post": {
         "operationId": "WatchProject",
         "responses": {
@@ -329,7 +329,7 @@
         ]
       }
     },
-    "/v1/group/info/projects/search": {
+    "/api/v1/group/info/projects/search": {
       "post": {
         "operationId": "SearchGroupProject",
         "responses": {
@@ -355,7 +355,7 @@
         ]
       }
     },
-    "/v1/group/info/remove": {
+    "/api/v1/group/info/remove": {
       "post": {
         "operationId": "DeleteGroup",
         "responses": {
@@ -381,7 +381,7 @@
         ]
       }
     },
-    "/v1/group/info/update": {
+    "/api/v1/group/info/update": {
       "post": {
         "operationId": "UpdateGroupInfo",
         "responses": {
@@ -407,7 +407,7 @@
         ]
       }
     },
-    "/v1/group/items": {
+    "/api/v1/group/items": {
       "post": {
         "operationId": "GetGroupItems",
         "responses": {
@@ -433,7 +433,7 @@
         ]
       }
     },
-    "/v1/group/join": {
+    "/api/v1/group/join": {
       "post": {
         "operationId": "JoinGroup",
         "responses": {
@@ -459,7 +459,7 @@
         ]
       }
     },
-    "/v1/group/leave": {
+    "/api/v1/group/leave": {
       "post": {
         "operationId": "LeaveGroup",
         "responses": {
@@ -485,7 +485,7 @@
         ]
       }
     },
-    "/v1/group/project/info/items": {
+    "/api/v1/group/project/info/items": {
       "post": {
         "operationId": "GetProjectItems",
         "responses": {
@@ -511,7 +511,7 @@
         ]
       }
     },
-    "/v1/group/project/item/add": {
+    "/api/v1/group/project/item/add": {
       "post": {
         "operationId": "CreateItem",
         "responses": {
@@ -537,7 +537,7 @@
         ]
       }
     },
-    "/v1/group/project/item/comment/add": {
+    "/api/v1/group/project/item/comment/add": {
       "post": {
         "operationId": "CreateComment",
         "responses": {
@@ -563,7 +563,7 @@
         ]
       }
     },
-    "/v1/group/project/item/comment/list": {
+    "/api/v1/group/project/item/comment/list": {
       "post": {
         "operationId": "GetItemComment",
         "responses": {
@@ -589,7 +589,7 @@
         ]
       }
     },
-    "/v1/group/project/item/info": {
+    "/api/v1/group/project/item/info": {
       "post": {
         "operationId": "GetItem",
         "responses": {
@@ -615,7 +615,7 @@
         ]
       }
     },
-    "/v1/group/project/item/like": {
+    "/api/v1/group/project/item/like": {
       "post": {
         "operationId": "LikeItem",
         "responses": {
@@ -641,7 +641,7 @@
         ]
       }
     },
-    "/v1/group/project/item/remove": {
+    "/api/v1/group/project/item/remove": {
       "post": {
         "operationId": "DeleteItem",
         "responses": {
@@ -667,7 +667,7 @@
         ]
       }
     },
-    "/v1/group/project/item/update": {
+    "/api/v1/group/project/item/update": {
       "post": {
         "operationId": "UpdateItem",
         "responses": {
@@ -693,7 +693,7 @@
         ]
       }
     },
-    "/v1/group/projects": {
+    "/api/v1/group/projects": {
       "post": {
         "operationId": "FetchGroupProjects",
         "responses": {
@@ -719,7 +719,7 @@
         ]
       }
     },
-    "/v1/group/search": {
+    "/api/v1/group/search": {
       "post": {
         "operationId": "SearchGroup",
         "responses": {
@@ -745,7 +745,33 @@
         ]
       }
     },
-    "/v1/logout": {
+    "/api/v1/login": {
+      "post": {
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiLoginResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/api/v1/logout": {
       "post": {
         "operationId": "Logout",
         "responses": {
@@ -771,7 +797,7 @@
         ]
       }
     },
-    "/v1/projects/explore": {
+    "/api/v1/projects/explore": {
       "post": {
         "operationId": "ExploreProject",
         "responses": {
@@ -797,7 +823,7 @@
         ]
       }
     },
-    "/v1/projects/search": {
+    "/api/v1/projects/search": {
       "post": {
         "operationId": "SearchProject",
         "responses": {
@@ -823,7 +849,7 @@
         ]
       }
     },
-    "/v1/register": {
+    "/api/v1/register": {
       "post": {
         "operationId": "Register",
         "responses": {
@@ -849,7 +875,7 @@
         ]
       }
     },
-    "/v1/reset/pwd": {
+    "/api/v1/reset/pwd": {
       "post": {
         "operationId": "ResetPwd",
         "responses": {
@@ -875,7 +901,7 @@
         ]
       }
     },
-    "/v1/trending": {
+    "/api/v1/trending": {
       "get": {
         "operationId": "Trending",
         "responses": {
@@ -891,7 +917,7 @@
         ]
       }
     },
-    "/v1/user/actives": {
+    "/api/v1/user/actives": {
       "post": {
         "operationId": "FetchUserActives",
         "responses": {
@@ -917,7 +943,7 @@
         ]
       }
     },
-    "/v1/user/info": {
+    "/api/v1/user/info": {
       "post": {
         "operationId": "UserInfo",
         "responses": {
@@ -943,7 +969,7 @@
         ]
       }
     },
-    "/v1/user/info/avator": {
+    "/api/v1/user/info/avator": {
       "post": {
         "operationId": "UpdateUserAvator",
         "responses": {
@@ -969,7 +995,7 @@
         ]
       }
     },
-    "/v1/user/info/groups": {
+    "/api/v1/user/info/groups": {
       "post": {
         "operationId": "UserGroup",
         "responses": {
@@ -995,7 +1021,7 @@
         ]
       }
     },
-    "/v1/user/info/groups/following": {
+    "/api/v1/user/info/groups/following": {
       "post": {
         "operationId": "UserFollowingGroup",
         "responses": {
@@ -1021,7 +1047,7 @@
         ]
       }
     },
-    "/v1/user/info/update": {
+    "/api/v1/user/info/update": {
       "post": {
         "operationId": "UserUpdate",
         "responses": {
@@ -1047,7 +1073,7 @@
         ]
       }
     },
-    "/v1/user/info/watching": {
+    "/api/v1/user/info/watching": {
       "post": {
         "operationId": "UserWatching",
         "responses": {
@@ -1073,7 +1099,7 @@
         ]
       }
     },
-    "/v1/user/items": {
+    "/api/v1/user/items": {
       "post": {
         "operationId": "GetUserItems",
         "responses": {
@@ -1099,7 +1125,7 @@
         ]
       }
     },
-    "/v1/users/search": {
+    "/api/v1/users/search": {
       "post": {
         "operationId": "SearchUser",
         "responses": {
@@ -1125,7 +1151,7 @@
         ]
       }
     },
-    "/v1/version": {
+    "/api/v1/version": {
       "get": {
         "operationId": "Version",
         "responses": {
@@ -1939,6 +1965,29 @@
     "apiLikeItemResponse": {
       "type": "object"
     },
+    "apiLoginRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "apiLoginResponse": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
     "apiLogoutRequest": {
       "type": "object",
       "properties": {
@@ -2084,6 +2133,9 @@
           "type": "string"
         },
         "password": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         }
       }
