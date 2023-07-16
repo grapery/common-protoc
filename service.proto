@@ -211,7 +211,14 @@ service TeamsAPI {
     };
   }
 
-  rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
+  rpc GetProjectInfo(GetProjectRequest) returns (GetProjectResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/info/project/info"
+      body : "*"
+    };
+  }
+
+  rpc GetProjectList(GetProjectListRequest) returns (GetProjectListResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/info/project/list"
       body : "*"
@@ -219,10 +226,11 @@ service TeamsAPI {
   }
   rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project"
+      post : "/api/v1/group/info/project/add"
       body : "*"
     };
   }
+
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/info/project/update"

@@ -17,6 +17,19 @@ message GetProjectRequest {
 
 message GetProjectResponse { ProjectInfo info = 1; }
 
+message GetProjectListRequest {
+  uint64 group_id = 1;
+
+  uint64 offset = 5;
+  uint64 number = 6;
+}
+
+message GetProjectListResponse {
+  repeated ProjectInfo List = 1;
+  uint64 offset = 3;
+  uint64 number = 4;
+}
+
 message CreateProjectRequest {
   uint64 group_id = 1;
   string name = 2;

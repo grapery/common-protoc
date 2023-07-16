@@ -147,7 +147,7 @@
         ]
       }
     },
-    "/api/v1/group/info/project": {
+    "/api/v1/group/info/project/add": {
       "post": {
         "operationId": "CreateProject",
         "responses": {
@@ -173,9 +173,9 @@
         ]
       }
     },
-    "/api/v1/group/info/project/list": {
+    "/api/v1/group/info/project/info": {
       "post": {
-        "operationId": "GetProject",
+        "operationId": "GetProjectInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -191,6 +191,32 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/apiGetProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
+    "/api/v1/group/info/project/list": {
+      "post": {
+        "operationId": "GetProjectList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiGetProjectListRequest"
             }
           }
         ],
@@ -1733,6 +1759,42 @@
         "user_id": {
           "type": "string",
           "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetProjectListRequest": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "number": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiGetProjectListResponse": {
+      "type": "object",
+      "properties": {
+        "List": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiProjectInfo"
+          }
         },
         "offset": {
           "type": "string",
