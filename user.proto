@@ -109,4 +109,10 @@ message SearchUserResponse {
   uint64 offset = 2;
   uint64 number = 3;
 }
-//--------------------------------------------------//
+
+message UserInitRequest { uint64 user_id = 1; }
+
+message UserInitResponse {
+  uint64 user_id = 1;
+  repeated GroupInfo list = 2;
+}

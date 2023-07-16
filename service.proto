@@ -78,6 +78,13 @@ service TeamsAPI {
     };
   }
 
+  rpc UserInit(UserInitRequest) returns (UserInitResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/user/init"
+      body : "*"
+    };
+  }
+
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/api/v1/user/info"

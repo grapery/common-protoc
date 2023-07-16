@@ -1099,6 +1099,32 @@
         ]
       }
     },
+    "/api/v1/user/init": {
+      "post": {
+        "operationId": "UserInit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUserInitResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUserInitRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
     "/api/v1/user/items": {
       "post": {
         "operationId": "GetUserItems",
@@ -1194,6 +1220,14 @@
         },
         "groupInfo": {
           "$ref": "#/definitions/apiGroupInfo"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -1839,6 +1873,14 @@
           "items": {
             "$ref": "#/definitions/apiTags"
           }
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -1888,6 +1930,14 @@
         },
         "itype": {
           "$ref": "#/definitions/apiItemType"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2012,6 +2062,14 @@
         "source": {
           "type": "string",
           "format": "uint64"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2081,6 +2139,14 @@
         "isClose": {
           "type": "boolean",
           "format": "boolean"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2123,6 +2189,14 @@
         "isPrivate": {
           "type": "boolean",
           "format": "boolean"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2336,6 +2410,14 @@
         "source": {
           "type": "string",
           "format": "uint64"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2574,6 +2656,14 @@
         },
         "desc": {
           "type": "string"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2595,6 +2685,30 @@
       "properties": {
         "info": {
           "$ref": "#/definitions/apiUserInfo"
+        }
+      }
+    },
+    "apiUserInitRequest": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "apiUserInitResponse": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiGroupInfo"
+          }
         }
       }
     },
@@ -2659,6 +2773,14 @@
         "num": {
           "type": "string",
           "format": "uint64"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -2701,6 +2823,14 @@
         "timeLength": {
           "type": "string",
           "format": "uint64"
+        },
+        "Ctime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Mtime": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
