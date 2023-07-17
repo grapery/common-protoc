@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+import "github.com/grapery/grapery/common-protoc/user.proto";
+import "github.com/grapery/grapery/common-protoc/group.proto";
+import "github.com/grapery/grapery/common-protoc/project.proto";
+import "github.com/grapery/grapery/common-protoc/comment.proto";
+import "github.com/grapery/grapery/common-protoc/item.proto";
+
+option go_package = "github.com/grapery/grapery/workerapi";
+package grapery.workerapi;
+
+message StatusRequest {}
+
+message StatusResponse { string version = 1; }
+
+service WorkerAPI {
+  rpc Status(StatusRequest) returns (StatusResponse) {
+    option (google.api.http) = {
+      get : "/worker/v1/status"
+    };
+  }
+}
