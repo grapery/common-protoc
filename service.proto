@@ -253,7 +253,7 @@ service TeamsAPI {
   rpc UpdateProjectProfile(UpdateProjectProfileRequest)
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/update"
+      post : "/api/v1/group/info/project/profile/update"
       body : "*"
     };
   }

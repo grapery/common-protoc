@@ -4,6 +4,11 @@
     "title": "github.com/grapery/grapery/common-protoc/worker.proto",
     "version": "version not set"
   },
+  "tags": [
+    {
+      "name": "WorkerAPI"
+    }
+  ],
   "consumes": [
     "application/json"
   ],
@@ -13,12 +18,18 @@
   "paths": {
     "/worker/v1/status": {
       "get": {
-        "operationId": "Status",
+        "operationId": "WorkerAPI_Status",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/workerapiStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -29,6 +40,34 @@
     }
   },
   "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
     "workerapiStatusResponse": {
       "type": "object",
       "properties": {

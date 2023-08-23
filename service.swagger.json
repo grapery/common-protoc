@@ -4,6 +4,11 @@
     "title": "github.com/grapery/grapery/common-protoc/service.proto",
     "version": "version not set"
   },
+  "tags": [
+    {
+      "name": "TeamsAPI"
+    }
+  ],
   "consumes": [
     "application/json"
   ],
@@ -13,12 +18,18 @@
   "paths": {
     "/api/v1/about": {
       "get": {
-        "operationId": "About",
+        "operationId": "TeamsAPI_About",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiAboutResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -29,12 +40,18 @@
     },
     "/api/v1/explore": {
       "get": {
-        "operationId": "Explore",
+        "operationId": "TeamsAPI_Explore",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiExploreResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -45,12 +62,18 @@
     },
     "/api/v1/group": {
       "post": {
-        "operationId": "CreateGroup",
+        "operationId": "TeamsAPI_CreateGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiCreateGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -71,12 +94,18 @@
     },
     "/api/v1/group/actives": {
       "post": {
-        "operationId": "GetGroupActives",
+        "operationId": "TeamsAPI_GetGroupActives",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetGroupActivesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -97,12 +126,18 @@
     },
     "/api/v1/group/info": {
       "post": {
-        "operationId": "GetGroup",
+        "operationId": "TeamsAPI_GetGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -123,12 +158,18 @@
     },
     "/api/v1/group/info/members": {
       "post": {
-        "operationId": "FetchGroupMembers",
+        "operationId": "TeamsAPI_FetchGroupMembers",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiFetchGroupMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -149,12 +190,18 @@
     },
     "/api/v1/group/info/project/add": {
       "post": {
-        "operationId": "CreateProject",
+        "operationId": "TeamsAPI_CreateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiCreateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -175,12 +222,18 @@
     },
     "/api/v1/group/info/project/info": {
       "post": {
-        "operationId": "GetProjectInfo",
+        "operationId": "TeamsAPI_GetProjectInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -201,12 +254,18 @@
     },
     "/api/v1/group/info/project/list": {
       "post": {
-        "operationId": "GetProjectList",
+        "operationId": "TeamsAPI_GetProjectList",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetProjectListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -227,12 +286,18 @@
     },
     "/api/v1/group/info/project/profile": {
       "post": {
-        "operationId": "GetProjectProfile",
+        "operationId": "TeamsAPI_GetProjectProfile",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetProjectProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -251,14 +316,52 @@
         ]
       }
     },
+    "/api/v1/group/info/project/profile/update": {
+      "post": {
+        "operationId": "TeamsAPI_UpdateProjectProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsAPI"
+        ]
+      }
+    },
     "/api/v1/group/info/project/remove": {
       "post": {
-        "operationId": "DeleteProject",
+        "operationId": "TeamsAPI_DeleteProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiDeleteProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -279,12 +382,18 @@
     },
     "/api/v1/group/info/project/unwatch": {
       "post": {
-        "operationId": "UnWatchProject",
+        "operationId": "TeamsAPI_UnWatchProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUnWatchProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -305,12 +414,18 @@
     },
     "/api/v1/group/info/project/update": {
       "post": {
-        "operationId": "UpdateProjectProfile",
+        "operationId": "TeamsAPI_UpdateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
+              "$ref": "#/definitions/apiUpdateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -320,7 +435,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
+              "$ref": "#/definitions/apiUpdateProjectRequest"
             }
           }
         ],
@@ -331,12 +446,18 @@
     },
     "/api/v1/group/info/project/watch": {
       "post": {
-        "operationId": "WatchProject",
+        "operationId": "TeamsAPI_WatchProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiWatchProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -357,12 +478,18 @@
     },
     "/api/v1/group/info/projects/search": {
       "post": {
-        "operationId": "SearchGroupProject",
+        "operationId": "TeamsAPI_SearchGroupProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiSearchProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -383,12 +510,18 @@
     },
     "/api/v1/group/info/remove": {
       "post": {
-        "operationId": "DeleteGroup",
+        "operationId": "TeamsAPI_DeleteGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiDeleteGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -409,12 +542,18 @@
     },
     "/api/v1/group/info/update": {
       "post": {
-        "operationId": "UpdateGroupInfo",
+        "operationId": "TeamsAPI_UpdateGroupInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUpdateGroupInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -435,12 +574,18 @@
     },
     "/api/v1/group/items": {
       "post": {
-        "operationId": "GetGroupItems",
+        "operationId": "TeamsAPI_GetGroupItems",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetGroupItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -461,12 +606,18 @@
     },
     "/api/v1/group/join": {
       "post": {
-        "operationId": "JoinGroup",
+        "operationId": "TeamsAPI_JoinGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiJoinGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -487,12 +638,18 @@
     },
     "/api/v1/group/leave": {
       "post": {
-        "operationId": "LeaveGroup",
+        "operationId": "TeamsAPI_LeaveGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiLeaveGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -513,12 +670,18 @@
     },
     "/api/v1/group/project/info/items": {
       "post": {
-        "operationId": "GetProjectItems",
+        "operationId": "TeamsAPI_GetProjectItems",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetProjectItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -539,12 +702,18 @@
     },
     "/api/v1/group/project/item/add": {
       "post": {
-        "operationId": "CreateItem",
+        "operationId": "TeamsAPI_CreateItem",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiCreateItemResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -565,12 +734,18 @@
     },
     "/api/v1/group/project/item/comment/add": {
       "post": {
-        "operationId": "CreateComment",
+        "operationId": "TeamsAPI_CreateComment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiCreateCommentResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -591,12 +766,18 @@
     },
     "/api/v1/group/project/item/comment/list": {
       "post": {
-        "operationId": "GetItemComment",
+        "operationId": "TeamsAPI_GetItemComment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetItemCommentResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -617,12 +798,18 @@
     },
     "/api/v1/group/project/item/info": {
       "post": {
-        "operationId": "GetItem",
+        "operationId": "TeamsAPI_GetItem",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetItemResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -643,12 +830,18 @@
     },
     "/api/v1/group/project/item/like": {
       "post": {
-        "operationId": "LikeItem",
+        "operationId": "TeamsAPI_LikeItem",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiLikeItemResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -669,12 +862,18 @@
     },
     "/api/v1/group/project/item/remove": {
       "post": {
-        "operationId": "DeleteItem",
+        "operationId": "TeamsAPI_DeleteItem",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiDeleteItemResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -695,12 +894,18 @@
     },
     "/api/v1/group/project/item/update": {
       "post": {
-        "operationId": "UpdateItem",
+        "operationId": "TeamsAPI_UpdateItem",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUpdateItemResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -721,12 +926,18 @@
     },
     "/api/v1/group/projects": {
       "post": {
-        "operationId": "FetchGroupProjects",
+        "operationId": "TeamsAPI_FetchGroupProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiFetchGroupProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -747,12 +958,18 @@
     },
     "/api/v1/group/search": {
       "post": {
-        "operationId": "SearchGroup",
+        "operationId": "TeamsAPI_SearchGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiSearchGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -773,12 +990,18 @@
     },
     "/api/v1/login": {
       "post": {
-        "operationId": "Login",
+        "operationId": "TeamsAPI_Login",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiLoginResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -799,12 +1022,18 @@
     },
     "/api/v1/logout": {
       "post": {
-        "operationId": "Logout",
+        "operationId": "TeamsAPI_Logout",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiLogoutResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -825,12 +1054,18 @@
     },
     "/api/v1/projects/explore": {
       "post": {
-        "operationId": "ExploreProject",
+        "operationId": "TeamsAPI_ExploreProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiExploreProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -851,12 +1086,18 @@
     },
     "/api/v1/projects/search": {
       "post": {
-        "operationId": "SearchProject",
+        "operationId": "TeamsAPI_SearchProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiSearchAllProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -877,12 +1118,18 @@
     },
     "/api/v1/register": {
       "post": {
-        "operationId": "Register",
+        "operationId": "TeamsAPI_Register",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiRegisterResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -903,12 +1150,18 @@
     },
     "/api/v1/reset/pwd": {
       "post": {
-        "operationId": "ResetPwd",
+        "operationId": "TeamsAPI_ResetPwd",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiResetPasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -929,12 +1182,18 @@
     },
     "/api/v1/trending": {
       "get": {
-        "operationId": "Trending",
+        "operationId": "TeamsAPI_Trending",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiTrendingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -945,12 +1204,18 @@
     },
     "/api/v1/user/actives": {
       "post": {
-        "operationId": "FetchUserActives",
+        "operationId": "TeamsAPI_FetchUserActives",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiFetchUserActivesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -971,12 +1236,18 @@
     },
     "/api/v1/user/info": {
       "post": {
-        "operationId": "UserInfo",
+        "operationId": "TeamsAPI_UserInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserInfoResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -997,12 +1268,18 @@
     },
     "/api/v1/user/info/avator": {
       "post": {
-        "operationId": "UpdateUserAvator",
+        "operationId": "TeamsAPI_UpdateUserAvator",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUpdateUserAvatorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1023,12 +1300,18 @@
     },
     "/api/v1/user/info/groups": {
       "post": {
-        "operationId": "UserGroup",
+        "operationId": "TeamsAPI_UserGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1049,12 +1332,18 @@
     },
     "/api/v1/user/info/groups/following": {
       "post": {
-        "operationId": "UserFollowingGroup",
+        "operationId": "TeamsAPI_UserFollowingGroup",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserFollowingGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1075,12 +1364,18 @@
     },
     "/api/v1/user/info/update": {
       "post": {
-        "operationId": "UserUpdate",
+        "operationId": "TeamsAPI_UserUpdate",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserUpdateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1101,12 +1396,18 @@
     },
     "/api/v1/user/info/watching": {
       "post": {
-        "operationId": "UserWatching",
+        "operationId": "TeamsAPI_UserWatching",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserWatchingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1127,12 +1428,18 @@
     },
     "/api/v1/user/init": {
       "post": {
-        "operationId": "UserInit",
+        "operationId": "TeamsAPI_UserInit",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiUserInitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1153,12 +1460,18 @@
     },
     "/api/v1/user/items": {
       "post": {
-        "operationId": "GetUserItems",
+        "operationId": "TeamsAPI_GetUserItems",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiGetUserItemsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1179,12 +1492,18 @@
     },
     "/api/v1/users/search": {
       "post": {
-        "operationId": "SearchUser",
+        "operationId": "TeamsAPI_SearchUser",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiSearchUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1205,12 +1524,18 @@
     },
     "/api/v1/version": {
       "get": {
-        "operationId": "Version",
+        "operationId": "TeamsAPI_Version",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/apiVersionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           }
         },
@@ -1272,11 +1597,11 @@
     "apiCreateCommentReq": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "integer",
           "format": "int32"
         },
-        "item_id": {
+        "itemId": {
           "type": "integer",
           "format": "int32"
         }
@@ -1288,7 +1613,7 @@
     "apiCreateGroupReqeust": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1308,11 +1633,11 @@
     "apiCreateItemRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1322,7 +1647,7 @@
         "atype": {
           "$ref": "#/definitions/apiActiveType"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1339,7 +1664,7 @@
     "apiCreateProjectRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1359,11 +1684,11 @@
     "apiDeleteGroupRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1375,19 +1700,19 @@
     "apiDeleteItemRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "item_id": {
+        "itemId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1399,15 +1724,15 @@
     "apiDeleteProjectRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1419,11 +1744,11 @@
     "apiExploreProjectsRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1440,13 +1765,14 @@
     "apiExploreProjectsResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         },
@@ -1466,7 +1792,7 @@
     "apiFetchGroupMembersRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1486,6 +1812,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiUserInfo"
           }
         },
@@ -1502,7 +1829,7 @@
     "apiFetchGroupProjectsReqeust": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1522,6 +1849,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         },
@@ -1538,7 +1866,7 @@
     "apiFetchUserActivesRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1553,6 +1881,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiActiveInfo"
           }
         }
@@ -1561,7 +1890,7 @@
     "apiGetGroupActivesRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1584,6 +1913,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiActiveInfo"
           }
         },
@@ -1600,11 +1930,11 @@
     "apiGetGroupItemsRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1624,14 +1954,15 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiItemInfo"
           }
         },
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1648,11 +1979,11 @@
     "apiGetGroupReqeust": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1672,11 +2003,11 @@
     "apiGetItemCommentReq": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "integer",
           "format": "int32"
         },
-        "item_id": {
+        "itemId": {
           "type": "integer",
           "format": "int32"
         }
@@ -1688,19 +2019,19 @@
     "apiGetItemRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "item_id": {
+        "itemId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1717,15 +2048,15 @@
     "apiGetProjectItemsRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1745,18 +2076,19 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiItemInfo"
           }
         },
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1773,7 +2105,7 @@
     "apiGetProjectListRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1793,6 +2125,7 @@
         "List": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         },
@@ -1809,15 +2142,15 @@
     "apiGetProjectProfileRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1826,15 +2159,15 @@
     "apiGetProjectProfileResponse": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1846,15 +2179,15 @@
     "apiGetProjectRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -1871,7 +2204,7 @@
     "apiGetUserItemsRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1891,10 +2224,11 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiItemInfo"
           }
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1911,7 +2245,7 @@
     "apiGroupInfo": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -1933,6 +2267,7 @@
         "tags": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiTags"
           }
         },
@@ -1972,15 +2307,15 @@
     "apiItemInfo": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2020,11 +2355,11 @@
     "apiJoinGroupRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2036,11 +2371,11 @@
     "apiLeaveGroupRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2052,25 +2387,24 @@
     "apiLikeItemRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "item_id": {
+        "itemId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
         "islike": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         }
       }
     },
@@ -2091,7 +2425,7 @@
     "apiLoginResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2103,7 +2437,7 @@
     "apiLogoutRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2141,6 +2475,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiPictureInfo"
           }
         },
@@ -2153,7 +2488,7 @@
     "apiPictureInfo": {
       "type": "object",
       "properties": {
-        "resource_url": {
+        "resourceUrl": {
           "type": "string"
         },
         "size": {
@@ -2165,11 +2500,11 @@
     "apiProjectInfo": {
       "type": "object",
       "properties": {
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "group_id": {
+        "groupId": {
           "type": "integer",
           "format": "int64"
         },
@@ -2188,6 +2523,7 @@
         "tags": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiTags"
           }
         },
@@ -2195,12 +2531,10 @@
           "$ref": "#/definitions/apiVisibleType"
         },
         "isAchieve": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "isClose": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "Ctime": {
           "type": "string",
@@ -2215,11 +2549,11 @@
     "apiProjectProfileInfo": {
       "type": "object",
       "properties": {
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "group_id": {
+        "groupId": {
           "type": "integer",
           "format": "int64"
         },
@@ -2241,16 +2575,13 @@
           "$ref": "#/definitions/apiVisibleType"
         },
         "isAchieve": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "isClose": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "isPrivate": {
-          "type": "boolean",
-          "format": "boolean"
+          "type": "boolean"
         },
         "Ctime": {
           "type": "string",
@@ -2314,7 +2645,7 @@
     "apiSearchAllProjectRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2334,13 +2665,14 @@
     "apiSearchAllProjectResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         },
@@ -2368,6 +2700,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiGroupInfo"
           }
         },
@@ -2384,7 +2717,7 @@
     "apiSearchProjectRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2404,13 +2737,14 @@
     "apiSearchProjectResponse": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         },
@@ -2430,7 +2764,7 @@
         "name": {
           "type": "string"
         },
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2450,6 +2784,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiUserInfo"
           }
         },
@@ -2486,7 +2821,7 @@
     "apiTags": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2505,15 +2840,15 @@
     "apiUnWatchProjectReqeust": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2525,7 +2860,7 @@
     "apiUpdateGroupInfoRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2545,22 +2880,22 @@
     "apiUpdateItemRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "item_id": {
+        "itemId": {
           "type": "string",
           "format": "uint64"
         },
         "info": {
           "$ref": "#/definitions/apiItemInfo"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2577,15 +2912,15 @@
     "apiUpdateProjectProfileRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2600,15 +2935,15 @@
     "apiUpdateProjectRequest": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2628,7 +2963,7 @@
     "apiUpdateUserAvatorRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2648,7 +2983,7 @@
     "apiUserFollowingGroupRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2657,13 +2992,14 @@
     "apiUserFollowingGroupResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiGroupInfo"
           }
         },
@@ -2680,7 +3016,7 @@
     "apiUserGroupRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2692,6 +3028,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiGroupInfo"
           }
         }
@@ -2700,7 +3037,7 @@
     "apiUserInfo": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2732,7 +3069,7 @@
     "apiUserInfoRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2753,7 +3090,7 @@
     "apiUserInitRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2762,13 +3099,14 @@
     "apiUserInitResponse": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiGroupInfo"
           }
         }
@@ -2777,7 +3115,7 @@
     "apiUserUpdateRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         },
@@ -2798,7 +3136,7 @@
     "apiUserWatchingRequest": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2810,6 +3148,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiProjectInfo"
           }
         }
@@ -2829,6 +3168,7 @@
         "list": {
           "type": "array",
           "items": {
+            "type": "object",
             "$ref": "#/definitions/apiVideoInfo"
           }
         },
@@ -2849,7 +3189,7 @@
     "apiVideoInfo": {
       "type": "object",
       "properties": {
-        "resource_url": {
+        "resourceUrl": {
           "type": "string"
         },
         "size": {
@@ -2899,15 +3239,15 @@
     "apiWatchProjectReqeust": {
       "type": "object",
       "properties": {
-        "group_id": {
+        "groupId": {
           "type": "string",
           "format": "uint64"
         },
-        "project_id": {
+        "projectId": {
           "type": "string",
           "format": "uint64"
         },
-        "user_id": {
+        "userId": {
           "type": "string",
           "format": "uint64"
         }
@@ -2925,6 +3265,34 @@
         "length": {
           "type": "string",
           "format": "uint64"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
         }
       }
     }
