@@ -83,7 +83,7 @@ func NewTeamsAPIClient(cc grpc.ClientConnInterface) TeamsAPIClient {
 
 func (c *teamsAPIClient) Explore(ctx context.Context, in *ExploreRequest, opts ...grpc.CallOption) (*ExploreResponse, error) {
 	out := new(ExploreResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Explore", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Explore", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +92,7 @@ func (c *teamsAPIClient) Explore(ctx context.Context, in *ExploreRequest, opts .
 
 func (c *teamsAPIClient) Trending(ctx context.Context, in *TrendingRequest, opts ...grpc.CallOption) (*TrendingResponse, error) {
 	out := new(TrendingResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Trending", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Trending", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,7 +101,7 @@ func (c *teamsAPIClient) Trending(ctx context.Context, in *TrendingRequest, opts
 
 func (c *teamsAPIClient) Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error) {
 	out := new(VersionResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Version", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Version", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +110,7 @@ func (c *teamsAPIClient) Version(ctx context.Context, in *VersionRequest, opts .
 
 func (c *teamsAPIClient) About(ctx context.Context, in *AboutRequest, opts ...grpc.CallOption) (*AboutResponse, error) {
 	out := new(AboutResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/About", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/About", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,7 +119,7 @@ func (c *teamsAPIClient) About(ctx context.Context, in *AboutRequest, opts ...gr
 
 func (c *teamsAPIClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
 	out := new(LoginResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Login", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -128,7 +128,7 @@ func (c *teamsAPIClient) Login(ctx context.Context, in *LoginRequest, opts ...gr
 
 func (c *teamsAPIClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error) {
 	out := new(LogoutResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Logout", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Logout", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -137,7 +137,7 @@ func (c *teamsAPIClient) Logout(ctx context.Context, in *LogoutRequest, opts ...
 
 func (c *teamsAPIClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
 	out := new(RegisterResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/Register", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -146,7 +146,7 @@ func (c *teamsAPIClient) Register(ctx context.Context, in *RegisterRequest, opts
 
 func (c *teamsAPIClient) ResetPwd(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error) {
 	out := new(ResetPasswordResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/ResetPwd", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/ResetPwd", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -155,7 +155,7 @@ func (c *teamsAPIClient) ResetPwd(ctx context.Context, in *ResetPasswordRequest,
 
 func (c *teamsAPIClient) UserInit(ctx context.Context, in *UserInitRequest, opts ...grpc.CallOption) (*UserInitResponse, error) {
 	out := new(UserInitResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserInit", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserInit", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -164,7 +164,7 @@ func (c *teamsAPIClient) UserInit(ctx context.Context, in *UserInitRequest, opts
 
 func (c *teamsAPIClient) UserInfo(ctx context.Context, in *UserInfoRequest, opts ...grpc.CallOption) (*UserInfoResponse, error) {
 	out := new(UserInfoResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -173,7 +173,7 @@ func (c *teamsAPIClient) UserInfo(ctx context.Context, in *UserInfoRequest, opts
 
 func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, in *UpdateUserAvatorRequest, opts ...grpc.CallOption) (*UpdateUserAvatorResponse, error) {
 	out := new(UpdateUserAvatorResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UpdateUserAvator", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UpdateUserAvator", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -182,7 +182,7 @@ func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, in *UpdateUserAva
 
 func (c *teamsAPIClient) UserWatching(ctx context.Context, in *UserWatchingRequest, opts ...grpc.CallOption) (*UserWatchingResponse, error) {
 	out := new(UserWatchingResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserWatching", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserWatching", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -191,7 +191,7 @@ func (c *teamsAPIClient) UserWatching(ctx context.Context, in *UserWatchingReque
 
 func (c *teamsAPIClient) UserGroup(ctx context.Context, in *UserGroupRequest, opts ...grpc.CallOption) (*UserGroupResponse, error) {
 	out := new(UserGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -200,7 +200,7 @@ func (c *teamsAPIClient) UserGroup(ctx context.Context, in *UserGroupRequest, op
 
 func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, in *UserFollowingGroupRequest, opts ...grpc.CallOption) (*UserFollowingGroupResponse, error) {
 	out := new(UserFollowingGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserFollowingGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserFollowingGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -209,7 +209,7 @@ func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, in *UserFollowi
 
 func (c *teamsAPIClient) UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error) {
 	out := new(UserUpdateResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UserUpdate", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UserUpdate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -218,7 +218,7 @@ func (c *teamsAPIClient) UserUpdate(ctx context.Context, in *UserUpdateRequest, 
 
 func (c *teamsAPIClient) FetchUserActives(ctx context.Context, in *FetchUserActivesRequest, opts ...grpc.CallOption) (*FetchUserActivesResponse, error) {
 	out := new(FetchUserActivesResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/FetchUserActives", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/FetchUserActives", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -227,7 +227,7 @@ func (c *teamsAPIClient) FetchUserActives(ctx context.Context, in *FetchUserActi
 
 func (c *teamsAPIClient) SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error) {
 	out := new(SearchUserResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/SearchUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/SearchUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -236,7 +236,7 @@ func (c *teamsAPIClient) SearchUser(ctx context.Context, in *SearchUserRequest, 
 
 func (c *teamsAPIClient) CreateGroup(ctx context.Context, in *CreateGroupReqeust, opts ...grpc.CallOption) (*CreateGroupResponse, error) {
 	out := new(CreateGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/CreateGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/CreateGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -245,7 +245,7 @@ func (c *teamsAPIClient) CreateGroup(ctx context.Context, in *CreateGroupReqeust
 
 func (c *teamsAPIClient) GetGroup(ctx context.Context, in *GetGroupReqeust, opts ...grpc.CallOption) (*GetGroupResponse, error) {
 	out := new(GetGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -254,7 +254,7 @@ func (c *teamsAPIClient) GetGroup(ctx context.Context, in *GetGroupReqeust, opts
 
 func (c *teamsAPIClient) GetGroupActives(ctx context.Context, in *GetGroupActivesRequest, opts ...grpc.CallOption) (*GetGroupActivesResponse, error) {
 	out := new(GetGroupActivesResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetGroupActives", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetGroupActives", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -263,7 +263,7 @@ func (c *teamsAPIClient) GetGroupActives(ctx context.Context, in *GetGroupActive
 
 func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, in *UpdateGroupInfoRequest, opts ...grpc.CallOption) (*UpdateGroupInfoResponse, error) {
 	out := new(UpdateGroupInfoResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UpdateGroupInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UpdateGroupInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, in *UpdateGroupInf
 
 func (c *teamsAPIClient) DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error) {
 	out := new(DeleteGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/DeleteGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/DeleteGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -281,7 +281,7 @@ func (c *teamsAPIClient) DeleteGroup(ctx context.Context, in *DeleteGroupRequest
 
 func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error) {
 	out := new(FetchGroupMembersResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/FetchGroupMembers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/FetchGroupMembers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -290,7 +290,7 @@ func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, in *FetchGroupMe
 
 func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error) {
 	out := new(SearchGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/SearchGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/SearchGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -299,7 +299,7 @@ func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust
 
 func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsReqeust, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error) {
 	out := new(FetchGroupProjectsResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/FetchGroupProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/FetchGroupProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -308,7 +308,7 @@ func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, in *FetchGroupP
 
 func (c *teamsAPIClient) JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error) {
 	out := new(JoinGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/JoinGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/JoinGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -317,7 +317,7 @@ func (c *teamsAPIClient) JoinGroup(ctx context.Context, in *JoinGroupRequest, op
 
 func (c *teamsAPIClient) LeaveGroup(ctx context.Context, in *LeaveGroupRequest, opts ...grpc.CallOption) (*LeaveGroupResponse, error) {
 	out := new(LeaveGroupResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/LeaveGroup", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/LeaveGroup", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -326,7 +326,7 @@ func (c *teamsAPIClient) LeaveGroup(ctx context.Context, in *LeaveGroupRequest, 
 
 func (c *teamsAPIClient) GetProjectInfo(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error) {
 	out := new(GetProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetProjectInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetProjectInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -335,7 +335,7 @@ func (c *teamsAPIClient) GetProjectInfo(ctx context.Context, in *GetProjectReque
 
 func (c *teamsAPIClient) GetProjectList(ctx context.Context, in *GetProjectListRequest, opts ...grpc.CallOption) (*GetProjectListResponse, error) {
 	out := new(GetProjectListResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetProjectList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetProjectList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -344,7 +344,7 @@ func (c *teamsAPIClient) GetProjectList(ctx context.Context, in *GetProjectListR
 
 func (c *teamsAPIClient) CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
 	out := new(CreateProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/CreateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/CreateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -353,7 +353,7 @@ func (c *teamsAPIClient) CreateProject(ctx context.Context, in *CreateProjectReq
 
 func (c *teamsAPIClient) UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error) {
 	out := new(UpdateProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UpdateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UpdateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -362,7 +362,7 @@ func (c *teamsAPIClient) UpdateProject(ctx context.Context, in *UpdateProjectReq
 
 func (c *teamsAPIClient) DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error) {
 	out := new(DeleteProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/DeleteProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -371,7 +371,7 @@ func (c *teamsAPIClient) DeleteProject(ctx context.Context, in *DeleteProjectReq
 
 func (c *teamsAPIClient) GetProjectProfile(ctx context.Context, in *GetProjectProfileRequest, opts ...grpc.CallOption) (*GetProjectProfileResponse, error) {
 	out := new(GetProjectProfileResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetProjectProfile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetProjectProfile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -380,7 +380,7 @@ func (c *teamsAPIClient) GetProjectProfile(ctx context.Context, in *GetProjectPr
 
 func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error) {
 	out := new(UpdateProjectProfileResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UpdateProjectProfile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UpdateProjectProfile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -389,7 +389,7 @@ func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, in *UpdatePro
 
 func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectReqeust, opts ...grpc.CallOption) (*WatchProjectResponse, error) {
 	out := new(WatchProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/WatchProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/WatchProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -398,7 +398,7 @@ func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectReqeu
 
 func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectReqeust, opts ...grpc.CallOption) (*UnWatchProjectResponse, error) {
 	out := new(UnWatchProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UnWatchProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UnWatchProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -407,7 +407,7 @@ func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectR
 
 func (c *teamsAPIClient) SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error) {
 	out := new(SearchProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/SearchGroupProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/SearchGroupProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -416,7 +416,7 @@ func (c *teamsAPIClient) SearchGroupProject(ctx context.Context, in *SearchProje
 
 func (c *teamsAPIClient) SearchProject(ctx context.Context, in *SearchAllProjectRequest, opts ...grpc.CallOption) (*SearchAllProjectResponse, error) {
 	out := new(SearchAllProjectResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/SearchProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/SearchProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -425,7 +425,7 @@ func (c *teamsAPIClient) SearchProject(ctx context.Context, in *SearchAllProject
 
 func (c *teamsAPIClient) ExploreProject(ctx context.Context, in *ExploreProjectsRequest, opts ...grpc.CallOption) (*ExploreProjectsResponse, error) {
 	out := new(ExploreProjectsResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/ExploreProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/ExploreProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -434,7 +434,7 @@ func (c *teamsAPIClient) ExploreProject(ctx context.Context, in *ExploreProjects
 
 func (c *teamsAPIClient) GetProjectItems(ctx context.Context, in *GetProjectItemsRequest, opts ...grpc.CallOption) (*GetProjectItemsResponse, error) {
 	out := new(GetProjectItemsResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetProjectItems", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetProjectItems", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -443,7 +443,7 @@ func (c *teamsAPIClient) GetProjectItems(ctx context.Context, in *GetProjectItem
 
 func (c *teamsAPIClient) GetGroupItems(ctx context.Context, in *GetGroupItemsRequest, opts ...grpc.CallOption) (*GetGroupItemsResponse, error) {
 	out := new(GetGroupItemsResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetGroupItems", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetGroupItems", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -452,7 +452,7 @@ func (c *teamsAPIClient) GetGroupItems(ctx context.Context, in *GetGroupItemsReq
 
 func (c *teamsAPIClient) GetUserItems(ctx context.Context, in *GetUserItemsRequest, opts ...grpc.CallOption) (*GetUserItemsResponse, error) {
 	out := new(GetUserItemsResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetUserItems", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetUserItems", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -461,7 +461,7 @@ func (c *teamsAPIClient) GetUserItems(ctx context.Context, in *GetUserItemsReque
 
 func (c *teamsAPIClient) GetItem(ctx context.Context, in *GetItemRequest, opts ...grpc.CallOption) (*GetItemResponse, error) {
 	out := new(GetItemResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetItem", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -470,7 +470,7 @@ func (c *teamsAPIClient) GetItem(ctx context.Context, in *GetItemRequest, opts .
 
 func (c *teamsAPIClient) CreateItem(ctx context.Context, in *CreateItemRequest, opts ...grpc.CallOption) (*CreateItemResponse, error) {
 	out := new(CreateItemResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/CreateItem", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/CreateItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -479,7 +479,7 @@ func (c *teamsAPIClient) CreateItem(ctx context.Context, in *CreateItemRequest, 
 
 func (c *teamsAPIClient) UpdateItem(ctx context.Context, in *UpdateItemRequest, opts ...grpc.CallOption) (*UpdateItemResponse, error) {
 	out := new(UpdateItemResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/UpdateItem", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/UpdateItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -488,7 +488,7 @@ func (c *teamsAPIClient) UpdateItem(ctx context.Context, in *UpdateItemRequest, 
 
 func (c *teamsAPIClient) DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error) {
 	out := new(DeleteItemResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/DeleteItem", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/DeleteItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -497,7 +497,7 @@ func (c *teamsAPIClient) DeleteItem(ctx context.Context, in *DeleteItemRequest, 
 
 func (c *teamsAPIClient) LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error) {
 	out := new(LikeItemResponse)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/LikeItem", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/LikeItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -506,7 +506,7 @@ func (c *teamsAPIClient) LikeItem(ctx context.Context, in *LikeItemRequest, opts
 
 func (c *teamsAPIClient) CreateComment(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*CreateCommentResp, error) {
 	out := new(CreateCommentResp)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/CreateComment", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/CreateComment", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -515,7 +515,7 @@ func (c *teamsAPIClient) CreateComment(ctx context.Context, in *CreateCommentReq
 
 func (c *teamsAPIClient) GetItemComment(ctx context.Context, in *GetItemCommentReq, opts ...grpc.CallOption) (*GetItemCommentResp, error) {
 	out := new(GetItemCommentResp)
-	err := c.cc.Invoke(ctx, "/common.apis.TeamsAPI/GetItemComment", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/common.TeamsAPI/GetItemComment", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -750,7 +750,7 @@ func _TeamsAPI_Explore_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Explore",
+		FullMethod: "/common.TeamsAPI/Explore",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Explore(ctx, req.(*ExploreRequest))
@@ -768,7 +768,7 @@ func _TeamsAPI_Trending_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Trending",
+		FullMethod: "/common.TeamsAPI/Trending",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Trending(ctx, req.(*TrendingRequest))
@@ -786,7 +786,7 @@ func _TeamsAPI_Version_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Version",
+		FullMethod: "/common.TeamsAPI/Version",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Version(ctx, req.(*VersionRequest))
@@ -804,7 +804,7 @@ func _TeamsAPI_About_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/About",
+		FullMethod: "/common.TeamsAPI/About",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).About(ctx, req.(*AboutRequest))
@@ -822,7 +822,7 @@ func _TeamsAPI_Login_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Login",
+		FullMethod: "/common.TeamsAPI/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Login(ctx, req.(*LoginRequest))
@@ -840,7 +840,7 @@ func _TeamsAPI_Logout_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Logout",
+		FullMethod: "/common.TeamsAPI/Logout",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Logout(ctx, req.(*LogoutRequest))
@@ -858,7 +858,7 @@ func _TeamsAPI_Register_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/Register",
+		FullMethod: "/common.TeamsAPI/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Register(ctx, req.(*RegisterRequest))
@@ -876,7 +876,7 @@ func _TeamsAPI_ResetPwd_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/ResetPwd",
+		FullMethod: "/common.TeamsAPI/ResetPwd",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).ResetPwd(ctx, req.(*ResetPasswordRequest))
@@ -894,7 +894,7 @@ func _TeamsAPI_UserInit_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserInit",
+		FullMethod: "/common.TeamsAPI/UserInit",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserInit(ctx, req.(*UserInitRequest))
@@ -912,7 +912,7 @@ func _TeamsAPI_UserInfo_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserInfo",
+		FullMethod: "/common.TeamsAPI/UserInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserInfo(ctx, req.(*UserInfoRequest))
@@ -930,7 +930,7 @@ func _TeamsAPI_UpdateUserAvator_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UpdateUserAvator",
+		FullMethod: "/common.TeamsAPI/UpdateUserAvator",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateUserAvator(ctx, req.(*UpdateUserAvatorRequest))
@@ -948,7 +948,7 @@ func _TeamsAPI_UserWatching_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserWatching",
+		FullMethod: "/common.TeamsAPI/UserWatching",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserWatching(ctx, req.(*UserWatchingRequest))
@@ -966,7 +966,7 @@ func _TeamsAPI_UserGroup_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserGroup",
+		FullMethod: "/common.TeamsAPI/UserGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserGroup(ctx, req.(*UserGroupRequest))
@@ -984,7 +984,7 @@ func _TeamsAPI_UserFollowingGroup_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserFollowingGroup",
+		FullMethod: "/common.TeamsAPI/UserFollowingGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserFollowingGroup(ctx, req.(*UserFollowingGroupRequest))
@@ -1002,7 +1002,7 @@ func _TeamsAPI_UserUpdate_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UserUpdate",
+		FullMethod: "/common.TeamsAPI/UserUpdate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserUpdate(ctx, req.(*UserUpdateRequest))
@@ -1020,7 +1020,7 @@ func _TeamsAPI_FetchUserActives_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/FetchUserActives",
+		FullMethod: "/common.TeamsAPI/FetchUserActives",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).FetchUserActives(ctx, req.(*FetchUserActivesRequest))
@@ -1038,7 +1038,7 @@ func _TeamsAPI_SearchUser_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/SearchUser",
+		FullMethod: "/common.TeamsAPI/SearchUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).SearchUser(ctx, req.(*SearchUserRequest))
@@ -1056,7 +1056,7 @@ func _TeamsAPI_CreateGroup_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/CreateGroup",
+		FullMethod: "/common.TeamsAPI/CreateGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).CreateGroup(ctx, req.(*CreateGroupReqeust))
@@ -1074,7 +1074,7 @@ func _TeamsAPI_GetGroup_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetGroup",
+		FullMethod: "/common.TeamsAPI/GetGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetGroup(ctx, req.(*GetGroupReqeust))
@@ -1092,7 +1092,7 @@ func _TeamsAPI_GetGroupActives_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetGroupActives",
+		FullMethod: "/common.TeamsAPI/GetGroupActives",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetGroupActives(ctx, req.(*GetGroupActivesRequest))
@@ -1110,7 +1110,7 @@ func _TeamsAPI_UpdateGroupInfo_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UpdateGroupInfo",
+		FullMethod: "/common.TeamsAPI/UpdateGroupInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateGroupInfo(ctx, req.(*UpdateGroupInfoRequest))
@@ -1128,7 +1128,7 @@ func _TeamsAPI_DeleteGroup_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/DeleteGroup",
+		FullMethod: "/common.TeamsAPI/DeleteGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).DeleteGroup(ctx, req.(*DeleteGroupRequest))
@@ -1146,7 +1146,7 @@ func _TeamsAPI_FetchGroupMembers_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/FetchGroupMembers",
+		FullMethod: "/common.TeamsAPI/FetchGroupMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).FetchGroupMembers(ctx, req.(*FetchGroupMembersRequest))
@@ -1164,7 +1164,7 @@ func _TeamsAPI_SearchGroup_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/SearchGroup",
+		FullMethod: "/common.TeamsAPI/SearchGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).SearchGroup(ctx, req.(*SearchGroupReqeust))
@@ -1182,7 +1182,7 @@ func _TeamsAPI_FetchGroupProjects_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/FetchGroupProjects",
+		FullMethod: "/common.TeamsAPI/FetchGroupProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).FetchGroupProjects(ctx, req.(*FetchGroupProjectsReqeust))
@@ -1200,7 +1200,7 @@ func _TeamsAPI_JoinGroup_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/JoinGroup",
+		FullMethod: "/common.TeamsAPI/JoinGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).JoinGroup(ctx, req.(*JoinGroupRequest))
@@ -1218,7 +1218,7 @@ func _TeamsAPI_LeaveGroup_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/LeaveGroup",
+		FullMethod: "/common.TeamsAPI/LeaveGroup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).LeaveGroup(ctx, req.(*LeaveGroupRequest))
@@ -1236,7 +1236,7 @@ func _TeamsAPI_GetProjectInfo_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetProjectInfo",
+		FullMethod: "/common.TeamsAPI/GetProjectInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetProjectInfo(ctx, req.(*GetProjectRequest))
@@ -1254,7 +1254,7 @@ func _TeamsAPI_GetProjectList_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetProjectList",
+		FullMethod: "/common.TeamsAPI/GetProjectList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetProjectList(ctx, req.(*GetProjectListRequest))
@@ -1272,7 +1272,7 @@ func _TeamsAPI_CreateProject_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/CreateProject",
+		FullMethod: "/common.TeamsAPI/CreateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).CreateProject(ctx, req.(*CreateProjectRequest))
@@ -1290,7 +1290,7 @@ func _TeamsAPI_UpdateProject_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UpdateProject",
+		FullMethod: "/common.TeamsAPI/UpdateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateProject(ctx, req.(*UpdateProjectRequest))
@@ -1308,7 +1308,7 @@ func _TeamsAPI_DeleteProject_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/DeleteProject",
+		FullMethod: "/common.TeamsAPI/DeleteProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).DeleteProject(ctx, req.(*DeleteProjectRequest))
@@ -1326,7 +1326,7 @@ func _TeamsAPI_GetProjectProfile_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetProjectProfile",
+		FullMethod: "/common.TeamsAPI/GetProjectProfile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetProjectProfile(ctx, req.(*GetProjectProfileRequest))
@@ -1344,7 +1344,7 @@ func _TeamsAPI_UpdateProjectProfile_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UpdateProjectProfile",
+		FullMethod: "/common.TeamsAPI/UpdateProjectProfile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateProjectProfile(ctx, req.(*UpdateProjectProfileRequest))
@@ -1362,7 +1362,7 @@ func _TeamsAPI_WatchProject_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/WatchProject",
+		FullMethod: "/common.TeamsAPI/WatchProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).WatchProject(ctx, req.(*WatchProjectReqeust))
@@ -1380,7 +1380,7 @@ func _TeamsAPI_UnWatchProject_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UnWatchProject",
+		FullMethod: "/common.TeamsAPI/UnWatchProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UnWatchProject(ctx, req.(*UnWatchProjectReqeust))
@@ -1398,7 +1398,7 @@ func _TeamsAPI_SearchGroupProject_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/SearchGroupProject",
+		FullMethod: "/common.TeamsAPI/SearchGroupProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).SearchGroupProject(ctx, req.(*SearchProjectRequest))
@@ -1416,7 +1416,7 @@ func _TeamsAPI_SearchProject_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/SearchProject",
+		FullMethod: "/common.TeamsAPI/SearchProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).SearchProject(ctx, req.(*SearchAllProjectRequest))
@@ -1434,7 +1434,7 @@ func _TeamsAPI_ExploreProject_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/ExploreProject",
+		FullMethod: "/common.TeamsAPI/ExploreProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).ExploreProject(ctx, req.(*ExploreProjectsRequest))
@@ -1452,7 +1452,7 @@ func _TeamsAPI_GetProjectItems_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetProjectItems",
+		FullMethod: "/common.TeamsAPI/GetProjectItems",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetProjectItems(ctx, req.(*GetProjectItemsRequest))
@@ -1470,7 +1470,7 @@ func _TeamsAPI_GetGroupItems_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetGroupItems",
+		FullMethod: "/common.TeamsAPI/GetGroupItems",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetGroupItems(ctx, req.(*GetGroupItemsRequest))
@@ -1488,7 +1488,7 @@ func _TeamsAPI_GetUserItems_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetUserItems",
+		FullMethod: "/common.TeamsAPI/GetUserItems",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetUserItems(ctx, req.(*GetUserItemsRequest))
@@ -1506,7 +1506,7 @@ func _TeamsAPI_GetItem_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetItem",
+		FullMethod: "/common.TeamsAPI/GetItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetItem(ctx, req.(*GetItemRequest))
@@ -1524,7 +1524,7 @@ func _TeamsAPI_CreateItem_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/CreateItem",
+		FullMethod: "/common.TeamsAPI/CreateItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).CreateItem(ctx, req.(*CreateItemRequest))
@@ -1542,7 +1542,7 @@ func _TeamsAPI_UpdateItem_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/UpdateItem",
+		FullMethod: "/common.TeamsAPI/UpdateItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateItem(ctx, req.(*UpdateItemRequest))
@@ -1560,7 +1560,7 @@ func _TeamsAPI_DeleteItem_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/DeleteItem",
+		FullMethod: "/common.TeamsAPI/DeleteItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).DeleteItem(ctx, req.(*DeleteItemRequest))
@@ -1578,7 +1578,7 @@ func _TeamsAPI_LikeItem_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/LikeItem",
+		FullMethod: "/common.TeamsAPI/LikeItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).LikeItem(ctx, req.(*LikeItemRequest))
@@ -1596,7 +1596,7 @@ func _TeamsAPI_CreateComment_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/CreateComment",
+		FullMethod: "/common.TeamsAPI/CreateComment",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).CreateComment(ctx, req.(*CreateCommentReq))
@@ -1614,7 +1614,7 @@ func _TeamsAPI_GetItemComment_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/common.apis.TeamsAPI/GetItemComment",
+		FullMethod: "/common.TeamsAPI/GetItemComment",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetItemComment(ctx, req.(*GetItemCommentReq))
@@ -1626,7 +1626,7 @@ func _TeamsAPI_GetItemComment_Handler(srv interface{}, ctx context.Context, dec 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.apis.TeamsAPI",
+	ServiceName: "common.TeamsAPI",
 	HandlerType: (*TeamsAPIServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

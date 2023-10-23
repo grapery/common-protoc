@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/grapery/common/apis/gen
+    default: github.com/grapery/common-protoc/gen
 plugins:
   - plugin: buf.build/protocolbuffers/go
     out: gen
