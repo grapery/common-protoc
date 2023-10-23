@@ -1,12 +1,6 @@
 syntax = "proto3";
 
-import "google/api/annotations.proto";
-import "google/protobuf/timestamp.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
-import "protoc-gen-openapiv2/options/openapiv2.proto";
-
-option go_package = "github.com/grapery/grapery/api";
-package grapery.api;
+package common.apis;
 
 enum LikeType {
   Browser = 0;

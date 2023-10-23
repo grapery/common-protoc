@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "github.com/grapery/grapery/common-protoc/comment.proto",
+    "title": "view_model.proto",
     "version": "version not set"
   },
   "consumes": [

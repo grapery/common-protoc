@@ -1,0 +1,2171 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: TeamsAPI API
+    version: 0.0.1
+paths:
+    /api/v1/about:
+        get:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_About
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/AboutResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/explore:
+        get:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Explore
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ExploreResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateGroupReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/actives:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetGroupActives
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetGroupActivesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetGroupActivesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetGroupReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/members:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_FetchGroupMembers
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchGroupMembersRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchGroupMembersResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/add:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/list:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectList
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectListResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/profile:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectProfileResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/profile/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateProjectProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateProjectProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateProjectProfileResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/remove:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_DeleteProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/unwatch:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UnWatchProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnWatchProjectReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnWatchProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/watch:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_WatchProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/WatchProjectReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/WatchProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/projects/search:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_SearchGroupProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/remove:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_DeleteGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteGroupRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateGroupInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateGroupInfoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateGroupInfoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/items:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetGroupItems
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetGroupItemsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetGroupItemsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/join:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_JoinGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/JoinGroupRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/JoinGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/leave:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_LeaveGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LeaveGroupRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LeaveGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/info/items:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectItems
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectItemsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectItemsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/add:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateItemResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/comment/add:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateCommentReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateCommentResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/comment/list:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetItemComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetItemCommentReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetItemCommentResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetItemResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/like:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_LikeItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LikeItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LikeItemResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/remove:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_DeleteItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteItemResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/project/item/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateItem
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateItemRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateItemResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/projects:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_FetchGroupProjects
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchGroupProjectsReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchGroupProjectsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/search:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_SearchGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchGroupReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/login:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Login
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LoginRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LoginResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/logout:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Logout
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LogoutRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LogoutResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/projects/explore:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_ExploreProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ExploreProjectsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ExploreProjectsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/projects/search:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_SearchProject
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchAllProjectRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchAllProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/register:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Register
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RegisterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RegisterResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/reset/pwd:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_ResetPwd
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ResetPasswordRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ResetPasswordResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/trending:
+        get:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Trending
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TrendingResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/actives:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_FetchUserActives
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchUserActivesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchUserActivesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserInfoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserInfoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info/avator:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateUserAvator
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateUserAvatorRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateUserAvatorResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info/groups:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserGroupRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info/groups/following:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserFollowingGroup
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserFollowingGroupRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserFollowingGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserUpdate
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserUpdateRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserUpdateResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/info/watching:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserWatching
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserWatchingRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserWatchingResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/init:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserInit
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserInitRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserInitResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/user/items:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetUserItems
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserItemsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserItemsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/users/search:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_SearchUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/version:
+        get:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_Version
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/VersionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        AboutResponse:
+            type: object
+            properties:
+                content:
+                    type: string
+        ActiveInfo:
+            type: object
+            properties:
+                user:
+                    $ref: '#/components/schemas/UserInfo'
+                activeType:
+                    type: integer
+                    format: enum
+                itemInfo:
+                    $ref: '#/components/schemas/ItemInfo'
+                projectInfo:
+                    $ref: '#/components/schemas/ProjectInfo'
+                groupInfo:
+                    $ref: '#/components/schemas/GroupInfo'
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        CreateCommentReq:
+            type: object
+            properties:
+                groupId:
+                    type: integer
+                    format: int32
+                itemId:
+                    type: integer
+                    format: int32
+        CreateCommentResp:
+            type: object
+            properties: {}
+        CreateGroupReqeust:
+            type: object
+            properties:
+                userId:
+                    type: string
+                name:
+                    type: string
+        CreateGroupResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/GroupInfo'
+        CreateItemRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                name:
+                    type: string
+                atype:
+                    type: integer
+                    format: enum
+                userId:
+                    type: string
+        CreateItemResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ItemInfo'
+        CreateProjectRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                name:
+                    type: string
+        CreateProjectResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ProjectInfo'
+        DeleteGroupRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+        DeleteGroupResponse:
+            type: object
+            properties: {}
+        DeleteItemRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                itemId:
+                    type: string
+                userId:
+                    type: string
+        DeleteItemResponse:
+            type: object
+            properties: {}
+        DeleteProjectRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+        DeleteProjectResponse:
+            type: object
+            properties: {}
+        ExploreProjectsRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                groupId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        ExploreProjectsResponse:
+            type: object
+            properties:
+                userId:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        ExploreResponse:
+            type: object
+            properties: {}
+        FetchGroupMembersRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        FetchGroupMembersResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+                offset:
+                    type: string
+                total:
+                    type: string
+        FetchGroupProjectsReqeust:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        FetchGroupProjectsResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        FetchUserActivesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                atype:
+                    type: integer
+                    format: enum
+        FetchUserActivesResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ActiveInfo'
+        GetGroupActivesRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                atype:
+                    type: integer
+                    format: enum
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetGroupActivesResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ActiveInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetGroupItemsRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetGroupItemsResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ItemInfo'
+                groupId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetGroupReqeust:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+                name:
+                    type: string
+        GetGroupResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/GroupInfo'
+        GetItemCommentReq:
+            type: object
+            properties:
+                groupId:
+                    type: integer
+                    format: int32
+                itemId:
+                    type: integer
+                    format: int32
+        GetItemCommentResp:
+            type: object
+            properties: {}
+        GetItemRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                itemId:
+                    type: string
+                userId:
+                    type: string
+        GetItemResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ItemInfo'
+        GetProjectItemsRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetProjectItemsResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ItemInfo'
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetProjectListRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetProjectListResponse:
+            type: object
+            properties:
+                List:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetProjectProfileRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+        GetProjectProfileResponse:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/ProjectProfileInfo'
+        GetProjectRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+        GetProjectResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ProjectInfo'
+        GetUserItemsRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GetUserItemsResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ItemInfo'
+                userId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        GroupInfo:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                desc:
+                    type: string
+                creator:
+                    $ref: '#/components/schemas/UserInfo'
+                owner:
+                    $ref: '#/components/schemas/UserInfo'
+                tags:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Tags'
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        ItemDetail:
+            type: object
+            properties:
+                word:
+                    $ref: '#/components/schemas/WordDetail'
+                pictures:
+                    $ref: '#/components/schemas/PictureDetail'
+                video:
+                    $ref: '#/components/schemas/VideoDetail'
+                music:
+                    $ref: '#/components/schemas/MusicShareDetail'
+                voice:
+                    $ref: '#/components/schemas/VoiceDetail'
+                share:
+                    $ref: '#/components/schemas/ShareDetail'
+        ItemInfo:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                title:
+                    type: string
+                content:
+                    $ref: '#/components/schemas/ItemDetail'
+                itype:
+                    type: integer
+                    format: enum
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        JoinGroupRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+        JoinGroupResponse:
+            type: object
+            properties: {}
+        LeaveGroupRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+        LeaveGroupResponse:
+            type: object
+            properties: {}
+        LikeItemRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                itemId:
+                    type: string
+                userId:
+                    type: string
+                islike:
+                    type: boolean
+        LikeItemResponse:
+            type: object
+            properties: {}
+        LoginRequest:
+            type: object
+            properties:
+                account:
+                    type: string
+                password:
+                    type: string
+        LoginResponse:
+            type: object
+            properties:
+                userId:
+                    type: string
+                token:
+                    type: string
+        LogoutRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                token:
+                    type: string
+        LogoutResponse:
+            type: object
+            properties: {}
+        MusicShareDetail:
+            type: object
+            properties:
+                resourceUrl:
+                    type: string
+                source:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        PictureDetail:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/PictureInfo'
+                num:
+                    type: string
+        PictureInfo:
+            type: object
+            properties:
+                resourceUrl:
+                    type: string
+                size:
+                    type: string
+        ProjectInfo:
+            type: object
+            properties:
+                projectId:
+                    type: string
+                groupId:
+                    type: integer
+                    format: uint32
+                name:
+                    type: string
+                avatar:
+                    type: string
+                creator:
+                    $ref: '#/components/schemas/UserInfo'
+                owner:
+                    $ref: '#/components/schemas/UserInfo'
+                tags:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Tags'
+                visable:
+                    type: integer
+                    format: enum
+                isAchieve:
+                    type: boolean
+                isClose:
+                    type: boolean
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        ProjectProfileInfo:
+            type: object
+            properties:
+                projectId:
+                    type: string
+                groupId:
+                    type: integer
+                    format: uint32
+                Description:
+                    type: string
+                WatchingCount:
+                    type: string
+                InvolvedCount:
+                    type: string
+                Avatar:
+                    type: string
+                visable:
+                    type: integer
+                    format: enum
+                isAchieve:
+                    type: boolean
+                isClose:
+                    type: boolean
+                isPrivate:
+                    type: boolean
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        RegisterRequest:
+            type: object
+            properties:
+                account:
+                    type: string
+                password:
+                    type: string
+                name:
+                    type: string
+        RegisterResponse:
+            type: object
+            properties:
+                status:
+                    type: integer
+                    format: int32
+        ResetPasswordRequest:
+            type: object
+            properties:
+                account:
+                    type: string
+                oldPwd:
+                    type: string
+                newPwd:
+                    type: string
+        ResetPasswordResponse:
+            type: object
+            properties:
+                account:
+                    type: string
+                status:
+                    type: string
+        SearchAllProjectRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                name:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchAllProjectResponse:
+            type: object
+            properties:
+                userId:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchGroupReqeust:
+            type: object
+            properties:
+                name:
+                    type: string
+        SearchGroupResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GroupInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchProjectRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                name:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchProjectResponse:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchUserRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                groupId:
+                    type: string
+                offset:
+                    type: string
+                number:
+                    type: string
+        SearchUserResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        ShareDetail:
+            type: object
+            properties:
+                resourceUrl:
+                    type: string
+                source:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        Tags:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                creatorID:
+                    type: string
+                name:
+                    type: string
+        TrendingResponse:
+            type: object
+            properties: {}
+        UnWatchProjectReqeust:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+        UnWatchProjectResponse:
+            type: object
+            properties: {}
+        UpdateGroupInfoRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/GroupInfo'
+        UpdateGroupInfoResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/GroupInfo'
+        UpdateItemRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                itemId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/ItemInfo'
+                userId:
+                    type: string
+        UpdateItemResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ItemInfo'
+        UpdateProjectProfileRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/ProjectProfileInfo'
+        UpdateProjectProfileResponse:
+            type: object
+            properties: {}
+        UpdateProjectRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/ProjectInfo'
+        UpdateProjectResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/ProjectInfo'
+        UpdateUserAvatorRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                avatar:
+                    type: string
+        UpdateUserAvatorResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/UserInfo'
+        UserFollowingGroupRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+        UserFollowingGroupResponse:
+            type: object
+            properties:
+                userId:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GroupInfo'
+                offset:
+                    type: string
+                number:
+                    type: string
+        UserGroupRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+        UserGroupResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GroupInfo'
+        UserInfo:
+            type: object
+            properties:
+                userId:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                email:
+                    type: string
+                location:
+                    type: string
+                desc:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        UserInfoRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                account:
+                    type: string
+            description: user ,group .project.item
+        UserInfoResponse:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/UserInfo'
+        UserInitRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+        UserInitResponse:
+            type: object
+            properties:
+                userId:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GroupInfo'
+        UserUpdateRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                nickname:
+                    type: string
+                avatar:
+                    type: string
+                desc:
+                    type: string
+        UserUpdateResponse:
+            type: object
+            properties: {}
+        UserWatchingRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+        UserWatchingResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
+        VersionResponse:
+            type: object
+            properties:
+                version:
+                    type: string
+        VideoDetail:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/VideoInfo'
+                num:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        VideoInfo:
+            type: object
+            properties:
+                resourceUrl:
+                    type: string
+                size:
+                    type: string
+                timeLength:
+                    type: string
+        VoiceDetail:
+            type: object
+            properties:
+                resourceUrl:
+                    type: string
+                size:
+                    type: string
+                timeLength:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        WatchProjectReqeust:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                projectId:
+                    type: string
+                userId:
+                    type: string
+        WatchProjectResponse:
+            type: object
+            properties: {}
+        WordDetail:
+            type: object
+            properties:
+                content:
+                    type: string
+                length:
+                    type: string
+tags:
+    - name: TeamsAPI

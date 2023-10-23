@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "github.com/grapery/grapery/common-protoc/service.proto",
+    "title": "service.proto",
     "version": "version not set"
   },
   "tags": [
@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiAboutResponse"
+              "$ref": "#/definitions/apisAboutResponse"
             }
           },
           "default": {
@@ -45,7 +45,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiExploreResponse"
+              "$ref": "#/definitions/apisExploreResponse"
             }
           },
           "default": {
@@ -67,7 +67,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiCreateGroupResponse"
+              "$ref": "#/definitions/apisCreateGroupResponse"
             }
           },
           "default": {
@@ -83,7 +83,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiCreateGroupReqeust"
+              "$ref": "#/definitions/apisCreateGroupReqeust"
             }
           }
         ],
@@ -99,7 +99,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetGroupActivesResponse"
+              "$ref": "#/definitions/apisGetGroupActivesResponse"
             }
           },
           "default": {
@@ -115,7 +115,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetGroupActivesRequest"
+              "$ref": "#/definitions/apisGetGroupActivesRequest"
             }
           }
         ],
@@ -131,7 +131,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetGroupResponse"
+              "$ref": "#/definitions/apisGetGroupResponse"
             }
           },
           "default": {
@@ -147,7 +147,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetGroupReqeust"
+              "$ref": "#/definitions/apisGetGroupReqeust"
             }
           }
         ],
@@ -163,7 +163,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiFetchGroupMembersResponse"
+              "$ref": "#/definitions/apisFetchGroupMembersResponse"
             }
           },
           "default": {
@@ -179,7 +179,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiFetchGroupMembersRequest"
+              "$ref": "#/definitions/apisFetchGroupMembersRequest"
             }
           }
         ],
@@ -195,7 +195,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiCreateProjectResponse"
+              "$ref": "#/definitions/apisCreateProjectResponse"
             }
           },
           "default": {
@@ -211,7 +211,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiCreateProjectRequest"
+              "$ref": "#/definitions/apisCreateProjectRequest"
             }
           }
         ],
@@ -227,7 +227,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetProjectResponse"
+              "$ref": "#/definitions/apisGetProjectResponse"
             }
           },
           "default": {
@@ -243,7 +243,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetProjectRequest"
+              "$ref": "#/definitions/apisGetProjectRequest"
             }
           }
         ],
@@ -259,7 +259,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetProjectListResponse"
+              "$ref": "#/definitions/apisGetProjectListResponse"
             }
           },
           "default": {
@@ -275,7 +275,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetProjectListRequest"
+              "$ref": "#/definitions/apisGetProjectListRequest"
             }
           }
         ],
@@ -291,7 +291,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetProjectProfileResponse"
+              "$ref": "#/definitions/apisGetProjectProfileResponse"
             }
           },
           "default": {
@@ -307,7 +307,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetProjectProfileRequest"
+              "$ref": "#/definitions/apisGetProjectProfileRequest"
             }
           }
         ],
@@ -323,7 +323,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileResponse"
+              "$ref": "#/definitions/apisUpdateProjectProfileResponse"
             }
           },
           "default": {
@@ -339,7 +339,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectProfileRequest"
+              "$ref": "#/definitions/apisUpdateProjectProfileRequest"
             }
           }
         ],
@@ -355,7 +355,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiDeleteProjectResponse"
+              "$ref": "#/definitions/apisDeleteProjectResponse"
             }
           },
           "default": {
@@ -371,7 +371,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiDeleteProjectRequest"
+              "$ref": "#/definitions/apisDeleteProjectRequest"
             }
           }
         ],
@@ -387,7 +387,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUnWatchProjectResponse"
+              "$ref": "#/definitions/apisUnWatchProjectResponse"
             }
           },
           "default": {
@@ -403,7 +403,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUnWatchProjectReqeust"
+              "$ref": "#/definitions/apisUnWatchProjectReqeust"
             }
           }
         ],
@@ -419,7 +419,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectResponse"
+              "$ref": "#/definitions/apisUpdateProjectResponse"
             }
           },
           "default": {
@@ -435,7 +435,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateProjectRequest"
+              "$ref": "#/definitions/apisUpdateProjectRequest"
             }
           }
         ],
@@ -451,7 +451,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiWatchProjectResponse"
+              "$ref": "#/definitions/apisWatchProjectResponse"
             }
           },
           "default": {
@@ -467,7 +467,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiWatchProjectReqeust"
+              "$ref": "#/definitions/apisWatchProjectReqeust"
             }
           }
         ],
@@ -483,7 +483,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiSearchProjectResponse"
+              "$ref": "#/definitions/apisSearchProjectResponse"
             }
           },
           "default": {
@@ -499,7 +499,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiSearchProjectRequest"
+              "$ref": "#/definitions/apisSearchProjectRequest"
             }
           }
         ],
@@ -515,7 +515,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiDeleteGroupResponse"
+              "$ref": "#/definitions/apisDeleteGroupResponse"
             }
           },
           "default": {
@@ -531,7 +531,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiDeleteGroupRequest"
+              "$ref": "#/definitions/apisDeleteGroupRequest"
             }
           }
         ],
@@ -547,7 +547,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateGroupInfoResponse"
+              "$ref": "#/definitions/apisUpdateGroupInfoResponse"
             }
           },
           "default": {
@@ -563,7 +563,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateGroupInfoRequest"
+              "$ref": "#/definitions/apisUpdateGroupInfoRequest"
             }
           }
         ],
@@ -579,7 +579,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetGroupItemsResponse"
+              "$ref": "#/definitions/apisGetGroupItemsResponse"
             }
           },
           "default": {
@@ -595,7 +595,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetGroupItemsRequest"
+              "$ref": "#/definitions/apisGetGroupItemsRequest"
             }
           }
         ],
@@ -611,7 +611,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiJoinGroupResponse"
+              "$ref": "#/definitions/apisJoinGroupResponse"
             }
           },
           "default": {
@@ -627,7 +627,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiJoinGroupRequest"
+              "$ref": "#/definitions/apisJoinGroupRequest"
             }
           }
         ],
@@ -643,7 +643,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiLeaveGroupResponse"
+              "$ref": "#/definitions/apisLeaveGroupResponse"
             }
           },
           "default": {
@@ -659,7 +659,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiLeaveGroupRequest"
+              "$ref": "#/definitions/apisLeaveGroupRequest"
             }
           }
         ],
@@ -675,7 +675,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetProjectItemsResponse"
+              "$ref": "#/definitions/apisGetProjectItemsResponse"
             }
           },
           "default": {
@@ -691,7 +691,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetProjectItemsRequest"
+              "$ref": "#/definitions/apisGetProjectItemsRequest"
             }
           }
         ],
@@ -707,7 +707,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiCreateItemResponse"
+              "$ref": "#/definitions/apisCreateItemResponse"
             }
           },
           "default": {
@@ -723,7 +723,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiCreateItemRequest"
+              "$ref": "#/definitions/apisCreateItemRequest"
             }
           }
         ],
@@ -739,7 +739,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiCreateCommentResp"
+              "$ref": "#/definitions/apisCreateCommentResp"
             }
           },
           "default": {
@@ -755,7 +755,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiCreateCommentReq"
+              "$ref": "#/definitions/apisCreateCommentReq"
             }
           }
         ],
@@ -771,7 +771,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetItemCommentResp"
+              "$ref": "#/definitions/apisGetItemCommentResp"
             }
           },
           "default": {
@@ -787,7 +787,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetItemCommentReq"
+              "$ref": "#/definitions/apisGetItemCommentReq"
             }
           }
         ],
@@ -803,7 +803,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetItemResponse"
+              "$ref": "#/definitions/apisGetItemResponse"
             }
           },
           "default": {
@@ -819,7 +819,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetItemRequest"
+              "$ref": "#/definitions/apisGetItemRequest"
             }
           }
         ],
@@ -835,7 +835,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiLikeItemResponse"
+              "$ref": "#/definitions/apisLikeItemResponse"
             }
           },
           "default": {
@@ -851,7 +851,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiLikeItemRequest"
+              "$ref": "#/definitions/apisLikeItemRequest"
             }
           }
         ],
@@ -867,7 +867,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiDeleteItemResponse"
+              "$ref": "#/definitions/apisDeleteItemResponse"
             }
           },
           "default": {
@@ -883,7 +883,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiDeleteItemRequest"
+              "$ref": "#/definitions/apisDeleteItemRequest"
             }
           }
         ],
@@ -899,7 +899,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateItemResponse"
+              "$ref": "#/definitions/apisUpdateItemResponse"
             }
           },
           "default": {
@@ -915,7 +915,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateItemRequest"
+              "$ref": "#/definitions/apisUpdateItemRequest"
             }
           }
         ],
@@ -931,7 +931,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiFetchGroupProjectsResponse"
+              "$ref": "#/definitions/apisFetchGroupProjectsResponse"
             }
           },
           "default": {
@@ -947,7 +947,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiFetchGroupProjectsReqeust"
+              "$ref": "#/definitions/apisFetchGroupProjectsReqeust"
             }
           }
         ],
@@ -963,7 +963,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiSearchGroupResponse"
+              "$ref": "#/definitions/apisSearchGroupResponse"
             }
           },
           "default": {
@@ -979,7 +979,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiSearchGroupReqeust"
+              "$ref": "#/definitions/apisSearchGroupReqeust"
             }
           }
         ],
@@ -995,7 +995,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiLoginResponse"
+              "$ref": "#/definitions/apisLoginResponse"
             }
           },
           "default": {
@@ -1011,7 +1011,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiLoginRequest"
+              "$ref": "#/definitions/apisLoginRequest"
             }
           }
         ],
@@ -1027,7 +1027,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiLogoutResponse"
+              "$ref": "#/definitions/apisLogoutResponse"
             }
           },
           "default": {
@@ -1043,7 +1043,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiLogoutRequest"
+              "$ref": "#/definitions/apisLogoutRequest"
             }
           }
         ],
@@ -1059,7 +1059,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiExploreProjectsResponse"
+              "$ref": "#/definitions/apisExploreProjectsResponse"
             }
           },
           "default": {
@@ -1075,7 +1075,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiExploreProjectsRequest"
+              "$ref": "#/definitions/apisExploreProjectsRequest"
             }
           }
         ],
@@ -1091,7 +1091,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiSearchAllProjectResponse"
+              "$ref": "#/definitions/apisSearchAllProjectResponse"
             }
           },
           "default": {
@@ -1107,7 +1107,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiSearchAllProjectRequest"
+              "$ref": "#/definitions/apisSearchAllProjectRequest"
             }
           }
         ],
@@ -1123,7 +1123,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiRegisterResponse"
+              "$ref": "#/definitions/apisRegisterResponse"
             }
           },
           "default": {
@@ -1139,7 +1139,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiRegisterRequest"
+              "$ref": "#/definitions/apisRegisterRequest"
             }
           }
         ],
@@ -1155,7 +1155,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiResetPasswordResponse"
+              "$ref": "#/definitions/apisResetPasswordResponse"
             }
           },
           "default": {
@@ -1171,7 +1171,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiResetPasswordRequest"
+              "$ref": "#/definitions/apisResetPasswordRequest"
             }
           }
         ],
@@ -1187,7 +1187,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiTrendingResponse"
+              "$ref": "#/definitions/apisTrendingResponse"
             }
           },
           "default": {
@@ -1209,7 +1209,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiFetchUserActivesResponse"
+              "$ref": "#/definitions/apisFetchUserActivesResponse"
             }
           },
           "default": {
@@ -1225,7 +1225,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiFetchUserActivesRequest"
+              "$ref": "#/definitions/apisFetchUserActivesRequest"
             }
           }
         ],
@@ -1241,7 +1241,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserInfoResponse"
+              "$ref": "#/definitions/apisUserInfoResponse"
             }
           },
           "default": {
@@ -1257,7 +1257,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserInfoRequest"
+              "$ref": "#/definitions/apisUserInfoRequest"
             }
           }
         ],
@@ -1273,7 +1273,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUpdateUserAvatorResponse"
+              "$ref": "#/definitions/apisUpdateUserAvatorResponse"
             }
           },
           "default": {
@@ -1289,7 +1289,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUpdateUserAvatorRequest"
+              "$ref": "#/definitions/apisUpdateUserAvatorRequest"
             }
           }
         ],
@@ -1305,7 +1305,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserGroupResponse"
+              "$ref": "#/definitions/apisUserGroupResponse"
             }
           },
           "default": {
@@ -1321,7 +1321,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserGroupRequest"
+              "$ref": "#/definitions/apisUserGroupRequest"
             }
           }
         ],
@@ -1337,7 +1337,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserFollowingGroupResponse"
+              "$ref": "#/definitions/apisUserFollowingGroupResponse"
             }
           },
           "default": {
@@ -1353,7 +1353,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserFollowingGroupRequest"
+              "$ref": "#/definitions/apisUserFollowingGroupRequest"
             }
           }
         ],
@@ -1369,7 +1369,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserUpdateResponse"
+              "$ref": "#/definitions/apisUserUpdateResponse"
             }
           },
           "default": {
@@ -1385,7 +1385,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserUpdateRequest"
+              "$ref": "#/definitions/apisUserUpdateRequest"
             }
           }
         ],
@@ -1401,7 +1401,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserWatchingResponse"
+              "$ref": "#/definitions/apisUserWatchingResponse"
             }
           },
           "default": {
@@ -1417,7 +1417,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserWatchingRequest"
+              "$ref": "#/definitions/apisUserWatchingRequest"
             }
           }
         ],
@@ -1433,7 +1433,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiUserInitResponse"
+              "$ref": "#/definitions/apisUserInitResponse"
             }
           },
           "default": {
@@ -1449,7 +1449,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiUserInitRequest"
+              "$ref": "#/definitions/apisUserInitRequest"
             }
           }
         ],
@@ -1465,7 +1465,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiGetUserItemsResponse"
+              "$ref": "#/definitions/apisGetUserItemsResponse"
             }
           },
           "default": {
@@ -1481,7 +1481,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiGetUserItemsRequest"
+              "$ref": "#/definitions/apisGetUserItemsRequest"
             }
           }
         ],
@@ -1497,7 +1497,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiSearchUserResponse"
+              "$ref": "#/definitions/apisSearchUserResponse"
             }
           },
           "default": {
@@ -1513,7 +1513,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/apiSearchUserRequest"
+              "$ref": "#/definitions/apisSearchUserRequest"
             }
           }
         ],
@@ -1529,7 +1529,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/apiVersionResponse"
+              "$ref": "#/definitions/apisVersionResponse"
             }
           },
           "default": {
@@ -1546,7 +1546,7 @@
     }
   },
   "definitions": {
-    "apiAboutResponse": {
+    "apisAboutResponse": {
       "type": "object",
       "properties": {
         "content": {
@@ -1554,23 +1554,23 @@
         }
       }
     },
-    "apiActiveInfo": {
+    "apisActiveInfo": {
       "type": "object",
       "properties": {
         "user": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         },
         "activeType": {
-          "$ref": "#/definitions/apiActiveType"
+          "$ref": "#/definitions/apisActiveType"
         },
         "itemInfo": {
-          "$ref": "#/definitions/apiItemInfo"
+          "$ref": "#/definitions/apisItemInfo"
         },
         "projectInfo": {
-          "$ref": "#/definitions/apiProjectInfo"
+          "$ref": "#/definitions/apisProjectInfo"
         },
         "groupInfo": {
-          "$ref": "#/definitions/apiGroupInfo"
+          "$ref": "#/definitions/apisGroupInfo"
         },
         "Ctime": {
           "type": "string",
@@ -1582,7 +1582,7 @@
         }
       }
     },
-    "apiActiveType": {
+    "apisActiveType": {
       "type": "string",
       "enum": [
         "AllActive",
@@ -1594,7 +1594,7 @@
       ],
       "default": "AllActive"
     },
-    "apiCreateCommentReq": {
+    "apisCreateCommentReq": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1607,10 +1607,10 @@
         }
       }
     },
-    "apiCreateCommentResp": {
+    "apisCreateCommentResp": {
       "type": "object"
     },
-    "apiCreateGroupReqeust": {
+    "apisCreateGroupReqeust": {
       "type": "object",
       "properties": {
         "userId": {
@@ -1622,15 +1622,15 @@
         }
       }
     },
-    "apiCreateGroupResponse": {
+    "apisCreateGroupResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiGroupInfo"
+          "$ref": "#/definitions/apisGroupInfo"
         }
       }
     },
-    "apiCreateItemRequest": {
+    "apisCreateItemRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1645,7 +1645,7 @@
           "type": "string"
         },
         "atype": {
-          "$ref": "#/definitions/apiActiveType"
+          "$ref": "#/definitions/apisActiveType"
         },
         "userId": {
           "type": "string",
@@ -1653,15 +1653,15 @@
         }
       }
     },
-    "apiCreateItemResponse": {
+    "apisCreateItemResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiItemInfo"
+          "$ref": "#/definitions/apisItemInfo"
         }
       }
     },
-    "apiCreateProjectRequest": {
+    "apisCreateProjectRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1673,15 +1673,15 @@
         }
       }
     },
-    "apiCreateProjectResponse": {
+    "apisCreateProjectResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiProjectInfo"
+          "$ref": "#/definitions/apisProjectInfo"
         }
       }
     },
-    "apiDeleteGroupRequest": {
+    "apisDeleteGroupRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1694,10 +1694,10 @@
         }
       }
     },
-    "apiDeleteGroupResponse": {
+    "apisDeleteGroupResponse": {
       "type": "object"
     },
-    "apiDeleteItemRequest": {
+    "apisDeleteItemRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1718,10 +1718,10 @@
         }
       }
     },
-    "apiDeleteItemResponse": {
+    "apisDeleteItemResponse": {
       "type": "object"
     },
-    "apiDeleteProjectRequest": {
+    "apisDeleteProjectRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1738,10 +1738,10 @@
         }
       }
     },
-    "apiDeleteProjectResponse": {
+    "apisDeleteProjectResponse": {
       "type": "object"
     },
-    "apiExploreProjectsRequest": {
+    "apisExploreProjectsRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -1762,7 +1762,7 @@
         }
       }
     },
-    "apiExploreProjectsResponse": {
+    "apisExploreProjectsResponse": {
       "type": "object",
       "properties": {
         "userId": {
@@ -1773,7 +1773,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         },
         "offset": {
@@ -1786,10 +1786,10 @@
         }
       }
     },
-    "apiExploreResponse": {
+    "apisExploreResponse": {
       "type": "object"
     },
-    "apiFetchGroupMembersRequest": {
+    "apisFetchGroupMembersRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1806,14 +1806,14 @@
         }
       }
     },
-    "apiFetchGroupMembersResponse": {
+    "apisFetchGroupMembersResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiUserInfo"
+            "$ref": "#/definitions/apisUserInfo"
           }
         },
         "offset": {
@@ -1826,7 +1826,7 @@
         }
       }
     },
-    "apiFetchGroupProjectsReqeust": {
+    "apisFetchGroupProjectsReqeust": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1843,14 +1843,14 @@
         }
       }
     },
-    "apiFetchGroupProjectsResponse": {
+    "apisFetchGroupProjectsResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         },
         "offset": {
@@ -1863,7 +1863,7 @@
         }
       }
     },
-    "apiFetchUserActivesRequest": {
+    "apisFetchUserActivesRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -1871,23 +1871,23 @@
           "format": "uint64"
         },
         "atype": {
-          "$ref": "#/definitions/apiActiveType"
+          "$ref": "#/definitions/apisActiveType"
         }
       }
     },
-    "apiFetchUserActivesResponse": {
+    "apisFetchUserActivesResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiActiveInfo"
+            "$ref": "#/definitions/apisActiveInfo"
           }
         }
       }
     },
-    "apiGetGroupActivesRequest": {
+    "apisGetGroupActivesRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1895,7 +1895,7 @@
           "format": "uint64"
         },
         "atype": {
-          "$ref": "#/definitions/apiActiveType"
+          "$ref": "#/definitions/apisActiveType"
         },
         "offset": {
           "type": "string",
@@ -1907,14 +1907,14 @@
         }
       }
     },
-    "apiGetGroupActivesResponse": {
+    "apisGetGroupActivesResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiActiveInfo"
+            "$ref": "#/definitions/apisActiveInfo"
           }
         },
         "offset": {
@@ -1927,7 +1927,7 @@
         }
       }
     },
-    "apiGetGroupItemsRequest": {
+    "apisGetGroupItemsRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1948,14 +1948,14 @@
         }
       }
     },
-    "apiGetGroupItemsResponse": {
+    "apisGetGroupItemsResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiItemInfo"
+            "$ref": "#/definitions/apisItemInfo"
           }
         },
         "groupId": {
@@ -1976,7 +1976,7 @@
         }
       }
     },
-    "apiGetGroupReqeust": {
+    "apisGetGroupReqeust": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -1992,15 +1992,15 @@
         }
       }
     },
-    "apiGetGroupResponse": {
+    "apisGetGroupResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiGroupInfo"
+          "$ref": "#/definitions/apisGroupInfo"
         }
       }
     },
-    "apiGetItemCommentReq": {
+    "apisGetItemCommentReq": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2013,10 +2013,10 @@
         }
       }
     },
-    "apiGetItemCommentResp": {
+    "apisGetItemCommentResp": {
       "type": "object"
     },
-    "apiGetItemRequest": {
+    "apisGetItemRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2037,15 +2037,15 @@
         }
       }
     },
-    "apiGetItemResponse": {
+    "apisGetItemResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiItemInfo"
+          "$ref": "#/definitions/apisItemInfo"
         }
       }
     },
-    "apiGetProjectItemsRequest": {
+    "apisGetProjectItemsRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2070,14 +2070,14 @@
         }
       }
     },
-    "apiGetProjectItemsResponse": {
+    "apisGetProjectItemsResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiItemInfo"
+            "$ref": "#/definitions/apisItemInfo"
           }
         },
         "groupId": {
@@ -2102,7 +2102,7 @@
         }
       }
     },
-    "apiGetProjectListRequest": {
+    "apisGetProjectListRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2119,14 +2119,14 @@
         }
       }
     },
-    "apiGetProjectListResponse": {
+    "apisGetProjectListResponse": {
       "type": "object",
       "properties": {
         "List": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         },
         "offset": {
@@ -2139,7 +2139,7 @@
         }
       }
     },
-    "apiGetProjectProfileRequest": {
+    "apisGetProjectProfileRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2156,7 +2156,7 @@
         }
       }
     },
-    "apiGetProjectProfileResponse": {
+    "apisGetProjectProfileResponse": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2172,11 +2172,11 @@
           "format": "uint64"
         },
         "info": {
-          "$ref": "#/definitions/apiProjectProfileInfo"
+          "$ref": "#/definitions/apisProjectProfileInfo"
         }
       }
     },
-    "apiGetProjectRequest": {
+    "apisGetProjectRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2193,15 +2193,15 @@
         }
       }
     },
-    "apiGetProjectResponse": {
+    "apisGetProjectResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiProjectInfo"
+          "$ref": "#/definitions/apisProjectInfo"
         }
       }
     },
-    "apiGetUserItemsRequest": {
+    "apisGetUserItemsRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2218,14 +2218,14 @@
         }
       }
     },
-    "apiGetUserItemsResponse": {
+    "apisGetUserItemsResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiItemInfo"
+            "$ref": "#/definitions/apisItemInfo"
           }
         },
         "userId": {
@@ -2242,7 +2242,7 @@
         }
       }
     },
-    "apiGroupInfo": {
+    "apisGroupInfo": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2259,16 +2259,16 @@
           "type": "string"
         },
         "creator": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         },
         "owner": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         },
         "tags": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiTags"
+            "$ref": "#/definitions/apisTags"
           }
         },
         "Ctime": {
@@ -2281,30 +2281,30 @@
         }
       }
     },
-    "apiItemDetail": {
+    "apisItemDetail": {
       "type": "object",
       "properties": {
         "word": {
-          "$ref": "#/definitions/apiWordDetail"
+          "$ref": "#/definitions/apisWordDetail"
         },
         "pictures": {
-          "$ref": "#/definitions/apiPictureDetail"
+          "$ref": "#/definitions/apisPictureDetail"
         },
         "video": {
-          "$ref": "#/definitions/apiVideoDetail"
+          "$ref": "#/definitions/apisVideoDetail"
         },
         "music": {
-          "$ref": "#/definitions/apiMusicShareDetail"
+          "$ref": "#/definitions/apisMusicShareDetail"
         },
         "voice": {
-          "$ref": "#/definitions/apiVoiceDetail"
+          "$ref": "#/definitions/apisVoiceDetail"
         },
         "share": {
-          "$ref": "#/definitions/apiShareDetail"
+          "$ref": "#/definitions/apisShareDetail"
         }
       }
     },
-    "apiItemInfo": {
+    "apisItemInfo": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2323,10 +2323,10 @@
           "type": "string"
         },
         "content": {
-          "$ref": "#/definitions/apiItemDetail"
+          "$ref": "#/definitions/apisItemDetail"
         },
         "itype": {
-          "$ref": "#/definitions/apiItemType"
+          "$ref": "#/definitions/apisItemType"
         },
         "Ctime": {
           "type": "string",
@@ -2338,7 +2338,7 @@
         }
       }
     },
-    "apiItemType": {
+    "apisItemType": {
       "type": "string",
       "enum": [
         "AllItem",
@@ -2352,7 +2352,7 @@
       ],
       "default": "AllItem"
     },
-    "apiJoinGroupRequest": {
+    "apisJoinGroupRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2365,10 +2365,10 @@
         }
       }
     },
-    "apiJoinGroupResponse": {
+    "apisJoinGroupResponse": {
       "type": "object"
     },
-    "apiLeaveGroupRequest": {
+    "apisLeaveGroupRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2381,10 +2381,10 @@
         }
       }
     },
-    "apiLeaveGroupResponse": {
+    "apisLeaveGroupResponse": {
       "type": "object"
     },
-    "apiLikeItemRequest": {
+    "apisLikeItemRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2408,10 +2408,10 @@
         }
       }
     },
-    "apiLikeItemResponse": {
+    "apisLikeItemResponse": {
       "type": "object"
     },
-    "apiLoginRequest": {
+    "apisLoginRequest": {
       "type": "object",
       "properties": {
         "account": {
@@ -2422,7 +2422,7 @@
         }
       }
     },
-    "apiLoginResponse": {
+    "apisLoginResponse": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2434,7 +2434,7 @@
         }
       }
     },
-    "apiLogoutRequest": {
+    "apisLogoutRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2446,10 +2446,10 @@
         }
       }
     },
-    "apiLogoutResponse": {
+    "apisLogoutResponse": {
       "type": "object"
     },
-    "apiMusicShareDetail": {
+    "apisMusicShareDetail": {
       "type": "object",
       "properties": {
         "resourceUrl": {
@@ -2469,14 +2469,14 @@
         }
       }
     },
-    "apiPictureDetail": {
+    "apisPictureDetail": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiPictureInfo"
+            "$ref": "#/definitions/apisPictureInfo"
           }
         },
         "num": {
@@ -2485,7 +2485,7 @@
         }
       }
     },
-    "apiPictureInfo": {
+    "apisPictureInfo": {
       "type": "object",
       "properties": {
         "resourceUrl": {
@@ -2497,7 +2497,7 @@
         }
       }
     },
-    "apiProjectInfo": {
+    "apisProjectInfo": {
       "type": "object",
       "properties": {
         "projectId": {
@@ -2515,20 +2515,20 @@
           "type": "string"
         },
         "creator": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         },
         "owner": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         },
         "tags": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiTags"
+            "$ref": "#/definitions/apisTags"
           }
         },
         "visable": {
-          "$ref": "#/definitions/apiVisibleType"
+          "$ref": "#/definitions/apisVisibleType"
         },
         "isAchieve": {
           "type": "boolean"
@@ -2546,7 +2546,7 @@
         }
       }
     },
-    "apiProjectProfileInfo": {
+    "apisProjectProfileInfo": {
       "type": "object",
       "properties": {
         "projectId": {
@@ -2572,7 +2572,7 @@
           "type": "string"
         },
         "visable": {
-          "$ref": "#/definitions/apiVisibleType"
+          "$ref": "#/definitions/apisVisibleType"
         },
         "isAchieve": {
           "type": "boolean"
@@ -2593,7 +2593,7 @@
         }
       }
     },
-    "apiRegisterRequest": {
+    "apisRegisterRequest": {
       "type": "object",
       "properties": {
         "account": {
@@ -2607,7 +2607,7 @@
         }
       }
     },
-    "apiRegisterResponse": {
+    "apisRegisterResponse": {
       "type": "object",
       "properties": {
         "status": {
@@ -2616,7 +2616,7 @@
         }
       }
     },
-    "apiResetPasswordRequest": {
+    "apisResetPasswordRequest": {
       "type": "object",
       "properties": {
         "account": {
@@ -2630,7 +2630,7 @@
         }
       }
     },
-    "apiResetPasswordResponse": {
+    "apisResetPasswordResponse": {
       "type": "object",
       "properties": {
         "account": {
@@ -2642,7 +2642,7 @@
         }
       }
     },
-    "apiSearchAllProjectRequest": {
+    "apisSearchAllProjectRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2662,7 +2662,7 @@
         }
       }
     },
-    "apiSearchAllProjectResponse": {
+    "apisSearchAllProjectResponse": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2673,7 +2673,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         },
         "offset": {
@@ -2686,7 +2686,7 @@
         }
       }
     },
-    "apiSearchGroupReqeust": {
+    "apisSearchGroupReqeust": {
       "type": "object",
       "properties": {
         "name": {
@@ -2694,14 +2694,14 @@
         }
       }
     },
-    "apiSearchGroupResponse": {
+    "apisSearchGroupResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiGroupInfo"
+            "$ref": "#/definitions/apisGroupInfo"
           }
         },
         "offset": {
@@ -2714,7 +2714,7 @@
         }
       }
     },
-    "apiSearchProjectRequest": {
+    "apisSearchProjectRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2734,7 +2734,7 @@
         }
       }
     },
-    "apiSearchProjectResponse": {
+    "apisSearchProjectResponse": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2745,7 +2745,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         },
         "offset": {
@@ -2758,7 +2758,7 @@
         }
       }
     },
-    "apiSearchUserRequest": {
+    "apisSearchUserRequest": {
       "type": "object",
       "properties": {
         "name": {
@@ -2778,14 +2778,14 @@
         }
       }
     },
-    "apiSearchUserResponse": {
+    "apisSearchUserResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiUserInfo"
+            "$ref": "#/definitions/apisUserInfo"
           }
         },
         "offset": {
@@ -2798,7 +2798,7 @@
         }
       }
     },
-    "apiShareDetail": {
+    "apisShareDetail": {
       "type": "object",
       "properties": {
         "resourceUrl": {
@@ -2818,7 +2818,7 @@
         }
       }
     },
-    "apiTags": {
+    "apisTags": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2834,10 +2834,10 @@
         }
       }
     },
-    "apiTrendingResponse": {
+    "apisTrendingResponse": {
       "type": "object"
     },
-    "apiUnWatchProjectReqeust": {
+    "apisUnWatchProjectReqeust": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2854,10 +2854,10 @@
         }
       }
     },
-    "apiUnWatchProjectResponse": {
+    "apisUnWatchProjectResponse": {
       "type": "object"
     },
-    "apiUpdateGroupInfoRequest": {
+    "apisUpdateGroupInfoRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2865,19 +2865,19 @@
           "format": "uint64"
         },
         "info": {
-          "$ref": "#/definitions/apiGroupInfo"
+          "$ref": "#/definitions/apisGroupInfo"
         }
       }
     },
-    "apiUpdateGroupInfoResponse": {
+    "apisUpdateGroupInfoResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiGroupInfo"
+          "$ref": "#/definitions/apisGroupInfo"
         }
       }
     },
-    "apiUpdateItemRequest": {
+    "apisUpdateItemRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2893,7 +2893,7 @@
           "format": "uint64"
         },
         "info": {
-          "$ref": "#/definitions/apiItemInfo"
+          "$ref": "#/definitions/apisItemInfo"
         },
         "userId": {
           "type": "string",
@@ -2901,15 +2901,15 @@
         }
       }
     },
-    "apiUpdateItemResponse": {
+    "apisUpdateItemResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiItemInfo"
+          "$ref": "#/definitions/apisItemInfo"
         }
       }
     },
-    "apiUpdateProjectProfileRequest": {
+    "apisUpdateProjectProfileRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2925,14 +2925,14 @@
           "format": "uint64"
         },
         "info": {
-          "$ref": "#/definitions/apiProjectProfileInfo"
+          "$ref": "#/definitions/apisProjectProfileInfo"
         }
       }
     },
-    "apiUpdateProjectProfileResponse": {
+    "apisUpdateProjectProfileResponse": {
       "type": "object"
     },
-    "apiUpdateProjectRequest": {
+    "apisUpdateProjectRequest": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -2948,19 +2948,19 @@
           "format": "uint64"
         },
         "info": {
-          "$ref": "#/definitions/apiProjectInfo"
+          "$ref": "#/definitions/apisProjectInfo"
         }
       }
     },
-    "apiUpdateProjectResponse": {
+    "apisUpdateProjectResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiProjectInfo"
+          "$ref": "#/definitions/apisProjectInfo"
         }
       }
     },
-    "apiUpdateUserAvatorRequest": {
+    "apisUpdateUserAvatorRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2972,15 +2972,15 @@
         }
       }
     },
-    "apiUpdateUserAvatorResponse": {
+    "apisUpdateUserAvatorResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         }
       }
     },
-    "apiUserFollowingGroupRequest": {
+    "apisUserFollowingGroupRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -2989,7 +2989,7 @@
         }
       }
     },
-    "apiUserFollowingGroupResponse": {
+    "apisUserFollowingGroupResponse": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3000,7 +3000,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiGroupInfo"
+            "$ref": "#/definitions/apisGroupInfo"
           }
         },
         "offset": {
@@ -3013,7 +3013,7 @@
         }
       }
     },
-    "apiUserGroupRequest": {
+    "apisUserGroupRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3022,19 +3022,19 @@
         }
       }
     },
-    "apiUserGroupResponse": {
+    "apisUserGroupResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiGroupInfo"
+            "$ref": "#/definitions/apisGroupInfo"
           }
         }
       }
     },
-    "apiUserInfo": {
+    "apisUserInfo": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3066,7 +3066,7 @@
         }
       }
     },
-    "apiUserInfoRequest": {
+    "apisUserInfoRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3079,15 +3079,15 @@
       },
       "title": "user ,group .project.item"
     },
-    "apiUserInfoResponse": {
+    "apisUserInfoResponse": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/apiUserInfo"
+          "$ref": "#/definitions/apisUserInfo"
         }
       }
     },
-    "apiUserInitRequest": {
+    "apisUserInitRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3096,7 +3096,7 @@
         }
       }
     },
-    "apiUserInitResponse": {
+    "apisUserInitResponse": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3107,12 +3107,12 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiGroupInfo"
+            "$ref": "#/definitions/apisGroupInfo"
           }
         }
       }
     },
-    "apiUserUpdateRequest": {
+    "apisUserUpdateRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3130,10 +3130,10 @@
         }
       }
     },
-    "apiUserUpdateResponse": {
+    "apisUserUpdateResponse": {
       "type": "object"
     },
-    "apiUserWatchingRequest": {
+    "apisUserWatchingRequest": {
       "type": "object",
       "properties": {
         "userId": {
@@ -3142,19 +3142,19 @@
         }
       }
     },
-    "apiUserWatchingResponse": {
+    "apisUserWatchingResponse": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiProjectInfo"
+            "$ref": "#/definitions/apisProjectInfo"
           }
         }
       }
     },
-    "apiVersionResponse": {
+    "apisVersionResponse": {
       "type": "object",
       "properties": {
         "version": {
@@ -3162,14 +3162,14 @@
         }
       }
     },
-    "apiVideoDetail": {
+    "apisVideoDetail": {
       "type": "object",
       "properties": {
         "list": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/apiVideoInfo"
+            "$ref": "#/definitions/apisVideoInfo"
           }
         },
         "num": {
@@ -3186,7 +3186,7 @@
         }
       }
     },
-    "apiVideoInfo": {
+    "apisVideoInfo": {
       "type": "object",
       "properties": {
         "resourceUrl": {
@@ -3202,7 +3202,7 @@
         }
       }
     },
-    "apiVisibleType": {
+    "apisVisibleType": {
       "type": "string",
       "enum": [
         "AllPublic",
@@ -3212,7 +3212,7 @@
       ],
       "default": "AllPublic"
     },
-    "apiVoiceDetail": {
+    "apisVoiceDetail": {
       "type": "object",
       "properties": {
         "resourceUrl": {
@@ -3236,7 +3236,7 @@
         }
       }
     },
-    "apiWatchProjectReqeust": {
+    "apisWatchProjectReqeust": {
       "type": "object",
       "properties": {
         "groupId": {
@@ -3253,10 +3253,10 @@
         }
       }
     },
-    "apiWatchProjectResponse": {
+    "apisWatchProjectResponse": {
       "type": "object"
     },
-    "apiWordDetail": {
+    "apisWordDetail": {
       "type": "object",
       "properties": {
         "content": {
