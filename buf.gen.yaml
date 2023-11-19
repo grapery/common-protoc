@@ -23,3 +23,15 @@ plugins:
       - allow_repeated_fields_in_body=true
   - plugin: openapi
     out: gen
+  - plugin: buf.build/connectrpc/swift
+    opt:
+      - GenerateAsyncMethods=true
+      - GenerateCallbackMethods=true
+      - Visibility=Public
+    out: Generated
+  - plugin: buf.build/apple/swift
+    opt:
+      - Visibility=Public
+    out: Generated
+
+
