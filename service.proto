@@ -20,13 +20,13 @@ message LoginResponse {
 }
 
 message LogoutRequest {
-  uint64 user_id = 1;
-  string token = 2;
+  string token = 1;
 }
 
-message LogoutResponse {}
+message LogoutResponse {
 
-message LogtouResponse {}
+}
+
 
 message RegisterRequest {
   string account = 1;
