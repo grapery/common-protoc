@@ -53,8 +53,6 @@ public struct Common_LogoutRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var userID: UInt64 = 0
-
   public var token: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -63,16 +61,6 @@ public struct Common_LogoutRequest {
 }
 
 public struct Common_LogoutResponse {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_LogtouResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1720,7 +1708,6 @@ extension Common_LoginRequest: @unchecked Sendable {}
 extension Common_LoginResponse: @unchecked Sendable {}
 extension Common_LogoutRequest: @unchecked Sendable {}
 extension Common_LogoutResponse: @unchecked Sendable {}
-extension Common_LogtouResponse: @unchecked Sendable {}
 extension Common_RegisterRequest: @unchecked Sendable {}
 extension Common_RegisterResponse: @unchecked Sendable {}
 extension Common_ConfirmRequest: @unchecked Sendable {}
@@ -1912,8 +1899,7 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "token"),
+    1: .same(proto: "token"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1922,25 +1908,20 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.token) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.token) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularUInt64Field(value: self.userID, fieldNumber: 1)
-    }
     if !self.token.isEmpty {
-      try visitor.visitSingularStringField(value: self.token, fieldNumber: 2)
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_LogoutRequest, rhs: Common_LogoutRequest) -> Bool {
-    if lhs.userID != rhs.userID {return false}
     if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1961,25 +1942,6 @@ extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 
   public static func ==(lhs: Common_LogoutResponse, rhs: Common_LogoutResponse) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_LogtouResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".LogtouResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_LogtouResponse, rhs: Common_LogtouResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

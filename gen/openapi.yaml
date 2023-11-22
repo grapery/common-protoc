@@ -1672,8 +1672,6 @@ components:
         LogoutRequest:
             type: object
             properties:
-                userId:
-                    type: string
                 token:
                     type: string
         LogoutResponse:
