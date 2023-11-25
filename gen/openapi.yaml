@@ -1779,6 +1779,8 @@ components:
                 status:
                     type: integer
                     format: int32
+                msg:
+                    type: string
         ResetPasswordRequest:
             type: object
             properties:

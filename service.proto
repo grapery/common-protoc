@@ -34,9 +34,14 @@ message RegisterRequest {
   string name = 3;
 }
 
-message RegisterResponse { int32 status = 1; }
+message RegisterResponse { 
+  int32 status = 1; 
+  string msg = 2;
+}
 
-message ConfirmRequest { string account = 1; }
+message ConfirmRequest { 
+  string token = 1; 
+}
 
 message ConfirmResponse { int32 status = 1; }
 
@@ -57,7 +62,9 @@ message UserInfoRequest {
   string account = 2;
 }
 
-message UserInfoResponse { UserInfo info = 1; }
+message UserInfoResponse { 
+  UserInfo info = 1; 
+}
 
 message UpdateUserAvatorRequest {
   uint64 user_id = 1;

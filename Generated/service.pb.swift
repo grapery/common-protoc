@@ -93,6 +93,8 @@ public struct Common_RegisterResponse {
 
   public var status: Int32 = 0
 
+  public var msg: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -103,7 +105,7 @@ public struct Common_ConfirmRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var account: String = String()
+  public var token: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1995,6 +1997,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let protoMessageName: String = _protobuf_package + ".RegisterResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "status"),
+    2: .same(proto: "msg"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2004,6 +2007,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
       default: break
       }
     }
@@ -2013,11 +2017,15 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.status != 0 {
       try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 1)
     }
+    if !self.msg.isEmpty {
+      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_RegisterResponse, rhs: Common_RegisterResponse) -> Bool {
     if lhs.status != rhs.status {return false}
+    if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2026,7 +2034,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
 extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ConfirmRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "account"),
+    1: .same(proto: "token"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2035,21 +2043,21 @@ extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.account) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.token) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.account.isEmpty {
-      try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
+    if !self.token.isEmpty {
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ConfirmRequest, rhs: Common_ConfirmRequest) -> Bool {
-    if lhs.account != rhs.account {return false}
+    if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
