@@ -5,9 +5,9 @@
 package genconnect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	connect_go "github.com/bufbuild/connect-go"
 	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion0_1_0
 
 const (
 	// TeamsAPIName is the fully-qualified name of the TeamsAPI service.
@@ -146,55 +146,55 @@ const (
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
 type TeamsAPIClient interface {
-	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	Trending(context.Context, *connect_go.Request[gen.TrendingRequest]) (*connect_go.Response[gen.TrendingResponse], error)
-	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	FetchUserActives(context.Context, *connect_go.Request[gen.FetchUserActivesRequest]) (*connect_go.Response[gen.FetchUserActivesResponse], error)
-	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupReqeust]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	GetGroup(context.Context, *connect_go.Request[gen.GetGroupReqeust]) (*connect_go.Response[gen.GetGroupResponse], error)
-	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
-	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupReqeust]) (*connect_go.Response[gen.SearchGroupResponse], error)
-	FetchGroupProjects(context.Context, *connect_go.Request[gen.FetchGroupProjectsReqeust]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error)
-	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	GetProjectInfo(context.Context, *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error)
-	GetProjectList(context.Context, *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error)
-	CreateProject(context.Context, *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error)
-	UpdateProject(context.Context, *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error)
-	DeleteProject(context.Context, *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error)
-	GetProjectProfile(context.Context, *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error)
-	UpdateProjectProfile(context.Context, *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error)
-	WatchProject(context.Context, *connect_go.Request[gen.WatchProjectReqeust]) (*connect_go.Response[gen.WatchProjectResponse], error)
-	UnWatchProject(context.Context, *connect_go.Request[gen.UnWatchProjectReqeust]) (*connect_go.Response[gen.UnWatchProjectResponse], error)
-	SearchGroupProject(context.Context, *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error)
-	SearchProject(context.Context, *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error)
-	ExploreProject(context.Context, *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error)
-	GetProjectItems(context.Context, *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error)
-	GetGroupItems(context.Context, *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error)
-	GetUserItems(context.Context, *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error)
-	GetItem(context.Context, *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error)
-	CreateItem(context.Context, *connect_go.Request[gen.CreateItemRequest]) (*connect_go.Response[gen.CreateItemResponse], error)
-	UpdateItem(context.Context, *connect_go.Request[gen.UpdateItemRequest]) (*connect_go.Response[gen.UpdateItemResponse], error)
-	DeleteItem(context.Context, *connect_go.Request[gen.DeleteItemRequest]) (*connect_go.Response[gen.DeleteItemResponse], error)
-	LikeItem(context.Context, *connect_go.Request[gen.LikeItemRequest]) (*connect_go.Response[gen.LikeItemResponse], error)
-	CreateComment(context.Context, *connect_go.Request[gen.CreateCommentReq]) (*connect_go.Response[gen.CreateCommentResp], error)
-	GetItemComment(context.Context, *connect_go.Request[gen.GetItemCommentReq]) (*connect_go.Response[gen.GetItemCommentResp], error)
+	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
+	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
+	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
+	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
+	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
+	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
+	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
+	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
+	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
+	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
+	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
+	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
+	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
+	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
+	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
+	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
+	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
+	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
+	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
+	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
+	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
+	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
+	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
+	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
+	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
+	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
+	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
+	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
+	GetProjectItems(context.Context, *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error)
+	GetGroupItems(context.Context, *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error)
+	GetUserItems(context.Context, *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error)
+	GetItem(context.Context, *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error)
+	CreateItem(context.Context, *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error)
+	UpdateItem(context.Context, *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error)
+	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
+	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
+	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
+	GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -204,250 +204,250 @@ type TeamsAPIClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) TeamsAPIClient {
+func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) TeamsAPIClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &teamsAPIClient{
-		explore: connect_go.NewClient[gen.ExploreRequest, gen.ExploreResponse](
+		explore: connect.NewClient[gen.ExploreRequest, gen.ExploreResponse](
 			httpClient,
 			baseURL+TeamsAPIExploreProcedure,
 			opts...,
 		),
-		trending: connect_go.NewClient[gen.TrendingRequest, gen.TrendingResponse](
+		trending: connect.NewClient[gen.TrendingRequest, gen.TrendingResponse](
 			httpClient,
 			baseURL+TeamsAPITrendingProcedure,
 			opts...,
 		),
-		version: connect_go.NewClient[gen.VersionRequest, gen.VersionResponse](
+		version: connect.NewClient[gen.VersionRequest, gen.VersionResponse](
 			httpClient,
 			baseURL+TeamsAPIVersionProcedure,
 			opts...,
 		),
-		about: connect_go.NewClient[gen.AboutRequest, gen.AboutResponse](
+		about: connect.NewClient[gen.AboutRequest, gen.AboutResponse](
 			httpClient,
 			baseURL+TeamsAPIAboutProcedure,
 			opts...,
 		),
-		login: connect_go.NewClient[gen.LoginRequest, gen.LoginResponse](
+		login: connect.NewClient[gen.LoginRequest, gen.LoginResponse](
 			httpClient,
 			baseURL+TeamsAPILoginProcedure,
 			opts...,
 		),
-		logout: connect_go.NewClient[gen.LogoutRequest, gen.LogoutResponse](
+		logout: connect.NewClient[gen.LogoutRequest, gen.LogoutResponse](
 			httpClient,
 			baseURL+TeamsAPILogoutProcedure,
 			opts...,
 		),
-		register: connect_go.NewClient[gen.RegisterRequest, gen.RegisterResponse](
+		register: connect.NewClient[gen.RegisterRequest, gen.RegisterResponse](
 			httpClient,
 			baseURL+TeamsAPIRegisterProcedure,
 			opts...,
 		),
-		resetPwd: connect_go.NewClient[gen.ResetPasswordRequest, gen.ResetPasswordResponse](
+		resetPwd: connect.NewClient[gen.ResetPasswordRequest, gen.ResetPasswordResponse](
 			httpClient,
 			baseURL+TeamsAPIResetPwdProcedure,
 			opts...,
 		),
-		userInit: connect_go.NewClient[gen.UserInitRequest, gen.UserInitResponse](
+		userInit: connect.NewClient[gen.UserInitRequest, gen.UserInitResponse](
 			httpClient,
 			baseURL+TeamsAPIUserInitProcedure,
 			opts...,
 		),
-		userInfo: connect_go.NewClient[gen.UserInfoRequest, gen.UserInfoResponse](
+		userInfo: connect.NewClient[gen.UserInfoRequest, gen.UserInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIUserInfoProcedure,
 			opts...,
 		),
-		updateUserAvator: connect_go.NewClient[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse](
+		updateUserAvator: connect.NewClient[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateUserAvatorProcedure,
 			opts...,
 		),
-		userWatching: connect_go.NewClient[gen.UserWatchingRequest, gen.UserWatchingResponse](
+		userWatching: connect.NewClient[gen.UserWatchingRequest, gen.UserWatchingResponse](
 			httpClient,
 			baseURL+TeamsAPIUserWatchingProcedure,
 			opts...,
 		),
-		userGroup: connect_go.NewClient[gen.UserGroupRequest, gen.UserGroupResponse](
+		userGroup: connect.NewClient[gen.UserGroupRequest, gen.UserGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIUserGroupProcedure,
 			opts...,
 		),
-		userFollowingGroup: connect_go.NewClient[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse](
+		userFollowingGroup: connect.NewClient[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIUserFollowingGroupProcedure,
 			opts...,
 		),
-		userUpdate: connect_go.NewClient[gen.UserUpdateRequest, gen.UserUpdateResponse](
+		userUpdate: connect.NewClient[gen.UserUpdateRequest, gen.UserUpdateResponse](
 			httpClient,
 			baseURL+TeamsAPIUserUpdateProcedure,
 			opts...,
 		),
-		fetchUserActives: connect_go.NewClient[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse](
+		fetchUserActives: connect.NewClient[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchUserActivesProcedure,
 			opts...,
 		),
-		searchUser: connect_go.NewClient[gen.SearchUserRequest, gen.SearchUserResponse](
+		searchUser: connect.NewClient[gen.SearchUserRequest, gen.SearchUserResponse](
 			httpClient,
 			baseURL+TeamsAPISearchUserProcedure,
 			opts...,
 		),
-		createGroup: connect_go.NewClient[gen.CreateGroupReqeust, gen.CreateGroupResponse](
+		createGroup: connect.NewClient[gen.CreateGroupReqeust, gen.CreateGroupResponse](
 			httpClient,
 			baseURL+TeamsAPICreateGroupProcedure,
 			opts...,
 		),
-		getGroup: connect_go.NewClient[gen.GetGroupReqeust, gen.GetGroupResponse](
+		getGroup: connect.NewClient[gen.GetGroupReqeust, gen.GetGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupProcedure,
 			opts...,
 		),
-		getGroupActives: connect_go.NewClient[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse](
+		getGroupActives: connect.NewClient[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupActivesProcedure,
 			opts...,
 		),
-		updateGroupInfo: connect_go.NewClient[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse](
+		updateGroupInfo: connect.NewClient[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateGroupInfoProcedure,
 			opts...,
 		),
-		deleteGroup: connect_go.NewClient[gen.DeleteGroupRequest, gen.DeleteGroupResponse](
+		deleteGroup: connect.NewClient[gen.DeleteGroupRequest, gen.DeleteGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteGroupProcedure,
 			opts...,
 		),
-		fetchGroupMembers: connect_go.NewClient[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse](
+		fetchGroupMembers: connect.NewClient[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupMembersProcedure,
 			opts...,
 		),
-		searchGroup: connect_go.NewClient[gen.SearchGroupReqeust, gen.SearchGroupResponse](
+		searchGroup: connect.NewClient[gen.SearchGroupReqeust, gen.SearchGroupResponse](
 			httpClient,
 			baseURL+TeamsAPISearchGroupProcedure,
 			opts...,
 		),
-		fetchGroupProjects: connect_go.NewClient[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse](
+		fetchGroupProjects: connect.NewClient[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupProjectsProcedure,
 			opts...,
 		),
-		joinGroup: connect_go.NewClient[gen.JoinGroupRequest, gen.JoinGroupResponse](
+		joinGroup: connect.NewClient[gen.JoinGroupRequest, gen.JoinGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIJoinGroupProcedure,
 			opts...,
 		),
-		leaveGroup: connect_go.NewClient[gen.LeaveGroupRequest, gen.LeaveGroupResponse](
+		leaveGroup: connect.NewClient[gen.LeaveGroupRequest, gen.LeaveGroupResponse](
 			httpClient,
 			baseURL+TeamsAPILeaveGroupProcedure,
 			opts...,
 		),
-		getProjectInfo: connect_go.NewClient[gen.GetProjectRequest, gen.GetProjectResponse](
+		getProjectInfo: connect.NewClient[gen.GetProjectRequest, gen.GetProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIGetProjectInfoProcedure,
 			opts...,
 		),
-		getProjectList: connect_go.NewClient[gen.GetProjectListRequest, gen.GetProjectListResponse](
+		getProjectList: connect.NewClient[gen.GetProjectListRequest, gen.GetProjectListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetProjectListProcedure,
 			opts...,
 		),
-		createProject: connect_go.NewClient[gen.CreateProjectRequest, gen.CreateProjectResponse](
+		createProject: connect.NewClient[gen.CreateProjectRequest, gen.CreateProjectResponse](
 			httpClient,
 			baseURL+TeamsAPICreateProjectProcedure,
 			opts...,
 		),
-		updateProject: connect_go.NewClient[gen.UpdateProjectRequest, gen.UpdateProjectResponse](
+		updateProject: connect.NewClient[gen.UpdateProjectRequest, gen.UpdateProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateProjectProcedure,
 			opts...,
 		),
-		deleteProject: connect_go.NewClient[gen.DeleteProjectRequest, gen.DeleteProjectResponse](
+		deleteProject: connect.NewClient[gen.DeleteProjectRequest, gen.DeleteProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteProjectProcedure,
 			opts...,
 		),
-		getProjectProfile: connect_go.NewClient[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse](
+		getProjectProfile: connect.NewClient[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIGetProjectProfileProcedure,
 			opts...,
 		),
-		updateProjectProfile: connect_go.NewClient[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse](
+		updateProjectProfile: connect.NewClient[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateProjectProfileProcedure,
 			opts...,
 		),
-		watchProject: connect_go.NewClient[gen.WatchProjectReqeust, gen.WatchProjectResponse](
+		watchProject: connect.NewClient[gen.WatchProjectReqeust, gen.WatchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIWatchProjectProcedure,
 			opts...,
 		),
-		unWatchProject: connect_go.NewClient[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse](
+		unWatchProject: connect.NewClient[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIUnWatchProjectProcedure,
 			opts...,
 		),
-		searchGroupProject: connect_go.NewClient[gen.SearchProjectRequest, gen.SearchProjectResponse](
+		searchGroupProject: connect.NewClient[gen.SearchProjectRequest, gen.SearchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPISearchGroupProjectProcedure,
 			opts...,
 		),
-		searchProject: connect_go.NewClient[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse](
+		searchProject: connect.NewClient[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse](
 			httpClient,
 			baseURL+TeamsAPISearchProjectProcedure,
 			opts...,
 		),
-		exploreProject: connect_go.NewClient[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse](
+		exploreProject: connect.NewClient[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse](
 			httpClient,
 			baseURL+TeamsAPIExploreProjectProcedure,
 			opts...,
 		),
-		getProjectItems: connect_go.NewClient[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse](
+		getProjectItems: connect.NewClient[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetProjectItemsProcedure,
 			opts...,
 		),
-		getGroupItems: connect_go.NewClient[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse](
+		getGroupItems: connect.NewClient[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupItemsProcedure,
 			opts...,
 		),
-		getUserItems: connect_go.NewClient[gen.GetUserItemsRequest, gen.GetUserItemsResponse](
+		getUserItems: connect.NewClient[gen.GetUserItemsRequest, gen.GetUserItemsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserItemsProcedure,
 			opts...,
 		),
-		getItem: connect_go.NewClient[gen.GetItemRequest, gen.GetItemResponse](
+		getItem: connect.NewClient[gen.GetItemRequest, gen.GetItemResponse](
 			httpClient,
 			baseURL+TeamsAPIGetItemProcedure,
 			opts...,
 		),
-		createItem: connect_go.NewClient[gen.CreateItemRequest, gen.CreateItemResponse](
+		createItem: connect.NewClient[gen.CreateItemRequest, gen.CreateItemResponse](
 			httpClient,
 			baseURL+TeamsAPICreateItemProcedure,
 			opts...,
 		),
-		updateItem: connect_go.NewClient[gen.UpdateItemRequest, gen.UpdateItemResponse](
+		updateItem: connect.NewClient[gen.UpdateItemRequest, gen.UpdateItemResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateItemProcedure,
 			opts...,
 		),
-		deleteItem: connect_go.NewClient[gen.DeleteItemRequest, gen.DeleteItemResponse](
+		deleteItem: connect.NewClient[gen.DeleteItemRequest, gen.DeleteItemResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteItemProcedure,
 			opts...,
 		),
-		likeItem: connect_go.NewClient[gen.LikeItemRequest, gen.LikeItemResponse](
+		likeItem: connect.NewClient[gen.LikeItemRequest, gen.LikeItemResponse](
 			httpClient,
 			baseURL+TeamsAPILikeItemProcedure,
 			opts...,
 		),
-		createComment: connect_go.NewClient[gen.CreateCommentReq, gen.CreateCommentResp](
+		createComment: connect.NewClient[gen.CreateCommentReq, gen.CreateCommentResp](
 			httpClient,
 			baseURL+TeamsAPICreateCommentProcedure,
 			opts...,
 		),
-		getItemComment: connect_go.NewClient[gen.GetItemCommentReq, gen.GetItemCommentResp](
+		getItemComment: connect.NewClient[gen.GetItemCommentReq, gen.GetItemCommentResp](
 			httpClient,
 			baseURL+TeamsAPIGetItemCommentProcedure,
 			opts...,
@@ -457,353 +457,353 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 
 // teamsAPIClient implements TeamsAPIClient.
 type teamsAPIClient struct {
-	explore              *connect_go.Client[gen.ExploreRequest, gen.ExploreResponse]
-	trending             *connect_go.Client[gen.TrendingRequest, gen.TrendingResponse]
-	version              *connect_go.Client[gen.VersionRequest, gen.VersionResponse]
-	about                *connect_go.Client[gen.AboutRequest, gen.AboutResponse]
-	login                *connect_go.Client[gen.LoginRequest, gen.LoginResponse]
-	logout               *connect_go.Client[gen.LogoutRequest, gen.LogoutResponse]
-	register             *connect_go.Client[gen.RegisterRequest, gen.RegisterResponse]
-	resetPwd             *connect_go.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
-	userInit             *connect_go.Client[gen.UserInitRequest, gen.UserInitResponse]
-	userInfo             *connect_go.Client[gen.UserInfoRequest, gen.UserInfoResponse]
-	updateUserAvator     *connect_go.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
-	userWatching         *connect_go.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
-	userGroup            *connect_go.Client[gen.UserGroupRequest, gen.UserGroupResponse]
-	userFollowingGroup   *connect_go.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
-	userUpdate           *connect_go.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
-	fetchUserActives     *connect_go.Client[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse]
-	searchUser           *connect_go.Client[gen.SearchUserRequest, gen.SearchUserResponse]
-	createGroup          *connect_go.Client[gen.CreateGroupReqeust, gen.CreateGroupResponse]
-	getGroup             *connect_go.Client[gen.GetGroupReqeust, gen.GetGroupResponse]
-	getGroupActives      *connect_go.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
-	updateGroupInfo      *connect_go.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
-	deleteGroup          *connect_go.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
-	fetchGroupMembers    *connect_go.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
-	searchGroup          *connect_go.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
-	fetchGroupProjects   *connect_go.Client[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse]
-	joinGroup            *connect_go.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
-	leaveGroup           *connect_go.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
-	getProjectInfo       *connect_go.Client[gen.GetProjectRequest, gen.GetProjectResponse]
-	getProjectList       *connect_go.Client[gen.GetProjectListRequest, gen.GetProjectListResponse]
-	createProject        *connect_go.Client[gen.CreateProjectRequest, gen.CreateProjectResponse]
-	updateProject        *connect_go.Client[gen.UpdateProjectRequest, gen.UpdateProjectResponse]
-	deleteProject        *connect_go.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
-	getProjectProfile    *connect_go.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
-	updateProjectProfile *connect_go.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
-	watchProject         *connect_go.Client[gen.WatchProjectReqeust, gen.WatchProjectResponse]
-	unWatchProject       *connect_go.Client[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse]
-	searchGroupProject   *connect_go.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
-	searchProject        *connect_go.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
-	exploreProject       *connect_go.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
-	getProjectItems      *connect_go.Client[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse]
-	getGroupItems        *connect_go.Client[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse]
-	getUserItems         *connect_go.Client[gen.GetUserItemsRequest, gen.GetUserItemsResponse]
-	getItem              *connect_go.Client[gen.GetItemRequest, gen.GetItemResponse]
-	createItem           *connect_go.Client[gen.CreateItemRequest, gen.CreateItemResponse]
-	updateItem           *connect_go.Client[gen.UpdateItemRequest, gen.UpdateItemResponse]
-	deleteItem           *connect_go.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
-	likeItem             *connect_go.Client[gen.LikeItemRequest, gen.LikeItemResponse]
-	createComment        *connect_go.Client[gen.CreateCommentReq, gen.CreateCommentResp]
-	getItemComment       *connect_go.Client[gen.GetItemCommentReq, gen.GetItemCommentResp]
+	explore              *connect.Client[gen.ExploreRequest, gen.ExploreResponse]
+	trending             *connect.Client[gen.TrendingRequest, gen.TrendingResponse]
+	version              *connect.Client[gen.VersionRequest, gen.VersionResponse]
+	about                *connect.Client[gen.AboutRequest, gen.AboutResponse]
+	login                *connect.Client[gen.LoginRequest, gen.LoginResponse]
+	logout               *connect.Client[gen.LogoutRequest, gen.LogoutResponse]
+	register             *connect.Client[gen.RegisterRequest, gen.RegisterResponse]
+	resetPwd             *connect.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
+	userInit             *connect.Client[gen.UserInitRequest, gen.UserInitResponse]
+	userInfo             *connect.Client[gen.UserInfoRequest, gen.UserInfoResponse]
+	updateUserAvator     *connect.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
+	userWatching         *connect.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
+	userGroup            *connect.Client[gen.UserGroupRequest, gen.UserGroupResponse]
+	userFollowingGroup   *connect.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
+	userUpdate           *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
+	fetchUserActives     *connect.Client[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse]
+	searchUser           *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
+	createGroup          *connect.Client[gen.CreateGroupReqeust, gen.CreateGroupResponse]
+	getGroup             *connect.Client[gen.GetGroupReqeust, gen.GetGroupResponse]
+	getGroupActives      *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
+	updateGroupInfo      *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
+	deleteGroup          *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
+	fetchGroupMembers    *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
+	searchGroup          *connect.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
+	fetchGroupProjects   *connect.Client[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse]
+	joinGroup            *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
+	leaveGroup           *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
+	getProjectInfo       *connect.Client[gen.GetProjectRequest, gen.GetProjectResponse]
+	getProjectList       *connect.Client[gen.GetProjectListRequest, gen.GetProjectListResponse]
+	createProject        *connect.Client[gen.CreateProjectRequest, gen.CreateProjectResponse]
+	updateProject        *connect.Client[gen.UpdateProjectRequest, gen.UpdateProjectResponse]
+	deleteProject        *connect.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
+	getProjectProfile    *connect.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
+	updateProjectProfile *connect.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
+	watchProject         *connect.Client[gen.WatchProjectReqeust, gen.WatchProjectResponse]
+	unWatchProject       *connect.Client[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse]
+	searchGroupProject   *connect.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
+	searchProject        *connect.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
+	exploreProject       *connect.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
+	getProjectItems      *connect.Client[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse]
+	getGroupItems        *connect.Client[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse]
+	getUserItems         *connect.Client[gen.GetUserItemsRequest, gen.GetUserItemsResponse]
+	getItem              *connect.Client[gen.GetItemRequest, gen.GetItemResponse]
+	createItem           *connect.Client[gen.CreateItemRequest, gen.CreateItemResponse]
+	updateItem           *connect.Client[gen.UpdateItemRequest, gen.UpdateItemResponse]
+	deleteItem           *connect.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
+	likeItem             *connect.Client[gen.LikeItemRequest, gen.LikeItemResponse]
+	createComment        *connect.Client[gen.CreateCommentReq, gen.CreateCommentResp]
+	getItemComment       *connect.Client[gen.GetItemCommentReq, gen.GetItemCommentResp]
 }
 
 // Explore calls common.TeamsAPI.Explore.
-func (c *teamsAPIClient) Explore(ctx context.Context, req *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
+func (c *teamsAPIClient) Explore(ctx context.Context, req *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
 	return c.explore.CallUnary(ctx, req)
 }
 
 // Trending calls common.TeamsAPI.Trending.
-func (c *teamsAPIClient) Trending(ctx context.Context, req *connect_go.Request[gen.TrendingRequest]) (*connect_go.Response[gen.TrendingResponse], error) {
+func (c *teamsAPIClient) Trending(ctx context.Context, req *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error) {
 	return c.trending.CallUnary(ctx, req)
 }
 
 // Version calls common.TeamsAPI.Version.
-func (c *teamsAPIClient) Version(ctx context.Context, req *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
+func (c *teamsAPIClient) Version(ctx context.Context, req *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error) {
 	return c.version.CallUnary(ctx, req)
 }
 
 // About calls common.TeamsAPI.About.
-func (c *teamsAPIClient) About(ctx context.Context, req *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
+func (c *teamsAPIClient) About(ctx context.Context, req *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error) {
 	return c.about.CallUnary(ctx, req)
 }
 
 // Login calls common.TeamsAPI.Login.
-func (c *teamsAPIClient) Login(ctx context.Context, req *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
+func (c *teamsAPIClient) Login(ctx context.Context, req *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error) {
 	return c.login.CallUnary(ctx, req)
 }
 
 // Logout calls common.TeamsAPI.Logout.
-func (c *teamsAPIClient) Logout(ctx context.Context, req *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
+func (c *teamsAPIClient) Logout(ctx context.Context, req *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
 	return c.logout.CallUnary(ctx, req)
 }
 
 // Register calls common.TeamsAPI.Register.
-func (c *teamsAPIClient) Register(ctx context.Context, req *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
+func (c *teamsAPIClient) Register(ctx context.Context, req *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error) {
 	return c.register.CallUnary(ctx, req)
 }
 
 // ResetPwd calls common.TeamsAPI.ResetPwd.
-func (c *teamsAPIClient) ResetPwd(ctx context.Context, req *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
+func (c *teamsAPIClient) ResetPwd(ctx context.Context, req *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error) {
 	return c.resetPwd.CallUnary(ctx, req)
 }
 
 // UserInit calls common.TeamsAPI.UserInit.
-func (c *teamsAPIClient) UserInit(ctx context.Context, req *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
+func (c *teamsAPIClient) UserInit(ctx context.Context, req *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error) {
 	return c.userInit.CallUnary(ctx, req)
 }
 
 // UserInfo calls common.TeamsAPI.UserInfo.
-func (c *teamsAPIClient) UserInfo(ctx context.Context, req *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
+func (c *teamsAPIClient) UserInfo(ctx context.Context, req *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error) {
 	return c.userInfo.CallUnary(ctx, req)
 }
 
 // UpdateUserAvator calls common.TeamsAPI.UpdateUserAvator.
-func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, req *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
+func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, req *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error) {
 	return c.updateUserAvator.CallUnary(ctx, req)
 }
 
 // UserWatching calls common.TeamsAPI.UserWatching.
-func (c *teamsAPIClient) UserWatching(ctx context.Context, req *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
+func (c *teamsAPIClient) UserWatching(ctx context.Context, req *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error) {
 	return c.userWatching.CallUnary(ctx, req)
 }
 
 // UserGroup calls common.TeamsAPI.UserGroup.
-func (c *teamsAPIClient) UserGroup(ctx context.Context, req *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
+func (c *teamsAPIClient) UserGroup(ctx context.Context, req *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error) {
 	return c.userGroup.CallUnary(ctx, req)
 }
 
 // UserFollowingGroup calls common.TeamsAPI.UserFollowingGroup.
-func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
+func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error) {
 	return c.userFollowingGroup.CallUnary(ctx, req)
 }
 
 // UserUpdate calls common.TeamsAPI.UserUpdate.
-func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
+func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
 	return c.userUpdate.CallUnary(ctx, req)
 }
 
 // FetchUserActives calls common.TeamsAPI.FetchUserActives.
-func (c *teamsAPIClient) FetchUserActives(ctx context.Context, req *connect_go.Request[gen.FetchUserActivesRequest]) (*connect_go.Response[gen.FetchUserActivesResponse], error) {
+func (c *teamsAPIClient) FetchUserActives(ctx context.Context, req *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error) {
 	return c.fetchUserActives.CallUnary(ctx, req)
 }
 
 // SearchUser calls common.TeamsAPI.SearchUser.
-func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
+func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error) {
 	return c.searchUser.CallUnary(ctx, req)
 }
 
 // CreateGroup calls common.TeamsAPI.CreateGroup.
-func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect_go.Request[gen.CreateGroupReqeust]) (*connect_go.Response[gen.CreateGroupResponse], error) {
+func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error) {
 	return c.createGroup.CallUnary(ctx, req)
 }
 
 // GetGroup calls common.TeamsAPI.GetGroup.
-func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect_go.Request[gen.GetGroupReqeust]) (*connect_go.Response[gen.GetGroupResponse], error) {
+func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error) {
 	return c.getGroup.CallUnary(ctx, req)
 }
 
 // GetGroupActives calls common.TeamsAPI.GetGroupActives.
-func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
+func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error) {
 	return c.getGroupActives.CallUnary(ctx, req)
 }
 
 // UpdateGroupInfo calls common.TeamsAPI.UpdateGroupInfo.
-func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
+func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
 	return c.updateGroupInfo.CallUnary(ctx, req)
 }
 
 // DeleteGroup calls common.TeamsAPI.DeleteGroup.
-func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
+func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error) {
 	return c.deleteGroup.CallUnary(ctx, req)
 }
 
 // FetchGroupMembers calls common.TeamsAPI.FetchGroupMembers.
-func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
+func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
 	return c.fetchGroupMembers.CallUnary(ctx, req)
 }
 
 // SearchGroup calls common.TeamsAPI.SearchGroup.
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect_go.Request[gen.SearchGroupReqeust]) (*connect_go.Response[gen.SearchGroupResponse], error) {
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
 	return c.searchGroup.CallUnary(ctx, req)
 }
 
 // FetchGroupProjects calls common.TeamsAPI.FetchGroupProjects.
-func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, req *connect_go.Request[gen.FetchGroupProjectsReqeust]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error) {
+func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, req *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
 	return c.fetchGroupProjects.CallUnary(ctx, req)
 }
 
 // JoinGroup calls common.TeamsAPI.JoinGroup.
-func (c *teamsAPIClient) JoinGroup(ctx context.Context, req *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
+func (c *teamsAPIClient) JoinGroup(ctx context.Context, req *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error) {
 	return c.joinGroup.CallUnary(ctx, req)
 }
 
 // LeaveGroup calls common.TeamsAPI.LeaveGroup.
-func (c *teamsAPIClient) LeaveGroup(ctx context.Context, req *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
+func (c *teamsAPIClient) LeaveGroup(ctx context.Context, req *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error) {
 	return c.leaveGroup.CallUnary(ctx, req)
 }
 
 // GetProjectInfo calls common.TeamsAPI.GetProjectInfo.
-func (c *teamsAPIClient) GetProjectInfo(ctx context.Context, req *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error) {
+func (c *teamsAPIClient) GetProjectInfo(ctx context.Context, req *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error) {
 	return c.getProjectInfo.CallUnary(ctx, req)
 }
 
 // GetProjectList calls common.TeamsAPI.GetProjectList.
-func (c *teamsAPIClient) GetProjectList(ctx context.Context, req *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error) {
+func (c *teamsAPIClient) GetProjectList(ctx context.Context, req *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error) {
 	return c.getProjectList.CallUnary(ctx, req)
 }
 
 // CreateProject calls common.TeamsAPI.CreateProject.
-func (c *teamsAPIClient) CreateProject(ctx context.Context, req *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error) {
+func (c *teamsAPIClient) CreateProject(ctx context.Context, req *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error) {
 	return c.createProject.CallUnary(ctx, req)
 }
 
 // UpdateProject calls common.TeamsAPI.UpdateProject.
-func (c *teamsAPIClient) UpdateProject(ctx context.Context, req *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error) {
+func (c *teamsAPIClient) UpdateProject(ctx context.Context, req *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error) {
 	return c.updateProject.CallUnary(ctx, req)
 }
 
 // DeleteProject calls common.TeamsAPI.DeleteProject.
-func (c *teamsAPIClient) DeleteProject(ctx context.Context, req *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error) {
+func (c *teamsAPIClient) DeleteProject(ctx context.Context, req *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error) {
 	return c.deleteProject.CallUnary(ctx, req)
 }
 
 // GetProjectProfile calls common.TeamsAPI.GetProjectProfile.
-func (c *teamsAPIClient) GetProjectProfile(ctx context.Context, req *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error) {
+func (c *teamsAPIClient) GetProjectProfile(ctx context.Context, req *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error) {
 	return c.getProjectProfile.CallUnary(ctx, req)
 }
 
 // UpdateProjectProfile calls common.TeamsAPI.UpdateProjectProfile.
-func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, req *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error) {
+func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, req *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error) {
 	return c.updateProjectProfile.CallUnary(ctx, req)
 }
 
 // WatchProject calls common.TeamsAPI.WatchProject.
-func (c *teamsAPIClient) WatchProject(ctx context.Context, req *connect_go.Request[gen.WatchProjectReqeust]) (*connect_go.Response[gen.WatchProjectResponse], error) {
+func (c *teamsAPIClient) WatchProject(ctx context.Context, req *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error) {
 	return c.watchProject.CallUnary(ctx, req)
 }
 
 // UnWatchProject calls common.TeamsAPI.UnWatchProject.
-func (c *teamsAPIClient) UnWatchProject(ctx context.Context, req *connect_go.Request[gen.UnWatchProjectReqeust]) (*connect_go.Response[gen.UnWatchProjectResponse], error) {
+func (c *teamsAPIClient) UnWatchProject(ctx context.Context, req *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
 	return c.unWatchProject.CallUnary(ctx, req)
 }
 
 // SearchGroupProject calls common.TeamsAPI.SearchGroupProject.
-func (c *teamsAPIClient) SearchGroupProject(ctx context.Context, req *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error) {
+func (c *teamsAPIClient) SearchGroupProject(ctx context.Context, req *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error) {
 	return c.searchGroupProject.CallUnary(ctx, req)
 }
 
 // SearchProject calls common.TeamsAPI.SearchProject.
-func (c *teamsAPIClient) SearchProject(ctx context.Context, req *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error) {
+func (c *teamsAPIClient) SearchProject(ctx context.Context, req *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error) {
 	return c.searchProject.CallUnary(ctx, req)
 }
 
 // ExploreProject calls common.TeamsAPI.ExploreProject.
-func (c *teamsAPIClient) ExploreProject(ctx context.Context, req *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error) {
+func (c *teamsAPIClient) ExploreProject(ctx context.Context, req *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error) {
 	return c.exploreProject.CallUnary(ctx, req)
 }
 
 // GetProjectItems calls common.TeamsAPI.GetProjectItems.
-func (c *teamsAPIClient) GetProjectItems(ctx context.Context, req *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error) {
+func (c *teamsAPIClient) GetProjectItems(ctx context.Context, req *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error) {
 	return c.getProjectItems.CallUnary(ctx, req)
 }
 
 // GetGroupItems calls common.TeamsAPI.GetGroupItems.
-func (c *teamsAPIClient) GetGroupItems(ctx context.Context, req *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error) {
+func (c *teamsAPIClient) GetGroupItems(ctx context.Context, req *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error) {
 	return c.getGroupItems.CallUnary(ctx, req)
 }
 
 // GetUserItems calls common.TeamsAPI.GetUserItems.
-func (c *teamsAPIClient) GetUserItems(ctx context.Context, req *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error) {
+func (c *teamsAPIClient) GetUserItems(ctx context.Context, req *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error) {
 	return c.getUserItems.CallUnary(ctx, req)
 }
 
 // GetItem calls common.TeamsAPI.GetItem.
-func (c *teamsAPIClient) GetItem(ctx context.Context, req *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error) {
+func (c *teamsAPIClient) GetItem(ctx context.Context, req *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error) {
 	return c.getItem.CallUnary(ctx, req)
 }
 
 // CreateItem calls common.TeamsAPI.CreateItem.
-func (c *teamsAPIClient) CreateItem(ctx context.Context, req *connect_go.Request[gen.CreateItemRequest]) (*connect_go.Response[gen.CreateItemResponse], error) {
+func (c *teamsAPIClient) CreateItem(ctx context.Context, req *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error) {
 	return c.createItem.CallUnary(ctx, req)
 }
 
 // UpdateItem calls common.TeamsAPI.UpdateItem.
-func (c *teamsAPIClient) UpdateItem(ctx context.Context, req *connect_go.Request[gen.UpdateItemRequest]) (*connect_go.Response[gen.UpdateItemResponse], error) {
+func (c *teamsAPIClient) UpdateItem(ctx context.Context, req *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error) {
 	return c.updateItem.CallUnary(ctx, req)
 }
 
 // DeleteItem calls common.TeamsAPI.DeleteItem.
-func (c *teamsAPIClient) DeleteItem(ctx context.Context, req *connect_go.Request[gen.DeleteItemRequest]) (*connect_go.Response[gen.DeleteItemResponse], error) {
+func (c *teamsAPIClient) DeleteItem(ctx context.Context, req *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error) {
 	return c.deleteItem.CallUnary(ctx, req)
 }
 
 // LikeItem calls common.TeamsAPI.LikeItem.
-func (c *teamsAPIClient) LikeItem(ctx context.Context, req *connect_go.Request[gen.LikeItemRequest]) (*connect_go.Response[gen.LikeItemResponse], error) {
+func (c *teamsAPIClient) LikeItem(ctx context.Context, req *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error) {
 	return c.likeItem.CallUnary(ctx, req)
 }
 
 // CreateComment calls common.TeamsAPI.CreateComment.
-func (c *teamsAPIClient) CreateComment(ctx context.Context, req *connect_go.Request[gen.CreateCommentReq]) (*connect_go.Response[gen.CreateCommentResp], error) {
+func (c *teamsAPIClient) CreateComment(ctx context.Context, req *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error) {
 	return c.createComment.CallUnary(ctx, req)
 }
 
 // GetItemComment calls common.TeamsAPI.GetItemComment.
-func (c *teamsAPIClient) GetItemComment(ctx context.Context, req *connect_go.Request[gen.GetItemCommentReq]) (*connect_go.Response[gen.GetItemCommentResp], error) {
+func (c *teamsAPIClient) GetItemComment(ctx context.Context, req *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error) {
 	return c.getItemComment.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
-	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	Trending(context.Context, *connect_go.Request[gen.TrendingRequest]) (*connect_go.Response[gen.TrendingResponse], error)
-	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	FetchUserActives(context.Context, *connect_go.Request[gen.FetchUserActivesRequest]) (*connect_go.Response[gen.FetchUserActivesResponse], error)
-	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupReqeust]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	GetGroup(context.Context, *connect_go.Request[gen.GetGroupReqeust]) (*connect_go.Response[gen.GetGroupResponse], error)
-	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
-	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupReqeust]) (*connect_go.Response[gen.SearchGroupResponse], error)
-	FetchGroupProjects(context.Context, *connect_go.Request[gen.FetchGroupProjectsReqeust]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error)
-	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	GetProjectInfo(context.Context, *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error)
-	GetProjectList(context.Context, *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error)
-	CreateProject(context.Context, *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error)
-	UpdateProject(context.Context, *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error)
-	DeleteProject(context.Context, *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error)
-	GetProjectProfile(context.Context, *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error)
-	UpdateProjectProfile(context.Context, *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error)
-	WatchProject(context.Context, *connect_go.Request[gen.WatchProjectReqeust]) (*connect_go.Response[gen.WatchProjectResponse], error)
-	UnWatchProject(context.Context, *connect_go.Request[gen.UnWatchProjectReqeust]) (*connect_go.Response[gen.UnWatchProjectResponse], error)
-	SearchGroupProject(context.Context, *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error)
-	SearchProject(context.Context, *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error)
-	ExploreProject(context.Context, *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error)
-	GetProjectItems(context.Context, *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error)
-	GetGroupItems(context.Context, *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error)
-	GetUserItems(context.Context, *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error)
-	GetItem(context.Context, *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error)
-	CreateItem(context.Context, *connect_go.Request[gen.CreateItemRequest]) (*connect_go.Response[gen.CreateItemResponse], error)
-	UpdateItem(context.Context, *connect_go.Request[gen.UpdateItemRequest]) (*connect_go.Response[gen.UpdateItemResponse], error)
-	DeleteItem(context.Context, *connect_go.Request[gen.DeleteItemRequest]) (*connect_go.Response[gen.DeleteItemResponse], error)
-	LikeItem(context.Context, *connect_go.Request[gen.LikeItemRequest]) (*connect_go.Response[gen.LikeItemResponse], error)
-	CreateComment(context.Context, *connect_go.Request[gen.CreateCommentReq]) (*connect_go.Response[gen.CreateCommentResp], error)
-	GetItemComment(context.Context, *connect_go.Request[gen.GetItemCommentReq]) (*connect_go.Response[gen.GetItemCommentResp], error)
+	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
+	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
+	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
+	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
+	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
+	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
+	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
+	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
+	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
+	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
+	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
+	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
+	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
+	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
+	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
+	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
+	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
+	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
+	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
+	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
+	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
+	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
+	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
+	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
+	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
+	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
+	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
+	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
+	GetProjectItems(context.Context, *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error)
+	GetGroupItems(context.Context, *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error)
+	GetUserItems(context.Context, *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error)
+	GetItem(context.Context, *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error)
+	CreateItem(context.Context, *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error)
+	UpdateItem(context.Context, *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error)
+	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
+	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
+	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
+	GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -811,248 +811,248 @@ type TeamsAPIHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	teamsAPIExploreHandler := connect_go.NewUnaryHandler(
+func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	teamsAPIExploreHandler := connect.NewUnaryHandler(
 		TeamsAPIExploreProcedure,
 		svc.Explore,
 		opts...,
 	)
-	teamsAPITrendingHandler := connect_go.NewUnaryHandler(
+	teamsAPITrendingHandler := connect.NewUnaryHandler(
 		TeamsAPITrendingProcedure,
 		svc.Trending,
 		opts...,
 	)
-	teamsAPIVersionHandler := connect_go.NewUnaryHandler(
+	teamsAPIVersionHandler := connect.NewUnaryHandler(
 		TeamsAPIVersionProcedure,
 		svc.Version,
 		opts...,
 	)
-	teamsAPIAboutHandler := connect_go.NewUnaryHandler(
+	teamsAPIAboutHandler := connect.NewUnaryHandler(
 		TeamsAPIAboutProcedure,
 		svc.About,
 		opts...,
 	)
-	teamsAPILoginHandler := connect_go.NewUnaryHandler(
+	teamsAPILoginHandler := connect.NewUnaryHandler(
 		TeamsAPILoginProcedure,
 		svc.Login,
 		opts...,
 	)
-	teamsAPILogoutHandler := connect_go.NewUnaryHandler(
+	teamsAPILogoutHandler := connect.NewUnaryHandler(
 		TeamsAPILogoutProcedure,
 		svc.Logout,
 		opts...,
 	)
-	teamsAPIRegisterHandler := connect_go.NewUnaryHandler(
+	teamsAPIRegisterHandler := connect.NewUnaryHandler(
 		TeamsAPIRegisterProcedure,
 		svc.Register,
 		opts...,
 	)
-	teamsAPIResetPwdHandler := connect_go.NewUnaryHandler(
+	teamsAPIResetPwdHandler := connect.NewUnaryHandler(
 		TeamsAPIResetPwdProcedure,
 		svc.ResetPwd,
 		opts...,
 	)
-	teamsAPIUserInitHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserInitHandler := connect.NewUnaryHandler(
 		TeamsAPIUserInitProcedure,
 		svc.UserInit,
 		opts...,
 	)
-	teamsAPIUserInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIUserInfoProcedure,
 		svc.UserInfo,
 		opts...,
 	)
-	teamsAPIUpdateUserAvatorHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateUserAvatorHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateUserAvatorProcedure,
 		svc.UpdateUserAvator,
 		opts...,
 	)
-	teamsAPIUserWatchingHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserWatchingHandler := connect.NewUnaryHandler(
 		TeamsAPIUserWatchingProcedure,
 		svc.UserWatching,
 		opts...,
 	)
-	teamsAPIUserGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIUserGroupProcedure,
 		svc.UserGroup,
 		opts...,
 	)
-	teamsAPIUserFollowingGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserFollowingGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIUserFollowingGroupProcedure,
 		svc.UserFollowingGroup,
 		opts...,
 	)
-	teamsAPIUserUpdateHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserUpdateHandler := connect.NewUnaryHandler(
 		TeamsAPIUserUpdateProcedure,
 		svc.UserUpdate,
 		opts...,
 	)
-	teamsAPIFetchUserActivesHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchUserActivesHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchUserActivesProcedure,
 		svc.FetchUserActives,
 		opts...,
 	)
-	teamsAPISearchUserHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchUserHandler := connect.NewUnaryHandler(
 		TeamsAPISearchUserProcedure,
 		svc.SearchUser,
 		opts...,
 	)
-	teamsAPICreateGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateGroupHandler := connect.NewUnaryHandler(
 		TeamsAPICreateGroupProcedure,
 		svc.CreateGroup,
 		opts...,
 	)
-	teamsAPIGetGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupProcedure,
 		svc.GetGroup,
 		opts...,
 	)
-	teamsAPIGetGroupActivesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupActivesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupActivesProcedure,
 		svc.GetGroupActives,
 		opts...,
 	)
-	teamsAPIUpdateGroupInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateGroupInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateGroupInfoProcedure,
 		svc.UpdateGroupInfo,
 		opts...,
 	)
-	teamsAPIDeleteGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteGroupProcedure,
 		svc.DeleteGroup,
 		opts...,
 	)
-	teamsAPIFetchGroupMembersHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchGroupMembersHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchGroupMembersProcedure,
 		svc.FetchGroupMembers,
 		opts...,
 	)
-	teamsAPISearchGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchGroupHandler := connect.NewUnaryHandler(
 		TeamsAPISearchGroupProcedure,
 		svc.SearchGroup,
 		opts...,
 	)
-	teamsAPIFetchGroupProjectsHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchGroupProjectsHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchGroupProjectsProcedure,
 		svc.FetchGroupProjects,
 		opts...,
 	)
-	teamsAPIJoinGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIJoinGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIJoinGroupProcedure,
 		svc.JoinGroup,
 		opts...,
 	)
-	teamsAPILeaveGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPILeaveGroupHandler := connect.NewUnaryHandler(
 		TeamsAPILeaveGroupProcedure,
 		svc.LeaveGroup,
 		opts...,
 	)
-	teamsAPIGetProjectInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetProjectInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIGetProjectInfoProcedure,
 		svc.GetProjectInfo,
 		opts...,
 	)
-	teamsAPIGetProjectListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetProjectListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetProjectListProcedure,
 		svc.GetProjectList,
 		opts...,
 	)
-	teamsAPICreateProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateProjectHandler := connect.NewUnaryHandler(
 		TeamsAPICreateProjectProcedure,
 		svc.CreateProject,
 		opts...,
 	)
-	teamsAPIUpdateProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateProjectProcedure,
 		svc.UpdateProject,
 		opts...,
 	)
-	teamsAPIDeleteProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteProjectProcedure,
 		svc.DeleteProject,
 		opts...,
 	)
-	teamsAPIGetProjectProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetProjectProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIGetProjectProfileProcedure,
 		svc.GetProjectProfile,
 		opts...,
 	)
-	teamsAPIUpdateProjectProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateProjectProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateProjectProfileProcedure,
 		svc.UpdateProjectProfile,
 		opts...,
 	)
-	teamsAPIWatchProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPIWatchProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIWatchProjectProcedure,
 		svc.WatchProject,
 		opts...,
 	)
-	teamsAPIUnWatchProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnWatchProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIUnWatchProjectProcedure,
 		svc.UnWatchProject,
 		opts...,
 	)
-	teamsAPISearchGroupProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchGroupProjectHandler := connect.NewUnaryHandler(
 		TeamsAPISearchGroupProjectProcedure,
 		svc.SearchGroupProject,
 		opts...,
 	)
-	teamsAPISearchProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchProjectHandler := connect.NewUnaryHandler(
 		TeamsAPISearchProjectProcedure,
 		svc.SearchProject,
 		opts...,
 	)
-	teamsAPIExploreProjectHandler := connect_go.NewUnaryHandler(
+	teamsAPIExploreProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIExploreProjectProcedure,
 		svc.ExploreProject,
 		opts...,
 	)
-	teamsAPIGetProjectItemsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetProjectItemsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetProjectItemsProcedure,
 		svc.GetProjectItems,
 		opts...,
 	)
-	teamsAPIGetGroupItemsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupItemsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupItemsProcedure,
 		svc.GetGroupItems,
 		opts...,
 	)
-	teamsAPIGetUserItemsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserItemsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserItemsProcedure,
 		svc.GetUserItems,
 		opts...,
 	)
-	teamsAPIGetItemHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetItemHandler := connect.NewUnaryHandler(
 		TeamsAPIGetItemProcedure,
 		svc.GetItem,
 		opts...,
 	)
-	teamsAPICreateItemHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateItemHandler := connect.NewUnaryHandler(
 		TeamsAPICreateItemProcedure,
 		svc.CreateItem,
 		opts...,
 	)
-	teamsAPIUpdateItemHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateItemHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateItemProcedure,
 		svc.UpdateItem,
 		opts...,
 	)
-	teamsAPIDeleteItemHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteItemHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteItemProcedure,
 		svc.DeleteItem,
 		opts...,
 	)
-	teamsAPILikeItemHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeItemHandler := connect.NewUnaryHandler(
 		TeamsAPILikeItemProcedure,
 		svc.LikeItem,
 		opts...,
 	)
-	teamsAPICreateCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateCommentHandler := connect.NewUnaryHandler(
 		TeamsAPICreateCommentProcedure,
 		svc.CreateComment,
 		opts...,
 	)
-	teamsAPIGetItemCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetItemCommentHandler := connect.NewUnaryHandler(
 		TeamsAPIGetItemCommentProcedure,
 		svc.GetItemComment,
 		opts...,
@@ -1166,198 +1166,198 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 // UnimplementedTeamsAPIHandler returns CodeUnimplemented from all methods.
 type UnimplementedTeamsAPIHandler struct{}
 
-func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Explore is not implemented"))
+func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Explore is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Trending(context.Context, *connect_go.Request[gen.TrendingRequest]) (*connect_go.Response[gen.TrendingResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Trending is not implemented"))
+func (UnimplementedTeamsAPIHandler) Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Trending is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Version is not implemented"))
+func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Version is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.About is not implemented"))
+func (UnimplementedTeamsAPIHandler) About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.About is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Login is not implemented"))
+func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Login is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Logout is not implemented"))
+func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Logout is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Register is not implemented"))
+func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Register is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ResetPwd is not implemented"))
+func (UnimplementedTeamsAPIHandler) ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ResetPwd is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserInit is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserInit is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserAvator is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserAvator is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserWatching is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserWatching is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserFollowingGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserFollowingGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserUpdate is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserUpdate is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchUserActives(context.Context, *connect_go.Request[gen.FetchUserActivesRequest]) (*connect_go.Response[gen.FetchUserActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserActives is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserActives is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchUser is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchUser is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupReqeust]) (*connect_go.Response[gen.CreateGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect_go.Request[gen.GetGroupReqeust]) (*connect_go.Response[gen.GetGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupActives is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupActives is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupMembers is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupMembers is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupReqeust]) (*connect_go.Response[gen.SearchGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupProjects(context.Context, *connect_go.Request[gen.FetchGroupProjectsReqeust]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupProjects is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupProjects is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.JoinGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.JoinGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LeaveGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LeaveGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetProjectInfo(context.Context, *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetProjectList(context.Context, *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateProject(context.Context, *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateProject(context.Context, *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteProject(context.Context, *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetProjectProfile(context.Context, *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateProjectProfile(context.Context, *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProjectProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProjectProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) WatchProject(context.Context, *connect_go.Request[gen.WatchProjectReqeust]) (*connect_go.Response[gen.WatchProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.WatchProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.WatchProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnWatchProject(context.Context, *connect_go.Request[gen.UnWatchProjectReqeust]) (*connect_go.Response[gen.UnWatchProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnWatchProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnWatchProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchGroupProject(context.Context, *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroupProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroupProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchProject(context.Context, *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ExploreProject(context.Context, *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ExploreProject is not implemented"))
+func (UnimplementedTeamsAPIHandler) ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ExploreProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetProjectItems(context.Context, *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectItems is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetProjectItems(context.Context, *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectItems is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroupItems(context.Context, *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupItems is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroupItems(context.Context, *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupItems is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserItems(context.Context, *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserItems is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserItems(context.Context, *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserItems is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetItem(context.Context, *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetItem is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetItem(context.Context, *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetItem is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateItem(context.Context, *connect_go.Request[gen.CreateItemRequest]) (*connect_go.Response[gen.CreateItemResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateItem is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateItem(context.Context, *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateItem is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateItem(context.Context, *connect_go.Request[gen.UpdateItemRequest]) (*connect_go.Response[gen.UpdateItemResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateItem is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateItem(context.Context, *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateItem is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteItem(context.Context, *connect_go.Request[gen.DeleteItemRequest]) (*connect_go.Response[gen.DeleteItemResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteItem is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteItem is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeItem(context.Context, *connect_go.Request[gen.LikeItemRequest]) (*connect_go.Response[gen.LikeItemResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeItem is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeItem is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateComment(context.Context, *connect_go.Request[gen.CreateCommentReq]) (*connect_go.Response[gen.CreateCommentResp], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetItemComment(context.Context, *connect_go.Request[gen.GetItemCommentReq]) (*connect_go.Response[gen.GetItemCommentResp], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetItemComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetItemComment is not implemented"))
 }
