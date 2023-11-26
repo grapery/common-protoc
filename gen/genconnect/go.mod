@@ -1,4 +1,4 @@
-module github.com/grapery/common/gen/genconnect
+module github.com/grapery/common-protoc/gen/genconnect
 
 go 1.21.4
 
