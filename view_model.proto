@@ -133,7 +133,7 @@ message GroupProfileInfo {
   string public_email = 5;
   string public_website = 6;
   bool is_verified = 7;
-  string desc = 8; 
+  string description = 8; 
   int32 group_follower_num = 9;
   
   int64 Ctime = 19;
@@ -163,10 +163,10 @@ message ProjectProfileInfo {
   uint64 watching_count = 5;
   uint64 involved_count = 6;
   string avatar = 7;
-  ScopeType scope_type = 8;
   bool is_achieve = 9;
   bool is_close = 10;
-  bool is_private = 11;
+  ScopeType scope_type = 11;
+  
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
@@ -177,8 +177,9 @@ message ActiveInfo {
   ItemInfo item_info = 3;
   ProjectInfo project_info = 4;
   GroupInfo group_info = 5;
-  int64 Ctime = 9;
-  int64 Mtime = 10;
+  
+  int64 Ctime = 19;
+  int64 Mtime = 20;
 }
 
 message WordDetail {
