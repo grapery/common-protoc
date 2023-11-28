@@ -62,17 +62,23 @@ enum AuthType {
   WithEmail = 2;
 }
 
-enum VisibleType {
+enum ScopeType {
   AllPublic = 0;
   Public = 1;
   Private = 2;
   Someone = 3;
+  GruopScope = 4;
 }
 
 message Tags {
   uint64 group_id = 1;
-  uint64 creatorID = 2;
+  uint64 creator_id = 2;
   string name = 3;
+  int32  status = 4;
+  int32  is_global = 5;
+  
+  int64 Ctime = 9;
+  int64 Mtime = 10;
 }
 
 message UserInfo {
@@ -86,6 +92,24 @@ message UserInfo {
   int64 Mtime = 10;
 }
 
+message UserProfileInfo {
+  int64 user_id = 1;
+  int32 social_type = 2;
+  int32 friend_num = 3
+  string bio = 4;
+  int32 in_group_num = 5
+  int32 own_group_num = 6
+  int32 created_group_num = 7
+  int32 contri_project_num = 8
+  int32 created_project_num = 9
+  int32 default_group = 10
+  int32 is_primery = 11;
+  int32 latest_active_time = 12
+
+  int64 Ctime = 2;
+  int64 Mtime = 10;
+}
+
 message GroupInfo {
   uint64 group_id = 1;
   string name = 2;
@@ -94,9 +118,26 @@ message GroupInfo {
   UserInfo creator = 5;
   UserInfo owner = 6;
   repeated Tags tags = 7;
+  string location = 8;
+  int32 status = 9;
+  
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
 
-  int64 Ctime = 9;
-  int64 Mtime = 10;
+message GroupProfileInfo {
+  int64 group_id = 1;
+  int32 group_member_num = 2;
+  int32 group_project_num = 3;
+  int32 default_project_list = 4;
+  string public_email = 5;
+  string public_website = 6;
+  bool is_verified = 7;
+  string desc = 8; 
+  int32 group_follower_num = 9;
+  
+  int64 Ctime = 19;
+  int64 Mtime = 20;
 }
 
 message ProjectInfo {
@@ -107,7 +148,7 @@ message ProjectInfo {
   UserInfo creator = 5;
   UserInfo owner = 6;
   repeated Tags tags = 7;
-  VisibleType visable = 8;
+  ScopeType visable = 8;
   bool isAchieve = 9;
   bool isClose = 10;
 
@@ -118,24 +159,24 @@ message ProjectInfo {
 message ProjectProfileInfo {
   uint64 project_id = 1;
   uint32 group_id = 2;
-  string Description = 3;
-  uint64 WatchingCount = 5;
-  uint64 InvolvedCount = 6;
-  string Avatar = 7;
-  VisibleType visable = 8;
-  bool isAchieve = 9;
-  bool isClose = 10;
-  bool isPrivate = 11;
+  string description = 3;
+  uint64 watching_count = 5;
+  uint64 involved_count = 6;
+  string avatar = 7;
+  ScopeType scope_type = 8;
+  bool is_achieve = 9;
+  bool is_close = 10;
+  bool is_private = 11;
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
 
 message ActiveInfo {
   UserInfo user = 1;
-  ActiveType activeType = 2;
-  ItemInfo itemInfo = 3;
-  ProjectInfo projectInfo = 4;
-  GroupInfo groupInfo = 5;
+  ActiveType active_type = 2;
+  ItemInfo item_info = 3;
+  ProjectInfo project_info = 4;
+  GroupInfo group_info = 5;
   int64 Ctime = 9;
   int64 Mtime = 10;
 }
@@ -158,33 +199,33 @@ message PictureDetail {
 message VideoInfo {
   string resource_url = 1;
   uint64 size = 2;
-  uint64 timeLength = 3;
+  uint64 time_length = 3;
 }
 
 message VideoDetail {
   repeated VideoInfo list = 1;
   uint64 num = 2;
-
+  
   int64 Ctime = 9;
   int64 Mtime = 10;
 }
 
 message MusicShareDetail {
-  string resourceUrl = 1;
+  string resource_url = 1;
   uint64 source = 2;
   int64 Ctime = 9;
   int64 Mtime = 10;
 }
 
 message VoiceDetail {
-  string resourceUrl = 1;
+  string resource_url = 1;
   uint64 size = 2;
-  uint64 timeLength = 3;
+  uint64 time_length = 3;
   int64 Ctime = 9;
   int64 Mtime = 10;
 }
 message ShareDetail {
-  string resourceUrl = 1;
+  string resource_url = 1;
   uint64 source = 2;
   int64 Ctime = 9;
   int64 Mtime = 10;
@@ -212,22 +253,9 @@ message ItemInfo {
   int64 Mtime = 10;
 }
 
-message UserProfileInfo {
-  int64 user_id = 1;
-  int64 Ctime = 2;
-  string Description = 3;
-  string avatar = 4;
-  int64 Mtime = 10;
-}
-
-message GroupProfileInfo {
-  int64 group_id = 1;
-  int64 Ctime = 9;
-  int64 Mtime = 10;
-}
 
 message UserPrivate {
-  int64 ConnectType = 1;
-  int64 Ctime = 2;
-  int64 Mtime = 3;
+  int64 connect_type = 1;
+  int64 Ctime = 10;
+  int64 Mtime = 11;
 }
