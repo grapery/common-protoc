@@ -95,19 +95,19 @@ message UserInfo {
 message UserProfileInfo {
   int64 user_id = 1;
   int32 social_type = 2;
-  int32 friend_num = 3
+  int32 friend_num = 3;
   string bio = 4;
-  int32 in_group_num = 5
-  int32 own_group_num = 6
-  int32 created_group_num = 7
-  int32 contri_project_num = 8
-  int32 created_project_num = 9
-  int32 default_group = 10
+  int32 in_group_num = 5;
+  int32 own_group_num = 6;
+  int32 created_group_num = 7;
+  int32 contri_project_num = 8;
+  int32 created_project_num = 9;
+  int32 default_group = 10;
   int32 is_primery = 11;
-  int32 latest_active_time = 12
+  int32 latest_active_time = 12;
 
-  int64 Ctime = 2;
-  int64 Mtime = 10;
+  int64 Ctime = 19;
+  int64 Mtime = 20;
 }
 
 message GroupInfo {

@@ -1580,6 +1580,11 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/Tags'
+                location:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
                 Ctime:
                     type: string
                 Mtime:
@@ -1743,23 +1748,21 @@ components:
                 groupId:
                     type: integer
                     format: uint32
-                Description:
+                description:
                     type: string
-                WatchingCount:
+                watchingCount:
                     type: string
-                InvolvedCount:
+                involvedCount:
                     type: string
-                Avatar:
+                avatar:
                     type: string
-                visable:
-                    type: integer
-                    format: enum
                 isAchieve:
                     type: boolean
                 isClose:
                     type: boolean
-                isPrivate:
-                    type: boolean
+                scopeType:
+                    type: integer
+                    format: enum
                 Ctime:
                     type: string
                 Mtime:
@@ -1915,9 +1918,19 @@ components:
             properties:
                 groupId:
                     type: string
-                creatorID:
+                creatorId:
                     type: string
                 name:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                isGlobal:
+                    type: integer
+                    format: int32
+                Ctime:
+                    type: string
+                Mtime:
                     type: string
         TrendingResponse:
             type: object
