@@ -475,6 +475,27 @@ message ExploreResponse {}
 message TrendingRequest {}
 message TrendingResponse {}
 
+message GetProjectMembersRequest{
+  int32 projectId = 1;
+  int32 userId = 2;
+}
+
+message GetProjectMembersResponse{
+  repeated UserInfo list = 1; 
+  int32 total = 2;
+  map<string,int64> role = 3;
+}
+
+message GetProjectWatcherReqeust{
+  int32 projectId = 1;
+}
+
+message GetProjectWatcherResponse{
+  repeated UserInfo list = 1; 
+  int32 total = 2;
+  map<int64,int64> time_stamp = 3;
+}
+
 service TeamsAPI {
 
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
@@ -678,6 +699,13 @@ service TeamsAPI {
     };
   }
 
+  rpc GetProjectMembers(GetProjectMembersRequest) returns (GetProjectMembersResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/info/project/members"
+      body : "*"
+    };
+  }
+
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/info/project/update"
@@ -715,6 +743,13 @@ service TeamsAPI {
   rpc UnWatchProject(UnWatchProjectReqeust) returns (UnWatchProjectResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/info/project/unwatch"
+      body : "*"
+    };
+  }
+
+  rpc GetProjectWatcher(GetProjectWatcherReqeust) returns (GetProjectWatcherResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/info/project/watcher"
       body : "*"
     };
   }

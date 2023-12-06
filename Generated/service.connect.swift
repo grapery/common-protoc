@@ -190,6 +190,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     func `createProject`(request: Common_CreateProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateProjectResponse>
 
     @discardableResult
+    func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectMembersResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectMembersResponse>
+
+    @discardableResult
     func `updateProject`(request: Common_UpdateProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateProjectResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
@@ -224,6 +230,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_UnWatchProjectResponse>
+
+    @discardableResult
+    func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectWatcherResponse>
 
     @discardableResult
     func `searchGroupProject`(request: Common_SearchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchProjectResponse>) -> Void) -> Connect.Cancelable
@@ -613,6 +625,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetProjectMembersResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetProjectMembers", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetProjectMembersResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetProjectMembers", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `updateProject`(request: Common_UpdateProjectRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateProjectResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/UpdateProject", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -670,6 +692,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnWatchProjectResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/UnWatchProject", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetProjectWatcher", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetProjectWatcherResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetProjectWatcher", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -834,12 +866,14 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getProjectInfo = Connect.MethodSpec(name: "GetProjectInfo", service: "common.TeamsAPI", type: .unary)
             public static let getProjectList = Connect.MethodSpec(name: "GetProjectList", service: "common.TeamsAPI", type: .unary)
             public static let createProject = Connect.MethodSpec(name: "CreateProject", service: "common.TeamsAPI", type: .unary)
+            public static let getProjectMembers = Connect.MethodSpec(name: "GetProjectMembers", service: "common.TeamsAPI", type: .unary)
             public static let updateProject = Connect.MethodSpec(name: "UpdateProject", service: "common.TeamsAPI", type: .unary)
             public static let deleteProject = Connect.MethodSpec(name: "DeleteProject", service: "common.TeamsAPI", type: .unary)
             public static let getProjectProfile = Connect.MethodSpec(name: "GetProjectProfile", service: "common.TeamsAPI", type: .unary)
             public static let updateProjectProfile = Connect.MethodSpec(name: "UpdateProjectProfile", service: "common.TeamsAPI", type: .unary)
             public static let watchProject = Connect.MethodSpec(name: "WatchProject", service: "common.TeamsAPI", type: .unary)
             public static let unWatchProject = Connect.MethodSpec(name: "UnWatchProject", service: "common.TeamsAPI", type: .unary)
+            public static let getProjectWatcher = Connect.MethodSpec(name: "GetProjectWatcher", service: "common.TeamsAPI", type: .unary)
             public static let searchGroupProject = Connect.MethodSpec(name: "SearchGroupProject", service: "common.TeamsAPI", type: .unary)
             public static let searchProject = Connect.MethodSpec(name: "SearchProject", service: "common.TeamsAPI", type: .unary)
             public static let exploreProject = Connect.MethodSpec(name: "ExploreProject", service: "common.TeamsAPI", type: .unary)

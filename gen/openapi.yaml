@@ -210,6 +210,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/members:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectMembers
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectMembersRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectMembersResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/group/info/project/profile:
         post:
             tags:
@@ -348,6 +372,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WatchProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/info/project/watcher:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetProjectWatcher
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetProjectWatcherReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetProjectWatcherResponse'
                 default:
                     description: Default error response
                     content:
@@ -1497,6 +1545,29 @@ components:
                     type: string
                 number:
                     type: string
+        GetProjectMembersRequest:
+            type: object
+            properties:
+                projectId:
+                    type: integer
+                    format: int32
+                userId:
+                    type: integer
+                    format: int32
+        GetProjectMembersResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: integer
+                    format: int32
+                role:
+                    type: object
+                    additionalProperties:
+                        type: string
         GetProjectProfileRequest:
             type: object
             properties:
@@ -1531,6 +1602,26 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
+        GetProjectWatcherReqeust:
+            type: object
+            properties:
+                projectId:
+                    type: integer
+                    format: int32
+        GetProjectWatcherResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: integer
+                    format: int32
+                timeStamp:
+                    type: object
+                    additionalProperties:
+                        type: string
         GetUserItemsRequest:
             type: object
             properties:

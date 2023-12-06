@@ -100,6 +100,9 @@ const (
 	TeamsAPIGetProjectListProcedure = "/common.TeamsAPI/GetProjectList"
 	// TeamsAPICreateProjectProcedure is the fully-qualified name of the TeamsAPI's CreateProject RPC.
 	TeamsAPICreateProjectProcedure = "/common.TeamsAPI/CreateProject"
+	// TeamsAPIGetProjectMembersProcedure is the fully-qualified name of the TeamsAPI's
+	// GetProjectMembers RPC.
+	TeamsAPIGetProjectMembersProcedure = "/common.TeamsAPI/GetProjectMembers"
 	// TeamsAPIUpdateProjectProcedure is the fully-qualified name of the TeamsAPI's UpdateProject RPC.
 	TeamsAPIUpdateProjectProcedure = "/common.TeamsAPI/UpdateProject"
 	// TeamsAPIDeleteProjectProcedure is the fully-qualified name of the TeamsAPI's DeleteProject RPC.
@@ -114,6 +117,9 @@ const (
 	TeamsAPIWatchProjectProcedure = "/common.TeamsAPI/WatchProject"
 	// TeamsAPIUnWatchProjectProcedure is the fully-qualified name of the TeamsAPI's UnWatchProject RPC.
 	TeamsAPIUnWatchProjectProcedure = "/common.TeamsAPI/UnWatchProject"
+	// TeamsAPIGetProjectWatcherProcedure is the fully-qualified name of the TeamsAPI's
+	// GetProjectWatcher RPC.
+	TeamsAPIGetProjectWatcherProcedure = "/common.TeamsAPI/GetProjectWatcher"
 	// TeamsAPISearchGroupProjectProcedure is the fully-qualified name of the TeamsAPI's
 	// SearchGroupProject RPC.
 	TeamsAPISearchGroupProjectProcedure = "/common.TeamsAPI/SearchGroupProject"
@@ -176,12 +182,14 @@ type TeamsAPIClient interface {
 	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
 	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
 	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	GetProjectMembers(context.Context, *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error)
 	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
 	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
 	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
 	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
 	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
 	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
 	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
@@ -357,6 +365,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPICreateProjectProcedure,
 			opts...,
 		),
+		getProjectMembers: connect.NewClient[gen.GetProjectMembersRequest, gen.GetProjectMembersResponse](
+			httpClient,
+			baseURL+TeamsAPIGetProjectMembersProcedure,
+			opts...,
+		),
 		updateProject: connect.NewClient[gen.UpdateProjectRequest, gen.UpdateProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateProjectProcedure,
@@ -385,6 +398,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		unWatchProject: connect.NewClient[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIUnWatchProjectProcedure,
+			opts...,
+		),
+		getProjectWatcher: connect.NewClient[gen.GetProjectWatcherReqeust, gen.GetProjectWatcherResponse](
+			httpClient,
+			baseURL+TeamsAPIGetProjectWatcherProcedure,
 			opts...,
 		),
 		searchGroupProject: connect.NewClient[gen.SearchProjectRequest, gen.SearchProjectResponse](
@@ -487,12 +505,14 @@ type teamsAPIClient struct {
 	getProjectInfo       *connect.Client[gen.GetProjectRequest, gen.GetProjectResponse]
 	getProjectList       *connect.Client[gen.GetProjectListRequest, gen.GetProjectListResponse]
 	createProject        *connect.Client[gen.CreateProjectRequest, gen.CreateProjectResponse]
+	getProjectMembers    *connect.Client[gen.GetProjectMembersRequest, gen.GetProjectMembersResponse]
 	updateProject        *connect.Client[gen.UpdateProjectRequest, gen.UpdateProjectResponse]
 	deleteProject        *connect.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
 	getProjectProfile    *connect.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
 	updateProjectProfile *connect.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
 	watchProject         *connect.Client[gen.WatchProjectReqeust, gen.WatchProjectResponse]
 	unWatchProject       *connect.Client[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse]
+	getProjectWatcher    *connect.Client[gen.GetProjectWatcherReqeust, gen.GetProjectWatcherResponse]
 	searchGroupProject   *connect.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
 	searchProject        *connect.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
 	exploreProject       *connect.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
@@ -658,6 +678,11 @@ func (c *teamsAPIClient) CreateProject(ctx context.Context, req *connect.Request
 	return c.createProject.CallUnary(ctx, req)
 }
 
+// GetProjectMembers calls common.TeamsAPI.GetProjectMembers.
+func (c *teamsAPIClient) GetProjectMembers(ctx context.Context, req *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error) {
+	return c.getProjectMembers.CallUnary(ctx, req)
+}
+
 // UpdateProject calls common.TeamsAPI.UpdateProject.
 func (c *teamsAPIClient) UpdateProject(ctx context.Context, req *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error) {
 	return c.updateProject.CallUnary(ctx, req)
@@ -686,6 +711,11 @@ func (c *teamsAPIClient) WatchProject(ctx context.Context, req *connect.Request[
 // UnWatchProject calls common.TeamsAPI.UnWatchProject.
 func (c *teamsAPIClient) UnWatchProject(ctx context.Context, req *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
 	return c.unWatchProject.CallUnary(ctx, req)
+}
+
+// GetProjectWatcher calls common.TeamsAPI.GetProjectWatcher.
+func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, req *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
+	return c.getProjectWatcher.CallUnary(ctx, req)
 }
 
 // SearchGroupProject calls common.TeamsAPI.SearchGroupProject.
@@ -785,12 +815,14 @@ type TeamsAPIHandler interface {
 	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
 	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
 	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	GetProjectMembers(context.Context, *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error)
 	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
 	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
 	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
 	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
 	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
 	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
 	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
@@ -962,6 +994,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.CreateProject,
 		opts...,
 	)
+	teamsAPIGetProjectMembersHandler := connect.NewUnaryHandler(
+		TeamsAPIGetProjectMembersProcedure,
+		svc.GetProjectMembers,
+		opts...,
+	)
 	teamsAPIUpdateProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateProjectProcedure,
 		svc.UpdateProject,
@@ -990,6 +1027,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIUnWatchProjectHandler := connect.NewUnaryHandler(
 		TeamsAPIUnWatchProjectProcedure,
 		svc.UnWatchProject,
+		opts...,
+	)
+	teamsAPIGetProjectWatcherHandler := connect.NewUnaryHandler(
+		TeamsAPIGetProjectWatcherProcedure,
+		svc.GetProjectWatcher,
 		opts...,
 	)
 	teamsAPISearchGroupProjectHandler := connect.NewUnaryHandler(
@@ -1119,6 +1161,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetProjectListHandler.ServeHTTP(w, r)
 		case TeamsAPICreateProjectProcedure:
 			teamsAPICreateProjectHandler.ServeHTTP(w, r)
+		case TeamsAPIGetProjectMembersProcedure:
+			teamsAPIGetProjectMembersHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateProjectProcedure:
 			teamsAPIUpdateProjectHandler.ServeHTTP(w, r)
 		case TeamsAPIDeleteProjectProcedure:
@@ -1131,6 +1175,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIWatchProjectHandler.ServeHTTP(w, r)
 		case TeamsAPIUnWatchProjectProcedure:
 			teamsAPIUnWatchProjectHandler.ServeHTTP(w, r)
+		case TeamsAPIGetProjectWatcherProcedure:
+			teamsAPIGetProjectWatcherHandler.ServeHTTP(w, r)
 		case TeamsAPISearchGroupProjectProcedure:
 			teamsAPISearchGroupProjectHandler.ServeHTTP(w, r)
 		case TeamsAPISearchProjectProcedure:
@@ -1286,6 +1332,10 @@ func (UnimplementedTeamsAPIHandler) CreateProject(context.Context, *connect.Requ
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateProject is not implemented"))
 }
 
+func (UnimplementedTeamsAPIHandler) GetProjectMembers(context.Context, *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectMembers is not implemented"))
+}
+
 func (UnimplementedTeamsAPIHandler) UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProject is not implemented"))
 }
@@ -1308,6 +1358,10 @@ func (UnimplementedTeamsAPIHandler) WatchProject(context.Context, *connect.Reque
 
 func (UnimplementedTeamsAPIHandler) UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnWatchProject is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectWatcher is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error) {
