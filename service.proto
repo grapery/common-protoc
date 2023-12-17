@@ -71,23 +71,53 @@ message UpdateUserAvatorRequest {
   string avatar = 2;
 }
 
-message UpdateUserAvatorResponse { UserInfo info = 1; }
+message UpdateUserAvatorResponse { 
+  UserInfo info = 1; 
+  int32 status = 2;
+}
 
-message UserWatchingRequest { uint64 user_id = 1; }
+message UserWatchingRequest { 
+  uint64 user_id = 1; 
+  int64 time_stamp = 2;
+  int32 offset = 3;
+  int32 page_size = 4;
+}
 
-message UserWatchingResponse { repeated ProjectInfo list = 1; }
+message UserWatchingResponse { 
+  repeated ProjectInfo list = 1; 
+  int32 offset = 2;
+  int32 page_size = 3;
+}
 
-message UserGroupRequest { uint64 user_id = 1; }
+enum GroupType {
+  PUBLIC = 0;
+  PRIVATE = 1;
+}
 
-message UserGroupResponse { repeated GroupInfo list = 1; }
+message UserGroupRequest { 
+  uint64 user_id = 1; 
+  GroupType gtype = 2;
+  int32 offset = 3;
+  int32 page_size = 4;
+}
 
-message UserFollowingGroupRequest { uint64 user_id = 1; }
+message UserGroupResponse { 
+  repeated GroupInfo list = 1; 
+  int32 offset = 2;
+  int32 page_size = 3;
+}
+
+message UserFollowingGroupRequest { 
+  uint64 user_id = 1; 
+  int32 offset = 2;
+  int32 page_size = 3;
+}
 
 message UserFollowingGroupResponse {
   uint64 user_id = 1;
   repeated GroupInfo list = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message UserUpdateRequest {
@@ -103,12 +133,18 @@ message FetchUserActivesRequest {
   uint64 user_id = 1;
   ActiveType atype = 2;
 }
-message FetchUserActivesResponse { repeated ActiveInfo list = 1; }
+message FetchUserActivesResponse { 
+  repeated ActiveInfo list = 1; 
+  int64 time_stamp = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
+}
 message SearchUserRequest {
   string name = 1;
   uint64 group_id = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  bool is_fuzzy = 3;
+  uint64 offset = 7;
+  uint64 number = 8;
 }
 
 message SearchUserResponse {
@@ -117,12 +153,16 @@ message SearchUserResponse {
   uint64 number = 3;
 }
 
-message UserInitRequest { uint64 user_id = 1; }
+message UserInitRequest { 
+  int64 user_id = 1; 
+  string deafault_group = 2;
+}
 
 message UserInitResponse {
   uint64 user_id = 1;
   repeated GroupInfo list = 2;
 }
+
 
 message GetProjectRequest {
   uint64 group_id = 1;
@@ -130,7 +170,9 @@ message GetProjectRequest {
   uint64 user_id = 3;
 }
 
-message GetProjectResponse { ProjectInfo info = 1; }
+message GetProjectResponse { 
+  ProjectInfo info = 1; 
+}
 
 message GetProjectListRequest {
   uint64 group_id = 1;

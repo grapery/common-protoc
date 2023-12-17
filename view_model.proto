@@ -254,7 +254,6 @@ message ItemInfo {
   int64 Mtime = 10;
 }
 
-
 message UserPrivate {
   int64 connect_type = 1;
   int64 Ctime = 10;

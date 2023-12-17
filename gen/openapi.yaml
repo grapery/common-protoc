@@ -1404,6 +1404,12 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ActiveInfo'
+                timeStamp:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetGroupActivesRequest:
             type: object
             properties:
@@ -1962,6 +1968,8 @@ components:
                     type: string
                 groupId:
                     type: string
+                isFuzzy:
+                    type: boolean
                 offset:
                     type: string
                 number:
@@ -2110,11 +2118,20 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/UserInfo'
+                status:
+                    type: integer
+                    format: int32
         UserFollowingGroupRequest:
             type: object
             properties:
                 userId:
                     type: string
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         UserFollowingGroupResponse:
             type: object
             properties:
@@ -2126,13 +2143,22 @@ components:
                         $ref: '#/components/schemas/GroupInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         UserGroupRequest:
             type: object
             properties:
                 userId:
                     type: string
+                gtype:
+                    type: integer
+                    format: enum
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         UserGroupResponse:
             type: object
             properties:
@@ -2140,6 +2166,12 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/GroupInfo'
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         UserInfo:
             type: object
             properties:
@@ -2177,6 +2209,8 @@ components:
             properties:
                 userId:
                     type: string
+                deafaultGroup:
+                    type: string
         UserInitResponse:
             type: object
             properties:
@@ -2205,6 +2239,14 @@ components:
             properties:
                 userId:
                     type: string
+                timeStamp:
+                    type: string
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         UserWatchingResponse:
             type: object
             properties:
@@ -2212,6 +2254,12 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ProjectInfo'
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         VersionResponse:
             type: object
             properties:

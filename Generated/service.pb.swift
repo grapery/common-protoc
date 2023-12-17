@@ -20,6 +20,46 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Common_GroupType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case `public` // = 0
+  case `private` // = 1
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .public
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .public
+    case 1: self = .private
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .public: return 0
+    case .private: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Common_GroupType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_GroupType] = [
+    .public,
+    .private,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct Common_LoginRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -218,6 +258,8 @@ public struct Common_UpdateUserAvatorResponse {
   /// Clears the value of `info`. Subsequent reads from it will return its default value.
   public mutating func clearInfo() {self._info = nil}
 
+  public var status: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -232,6 +274,12 @@ public struct Common_UserWatchingRequest {
 
   public var userID: UInt64 = 0
 
+  public var timeStamp: Int64 = 0
+
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -243,6 +291,10 @@ public struct Common_UserWatchingResponse {
   // methods supported on all messages.
 
   public var list: [Common_ProjectInfo] = []
+
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -256,6 +308,12 @@ public struct Common_UserGroupRequest {
 
   public var userID: UInt64 = 0
 
+  public var gtype: Common_GroupType = .public
+
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -268,6 +326,10 @@ public struct Common_UserGroupResponse {
 
   public var list: [Common_GroupInfo] = []
 
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -279,6 +341,10 @@ public struct Common_UserFollowingGroupRequest {
   // methods supported on all messages.
 
   public var userID: UInt64 = 0
+
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -294,9 +360,9 @@ public struct Common_UserFollowingGroupResponse {
 
   public var list: [Common_GroupInfo] = []
 
-  public var offset: UInt64 = 0
+  public var offset: Int64 = 0
 
-  public var number: UInt64 = 0
+  public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -352,6 +418,12 @@ public struct Common_FetchUserActivesResponse {
 
   public var list: [Common_ActiveInfo] = []
 
+  public var timeStamp: Int64 = 0
+
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -365,6 +437,8 @@ public struct Common_SearchUserRequest {
   public var name: String = String()
 
   public var groupID: UInt64 = 0
+
+  public var isFuzzy: Bool = false
 
   public var offset: UInt64 = 0
 
@@ -396,7 +470,9 @@ public struct Common_UserInitRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var userID: UInt64 = 0
+  public var userID: Int64 = 0
+
+  public var deafaultGroup: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1764,6 +1840,7 @@ public struct Common_GetProjectWatcherResponse {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Common_GroupType: @unchecked Sendable {}
 extension Common_LoginRequest: @unchecked Sendable {}
 extension Common_LoginResponse: @unchecked Sendable {}
 extension Common_LogoutRequest: @unchecked Sendable {}
@@ -1883,6 +1960,13 @@ extension Common_GetProjectWatcherResponse: @unchecked Sendable {}
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
+
+extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PUBLIC"),
+    1: .same(proto: "PRIVATE"),
+  ]
+}
 
 extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LoginRequest"
@@ -2355,6 +2439,7 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAvatorResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "info"),
+    2: .same(proto: "status"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2364,6 +2449,7 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
       default: break
       }
     }
@@ -2377,11 +2463,15 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try { if let v = self._info {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    if self.status != 0 {
+      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateUserAvatorResponse, rhs: Common_UpdateUserAvatorResponse) -> Bool {
     if lhs._info != rhs._info {return false}
+    if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2391,6 +2481,9 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
+    2: .standard(proto: "time_stamp"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2400,6 +2493,9 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.timeStamp) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2409,11 +2505,23 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.userID != 0 {
       try visitor.visitSingularUInt64Field(value: self.userID, fieldNumber: 1)
     }
+    if self.timeStamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timeStamp, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserWatchingRequest, rhs: Common_UserWatchingRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
+    if lhs.timeStamp != rhs.timeStamp {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2423,6 +2531,8 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
+    2: .same(proto: "offset"),
+    3: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2432,6 +2542,8 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2441,11 +2553,19 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if !self.list.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 2)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserWatchingResponse, rhs: Common_UserWatchingResponse) -> Bool {
     if lhs.list != rhs.list {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2455,6 +2575,9 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let protoMessageName: String = _protobuf_package + ".UserGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
+    2: .same(proto: "gtype"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2464,6 +2587,9 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.gtype) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2473,11 +2599,23 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.userID != 0 {
       try visitor.visitSingularUInt64Field(value: self.userID, fieldNumber: 1)
     }
+    if self.gtype != .public {
+      try visitor.visitSingularEnumField(value: self.gtype, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserGroupRequest, rhs: Common_UserGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
+    if lhs.gtype != rhs.gtype {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2487,6 +2625,8 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static let protoMessageName: String = _protobuf_package + ".UserGroupResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
+    2: .same(proto: "offset"),
+    3: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2496,6 +2636,8 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2505,11 +2647,19 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.list.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 2)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserGroupResponse, rhs: Common_UserGroupResponse) -> Bool {
     if lhs.list != rhs.list {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2519,6 +2669,8 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
   public static let protoMessageName: String = _protobuf_package + ".UserFollowingGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
+    2: .same(proto: "offset"),
+    3: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2528,6 +2680,8 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2537,11 +2691,19 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
     if self.userID != 0 {
       try visitor.visitSingularUInt64Field(value: self.userID, fieldNumber: 1)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 2)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserFollowingGroupRequest, rhs: Common_UserFollowingGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2553,7 +2715,7 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
     1: .standard(proto: "user_id"),
     2: .same(proto: "list"),
     3: .same(proto: "offset"),
-    4: .same(proto: "number"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2564,8 +2726,8 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularUInt64Field(value: &self.number) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2579,10 +2741,10 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 2)
     }
     if self.offset != 0 {
-      try visitor.visitSingularUInt64Field(value: self.offset, fieldNumber: 3)
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
     }
-    if self.number != 0 {
-      try visitor.visitSingularUInt64Field(value: self.number, fieldNumber: 4)
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2591,7 +2753,7 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
     if lhs.userID != rhs.userID {return false}
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
-    if lhs.number != rhs.number {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2708,6 +2870,9 @@ extension Common_FetchUserActivesResponse: SwiftProtobuf.Message, SwiftProtobuf.
   public static let protoMessageName: String = _protobuf_package + ".FetchUserActivesResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
+    2: .standard(proto: "time_stamp"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2717,6 +2882,9 @@ extension Common_FetchUserActivesResponse: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.timeStamp) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -2726,11 +2894,23 @@ extension Common_FetchUserActivesResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.list.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
     }
+    if self.timeStamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timeStamp, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_FetchUserActivesResponse, rhs: Common_FetchUserActivesResponse) -> Bool {
     if lhs.list != rhs.list {return false}
+    if lhs.timeStamp != rhs.timeStamp {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2741,8 +2921,9 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "group_id"),
-    3: .same(proto: "offset"),
-    4: .same(proto: "number"),
+    3: .standard(proto: "is_fuzzy"),
+    7: .same(proto: "offset"),
+    8: .same(proto: "number"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2753,8 +2934,9 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 2: try { try decoder.decodeSingularUInt64Field(value: &self.groupID) }()
-      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularUInt64Field(value: &self.number) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.isFuzzy) }()
+      case 7: try { try decoder.decodeSingularUInt64Field(value: &self.offset) }()
+      case 8: try { try decoder.decodeSingularUInt64Field(value: &self.number) }()
       default: break
       }
     }
@@ -2767,11 +2949,14 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.groupID != 0 {
       try visitor.visitSingularUInt64Field(value: self.groupID, fieldNumber: 2)
     }
+    if self.isFuzzy != false {
+      try visitor.visitSingularBoolField(value: self.isFuzzy, fieldNumber: 3)
+    }
     if self.offset != 0 {
-      try visitor.visitSingularUInt64Field(value: self.offset, fieldNumber: 3)
+      try visitor.visitSingularUInt64Field(value: self.offset, fieldNumber: 7)
     }
     if self.number != 0 {
-      try visitor.visitSingularUInt64Field(value: self.number, fieldNumber: 4)
+      try visitor.visitSingularUInt64Field(value: self.number, fieldNumber: 8)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2779,6 +2964,7 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static func ==(lhs: Common_SearchUserRequest, rhs: Common_SearchUserRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.groupID != rhs.groupID {return false}
+    if lhs.isFuzzy != rhs.isFuzzy {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.number != rhs.number {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2834,6 +3020,7 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   public static let protoMessageName: String = _protobuf_package + ".UserInitRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
+    2: .standard(proto: "deafault_group"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2842,7 +3029,8 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.userID) }()
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.deafaultGroup) }()
       default: break
       }
     }
@@ -2850,13 +3038,17 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.userID != 0 {
-      try visitor.visitSingularUInt64Field(value: self.userID, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if !self.deafaultGroup.isEmpty {
+      try visitor.visitSingularStringField(value: self.deafaultGroup, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserInitRequest, rhs: Common_UserInitRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
+    if lhs.deafaultGroup != rhs.deafaultGroup {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
