@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package common;
+
+import "base.proto";
+
+message WordDetail {
+    string content = 1;
+    int64 length = 2;
+  }
+  
+  message PictureInfo {
+    string resource_url = 1;
+    int64 size = 2;
+  }
+  
+  message PictureDetail {
+    repeated PictureInfo list = 1;
+    int64 num = 2;
+  }
+  
+  message VideoInfo {
+    string resource_url = 1;
+    int64 size = 2;
+    int64 time_length = 3;
+  }
+  
+  message VideoDetail {
+    repeated VideoInfo list = 1;
+    int64 num = 2;
+    
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }
+  
+  message MusicShareDetail {
+    string resource_url = 1;
+    int64 source = 2;
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }
+  
+  message VoiceDetail {
+    string resource_url = 1;
+    int64 size = 2;
+    int64 time_length = 3;
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }
+  message ShareDetail {
+    string resource_url = 1;
+    int64 source = 2;
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }
+  
+  message ItemDetail {
+    oneof detail {
+      WordDetail word = 1;
+      PictureDetail pictures = 2;
+      VideoDetail video = 3;
+      MusicShareDetail music = 4;
+      VoiceDetail voice = 5;
+      ShareDetail share = 6;
+    }
+  }
+
+  message ItemInfo {
+    int64 group_id = 1;
+    int64 project_id = 2;
+    int64 user_id = 3;
+    string title = 4;
+    ItemDetail content = 5;
+    ItemType itype = 6;
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }

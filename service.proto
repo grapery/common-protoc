@@ -7,7 +7,22 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
-import "view_model.proto";
+import "base.proto";
+import "group.proto";
+import "item.proto";
+import "project.proto";
+import "user.proto";
+
+message ActiveInfo {
+  UserInfo user = 1;
+  ActiveType active_type = 2;
+  ItemInfo item_info = 3;
+  ProjectInfo project_info = 4;
+  GroupInfo group_info = 5;
+  
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
 
 message LoginRequest {
   string account = 1;
@@ -15,7 +30,7 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string token = 2;
 }
 
@@ -43,7 +58,10 @@ message ConfirmRequest {
   string token = 1; 
 }
 
-message ConfirmResponse { int32 status = 1; }
+message ConfirmResponse { 
+  int32 status = 1; 
+  int64 timestamp = 2;
+}
 
 message ResetPasswordRequest {
   string account = 1;
@@ -54,11 +72,12 @@ message ResetPasswordRequest {
 message ResetPasswordResponse {
   string account = 1;
   int64 status = 2;
+  int64 timestamp = 3;
 }
 
 // user ,group .project.item
 message UserInfoRequest {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string account = 2;
 }
 
@@ -67,7 +86,7 @@ message UserInfoResponse {
 }
 
 message UpdateUserAvatorRequest {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string avatar = 2;
 }
 
@@ -77,7 +96,7 @@ message UpdateUserAvatorResponse {
 }
 
 message UserWatchingRequest { 
-  uint64 user_id = 1; 
+  int64 user_id = 1; 
   int64 time_stamp = 2;
   int32 offset = 3;
   int32 page_size = 4;
@@ -95,7 +114,7 @@ enum GroupType {
 }
 
 message UserGroupRequest { 
-  uint64 user_id = 1; 
+  int64 user_id = 1; 
   GroupType gtype = 2;
   int32 offset = 3;
   int32 page_size = 4;
@@ -108,20 +127,20 @@ message UserGroupResponse {
 }
 
 message UserFollowingGroupRequest { 
-  uint64 user_id = 1; 
+  int64 user_id = 1; 
   int32 offset = 2;
   int32 page_size = 3;
 }
 
 message UserFollowingGroupResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   repeated GroupInfo list = 2;
   int64 offset = 3;
   int64 page_size = 4;
 }
 
 message UserUpdateRequest {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string nickname = 2;
   string avatar = 3;
   string desc = 4;
@@ -130,27 +149,27 @@ message UserUpdateRequest {
 message UserUpdateResponse {}
 
 message FetchUserActivesRequest {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   ActiveType atype = 2;
 }
 message FetchUserActivesResponse { 
   repeated ActiveInfo list = 1; 
-  int64 time_stamp = 2;
+  int64 timestamp = 2;
   int64 offset = 3;
   int64 page_size = 4;
 }
 message SearchUserRequest {
   string name = 1;
-  uint64 group_id = 2;
+  int64 group_id = 2;
   bool is_fuzzy = 3;
-  uint64 offset = 7;
-  uint64 number = 8;
+  int64 offset = 7;
+  int64 page_size = 8;
 }
 
 message SearchUserResponse {
   repeated UserInfo list = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message UserInitRequest { 
@@ -159,15 +178,15 @@ message UserInitRequest {
 }
 
 message UserInitResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   repeated GroupInfo list = 2;
 }
 
 
 message GetProjectRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
 }
 
 message GetProjectResponse { 
@@ -175,300 +194,300 @@ message GetProjectResponse {
 }
 
 message GetProjectListRequest {
-  uint64 group_id = 1;
+  int64 group_id = 1;
 
-  uint64 offset = 5;
-  uint64 number = 6;
+  int64 offset = 5;
+  int64 page_size = 6;
 }
 
 message GetProjectListResponse {
   repeated ProjectInfo List = 1;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message CreateProjectRequest {
-  uint64 group_id = 1;
+  int64 group_id = 1;
   string name = 2;
 }
 message CreateProjectResponse { ProjectInfo info = 1; }
 message UpdateProjectRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
   ProjectInfo info = 4;
 }
 message UpdateProjectResponse { ProjectInfo info = 1; }
 message DeleteProjectRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
 }
 message DeleteProjectResponse {}
 
 message GetWatchingProjectRequest {
-  uint64 user_id = 1;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 user_id = 1;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message GetWatchingProjectResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   repeated ProjectInfo list = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message WatchProjectReqeust {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
 }
 
 message WatchProjectResponse {}
 
 message UnWatchProjectReqeust {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
 }
 
 message UnWatchProjectResponse {}
 
 message ExploreProjectsRequest {
-  uint64 user_id = 1;
-  uint64 group_id = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 user_id = 1;
+  int64 group_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message ExploreProjectsResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   repeated ProjectInfo list = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchProjectRequest {
-  uint64 group_id = 1;
+  int64 group_id = 1;
   string name = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchProjectResponse {
-  uint64 group_id = 1;
+  int64 group_id = 1;
   repeated ProjectInfo list = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchAllProjectRequest {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string name = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchAllProjectResponse {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   repeated ProjectInfo list = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message GetProjectProfileRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
 }
 
 message GetProjectProfileResponse {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
   ProjectProfileInfo info = 4;
 }
 
 message UpdateProjectProfileRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
   ProjectProfileInfo info = 4;
 }
 
 message UpdateProjectProfileResponse {}
 
 message GetProjectItemsRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 user_id = 3;
-  uint64 offset = 4;
-  uint64 number = 5;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
+  int64 offset = 4;
+  int64 page_size = 5;
 }
 
 message GetProjectItemsResponse {
   repeated ItemInfo list = 1;
-  uint64 group_id = 2;
-  uint64 project_id = 3;
-  uint64 user_id = 4;
-  uint64 offset = 5;
-  uint64 number = 6;
+  int64 group_id = 2;
+  int64 project_id = 3;
+  int64 user_id = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
 }
 
 message GetGroupItemsRequest {
-  uint64 group_id = 1;
-  uint64 user_id = 3;
-  uint64 offset = 4;
-  uint64 number = 5;
+  int64 group_id = 1;
+  int64 user_id = 3;
+  int64 offset = 4;
+  int64 page_size = 5;
 }
 
 message GetGroupItemsResponse {
   repeated ItemInfo list = 1;
-  uint64 group_id = 2;
-  uint64 user_id = 3;
-  uint64 offset = 4;
-  uint64 number = 5;
+  int64 group_id = 2;
+  int64 user_id = 3;
+  int64 offset = 4;
+  int64 page_size = 5;
 }
 
 message GetUserItemsRequest {
-  uint64 user_id = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 user_id = 1;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message GetUserItemsResponse {
   repeated ItemInfo list = 1;
-  uint64 user_id = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message GetItemRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 item_id = 3;
-  uint64 user_id = 4;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 item_id = 3;
+  int64 user_id = 4;
 }
 
 message GetItemResponse { ItemInfo info = 1; }
 
 message CreateItemRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
+  int64 group_id = 1;
+  int64 project_id = 2;
   string name = 3;
   ActiveType atype = 4;
-  uint64 user_id = 5;
+  int64 user_id = 5;
 }
 
 message CreateItemResponse { ItemInfo info = 1; }
 
 message UpdateItemRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 item_id = 3;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 item_id = 3;
   ItemInfo info = 4;
-  uint64 user_id = 5;
+  int64 user_id = 5;
 }
 
 message UpdateItemResponse { ItemInfo info = 1; }
 
 message DeleteItemRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 item_id = 3;
-  uint64 user_id = 4;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 item_id = 3;
+  int64 user_id = 4;
 }
 
 message DeleteItemResponse {}
 
 message LikeItemRequest {
-  uint64 group_id = 1;
-  uint64 project_id = 2;
-  uint64 item_id = 3;
-  uint64 user_id = 4;
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 item_id = 3;
+  int64 user_id = 4;
   bool islike = 5;
 }
 
 message LikeItemResponse {}
 
 message CreateGroupReqeust {
-  uint64 user_id = 1;
+  int64 user_id = 1;
   string name = 2;
 }
 message CreateGroupResponse { GroupInfo info = 1; }
 
 message GetGroupReqeust {
-  uint64 group_id = 1;
-  uint64 user_id = 2;
+  int64 group_id = 1;
+  int64 user_id = 2;
   string name = 3;
 }
 message GetGroupResponse { GroupInfo info = 1; }
 
 message GetGroupActivesRequest {
-  uint64 group_id = 1;
+  int64 group_id = 1;
   ActiveType atype = 2;
-  uint64 offset = 3;
-  uint64 number = 4;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message GetGroupActivesResponse {
   repeated ActiveInfo list = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message UpdateGroupInfoRequest {
-  uint64 group_id = 1;
+  int64 group_id = 1;
   GroupInfo info = 2;
 }
 message UpdateGroupInfoResponse { GroupInfo info = 1; }
 message DeleteGroupRequest {
-  uint64 group_id = 1;
-  uint64 user_id = 2;
+  int64 group_id = 1;
+  int64 user_id = 2;
 }
 message DeleteGroupResponse {}
 message FetchGroupMembersRequest {
-  uint64 group_id = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 group_id = 1;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message FetchGroupMembersResponse {
   repeated UserInfo list = 1;
-  uint64 offset = 2;
-  uint64 total = 3;
+  int64 offset = 2;
+  int64 total = 3;
 }
 
 message SearchGroupReqeust { string name = 1; }
 message SearchGroupResponse {
   repeated GroupInfo list = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message FetchGroupProjectsReqeust {
-  uint64 group_id = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 group_id = 1;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message FetchGroupProjectsResponse {
   repeated ProjectInfo list = 1;
-  uint64 offset = 2;
-  uint64 number = 3;
+  int64 offset = 2;
+  int64 page_size = 3;
 }
 
 message JoinGroupRequest {
-  uint64 group_id = 1;
-  uint64 user_id = 2;
+  int64 group_id = 1;
+  int64 user_id = 2;
 }
 
 message JoinGroupResponse {}
 
 message LeaveGroupRequest {
-  uint64 group_id = 1;
-  uint64 user_id = 2;
+  int64 group_id = 1;
+  int64 user_id = 2;
 }
 
 message LeaveGroupResponse {}
@@ -514,8 +533,15 @@ message AboutResponse { string content = 1; }
 message ExploreRequest {}
 message ExploreResponse {}
 
-message TrendingRequest {}
-message TrendingResponse {}
+message TrendingRequest {
+  string area = 1;
+  int64 start = 2;
+  int64 end = 3;
+}
+message TrendingResponse {
+  repeated ProjectInfo list = 1;
+
+}
 
 message GetProjectMembersRequest{
   int32 projectId = 1;
@@ -535,7 +561,7 @@ message GetProjectWatcherReqeust{
 message GetProjectWatcherResponse{
   repeated UserInfo list = 1; 
   int32 total = 2;
-  map<int64,int64> time_stamp = 3;
+  map<int64,int64> timestamp = 3;
 }
 
 service TeamsAPI {

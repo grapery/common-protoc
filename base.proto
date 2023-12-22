@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package common;
+
+enum LikeType {
+    Browser = 0;
+    Left = 1;
+    Middle = 2;
+    Right = 3;
+  }
+  
+  enum GenderType {
+    // 不公开性别
+    None = 0;
+    Man = 1;
+    Women = 2;
+    Double = 3;
+  }
+  
+  enum UserStatus {
+    Rest = 0;
+    Study = 1;
+    Busy = 2;
+    Working = 3;
+    Invisible = 4;
+    Idle = 5;
+  }
+  
+  enum GroupStatus {
+    NotReady = 0;
+    Normal = 1;
+    ViewOnly = 2;
+    Abandon = 3;
+  }
+  
+  enum ActiveType {
+    AllActive = 0;
+    Like = 1;
+    Share = 2;
+    Comment = 3;
+    Collect = 4;
+    DisAgree = 5;
+  }
+  
+  enum ItemType {
+    AllItem = 0;
+    ShortWord = 1;
+    Paper = 2;
+    Picture = 3;
+    Video = 4;
+    Music = 5;
+    Link = 6;
+    Location = 7;
+  }
+  
+  enum AuthType {
+    NotSupport = 0;
+    WithPhone = 1;
+    WithEmail = 2;
+  }
+  
+  enum ScopeType {
+    AllPublic = 0;
+    Public = 1;
+    Private = 2;
+    Someone = 3;
+    GruopScope = 4;
+  }
+
+  message Tags {
+    int32 group_id = 1;
+    int32 creator_id = 2;
+    string name = 3;
+    int32 status = 4;
+    int32 is_global = 5;
+    int32 id = 6;
+    
+    int64 Ctime = 9;
+    int64 Mtime = 10;
+  }

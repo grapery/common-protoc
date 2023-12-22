@@ -935,6 +935,19 @@ paths:
             tags:
                 - TeamsAPI
             operationId: TeamsAPI_Trending
+            parameters:
+                - name: area
+                  in: query
+                  schema:
+                    type: string
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
             responses:
                 "200":
                     description: OK
@@ -1331,7 +1344,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         ExploreProjectsResponse:
             type: object
@@ -1344,7 +1357,7 @@ components:
                         $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         ExploreResponse:
             type: object
@@ -1356,7 +1369,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         FetchGroupMembersResponse:
             type: object
@@ -1376,7 +1389,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         FetchGroupProjectsResponse:
             type: object
@@ -1387,7 +1400,7 @@ components:
                         $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         FetchUserActivesRequest:
             type: object
@@ -1404,7 +1417,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ActiveInfo'
-                timeStamp:
+                timestamp:
                     type: string
                 offset:
                     type: string
@@ -1420,7 +1433,7 @@ components:
                     format: enum
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetGroupActivesResponse:
             type: object
@@ -1431,7 +1444,7 @@ components:
                         $ref: '#/components/schemas/ActiveInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetGroupItemsRequest:
             type: object
@@ -1442,7 +1455,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetGroupItemsResponse:
             type: object
@@ -1457,7 +1470,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetGroupReqeust:
             type: object
@@ -1512,7 +1525,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetProjectItemsResponse:
             type: object
@@ -1529,7 +1542,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetProjectListRequest:
             type: object
@@ -1538,7 +1551,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetProjectListResponse:
             type: object
@@ -1549,7 +1562,7 @@ components:
                         $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetProjectMembersRequest:
             type: object
@@ -1624,7 +1637,7 @@ components:
                 total:
                     type: integer
                     format: int32
-                timeStamp:
+                timestamp:
                     type: object
                     additionalProperties:
                         type: string
@@ -1635,7 +1648,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GetUserItemsResponse:
             type: object
@@ -1648,7 +1661,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         GoogleProtobufAny:
             type: object
@@ -1670,9 +1683,9 @@ components:
                 desc:
                     type: string
                 creator:
-                    $ref: '#/components/schemas/UserInfo'
+                    type: string
                 owner:
-                    $ref: '#/components/schemas/UserInfo'
+                    type: string
                 tags:
                     type: array
                     items:
@@ -1819,9 +1832,9 @@ components:
                 avatar:
                     type: string
                 creator:
-                    $ref: '#/components/schemas/UserInfo'
+                    type: string
                 owner:
-                    $ref: '#/components/schemas/UserInfo'
+                    type: string
                 tags:
                     type: array
                     items:
@@ -1844,7 +1857,7 @@ components:
                     type: string
                 groupId:
                     type: integer
-                    format: uint32
+                    format: int32
                 description:
                     type: string
                 watchingCount:
@@ -1897,6 +1910,8 @@ components:
                     type: string
                 status:
                     type: string
+                timestamp:
+                    type: string
         SearchAllProjectRequest:
             type: object
             properties:
@@ -1906,7 +1921,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchAllProjectResponse:
             type: object
@@ -1919,7 +1934,7 @@ components:
                         $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchGroupReqeust:
             type: object
@@ -1935,7 +1950,7 @@ components:
                         $ref: '#/components/schemas/GroupInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchProjectRequest:
             type: object
@@ -1946,7 +1961,7 @@ components:
                     type: string
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchProjectResponse:
             type: object
@@ -1959,7 +1974,7 @@ components:
                         $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchUserRequest:
             type: object
@@ -1972,7 +1987,7 @@ components:
                     type: boolean
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         SearchUserResponse:
             type: object
@@ -1983,7 +1998,7 @@ components:
                         $ref: '#/components/schemas/UserInfo'
                 offset:
                     type: string
-                number:
+                pageSize:
                     type: string
         ShareDetail:
             type: object
@@ -2016,9 +2031,11 @@ components:
             type: object
             properties:
                 groupId:
-                    type: string
+                    type: integer
+                    format: int32
                 creatorId:
-                    type: string
+                    type: integer
+                    format: int32
                 name:
                     type: string
                 status:
@@ -2027,13 +2044,20 @@ components:
                 isGlobal:
                     type: integer
                     format: int32
+                id:
+                    type: integer
+                    format: int32
                 Ctime:
                     type: string
                 Mtime:
                     type: string
         TrendingResponse:
             type: object
-            properties: {}
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProjectInfo'
         UnWatchProjectReqeust:
             type: object
             properties:
