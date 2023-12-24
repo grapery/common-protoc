@@ -144,6 +144,7 @@ message UserUpdateRequest {
   string nickname = 2;
   string avatar = 3;
   string desc = 4;
+  map<string,string> data = 5;
 }
 
 message UserUpdateResponse {}

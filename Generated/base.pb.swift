@@ -347,6 +347,7 @@ public enum Common_AuthType: SwiftProtobuf.Enum {
   case notSupport // = 0
   case withPhone // = 1
   case withEmail // = 2
+  case withThirdpart // = 3
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -358,6 +359,7 @@ public enum Common_AuthType: SwiftProtobuf.Enum {
     case 0: self = .notSupport
     case 1: self = .withPhone
     case 2: self = .withEmail
+    case 3: self = .withThirdpart
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -367,6 +369,7 @@ public enum Common_AuthType: SwiftProtobuf.Enum {
     case .notSupport: return 0
     case .withPhone: return 1
     case .withEmail: return 2
+    case .withThirdpart: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -381,6 +384,7 @@ extension Common_AuthType: CaseIterable {
     .notSupport,
     .withPhone,
     .withEmail,
+    .withThirdpart,
   ]
 }
 
@@ -454,6 +458,8 @@ public struct Common_Tags {
   public var isGlobal: Int32 = 0
 
   public var id: Int32 = 0
+
+  public var expiredTime: Int64 = 0
 
   public var ctime: Int64 = 0
 
@@ -547,6 +553,7 @@ extension Common_AuthType: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "NotSupport"),
     1: .same(proto: "WithPhone"),
     2: .same(proto: "WithEmail"),
+    3: .same(proto: "WithThirdpart"),
   ]
 }
 
@@ -569,6 +576,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     4: .same(proto: "status"),
     5: .standard(proto: "is_global"),
     6: .same(proto: "id"),
+    7: .standard(proto: "expired_time"),
     9: .same(proto: "Ctime"),
     10: .same(proto: "Mtime"),
   ]
@@ -585,6 +593,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
       case 5: try { try decoder.decodeSingularInt32Field(value: &self.isGlobal) }()
       case 6: try { try decoder.decodeSingularInt32Field(value: &self.id) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.expiredTime) }()
       case 9: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 10: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -611,6 +620,9 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     if self.id != 0 {
       try visitor.visitSingularInt32Field(value: self.id, fieldNumber: 6)
     }
+    if self.expiredTime != 0 {
+      try visitor.visitSingularInt64Field(value: self.expiredTime, fieldNumber: 7)
+    }
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 9)
     }
@@ -627,6 +639,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     if lhs.status != rhs.status {return false}
     if lhs.isGlobal != rhs.isGlobal {return false}
     if lhs.id != rhs.id {return false}
+    if lhs.expiredTime != rhs.expiredTime {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

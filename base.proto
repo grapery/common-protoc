@@ -57,6 +57,7 @@ enum LikeType {
     NotSupport = 0;
     WithPhone = 1;
     WithEmail = 2;
+    WithThirdpart = 3;
   }
   
   enum ScopeType {
@@ -74,6 +75,7 @@ enum LikeType {
     int32 status = 4;
     int32 is_global = 5;
     int32 id = 6;
+    int64 expired_time = 7;
     
     int64 Ctime = 9;
     int64 Mtime = 10;

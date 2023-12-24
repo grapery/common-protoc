@@ -449,6 +449,8 @@ public struct Common_UserUpdateRequest {
 
   public var desc: String = String()
 
+  public var data: Dictionary<String,String> = [:]
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2970,6 +2972,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     2: .same(proto: "nickname"),
     3: .same(proto: "avatar"),
     4: .same(proto: "desc"),
+    5: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2982,6 +2985,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
       case 2: try { try decoder.decodeSingularStringField(value: &self.nickname) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.desc) }()
+      case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.data) }()
       default: break
       }
     }
@@ -3000,6 +3004,9 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.desc.isEmpty {
       try visitor.visitSingularStringField(value: self.desc, fieldNumber: 4)
     }
+    if !self.data.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.data, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3008,6 +3015,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if lhs.nickname != rhs.nickname {return false}
     if lhs.avatar != rhs.avatar {return false}
     if lhs.desc != rhs.desc {return false}
+    if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

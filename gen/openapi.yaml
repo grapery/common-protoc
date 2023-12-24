@@ -2047,6 +2047,8 @@ components:
                 id:
                     type: integer
                     format: int32
+                expiredTime:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -2255,6 +2257,10 @@ components:
                     type: string
                 desc:
                     type: string
+                data:
+                    type: object
+                    additionalProperties:
+                        type: string
         UserUpdateResponse:
             type: object
             properties: {}
