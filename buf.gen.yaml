@@ -7,16 +7,20 @@ plugins:
   - plugin: connect-go
     out: gen
     opt: paths=source_relative
-  - plugin: go
-    out: gen
-    opt: paths=source_relative
-  - plugin: grpc-gateway
+  - plugin: buf.build/protocolbuffers/go:v1.31.0
     out: gen
     opt:
       - paths=source_relative
-      - allow_repeated_fields_in_body=true
-  - plugin: openapi
+  - plugin: buf.build/grpc/go:v1.3.0
     out: gen
+    opt:
+      - paths=source_relative
+  - plugin: buf.build/grpc-ecosystem/gateway:v2.16.1
+    out: gen
+    opt:
+      - paths=source_relative
+  - plugin: openapi
+    out: .
   - plugin: buf.build/connectrpc/swift
     opt:
       - GenerateAsyncMethods=true
@@ -27,5 +31,9 @@ plugins:
     opt:
       - Visibility=Public
     out: Generated
+  - plugin: buf.build/community/pseudomuto-doc:v1.5.1
+    out: gen
+    opt:
+      - markdown,README.md,source_relative
 
 
