@@ -287,7 +287,7 @@ public enum Common_ItemType: SwiftProtobuf.Enum {
   case video // = 4
   case music // = 5
   case link // = 6
-  case location // = 7
+  case locate // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -303,7 +303,7 @@ public enum Common_ItemType: SwiftProtobuf.Enum {
     case 4: self = .video
     case 5: self = .music
     case 6: self = .link
-    case 7: self = .location
+    case 7: self = .locate
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -317,7 +317,7 @@ public enum Common_ItemType: SwiftProtobuf.Enum {
     case .video: return 4
     case .music: return 5
     case .link: return 6
-    case .location: return 7
+    case .locate: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -336,7 +336,7 @@ extension Common_ItemType: CaseIterable {
     .video,
     .music,
     .link,
-    .location,
+    .locate,
   ]
 }
 
@@ -544,7 +544,7 @@ extension Common_ItemType: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "Video"),
     5: .same(proto: "Music"),
     6: .same(proto: "Link"),
-    7: .same(proto: "Location"),
+    7: .same(proto: "Locate"),
   ]
 }
 

@@ -50,7 +50,7 @@ enum LikeType {
     Video = 4;
     Music = 5;
     Link = 6;
-    Location = 7;
+    Locate = 7;
   }
   
   enum AuthType {

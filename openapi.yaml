@@ -1714,6 +1714,14 @@ components:
                     $ref: '#/components/schemas/VoiceDetail'
                 share:
                     $ref: '#/components/schemas/ShareDetail'
+                locate:
+                    $ref: '#/components/schemas/Location'
+                title:
+                    type: string
+                prevId:
+                    type: string
+                loc:
+                    $ref: '#/components/schemas/Location'
         ItemInfo:
             type: object
             properties:
@@ -1770,6 +1778,17 @@ components:
         LikeItemResponse:
             type: object
             properties: {}
+        Location:
+            type: object
+            properties:
+                country:
+                    type: string
+                province:
+                    type: string
+                city:
+                    type: string
+                district:
+                    type: string
         LoginRequest:
             type: object
             properties:

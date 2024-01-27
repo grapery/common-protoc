@@ -28,7 +28,6 @@ message WordDetail {
   message VideoDetail {
     repeated VideoInfo list = 1;
     int64 num = 2;
-    
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
@@ -53,6 +52,13 @@ message WordDetail {
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
+
+  message Location {
+    string country = 1;
+    string province = 2;
+    string city = 3;
+    string district = 4;
+  }
   
   message ItemDetail {
     oneof detail {
@@ -62,7 +68,11 @@ message WordDetail {
       MusicShareDetail music = 4;
       VoiceDetail voice = 5;
       ShareDetail share = 6;
+      Location locate = 7;
     }
+    string title = 11;
+    string prevId = 12;
+    Location loc = 13;
   }
 
   message ItemInfo {

@@ -22,6 +22,7 @@
 - [item.proto](#item-proto)
     - [ItemDetail](#common-ItemDetail)
     - [ItemInfo](#common-ItemInfo)
+    - [Location](#common-Location)
     - [MusicShareDetail](#common-MusicShareDetail)
     - [PictureDetail](#common-PictureDetail)
     - [PictureInfo](#common-PictureInfo)
@@ -272,7 +273,7 @@
 | Video | 4 |  |
 | Music | 5 |  |
 | Link | 6 |  |
-| Location | 7 |  |
+| Locate | 7 |  |
 
 
 
@@ -415,6 +416,10 @@
 | music | [MusicShareDetail](#common-MusicShareDetail) |  |  |
 | voice | [VoiceDetail](#common-VoiceDetail) |  |  |
 | share | [ShareDetail](#common-ShareDetail) |  |  |
+| locate | [Location](#common-Location) |  |  |
+| title | [string](#string) |  |  |
+| prevId | [string](#string) |  |  |
+| loc | [Location](#common-Location) |  |  |
 
 
 
@@ -437,6 +442,24 @@
 | itype | [ItemType](#common-ItemType) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-Location"></a>
+
+### Location
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| country | [string](#string) |  |  |
+| province | [string](#string) |  |  |
+| city | [string](#string) |  |  |
+| district | [string](#string) |  |  |
 
 
 
