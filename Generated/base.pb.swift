@@ -442,6 +442,122 @@ extension Common_ScopeType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+public enum Common_TaskStage: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case unknow // = 0
+  case init_ // = 1
+  case processing // = 2
+  case waiting // = 3
+  case retry // = 4
+  case success // = 5
+  case fail // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unknow
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unknow
+    case 1: self = .init_
+    case 2: self = .processing
+    case 3: self = .waiting
+    case 4: self = .retry
+    case 5: self = .success
+    case 6: self = .fail
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unknow: return 0
+    case .init_: return 1
+    case .processing: return 2
+    case .waiting: return 3
+    case .retry: return 4
+    case .success: return 5
+    case .fail: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Common_TaskStage: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_TaskStage] = [
+    .unknow,
+    .init_,
+    .processing,
+    .waiting,
+    .retry,
+    .success,
+    .fail,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+public enum Common_TaskType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case notSpecify // = 0
+  case wordGenerate // = 1
+  case picGenerate // = 2
+  case videoGenerate // = 3
+  case voiceGenerate // = 4
+  case musicGenerate // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .notSpecify
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .notSpecify
+    case 1: self = .wordGenerate
+    case 2: self = .picGenerate
+    case 3: self = .videoGenerate
+    case 4: self = .voiceGenerate
+    case 5: self = .musicGenerate
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .notSpecify: return 0
+    case .wordGenerate: return 1
+    case .picGenerate: return 2
+    case .videoGenerate: return 3
+    case .voiceGenerate: return 4
+    case .musicGenerate: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Common_TaskType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_TaskType] = [
+    .notSpecify,
+    .wordGenerate,
+    .picGenerate,
+    .videoGenerate,
+    .voiceGenerate,
+    .musicGenerate,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct Common_Tags {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -479,6 +595,8 @@ extension Common_ActiveType: @unchecked Sendable {}
 extension Common_ItemType: @unchecked Sendable {}
 extension Common_AuthType: @unchecked Sendable {}
 extension Common_ScopeType: @unchecked Sendable {}
+extension Common_TaskStage: @unchecked Sendable {}
+extension Common_TaskType: @unchecked Sendable {}
 extension Common_Tags: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
@@ -564,6 +682,29 @@ extension Common_ScopeType: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "Private"),
     3: .same(proto: "Someone"),
     4: .same(proto: "GruopScope"),
+  ]
+}
+
+extension Common_TaskStage: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Unknow"),
+    1: .same(proto: "Init"),
+    2: .same(proto: "Processing"),
+    3: .same(proto: "Waiting"),
+    4: .same(proto: "Retry"),
+    5: .same(proto: "Success"),
+    6: .same(proto: "Fail"),
+  ]
+}
+
+extension Common_TaskType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NotSpecify"),
+    1: .same(proto: "Word_Generate"),
+    2: .same(proto: "Pic_Generate"),
+    3: .same(proto: "Video_Generate"),
+    4: .same(proto: "Voice_Generate"),
+    5: .same(proto: "Music_Generate"),
   ]
 }
 

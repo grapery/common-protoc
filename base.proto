@@ -80,3 +80,22 @@ enum LikeType {
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
+
+  enum TaskStage{
+    Unknow = 0;
+    Init = 1;
+    Processing = 2;
+    Waiting = 3;
+    Retry = 4;
+    Success = 5;
+    Fail = 6;
+  }
+
+  enum TaskType{
+    NotSpecify = 0;
+    Word_Generate = 1;
+    Pic_Generate = 2;
+    Video_Generate = 3;
+    Voice_Generate = 4;
+    Music_Generate = 5;
+  }

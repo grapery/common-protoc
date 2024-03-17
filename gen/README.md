@@ -13,6 +13,8 @@
     - [ItemType](#common-ItemType)
     - [LikeType](#common-LikeType)
     - [ScopeType](#common-ScopeType)
+    - [TaskStage](#common-TaskStage)
+    - [TaskType](#common-TaskType)
     - [UserStatus](#common-UserStatus)
   
 - [group.proto](#group-proto)
@@ -303,6 +305,39 @@
 | Private | 2 |  |
 | Someone | 3 |  |
 | GruopScope | 4 |  |
+
+
+
+<a name="common-TaskStage"></a>
+
+### TaskStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Unknow | 0 |  |
+| Init | 1 |  |
+| Processing | 2 |  |
+| Waiting | 3 |  |
+| Retry | 4 |  |
+| Success | 5 |  |
+| Fail | 6 |  |
+
+
+
+<a name="common-TaskType"></a>
+
+### TaskType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NotSpecify | 0 |  |
+| Word_Generate | 1 |  |
+| Pic_Generate | 2 |  |
+| Video_Generate | 3 |  |
+| Voice_Generate | 4 |  |
+| Music_Generate | 5 |  |
 
 
 
