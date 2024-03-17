@@ -1796,6 +1796,9 @@ components:
                     type: string
                 password:
                     type: string
+                loginType:
+                    type: integer
+                    format: int32
         LoginResponse:
             type: object
             properties:
@@ -1803,14 +1806,30 @@ components:
                     type: string
                 token:
                     type: string
+                timestamp:
+                    type: string
+                expireAt:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
         LogoutRequest:
             type: object
             properties:
                 token:
                     type: string
+                userId:
+                    type: string
         LogoutResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                msg:
+                    type: string
         MusicShareDetail:
             type: object
             properties:
@@ -1905,10 +1924,14 @@ components:
                     type: string
                 name:
                     type: string
+                email:
+                    type: string
+                phone:
+                    type: string
         RegisterResponse:
             type: object
             properties:
-                status:
+                code:
                     type: integer
                     format: int32
                 msg:
@@ -2313,6 +2336,8 @@ components:
             type: object
             properties:
                 version:
+                    type: string
+                buildTime:
                     type: string
         VideoDetail:
             type: object

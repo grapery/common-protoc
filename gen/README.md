@@ -1857,6 +1857,7 @@
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  |  |
 | password | [string](#string) |  |  |
+| login_type | [int32](#int32) |  |  |
 
 
 
@@ -1873,6 +1874,10 @@
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | token | [string](#string) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| expire_at | [int64](#int64) |  |  |
+| status | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
 
 
 
@@ -1888,6 +1893,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | token | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1898,6 +1904,12 @@
 
 ### LogoutResponse
 
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
 
 
 
@@ -1915,6 +1927,8 @@
 | account | [string](#string) |  |  |
 | password | [string](#string) |  |  |
 | name | [string](#string) |  |  |
+| email | [string](#string) |  |  |
+| phone | [string](#string) |  |  |
 
 
 
@@ -1929,7 +1943,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| status | [int32](#int32) |  |  |
+| code | [int32](#int32) |  |  |
 | msg | [string](#string) |  |  |
 
 
@@ -2560,6 +2574,7 @@ user ,group .project.item
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
+| build_time | [string](#string) |  |  |
 
 
 

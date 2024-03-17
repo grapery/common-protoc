@@ -132,6 +132,8 @@ public struct Common_LoginRequest {
 
   public var password: String = String()
 
+  public var loginType: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -146,6 +148,14 @@ public struct Common_LoginResponse {
 
   public var token: String = String()
 
+  public var timestamp: Int64 = 0
+
+  public var expireAt: Int64 = 0
+
+  public var status: Int32 = 0
+
+  public var msg: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -158,6 +168,8 @@ public struct Common_LogoutRequest {
 
   public var token: String = String()
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -167,6 +179,10 @@ public struct Common_LogoutResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var msg: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -184,6 +200,10 @@ public struct Common_RegisterRequest {
 
   public var name: String = String()
 
+  public var email: String = String()
+
+  public var phone: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -194,7 +214,7 @@ public struct Common_RegisterResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var status: Int32 = 0
+  public var code: Int32 = 0
 
   public var msg: String = String()
 
@@ -1783,6 +1803,8 @@ public struct Common_VersionResponse {
 
   public var version: String = String()
 
+  public var buildTime: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2167,6 +2189,7 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "password"),
+    3: .standard(proto: "login_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2177,6 +2200,7 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.account) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.password) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.loginType) }()
       default: break
       }
     }
@@ -2189,12 +2213,16 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     if !self.password.isEmpty {
       try visitor.visitSingularStringField(value: self.password, fieldNumber: 2)
     }
+    if self.loginType != 0 {
+      try visitor.visitSingularInt32Field(value: self.loginType, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_LoginRequest, rhs: Common_LoginRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.password != rhs.password {return false}
+    if lhs.loginType != rhs.loginType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2205,6 +2233,10 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "token"),
+    3: .same(proto: "timestamp"),
+    4: .standard(proto: "expire_at"),
+    5: .same(proto: "status"),
+    6: .same(proto: "msg"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2215,6 +2247,10 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.token) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.expireAt) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.msg) }()
       default: break
       }
     }
@@ -2227,12 +2263,28 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.token.isEmpty {
       try visitor.visitSingularStringField(value: self.token, fieldNumber: 2)
     }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+    }
+    if self.expireAt != 0 {
+      try visitor.visitSingularInt64Field(value: self.expireAt, fieldNumber: 4)
+    }
+    if self.status != 0 {
+      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 5)
+    }
+    if !self.msg.isEmpty {
+      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_LoginResponse, rhs: Common_LoginResponse) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.token != rhs.token {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.expireAt != rhs.expireAt {return false}
+    if lhs.status != rhs.status {return false}
+    if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2242,6 +2294,7 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   public static let protoMessageName: String = _protobuf_package + ".LogoutRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "token"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2251,6 +2304,7 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.token) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -2260,11 +2314,15 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.token.isEmpty {
       try visitor.visitSingularStringField(value: self.token, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_LogoutRequest, rhs: Common_LogoutRequest) -> Bool {
     if lhs.token != rhs.token {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2272,18 +2330,37 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
 extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "msg"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.msg.isEmpty {
+      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_LogoutResponse, rhs: Common_LogoutResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2295,6 +2372,8 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .same(proto: "account"),
     2: .same(proto: "password"),
     3: .same(proto: "name"),
+    4: .same(proto: "email"),
+    5: .same(proto: "phone"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2306,6 +2385,8 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 1: try { try decoder.decodeSingularStringField(value: &self.account) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.password) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.email) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.phone) }()
       default: break
       }
     }
@@ -2321,6 +2402,12 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
     }
+    if !self.email.isEmpty {
+      try visitor.visitSingularStringField(value: self.email, fieldNumber: 4)
+    }
+    if !self.phone.isEmpty {
+      try visitor.visitSingularStringField(value: self.phone, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2328,6 +2415,8 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.account != rhs.account {return false}
     if lhs.password != rhs.password {return false}
     if lhs.name != rhs.name {return false}
+    if lhs.email != rhs.email {return false}
+    if lhs.phone != rhs.phone {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2336,7 +2425,7 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RegisterResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
+    1: .same(proto: "code"),
     2: .same(proto: "msg"),
   ]
 
@@ -2346,7 +2435,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
       default: break
       }
@@ -2354,8 +2443,8 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.status != 0 {
-      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 1)
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if !self.msg.isEmpty {
       try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
@@ -2364,7 +2453,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 
   public static func ==(lhs: Common_RegisterResponse, rhs: Common_RegisterResponse) -> Bool {
-    if lhs.status != rhs.status {return false}
+    if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -6195,6 +6284,7 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   public static let protoMessageName: String = _protobuf_package + ".VersionResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "version"),
+    2: .standard(proto: "build_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6204,6 +6294,7 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.version) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.buildTime) }()
       default: break
       }
     }
@@ -6213,11 +6304,15 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.version.isEmpty {
       try visitor.visitSingularStringField(value: self.version, fieldNumber: 1)
     }
+    if !self.buildTime.isEmpty {
+      try visitor.visitSingularStringField(value: self.buildTime, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_VersionResponse, rhs: Common_VersionResponse) -> Bool {
     if lhs.version != rhs.version {return false}
+    if lhs.buildTime != rhs.buildTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
