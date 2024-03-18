@@ -1722,6 +1722,12 @@ components:
                     type: string
                 loc:
                     $ref: '#/components/schemas/Location'
+                isOrigin:
+                    type: boolean
+                ref:
+                    type: string
+                rootId:
+                    type: string
         ItemInfo:
             type: object
             properties:
@@ -1837,6 +1843,12 @@ components:
                     type: string
                 source:
                     type: string
+                prompt:
+                    type: string
+                title:
+                    type: string
+                desc:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -1848,7 +1860,13 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/PictureInfo'
-                num:
+                total:
+                    type: string
+                prompt:
+                    type: string
+                title:
+                    type: string
+                desc:
                     type: string
         PictureInfo:
             type: object
@@ -1856,6 +1874,8 @@ components:
                 resourceUrl:
                     type: string
                 size:
+                    type: string
+                num:
                     type: string
         ProjectInfo:
             type: object
@@ -2348,6 +2368,12 @@ components:
                         $ref: '#/components/schemas/VideoInfo'
                 num:
                     type: string
+                prompt:
+                    type: string
+                title:
+                    type: string
+                desc:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -2392,6 +2418,12 @@ components:
                 content:
                     type: string
                 length:
+                    type: string
+                prompt:
+                    type: string
+                title:
+                    type: string
+                desc:
                     type: string
 tags:
     - name: TeamsAPI

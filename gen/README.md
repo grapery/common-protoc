@@ -455,6 +455,9 @@
 | title | [string](#string) |  |  |
 | prevId | [string](#string) |  |  |
 | loc | [Location](#common-Location) |  |  |
+| is_origin | [bool](#bool) |  |  |
+| ref | [int64](#int64) |  |  |
+| root_id | [int64](#int64) |  |  |
 
 
 
@@ -511,6 +514,9 @@
 | ----- | ---- | ----- | ----------- |
 | resource_url | [string](#string) |  |  |
 | source | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -528,7 +534,10 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [PictureInfo](#common-PictureInfo) | repeated |  |
-| num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
 
 
 
@@ -545,6 +554,7 @@
 | ----- | ---- | ----- | ----------- |
 | resource_url | [string](#string) |  |  |
 | size | [int64](#int64) |  |  |
+| num | [int64](#int64) |  |  |
 
 
 
@@ -579,6 +589,9 @@
 | ----- | ---- | ----- | ----------- |
 | list | [VideoInfo](#common-VideoInfo) | repeated |  |
 | num | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -633,6 +646,9 @@
 | ----- | ---- | ----- | ----------- |
 | content | [string](#string) |  |  |
 | length | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
 
 
 
@@ -671,8 +687,8 @@
 | owner | [int64](#int64) |  |  |
 | tags | [Tags](#common-Tags) | repeated |  |
 | visable | [ScopeType](#common-ScopeType) |  |  |
-| isAchieve | [bool](#bool) |  |  |
-| isClose | [bool](#bool) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 

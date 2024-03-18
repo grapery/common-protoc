@@ -13,8 +13,8 @@ message ProjectInfo {
     int64 owner = 6;
     repeated Tags tags = 7;
     ScopeType visable = 8;
-    bool isAchieve = 9;
-    bool isClose = 10;
+    bool is_achieve = 9;
+    bool is_close = 10;
   
     int64 Ctime = 19;
     int64 Mtime = 20;

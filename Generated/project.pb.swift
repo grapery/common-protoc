@@ -106,8 +106,8 @@ extension Common_ProjectInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     6: .same(proto: "owner"),
     7: .same(proto: "tags"),
     8: .same(proto: "visable"),
-    9: .same(proto: "isAchieve"),
-    10: .same(proto: "isClose"),
+    9: .standard(proto: "is_achieve"),
+    10: .standard(proto: "is_close"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]

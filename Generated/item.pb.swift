@@ -29,6 +29,12 @@ public struct Common_WordDetail {
 
   public var length: Int64 = 0
 
+  public var prompt: String = String()
+
+  public var title: String = String()
+
+  public var desc: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -43,6 +49,8 @@ public struct Common_PictureInfo {
 
   public var size: Int64 = 0
 
+  public var num: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -55,7 +63,13 @@ public struct Common_PictureDetail {
 
   public var list: [Common_PictureInfo] = []
 
-  public var num: Int64 = 0
+  public var total: Int64 = 0
+
+  public var prompt: String = String()
+
+  public var title: String = String()
+
+  public var desc: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -87,6 +101,12 @@ public struct Common_VideoDetail {
 
   public var num: Int64 = 0
 
+  public var prompt: String = String()
+
+  public var title: String = String()
+
+  public var desc: String = String()
+
   public var ctime: Int64 = 0
 
   public var mtime: Int64 = 0
@@ -104,6 +124,12 @@ public struct Common_MusicShareDetail {
   public var resourceURL: String = String()
 
   public var source: Int64 = 0
+
+  public var prompt: String = String()
+
+  public var title: String = String()
+
+  public var desc: String = String()
 
   public var ctime: Int64 = 0
 
@@ -246,6 +272,12 @@ public struct Common_ItemDetail {
   /// Clears the value of `loc`. Subsequent reads from it will return its default value.
   public mutating func clearLoc() {self._loc = nil}
 
+  public var isOrigin: Bool = false
+
+  public var ref: Int64 = 0
+
+  public var rootID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Detail: Equatable {
@@ -382,6 +414,9 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "content"),
     2: .same(proto: "length"),
+    3: .same(proto: "prompt"),
+    4: .same(proto: "title"),
+    5: .same(proto: "desc"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -392,6 +427,9 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.content) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.length) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.desc) }()
       default: break
       }
     }
@@ -404,12 +442,24 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if self.length != 0 {
       try visitor.visitSingularInt64Field(value: self.length, fieldNumber: 2)
     }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 3)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 4)
+    }
+    if !self.desc.isEmpty {
+      try visitor.visitSingularStringField(value: self.desc, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_WordDetail, rhs: Common_WordDetail) -> Bool {
     if lhs.content != rhs.content {return false}
     if lhs.length != rhs.length {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.desc != rhs.desc {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -420,6 +470,7 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "resource_url"),
     2: .same(proto: "size"),
+    3: .same(proto: "num"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -430,6 +481,7 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.resourceURL) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.size) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.num) }()
       default: break
       }
     }
@@ -442,12 +494,16 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if self.size != 0 {
       try visitor.visitSingularInt64Field(value: self.size, fieldNumber: 2)
     }
+    if self.num != 0 {
+      try visitor.visitSingularInt64Field(value: self.num, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_PictureInfo, rhs: Common_PictureInfo) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.size != rhs.size {return false}
+    if lhs.num != rhs.num {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -457,7 +513,10 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   public static let protoMessageName: String = _protobuf_package + ".PictureDetail"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
-    2: .same(proto: "num"),
+    2: .same(proto: "total"),
+    3: .same(proto: "prompt"),
+    4: .same(proto: "title"),
+    5: .same(proto: "desc"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -467,7 +526,10 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.num) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.desc) }()
       default: break
       }
     }
@@ -477,15 +539,27 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.list.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
     }
-    if self.num != 0 {
-      try visitor.visitSingularInt64Field(value: self.num, fieldNumber: 2)
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 2)
+    }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 3)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 4)
+    }
+    if !self.desc.isEmpty {
+      try visitor.visitSingularStringField(value: self.desc, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_PictureDetail, rhs: Common_PictureDetail) -> Bool {
     if lhs.list != rhs.list {return false}
-    if lhs.num != rhs.num {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.desc != rhs.desc {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -540,6 +614,9 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
     2: .same(proto: "num"),
+    4: .same(proto: "prompt"),
+    5: .same(proto: "title"),
+    6: .same(proto: "desc"),
     9: .same(proto: "Ctime"),
     10: .same(proto: "Mtime"),
   ]
@@ -552,6 +629,9 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.num) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.desc) }()
       case 9: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 10: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -566,6 +646,15 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if self.num != 0 {
       try visitor.visitSingularInt64Field(value: self.num, fieldNumber: 2)
     }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 4)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 5)
+    }
+    if !self.desc.isEmpty {
+      try visitor.visitSingularStringField(value: self.desc, fieldNumber: 6)
+    }
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 9)
     }
@@ -578,6 +667,9 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   public static func ==(lhs: Common_VideoDetail, rhs: Common_VideoDetail) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.num != rhs.num {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.desc != rhs.desc {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -590,6 +682,9 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "resource_url"),
     2: .same(proto: "source"),
+    4: .same(proto: "prompt"),
+    5: .same(proto: "title"),
+    6: .same(proto: "desc"),
     9: .same(proto: "Ctime"),
     10: .same(proto: "Mtime"),
   ]
@@ -602,6 +697,9 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.resourceURL) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.source) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.desc) }()
       case 9: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 10: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -616,6 +714,15 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.source != 0 {
       try visitor.visitSingularInt64Field(value: self.source, fieldNumber: 2)
     }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 4)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 5)
+    }
+    if !self.desc.isEmpty {
+      try visitor.visitSingularStringField(value: self.desc, fieldNumber: 6)
+    }
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 9)
     }
@@ -628,6 +735,9 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static func ==(lhs: Common_MusicShareDetail, rhs: Common_MusicShareDetail) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.source != rhs.source {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.desc != rhs.desc {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -804,6 +914,9 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     11: .same(proto: "title"),
     12: .same(proto: "prevId"),
     13: .same(proto: "loc"),
+    14: .standard(proto: "is_origin"),
+    15: .same(proto: "ref"),
+    16: .standard(proto: "root_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -906,6 +1019,9 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       case 11: try { try decoder.decodeSingularStringField(value: &self.title) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self.prevID) }()
       case 13: try { try decoder.decodeSingularMessageField(value: &self._loc) }()
+      case 14: try { try decoder.decodeSingularBoolField(value: &self.isOrigin) }()
+      case 15: try { try decoder.decodeSingularInt64Field(value: &self.ref) }()
+      case 16: try { try decoder.decodeSingularInt64Field(value: &self.rootID) }()
       default: break
       }
     }
@@ -956,6 +1072,15 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try { if let v = self._loc {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
     } }()
+    if self.isOrigin != false {
+      try visitor.visitSingularBoolField(value: self.isOrigin, fieldNumber: 14)
+    }
+    if self.ref != 0 {
+      try visitor.visitSingularInt64Field(value: self.ref, fieldNumber: 15)
+    }
+    if self.rootID != 0 {
+      try visitor.visitSingularInt64Field(value: self.rootID, fieldNumber: 16)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -964,6 +1089,9 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if lhs.title != rhs.title {return false}
     if lhs.prevID != rhs.prevID {return false}
     if lhs._loc != rhs._loc {return false}
+    if lhs.isOrigin != rhs.isOrigin {return false}
+    if lhs.ref != rhs.ref {return false}
+    if lhs.rootID != rhs.rootID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

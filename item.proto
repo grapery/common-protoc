@@ -7,16 +7,23 @@ import "base.proto";
 message WordDetail {
     string content = 1;
     int64 length = 2;
+    string prompt = 3;
+    string title = 4;
+    string desc = 5;
   }
   
   message PictureInfo {
     string resource_url = 1;
     int64 size = 2;
+    int64 num = 3;
   }
   
   message PictureDetail {
     repeated PictureInfo list = 1;
-    int64 num = 2;
+    int64 total = 2;
+    string prompt = 3;
+    string title = 4;
+    string desc = 5;
   }
   
   message VideoInfo {
@@ -28,6 +35,9 @@ message WordDetail {
   message VideoDetail {
     repeated VideoInfo list = 1;
     int64 num = 2;
+    string prompt = 4;
+    string title = 5;
+    string desc = 6;
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
@@ -35,6 +45,9 @@ message WordDetail {
   message MusicShareDetail {
     string resource_url = 1;
     int64 source = 2;
+    string prompt = 4;
+    string title = 5;
+    string desc = 6;
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
@@ -46,6 +59,7 @@ message WordDetail {
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
+
   message ShareDetail {
     string resource_url = 1;
     int64 source = 2;
@@ -73,6 +87,9 @@ message WordDetail {
     string title = 11;
     string prevId = 12;
     Location loc = 13;
+    bool is_origin = 14;
+    int64 ref = 15;
+    int64 root_id = 16;
   }
 
   message ItemInfo {
