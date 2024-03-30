@@ -1727,6 +1727,10 @@ public struct Common_CreateCommentReq {
 
   public var itemID: Int32 = 0
 
+  public var content: String = String()
+
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1737,12 +1741,22 @@ public struct Common_CreateCommentResp {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var groupID: Int32 = 0
+
+  public var itemID: Int32 = 0
+
+  public var commentID: Int32 = 0
+
+  public var userID: Int64 = 0
+
+  public var timestamp: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_GetItemCommentReq {
+public struct Common_GetItemsCommentReq {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1751,15 +1765,39 @@ public struct Common_GetItemCommentReq {
 
   public var itemID: Int32 = 0
 
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
+
+  public var timestamp: Int64 = 0
+
+  public var userID: Int64 = 0
+
+  public var filter: [String] = []
+
+  public var order: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_GetItemCommentResp {
+public struct Common_GetItemsCommentResp {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
+
+  public var list: [Common_CommentInfo] = []
+
+  public var groupID: Int32 = 0
+
+  public var itemID: Int32 = 0
+
+  public var offset: Int32 = 0
+
+  public var pageSize: Int32 = 0
+
+  public var timestamp: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2039,8 +2077,8 @@ extension Common_GetDisscusResp: @unchecked Sendable {}
 extension Common_Content: @unchecked Sendable {}
 extension Common_CreateCommentReq: @unchecked Sendable {}
 extension Common_CreateCommentResp: @unchecked Sendable {}
-extension Common_GetItemCommentReq: @unchecked Sendable {}
-extension Common_GetItemCommentResp: @unchecked Sendable {}
+extension Common_GetItemsCommentReq: @unchecked Sendable {}
+extension Common_GetItemsCommentResp: @unchecked Sendable {}
 extension Common_GetUserCommentReq: @unchecked Sendable {}
 extension Common_GetUserCommentResp: @unchecked Sendable {}
 extension Common_VersionRequest: @unchecked Sendable {}
@@ -6122,6 +6160,8 @@ extension Common_CreateCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "item_id"),
+    3: .same(proto: "content"),
+    4: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6132,6 +6172,8 @@ extension Common_CreateCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Message
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.groupID) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.itemID) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6143,6 +6185,12 @@ extension Common_CreateCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
     if self.itemID != 0 {
       try visitor.visitSingularInt32Field(value: self.itemID, fieldNumber: 2)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 3)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -6150,6 +6198,8 @@ extension Common_CreateCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static func ==(lhs: Common_CreateCommentReq, rhs: Common_CreateCommentReq) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.itemID != rhs.itemID {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6157,28 +6207,12 @@ extension Common_CreateCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_CreateCommentResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateCommentResp"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_CreateCommentResp, rhs: Common_CreateCommentResp) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetItemCommentReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetItemCommentReq"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "item_id"),
+    3: .standard(proto: "comment_id"),
+    4: .standard(proto: "user_id"),
+    5: .same(proto: "timestamp"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6189,6 +6223,9 @@ extension Common_GetItemCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.groupID) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.itemID) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.commentID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       default: break
       }
     }
@@ -6201,31 +6238,160 @@ extension Common_GetItemCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.itemID != 0 {
       try visitor.visitSingularInt32Field(value: self.itemID, fieldNumber: 2)
     }
+    if self.commentID != 0 {
+      try visitor.visitSingularInt32Field(value: self.commentID, fieldNumber: 3)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 4)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetItemCommentReq, rhs: Common_GetItemCommentReq) -> Bool {
+  public static func ==(lhs: Common_CreateCommentResp, rhs: Common_CreateCommentResp) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.itemID != rhs.itemID {return false}
+    if lhs.commentID != rhs.commentID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetItemCommentResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetItemCommentResp"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+extension Common_GetItemsCommentReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetItemsCommentReq"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "group_id"),
+    2: .standard(proto: "item_id"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
+    5: .same(proto: "timestamp"),
+    6: .standard(proto: "user_id"),
+    7: .same(proto: "filter"),
+    8: .same(proto: "order"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.groupID) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.itemID) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 7: try { try decoder.decodeRepeatedStringField(value: &self.filter) }()
+      case 8: try { try decoder.decodeSingularInt32Field(value: &self.order) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.groupID != 0 {
+      try visitor.visitSingularInt32Field(value: self.groupID, fieldNumber: 1)
+    }
+    if self.itemID != 0 {
+      try visitor.visitSingularInt32Field(value: self.itemID, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 4)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 5)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 6)
+    }
+    if !self.filter.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.filter, fieldNumber: 7)
+    }
+    if self.order != 0 {
+      try visitor.visitSingularInt32Field(value: self.order, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetItemCommentResp, rhs: Common_GetItemCommentResp) -> Bool {
+  public static func ==(lhs: Common_GetItemsCommentReq, rhs: Common_GetItemsCommentReq) -> Bool {
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.itemID != rhs.itemID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.filter != rhs.filter {return false}
+    if lhs.order != rhs.order {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetItemsCommentResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetItemsCommentResp"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "list"),
+    2: .standard(proto: "group_id"),
+    3: .standard(proto: "item_id"),
+    4: .same(proto: "offset"),
+    5: .standard(proto: "page_size"),
+    6: .same(proto: "timestamp"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.groupID) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.itemID) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt32Field(value: self.groupID, fieldNumber: 2)
+    }
+    if self.itemID != 0 {
+      try visitor.visitSingularInt32Field(value: self.itemID, fieldNumber: 3)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 4)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 5)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetItemsCommentResp, rhs: Common_GetItemsCommentResp) -> Bool {
+    if lhs.list != rhs.list {return false}
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.itemID != rhs.itemID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

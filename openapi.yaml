@@ -627,7 +627,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/GetItemCommentReq'
+                            $ref: '#/components/schemas/GetItemsCommentReq'
                 required: true
             responses:
                 "200":
@@ -635,7 +635,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/GetItemCommentResp'
+                                $ref: '#/components/schemas/GetItemsCommentResp'
                 default:
                     description: Default error response
                     content:
@@ -1244,6 +1244,23 @@ components:
                     type: string
                 Mtime:
                     type: string
+        CommentInfo:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+                projectId:
+                    type: string
+                groupId:
+                    type: string
+                content:
+                    type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
         CreateCommentReq:
             type: object
             properties:
@@ -1253,9 +1270,26 @@ components:
                 itemId:
                     type: integer
                     format: int32
+                content:
+                    type: string
+                userId:
+                    type: string
         CreateCommentResp:
             type: object
-            properties: {}
+            properties:
+                groupId:
+                    type: integer
+                    format: int32
+                itemId:
+                    type: integer
+                    format: int32
+                commentId:
+                    type: integer
+                    format: int32
+                userId:
+                    type: string
+                timestamp:
+                    type: string
         CreateGroupReqeust:
             type: object
             properties:
@@ -1486,18 +1520,6 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
-        GetItemCommentReq:
-            type: object
-            properties:
-                groupId:
-                    type: integer
-                    format: int32
-                itemId:
-                    type: integer
-                    format: int32
-        GetItemCommentResp:
-            type: object
-            properties: {}
         GetItemRequest:
             type: object
             properties:
@@ -1514,6 +1536,53 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ItemInfo'
+        GetItemsCommentReq:
+            type: object
+            properties:
+                groupId:
+                    type: integer
+                    format: int32
+                itemId:
+                    type: integer
+                    format: int32
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
+                timestamp:
+                    type: string
+                userId:
+                    type: string
+                filter:
+                    type: array
+                    items:
+                        type: string
+                order:
+                    type: integer
+                    format: int32
+        GetItemsCommentResp:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/CommentInfo'
+                groupId:
+                    type: integer
+                    format: int32
+                itemId:
+                    type: integer
+                    format: int32
+                offset:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
+                timestamp:
+                    type: string
         GetProjectItemsRequest:
             type: object
             properties:

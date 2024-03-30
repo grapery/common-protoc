@@ -99,3 +99,11 @@ enum LikeType {
     Voice_Generate = 4;
     Music_Generate = 5;
   }
+
+  enum SortByType{
+    SortByTime = 0;
+    SortByLike = 1;
+    SortByComment = 2;
+    SortByShare = 3;
+    SortByView = 4;
+  }

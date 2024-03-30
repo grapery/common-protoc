@@ -1686,7 +1686,7 @@ func local_request_TeamsAPI_CreateComment_0(ctx context.Context, marshaler runti
 }
 
 func request_TeamsAPI_GetItemComment_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetItemCommentReq
+	var protoReq GetItemsCommentReq
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1703,7 +1703,7 @@ func request_TeamsAPI_GetItemComment_0(ctx context.Context, marshaler runtime.Ma
 }
 
 func local_request_TeamsAPI_GetItemComment_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetItemCommentReq
+	var protoReq GetItemsCommentReq
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

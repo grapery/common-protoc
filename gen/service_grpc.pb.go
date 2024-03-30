@@ -126,7 +126,7 @@ type TeamsAPIClient interface {
 	DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error)
 	LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error)
 	CreateComment(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*CreateCommentResp, error)
-	GetItemComment(ctx context.Context, in *GetItemCommentReq, opts ...grpc.CallOption) (*GetItemCommentResp, error)
+	GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error)
 }
 
 type teamsAPIClient struct {
@@ -587,8 +587,8 @@ func (c *teamsAPIClient) CreateComment(ctx context.Context, in *CreateCommentReq
 	return out, nil
 }
 
-func (c *teamsAPIClient) GetItemComment(ctx context.Context, in *GetItemCommentReq, opts ...grpc.CallOption) (*GetItemCommentResp, error) {
-	out := new(GetItemCommentResp)
+func (c *teamsAPIClient) GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error) {
+	out := new(GetItemsCommentResp)
 	err := c.cc.Invoke(ctx, TeamsAPI_GetItemComment_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -650,7 +650,7 @@ type TeamsAPIServer interface {
 	DeleteItem(context.Context, *DeleteItemRequest) (*DeleteItemResponse, error)
 	LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error)
 	CreateComment(context.Context, *CreateCommentReq) (*CreateCommentResp, error)
-	GetItemComment(context.Context, *GetItemCommentReq) (*GetItemCommentResp, error)
+	GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -808,7 +808,7 @@ func (UnimplementedTeamsAPIServer) LikeItem(context.Context, *LikeItemRequest) (
 func (UnimplementedTeamsAPIServer) CreateComment(context.Context, *CreateCommentReq) (*CreateCommentResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateComment not implemented")
 }
-func (UnimplementedTeamsAPIServer) GetItemComment(context.Context, *GetItemCommentReq) (*GetItemCommentResp, error) {
+func (UnimplementedTeamsAPIServer) GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetItemComment not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
@@ -1725,7 +1725,7 @@ func _TeamsAPI_CreateComment_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _TeamsAPI_GetItemComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetItemCommentReq)
+	in := new(GetItemsCommentReq)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1737,7 +1737,7 @@ func _TeamsAPI_GetItemComment_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: TeamsAPI_GetItemComment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetItemComment(ctx, req.(*GetItemCommentReq))
+		return srv.(TeamsAPIServer).GetItemComment(ctx, req.(*GetItemsCommentReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }

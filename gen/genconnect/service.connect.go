@@ -202,7 +202,7 @@ type TeamsAPIClient interface {
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
 	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
-	GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error)
+	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -465,7 +465,7 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPICreateCommentProcedure,
 			opts...,
 		),
-		getItemComment: connect.NewClient[gen.GetItemCommentReq, gen.GetItemCommentResp](
+		getItemComment: connect.NewClient[gen.GetItemsCommentReq, gen.GetItemsCommentResp](
 			httpClient,
 			baseURL+TeamsAPIGetItemCommentProcedure,
 			opts...,
@@ -525,7 +525,7 @@ type teamsAPIClient struct {
 	deleteItem           *connect.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
 	likeItem             *connect.Client[gen.LikeItemRequest, gen.LikeItemResponse]
 	createComment        *connect.Client[gen.CreateCommentReq, gen.CreateCommentResp]
-	getItemComment       *connect.Client[gen.GetItemCommentReq, gen.GetItemCommentResp]
+	getItemComment       *connect.Client[gen.GetItemsCommentReq, gen.GetItemsCommentResp]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -779,7 +779,7 @@ func (c *teamsAPIClient) CreateComment(ctx context.Context, req *connect.Request
 }
 
 // GetItemComment calls common.TeamsAPI.GetItemComment.
-func (c *teamsAPIClient) GetItemComment(ctx context.Context, req *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error) {
+func (c *teamsAPIClient) GetItemComment(ctx context.Context, req *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error) {
 	return c.getItemComment.CallUnary(ctx, req)
 }
 
@@ -835,7 +835,7 @@ type TeamsAPIHandler interface {
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
 	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
-	GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error)
+	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1412,6 +1412,6 @@ func (UnimplementedTeamsAPIHandler) CreateComment(context.Context, *connect.Requ
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetItemComment(context.Context, *connect.Request[gen.GetItemCommentReq]) (*connect.Response[gen.GetItemCommentResp], error) {
+func (UnimplementedTeamsAPIHandler) GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetItemComment is not implemented"))
 }

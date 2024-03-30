@@ -310,10 +310,10 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     func `createComment`(request: Common_CreateCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_CreateCommentResp>
 
     @discardableResult
-    func `getItemComment`(request: Common_GetItemCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetItemCommentResp>) -> Void) -> Connect.Cancelable
+    func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetItemsCommentResp>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getItemComment`(request: Common_GetItemCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_GetItemCommentResp>
+    func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_GetItemsCommentResp>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -825,12 +825,12 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `getItemComment`(request: Common_GetItemCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetItemCommentResp>) -> Void) -> Connect.Cancelable {
+    public func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetItemsCommentResp>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/GetItemComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getItemComment`(request: Common_GetItemCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetItemCommentResp> {
+    public func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetItemsCommentResp> {
         return await self.client.unary(path: "/common.TeamsAPI/GetItemComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 

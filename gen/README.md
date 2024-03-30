@@ -13,6 +13,7 @@
     - [ItemType](#common-ItemType)
     - [LikeType](#common-LikeType)
     - [ScopeType](#common-ScopeType)
+    - [SortByType](#common-SortByType)
     - [TaskStage](#common-TaskStage)
     - [TaskType](#common-TaskType)
     - [UserStatus](#common-UserStatus)
@@ -95,10 +96,10 @@
     - [GetGroupItemsResponse](#common-GetGroupItemsResponse)
     - [GetGroupReqeust](#common-GetGroupReqeust)
     - [GetGroupResponse](#common-GetGroupResponse)
-    - [GetItemCommentReq](#common-GetItemCommentReq)
-    - [GetItemCommentResp](#common-GetItemCommentResp)
     - [GetItemRequest](#common-GetItemRequest)
     - [GetItemResponse](#common-GetItemResponse)
+    - [GetItemsCommentReq](#common-GetItemsCommentReq)
+    - [GetItemsCommentResp](#common-GetItemsCommentResp)
     - [GetProjectItemsRequest](#common-GetProjectItemsRequest)
     - [GetProjectItemsResponse](#common-GetProjectItemsResponse)
     - [GetProjectListRequest](#common-GetProjectListRequest)
@@ -315,6 +316,21 @@
 | Private | 2 |  |
 | Someone | 3 |  |
 | GruopScope | 4 |  |
+
+
+
+<a name="common-SortByType"></a>
+
+### SortByType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SortByTime | 0 |  |
+| SortByLike | 1 |  |
+| SortByComment | 2 |  |
+| SortByShare | 3 |  |
+| SortByView | 4 |  |
 
 
 
@@ -1071,6 +1087,8 @@
 | ----- | ---- | ----- | ----------- |
 | group_id | [int32](#int32) |  |  |
 | item_id | [int32](#int32) |  |  |
+| content | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1081,6 +1099,15 @@
 
 ### CreateCommentResp
 
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| item_id | [int32](#int32) |  |  |
+| comment_id | [int32](#int32) |  |  |
+| user_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
 
 
 
@@ -1576,32 +1603,6 @@
 
 
 
-<a name="common-GetItemCommentReq"></a>
-
-### GetItemCommentReq
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| item_id | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-GetItemCommentResp"></a>
-
-### GetItemCommentResp
-
-
-
-
-
-
-
 <a name="common-GetItemRequest"></a>
 
 ### GetItemRequest
@@ -1629,6 +1630,48 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [ItemInfo](#common-ItemInfo) |  |  |
+
+
+
+
+
+
+<a name="common-GetItemsCommentReq"></a>
+
+### GetItemsCommentReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| item_id | [int32](#int32) |  |  |
+| offset | [int32](#int32) |  |  |
+| page_size | [int32](#int32) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| filter | [string](#string) | repeated |  |
+| order | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetItemsCommentResp"></a>
+
+### GetItemsCommentResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [CommentInfo](#common-CommentInfo) | repeated |  |
+| group_id | [int32](#int32) |  |  |
+| item_id | [int32](#int32) |  |  |
+| offset | [int32](#int32) |  |  |
+| page_size | [int32](#int32) |  |  |
+| timestamp | [int64](#int64) |  |  |
 
 
 
@@ -2879,7 +2922,7 @@ user ,group .project.item
 | DeleteItem | [DeleteItemRequest](#common-DeleteItemRequest) | [DeleteItemResponse](#common-DeleteItemResponse) |  |
 | LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) |  |
 | CreateComment | [CreateCommentReq](#common-CreateCommentReq) | [CreateCommentResp](#common-CreateCommentResp) |  |
-| GetItemComment | [GetItemCommentReq](#common-GetItemCommentReq) | [GetItemCommentResp](#common-GetItemCommentResp) |  |
+| GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) |  |
 
  
 

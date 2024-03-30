@@ -558,6 +558,58 @@ extension Common_TaskType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+public enum Common_SortByType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case sortByTime // = 0
+  case sortByLike // = 1
+  case sortByComment // = 2
+  case sortByShare // = 3
+  case sortByView // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .sortByTime
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .sortByTime
+    case 1: self = .sortByLike
+    case 2: self = .sortByComment
+    case 3: self = .sortByShare
+    case 4: self = .sortByView
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .sortByTime: return 0
+    case .sortByLike: return 1
+    case .sortByComment: return 2
+    case .sortByShare: return 3
+    case .sortByView: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Common_SortByType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_SortByType] = [
+    .sortByTime,
+    .sortByLike,
+    .sortByComment,
+    .sortByShare,
+    .sortByView,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct Common_Tags {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -597,6 +649,7 @@ extension Common_AuthType: @unchecked Sendable {}
 extension Common_ScopeType: @unchecked Sendable {}
 extension Common_TaskStage: @unchecked Sendable {}
 extension Common_TaskType: @unchecked Sendable {}
+extension Common_SortByType: @unchecked Sendable {}
 extension Common_Tags: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
@@ -705,6 +758,16 @@ extension Common_TaskType: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "Video_Generate"),
     4: .same(proto: "Voice_Generate"),
     5: .same(proto: "Music_Generate"),
+  ]
+}
+
+extension Common_SortByType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SortByTime"),
+    1: .same(proto: "SortByLike"),
+    2: .same(proto: "SortByComment"),
+    3: .same(proto: "SortByShare"),
+    4: .same(proto: "SortByView"),
   ]
 }
 

@@ -12,6 +12,7 @@ import "group.proto";
 import "item.proto";
 import "project.proto";
 import "user.proto";
+import "comment.proto";
 
 message ActiveInfo {
   UserInfo user = 1;
@@ -520,14 +521,36 @@ message Content {
 message CreateCommentReq {
   int32 group_id = 1;
   int32 item_id = 2;
+  string content = 3;
+  int64 user_id = 4;
 }
-message CreateCommentResp {}
-
-message GetItemCommentReq {
+message CreateCommentResp {
   int32 group_id = 1;
   int32 item_id = 2;
+  int32 comment_id = 3;
+  int64 user_id = 4;
+  int64 timestamp = 5;
 }
-message GetItemCommentResp {}
+
+message GetItemsCommentReq {
+  int32 group_id = 1;
+  int32 item_id = 2;
+  int32 offset = 3;
+  int32 page_size = 4;
+  int64 timestamp = 5;
+  int64 user_id = 6;
+  repeated string filter = 7;
+  int32 order = 8;
+}
+message GetItemsCommentResp {
+  repeated CommentInfo list = 1;
+  int32 group_id = 2;
+  int32 item_id = 3;
+  int32 offset = 4;
+  int32 page_size = 5;
+  int64 timestamp = 6;
+}
+
 
 message GetUserCommentReq {}
 message GetUserCommentResp {}
@@ -917,7 +940,7 @@ service TeamsAPI {
     };
   }
 
-  rpc GetItemComment(GetItemCommentReq) returns (GetItemCommentResp) {
+  rpc GetItemComment(GetItemsCommentReq) returns (GetItemsCommentResp) {
     option (google.api.http) = {
       post : "/api/v1/group/project/item/comment/list"
       body : "*"
