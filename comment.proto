@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package common;
+
+import "base.proto";
+
+
+message CommentInfo {
+    int64 comment_id = 1;
+    int64 user_id = 2;
+    int64 project_id = 3;
+    int64 group_id = 4;
+    string content = 5;
+    int64 Ctime = 6;
+    int64 Mtime = 7;
+}
+

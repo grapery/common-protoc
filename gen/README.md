@@ -17,6 +17,9 @@
     - [TaskType](#common-TaskType)
     - [UserStatus](#common-UserStatus)
   
+- [comment.proto](#comment-proto)
+    - [CommentInfo](#common-CommentInfo)
+  
 - [group.proto](#group-proto)
     - [GroupInfo](#common-GroupInfo)
     - [GroupProfileInfo](#common-GroupProfileInfo)
@@ -362,6 +365,43 @@
 | Invisible | 4 |  |
 | Idle | 5 |  |
 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="comment-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## comment.proto
+
+
+
+<a name="common-CommentInfo"></a>
+
+### CommentInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| project_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
 
  
 
