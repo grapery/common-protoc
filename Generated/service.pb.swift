@@ -626,6 +626,8 @@ public struct Common_GetProjectListRequest {
 
   public var groupID: Int64 = 0
 
+  public var userID: Int64 = 0
+
   public var offset: Int64 = 0
 
   public var pageSize: Int64 = 0
@@ -3523,6 +3525,7 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   public static let protoMessageName: String = _protobuf_package + ".GetProjectListRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
+    2: .standard(proto: "user_id"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
   ]
@@ -3534,6 +3537,7 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
@@ -3544,6 +3548,9 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.groupID != 0 {
       try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
     }
     if self.offset != 0 {
       try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 5)
@@ -3556,6 +3563,7 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   public static func ==(lhs: Common_GetProjectListRequest, rhs: Common_GetProjectListRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

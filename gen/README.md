@@ -1726,6 +1726,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 

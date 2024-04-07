@@ -1618,6 +1618,8 @@ components:
             properties:
                 groupId:
                     type: string
+                userId:
+                    type: string
                 offset:
                     type: string
                 pageSize:
