@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package common;
+
+message Agent{
+    string agent_id = 1;
+    string agent_name = 2;
+    string agent_avatar = 3;
+    string agent_desc = 4; 
+}
+
+message AgentConfig{
+    string role_id = 1;    
+}

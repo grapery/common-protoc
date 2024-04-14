@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package common;
+
+enum ErrorCode {
+    SUCCESS = 0;
+    INVALID_PARAMS = 1;
+    NOT_FOUND = 2;
+    FORBIDDEN = 3;
+    UNAUTHORIZED = 4;
+    ERROR = 5;
+    UNKNOWN = 6;
+    EXPIRED = 7;
+    DUPLICATE = 8;
+    ALREADY_EXISTS = 9;
+    NOT_SUPPORTED = 10;
+    NOT_IMPLEMENTED = 11;
+    TIMEOUT = 12;
+}
+
+message Error {
+    int32 code = 1;
+    string message = 2;
+}
