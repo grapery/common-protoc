@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package common;
+
+import "base.proto";
+
+
+message Story{
+  int64 group_id = 2;
+  string name = 3;
+  string avatar = 4;
+  int64 creator_id = 5;
+  int64 owner_id = 6;
+  repeated Tags tags = 7;
+  ScopeType visable = 8;
+  bool is_achieve = 9;
+  bool is_close = 10;
+  bool is_ai_gen = 11;
+  string origin = 12;
+  int64 root_board_id = 13;
+  string desc = 14;
+  StoryParams params = 15;
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
+
+message StoryParams{
+    string StoryDescription = 1;
+    string RefImage = 2;
+    string NegativePrompt = 3;
+    string background = 4;
+}
+
+message StoryBoard{
+    int64 story_id = 1;
+    int64 num = 2;
+    int64 prev_board_id = 3;
+    int64 next_board_id = 4;
+    int64 creator = 5;
+    bool is_ai_gen = 11;
+    StoryBoardParams params = 12;
+    int64 Ctime = 19;
+    int64 Mtime = 20;
+}
+
+message StoryRole{
+    string CharacterDescription = 1;
+}
+
+message StoryBoardParams{
+    int64 board_id = 1;
+    string StoryDescription = 2;
+    int32 NumIds = 3;
+    int32 NumSteps = 4;
+    string SdModel = 5;
+    string RefImage = 6;
+    string ComicLayoutStyle = 7;
+    string ComicStyle = 8;
+    string NegativePrompt = 9;
+    int32 OutputQuality = 10;
+    float GuidanceScale = 11;
+    int32 OutputFormat = 13;
+    int32 ImageWidth = 14;
+    int32 ImageHeight = 15;
+    int32 Self32AttentionLayers = 16;
+    int32 Self64AttentionLayers = 17;
+    int32 Self128AttentionLayers = 18;
+}

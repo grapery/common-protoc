@@ -314,6 +314,54 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_GetItemsCommentResp>
+
+    @discardableResult
+    func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryResponse>
+
+    @discardableResult
+    func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryInfoResponse>
+
+    @discardableResult
+    func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryResponse>
+
+    @discardableResult
+    func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryboardResponse>
+
+    @discardableResult
+    func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardResponse>
+
+    @discardableResult
+    func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardsResponse>
+
+    @discardableResult
+    func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_DelStoryboardResponse>
+
+    @discardableResult
+    func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ForkStoryboardResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -834,6 +882,86 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetItemComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryInfoResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryboardsResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DelStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ForkStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -887,6 +1015,14 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let likeItem = Connect.MethodSpec(name: "LikeItem", service: "common.TeamsAPI", type: .unary)
             public static let createComment = Connect.MethodSpec(name: "CreateComment", service: "common.TeamsAPI", type: .unary)
             public static let getItemComment = Connect.MethodSpec(name: "GetItemComment", service: "common.TeamsAPI", type: .unary)
+            public static let createStory = Connect.MethodSpec(name: "CreateStory", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryInfo = Connect.MethodSpec(name: "GetStoryInfo", service: "common.TeamsAPI", type: .unary)
+            public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "common.TeamsAPI", type: .unary)
+            public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryboards = Connect.MethodSpec(name: "GetStoryboards", service: "common.TeamsAPI", type: .unary)
+            public static let delStoryboard = Connect.MethodSpec(name: "DelStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let forkStoryboard = Connect.MethodSpec(name: "ForkStoryboard", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

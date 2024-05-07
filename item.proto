@@ -5,111 +5,112 @@ package common;
 import "base.proto";
 
 message WordDetail {
-    string content = 1;
-    int64 length = 2;
-    string prompt = 3;
-    string title = 4;
-    string desc = 5;
-  }
-  
-  message PictureInfo {
-    string resource_url = 1;
-    int64 size = 2;
-    int64 num = 3;
-  }
-  
-  message PictureDetail {
-    repeated PictureInfo list = 1;
-    int64 total = 2;
-    string prompt = 3;
-    string title = 4;
-    string desc = 5;
-  }
-  
-  message VideoInfo {
-    string resource_url = 1;
-    int64 size = 2; 
-    int64 time_length = 3;
-  }
-  
-  message VideoDetail {
-    repeated VideoInfo list = 1;
-    int64 num = 2;
-    string prompt = 4;
-    string title = 5;
-    string desc = 6;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
-  
-  message MusicShareDetail {
-    string resource_url = 1;
-    int64 source = 2;
-    string prompt = 4;
-    string title = 5;
-    string desc = 6;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
-  
-  message VoiceDetail {
-    string resource_url = 1;
-    int64 size = 2;
-    int64 time_length = 3;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
+  string content = 1;
+  int64 length = 2;
+  string prompt = 3;
+  string title = 4;
+  string desc = 5;
+}
 
-  message ShareDetail {
-    string resource_url = 1;
-    int64 source = 2;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
+message PictureInfo {
+  string resource_url = 1;
+  int64 size = 2;
+  int64 num = 3;
+}
 
-  message Location {
-    string country = 1;
-    string province = 2;
-    string city = 3;
-    string district = 4;
-  }
-  
-  message ItemDetail {
-    oneof detail {
-      WordDetail word = 1;
-      PictureDetail pictures = 2;
-      VideoDetail video = 3;
-      MusicShareDetail music = 4;
-      VoiceDetail voice = 5;
-      ShareDetail share = 6;
-      Location locate = 7;
-    }
-    string title = 11;
-    string prevId = 12;
-    Location loc = 13;
-    bool is_origin = 14;
-    int64 ref = 15;
-    int64 root_id = 16;
-  }
+message PictureDetail {
+  repeated PictureInfo list = 1;
+  int64 total = 2;
+  string prompt = 3;
+  string title = 4;
+  string desc = 5;
+}
 
-  message ItemInfo {
-    int64 group_id = 1;
-    int64 project_id = 2;
-    int64 user_id = 3;
-    string title = 4;
-    ItemDetail content = 5;
-    ItemType itype = 6;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
+message VideoInfo {
+  string resource_url = 1;
+  int64 size = 2; 
+  int64 time_length = 3;
+}
 
-  message TimeLine {
-    int64 root_id = 1;
-    int64 group_id = 2;
-    int64 project_id = 3;
-    int64 creator_id = 4;
-    string title = 5;
-    int64 item_id = 6;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
+message VideoDetail {
+  repeated VideoInfo list = 1;
+  int64 num = 2;
+  string prompt = 4;
+  string title = 5;
+  string desc = 6;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+
+message MusicShareDetail {
+  string resource_url = 1;
+  int64 source = 2;
+  string prompt = 4;
+  string title = 5;
+  string desc = 6;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+
+message VoiceDetail {
+  string resource_url = 1;
+  int64 size = 2;
+  int64 time_length = 3;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+
+message ShareDetail {
+  string resource_url = 1;
+  int64 source = 2;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+
+message Location {
+  string country = 1;
+  string province = 2;
+  string city = 3;
+  string district = 4;
+}
+
+message ItemDetail {
+  oneof detail {
+    WordDetail word = 1;
+    PictureDetail pictures = 2;
+    VideoDetail video = 3;
+    MusicShareDetail music = 4;
+    VoiceDetail voice = 5;
+    ShareDetail share = 6;
+    Location locate = 7;
   }
+  string title = 11;
+  string prevId = 12;
+  Location loc = 13;
+  bool is_origin = 14;
+  int64 ref = 15;
+  int64 root_id = 16;
+}
+
+message ItemInfo {
+  int64 group_id = 1;
+  int64 project_id = 2;
+  int64 user_id = 3;
+  string title = 4;
+  ItemDetail content = 5;
+  ItemType itype = 6;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+
+message TimeLine {
+  int64 root_id = 1;
+  int64 group_id = 2;
+  int64 project_id = 3;
+  int64 creator_id = 4;
+  string title = 5;
+  int64 item_id = 6;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
+

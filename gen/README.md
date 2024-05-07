@@ -3,6 +3,10 @@
 
 ## Table of Contents
 
+- [agents.proto](#agents-proto)
+    - [Agent](#common-Agent)
+    - [AgentConfig](#common-AgentConfig)
+  
 - [base.proto](#base-proto)
     - [Tags](#common-Tags)
   
@@ -20,6 +24,13 @@
   
 - [comment.proto](#comment-proto)
     - [CommentInfo](#common-CommentInfo)
+  
+- [error.proto](#error-proto)
+    - [Error](#common-Error)
+  
+    - [AuthError](#common-AuthError)
+    - [ErrorCode](#common-ErrorCode)
+    - [ErrorType](#common-ErrorType)
   
 - [group.proto](#group-proto)
     - [GroupInfo](#common-GroupInfo)
@@ -39,12 +50,6 @@
     - [VoiceDetail](#common-VoiceDetail)
     - [WordDetail](#common-WordDetail)
   
-- [license.proto](#license-proto)
-    - [LicenseInfo](#common-LicenseInfo)
-    - [LicenseUseStatus](#common-LicenseUseStatus)
-  
-    - [LicenseStatus](#common-LicenseStatus)
-  
 - [project.proto](#project-proto)
     - [ProjectInfo](#common-ProjectInfo)
     - [ProjectProfileInfo](#common-ProjectProfileInfo)
@@ -53,6 +58,13 @@
     - [UserInfo](#common-UserInfo)
     - [UserPrivate](#common-UserPrivate)
     - [UserProfileInfo](#common-UserProfileInfo)
+  
+- [story.proto](#story-proto)
+    - [Story](#common-Story)
+    - [StoryBoard](#common-StoryBoard)
+    - [StoryBoardParams](#common-StoryBoardParams)
+    - [StoryParams](#common-StoryParams)
+    - [StoryRole](#common-StoryRole)
   
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
@@ -71,6 +83,12 @@
     - [CreateItemResponse](#common-CreateItemResponse)
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
+    - [CreateStoryRequest](#common-CreateStoryRequest)
+    - [CreateStoryResponse](#common-CreateStoryResponse)
+    - [CreateStoryboardRequest](#common-CreateStoryboardRequest)
+    - [CreateStoryboardResponse](#common-CreateStoryboardResponse)
+    - [DelStoryboardRequest](#common-DelStoryboardRequest)
+    - [DelStoryboardResponse](#common-DelStoryboardResponse)
     - [DeleteGroupRequest](#common-DeleteGroupRequest)
     - [DeleteGroupResponse](#common-DeleteGroupResponse)
     - [DeleteItemRequest](#common-DeleteItemRequest)
@@ -88,6 +106,8 @@
     - [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse)
     - [FetchUserActivesRequest](#common-FetchUserActivesRequest)
     - [FetchUserActivesResponse](#common-FetchUserActivesResponse)
+    - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
+    - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetGroupActivesRequest](#common-GetGroupActivesRequest)
@@ -114,6 +134,12 @@
     - [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust)
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.TimestampEntry](#common-GetProjectWatcherResponse-TimestampEntry)
+    - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
+    - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
+    - [GetStoryboardRequest](#common-GetStoryboardRequest)
+    - [GetStoryboardResponse](#common-GetStoryboardResponse)
+    - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
+    - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserItemsRequest](#common-GetUserItemsRequest)
@@ -154,6 +180,8 @@
     - [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse)
     - [UpdateProjectRequest](#common-UpdateProjectRequest)
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
+    - [UpdateStoryRequest](#common-UpdateStoryRequest)
+    - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
@@ -179,6 +207,55 @@
     - [TeamsAPI](#common-TeamsAPI)
   
 - [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="agents-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## agents.proto
+
+
+
+<a name="common-Agent"></a>
+
+### Agent
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| agent_id | [string](#string) |  |  |
+| agent_name | [string](#string) |  |  |
+| agent_avatar | [string](#string) |  |  |
+| agent_desc | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-AgentConfig"></a>
+
+### AgentConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
 
 
 
@@ -418,6 +495,99 @@
 
 
  
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="error-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## error.proto
+
+
+
+<a name="common-Error"></a>
+
+### Error
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="common-AuthError"></a>
+
+### AuthError
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NONE | 0 |  |
+| INVALID_TOKEN | 1 |  |
+| EXPIRED_TOKEN | 2 |  |
+| INVALID_SIGNATURE | 3 |  |
+| INVALID_APP | 4 |  |
+| INVALID_USER | 5 |  |
+| INVALID_PASSWORD | 6 |  |
+| INVALID_ACCOUNT | 7 |  |
+| INVALID_ROLE | 8 |  |
+| INVALID_PERMISSION | 9 |  |
+| INVALID_GROUP | 10 |  |
+| INVALID_PROJECT | 11 |  |
+| INVALID_ITEM | 12 |  |
+| INVALID_VERSION | 13 |  |
+| INVALID_AGENT | 14 |  |
+
+
+
+<a name="common-ErrorCode"></a>
+
+### ErrorCode
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SUCCESS | 0 |  |
+| INVALID_PARAMS | 1 |  |
+| NOT_FOUND | 2 |  |
+| FORBIDDEN | 3 |  |
+| UNAUTHORIZED | 4 |  |
+| ERROR | 5 |  |
+| UNKNOWN | 6 |  |
+| EXPIRED | 7 |  |
+| DUPLICATE | 8 |  |
+| ALREADY_EXISTS | 9 |  |
+| NOT_SUPPORTED | 10 |  |
+| NOT_IMPLEMENTED | 11 |  |
+| TIMEOUT | 12 |  |
+
+
+
+<a name="common-ErrorType"></a>
+
+### ErrorType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Internal | 0 |  |
+| Client | 1 |  |
+| Server | 2 |  |
+
 
  
 
@@ -749,82 +919,6 @@
 
 
 
-<a name="license-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## license.proto
-
-
-
-<a name="common-LicenseInfo"></a>
-
-### LicenseInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| license_id | [int32](#int32) |  |  |
-| license | [string](#string) |  |  |
-| name | [string](#string) |  |  |
-| email | [string](#string) |  |  |
-| url | [string](#string) |  |  |
-| desc | [string](#string) |  |  |
-| avatar | [string](#string) |  |  |
-| status | [LicenseStatus](#common-LicenseStatus) |  |  |
-| creator | [int64](#int64) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-LicenseUseStatus"></a>
-
-### LicenseUseStatus
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| license_id | [int32](#int32) |  |  |
-| project_id | [int64](#int64) |  |  |
-| status | [LicenseStatus](#common-LicenseStatus) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
- 
-
-
-<a name="common-LicenseStatus"></a>
-
-### LicenseStatus
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| IsNormal | 0 |  |
-| IsAbandon | 1 |  |
-| Expired | 2 |  |
-| Disabled | 3 |  |
-| Deleted | 4 |  |
-| Unknown | 5 |  |
-
-
- 
-
- 
-
- 
-
-
-
 <a name="project-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -960,6 +1054,139 @@
 | latest_active_time | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="story-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## story.proto
+
+
+
+<a name="common-Story"></a>
+
+### Story
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| creator_id | [int64](#int64) |  |  |
+| owner_id | [int64](#int64) |  |  |
+| tags | [Tags](#common-Tags) | repeated |  |
+| visable | [ScopeType](#common-ScopeType) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| origin | [string](#string) |  |  |
+| root_board_id | [int64](#int64) |  |  |
+| desc | [string](#string) |  |  |
+| params | [StoryParams](#common-StoryParams) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoard"></a>
+
+### StoryBoard
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| num | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
+| next_board_id | [int64](#int64) |  |  |
+| creator | [int64](#int64) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardParams"></a>
+
+### StoryBoardParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| StoryDescription | [string](#string) |  |  |
+| NumIds | [int32](#int32) |  |  |
+| NumSteps | [int32](#int32) |  |  |
+| SdModel | [string](#string) |  |  |
+| RefImage | [string](#string) |  |  |
+| ComicLayoutStyle | [string](#string) |  |  |
+| ComicStyle | [string](#string) |  |  |
+| NegativePrompt | [string](#string) |  |  |
+| OutputQuality | [int32](#int32) |  |  |
+| GuidanceScale | [float](#float) |  |  |
+| OutputFormat | [int32](#int32) |  |  |
+| ImageWidth | [int32](#int32) |  |  |
+| ImageHeight | [int32](#int32) |  |  |
+| Self32AttentionLayers | [int32](#int32) |  |  |
+| Self64AttentionLayers | [int32](#int32) |  |  |
+| Self128AttentionLayers | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-StoryParams"></a>
+
+### StoryParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| StoryDescription | [string](#string) |  |  |
+| RefImage | [string](#string) |  |  |
+| NegativePrompt | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StoryRole"></a>
+
+### StoryRole
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CharacterDescription | [string](#string) |  |  |
 
 
 
@@ -1230,6 +1457,90 @@
 
 
 
+<a name="common-CreateStoryRequest"></a>
+
+### CreateStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| short_desc | [string](#string) |  |  |
+| creator_id | [string](#string) |  |  |
+| owner_id | [string](#string) |  |  |
+| group_id | [string](#string) |  |  |
+| origin | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| params | [StoryParams](#common-StoryParams) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryResponse"></a>
+
+### CreateStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryboardRequest"></a>
+
+### CreateStoryboardRequest
+
+
+
+
+
+
+
+<a name="common-CreateStoryboardResponse"></a>
+
+### CreateStoryboardResponse
+
+
+
+
+
+
+
+<a name="common-DelStoryboardRequest"></a>
+
+### DelStoryboardRequest
+
+
+
+
+
+
+
+<a name="common-DelStoryboardResponse"></a>
+
+### DelStoryboardResponse
+
+
+
+
+
+
+
 <a name="common-DeleteGroupRequest"></a>
 
 ### DeleteGroupRequest
@@ -1473,6 +1784,26 @@
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ForkStoryboardRequest"></a>
+
+### ForkStoryboardRequest
+
+
+
+
+
+
+
+<a name="common-ForkStoryboardResponse"></a>
+
+### ForkStoryboardResponse
+
 
 
 
@@ -1910,6 +2241,78 @@
 | ----- | ---- | ----- | ----------- |
 | key | [int64](#int64) |  |  |
 | value | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryInfoRequest"></a>
+
+### GetStoryInfoRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryInfoResponse"></a>
+
+### GetStoryInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| info | [Story](#common-Story) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardRequest"></a>
+
+### GetStoryboardRequest
+
+
+
+
+
+
+
+<a name="common-GetStoryboardResponse"></a>
+
+### GetStoryboardResponse
+
+
+
+
+
+
+
+<a name="common-GetStoryboardsRequest"></a>
+
+### GetStoryboardsRequest
+
+
+
+
+
+
+
+<a name="common-GetStoryboardsResponse"></a>
+
+### GetStoryboardsResponse
+
 
 
 
@@ -2550,6 +2953,44 @@
 
 
 
+<a name="common-UpdateStoryRequest"></a>
+
+### UpdateStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| short_desc | [string](#string) |  |  |
+| origin | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| params | [StoryParams](#common-StoryParams) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryResponse"></a>
+
+### UpdateStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateUserAvatorRequest"></a>
 
 ### UpdateUserAvatorRequest
@@ -2924,6 +3365,14 @@ user ,group .project.item
 | LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) |  |
 | CreateComment | [CreateCommentReq](#common-CreateCommentReq) | [CreateCommentResp](#common-CreateCommentResp) |  |
 | GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) |  |
+| CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) |  |
+| GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) |  |
+| UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) |  |
+| CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) |  |
+| GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) |  |
+| GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
+| DelStoryboard | [CreateCommentReq](#common-CreateCommentReq) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
+| ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |
 
  
 

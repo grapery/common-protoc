@@ -786,6 +786,198 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/story/Info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetStoryInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryInfoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryInfoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/new:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_CreateStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/del:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_DelStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateCommentReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DelStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/fork:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_ForkStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ForkStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ForkStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/info:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/list:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetStoryboards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryboardsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/login:
         post:
             tags:
@@ -1333,6 +1525,58 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
+        CreateStoryRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                title:
+                    type: string
+                shortDesc:
+                    type: string
+                creatorId:
+                    type: string
+                ownerId:
+                    type: string
+                groupId:
+                    type: string
+                origin:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                isAchieve:
+                    type: boolean
+                isClose:
+                    type: boolean
+                isAiGen:
+                    type: boolean
+                params:
+                    $ref: '#/components/schemas/StoryParams'
+        CreateStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                storyId:
+                    type: integer
+                    format: int32
+                boardId:
+                    type: integer
+                    format: int32
+        CreateStoryboardRequest:
+            type: object
+            properties: {}
+        CreateStoryboardResponse:
+            type: object
+            properties: {}
+        DelStoryboardResponse:
+            type: object
+            properties: {}
         DeleteGroupRequest:
             type: object
             properties:
@@ -1457,6 +1701,12 @@ components:
                     type: string
                 pageSize:
                     type: string
+        ForkStoryboardRequest:
+            type: object
+            properties: {}
+        ForkStoryboardResponse:
+            type: object
+            properties: {}
         GetGroupActivesRequest:
             type: object
             properties:
@@ -1712,6 +1962,35 @@ components:
                     type: object
                     additionalProperties:
                         type: string
+        GetStoryInfoRequest:
+            type: object
+            properties:
+                storyId:
+                    type: integer
+                    format: int32
+        GetStoryInfoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                info:
+                    $ref: '#/components/schemas/Story'
+        GetStoryboardRequest:
+            type: object
+            properties: {}
+        GetStoryboardResponse:
+            type: object
+            properties: {}
+        GetStoryboardsRequest:
+            type: object
+            properties: {}
+        GetStoryboardsResponse:
+            type: object
+            properties: {}
         GetUserItemsRequest:
             type: object
             properties:
@@ -2160,6 +2439,55 @@ components:
                         $ref: '#/components/schemas/GoogleProtobufAny'
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        Story:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                creatorId:
+                    type: string
+                ownerId:
+                    type: string
+                tags:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Tags'
+                visable:
+                    type: integer
+                    format: enum
+                isAchieve:
+                    type: boolean
+                isClose:
+                    type: boolean
+                isAiGen:
+                    type: boolean
+                origin:
+                    type: string
+                rootBoardId:
+                    type: string
+                desc:
+                    type: string
+                params:
+                    $ref: '#/components/schemas/StoryParams'
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        StoryParams:
+            type: object
+            properties:
+                StoryDescription:
+                    type: string
+                RefImage:
+                    type: string
+                NegativePrompt:
+                    type: string
+                background:
+                    type: string
         Tags:
             type: object
             properties:
@@ -2265,6 +2593,36 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
+        UpdateStoryRequest:
+            type: object
+            properties:
+                shortDesc:
+                    type: string
+                origin:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                isAchieve:
+                    type: boolean
+                isClose:
+                    type: boolean
+                isAiGen:
+                    type: boolean
+                params:
+                    $ref: '#/components/schemas/StoryParams'
+        UpdateStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                storyId:
+                    type: integer
+                    format: int32
         UpdateUserAvatorRequest:
             type: object
             properties:

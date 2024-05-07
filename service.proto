@@ -13,6 +13,7 @@ import "item.proto";
 import "project.proto";
 import "user.proto";
 import "comment.proto";
+import "story.proto";
 
 message ActiveInfo {
   UserInfo user = 1;
@@ -946,4 +947,153 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+
+  rpc CreateStory(CreateStoryRequest) returns (CreateStoryResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/new"
+      body : "*"
+    };
+  }
+
+  rpc GetStoryInfo(GetStoryInfoRequest) returns (GetStoryInfoResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/Info"
+      body : "*"
+    };
+  }
+
+
+  rpc UpdateStory(UpdateStoryRequest) returns (UpdateStoryResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/update"
+      body : "*"
+    };
+  }
+
+
+  rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard"
+      body : "*"
+    };
+  }
+
+  rpc GetStoryboard(GetStoryboardRequest) returns (GetStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/info"
+      body : "*"
+    };
+  }
+
+
+  rpc GetStoryboards(GetStoryboardsRequest) returns (GetStoryboardsResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/list"
+      body : "*"
+    };
+  }
+
+
+  rpc DelStoryboard(CreateCommentReq) returns (DelStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/del"
+      body : "*"
+    };
+  }
+
+  rpc ForkStoryboard(ForkStoryboardRequest) returns (ForkStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/fork"
+      body : "*"
+    };
+  }
+}
+
+message CreateStoryRequest {
+  string name = 1;
+  string title = 2;
+  string short_desc = 3;
+  string creator_id = 4;
+  string owner_id = 5;
+  string group_id = 6;
+  string origin = 7;
+  int32 status = 8;
+  bool is_achieve = 9;
+  bool is_close = 10;
+  bool is_ai_gen = 11;
+  StoryParams params = 12;
+}
+
+message CreateStoryResponse {
+  int32 code = 1;
+  int32 message = 2;
+  int32 story_id = 3;
+  int32 board_id = 4;
+}
+
+message UpdateStoryRequest {
+  string short_desc = 1;
+  string origin = 2;
+  int32 status = 3;
+  bool is_achieve = 4;
+  bool is_close = 5;
+  bool is_ai_gen = 6;
+  StoryParams params = 7;
+}
+
+message UpdateStoryResponse {
+  int32 code = 1;
+  int32 message = 2;
+  int32 story_id = 3;
+}
+
+message GetStoryInfoRequest {
+  int32 story_id = 3;
+}
+
+message GetStoryInfoResponse {
+  int32 code = 1;
+  int32 message = 2;
+  Story info = 3;
+}
+
+message CreateStoryboardRequest {
+
+}
+
+message CreateStoryboardResponse {
+
+}
+
+message GetStoryboardRequest {
+
+}
+
+message GetStoryboardResponse {
+
+}
+
+message GetStoryboardsRequest{
+
+}
+
+message GetStoryboardsResponse {
+
+}
+
+message DelStoryboardRequest {
+
+}
+
+message DelStoryboardResponse {
+
+}
+
+message ForkStoryboardRequest{
+
+}
+
+message ForkStoryboardResponse{
+
 }
