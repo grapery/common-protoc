@@ -330,7 +330,7 @@ public struct Common_CreateStoryResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateStoryResponse.DataMessage {
     get {return _data ?? Common_CreateStoryResponse.DataMessage()}
@@ -402,7 +402,7 @@ public struct Common_UpdateStoryResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UpdateStoryResponse.DataMessage {
     get {return _data ?? Common_UpdateStoryResponse.DataMessage()}
@@ -451,7 +451,7 @@ public struct Common_GetStoryInfoResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetStoryInfoResponse.DataMessage {
     get {return _data ?? Common_GetStoryInfoResponse.DataMessage()}
@@ -518,7 +518,7 @@ public struct Common_CreateStoryboardResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateStoryboardResponse.DataMessage {
     get {return _data ?? Common_CreateStoryboardResponse.DataMessage()}
@@ -567,7 +567,7 @@ public struct Common_GetStoryboardResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetStoryboardResponse.DataMessage {
     get {return _data ?? Common_GetStoryboardResponse.DataMessage()}
@@ -635,7 +635,7 @@ public struct Common_GetStoryboardsResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetStoryboardsResponse.DataMessage {
     get {return _data ?? Common_GetStoryboardsResponse.DataMessage()}
@@ -690,7 +690,7 @@ public struct Common_DelStoryboardResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -720,7 +720,7 @@ public struct Common_ForkStoryboardResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_ForkStoryboardResponse.DataMessage {
     get {return _data ?? Common_ForkStoryboardResponse.DataMessage()}
@@ -1509,7 +1509,7 @@ extension Common_CreateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -1524,8 +1524,8 @@ extension Common_CreateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -1667,7 +1667,7 @@ extension Common_UpdateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -1682,8 +1682,8 @@ extension Common_UpdateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -1779,7 +1779,7 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -1794,8 +1794,8 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -1899,7 +1899,7 @@ extension Common_CreateStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -1914,8 +1914,8 @@ extension Common_CreateStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -2011,7 +2011,7 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -2026,8 +2026,8 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -2157,7 +2157,7 @@ extension Common_GetStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -2172,8 +2172,8 @@ extension Common_GetStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -2286,7 +2286,7 @@ extension Common_DelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       default: break
       }
     }
@@ -2296,8 +2296,8 @@ extension Common_DelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2369,7 +2369,7 @@ extension Common_ForkStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -2384,8 +2384,8 @@ extension Common_ForkStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)

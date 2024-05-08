@@ -483,7 +483,7 @@ public struct Common_UserUpdateResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UserUpdateResponse.DataMessage {
     get {return _data ?? Common_UserUpdateResponse.DataMessage()}
@@ -784,7 +784,7 @@ public struct Common_DeleteProjectResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_DeleteProjectResponse.DataMessage {
     get {return _data ?? Common_DeleteProjectResponse.DataMessage()}
@@ -869,7 +869,7 @@ public struct Common_WatchProjectResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_WatchProjectResponse.DataMessage {
     get {return _data ?? Common_WatchProjectResponse.DataMessage()}
@@ -920,7 +920,7 @@ public struct Common_UnWatchProjectResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UnWatchProjectResponse.DataMessage {
     get {return _data ?? Common_UnWatchProjectResponse.DataMessage()}
@@ -1133,7 +1133,7 @@ public struct Common_UpdateProjectProfileResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UpdateProjectProfileResponse.DataMessage {
     get {return _data ?? Common_UpdateProjectProfileResponse.DataMessage()}
@@ -1341,7 +1341,7 @@ public struct Common_CreateItemResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateItemResponse.DataMessage {
     get {return _data ?? Common_CreateItemResponse.DataMessage()}
@@ -1416,7 +1416,7 @@ public struct Common_UpdateItemResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UpdateItemResponse.DataMessage {
     get {return _data ?? Common_UpdateItemResponse.DataMessage()}
@@ -1480,7 +1480,7 @@ public struct Common_DeleteItemResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_DeleteItemResponse.DataMessage {
     get {return _data ?? Common_DeleteItemResponse.DataMessage()}
@@ -1535,7 +1535,7 @@ public struct Common_LikeItemResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_LikeItemResponse.DataMessage {
     get {return _data ?? Common_LikeItemResponse.DataMessage()}
@@ -1584,7 +1584,7 @@ public struct Common_CreateGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateGroupResponse.DataMessage {
     get {return _data ?? Common_CreateGroupResponse.DataMessage()}
@@ -1646,7 +1646,7 @@ public struct Common_GetGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetGroupResponse.DataMessage {
     get {return _data ?? Common_GetGroupResponse.DataMessage()}
@@ -1710,7 +1710,7 @@ public struct Common_GetGroupActivesResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetGroupActivesResponse.DataMessage {
     get {return _data ?? Common_GetGroupActivesResponse.DataMessage()}
@@ -1774,7 +1774,7 @@ public struct Common_UpdateGroupInfoResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_UpdateGroupInfoResponse.DataMessage {
     get {return _data ?? Common_UpdateGroupInfoResponse.DataMessage()}
@@ -1834,7 +1834,7 @@ public struct Common_DeleteGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_DeleteGroupResponse.DataMessage {
     get {return _data ?? Common_DeleteGroupResponse.DataMessage()}
@@ -1885,7 +1885,7 @@ public struct Common_FetchGroupMembersResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_FetchGroupMembersResponse.DataMessage {
     get {return _data ?? Common_FetchGroupMembersResponse.DataMessage()}
@@ -1938,7 +1938,7 @@ public struct Common_SearchGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_SearchGroupResponse.DataMessage {
     get {return _data ?? Common_SearchGroupResponse.DataMessage()}
@@ -1995,7 +1995,7 @@ public struct Common_FetchGroupProjectsResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_FetchGroupProjectsResponse.DataMessage {
     get {return _data ?? Common_FetchGroupProjectsResponse.DataMessage()}
@@ -2050,7 +2050,7 @@ public struct Common_JoinGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_JoinGroupResponse.DataMessage {
     get {return _data ?? Common_JoinGroupResponse.DataMessage()}
@@ -2099,7 +2099,7 @@ public struct Common_LeaveGroupResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_LeaveGroupResponse.DataMessage {
     get {return _data ?? Common_LeaveGroupResponse.DataMessage()}
@@ -2154,7 +2154,7 @@ public struct Common_CreateDisscusResp {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateDisscusResp.DataMessage {
     get {return _data ?? Common_CreateDisscusResp.DataMessage()}
@@ -2199,7 +2199,7 @@ public struct Common_GetDisscusResp {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetDisscusResp.DataMessage {
     get {return _data ?? Common_GetDisscusResp.DataMessage()}
@@ -2270,7 +2270,7 @@ public struct Common_CreateCommentResp {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_CreateCommentResp.DataMessage {
     get {return _data ?? Common_CreateCommentResp.DataMessage()}
@@ -2341,7 +2341,7 @@ public struct Common_GetItemsCommentResp {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetItemsCommentResp.DataMessage {
     get {return _data ?? Common_GetItemsCommentResp.DataMessage()}
@@ -2398,7 +2398,7 @@ public struct Common_GetUserCommentResp {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetUserCommentResp.DataMessage {
     get {return _data ?? Common_GetUserCommentResp.DataMessage()}
@@ -2443,7 +2443,7 @@ public struct Common_VersionResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_VersionResponse.DataMessage {
     get {return _data ?? Common_VersionResponse.DataMessage()}
@@ -2514,7 +2514,7 @@ public struct Common_ExploreResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_ExploreResponse.DataMessage {
     get {return _data ?? Common_ExploreResponse.DataMessage()}
@@ -2565,7 +2565,7 @@ public struct Common_TrendingResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_TrendingResponse.DataMessage {
     get {return _data ?? Common_TrendingResponse.DataMessage()}
@@ -2616,7 +2616,7 @@ public struct Common_GetProjectMembersResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetProjectMembersResponse.DataMessage {
     get {return _data ?? Common_GetProjectMembersResponse.DataMessage()}
@@ -2669,7 +2669,7 @@ public struct Common_GetProjectWatcherResponse {
 
   public var code: Int32 = 0
 
-  public var message: Int32 = 0
+  public var message: String = String()
 
   public var data: Common_GetProjectWatcherResponse.DataMessage {
     get {return _data ?? Common_GetProjectWatcherResponse.DataMessage()}
@@ -3927,7 +3927,7 @@ extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -3942,8 +3942,8 @@ extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -4640,7 +4640,7 @@ extension Common_DeleteProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -4655,8 +4655,8 @@ extension Common_DeleteProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -4845,7 +4845,7 @@ extension Common_WatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -4860,8 +4860,8 @@ extension Common_WatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -4956,7 +4956,7 @@ extension Common_UnWatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -4971,8 +4971,8 @@ extension Common_UnWatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -5475,7 +5475,7 @@ extension Common_UpdateProjectProfileResponse: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -5490,8 +5490,8 @@ extension Common_UpdateProjectProfileResponse: SwiftProtobuf.Message, SwiftProto
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6002,7 +6002,7 @@ extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6017,8 +6017,8 @@ extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6146,7 +6146,7 @@ extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6161,8 +6161,8 @@ extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6280,7 +6280,7 @@ extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6295,8 +6295,8 @@ extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6403,7 +6403,7 @@ extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6418,8 +6418,8 @@ extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6508,7 +6508,7 @@ extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6523,8 +6523,8 @@ extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6636,7 +6636,7 @@ extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6651,8 +6651,8 @@ extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6770,7 +6770,7 @@ extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6785,8 +6785,8 @@ extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -6904,7 +6904,7 @@ extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -6919,8 +6919,8 @@ extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7026,7 +7026,7 @@ extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7041,8 +7041,8 @@ extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7137,7 +7137,7 @@ extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7152,8 +7152,8 @@ extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7261,7 +7261,7 @@ extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7276,8 +7276,8 @@ extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7397,7 +7397,7 @@ extension Common_FetchGroupProjectsResponse: SwiftProtobuf.Message, SwiftProtobu
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7412,8 +7412,8 @@ extension Common_FetchGroupProjectsResponse: SwiftProtobuf.Message, SwiftProtobu
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7527,7 +7527,7 @@ extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7542,8 +7542,8 @@ extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7632,7 +7632,7 @@ extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7647,8 +7647,8 @@ extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7737,7 +7737,7 @@ extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7752,8 +7752,8 @@ extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7823,7 +7823,7 @@ extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -7838,8 +7838,8 @@ extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -7990,7 +7990,7 @@ extension Common_CreateCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8005,8 +8005,8 @@ extension Common_CreateCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8168,7 +8168,7 @@ extension Common_GetItemsCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8183,8 +8183,8 @@ extension Common_GetItemsCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8297,7 +8297,7 @@ extension Common_GetUserCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8312,8 +8312,8 @@ extension Common_GetUserCommentResp: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8383,7 +8383,7 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8398,8 +8398,8 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8539,7 +8539,7 @@ extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8554,8 +8554,8 @@ extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8650,7 +8650,7 @@ extension Common_TrendingResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8665,8 +8665,8 @@ extension Common_TrendingResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8768,7 +8768,7 @@ extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8783,8 +8783,8 @@ extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -8892,7 +8892,7 @@ extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
@@ -8907,8 +8907,8 @@ extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
-    if self.message != 0 {
-      try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
     try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)

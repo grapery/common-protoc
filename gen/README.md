@@ -1149,7 +1149,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateStoryResponse.Data](#common-CreateStoryResponse-Data) |  |  |
 
 
@@ -1197,7 +1197,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data) |  |  |
 
 
@@ -1246,7 +1246,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -1279,7 +1279,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data) |  |  |
 
 
@@ -1329,7 +1329,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data) |  |  |
 
 
@@ -1376,7 +1376,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data) |  |  |
 
 
@@ -1428,7 +1428,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data) |  |  |
 
 
@@ -1599,7 +1599,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data) |  |  |
 
 
@@ -1788,7 +1788,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateCommentResp.Data](#common-CreateCommentResp-Data) |  |  |
 
 
@@ -1824,7 +1824,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateDisscusResp.Data](#common-CreateDisscusResp-Data) |  |  |
 
 
@@ -1877,7 +1877,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateGroupResponse.Data](#common-CreateGroupResponse-Data) |  |  |
 
 
@@ -1928,7 +1928,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [CreateItemResponse.Data](#common-CreateItemResponse-Data) |  |  |
 
 
@@ -2007,7 +2007,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data) |  |  |
 
 
@@ -2052,7 +2052,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [DeleteItemResponse.Data](#common-DeleteItemResponse-Data) |  |  |
 
 
@@ -2096,7 +2096,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data) |  |  |
 
 
@@ -2179,7 +2179,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [ExploreResponse.Data](#common-ExploreResponse-Data) |  |  |
 
 
@@ -2223,7 +2223,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data) |  |  |
 
 
@@ -2274,7 +2274,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data) |  |  |
 
 
@@ -2352,7 +2352,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetDisscusResp.Data](#common-GetDisscusResp-Data) |  |  |
 
 
@@ -2397,7 +2397,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data) |  |  |
 
 
@@ -2485,7 +2485,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetGroupResponse.Data](#common-GetGroupResponse-Data) |  |  |
 
 
@@ -2572,7 +2572,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data) |  |  |
 
 
@@ -2699,7 +2699,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data) |  |  |
 
 
@@ -2831,7 +2831,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data) |  |  |
 
 
@@ -2891,7 +2891,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [GetUserCommentResp.Data](#common-GetUserCommentResp-Data) |  |  |
 
 
@@ -3004,7 +3004,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [JoinGroupResponse.Data](#common-JoinGroupResponse-Data) |  |  |
 
 
@@ -3047,7 +3047,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data) |  |  |
 
 
@@ -3093,7 +3093,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [LikeItemResponse.Data](#common-LikeItemResponse-Data) |  |  |
 
 
@@ -3309,7 +3309,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [SearchGroupResponse.Data](#common-SearchGroupResponse-Data) |  |  |
 
 
@@ -3432,7 +3432,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [TrendingResponse.Data](#common-TrendingResponse-Data) |  |  |
 
 
@@ -3481,7 +3481,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data) |  |  |
 
 
@@ -3524,7 +3524,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data) |  |  |
 
 
@@ -3575,7 +3575,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UpdateItemResponse.Data](#common-UpdateItemResponse-Data) |  |  |
 
 
@@ -3625,7 +3625,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data) |  |  |
 
 
@@ -3885,7 +3885,7 @@ user ,group .project.item
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [UserUpdateResponse.Data](#common-UserUpdateResponse-Data) |  |  |
 
 
@@ -3957,7 +3957,7 @@ user ,group .project.item
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [VersionResponse.Data](#common-VersionResponse-Data) |  |  |
 
 
@@ -4007,7 +4007,7 @@ user ,group .project.item
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 | data | [WatchProjectResponse.Data](#common-WatchProjectResponse-Data) |  |  |
 
 

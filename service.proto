@@ -160,7 +160,7 @@ message UserUpdateRequest {
 
 message UserUpdateResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -242,7 +242,7 @@ message DeleteProjectRequest {
 }
 message DeleteProjectResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -268,7 +268,7 @@ message WatchProjectReqeust {
 
 message WatchProjectResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -281,7 +281,7 @@ message UnWatchProjectReqeust {
 
 message UnWatchProjectResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -350,7 +350,7 @@ message UpdateProjectProfileRequest {
 
 message UpdateProjectProfileResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -419,7 +419,7 @@ message CreateItemRequest {
 
 message CreateItemResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     ItemInfo info = 1; 
   } Data data = 3;
@@ -435,7 +435,7 @@ message UpdateItemRequest {
 
 message UpdateItemResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     ItemInfo info = 1; 
   } Data data = 3;
@@ -450,7 +450,7 @@ message DeleteItemRequest {
 
 message DeleteItemResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -465,7 +465,7 @@ message LikeItemRequest {
 
 message LikeItemResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -476,7 +476,7 @@ message CreateGroupReqeust {
 }
 message CreateGroupResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
    GroupInfo info = 1; 
   } Data data = 3;
@@ -489,7 +489,7 @@ message GetGroupReqeust {
 }
 message GetGroupResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     GroupInfo info = 1; 
   } Data data = 3;
@@ -504,7 +504,7 @@ message GetGroupActivesRequest {
 
 message GetGroupActivesResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated ActiveInfo list = 1;
     int64 offset = 2;
@@ -518,7 +518,7 @@ message UpdateGroupInfoRequest {
 }
 message UpdateGroupInfoResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     GroupInfo info = 1; 
   } Data data = 3;
@@ -529,7 +529,7 @@ message DeleteGroupRequest {
 }
 message DeleteGroupResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -541,7 +541,7 @@ message FetchGroupMembersRequest {
 
 message FetchGroupMembersResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated UserInfo list = 1;
     int64 offset = 2;
@@ -552,7 +552,7 @@ message FetchGroupMembersResponse {
 message SearchGroupReqeust { string name = 1; }
 message SearchGroupResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated GroupInfo list = 1;
     int64 offset = 2;
@@ -568,7 +568,7 @@ message FetchGroupProjectsReqeust {
 
 message FetchGroupProjectsResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated ProjectInfo list = 1;
     int64 offset = 2;
@@ -583,7 +583,7 @@ message JoinGroupRequest {
 
 message JoinGroupResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -595,7 +595,7 @@ message LeaveGroupRequest {
 
 message LeaveGroupResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -605,7 +605,7 @@ message DisscussParams {}
 message CreateDisscussReq {}
 message CreateDisscusResp {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -613,7 +613,7 @@ message CreateDisscusResp {
 message GetDisscusReq {}
 message GetDisscusResp {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -633,7 +633,7 @@ message CreateCommentReq {
 }
 message CreateCommentResp {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     int32 group_id = 1;
     int32 item_id = 2;
@@ -655,7 +655,7 @@ message GetItemsCommentReq {
 }
 message GetItemsCommentResp {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated CommentInfo list = 1;
     int32 group_id = 2;
@@ -670,7 +670,7 @@ message GetItemsCommentResp {
 message GetUserCommentReq {}
 message GetUserCommentResp {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
   } Data data = 3;
 }
@@ -679,7 +679,7 @@ message VersionRequest {}
 
 message VersionResponse { 
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     string version = 1; 
     string build_time = 2;
@@ -693,7 +693,7 @@ message AboutResponse { string content = 1; }
 message ExploreRequest {}
 message ExploreResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
 
   } Data data = 3;
@@ -706,7 +706,7 @@ message TrendingRequest {
 }
 message TrendingResponse {
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated ProjectInfo list = 1;
   } Data data = 3;
@@ -719,7 +719,7 @@ message GetProjectMembersRequest{
 
 message GetProjectMembersResponse{
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated UserInfo list = 1; 
     int32 total = 2;
@@ -733,7 +733,7 @@ message GetProjectWatcherReqeust{
 
 message GetProjectWatcherResponse{
   int32 code = 1;
-  int32 message = 2;
+  string message = 2;
   message Data {
     repeated UserInfo list = 1; 
     int32 total = 2;
