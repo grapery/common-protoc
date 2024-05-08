@@ -62,18 +62,24 @@
 - [story.proto](#story-proto)
     - [CreateStoryRequest](#common-CreateStoryRequest)
     - [CreateStoryResponse](#common-CreateStoryResponse)
+    - [CreateStoryResponse.Data](#common-CreateStoryResponse-Data)
     - [CreateStoryboardRequest](#common-CreateStoryboardRequest)
     - [CreateStoryboardResponse](#common-CreateStoryboardResponse)
+    - [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data)
     - [DelStoryboardRequest](#common-DelStoryboardRequest)
     - [DelStoryboardResponse](#common-DelStoryboardResponse)
     - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
     - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
+    - [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
+    - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
     - [GetStoryboardRequest](#common-GetStoryboardRequest)
     - [GetStoryboardResponse](#common-GetStoryboardResponse)
+    - [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data)
     - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
     - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
+    - [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data)
     - [Story](#common-Story)
     - [StoryBoard](#common-StoryBoard)
     - [StoryBoardParams](#common-StoryBoardParams)
@@ -81,6 +87,9 @@
     - [StoryRole](#common-StoryRole)
     - [UpdateStoryRequest](#common-UpdateStoryRequest)
     - [UpdateStoryResponse](#common-UpdateStoryResponse)
+    - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
+    - [UpdateStoryboardRequest](#common-UpdateStoryboardRequest)
+    - [UpdateStoryboardResponse](#common-UpdateStoryboardResponse)
   
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
@@ -1141,6 +1150,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [CreateStoryResponse.Data](#common-CreateStoryResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryResponse-Data"></a>
+
+### CreateStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | story_id | [int32](#int32) |  |  |
 | board_id | [int32](#int32) |  |  |
 
@@ -1174,6 +1198,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryboardResponse-Data"></a>
+
+### CreateStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
 
 
@@ -1241,6 +1280,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-ForkStoryboardResponse-Data"></a>
+
+### ForkStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | timeline_id | [int64](#int64) |  |  |
@@ -1276,6 +1330,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryInfoResponse-Data"></a>
+
+### GetStoryInfoResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [Story](#common-Story) |  |  |
 
 
@@ -1308,6 +1377,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardResponse-Data"></a>
+
+### GetStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [StoryBoard](#common-StoryBoard) |  |  |
 
 
@@ -1345,6 +1429,21 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardsResponse-Data"></a>
+
+### GetStoryboardsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [StoryBoard](#common-StoryBoard) | repeated |  |
 | total | [int32](#int32) |  |  |
 
@@ -1501,7 +1600,50 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [int32](#int32) |  |  |
+| data | [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryResponse-Data"></a>
+
+### UpdateStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | story_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryboardRequest"></a>
+
+### UpdateStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryboardResponse"></a>
+
+### UpdateStoryboardResponse
+
 
 
 
@@ -3967,6 +4109,7 @@ user ,group .project.item
 | GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
 | DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
 | ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |
+| UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) |  |
 
  
 

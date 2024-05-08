@@ -332,13 +332,34 @@ public struct Common_CreateStoryResponse {
 
   public var message: Int32 = 0
 
-  public var storyID: Int32 = 0
-
-  public var boardID: Int32 = 0
+  public var data: Common_CreateStoryResponse.DataMessage {
+    get {return _data ?? Common_CreateStoryResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var storyID: Int32 = 0
+
+    public var boardID: Int32 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
   public init() {}
+
+  fileprivate var _data: Common_CreateStoryResponse.DataMessage? = nil
 }
 
 public struct Common_UpdateStoryRequest {
@@ -383,11 +404,32 @@ public struct Common_UpdateStoryResponse {
 
   public var message: Int32 = 0
 
-  public var storyID: Int32 = 0
+  public var data: Common_UpdateStoryResponse.DataMessage {
+    get {return _data ?? Common_UpdateStoryResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var storyID: Int32 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
   public init() {}
+
+  fileprivate var _data: Common_UpdateStoryResponse.DataMessage? = nil
 }
 
 public struct Common_GetStoryInfoRequest {
@@ -411,20 +453,41 @@ public struct Common_GetStoryInfoResponse {
 
   public var message: Int32 = 0
 
-  public var info: Common_Story {
-    get {return _info ?? Common_Story()}
-    set {_info = newValue}
+  public var data: Common_GetStoryInfoResponse.DataMessage {
+    get {return _data ?? Common_GetStoryInfoResponse.DataMessage()}
+    set {_data = newValue}
   }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var info: Common_Story {
+      get {return _info ?? Common_Story()}
+      set {_info = newValue}
+    }
+    /// Returns true if `info` has been explicitly set.
+    public var hasInfo: Bool {return self._info != nil}
+    /// Clears the value of `info`. Subsequent reads from it will return its default value.
+    public mutating func clearInfo() {self._info = nil}
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+
+    fileprivate var _info: Common_Story? = nil
+  }
+
   public init() {}
 
-  fileprivate var _info: Common_Story? = nil
+  fileprivate var _data: Common_GetStoryInfoResponse.DataMessage? = nil
 }
 
 public struct Common_CreateStoryboardRequest {
@@ -457,11 +520,32 @@ public struct Common_CreateStoryboardResponse {
 
   public var message: Int32 = 0
 
-  public var boardID: Int64 = 0
+  public var data: Common_CreateStoryboardResponse.DataMessage {
+    get {return _data ?? Common_CreateStoryboardResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var boardID: Int64 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
   public init() {}
+
+  fileprivate var _data: Common_CreateStoryboardResponse.DataMessage? = nil
 }
 
 public struct Common_GetStoryboardRequest {
@@ -485,20 +569,41 @@ public struct Common_GetStoryboardResponse {
 
   public var message: Int32 = 0
 
-  public var info: Common_StoryBoard {
-    get {return _info ?? Common_StoryBoard()}
-    set {_info = newValue}
+  public var data: Common_GetStoryboardResponse.DataMessage {
+    get {return _data ?? Common_GetStoryboardResponse.DataMessage()}
+    set {_data = newValue}
   }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var info: Common_StoryBoard {
+      get {return _info ?? Common_StoryBoard()}
+      set {_info = newValue}
+    }
+    /// Returns true if `info` has been explicitly set.
+    public var hasInfo: Bool {return self._info != nil}
+    /// Clears the value of `info`. Subsequent reads from it will return its default value.
+    public mutating func clearInfo() {self._info = nil}
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+
+    fileprivate var _info: Common_StoryBoard? = nil
+  }
+
   public init() {}
 
-  fileprivate var _info: Common_StoryBoard? = nil
+  fileprivate var _data: Common_GetStoryboardResponse.DataMessage? = nil
 }
 
 public struct Common_GetStoryboardsRequest {
@@ -532,13 +637,34 @@ public struct Common_GetStoryboardsResponse {
 
   public var message: Int32 = 0
 
-  public var list: [Common_StoryBoard] = []
-
-  public var total: Int32 = 0
+  public var data: Common_GetStoryboardsResponse.DataMessage {
+    get {return _data ?? Common_GetStoryboardsResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var list: [Common_StoryBoard] = []
+
+    public var total: Int32 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
   public init() {}
+
+  fileprivate var _data: Common_GetStoryboardsResponse.DataMessage? = nil
 }
 
 public struct Common_DelStoryboardRequest {
@@ -596,13 +722,71 @@ public struct Common_ForkStoryboardResponse {
 
   public var message: Int32 = 0
 
+  public var data: Common_ForkStoryboardResponse.DataMessage {
+    get {return _data ?? Common_ForkStoryboardResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public struct DataMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var boardID: Int64 = 0
+
+    public var storyID: Int64 = 0
+
+    public var timelineID: Int64 = 0
+
+    public var prevBoardID: Int64 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
+  public init() {}
+
+  fileprivate var _data: Common_ForkStoryboardResponse.DataMessage? = nil
+}
+
+public struct Common_UpdateStoryboardRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
   public var boardID: Int64 = 0
 
   public var storyID: Int64 = 0
 
-  public var timelineID: Int64 = 0
+  public var userID: Int64 = 0
 
-  public var prevBoardID: Int64 = 0
+  public var params: Common_StoryBoardParams {
+    get {return _params ?? Common_StoryBoardParams()}
+    set {_params = newValue}
+  }
+  /// Returns true if `params` has been explicitly set.
+  public var hasParams: Bool {return self._params != nil}
+  /// Clears the value of `params`. Subsequent reads from it will return its default value.
+  public mutating func clearParams() {self._params = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _params: Common_StoryBoardParams? = nil
+}
+
+public struct Common_UpdateStoryboardResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -617,20 +801,29 @@ extension Common_StoryRole: @unchecked Sendable {}
 extension Common_StoryBoardParams: @unchecked Sendable {}
 extension Common_CreateStoryRequest: @unchecked Sendable {}
 extension Common_CreateStoryResponse: @unchecked Sendable {}
+extension Common_CreateStoryResponse.DataMessage: @unchecked Sendable {}
 extension Common_UpdateStoryRequest: @unchecked Sendable {}
 extension Common_UpdateStoryResponse: @unchecked Sendable {}
+extension Common_UpdateStoryResponse.DataMessage: @unchecked Sendable {}
 extension Common_GetStoryInfoRequest: @unchecked Sendable {}
 extension Common_GetStoryInfoResponse: @unchecked Sendable {}
+extension Common_GetStoryInfoResponse.DataMessage: @unchecked Sendable {}
 extension Common_CreateStoryboardRequest: @unchecked Sendable {}
 extension Common_CreateStoryboardResponse: @unchecked Sendable {}
+extension Common_CreateStoryboardResponse.DataMessage: @unchecked Sendable {}
 extension Common_GetStoryboardRequest: @unchecked Sendable {}
 extension Common_GetStoryboardResponse: @unchecked Sendable {}
+extension Common_GetStoryboardResponse.DataMessage: @unchecked Sendable {}
 extension Common_GetStoryboardsRequest: @unchecked Sendable {}
 extension Common_GetStoryboardsResponse: @unchecked Sendable {}
+extension Common_GetStoryboardsResponse.DataMessage: @unchecked Sendable {}
 extension Common_DelStoryboardRequest: @unchecked Sendable {}
 extension Common_DelStoryboardResponse: @unchecked Sendable {}
 extension Common_ForkStoryboardRequest: @unchecked Sendable {}
 extension Common_ForkStoryboardResponse: @unchecked Sendable {}
+extension Common_ForkStoryboardResponse.DataMessage: @unchecked Sendable {}
+extension Common_UpdateStoryboardRequest: @unchecked Sendable {}
+extension Common_UpdateStoryboardResponse: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1306,8 +1499,7 @@ extension Common_CreateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .standard(proto: "story_id"),
-    4: .standard(proto: "board_id"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1318,32 +1510,69 @@ extension Common_CreateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.storyID) }()
-      case 4: try { try decoder.decodeSingularInt32Field(value: &self.boardID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt32Field(value: self.storyID, fieldNumber: 3)
-    }
-    if self.boardID != 0 {
-      try visitor.visitSingularInt32Field(value: self.boardID, fieldNumber: 4)
-    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_CreateStoryResponse, rhs: Common_CreateStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CreateStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_CreateStoryResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "story_id"),
+    2: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt32Field(value: self.storyID, fieldNumber: 1)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt32Field(value: self.boardID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CreateStoryResponse.DataMessage, rhs: Common_CreateStoryResponse.DataMessage) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.boardID != rhs.boardID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1428,7 +1657,7 @@ extension Common_UpdateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .standard(proto: "story_id"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1439,28 +1668,64 @@ extension Common_UpdateStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt32Field(value: self.storyID, fieldNumber: 3)
-    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateStoryResponse, rhs: Common_UpdateStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_UpdateStoryResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "story_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.storyID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt32Field(value: self.storyID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryResponse.DataMessage, rhs: Common_UpdateStoryResponse.DataMessage) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1504,7 +1769,7 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "info"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1515,7 +1780,7 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
@@ -1532,7 +1797,7 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    try { if let v = self._info {
+    try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -1541,6 +1806,42 @@ extension Common_GetStoryInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static func ==(lhs: Common_GetStoryInfoResponse, rhs: Common_GetStoryInfoResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_GetStoryInfoResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "info"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryInfoResponse.DataMessage, rhs: Common_GetStoryInfoResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1588,7 +1889,7 @@ extension Common_CreateStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .standard(proto: "board_id"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1599,28 +1900,64 @@ extension Common_CreateStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    if self.boardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 3)
-    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_CreateStoryboardResponse, rhs: Common_CreateStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CreateStoryboardResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_CreateStoryboardResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CreateStoryboardResponse.DataMessage, rhs: Common_CreateStoryboardResponse.DataMessage) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1664,7 +2001,7 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "info"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1675,7 +2012,7 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
@@ -1692,7 +2029,7 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    try { if let v = self._info {
+    try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -1701,6 +2038,42 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   public static func ==(lhs: Common_GetStoryboardResponse, rhs: Common_GetStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryboardResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_GetStoryboardResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "info"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryboardResponse.DataMessage, rhs: Common_GetStoryboardResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1774,8 +2147,7 @@ extension Common_GetStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "list"),
-    4: .same(proto: "total"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1786,32 +2158,69 @@ extension Common_GetStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 4: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 3)
-    }
-    if self.total != 0 {
-      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 4)
-    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryboardsResponse, rhs: Common_GetStoryboardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryboardsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_GetStoryboardsResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "list"),
+    2: .same(proto: "total"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
+    }
+    if self.total != 0 {
+      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryboardsResponse.DataMessage, rhs: Common_GetStoryboardsResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1950,10 +2359,7 @@ extension Common_ForkStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .standard(proto: "board_id"),
-    4: .standard(proto: "story_id"),
-    5: .standard(proto: "timeline_id"),
-    6: .standard(proto: "prev_board_id"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1964,44 +2370,156 @@ extension Common_ForkStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._M
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.timelineID) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if self.message != 0 {
       try visitor.visitSingularInt32Field(value: self.message, fieldNumber: 2)
     }
-    if self.boardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 3)
-    }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 4)
-    }
-    if self.timelineID != 0 {
-      try visitor.visitSingularInt64Field(value: self.timelineID, fieldNumber: 5)
-    }
-    if self.prevBoardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.prevBoardID, fieldNumber: 6)
-    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ForkStoryboardResponse, rhs: Common_ForkStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ForkStoryboardResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_ForkStoryboardResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+    2: .standard(proto: "story_id"),
+    3: .standard(proto: "timeline_id"),
+    4: .standard(proto: "prev_board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timelineID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
+    }
+    if self.timelineID != 0 {
+      try visitor.visitSingularInt64Field(value: self.timelineID, fieldNumber: 3)
+    }
+    if self.prevBoardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.prevBoardID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ForkStoryboardResponse.DataMessage, rhs: Common_ForkStoryboardResponse.DataMessage) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.timelineID != rhs.timelineID {return false}
     if lhs.prevBoardID != rhs.prevBoardID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryboardRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+    2: .standard(proto: "story_id"),
+    3: .standard(proto: "user_id"),
+    4: .same(proto: "params"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._params) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
+    try { if let v = self._params {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryboardRequest, rhs: Common_UpdateStoryboardRequest) -> Bool {
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs._params != rhs._params {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryboardResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryboardResponse, rhs: Common_UpdateStoryboardResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

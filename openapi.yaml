@@ -954,6 +954,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/update:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/group/story/update:
         post:
             tags:
@@ -1595,6 +1619,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/CreateStoryResponse_Data'
+        CreateStoryResponse_Data:
+            type: object
+            properties:
                 storyId:
                     type: integer
                     format: int32
@@ -1615,6 +1644,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/CreateStoryboardResponse_Data'
+        CreateStoryboardResponse_Data:
+            type: object
+            properties:
                 boardId:
                     type: string
         DelStoryboardRequest:
@@ -1843,6 +1877,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/ForkStoryboardResponse_Data'
+        ForkStoryboardResponse_Data:
+            type: object
+            properties:
                 boardId:
                     type: string
                 storyId:
@@ -2175,6 +2214,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/GetStoryInfoResponse_Data'
+        GetStoryInfoResponse_Data:
+            type: object
+            properties:
                 info:
                     $ref: '#/components/schemas/Story'
         GetStoryboardRequest:
@@ -2191,6 +2235,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/GetStoryboardResponse_Data'
+        GetStoryboardResponse_Data:
+            type: object
+            properties:
                 info:
                     $ref: '#/components/schemas/StoryBoard'
         GetStoryboardsRequest:
@@ -2219,6 +2268,11 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/GetStoryboardsResponse_Data'
+        GetStoryboardsResponse_Data:
+            type: object
+            properties:
                 list:
                     type: array
                     items:
@@ -3022,9 +3076,28 @@ components:
                 message:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/UpdateStoryResponse_Data'
+        UpdateStoryResponse_Data:
+            type: object
+            properties:
                 storyId:
                     type: integer
                     format: int32
+        UpdateStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                params:
+                    $ref: '#/components/schemas/StoryBoardParams'
+        UpdateStoryboardResponse:
+            type: object
+            properties: {}
         UpdateUserAvatorRequest:
             type: object
             properties:

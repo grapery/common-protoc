@@ -1148,4 +1148,13 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+
+  rpc UpdateStoryboard(UpdateStoryboardRequest) returns (UpdateStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/update"
+      body : "*"
+    };
+  }
 }
+

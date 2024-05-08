@@ -165,6 +165,9 @@ const (
 	TeamsAPIDelStoryboardProcedure = "/common.TeamsAPI/DelStoryboard"
 	// TeamsAPIForkStoryboardProcedure is the fully-qualified name of the TeamsAPI's ForkStoryboard RPC.
 	TeamsAPIForkStoryboardProcedure = "/common.TeamsAPI/ForkStoryboard"
+	// TeamsAPIUpdateStoryboardProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryboard
+	// RPC.
+	TeamsAPIUpdateStoryboardProcedure = "/common.TeamsAPI/UpdateStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -228,6 +231,7 @@ type TeamsAPIClient interface {
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
+	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -535,6 +539,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIForkStoryboardProcedure,
 			opts...,
 		),
+		updateStoryboard: connect.NewClient[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryboardProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -599,6 +608,7 @@ type teamsAPIClient struct {
 	getStoryboards       *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
 	delStoryboard        *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
 	forkStoryboard       *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
+	updateStoryboard     *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -896,6 +906,11 @@ func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, req *connect.Reques
 	return c.forkStoryboard.CallUnary(ctx, req)
 }
 
+// UpdateStoryboard calls common.TeamsAPI.UpdateStoryboard.
+func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, req *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
+	return c.updateStoryboard.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
@@ -957,6 +972,7 @@ type TeamsAPIHandler interface {
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
+	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1260,6 +1276,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.ForkStoryboard,
 		opts...,
 	)
+	teamsAPIUpdateStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateStoryboardProcedure,
+		svc.UpdateStoryboard,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -1380,6 +1401,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIDelStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIForkStoryboardProcedure:
 			teamsAPIForkStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryboardProcedure:
+			teamsAPIUpdateStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -1623,4 +1646,8 @@ func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect.Requ
 
 func (UnimplementedTeamsAPIHandler) ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ForkStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryboard is not implemented"))
 }

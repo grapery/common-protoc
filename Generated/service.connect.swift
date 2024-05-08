@@ -362,6 +362,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ForkStoryboardResponse>
+
+    @discardableResult
+    func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryboardResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -962,6 +968,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1023,6 +1039,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryboards = Connect.MethodSpec(name: "GetStoryboards", service: "common.TeamsAPI", type: .unary)
             public static let delStoryboard = Connect.MethodSpec(name: "DelStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let forkStoryboard = Connect.MethodSpec(name: "ForkStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryboard = Connect.MethodSpec(name: "UpdateStoryboard", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

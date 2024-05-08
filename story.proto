@@ -85,8 +85,10 @@ message CreateStoryRequest {
   message CreateStoryResponse {
     int32 code = 1;
     int32 message = 2;
-    int32 story_id = 3;
-    int32 board_id = 4;
+    message Data {
+      int32 story_id = 1;
+      int32 board_id = 2;
+    }Data data = 3;
   }
   
   message UpdateStoryRequest {
@@ -102,7 +104,10 @@ message CreateStoryRequest {
   message UpdateStoryResponse {
     int32 code = 1;
     int32 message = 2;
-    int32 story_id = 3;
+    
+    message Data {
+      int32 story_id = 1;
+    }Data data = 3;
   }
   
   message GetStoryInfoRequest {
@@ -112,7 +117,10 @@ message CreateStoryRequest {
   message GetStoryInfoResponse {
     int32 code = 1;
     int32 message = 2;
-    Story info = 3;
+   
+    message Data {
+      Story info = 1;
+    }Data data = 3;
   }
   
   message CreateStoryboardRequest {
@@ -122,7 +130,9 @@ message CreateStoryRequest {
   message CreateStoryboardResponse {
     int32 code = 1;
     int32 message = 2;
-    int64 board_id = 3;
+    message Data {
+      int64 board_id = 1;
+    }Data data = 3;
   }
   
   message GetStoryboardRequest {
@@ -132,7 +142,9 @@ message CreateStoryRequest {
   message GetStoryboardResponse {
     int32 code = 1;
     int32 message = 2;
-    StoryBoard info = 3;
+    message Data {
+      StoryBoard info = 1;
+    }Data data = 3;
   }
   
   message GetStoryboardsRequest{
@@ -147,8 +159,10 @@ message CreateStoryRequest {
   message GetStoryboardsResponse {
     int32 code = 1;
     int32 message = 2;
-    repeated StoryBoard list = 3;
-    int32 total = 4;
+    message Data {
+      repeated StoryBoard list = 1;
+      int32 total = 2;
+    }Data data = 3;
   }
   
   message DelStoryboardRequest {
@@ -171,8 +185,22 @@ message CreateStoryRequest {
   message ForkStoryboardResponse{
     int32 code = 1;
     int32 message = 2;
-    int64 board_id = 3;
-    int64 story_id = 4;
-    int64 timeline_id = 5;
-    int64 prev_board_id = 6;
+    message Data {
+      int64 board_id = 1;
+      int64 story_id = 2;
+      int64 timeline_id = 3;
+      int64 prev_board_id = 4;
+    }Data data = 3;
   }
+
+  message UpdateStoryboardRequest {
+    int64 board_id = 1;
+    int64 story_id = 2;
+    int64 user_id = 3;
+    StoryBoardParams params = 4;
+  }
+  
+  message UpdateStoryboardResponse{
+    
+  }
+  

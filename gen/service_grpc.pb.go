@@ -78,6 +78,7 @@ const (
 	TeamsAPI_GetStoryboards_FullMethodName       = "/common.TeamsAPI/GetStoryboards"
 	TeamsAPI_DelStoryboard_FullMethodName        = "/common.TeamsAPI/DelStoryboard"
 	TeamsAPI_ForkStoryboard_FullMethodName       = "/common.TeamsAPI/ForkStoryboard"
+	TeamsAPI_UpdateStoryboard_FullMethodName     = "/common.TeamsAPI/UpdateStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -143,6 +144,7 @@ type TeamsAPIClient interface {
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
 	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
+	UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -684,6 +686,15 @@ func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, in *ForkStoryboardR
 	return out, nil
 }
 
+func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error) {
+	out := new(UpdateStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -747,6 +758,7 @@ type TeamsAPIServer interface {
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
 	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
+	UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -930,6 +942,9 @@ func (UnimplementedTeamsAPIServer) DelStoryboard(context.Context, *DelStoryboard
 }
 func (UnimplementedTeamsAPIServer) ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ForkStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2006,6 +2021,24 @@ func _TeamsAPI_ForkStoryboard_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UpdateStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryboard(ctx, req.(*UpdateStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2248,6 +2281,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ForkStoryboard",
 			Handler:    _TeamsAPI_ForkStoryboard_Handler,
+		},
+		{
+			MethodName: "UpdateStoryboard",
+			Handler:    _TeamsAPI_UpdateStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
