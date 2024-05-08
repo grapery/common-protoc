@@ -352,10 +352,10 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardsResponse>
 
     @discardableResult
-    func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_DelStoryboardResponse>
+    func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DelStoryboardResponse>
 
     @discardableResult
     func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable
@@ -943,12 +943,12 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable {
+    public func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `delStoryboard`(request: Common_CreateCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DelStoryboardResponse> {
+    public func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DelStoryboardResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 

@@ -141,7 +141,7 @@ type TeamsAPIClient interface {
 	CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error)
 	GetStoryboard(ctx context.Context, in *GetStoryboardRequest, opts ...grpc.CallOption) (*GetStoryboardResponse, error)
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
-	DelStoryboard(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
+	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
 }
 
@@ -666,7 +666,7 @@ func (c *teamsAPIClient) GetStoryboards(ctx context.Context, in *GetStoryboardsR
 	return out, nil
 }
 
-func (c *teamsAPIClient) DelStoryboard(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*DelStoryboardResponse, error) {
+func (c *teamsAPIClient) DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error) {
 	out := new(DelStoryboardResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_DelStoryboard_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -745,7 +745,7 @@ type TeamsAPIServer interface {
 	CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error)
 	GetStoryboard(context.Context, *GetStoryboardRequest) (*GetStoryboardResponse, error)
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
-	DelStoryboard(context.Context, *CreateCommentReq) (*DelStoryboardResponse, error)
+	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
@@ -925,7 +925,7 @@ func (UnimplementedTeamsAPIServer) GetStoryboard(context.Context, *GetStoryboard
 func (UnimplementedTeamsAPIServer) GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryboards not implemented")
 }
-func (UnimplementedTeamsAPIServer) DelStoryboard(context.Context, *CreateCommentReq) (*DelStoryboardResponse, error) {
+func (UnimplementedTeamsAPIServer) DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DelStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error) {
@@ -1971,7 +1971,7 @@ func _TeamsAPI_GetStoryboards_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _TeamsAPI_DelStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCommentReq)
+	in := new(DelStoryboardRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1983,7 +1983,7 @@ func _TeamsAPI_DelStoryboard_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: TeamsAPI_DelStoryboard_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).DelStoryboard(ctx, req.(*CreateCommentReq))
+		return srv.(TeamsAPIServer).DelStoryboard(ctx, req.(*DelStoryboardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

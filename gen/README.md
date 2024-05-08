@@ -60,11 +60,27 @@
     - [UserProfileInfo](#common-UserProfileInfo)
   
 - [story.proto](#story-proto)
+    - [CreateStoryRequest](#common-CreateStoryRequest)
+    - [CreateStoryResponse](#common-CreateStoryResponse)
+    - [CreateStoryboardRequest](#common-CreateStoryboardRequest)
+    - [CreateStoryboardResponse](#common-CreateStoryboardResponse)
+    - [DelStoryboardRequest](#common-DelStoryboardRequest)
+    - [DelStoryboardResponse](#common-DelStoryboardResponse)
+    - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
+    - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
+    - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
+    - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
+    - [GetStoryboardRequest](#common-GetStoryboardRequest)
+    - [GetStoryboardResponse](#common-GetStoryboardResponse)
+    - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
+    - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
     - [Story](#common-Story)
     - [StoryBoard](#common-StoryBoard)
     - [StoryBoardParams](#common-StoryBoardParams)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
+    - [UpdateStoryRequest](#common-UpdateStoryRequest)
+    - [UpdateStoryResponse](#common-UpdateStoryResponse)
   
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
@@ -75,83 +91,89 @@
     - [Content](#common-Content)
     - [CreateCommentReq](#common-CreateCommentReq)
     - [CreateCommentResp](#common-CreateCommentResp)
+    - [CreateCommentResp.Data](#common-CreateCommentResp-Data)
     - [CreateDisscusResp](#common-CreateDisscusResp)
+    - [CreateDisscusResp.Data](#common-CreateDisscusResp-Data)
     - [CreateDisscussReq](#common-CreateDisscussReq)
     - [CreateGroupReqeust](#common-CreateGroupReqeust)
     - [CreateGroupResponse](#common-CreateGroupResponse)
+    - [CreateGroupResponse.Data](#common-CreateGroupResponse-Data)
     - [CreateItemRequest](#common-CreateItemRequest)
     - [CreateItemResponse](#common-CreateItemResponse)
+    - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
-    - [CreateStoryRequest](#common-CreateStoryRequest)
-    - [CreateStoryResponse](#common-CreateStoryResponse)
-    - [CreateStoryboardRequest](#common-CreateStoryboardRequest)
-    - [CreateStoryboardResponse](#common-CreateStoryboardResponse)
-    - [DelStoryboardRequest](#common-DelStoryboardRequest)
-    - [DelStoryboardResponse](#common-DelStoryboardResponse)
     - [DeleteGroupRequest](#common-DeleteGroupRequest)
     - [DeleteGroupResponse](#common-DeleteGroupResponse)
+    - [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data)
     - [DeleteItemRequest](#common-DeleteItemRequest)
     - [DeleteItemResponse](#common-DeleteItemResponse)
+    - [DeleteItemResponse.Data](#common-DeleteItemResponse-Data)
     - [DeleteProjectRequest](#common-DeleteProjectRequest)
     - [DeleteProjectResponse](#common-DeleteProjectResponse)
+    - [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data)
     - [DisscussParams](#common-DisscussParams)
     - [ExploreProjectsRequest](#common-ExploreProjectsRequest)
     - [ExploreProjectsResponse](#common-ExploreProjectsResponse)
     - [ExploreRequest](#common-ExploreRequest)
     - [ExploreResponse](#common-ExploreResponse)
+    - [ExploreResponse.Data](#common-ExploreResponse-Data)
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
+    - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
     - [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust)
     - [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse)
+    - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FetchUserActivesRequest](#common-FetchUserActivesRequest)
     - [FetchUserActivesResponse](#common-FetchUserActivesResponse)
-    - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
-    - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
+    - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
     - [GetGroupActivesRequest](#common-GetGroupActivesRequest)
     - [GetGroupActivesResponse](#common-GetGroupActivesResponse)
+    - [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data)
     - [GetGroupItemsRequest](#common-GetGroupItemsRequest)
     - [GetGroupItemsResponse](#common-GetGroupItemsResponse)
     - [GetGroupReqeust](#common-GetGroupReqeust)
     - [GetGroupResponse](#common-GetGroupResponse)
+    - [GetGroupResponse.Data](#common-GetGroupResponse-Data)
     - [GetItemRequest](#common-GetItemRequest)
     - [GetItemResponse](#common-GetItemResponse)
     - [GetItemsCommentReq](#common-GetItemsCommentReq)
     - [GetItemsCommentResp](#common-GetItemsCommentResp)
+    - [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data)
     - [GetProjectItemsRequest](#common-GetProjectItemsRequest)
     - [GetProjectItemsResponse](#common-GetProjectItemsResponse)
     - [GetProjectListRequest](#common-GetProjectListRequest)
     - [GetProjectListResponse](#common-GetProjectListResponse)
     - [GetProjectMembersRequest](#common-GetProjectMembersRequest)
     - [GetProjectMembersResponse](#common-GetProjectMembersResponse)
-    - [GetProjectMembersResponse.RoleEntry](#common-GetProjectMembersResponse-RoleEntry)
+    - [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data)
+    - [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry)
     - [GetProjectProfileRequest](#common-GetProjectProfileRequest)
     - [GetProjectProfileResponse](#common-GetProjectProfileResponse)
     - [GetProjectRequest](#common-GetProjectRequest)
     - [GetProjectResponse](#common-GetProjectResponse)
     - [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust)
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
-    - [GetProjectWatcherResponse.TimestampEntry](#common-GetProjectWatcherResponse-TimestampEntry)
-    - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
-    - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
-    - [GetStoryboardRequest](#common-GetStoryboardRequest)
-    - [GetStoryboardResponse](#common-GetStoryboardResponse)
-    - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
-    - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
+    - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
+    - [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
+    - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
     - [GetUserItemsRequest](#common-GetUserItemsRequest)
     - [GetUserItemsResponse](#common-GetUserItemsResponse)
     - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
     - [GetWatchingProjectResponse](#common-GetWatchingProjectResponse)
     - [JoinGroupRequest](#common-JoinGroupRequest)
     - [JoinGroupResponse](#common-JoinGroupResponse)
+    - [JoinGroupResponse.Data](#common-JoinGroupResponse-Data)
     - [LeaveGroupRequest](#common-LeaveGroupRequest)
     - [LeaveGroupResponse](#common-LeaveGroupResponse)
+    - [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data)
     - [LikeItemRequest](#common-LikeItemRequest)
     - [LikeItemResponse](#common-LikeItemResponse)
+    - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
     - [LoginRequest](#common-LoginRequest)
     - [LoginResponse](#common-LoginResponse)
     - [LogoutRequest](#common-LogoutRequest)
@@ -164,24 +186,28 @@
     - [SearchAllProjectResponse](#common-SearchAllProjectResponse)
     - [SearchGroupReqeust](#common-SearchGroupReqeust)
     - [SearchGroupResponse](#common-SearchGroupResponse)
+    - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
     - [SearchProjectRequest](#common-SearchProjectRequest)
     - [SearchProjectResponse](#common-SearchProjectResponse)
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
+    - [TrendingResponse.Data](#common-TrendingResponse-Data)
     - [UnWatchProjectReqeust](#common-UnWatchProjectReqeust)
     - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
+    - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
     - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
     - [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse)
+    - [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data)
     - [UpdateItemRequest](#common-UpdateItemRequest)
     - [UpdateItemResponse](#common-UpdateItemResponse)
+    - [UpdateItemResponse.Data](#common-UpdateItemResponse-Data)
     - [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest)
     - [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse)
+    - [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data)
     - [UpdateProjectRequest](#common-UpdateProjectRequest)
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
-    - [UpdateStoryRequest](#common-UpdateStoryRequest)
-    - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
@@ -195,12 +221,15 @@
     - [UserUpdateRequest](#common-UserUpdateRequest)
     - [UserUpdateRequest.DataEntry](#common-UserUpdateRequest-DataEntry)
     - [UserUpdateResponse](#common-UserUpdateResponse)
+    - [UserUpdateResponse.Data](#common-UserUpdateResponse-Data)
     - [UserWatchingRequest](#common-UserWatchingRequest)
     - [UserWatchingResponse](#common-UserWatchingResponse)
     - [VersionRequest](#common-VersionRequest)
     - [VersionResponse](#common-VersionResponse)
+    - [VersionResponse.Data](#common-VersionResponse-Data)
     - [WatchProjectReqeust](#common-WatchProjectReqeust)
     - [WatchProjectResponse](#common-WatchProjectResponse)
+    - [WatchProjectResponse.Data](#common-WatchProjectResponse-Data)
   
     - [GroupType](#common-GroupType)
   
@@ -1076,6 +1105,254 @@
 
 
 
+<a name="common-CreateStoryRequest"></a>
+
+### CreateStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| short_desc | [string](#string) |  |  |
+| creator_id | [string](#string) |  |  |
+| owner_id | [string](#string) |  |  |
+| group_id | [string](#string) |  |  |
+| origin | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| params | [StoryParams](#common-StoryParams) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryResponse"></a>
+
+### CreateStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryboardRequest"></a>
+
+### CreateStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board | [StoryBoard](#common-StoryBoard) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryboardResponse"></a>
+
+### CreateStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DelStoryboardRequest"></a>
+
+### DelStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DelStoryboardResponse"></a>
+
+### DelStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-ForkStoryboardRequest"></a>
+
+### ForkStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ForkStoryboardResponse"></a>
+
+### ForkStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| timeline_id | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryInfoRequest"></a>
+
+### GetStoryInfoRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryInfoResponse"></a>
+
+### GetStoryInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| info | [Story](#common-Story) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardRequest"></a>
+
+### GetStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardResponse"></a>
+
+### GetStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| info | [StoryBoard](#common-StoryBoard) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardsRequest"></a>
+
+### GetStoryboardsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| timeline_id | [int64](#int64) |  |  |
+| start_time | [int64](#int64) |  |  |
+| end_time | [int64](#int64) |  |  |
+| page | [int32](#int32) |  |  |
+| page_size | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryboardsResponse"></a>
+
+### GetStoryboardsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| list | [StoryBoard](#common-StoryBoard) | repeated |  |
+| total | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="common-Story"></a>
 
 ### Story
@@ -1187,6 +1464,44 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | CharacterDescription | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRequest"></a>
+
+### UpdateStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| short_desc | [string](#string) |  |  |
+| origin | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| is_ai_gen | [bool](#bool) |  |  |
+| params | [StoryParams](#common-StoryParams) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryResponse"></a>
+
+### UpdateStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  |  |
 
 
 
@@ -1330,6 +1645,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [CreateCommentResp.Data](#common-CreateCommentResp-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateCommentResp-Data"></a>
+
+### CreateCommentResp.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | group_id | [int32](#int32) |  |  |
 | item_id | [int32](#int32) |  |  |
 | comment_id | [int32](#int32) |  |  |
@@ -1344,6 +1676,23 @@
 <a name="common-CreateDisscusResp"></a>
 
 ### CreateDisscusResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [CreateDisscusResp.Data](#common-CreateDisscusResp-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateDisscusResp-Data"></a>
+
+### CreateDisscusResp.Data
 
 
 
@@ -1385,6 +1734,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [CreateGroupResponse.Data](#common-CreateGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateGroupResponse-Data"></a>
+
+### CreateGroupResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [GroupInfo](#common-GroupInfo) |  |  |
 
 
@@ -1414,6 +1780,23 @@
 <a name="common-CreateItemResponse"></a>
 
 ### CreateItemResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [CreateItemResponse.Data](#common-CreateItemResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateItemResponse-Data"></a>
+
+### CreateItemResponse.Data
 
 
 
@@ -1457,90 +1840,6 @@
 
 
 
-<a name="common-CreateStoryRequest"></a>
-
-### CreateStoryRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  |  |
-| title | [string](#string) |  |  |
-| short_desc | [string](#string) |  |  |
-| creator_id | [string](#string) |  |  |
-| owner_id | [string](#string) |  |  |
-| group_id | [string](#string) |  |  |
-| origin | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| params | [StoryParams](#common-StoryParams) |  |  |
-
-
-
-
-
-
-<a name="common-CreateStoryResponse"></a>
-
-### CreateStoryResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
-| story_id | [int32](#int32) |  |  |
-| board_id | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-CreateStoryboardRequest"></a>
-
-### CreateStoryboardRequest
-
-
-
-
-
-
-
-<a name="common-CreateStoryboardResponse"></a>
-
-### CreateStoryboardResponse
-
-
-
-
-
-
-
-<a name="common-DelStoryboardRequest"></a>
-
-### DelStoryboardRequest
-
-
-
-
-
-
-
-<a name="common-DelStoryboardResponse"></a>
-
-### DelStoryboardResponse
-
-
-
-
-
-
-
 <a name="common-DeleteGroupRequest"></a>
 
 ### DeleteGroupRequest
@@ -1560,6 +1859,23 @@
 <a name="common-DeleteGroupResponse"></a>
 
 ### DeleteGroupResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteGroupResponse-Data"></a>
+
+### DeleteGroupResponse.Data
 
 
 
@@ -1591,6 +1907,23 @@
 
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [DeleteItemResponse.Data](#common-DeleteItemResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteItemResponse-Data"></a>
+
+### DeleteItemResponse.Data
+
+
+
 
 
 
@@ -1615,6 +1948,23 @@
 <a name="common-DeleteProjectResponse"></a>
 
 ### DeleteProjectResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteProjectResponse-Data"></a>
+
+### DeleteProjectResponse.Data
 
 
 
@@ -1684,6 +2034,23 @@
 
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [ExploreResponse.Data](#common-ExploreResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-ExploreResponse-Data"></a>
+
+### ExploreResponse.Data
+
+
+
 
 
 
@@ -1708,6 +2075,23 @@
 <a name="common-FetchGroupMembersResponse"></a>
 
 ### FetchGroupMembersResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-FetchGroupMembersResponse-Data"></a>
+
+### FetchGroupMembersResponse.Data
 
 
 
@@ -1742,6 +2126,23 @@
 <a name="common-FetchGroupProjectsResponse"></a>
 
 ### FetchGroupProjectsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-FetchGroupProjectsResponse-Data"></a>
+
+### FetchGroupProjectsResponse.Data
 
 
 
@@ -1790,26 +2191,6 @@
 
 
 
-<a name="common-ForkStoryboardRequest"></a>
-
-### ForkStoryboardRequest
-
-
-
-
-
-
-
-<a name="common-ForkStoryboardResponse"></a>
-
-### ForkStoryboardResponse
-
-
-
-
-
-
-
 <a name="common-GetDisscusReq"></a>
 
 ### GetDisscusReq
@@ -1823,6 +2204,23 @@
 <a name="common-GetDisscusResp"></a>
 
 ### GetDisscusResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetDisscusResp.Data](#common-GetDisscusResp-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetDisscusResp-Data"></a>
+
+### GetDisscusResp.Data
 
 
 
@@ -1851,6 +2249,23 @@
 <a name="common-GetGroupActivesResponse"></a>
 
 ### GetGroupActivesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetGroupActivesResponse-Data"></a>
+
+### GetGroupActivesResponse.Data
 
 
 
@@ -1927,6 +2342,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetGroupResponse.Data](#common-GetGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetGroupResponse-Data"></a>
+
+### GetGroupResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [GroupInfo](#common-GroupInfo) |  |  |
 
 
@@ -1992,6 +2424,23 @@
 <a name="common-GetItemsCommentResp"></a>
 
 ### GetItemsCommentResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetItemsCommentResp-Data"></a>
+
+### GetItemsCommentResp.Data
 
 
 
@@ -2107,18 +2556,35 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectMembersResponse-Data"></a>
+
+### GetProjectMembersResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | total | [int32](#int32) |  |  |
-| role | [GetProjectMembersResponse.RoleEntry](#common-GetProjectMembersResponse-RoleEntry) | repeated |  |
+| role | [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetProjectMembersResponse-RoleEntry"></a>
+<a name="common-GetProjectMembersResponse-Data-RoleEntry"></a>
 
-### GetProjectMembersResponse.RoleEntry
+### GetProjectMembersResponse.Data.RoleEntry
 
 
 
@@ -2222,18 +2688,35 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectWatcherResponse-Data"></a>
+
+### GetProjectWatcherResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | total | [int32](#int32) |  |  |
-| timestamp | [GetProjectWatcherResponse.TimestampEntry](#common-GetProjectWatcherResponse-TimestampEntry) | repeated |  |
+| timestamp | [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetProjectWatcherResponse-TimestampEntry"></a>
+<a name="common-GetProjectWatcherResponse-Data-TimestampEntry"></a>
 
-### GetProjectWatcherResponse.TimestampEntry
+### GetProjectWatcherResponse.Data.TimestampEntry
 
 
 
@@ -2241,78 +2724,6 @@
 | ----- | ---- | ----- | ----------- |
 | key | [int64](#int64) |  |  |
 | value | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetStoryInfoRequest"></a>
-
-### GetStoryInfoRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| story_id | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-GetStoryInfoResponse"></a>
-
-### GetStoryInfoResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
-| info | [Story](#common-Story) |  |  |
-
-
-
-
-
-
-<a name="common-GetStoryboardRequest"></a>
-
-### GetStoryboardRequest
-
-
-
-
-
-
-
-<a name="common-GetStoryboardResponse"></a>
-
-### GetStoryboardResponse
-
-
-
-
-
-
-
-<a name="common-GetStoryboardsRequest"></a>
-
-### GetStoryboardsRequest
-
-
-
-
-
-
-
-<a name="common-GetStoryboardsResponse"></a>
-
-### GetStoryboardsResponse
-
 
 
 
@@ -2332,6 +2743,23 @@
 <a name="common-GetUserCommentResp"></a>
 
 ### GetUserCommentResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [GetUserCommentResp.Data](#common-GetUserCommentResp-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserCommentResp-Data"></a>
+
+### GetUserCommentResp.Data
 
 
 
@@ -2431,6 +2859,23 @@
 
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [JoinGroupResponse.Data](#common-JoinGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-JoinGroupResponse-Data"></a>
+
+### JoinGroupResponse.Data
+
+
+
 
 
 
@@ -2454,6 +2899,23 @@
 <a name="common-LeaveGroupResponse"></a>
 
 ### LeaveGroupResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-LeaveGroupResponse-Data"></a>
+
+### LeaveGroupResponse.Data
 
 
 
@@ -2483,6 +2945,23 @@
 <a name="common-LikeItemResponse"></a>
 
 ### LikeItemResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [LikeItemResponse.Data](#common-LikeItemResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-LikeItemResponse-Data"></a>
+
+### LikeItemResponse.Data
 
 
 
@@ -2687,6 +3166,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [SearchGroupResponse.Data](#common-SearchGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-SearchGroupResponse-Data"></a>
+
+### SearchGroupResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -2793,6 +3289,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [TrendingResponse.Data](#common-TrendingResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-TrendingResponse-Data"></a>
+
+### TrendingResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
 
 
@@ -2823,6 +3336,23 @@
 
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UnWatchProjectResponse-Data"></a>
+
+### UnWatchProjectResponse.Data
+
+
+
 
 
 
@@ -2846,6 +3376,23 @@
 <a name="common-UpdateGroupInfoResponse"></a>
 
 ### UpdateGroupInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateGroupInfoResponse-Data"></a>
+
+### UpdateGroupInfoResponse.Data
 
 
 
@@ -2885,6 +3432,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [UpdateItemResponse.Data](#common-UpdateItemResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateItemResponse-Data"></a>
+
+### UpdateItemResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [ItemInfo](#common-ItemInfo) |  |  |
 
 
@@ -2913,6 +3477,23 @@
 <a name="common-UpdateProjectProfileResponse"></a>
 
 ### UpdateProjectProfileResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateProjectProfileResponse-Data"></a>
+
+### UpdateProjectProfileResponse.Data
 
 
 
@@ -2947,44 +3528,6 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [ProjectInfo](#common-ProjectInfo) |  |  |
-
-
-
-
-
-
-<a name="common-UpdateStoryRequest"></a>
-
-### UpdateStoryRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| short_desc | [string](#string) |  |  |
-| origin | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| params | [StoryParams](#common-StoryParams) |  |  |
-
-
-
-
-
-
-<a name="common-UpdateStoryResponse"></a>
-
-### UpdateStoryResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [int32](#int32) |  |  |
-| story_id | [int32](#int32) |  |  |
 
 
 
@@ -3197,6 +3740,23 @@ user ,group .project.item
 
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [UserUpdateResponse.Data](#common-UserUpdateResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserUpdateResponse-Data"></a>
+
+### UserUpdateResponse.Data
+
+
+
 
 
 
@@ -3254,6 +3814,23 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [VersionResponse.Data](#common-VersionResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-VersionResponse-Data"></a>
+
+### VersionResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
 | build_time | [string](#string) |  |  |
 
@@ -3282,6 +3859,23 @@ user ,group .project.item
 <a name="common-WatchProjectResponse"></a>
 
 ### WatchProjectResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [int32](#int32) |  |  |
+| data | [WatchProjectResponse.Data](#common-WatchProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-WatchProjectResponse-Data"></a>
+
+### WatchProjectResponse.Data
 
 
 
@@ -3371,7 +3965,7 @@ user ,group .project.item
 | CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) |  |
 | GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) |  |
 | GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
-| DelStoryboard | [CreateCommentReq](#common-CreateCommentReq) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
+| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
 | ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |
 
  

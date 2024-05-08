@@ -1924,7 +1924,7 @@ func local_request_TeamsAPI_GetStoryboards_0(ctx context.Context, marshaler runt
 }
 
 func request_TeamsAPI_DelStoryboard_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateCommentReq
+	var protoReq DelStoryboardRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1941,7 +1941,7 @@ func request_TeamsAPI_DelStoryboard_0(ctx context.Context, marshaler runtime.Mar
 }
 
 func local_request_TeamsAPI_DelStoryboard_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateCommentReq
+	var protoReq DelStoryboardRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

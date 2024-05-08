@@ -226,7 +226,7 @@ type TeamsAPIClient interface {
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
-	DelStoryboard(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.DelStoryboardResponse], error)
+	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 }
 
@@ -525,7 +525,7 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetStoryboardsProcedure,
 			opts...,
 		),
-		delStoryboard: connect.NewClient[gen.CreateCommentReq, gen.DelStoryboardResponse](
+		delStoryboard: connect.NewClient[gen.DelStoryboardRequest, gen.DelStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIDelStoryboardProcedure,
 			opts...,
@@ -597,7 +597,7 @@ type teamsAPIClient struct {
 	createStoryboard     *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
 	getStoryboard        *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
 	getStoryboards       *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
-	delStoryboard        *connect.Client[gen.CreateCommentReq, gen.DelStoryboardResponse]
+	delStoryboard        *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
 	forkStoryboard       *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
 }
 
@@ -887,7 +887,7 @@ func (c *teamsAPIClient) GetStoryboards(ctx context.Context, req *connect.Reques
 }
 
 // DelStoryboard calls common.TeamsAPI.DelStoryboard.
-func (c *teamsAPIClient) DelStoryboard(ctx context.Context, req *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.DelStoryboardResponse], error) {
+func (c *teamsAPIClient) DelStoryboard(ctx context.Context, req *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error) {
 	return c.delStoryboard.CallUnary(ctx, req)
 }
 
@@ -955,7 +955,7 @@ type TeamsAPIHandler interface {
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
-	DelStoryboard(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.DelStoryboardResponse], error)
+	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 }
 
@@ -1617,7 +1617,7 @@ func (UnimplementedTeamsAPIHandler) GetStoryboards(context.Context, *connect.Req
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryboards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.DelStoryboardResponse], error) {
+func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DelStoryboard is not implemented"))
 }
 

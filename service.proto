@@ -158,7 +158,12 @@ message UserUpdateRequest {
   map<string,string> data = 5;
 }
 
-message UserUpdateResponse {}
+message UserUpdateResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message FetchUserActivesRequest {
   int64 user_id = 1;
@@ -235,7 +240,12 @@ message DeleteProjectRequest {
   int64 project_id = 2;
   int64 user_id = 3;
 }
-message DeleteProjectResponse {}
+message DeleteProjectResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message GetWatchingProjectRequest {
   int64 user_id = 1;
@@ -256,7 +266,12 @@ message WatchProjectReqeust {
   int64 user_id = 3;
 }
 
-message WatchProjectResponse {}
+message WatchProjectResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message UnWatchProjectReqeust {
   int64 group_id = 1;
@@ -264,7 +279,12 @@ message UnWatchProjectReqeust {
   int64 user_id = 3;
 }
 
-message UnWatchProjectResponse {}
+message UnWatchProjectResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message ExploreProjectsRequest {
   int64 user_id = 1;
@@ -328,7 +348,12 @@ message UpdateProjectProfileRequest {
   ProjectProfileInfo info = 4;
 }
 
-message UpdateProjectProfileResponse {}
+message UpdateProjectProfileResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message GetProjectItemsRequest {
   int64 group_id = 1;
@@ -392,7 +417,13 @@ message CreateItemRequest {
   int64 user_id = 5;
 }
 
-message CreateItemResponse { ItemInfo info = 1; }
+message CreateItemResponse { 
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    ItemInfo info = 1; 
+  } Data data = 3;
+}
 
 message UpdateItemRequest {
   int64 group_id = 1;
@@ -402,7 +433,13 @@ message UpdateItemRequest {
   int64 user_id = 5;
 }
 
-message UpdateItemResponse { ItemInfo info = 1; }
+message UpdateItemResponse { 
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    ItemInfo info = 1; 
+  } Data data = 3;
+}
 
 message DeleteItemRequest {
   int64 group_id = 1;
@@ -411,7 +448,12 @@ message DeleteItemRequest {
   int64 user_id = 4;
 }
 
-message DeleteItemResponse {}
+message DeleteItemResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message LikeItemRequest {
   int64 group_id = 1;
@@ -421,20 +463,37 @@ message LikeItemRequest {
   bool islike = 5;
 }
 
-message LikeItemResponse {}
+message LikeItemResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message CreateGroupReqeust {
   int64 user_id = 1;
   string name = 2;
 }
-message CreateGroupResponse { GroupInfo info = 1; }
+message CreateGroupResponse { 
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+   GroupInfo info = 1; 
+  } Data data = 3;
+}
 
 message GetGroupReqeust {
   int64 group_id = 1;
   int64 user_id = 2;
   string name = 3;
 }
-message GetGroupResponse { GroupInfo info = 1; }
+message GetGroupResponse { 
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    GroupInfo info = 1; 
+  } Data data = 3;
+}
 
 message GetGroupActivesRequest {
   int64 group_id = 1;
@@ -444,21 +503,36 @@ message GetGroupActivesRequest {
 }
 
 message GetGroupActivesResponse {
-  repeated ActiveInfo list = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated ActiveInfo list = 1;
+    int64 offset = 2;
+    int64 page_size = 3;
+  } Data data = 3;
 }
 
 message UpdateGroupInfoRequest {
   int64 group_id = 1;
   GroupInfo info = 2;
 }
-message UpdateGroupInfoResponse { GroupInfo info = 1; }
+message UpdateGroupInfoResponse { 
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    GroupInfo info = 1; 
+  } Data data = 3;
+}
 message DeleteGroupRequest {
   int64 group_id = 1;
   int64 user_id = 2;
 }
-message DeleteGroupResponse {}
+message DeleteGroupResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 message FetchGroupMembersRequest {
   int64 group_id = 1;
   int64 offset = 2;
@@ -466,16 +540,24 @@ message FetchGroupMembersRequest {
 }
 
 message FetchGroupMembersResponse {
-  repeated UserInfo list = 1;
-  int64 offset = 2;
-  int64 total = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated UserInfo list = 1;
+    int64 offset = 2;
+    int64 total = 3;
+  } Data data = 3;
 }
 
 message SearchGroupReqeust { string name = 1; }
 message SearchGroupResponse {
-  repeated GroupInfo list = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated GroupInfo list = 1;
+    int64 offset = 2;
+    int64 page_size = 3;
+  } Data data = 3;
 }
 
 message FetchGroupProjectsReqeust {
@@ -485,9 +567,13 @@ message FetchGroupProjectsReqeust {
 }
 
 message FetchGroupProjectsResponse {
-  repeated ProjectInfo list = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated ProjectInfo list = 1;
+    int64 offset = 2;
+    int64 page_size = 3;
+  } Data data = 3;
 }
 
 message JoinGroupRequest {
@@ -495,22 +581,42 @@ message JoinGroupRequest {
   int64 user_id = 2;
 }
 
-message JoinGroupResponse {}
+message JoinGroupResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message LeaveGroupRequest {
   int64 group_id = 1;
   int64 user_id = 2;
 }
 
-message LeaveGroupResponse {}
+message LeaveGroupResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message DisscussParams {}
 
 message CreateDisscussReq {}
-message CreateDisscusResp {}
+message CreateDisscusResp {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message GetDisscusReq {}
-message GetDisscusResp {}
+message GetDisscusResp {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message Content {
   int32 Ctype = 1;
@@ -526,11 +632,15 @@ message CreateCommentReq {
   int64 user_id = 4;
 }
 message CreateCommentResp {
-  int32 group_id = 1;
-  int32 item_id = 2;
-  int32 comment_id = 3;
-  int64 user_id = 4;
-  int64 timestamp = 5;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    int32 group_id = 1;
+    int32 item_id = 2;
+    int32 comment_id = 3;
+    int64 user_id = 4;
+    int64 timestamp = 5;
+  } Data data = 3;
 }
 
 message GetItemsCommentReq {
@@ -544,23 +654,36 @@ message GetItemsCommentReq {
   int32 order = 8;
 }
 message GetItemsCommentResp {
-  repeated CommentInfo list = 1;
-  int32 group_id = 2;
-  int32 item_id = 3;
-  int32 offset = 4;
-  int32 page_size = 5;
-  int64 timestamp = 6;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated CommentInfo list = 1;
+    int32 group_id = 2;
+    int32 item_id = 3;
+    int32 offset = 4;
+    int32 page_size = 5;
+    int64 timestamp = 6;
+  } Data data = 3;
 }
 
 
 message GetUserCommentReq {}
-message GetUserCommentResp {}
+message GetUserCommentResp {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+  } Data data = 3;
+}
 
 message VersionRequest {}
 
 message VersionResponse { 
-  string version = 1; 
-  string build_time = 2;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    string version = 1; 
+    string build_time = 2;
+  } Data data = 3;
 }
 
 message AboutRequest {}
@@ -568,7 +691,13 @@ message AboutRequest {}
 message AboutResponse { string content = 1; }
 
 message ExploreRequest {}
-message ExploreResponse {}
+message ExploreResponse {
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+
+  } Data data = 3;
+}
 
 message TrendingRequest {
   string area = 1;
@@ -576,8 +705,11 @@ message TrendingRequest {
   int64 end = 3;
 }
 message TrendingResponse {
-  repeated ProjectInfo list = 1;
-
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated ProjectInfo list = 1;
+  } Data data = 3;
 }
 
 message GetProjectMembersRequest{
@@ -586,9 +718,13 @@ message GetProjectMembersRequest{
 }
 
 message GetProjectMembersResponse{
-  repeated UserInfo list = 1; 
-  int32 total = 2;
-  map<string,int64> role = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated UserInfo list = 1; 
+    int32 total = 2;
+    map<string,int64> role = 3;
+  } Data data = 3;
 }
 
 message GetProjectWatcherReqeust{
@@ -596,9 +732,13 @@ message GetProjectWatcherReqeust{
 }
 
 message GetProjectWatcherResponse{
-  repeated UserInfo list = 1; 
-  int32 total = 2;
-  map<int64,int64> timestamp = 3;
+  int32 code = 1;
+  int32 message = 2;
+  message Data {
+    repeated UserInfo list = 1; 
+    int32 total = 2;
+    map<int64,int64> timestamp = 3;
+  } Data data = 3;
 }
 
 service TeamsAPI {
@@ -995,7 +1135,7 @@ service TeamsAPI {
   }
 
 
-  rpc DelStoryboard(CreateCommentReq) returns (DelStoryboardResponse) {
+  rpc DelStoryboard(DelStoryboardRequest) returns (DelStoryboardResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/story/storyboard/del"
       body : "*"
@@ -1008,92 +1148,4 @@ service TeamsAPI {
       body : "*"
     };
   }
-}
-
-message CreateStoryRequest {
-  string name = 1;
-  string title = 2;
-  string short_desc = 3;
-  string creator_id = 4;
-  string owner_id = 5;
-  string group_id = 6;
-  string origin = 7;
-  int32 status = 8;
-  bool is_achieve = 9;
-  bool is_close = 10;
-  bool is_ai_gen = 11;
-  StoryParams params = 12;
-}
-
-message CreateStoryResponse {
-  int32 code = 1;
-  int32 message = 2;
-  int32 story_id = 3;
-  int32 board_id = 4;
-}
-
-message UpdateStoryRequest {
-  string short_desc = 1;
-  string origin = 2;
-  int32 status = 3;
-  bool is_achieve = 4;
-  bool is_close = 5;
-  bool is_ai_gen = 6;
-  StoryParams params = 7;
-}
-
-message UpdateStoryResponse {
-  int32 code = 1;
-  int32 message = 2;
-  int32 story_id = 3;
-}
-
-message GetStoryInfoRequest {
-  int32 story_id = 3;
-}
-
-message GetStoryInfoResponse {
-  int32 code = 1;
-  int32 message = 2;
-  Story info = 3;
-}
-
-message CreateStoryboardRequest {
-
-}
-
-message CreateStoryboardResponse {
-
-}
-
-message GetStoryboardRequest {
-
-}
-
-message GetStoryboardResponse {
-
-}
-
-message GetStoryboardsRequest{
-
-}
-
-message GetStoryboardsResponse {
-
-}
-
-message DelStoryboardRequest {
-
-}
-
-message DelStoryboardResponse {
-
-}
-
-message ForkStoryboardRequest{
-
-}
-
-message ForkStoryboardResponse{
-
 }

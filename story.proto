@@ -66,3 +66,113 @@ message StoryBoardParams{
     int32 Self64AttentionLayers = 17;
     int32 Self128AttentionLayers = 18;
 }
+
+message CreateStoryRequest {
+    string name = 1;
+    string title = 2;
+    string short_desc = 3;
+    string creator_id = 4;
+    string owner_id = 5;
+    string group_id = 6;
+    string origin = 7;
+    int32 status = 8;
+    bool is_achieve = 9;
+    bool is_close = 10;
+    bool is_ai_gen = 11;
+    StoryParams params = 12;
+  }
+  
+  message CreateStoryResponse {
+    int32 code = 1;
+    int32 message = 2;
+    int32 story_id = 3;
+    int32 board_id = 4;
+  }
+  
+  message UpdateStoryRequest {
+    string short_desc = 1;
+    string origin = 2;
+    int32 status = 3;
+    bool is_achieve = 4;
+    bool is_close = 5;
+    bool is_ai_gen = 6;
+    StoryParams params = 7;
+  }
+  
+  message UpdateStoryResponse {
+    int32 code = 1;
+    int32 message = 2;
+    int32 story_id = 3;
+  }
+  
+  message GetStoryInfoRequest {
+    int64 story_id = 1;
+  }
+  
+  message GetStoryInfoResponse {
+    int32 code = 1;
+    int32 message = 2;
+    Story info = 3;
+  }
+  
+  message CreateStoryboardRequest {
+    StoryBoard board = 1;
+  }
+  
+  message CreateStoryboardResponse {
+    int32 code = 1;
+    int32 message = 2;
+    int64 board_id = 3;
+  }
+  
+  message GetStoryboardRequest {
+    int64 board_id = 1;
+  }
+  
+  message GetStoryboardResponse {
+    int32 code = 1;
+    int32 message = 2;
+    StoryBoard info = 3;
+  }
+  
+  message GetStoryboardsRequest{
+    int64 story_id = 1;
+    int64 timeline_id = 2;
+    int64 start_time = 4;
+    int64 end_time = 5;
+    int32 page = 6;
+    int32 page_size = 7;
+  }
+  
+  message GetStoryboardsResponse {
+    int32 code = 1;
+    int32 message = 2;
+    repeated StoryBoard list = 3;
+    int32 total = 4;
+  }
+  
+  message DelStoryboardRequest {
+    int64 board_id = 1;
+    int64 story_id = 2;
+    int64 user_id = 3;
+  }
+  
+  message DelStoryboardResponse {
+    int32 code = 1;
+    int32 message = 2;
+  }
+  
+  message ForkStoryboardRequest{
+    int64 board_id = 1;
+    int64 story_id = 2;
+    int64 user_id = 3;
+  }
+  
+  message ForkStoryboardResponse{
+    int32 code = 1;
+    int32 message = 2;
+    int64 board_id = 3;
+    int64 story_id = 4;
+    int64 timeline_id = 5;
+    int64 prev_board_id = 6;
+  }

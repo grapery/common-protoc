@@ -867,7 +867,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/CreateCommentReq'
+                            $ref: '#/components/schemas/DelStoryboardRequest'
                 required: true
             responses:
                 "200":
@@ -1469,6 +1469,17 @@ components:
         CreateCommentResp:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/CreateCommentResp_Data'
+        CreateCommentResp_Data:
+            type: object
+            properties:
                 groupId:
                     type: integer
                     format: int32
@@ -1492,6 +1503,17 @@ components:
         CreateGroupResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/CreateGroupResponse_Data'
+        CreateGroupResponse_Data:
+            type: object
+            properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
         CreateItemRequest:
@@ -1509,6 +1531,17 @@ components:
                 userId:
                     type: string
         CreateItemResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/CreateItemResponse_Data'
+        CreateItemResponse_Data:
             type: object
             properties:
                 info:
@@ -1570,13 +1603,38 @@ components:
                     format: int32
         CreateStoryboardRequest:
             type: object
-            properties: {}
+            properties:
+                board:
+                    $ref: '#/components/schemas/StoryBoard'
         CreateStoryboardResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                boardId:
+                    type: string
+        DelStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                storyId:
+                    type: string
+                userId:
+                    type: string
         DelStoryboardResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
         DeleteGroupRequest:
             type: object
             properties:
@@ -1585,6 +1643,17 @@ components:
                 userId:
                     type: string
         DeleteGroupResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/DeleteGroupResponse_Data'
+        DeleteGroupResponse_Data:
             type: object
             properties: {}
         DeleteItemRequest:
@@ -1600,6 +1669,17 @@ components:
                     type: string
         DeleteItemResponse:
             type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/DeleteItemResponse_Data'
+        DeleteItemResponse_Data:
+            type: object
             properties: {}
         DeleteProjectRequest:
             type: object
@@ -1611,6 +1691,17 @@ components:
                 userId:
                     type: string
         DeleteProjectResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/DeleteProjectResponse_Data'
+        DeleteProjectResponse_Data:
             type: object
             properties: {}
         ExploreProjectsRequest:
@@ -1639,6 +1730,17 @@ components:
                     type: string
         ExploreResponse:
             type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/ExploreResponse_Data'
+        ExploreResponse_Data:
+            type: object
             properties: {}
         FetchGroupMembersRequest:
             type: object
@@ -1650,6 +1752,17 @@ components:
                 pageSize:
                     type: string
         FetchGroupMembersResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/FetchGroupMembersResponse_Data'
+        FetchGroupMembersResponse_Data:
             type: object
             properties:
                 list:
@@ -1670,6 +1783,17 @@ components:
                 pageSize:
                     type: string
         FetchGroupProjectsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/FetchGroupProjectsResponse_Data'
+        FetchGroupProjectsResponse_Data:
             type: object
             properties:
                 list:
@@ -1703,10 +1827,30 @@ components:
                     type: string
         ForkStoryboardRequest:
             type: object
-            properties: {}
+            properties:
+                boardId:
+                    type: string
+                storyId:
+                    type: string
+                userId:
+                    type: string
         ForkStoryboardResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                boardId:
+                    type: string
+                storyId:
+                    type: string
+                timelineId:
+                    type: string
+                prevBoardId:
+                    type: string
         GetGroupActivesRequest:
             type: object
             properties:
@@ -1720,6 +1864,17 @@ components:
                 pageSize:
                     type: string
         GetGroupActivesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/GetGroupActivesResponse_Data'
+        GetGroupActivesResponse_Data:
             type: object
             properties:
                 list:
@@ -1768,6 +1923,17 @@ components:
         GetGroupResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/GetGroupResponse_Data'
+        GetGroupResponse_Data:
+            type: object
+            properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
         GetItemRequest:
@@ -1813,6 +1979,17 @@ components:
                     type: integer
                     format: int32
         GetItemsCommentResp:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/GetItemsCommentResp_Data'
+        GetItemsCommentResp_Data:
             type: object
             properties:
                 list:
@@ -1897,6 +2074,17 @@ components:
         GetProjectMembersResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/GetProjectMembersResponse_Data'
+        GetProjectMembersResponse_Data:
+            type: object
+            properties:
                 list:
                     type: array
                     items:
@@ -1951,6 +2139,17 @@ components:
         GetProjectWatcherResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/GetProjectWatcherResponse_Data'
+        GetProjectWatcherResponse_Data:
+            type: object
+            properties:
                 list:
                     type: array
                     items:
@@ -1966,8 +2165,7 @@ components:
             type: object
             properties:
                 storyId:
-                    type: integer
-                    format: int32
+                    type: string
         GetStoryInfoResponse:
             type: object
             properties:
@@ -1981,16 +2179,53 @@ components:
                     $ref: '#/components/schemas/Story'
         GetStoryboardRequest:
             type: object
-            properties: {}
+            properties:
+                boardId:
+                    type: string
         GetStoryboardResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                info:
+                    $ref: '#/components/schemas/StoryBoard'
         GetStoryboardsRequest:
             type: object
-            properties: {}
+            properties:
+                storyId:
+                    type: string
+                timelineId:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+                page:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
         GetStoryboardsResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoard'
+                total:
+                    type: integer
+                    format: int32
         GetUserItemsRequest:
             type: object
             properties:
@@ -2107,6 +2342,17 @@ components:
                     type: string
         JoinGroupResponse:
             type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/JoinGroupResponse_Data'
+        JoinGroupResponse_Data:
+            type: object
             properties: {}
         LeaveGroupRequest:
             type: object
@@ -2116,6 +2362,17 @@ components:
                 userId:
                     type: string
         LeaveGroupResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/LeaveGroupResponse_Data'
+        LeaveGroupResponse_Data:
             type: object
             properties: {}
         LikeItemRequest:
@@ -2132,6 +2389,17 @@ components:
                 islike:
                     type: boolean
         LikeItemResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/LikeItemResponse_Data'
+        LikeItemResponse_Data:
             type: object
             properties: {}
         Location:
@@ -2356,6 +2624,17 @@ components:
         SearchGroupResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/SearchGroupResponse_Data'
+        SearchGroupResponse_Data:
+            type: object
+            properties:
                 list:
                     type: array
                     items:
@@ -2477,6 +2756,74 @@ components:
                     type: string
                 Mtime:
                     type: string
+        StoryBoard:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                num:
+                    type: string
+                prevBoardId:
+                    type: string
+                nextBoardId:
+                    type: string
+                creator:
+                    type: string
+                isAiGen:
+                    type: boolean
+                params:
+                    $ref: '#/components/schemas/StoryBoardParams'
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        StoryBoardParams:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                StoryDescription:
+                    type: string
+                NumIds:
+                    type: integer
+                    format: int32
+                NumSteps:
+                    type: integer
+                    format: int32
+                SdModel:
+                    type: string
+                RefImage:
+                    type: string
+                ComicLayoutStyle:
+                    type: string
+                ComicStyle:
+                    type: string
+                NegativePrompt:
+                    type: string
+                OutputQuality:
+                    type: integer
+                    format: int32
+                GuidanceScale:
+                    type: number
+                    format: float
+                OutputFormat:
+                    type: integer
+                    format: int32
+                ImageWidth:
+                    type: integer
+                    format: int32
+                ImageHeight:
+                    type: integer
+                    format: int32
+                Self32AttentionLayers:
+                    type: integer
+                    format: int32
+                Self64AttentionLayers:
+                    type: integer
+                    format: int32
+                Self128AttentionLayers:
+                    type: integer
+                    format: int32
         StoryParams:
             type: object
             properties:
@@ -2517,6 +2864,17 @@ components:
         TrendingResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/TrendingResponse_Data'
+        TrendingResponse_Data:
+            type: object
+            properties:
                 list:
                     type: array
                     items:
@@ -2532,6 +2890,17 @@ components:
                     type: string
         UnWatchProjectResponse:
             type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/UnWatchProjectResponse_Data'
+        UnWatchProjectResponse_Data:
+            type: object
             properties: {}
         UpdateGroupInfoRequest:
             type: object
@@ -2541,6 +2910,17 @@ components:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
         UpdateGroupInfoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/UpdateGroupInfoResponse_Data'
+        UpdateGroupInfoResponse_Data:
             type: object
             properties:
                 info:
@@ -2561,6 +2941,17 @@ components:
         UpdateItemResponse:
             type: object
             properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/UpdateItemResponse_Data'
+        UpdateItemResponse_Data:
+            type: object
+            properties:
                 info:
                     $ref: '#/components/schemas/ItemInfo'
         UpdateProjectProfileRequest:
@@ -2575,6 +2966,17 @@ components:
                 info:
                     $ref: '#/components/schemas/ProjectProfileInfo'
         UpdateProjectProfileResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/UpdateProjectProfileResponse_Data'
+        UpdateProjectProfileResponse_Data:
             type: object
             properties: {}
         UpdateProjectRequest:
@@ -2754,6 +3156,17 @@ components:
                         type: string
         UserUpdateResponse:
             type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/UserUpdateResponse_Data'
+        UserUpdateResponse_Data:
+            type: object
             properties: {}
         UserWatchingRequest:
             type: object
@@ -2782,6 +3195,17 @@ components:
                     type: integer
                     format: int32
         VersionResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/VersionResponse_Data'
+        VersionResponse_Data:
             type: object
             properties:
                 version:
@@ -2839,6 +3263,17 @@ components:
                 userId:
                     type: string
         WatchProjectResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/WatchProjectResponse_Data'
+        WatchProjectResponse_Data:
             type: object
             properties: {}
         WordDetail:
