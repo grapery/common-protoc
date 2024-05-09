@@ -930,6 +930,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/like:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_LikeStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LikeStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LikeStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/group/story/storyboard/list:
         post:
             tags:
@@ -948,6 +972,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/share:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_ShareStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ShareStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ShareStoryboardResponse'
                 default:
                     description: Default error response
                     content:
@@ -996,6 +1044,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/watch:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_WatchStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/WatchStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/WatchStoryResponse'
                 default:
                     description: Default error response
                     content:
@@ -2432,6 +2504,23 @@ components:
         LikeItemResponse_Data:
             type: object
             properties: {}
+        LikeStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        LikeStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         Location:
             type: object
             properties:
@@ -2730,6 +2819,23 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        ShareStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        ShareStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
                     type: string
         Status:
             type: object
@@ -3315,6 +3421,21 @@ components:
         WatchProjectResponse_Data:
             type: object
             properties: {}
+        WatchStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+        WatchStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         WordDetail:
             type: object
             properties:

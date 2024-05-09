@@ -154,6 +154,8 @@ const (
 	TeamsAPIGetStoryInfoProcedure = "/common.TeamsAPI/GetStoryInfo"
 	// TeamsAPIUpdateStoryProcedure is the fully-qualified name of the TeamsAPI's UpdateStory RPC.
 	TeamsAPIUpdateStoryProcedure = "/common.TeamsAPI/UpdateStory"
+	// TeamsAPIWatchStoryProcedure is the fully-qualified name of the TeamsAPI's WatchStory RPC.
+	TeamsAPIWatchStoryProcedure = "/common.TeamsAPI/WatchStory"
 	// TeamsAPICreateStoryboardProcedure is the fully-qualified name of the TeamsAPI's CreateStoryboard
 	// RPC.
 	TeamsAPICreateStoryboardProcedure = "/common.TeamsAPI/CreateStoryboard"
@@ -168,6 +170,11 @@ const (
 	// TeamsAPIUpdateStoryboardProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryboard
 	// RPC.
 	TeamsAPIUpdateStoryboardProcedure = "/common.TeamsAPI/UpdateStoryboard"
+	// TeamsAPILikeStoryboardProcedure is the fully-qualified name of the TeamsAPI's LikeStoryboard RPC.
+	TeamsAPILikeStoryboardProcedure = "/common.TeamsAPI/LikeStoryboard"
+	// TeamsAPIShareStoryboardProcedure is the fully-qualified name of the TeamsAPI's ShareStoryboard
+	// RPC.
+	TeamsAPIShareStoryboardProcedure = "/common.TeamsAPI/ShareStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -226,12 +233,15 @@ type TeamsAPIClient interface {
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
+	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
+	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
+	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -514,6 +524,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUpdateStoryProcedure,
 			opts...,
 		),
+		watchStory: connect.NewClient[gen.WatchStoryRequest, gen.WatchStoryResponse](
+			httpClient,
+			baseURL+TeamsAPIWatchStoryProcedure,
+			opts...,
+		),
 		createStoryboard: connect.NewClient[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryboardProcedure,
@@ -542,6 +557,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		updateStoryboard: connect.NewClient[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryboardProcedure,
+			opts...,
+		),
+		likeStoryboard: connect.NewClient[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPILikeStoryboardProcedure,
+			opts...,
+		),
+		shareStoryboard: connect.NewClient[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIShareStoryboardProcedure,
 			opts...,
 		),
 	}
@@ -603,12 +628,15 @@ type teamsAPIClient struct {
 	createStory          *connect.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
 	getStoryInfo         *connect.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
 	updateStory          *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
+	watchStory           *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
 	createStoryboard     *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
 	getStoryboard        *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
 	getStoryboards       *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
 	delStoryboard        *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
 	forkStoryboard       *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
 	updateStoryboard     *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
+	likeStoryboard       *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
+	shareStoryboard      *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -881,6 +909,11 @@ func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect.Request[g
 	return c.updateStory.CallUnary(ctx, req)
 }
 
+// WatchStory calls common.TeamsAPI.WatchStory.
+func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
+	return c.watchStory.CallUnary(ctx, req)
+}
+
 // CreateStoryboard calls common.TeamsAPI.CreateStoryboard.
 func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, req *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error) {
 	return c.createStoryboard.CallUnary(ctx, req)
@@ -909,6 +942,16 @@ func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, req *connect.Reques
 // UpdateStoryboard calls common.TeamsAPI.UpdateStoryboard.
 func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, req *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
 	return c.updateStoryboard.CallUnary(ctx, req)
+}
+
+// LikeStoryboard calls common.TeamsAPI.LikeStoryboard.
+func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, req *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error) {
+	return c.likeStoryboard.CallUnary(ctx, req)
+}
+
+// ShareStoryboard calls common.TeamsAPI.ShareStoryboard.
+func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
+	return c.shareStoryboard.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
@@ -967,12 +1010,15 @@ type TeamsAPIHandler interface {
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
+	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
+	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
+	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1251,6 +1297,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.UpdateStory,
 		opts...,
 	)
+	teamsAPIWatchStoryHandler := connect.NewUnaryHandler(
+		TeamsAPIWatchStoryProcedure,
+		svc.WatchStory,
+		opts...,
+	)
 	teamsAPICreateStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryboardProcedure,
 		svc.CreateStoryboard,
@@ -1279,6 +1330,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIUpdateStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryboardProcedure,
 		svc.UpdateStoryboard,
+		opts...,
+	)
+	teamsAPILikeStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPILikeStoryboardProcedure,
+		svc.LikeStoryboard,
+		opts...,
+	)
+	teamsAPIShareStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIShareStoryboardProcedure,
+		svc.ShareStoryboard,
 		opts...,
 	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -1391,6 +1452,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetStoryInfoHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryProcedure:
 			teamsAPIUpdateStoryHandler.ServeHTTP(w, r)
+		case TeamsAPIWatchStoryProcedure:
+			teamsAPIWatchStoryHandler.ServeHTTP(w, r)
 		case TeamsAPICreateStoryboardProcedure:
 			teamsAPICreateStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryboardProcedure:
@@ -1403,6 +1466,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIForkStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryboardProcedure:
 			teamsAPIUpdateStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPILikeStoryboardProcedure:
+			teamsAPILikeStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIShareStoryboardProcedure:
+			teamsAPIShareStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -1628,6 +1695,10 @@ func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect.Reques
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStory is not implemented"))
 }
 
+func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.WatchStory is not implemented"))
+}
+
 func (UnimplementedTeamsAPIHandler) CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryboard is not implemented"))
 }
@@ -1650,4 +1721,12 @@ func (UnimplementedTeamsAPIHandler) ForkStoryboard(context.Context, *connect.Req
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ShareStoryboard is not implemented"))
 }

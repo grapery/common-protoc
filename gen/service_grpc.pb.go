@@ -73,12 +73,15 @@ const (
 	TeamsAPI_CreateStory_FullMethodName          = "/common.TeamsAPI/CreateStory"
 	TeamsAPI_GetStoryInfo_FullMethodName         = "/common.TeamsAPI/GetStoryInfo"
 	TeamsAPI_UpdateStory_FullMethodName          = "/common.TeamsAPI/UpdateStory"
+	TeamsAPI_WatchStory_FullMethodName           = "/common.TeamsAPI/WatchStory"
 	TeamsAPI_CreateStoryboard_FullMethodName     = "/common.TeamsAPI/CreateStoryboard"
 	TeamsAPI_GetStoryboard_FullMethodName        = "/common.TeamsAPI/GetStoryboard"
 	TeamsAPI_GetStoryboards_FullMethodName       = "/common.TeamsAPI/GetStoryboards"
 	TeamsAPI_DelStoryboard_FullMethodName        = "/common.TeamsAPI/DelStoryboard"
 	TeamsAPI_ForkStoryboard_FullMethodName       = "/common.TeamsAPI/ForkStoryboard"
 	TeamsAPI_UpdateStoryboard_FullMethodName     = "/common.TeamsAPI/UpdateStoryboard"
+	TeamsAPI_LikeStoryboard_FullMethodName       = "/common.TeamsAPI/LikeStoryboard"
+	TeamsAPI_ShareStoryboard_FullMethodName      = "/common.TeamsAPI/ShareStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -139,12 +142,15 @@ type TeamsAPIClient interface {
 	CreateStory(ctx context.Context, in *CreateStoryRequest, opts ...grpc.CallOption) (*CreateStoryResponse, error)
 	GetStoryInfo(ctx context.Context, in *GetStoryInfoRequest, opts ...grpc.CallOption) (*GetStoryInfoResponse, error)
 	UpdateStory(ctx context.Context, in *UpdateStoryRequest, opts ...grpc.CallOption) (*UpdateStoryResponse, error)
+	WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error)
 	CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error)
 	GetStoryboard(ctx context.Context, in *GetStoryboardRequest, opts ...grpc.CallOption) (*GetStoryboardResponse, error)
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
 	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
 	UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error)
+	LikeStoryboard(ctx context.Context, in *LikeStoryboardRequest, opts ...grpc.CallOption) (*LikeStoryboardResponse, error)
+	ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -641,6 +647,15 @@ func (c *teamsAPIClient) UpdateStory(ctx context.Context, in *UpdateStoryRequest
 	return out, nil
 }
 
+func (c *teamsAPIClient) WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error) {
+	out := new(WatchStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_WatchStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error) {
 	out := new(CreateStoryboardResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryboard_FullMethodName, in, out, opts...)
@@ -689,6 +704,24 @@ func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, in *ForkStoryboardR
 func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error) {
 	out := new(UpdateStoryboardResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, in *LikeStoryboardRequest, opts ...grpc.CallOption) (*LikeStoryboardResponse, error) {
+	out := new(LikeStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_LikeStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error) {
+	out := new(ShareStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_ShareStoryboard_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -753,12 +786,15 @@ type TeamsAPIServer interface {
 	CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error)
 	GetStoryInfo(context.Context, *GetStoryInfoRequest) (*GetStoryInfoResponse, error)
 	UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error)
+	WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error)
 	CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error)
 	GetStoryboard(context.Context, *GetStoryboardRequest) (*GetStoryboardResponse, error)
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
 	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
 	UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error)
+	LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error)
+	ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -928,6 +964,9 @@ func (UnimplementedTeamsAPIServer) GetStoryInfo(context.Context, *GetStoryInfoRe
 func (UnimplementedTeamsAPIServer) UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStory not implemented")
 }
+func (UnimplementedTeamsAPIServer) WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WatchStory not implemented")
+}
 func (UnimplementedTeamsAPIServer) CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryboard not implemented")
 }
@@ -945,6 +984,12 @@ func (UnimplementedTeamsAPIServer) ForkStoryboard(context.Context, *ForkStoryboa
 }
 func (UnimplementedTeamsAPIServer) UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ShareStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -1931,6 +1976,24 @@ func _TeamsAPI_UpdateStory_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_WatchStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WatchStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).WatchStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_WatchStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).WatchStory(ctx, req.(*WatchStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TeamsAPI_CreateStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateStoryboardRequest)
 	if err := dec(in); err != nil {
@@ -2035,6 +2098,42 @@ func _TeamsAPI_UpdateStoryboard_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateStoryboard(ctx, req.(*UpdateStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_LikeStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LikeStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).LikeStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_LikeStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).LikeStoryboard(ctx, req.(*LikeStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_ShareStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShareStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).ShareStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_ShareStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).ShareStoryboard(ctx, req.(*ShareStoryboardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2263,6 +2362,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_UpdateStory_Handler,
 		},
 		{
+			MethodName: "WatchStory",
+			Handler:    _TeamsAPI_WatchStory_Handler,
+		},
+		{
 			MethodName: "CreateStoryboard",
 			Handler:    _TeamsAPI_CreateStoryboard_Handler,
 		},
@@ -2285,6 +2388,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStoryboard",
 			Handler:    _TeamsAPI_UpdateStoryboard_Handler,
+		},
+		{
+			MethodName: "LikeStoryboard",
+			Handler:    _TeamsAPI_LikeStoryboard_Handler,
+		},
+		{
+			MethodName: "ShareStoryboard",
+			Handler:    _TeamsAPI_ShareStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -80,6 +80,12 @@
     - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
     - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
     - [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data)
+    - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
+    - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
+    - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
+    - [ShareStoryboardRequest](#common-ShareStoryboardRequest)
+    - [ShareStoryboardResponse](#common-ShareStoryboardResponse)
+    - [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data)
     - [Story](#common-Story)
     - [StoryBoard](#common-StoryBoard)
     - [StoryBoardParams](#common-StoryBoardParams)
@@ -90,6 +96,9 @@
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
     - [UpdateStoryboardRequest](#common-UpdateStoryboardRequest)
     - [UpdateStoryboardResponse](#common-UpdateStoryboardResponse)
+    - [WatchStoryRequest](#common-WatchStoryRequest)
+    - [WatchStoryResponse](#common-WatchStoryResponse)
+    - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
   
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
@@ -1452,6 +1461,108 @@
 
 
 
+<a name="common-LikeStoryboardRequest"></a>
+
+### LikeStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-LikeStoryboardResponse"></a>
+
+### LikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-LikeStoryboardResponse-Data"></a>
+
+### LikeStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| like_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ShareStoryboardRequest"></a>
+
+### ShareStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ShareStoryboardResponse"></a>
+
+### ShareStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ShareStoryboardResponse-Data"></a>
+
+### ShareStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| share_num | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-Story"></a>
 
 ### Story
@@ -1644,6 +1755,53 @@
 
 ### UpdateStoryboardResponse
 
+
+
+
+
+
+
+<a name="common-WatchStoryRequest"></a>
+
+### WatchStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-WatchStoryResponse"></a>
+
+### WatchStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-WatchStoryResponse-Data"></a>
+
+### WatchStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
 
 
 
@@ -4104,12 +4262,15 @@ user ,group .project.item
 | CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) |  |
 | GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) |  |
 | UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) |  |
+| WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) |  |
 | CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) |  |
 | GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) |  |
 | GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
 | DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
 | ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |
 | UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) |  |
+| LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) |  |
+| ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) |  |
 
  
 

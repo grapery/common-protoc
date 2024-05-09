@@ -203,4 +203,51 @@ message CreateStoryRequest {
   message UpdateStoryboardResponse{
     
   }
+
+  message WatchStoryRequest{
+    int64 story_id = 1;
+    int64 user_id = 2;
+  }
+
+  message WatchStoryResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      int64 story_id = 1;
+    }
+  }
+
+  message LikeStoryboardRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    int64 story_id = 3;
+  }
+
+  message LikeStoryboardResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      int64 story_id = 1;
+      int64 board_id = 2;
+      int64 user_id = 3;
+      int64 like_num = 4;
+    }
+  }
+
+  message ShareStoryboardRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    int64 story_id = 3;
+  }
+
+  message ShareStoryboardResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      int64 story_id = 1;
+      int64 board_id = 2;
+      int64 user_id = 3;
+      int64 share_num = 4;
+    }
+  }
   

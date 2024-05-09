@@ -1112,6 +1112,14 @@ service TeamsAPI {
   }
 
 
+  rpc WatchStory(WatchStoryRequest) returns (WatchStoryResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/watch"
+      body : "*"
+    };
+  }
+
+
   rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/story/storyboard"
@@ -1153,6 +1161,20 @@ service TeamsAPI {
   rpc UpdateStoryboard(UpdateStoryboardRequest) returns (UpdateStoryboardResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/story/storyboard/update"
+      body : "*"
+    };
+  }
+
+  rpc LikeStoryboard(LikeStoryboardRequest) returns (LikeStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/like"
+      body : "*"
+    };
+  }
+
+  rpc ShareStoryboard(ShareStoryboardRequest) returns (ShareStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/share"
       body : "*"
     };
   }
