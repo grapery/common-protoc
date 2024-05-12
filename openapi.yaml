@@ -2856,6 +2856,8 @@ components:
         Story:
             type: object
             properties:
+                id:
+                    type: string
                 groupId:
                     type: string
                 name:

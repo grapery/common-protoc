@@ -6,6 +6,7 @@ import "base.proto";
 
 
 message Story{
+  int64 id = 1;
   int64 group_id = 2;
   string name = 3;
   string avatar = 4;

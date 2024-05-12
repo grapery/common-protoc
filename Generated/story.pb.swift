@@ -25,6 +25,11 @@ public struct Common_Story {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var id: Int64 {
+    get {return _storage._id}
+    set {_uniqueStorage()._id = newValue}
+  }
+
   public var groupID: Int64 {
     get {return _storage._groupID}
     set {_uniqueStorage()._groupID = newValue}
@@ -980,6 +985,7 @@ fileprivate let _protobuf_package = "common"
 extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Story"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
     2: .standard(proto: "group_id"),
     3: .same(proto: "name"),
     4: .same(proto: "avatar"),
@@ -999,6 +1005,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   ]
 
   fileprivate class _StorageClass {
+    var _id: Int64 = 0
     var _groupID: Int64 = 0
     var _name: String = String()
     var _avatar: String = String()
@@ -1029,6 +1036,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     private init() {}
 
     init(copying source: _StorageClass) {
+      _id = source._id
       _groupID = source._groupID
       _name = source._name
       _avatar = source._avatar
@@ -1063,6 +1071,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._id) }()
         case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._groupID) }()
         case 3: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
         case 4: try { try decoder.decodeSingularStringField(value: &_storage._avatar) }()
@@ -1091,6 +1100,9 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       // allocates stack space for every if/case branch local when no optimizations
       // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
       // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._id != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._id, fieldNumber: 1)
+      }
       if _storage._groupID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._groupID, fieldNumber: 2)
       }
@@ -1148,6 +1160,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
         let rhs_storage = _args.1
+        if _storage._id != rhs_storage._id {return false}
         if _storage._groupID != rhs_storage._groupID {return false}
         if _storage._name != rhs_storage._name {return false}
         if _storage._avatar != rhs_storage._avatar {return false}

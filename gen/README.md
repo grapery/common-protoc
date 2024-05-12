@@ -1571,6 +1571,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 | name | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
