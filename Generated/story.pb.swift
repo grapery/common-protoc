@@ -388,6 +388,8 @@ public struct Common_UpdateStoryRequest {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {self._params = nil}
 
+  public var storyID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1735,6 +1737,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     5: .standard(proto: "is_close"),
     6: .standard(proto: "is_ai_gen"),
     7: .same(proto: "params"),
+    8: .standard(proto: "story_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1750,6 +1753,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 5: try { try decoder.decodeSingularBoolField(value: &self.isClose) }()
       case 6: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._params) }()
+      case 8: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       default: break
       }
     }
@@ -1781,6 +1785,9 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try { if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     } }()
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1792,6 +1799,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.isClose != rhs.isClose {return false}
     if lhs.isAiGen != rhs.isAiGen {return false}
     if lhs._params != rhs._params {return false}
+    if lhs.storyID != rhs.storyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

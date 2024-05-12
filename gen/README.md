@@ -1695,6 +1695,7 @@
 | is_close | [bool](#bool) |  |  |
 | is_ai_gen | [bool](#bool) |  |  |
 | params | [StoryParams](#common-StoryParams) |  |  |
+| story_id | [int64](#int64) |  |  |
 
 
 

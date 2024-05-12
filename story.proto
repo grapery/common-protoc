@@ -99,6 +99,7 @@ message CreateStoryRequest {
     bool is_close = 5;
     bool is_ai_gen = 6;
     StoryParams params = 7;
+    int64 story_id = 8;
   }
   
   message UpdateStoryResponse {

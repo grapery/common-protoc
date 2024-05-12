@@ -3143,6 +3143,8 @@ components:
                     type: boolean
                 params:
                     $ref: '#/components/schemas/StoryParams'
+                storyId:
+                    type: string
         UpdateStoryResponse:
             type: object
             properties:
