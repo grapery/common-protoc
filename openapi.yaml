@@ -2906,6 +2906,8 @@ components:
                     type: string
                 creator:
                     type: string
+                storyBoardId:
+                    type: string
                 isAiGen:
                     type: boolean
                 params:

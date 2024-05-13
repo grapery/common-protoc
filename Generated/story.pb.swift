@@ -154,6 +154,8 @@ public struct Common_StoryBoard {
 
   public var creator: Int64 = 0
 
+  public var storyBoardID: Int64 = 0
+
   public var isAiGen: Bool = false
 
   public var params: Common_StoryBoardParams {
@@ -1244,6 +1246,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     3: .standard(proto: "prev_board_id"),
     4: .standard(proto: "next_board_id"),
     5: .same(proto: "creator"),
+    6: .standard(proto: "story_board_id"),
     11: .standard(proto: "is_ai_gen"),
     12: .same(proto: "params"),
     19: .same(proto: "Ctime"),
@@ -1261,6 +1264,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.nextBoardID) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.creator) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyBoardID) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
       case 12: try { try decoder.decodeSingularMessageField(value: &self._params) }()
       case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
@@ -1290,6 +1294,9 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if self.creator != 0 {
       try visitor.visitSingularInt64Field(value: self.creator, fieldNumber: 5)
     }
+    if self.storyBoardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyBoardID, fieldNumber: 6)
+    }
     if self.isAiGen != false {
       try visitor.visitSingularBoolField(value: self.isAiGen, fieldNumber: 11)
     }
@@ -1311,6 +1318,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if lhs.prevBoardID != rhs.prevBoardID {return false}
     if lhs.nextBoardID != rhs.nextBoardID {return false}
     if lhs.creator != rhs.creator {return false}
+    if lhs.storyBoardID != rhs.storyBoardID {return false}
     if lhs.isAiGen != rhs.isAiGen {return false}
     if lhs._params != rhs._params {return false}
     if lhs.ctime != rhs.ctime {return false}

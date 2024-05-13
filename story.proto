@@ -38,6 +38,7 @@ message StoryBoard{
     int64 prev_board_id = 3;
     int64 next_board_id = 4;
     int64 creator = 5;
+    int64 story_board_id = 6;
     bool is_ai_gen = 11;
     StoryBoardParams params = 12;
     int64 Ctime = 19;

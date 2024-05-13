@@ -1607,6 +1607,7 @@
 | prev_board_id | [int64](#int64) |  |  |
 | next_board_id | [int64](#int64) |  |  |
 | creator | [int64](#int64) |  |  |
+| story_board_id | [int64](#int64) |  |  |
 | is_ai_gen | [bool](#bool) |  |  |
 | params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
 | Ctime | [int64](#int64) |  |  |
