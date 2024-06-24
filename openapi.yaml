@@ -1922,12 +1922,14 @@ components:
         ForkStoryboardRequest:
             type: object
             properties:
-                boardId:
+                prevBoardId:
                     type: string
                 storyId:
                     type: string
                 userId:
                     type: string
+                board:
+                    $ref: '#/components/schemas/StoryBoard'
         ForkStoryboardResponse:
             type: object
             properties:
@@ -3178,7 +3180,12 @@ components:
                     $ref: '#/components/schemas/StoryBoardParams'
         UpdateStoryboardResponse:
             type: object
-            properties: {}
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UpdateUserAvatorRequest:
             type: object
             properties:

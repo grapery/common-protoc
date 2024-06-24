@@ -3,10 +3,6 @@
 
 ## Table of Contents
 
-- [agents.proto](#agents-proto)
-    - [Agent](#common-Agent)
-    - [AgentConfig](#common-AgentConfig)
-  
 - [base.proto](#base-proto)
     - [Tags](#common-Tags)
   
@@ -254,55 +250,6 @@
     - [TeamsAPI](#common-TeamsAPI)
   
 - [Scalar Value Types](#scalar-value-types)
-
-
-
-<a name="agents-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## agents.proto
-
-
-
-<a name="common-Agent"></a>
-
-### Agent
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| agent_id | [string](#string) |  |  |
-| agent_name | [string](#string) |  |  |
-| agent_avatar | [string](#string) |  |  |
-| agent_desc | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-AgentConfig"></a>
-
-### AgentConfig
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| role_id | [string](#string) |  |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
 
 
 
@@ -1270,9 +1217,10 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_id | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
+| board | [StoryBoard](#common-StoryBoard) |  |  |
 
 
 
@@ -1758,6 +1706,12 @@
 
 ### UpdateStoryboardResponse
 
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
