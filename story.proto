@@ -180,9 +180,10 @@ message CreateStoryRequest {
   }
   
   message ForkStoryboardRequest{
-    int64 board_id = 1;
+    int64 prev_board_id = 1;
     int64 story_id = 2;
     int64 user_id = 3;
+    StoryBoard board = 4;
   }
   
   message ForkStoryboardResponse{
@@ -204,7 +205,8 @@ message CreateStoryRequest {
   }
   
   message UpdateStoryboardResponse{
-    
+    int32 code = 1;
+    string message = 2;
   }
 
   message WatchStoryRequest{
