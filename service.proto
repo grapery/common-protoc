@@ -1103,6 +1103,13 @@ service TeamsAPI {
     };
   }
 
+  rpc RenderStory(RenderStoryRequest) returns (RenderStoryResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/render"
+      body : "*"
+    };
+  }
+
 
   rpc UpdateStory(UpdateStoryRequest) returns (UpdateStoryResponse) {
     option (google.api.http) = {
@@ -1130,6 +1137,27 @@ service TeamsAPI {
   rpc GetStoryboard(GetStoryboardRequest) returns (GetStoryboardResponse) {
     option (google.api.http) = {
       post : "/api/v1/group/story/storyboard/info"
+      body : "*"
+    };
+  }
+
+  rpc RenderStoryboard(RenderStoryboardRequest) returns (RenderStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/render"
+      body : "*"
+    };
+  }
+
+  rpc GenStoryboardText(GenStoryboardTextRequest) returns (GenStoryboardTextResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/gen/text"
+      body : "*"
+    };
+  }
+
+  rpc GenStoryboardImages(GenStoryboardImagesRequest) returns (GenStoryboardImagesResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/group/story/storyboard/gen/images"
       body : "*"
     };
   }

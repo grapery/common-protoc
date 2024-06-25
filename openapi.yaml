@@ -834,6 +834,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/story/render:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_RenderStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/group/story/storyboard:
         post:
             tags:
@@ -906,6 +930,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/gen/images:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GenStoryboardImages
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenStoryboardImagesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenStoryboardImagesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/gen/text:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GenStoryboardText
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenStoryboardTextRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenStoryboardTextResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /api/v1/group/story/storyboard/info:
         post:
             tags:
@@ -972,6 +1044,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/group/story/storyboard/render:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_RenderStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryboardResponse'
                 default:
                     description: Default error response
                     content:
@@ -1951,6 +2047,44 @@ components:
                     type: string
                 prevBoardId:
                     type: string
+        GenStoryboardImagesRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                isRegenerate:
+                    type: boolean
+        GenStoryboardImagesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        GenStoryboardTextRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                isRegenerate:
+                    type: boolean
+        GenStoryboardTextResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         GetGroupActivesRequest:
             type: object
             properties:
@@ -2694,6 +2828,40 @@ components:
                     type: integer
                     format: int32
                 msg:
+                    type: string
+        RenderStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                isRegenerate:
+                    type: boolean
+        RenderStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        RenderStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                isRegenerate:
+                    type: boolean
+        RenderStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
                     type: string
         ResetPasswordRequest:
             type: object

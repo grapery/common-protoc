@@ -67,6 +67,12 @@
     - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
     - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
     - [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data)
+    - [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest)
+    - [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse)
+    - [GenStoryboardImagesResponse.Data](#common-GenStoryboardImagesResponse-Data)
+    - [GenStoryboardTextRequest](#common-GenStoryboardTextRequest)
+    - [GenStoryboardTextResponse](#common-GenStoryboardTextResponse)
+    - [GenStoryboardTextResponse.Data](#common-GenStoryboardTextResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
     - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
@@ -79,6 +85,12 @@
     - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
     - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
     - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
+    - [RenderStoryRequest](#common-RenderStoryRequest)
+    - [RenderStoryResponse](#common-RenderStoryResponse)
+    - [RenderStoryResponse.Data](#common-RenderStoryResponse-Data)
+    - [RenderStoryboardRequest](#common-RenderStoryboardRequest)
+    - [RenderStoryboardResponse](#common-RenderStoryboardResponse)
+    - [RenderStoryboardResponse.Data](#common-RenderStoryboardResponse-Data)
     - [ShareStoryboardRequest](#common-ShareStoryboardRequest)
     - [ShareStoryboardResponse](#common-ShareStoryboardResponse)
     - [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data)
@@ -1262,6 +1274,107 @@
 
 
 
+<a name="common-GenStoryboardImagesRequest"></a>
+
+### GenStoryboardImagesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-GenStoryboardImagesResponse"></a>
+
+### GenStoryboardImagesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenStoryboardImagesResponse-Data"></a>
+
+### GenStoryboardImagesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| urls | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="common-GenStoryboardTextRequest"></a>
+
+### GenStoryboardTextRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-GenStoryboardTextResponse"></a>
+
+### GenStoryboardTextResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenStoryboardTextResponse-Data"></a>
+
+### GenStoryboardTextResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="common-GetStoryInfoRequest"></a>
 
 ### GetStoryInfoRequest
@@ -1454,6 +1567,104 @@
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | like_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRequest"></a>
+
+### RenderStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryResponse"></a>
+
+### RenderStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryResponse-Data"></a>
+
+### RenderStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| urls | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="common-RenderStoryboardRequest"></a>
+
+### RenderStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryboardResponse"></a>
+
+### RenderStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryboardResponse-Data"></a>
+
+### RenderStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
 
 
 
@@ -4218,10 +4429,14 @@ user ,group .project.item
 | GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) |  |
 | CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) |  |
 | GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) |  |
+| RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) |  |
 | UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) |  |
 | WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) |  |
 | CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) |  |
 | GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) |  |
+| RenderStoryboard | [RenderStoryboardRequest](#common-RenderStoryboardRequest) | [RenderStoryboardResponse](#common-RenderStoryboardResponse) |  |
+| GenStoryboardText | [GenStoryboardTextRequest](#common-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#common-GenStoryboardTextResponse) |  |
+| GenStoryboardImages | [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse) |  |
 | GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
 | DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
 | ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |

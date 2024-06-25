@@ -328,6 +328,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryInfoResponse>
 
     @discardableResult
+    func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryResponse>
+
+    @discardableResult
     func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
@@ -350,6 +356,24 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardResponse>
+
+    @discardableResult
+    func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryboardResponse>
+
+    @discardableResult
+    func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenStoryboardTextResponse>
+
+    @discardableResult
+    func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenStoryboardImagesResponse>
 
     @discardableResult
     func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable
@@ -927,6 +951,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -964,6 +998,36 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryboardResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenStoryboardTextResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenStoryboardImagesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -1081,10 +1145,14 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getItemComment = Connect.MethodSpec(name: "GetItemComment", service: "common.TeamsAPI", type: .unary)
             public static let createStory = Connect.MethodSpec(name: "CreateStory", service: "common.TeamsAPI", type: .unary)
             public static let getStoryInfo = Connect.MethodSpec(name: "GetStoryInfo", service: "common.TeamsAPI", type: .unary)
+            public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "common.TeamsAPI", type: .unary)
             public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "common.TeamsAPI", type: .unary)
             public static let watchStory = Connect.MethodSpec(name: "WatchStory", service: "common.TeamsAPI", type: .unary)
             public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let renderStoryboard = Connect.MethodSpec(name: "RenderStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let genStoryboardText = Connect.MethodSpec(name: "GenStoryboardText", service: "common.TeamsAPI", type: .unary)
+            public static let genStoryboardImages = Connect.MethodSpec(name: "GenStoryboardImages", service: "common.TeamsAPI", type: .unary)
             public static let getStoryboards = Connect.MethodSpec(name: "GetStoryboards", service: "common.TeamsAPI", type: .unary)
             public static let delStoryboard = Connect.MethodSpec(name: "DelStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let forkStoryboard = Connect.MethodSpec(name: "ForkStoryboard", service: "common.TeamsAPI", type: .unary)

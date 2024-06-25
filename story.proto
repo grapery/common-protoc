@@ -255,4 +255,69 @@ message CreateStoryRequest {
       int64 share_num = 4;
     }
   }
+
+  message RenderStoryRequest{
+    int64 story_id = 1;
+    int64 user_id = 2;
+    bool is_regenerate = 4;
+  }
+
+  message RenderStoryResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      string text = 1;
+      int32 status = 2;
+      repeated string urls = 3;
+    }
+  }
+
+  message RenderStoryboardRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    bool is_regenerate = 4;
+  }
+
+  message RenderStoryboardResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      string text = 1;
+    }
+  }
+
+  message GenStoryboardTextRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    int64 story_id = 3;
+    bool is_regenerate = 4;
+  }
+
+  message GenStoryboardTextResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      string text = 1;
+      int32 status = 2;
+    }
+  }
+
+  message GenStoryboardImagesRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    int64 story_id = 3;
+    bool is_regenerate = 4;
+  }
+
+  message GenStoryboardImagesResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      string text = 1;
+      int32 status = 2;
+      repeated string urls = 3;
+    }
+  }
+
+
   

@@ -72,10 +72,14 @@ const (
 	TeamsAPI_GetItemComment_FullMethodName       = "/common.TeamsAPI/GetItemComment"
 	TeamsAPI_CreateStory_FullMethodName          = "/common.TeamsAPI/CreateStory"
 	TeamsAPI_GetStoryInfo_FullMethodName         = "/common.TeamsAPI/GetStoryInfo"
+	TeamsAPI_RenderStory_FullMethodName          = "/common.TeamsAPI/RenderStory"
 	TeamsAPI_UpdateStory_FullMethodName          = "/common.TeamsAPI/UpdateStory"
 	TeamsAPI_WatchStory_FullMethodName           = "/common.TeamsAPI/WatchStory"
 	TeamsAPI_CreateStoryboard_FullMethodName     = "/common.TeamsAPI/CreateStoryboard"
 	TeamsAPI_GetStoryboard_FullMethodName        = "/common.TeamsAPI/GetStoryboard"
+	TeamsAPI_RenderStoryboard_FullMethodName     = "/common.TeamsAPI/RenderStoryboard"
+	TeamsAPI_GenStoryboardText_FullMethodName    = "/common.TeamsAPI/GenStoryboardText"
+	TeamsAPI_GenStoryboardImages_FullMethodName  = "/common.TeamsAPI/GenStoryboardImages"
 	TeamsAPI_GetStoryboards_FullMethodName       = "/common.TeamsAPI/GetStoryboards"
 	TeamsAPI_DelStoryboard_FullMethodName        = "/common.TeamsAPI/DelStoryboard"
 	TeamsAPI_ForkStoryboard_FullMethodName       = "/common.TeamsAPI/ForkStoryboard"
@@ -141,10 +145,14 @@ type TeamsAPIClient interface {
 	GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error)
 	CreateStory(ctx context.Context, in *CreateStoryRequest, opts ...grpc.CallOption) (*CreateStoryResponse, error)
 	GetStoryInfo(ctx context.Context, in *GetStoryInfoRequest, opts ...grpc.CallOption) (*GetStoryInfoResponse, error)
+	RenderStory(ctx context.Context, in *RenderStoryRequest, opts ...grpc.CallOption) (*RenderStoryResponse, error)
 	UpdateStory(ctx context.Context, in *UpdateStoryRequest, opts ...grpc.CallOption) (*UpdateStoryResponse, error)
 	WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error)
 	CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error)
 	GetStoryboard(ctx context.Context, in *GetStoryboardRequest, opts ...grpc.CallOption) (*GetStoryboardResponse, error)
+	RenderStoryboard(ctx context.Context, in *RenderStoryboardRequest, opts ...grpc.CallOption) (*RenderStoryboardResponse, error)
+	GenStoryboardText(ctx context.Context, in *GenStoryboardTextRequest, opts ...grpc.CallOption) (*GenStoryboardTextResponse, error)
+	GenStoryboardImages(ctx context.Context, in *GenStoryboardImagesRequest, opts ...grpc.CallOption) (*GenStoryboardImagesResponse, error)
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
 	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
@@ -638,6 +646,15 @@ func (c *teamsAPIClient) GetStoryInfo(ctx context.Context, in *GetStoryInfoReque
 	return out, nil
 }
 
+func (c *teamsAPIClient) RenderStory(ctx context.Context, in *RenderStoryRequest, opts ...grpc.CallOption) (*RenderStoryResponse, error) {
+	out := new(RenderStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RenderStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *teamsAPIClient) UpdateStory(ctx context.Context, in *UpdateStoryRequest, opts ...grpc.CallOption) (*UpdateStoryResponse, error) {
 	out := new(UpdateStoryResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStory_FullMethodName, in, out, opts...)
@@ -668,6 +685,33 @@ func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, in *CreateStorybo
 func (c *teamsAPIClient) GetStoryboard(ctx context.Context, in *GetStoryboardRequest, opts ...grpc.CallOption) (*GetStoryboardResponse, error) {
 	out := new(GetStoryboardResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RenderStoryboard(ctx context.Context, in *RenderStoryboardRequest, opts ...grpc.CallOption) (*RenderStoryboardResponse, error) {
+	out := new(RenderStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RenderStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GenStoryboardText(ctx context.Context, in *GenStoryboardTextRequest, opts ...grpc.CallOption) (*GenStoryboardTextResponse, error) {
+	out := new(GenStoryboardTextResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenStoryboardText_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GenStoryboardImages(ctx context.Context, in *GenStoryboardImagesRequest, opts ...grpc.CallOption) (*GenStoryboardImagesResponse, error) {
+	out := new(GenStoryboardImagesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenStoryboardImages_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -785,10 +829,14 @@ type TeamsAPIServer interface {
 	GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error)
 	CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error)
 	GetStoryInfo(context.Context, *GetStoryInfoRequest) (*GetStoryInfoResponse, error)
+	RenderStory(context.Context, *RenderStoryRequest) (*RenderStoryResponse, error)
 	UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error)
 	WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error)
 	CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error)
 	GetStoryboard(context.Context, *GetStoryboardRequest) (*GetStoryboardResponse, error)
+	RenderStoryboard(context.Context, *RenderStoryboardRequest) (*RenderStoryboardResponse, error)
+	GenStoryboardText(context.Context, *GenStoryboardTextRequest) (*GenStoryboardTextResponse, error)
+	GenStoryboardImages(context.Context, *GenStoryboardImagesRequest) (*GenStoryboardImagesResponse, error)
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
 	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
@@ -961,6 +1009,9 @@ func (UnimplementedTeamsAPIServer) CreateStory(context.Context, *CreateStoryRequ
 func (UnimplementedTeamsAPIServer) GetStoryInfo(context.Context, *GetStoryInfoRequest) (*GetStoryInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryInfo not implemented")
 }
+func (UnimplementedTeamsAPIServer) RenderStory(context.Context, *RenderStoryRequest) (*RenderStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenderStory not implemented")
+}
 func (UnimplementedTeamsAPIServer) UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStory not implemented")
 }
@@ -972,6 +1023,15 @@ func (UnimplementedTeamsAPIServer) CreateStoryboard(context.Context, *CreateStor
 }
 func (UnimplementedTeamsAPIServer) GetStoryboard(context.Context, *GetStoryboardRequest) (*GetStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) RenderStoryboard(context.Context, *RenderStoryboardRequest) (*RenderStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenStoryboardText(context.Context, *GenStoryboardTextRequest) (*GenStoryboardTextResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenStoryboardText not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenStoryboardImages(context.Context, *GenStoryboardImagesRequest) (*GenStoryboardImagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenStoryboardImages not implemented")
 }
 func (UnimplementedTeamsAPIServer) GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryboards not implemented")
@@ -1958,6 +2018,24 @@ func _TeamsAPI_GetStoryInfo_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_RenderStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RenderStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RenderStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RenderStory(ctx, req.(*RenderStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TeamsAPI_UpdateStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateStoryRequest)
 	if err := dec(in); err != nil {
@@ -2026,6 +2104,60 @@ func _TeamsAPI_GetStoryboard_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetStoryboard(ctx, req.(*GetStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RenderStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RenderStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RenderStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RenderStoryboard(ctx, req.(*RenderStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GenStoryboardText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenStoryboardTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenStoryboardText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenStoryboardText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenStoryboardText(ctx, req.(*GenStoryboardTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GenStoryboardImages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenStoryboardImagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenStoryboardImages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenStoryboardImages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenStoryboardImages(ctx, req.(*GenStoryboardImagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2358,6 +2490,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_GetStoryInfo_Handler,
 		},
 		{
+			MethodName: "RenderStory",
+			Handler:    _TeamsAPI_RenderStory_Handler,
+		},
+		{
 			MethodName: "UpdateStory",
 			Handler:    _TeamsAPI_UpdateStory_Handler,
 		},
@@ -2372,6 +2508,18 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryboard",
 			Handler:    _TeamsAPI_GetStoryboard_Handler,
+		},
+		{
+			MethodName: "RenderStoryboard",
+			Handler:    _TeamsAPI_RenderStoryboard_Handler,
+		},
+		{
+			MethodName: "GenStoryboardText",
+			Handler:    _TeamsAPI_GenStoryboardText_Handler,
+		},
+		{
+			MethodName: "GenStoryboardImages",
+			Handler:    _TeamsAPI_GenStoryboardImages_Handler,
 		},
 		{
 			MethodName: "GetStoryboards",
