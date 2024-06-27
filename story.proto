@@ -73,9 +73,9 @@ message CreateStoryRequest {
     string name = 1;
     string title = 2;
     string short_desc = 3;
-    string creator_id = 4;
-    string owner_id = 5;
-    string group_id = 6;
+    int64 creator_id = 4;
+    int64 owner_id = 5;
+    int64 group_id = 6;
     string origin = 7;
     int32 status = 8;
     bool is_achieve = 9;

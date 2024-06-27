@@ -1093,9 +1093,9 @@
 | name | [string](#string) |  |  |
 | title | [string](#string) |  |  |
 | short_desc | [string](#string) |  |  |
-| creator_id | [string](#string) |  |  |
-| owner_id | [string](#string) |  |  |
-| group_id | [string](#string) |  |  |
+| creator_id | [int64](#int64) |  |  |
+| owner_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
 | origin | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
 | is_achieve | [bool](#bool) |  |  |

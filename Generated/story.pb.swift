@@ -298,11 +298,11 @@ public struct Common_CreateStoryRequest {
 
   public var shortDesc: String = String()
 
-  public var creatorID: String = String()
+  public var creatorID: Int64 = 0
 
-  public var ownerID: String = String()
+  public var ownerID: Int64 = 0
 
-  public var groupID: String = String()
+  public var groupID: Int64 = 0
 
   public var origin: String = String()
 
@@ -1795,9 +1795,9 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.title) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.shortDesc) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.creatorID) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.ownerID) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.groupID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.ownerID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       case 7: try { try decoder.decodeSingularStringField(value: &self.origin) }()
       case 8: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
       case 9: try { try decoder.decodeSingularBoolField(value: &self.isAchieve) }()
@@ -1823,14 +1823,14 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if !self.shortDesc.isEmpty {
       try visitor.visitSingularStringField(value: self.shortDesc, fieldNumber: 3)
     }
-    if !self.creatorID.isEmpty {
-      try visitor.visitSingularStringField(value: self.creatorID, fieldNumber: 4)
+    if self.creatorID != 0 {
+      try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 4)
     }
-    if !self.ownerID.isEmpty {
-      try visitor.visitSingularStringField(value: self.ownerID, fieldNumber: 5)
+    if self.ownerID != 0 {
+      try visitor.visitSingularInt64Field(value: self.ownerID, fieldNumber: 5)
     }
-    if !self.groupID.isEmpty {
-      try visitor.visitSingularStringField(value: self.groupID, fieldNumber: 6)
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 6)
     }
     if !self.origin.isEmpty {
       try visitor.visitSingularStringField(value: self.origin, fieldNumber: 7)
