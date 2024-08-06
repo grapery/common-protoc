@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_GroupType: SwiftProtobuf.Enum {
+public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case `public` // = 0
   case `private` // = 1
@@ -46,21 +46,15 @@ public enum Common_GroupType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_GroupType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_GroupType] = [
     .public,
     .private,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public struct Common_ActiveInfo {
+public struct Common_ActiveInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -123,7 +117,7 @@ public struct Common_ActiveInfo {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_LoginRequest {
+public struct Common_LoginRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -139,7 +133,7 @@ public struct Common_LoginRequest {
   public init() {}
 }
 
-public struct Common_LoginResponse {
+public struct Common_LoginResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -161,7 +155,7 @@ public struct Common_LoginResponse {
   public init() {}
 }
 
-public struct Common_LogoutRequest {
+public struct Common_LogoutRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -175,7 +169,7 @@ public struct Common_LogoutRequest {
   public init() {}
 }
 
-public struct Common_LogoutResponse {
+public struct Common_LogoutResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -189,7 +183,7 @@ public struct Common_LogoutResponse {
   public init() {}
 }
 
-public struct Common_RegisterRequest {
+public struct Common_RegisterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -209,7 +203,7 @@ public struct Common_RegisterRequest {
   public init() {}
 }
 
-public struct Common_RegisterResponse {
+public struct Common_RegisterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -223,7 +217,7 @@ public struct Common_RegisterResponse {
   public init() {}
 }
 
-public struct Common_ConfirmRequest {
+public struct Common_ConfirmRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -235,7 +229,7 @@ public struct Common_ConfirmRequest {
   public init() {}
 }
 
-public struct Common_ConfirmResponse {
+public struct Common_ConfirmResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -249,7 +243,7 @@ public struct Common_ConfirmResponse {
   public init() {}
 }
 
-public struct Common_ResetPasswordRequest {
+public struct Common_ResetPasswordRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -265,7 +259,7 @@ public struct Common_ResetPasswordRequest {
   public init() {}
 }
 
-public struct Common_ResetPasswordResponse {
+public struct Common_ResetPasswordResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -282,7 +276,7 @@ public struct Common_ResetPasswordResponse {
 }
 
 /// user ,group .project.item
-public struct Common_UserInfoRequest {
+public struct Common_UserInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -296,7 +290,7 @@ public struct Common_UserInfoRequest {
   public init() {}
 }
 
-public struct Common_UserInfoResponse {
+public struct Common_UserInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -317,7 +311,7 @@ public struct Common_UserInfoResponse {
   fileprivate var _info: Common_UserInfo? = nil
 }
 
-public struct Common_UpdateUserAvatorRequest {
+public struct Common_UpdateUserAvatorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -331,7 +325,7 @@ public struct Common_UpdateUserAvatorRequest {
   public init() {}
 }
 
-public struct Common_UpdateUserAvatorResponse {
+public struct Common_UpdateUserAvatorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -354,7 +348,7 @@ public struct Common_UpdateUserAvatorResponse {
   fileprivate var _info: Common_UserInfo? = nil
 }
 
-public struct Common_UserWatchingRequest {
+public struct Common_UserWatchingRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -372,7 +366,7 @@ public struct Common_UserWatchingRequest {
   public init() {}
 }
 
-public struct Common_UserWatchingResponse {
+public struct Common_UserWatchingResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -388,7 +382,7 @@ public struct Common_UserWatchingResponse {
   public init() {}
 }
 
-public struct Common_UserGroupRequest {
+public struct Common_UserGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -406,7 +400,7 @@ public struct Common_UserGroupRequest {
   public init() {}
 }
 
-public struct Common_UserGroupResponse {
+public struct Common_UserGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -422,7 +416,7 @@ public struct Common_UserGroupResponse {
   public init() {}
 }
 
-public struct Common_UserFollowingGroupRequest {
+public struct Common_UserFollowingGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -438,7 +432,7 @@ public struct Common_UserFollowingGroupRequest {
   public init() {}
 }
 
-public struct Common_UserFollowingGroupResponse {
+public struct Common_UserFollowingGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -456,7 +450,7 @@ public struct Common_UserFollowingGroupResponse {
   public init() {}
 }
 
-public struct Common_UserUpdateRequest {
+public struct Common_UserUpdateRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -476,7 +470,7 @@ public struct Common_UserUpdateRequest {
   public init() {}
 }
 
-public struct Common_UserUpdateResponse {
+public struct Common_UserUpdateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -496,7 +490,7 @@ public struct Common_UserUpdateResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -511,7 +505,7 @@ public struct Common_UserUpdateResponse {
   fileprivate var _data: Common_UserUpdateResponse.DataMessage? = nil
 }
 
-public struct Common_FetchUserActivesRequest {
+public struct Common_FetchUserActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -525,7 +519,7 @@ public struct Common_FetchUserActivesRequest {
   public init() {}
 }
 
-public struct Common_FetchUserActivesResponse {
+public struct Common_FetchUserActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -543,7 +537,7 @@ public struct Common_FetchUserActivesResponse {
   public init() {}
 }
 
-public struct Common_SearchUserRequest {
+public struct Common_SearchUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -563,7 +557,7 @@ public struct Common_SearchUserRequest {
   public init() {}
 }
 
-public struct Common_SearchUserResponse {
+public struct Common_SearchUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -579,7 +573,7 @@ public struct Common_SearchUserResponse {
   public init() {}
 }
 
-public struct Common_UserInitRequest {
+public struct Common_UserInitRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -593,7 +587,7 @@ public struct Common_UserInitRequest {
   public init() {}
 }
 
-public struct Common_UserInitResponse {
+public struct Common_UserInitResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -607,7 +601,7 @@ public struct Common_UserInitResponse {
   public init() {}
 }
 
-public struct Common_GetProjectRequest {
+public struct Common_GetProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -623,7 +617,7 @@ public struct Common_GetProjectRequest {
   public init() {}
 }
 
-public struct Common_GetProjectResponse {
+public struct Common_GetProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -644,7 +638,7 @@ public struct Common_GetProjectResponse {
   fileprivate var _info: Common_ProjectInfo? = nil
 }
 
-public struct Common_GetProjectListRequest {
+public struct Common_GetProjectListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -662,7 +656,7 @@ public struct Common_GetProjectListRequest {
   public init() {}
 }
 
-public struct Common_GetProjectListResponse {
+public struct Common_GetProjectListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -678,7 +672,7 @@ public struct Common_GetProjectListResponse {
   public init() {}
 }
 
-public struct Common_CreateProjectRequest {
+public struct Common_CreateProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -692,7 +686,7 @@ public struct Common_CreateProjectRequest {
   public init() {}
 }
 
-public struct Common_CreateProjectResponse {
+public struct Common_CreateProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -713,7 +707,7 @@ public struct Common_CreateProjectResponse {
   fileprivate var _info: Common_ProjectInfo? = nil
 }
 
-public struct Common_UpdateProjectRequest {
+public struct Common_UpdateProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -740,7 +734,7 @@ public struct Common_UpdateProjectRequest {
   fileprivate var _info: Common_ProjectInfo? = nil
 }
 
-public struct Common_UpdateProjectResponse {
+public struct Common_UpdateProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -761,7 +755,7 @@ public struct Common_UpdateProjectResponse {
   fileprivate var _info: Common_ProjectInfo? = nil
 }
 
-public struct Common_DeleteProjectRequest {
+public struct Common_DeleteProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -777,7 +771,7 @@ public struct Common_DeleteProjectRequest {
   public init() {}
 }
 
-public struct Common_DeleteProjectResponse {
+public struct Common_DeleteProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -797,7 +791,7 @@ public struct Common_DeleteProjectResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -812,7 +806,7 @@ public struct Common_DeleteProjectResponse {
   fileprivate var _data: Common_DeleteProjectResponse.DataMessage? = nil
 }
 
-public struct Common_GetWatchingProjectRequest {
+public struct Common_GetWatchingProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -828,7 +822,7 @@ public struct Common_GetWatchingProjectRequest {
   public init() {}
 }
 
-public struct Common_GetWatchingProjectResponse {
+public struct Common_GetWatchingProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -846,7 +840,7 @@ public struct Common_GetWatchingProjectResponse {
   public init() {}
 }
 
-public struct Common_WatchProjectReqeust {
+public struct Common_WatchProjectReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -862,7 +856,7 @@ public struct Common_WatchProjectReqeust {
   public init() {}
 }
 
-public struct Common_WatchProjectResponse {
+public struct Common_WatchProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -882,7 +876,7 @@ public struct Common_WatchProjectResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -897,7 +891,7 @@ public struct Common_WatchProjectResponse {
   fileprivate var _data: Common_WatchProjectResponse.DataMessage? = nil
 }
 
-public struct Common_UnWatchProjectReqeust {
+public struct Common_UnWatchProjectReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -913,7 +907,7 @@ public struct Common_UnWatchProjectReqeust {
   public init() {}
 }
 
-public struct Common_UnWatchProjectResponse {
+public struct Common_UnWatchProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -933,7 +927,7 @@ public struct Common_UnWatchProjectResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -948,7 +942,7 @@ public struct Common_UnWatchProjectResponse {
   fileprivate var _data: Common_UnWatchProjectResponse.DataMessage? = nil
 }
 
-public struct Common_ExploreProjectsRequest {
+public struct Common_ExploreProjectsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -966,7 +960,7 @@ public struct Common_ExploreProjectsRequest {
   public init() {}
 }
 
-public struct Common_ExploreProjectsResponse {
+public struct Common_ExploreProjectsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -984,7 +978,7 @@ public struct Common_ExploreProjectsResponse {
   public init() {}
 }
 
-public struct Common_SearchProjectRequest {
+public struct Common_SearchProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1002,7 +996,7 @@ public struct Common_SearchProjectRequest {
   public init() {}
 }
 
-public struct Common_SearchProjectResponse {
+public struct Common_SearchProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1020,7 +1014,7 @@ public struct Common_SearchProjectResponse {
   public init() {}
 }
 
-public struct Common_SearchAllProjectRequest {
+public struct Common_SearchAllProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1038,7 +1032,7 @@ public struct Common_SearchAllProjectRequest {
   public init() {}
 }
 
-public struct Common_SearchAllProjectResponse {
+public struct Common_SearchAllProjectResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1056,7 +1050,7 @@ public struct Common_SearchAllProjectResponse {
   public init() {}
 }
 
-public struct Common_GetProjectProfileRequest {
+public struct Common_GetProjectProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1072,7 +1066,7 @@ public struct Common_GetProjectProfileRequest {
   public init() {}
 }
 
-public struct Common_GetProjectProfileResponse {
+public struct Common_GetProjectProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1099,7 +1093,7 @@ public struct Common_GetProjectProfileResponse {
   fileprivate var _info: Common_ProjectProfileInfo? = nil
 }
 
-public struct Common_UpdateProjectProfileRequest {
+public struct Common_UpdateProjectProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1126,7 +1120,7 @@ public struct Common_UpdateProjectProfileRequest {
   fileprivate var _info: Common_ProjectProfileInfo? = nil
 }
 
-public struct Common_UpdateProjectProfileResponse {
+public struct Common_UpdateProjectProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1146,7 +1140,7 @@ public struct Common_UpdateProjectProfileResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1161,7 +1155,7 @@ public struct Common_UpdateProjectProfileResponse {
   fileprivate var _data: Common_UpdateProjectProfileResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectItemsRequest {
+public struct Common_GetProjectItemsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1181,7 +1175,7 @@ public struct Common_GetProjectItemsRequest {
   public init() {}
 }
 
-public struct Common_GetProjectItemsResponse {
+public struct Common_GetProjectItemsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1203,7 +1197,7 @@ public struct Common_GetProjectItemsResponse {
   public init() {}
 }
 
-public struct Common_GetGroupItemsRequest {
+public struct Common_GetGroupItemsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1221,7 +1215,7 @@ public struct Common_GetGroupItemsRequest {
   public init() {}
 }
 
-public struct Common_GetGroupItemsResponse {
+public struct Common_GetGroupItemsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1241,7 +1235,7 @@ public struct Common_GetGroupItemsResponse {
   public init() {}
 }
 
-public struct Common_GetUserItemsRequest {
+public struct Common_GetUserItemsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1257,7 +1251,7 @@ public struct Common_GetUserItemsRequest {
   public init() {}
 }
 
-public struct Common_GetUserItemsResponse {
+public struct Common_GetUserItemsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1275,7 +1269,7 @@ public struct Common_GetUserItemsResponse {
   public init() {}
 }
 
-public struct Common_GetItemRequest {
+public struct Common_GetItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1293,7 +1287,7 @@ public struct Common_GetItemRequest {
   public init() {}
 }
 
-public struct Common_GetItemResponse {
+public struct Common_GetItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1314,7 +1308,7 @@ public struct Common_GetItemResponse {
   fileprivate var _info: Common_ItemInfo? = nil
 }
 
-public struct Common_CreateItemRequest {
+public struct Common_CreateItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1334,7 +1328,7 @@ public struct Common_CreateItemRequest {
   public init() {}
 }
 
-public struct Common_CreateItemResponse {
+public struct Common_CreateItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1354,7 +1348,7 @@ public struct Common_CreateItemResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1380,7 +1374,7 @@ public struct Common_CreateItemResponse {
   fileprivate var _data: Common_CreateItemResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateItemRequest {
+public struct Common_UpdateItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1409,7 +1403,7 @@ public struct Common_UpdateItemRequest {
   fileprivate var _info: Common_ItemInfo? = nil
 }
 
-public struct Common_UpdateItemResponse {
+public struct Common_UpdateItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1429,7 +1423,7 @@ public struct Common_UpdateItemResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1455,7 +1449,7 @@ public struct Common_UpdateItemResponse {
   fileprivate var _data: Common_UpdateItemResponse.DataMessage? = nil
 }
 
-public struct Common_DeleteItemRequest {
+public struct Common_DeleteItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1473,7 +1467,7 @@ public struct Common_DeleteItemRequest {
   public init() {}
 }
 
-public struct Common_DeleteItemResponse {
+public struct Common_DeleteItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1493,7 +1487,7 @@ public struct Common_DeleteItemResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1508,7 +1502,7 @@ public struct Common_DeleteItemResponse {
   fileprivate var _data: Common_DeleteItemResponse.DataMessage? = nil
 }
 
-public struct Common_LikeItemRequest {
+public struct Common_LikeItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1528,7 +1522,7 @@ public struct Common_LikeItemRequest {
   public init() {}
 }
 
-public struct Common_LikeItemResponse {
+public struct Common_LikeItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1548,7 +1542,7 @@ public struct Common_LikeItemResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1563,7 +1557,7 @@ public struct Common_LikeItemResponse {
   fileprivate var _data: Common_LikeItemResponse.DataMessage? = nil
 }
 
-public struct Common_CreateGroupReqeust {
+public struct Common_CreateGroupReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1577,7 +1571,7 @@ public struct Common_CreateGroupReqeust {
   public init() {}
 }
 
-public struct Common_CreateGroupResponse {
+public struct Common_CreateGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1597,7 +1591,7 @@ public struct Common_CreateGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1623,7 +1617,7 @@ public struct Common_CreateGroupResponse {
   fileprivate var _data: Common_CreateGroupResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupReqeust {
+public struct Common_GetGroupReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1639,7 +1633,7 @@ public struct Common_GetGroupReqeust {
   public init() {}
 }
 
-public struct Common_GetGroupResponse {
+public struct Common_GetGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1659,7 +1653,7 @@ public struct Common_GetGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1685,7 +1679,7 @@ public struct Common_GetGroupResponse {
   fileprivate var _data: Common_GetGroupResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupActivesRequest {
+public struct Common_GetGroupActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1703,7 +1697,7 @@ public struct Common_GetGroupActivesRequest {
   public init() {}
 }
 
-public struct Common_GetGroupActivesResponse {
+public struct Common_GetGroupActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1723,7 +1717,7 @@ public struct Common_GetGroupActivesResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1744,7 +1738,7 @@ public struct Common_GetGroupActivesResponse {
   fileprivate var _data: Common_GetGroupActivesResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateGroupInfoRequest {
+public struct Common_UpdateGroupInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1767,7 +1761,7 @@ public struct Common_UpdateGroupInfoRequest {
   fileprivate var _info: Common_GroupInfo? = nil
 }
 
-public struct Common_UpdateGroupInfoResponse {
+public struct Common_UpdateGroupInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1787,7 +1781,7 @@ public struct Common_UpdateGroupInfoResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1813,7 +1807,7 @@ public struct Common_UpdateGroupInfoResponse {
   fileprivate var _data: Common_UpdateGroupInfoResponse.DataMessage? = nil
 }
 
-public struct Common_DeleteGroupRequest {
+public struct Common_DeleteGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1827,7 +1821,7 @@ public struct Common_DeleteGroupRequest {
   public init() {}
 }
 
-public struct Common_DeleteGroupResponse {
+public struct Common_DeleteGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1847,7 +1841,7 @@ public struct Common_DeleteGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1862,7 +1856,7 @@ public struct Common_DeleteGroupResponse {
   fileprivate var _data: Common_DeleteGroupResponse.DataMessage? = nil
 }
 
-public struct Common_FetchGroupMembersRequest {
+public struct Common_FetchGroupMembersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1878,7 +1872,7 @@ public struct Common_FetchGroupMembersRequest {
   public init() {}
 }
 
-public struct Common_FetchGroupMembersResponse {
+public struct Common_FetchGroupMembersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1898,7 +1892,7 @@ public struct Common_FetchGroupMembersResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1919,7 +1913,7 @@ public struct Common_FetchGroupMembersResponse {
   fileprivate var _data: Common_FetchGroupMembersResponse.DataMessage? = nil
 }
 
-public struct Common_SearchGroupReqeust {
+public struct Common_SearchGroupReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1931,7 +1925,7 @@ public struct Common_SearchGroupReqeust {
   public init() {}
 }
 
-public struct Common_SearchGroupResponse {
+public struct Common_SearchGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1951,7 +1945,7 @@ public struct Common_SearchGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1972,7 +1966,7 @@ public struct Common_SearchGroupResponse {
   fileprivate var _data: Common_SearchGroupResponse.DataMessage? = nil
 }
 
-public struct Common_FetchGroupProjectsReqeust {
+public struct Common_FetchGroupProjectsReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1988,7 +1982,7 @@ public struct Common_FetchGroupProjectsReqeust {
   public init() {}
 }
 
-public struct Common_FetchGroupProjectsResponse {
+public struct Common_FetchGroupProjectsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2008,7 +2002,7 @@ public struct Common_FetchGroupProjectsResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2029,7 +2023,7 @@ public struct Common_FetchGroupProjectsResponse {
   fileprivate var _data: Common_FetchGroupProjectsResponse.DataMessage? = nil
 }
 
-public struct Common_JoinGroupRequest {
+public struct Common_JoinGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2043,7 +2037,7 @@ public struct Common_JoinGroupRequest {
   public init() {}
 }
 
-public struct Common_JoinGroupResponse {
+public struct Common_JoinGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2063,7 +2057,7 @@ public struct Common_JoinGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2078,7 +2072,7 @@ public struct Common_JoinGroupResponse {
   fileprivate var _data: Common_JoinGroupResponse.DataMessage? = nil
 }
 
-public struct Common_LeaveGroupRequest {
+public struct Common_LeaveGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2092,7 +2086,7 @@ public struct Common_LeaveGroupRequest {
   public init() {}
 }
 
-public struct Common_LeaveGroupResponse {
+public struct Common_LeaveGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2112,7 +2106,7 @@ public struct Common_LeaveGroupResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2127,7 +2121,7 @@ public struct Common_LeaveGroupResponse {
   fileprivate var _data: Common_LeaveGroupResponse.DataMessage? = nil
 }
 
-public struct Common_DisscussParams {
+public struct Common_DisscussParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2137,7 +2131,7 @@ public struct Common_DisscussParams {
   public init() {}
 }
 
-public struct Common_CreateDisscussReq {
+public struct Common_CreateDisscussReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2147,7 +2141,7 @@ public struct Common_CreateDisscussReq {
   public init() {}
 }
 
-public struct Common_CreateDisscusResp {
+public struct Common_CreateDisscusResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2167,7 +2161,7 @@ public struct Common_CreateDisscusResp {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2182,7 +2176,7 @@ public struct Common_CreateDisscusResp {
   fileprivate var _data: Common_CreateDisscusResp.DataMessage? = nil
 }
 
-public struct Common_GetDisscusReq {
+public struct Common_GetDisscusReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2192,7 +2186,7 @@ public struct Common_GetDisscusReq {
   public init() {}
 }
 
-public struct Common_GetDisscusResp {
+public struct Common_GetDisscusResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2212,7 +2206,7 @@ public struct Common_GetDisscusResp {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2227,7 +2221,7 @@ public struct Common_GetDisscusResp {
   fileprivate var _data: Common_GetDisscusResp.DataMessage? = nil
 }
 
-public struct Common_Content {
+public struct Common_Content: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2245,7 +2239,7 @@ public struct Common_Content {
   public init() {}
 }
 
-public struct Common_CreateCommentReq {
+public struct Common_CreateCommentReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2263,7 +2257,7 @@ public struct Common_CreateCommentReq {
   public init() {}
 }
 
-public struct Common_CreateCommentResp {
+public struct Common_CreateCommentResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2283,7 +2277,7 @@ public struct Common_CreateCommentResp {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2308,7 +2302,7 @@ public struct Common_CreateCommentResp {
   fileprivate var _data: Common_CreateCommentResp.DataMessage? = nil
 }
 
-public struct Common_GetItemsCommentReq {
+public struct Common_GetItemsCommentReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2334,7 +2328,7 @@ public struct Common_GetItemsCommentReq {
   public init() {}
 }
 
-public struct Common_GetItemsCommentResp {
+public struct Common_GetItemsCommentResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2354,7 +2348,7 @@ public struct Common_GetItemsCommentResp {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2381,7 +2375,7 @@ public struct Common_GetItemsCommentResp {
   fileprivate var _data: Common_GetItemsCommentResp.DataMessage? = nil
 }
 
-public struct Common_GetUserCommentReq {
+public struct Common_GetUserCommentReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2391,7 +2385,7 @@ public struct Common_GetUserCommentReq {
   public init() {}
 }
 
-public struct Common_GetUserCommentResp {
+public struct Common_GetUserCommentResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2411,7 +2405,7 @@ public struct Common_GetUserCommentResp {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2426,7 +2420,7 @@ public struct Common_GetUserCommentResp {
   fileprivate var _data: Common_GetUserCommentResp.DataMessage? = nil
 }
 
-public struct Common_VersionRequest {
+public struct Common_VersionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2436,7 +2430,7 @@ public struct Common_VersionRequest {
   public init() {}
 }
 
-public struct Common_VersionResponse {
+public struct Common_VersionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2456,7 +2450,7 @@ public struct Common_VersionResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2475,7 +2469,7 @@ public struct Common_VersionResponse {
   fileprivate var _data: Common_VersionResponse.DataMessage? = nil
 }
 
-public struct Common_AboutRequest {
+public struct Common_AboutRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2485,7 +2479,7 @@ public struct Common_AboutRequest {
   public init() {}
 }
 
-public struct Common_AboutResponse {
+public struct Common_AboutResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2497,7 +2491,7 @@ public struct Common_AboutResponse {
   public init() {}
 }
 
-public struct Common_ExploreRequest {
+public struct Common_ExploreRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2507,7 +2501,7 @@ public struct Common_ExploreRequest {
   public init() {}
 }
 
-public struct Common_ExploreResponse {
+public struct Common_ExploreResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2527,7 +2521,7 @@ public struct Common_ExploreResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2542,7 +2536,7 @@ public struct Common_ExploreResponse {
   fileprivate var _data: Common_ExploreResponse.DataMessage? = nil
 }
 
-public struct Common_TrendingRequest {
+public struct Common_TrendingRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2558,7 +2552,7 @@ public struct Common_TrendingRequest {
   public init() {}
 }
 
-public struct Common_TrendingResponse {
+public struct Common_TrendingResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2578,7 +2572,7 @@ public struct Common_TrendingResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2595,7 +2589,7 @@ public struct Common_TrendingResponse {
   fileprivate var _data: Common_TrendingResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectMembersRequest {
+public struct Common_GetProjectMembersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2609,7 +2603,7 @@ public struct Common_GetProjectMembersRequest {
   public init() {}
 }
 
-public struct Common_GetProjectMembersResponse {
+public struct Common_GetProjectMembersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2629,7 +2623,7 @@ public struct Common_GetProjectMembersResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2650,7 +2644,7 @@ public struct Common_GetProjectMembersResponse {
   fileprivate var _data: Common_GetProjectMembersResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectWatcherReqeust {
+public struct Common_GetProjectWatcherReqeust: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2662,7 +2656,7 @@ public struct Common_GetProjectWatcherReqeust {
   public init() {}
 }
 
-public struct Common_GetProjectWatcherResponse {
+public struct Common_GetProjectWatcherResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2682,7 +2676,7 @@ public struct Common_GetProjectWatcherResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2702,154 +2696,6 @@ public struct Common_GetProjectWatcherResponse {
 
   fileprivate var _data: Common_GetProjectWatcherResponse.DataMessage? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_GroupType: @unchecked Sendable {}
-extension Common_ActiveInfo: @unchecked Sendable {}
-extension Common_LoginRequest: @unchecked Sendable {}
-extension Common_LoginResponse: @unchecked Sendable {}
-extension Common_LogoutRequest: @unchecked Sendable {}
-extension Common_LogoutResponse: @unchecked Sendable {}
-extension Common_RegisterRequest: @unchecked Sendable {}
-extension Common_RegisterResponse: @unchecked Sendable {}
-extension Common_ConfirmRequest: @unchecked Sendable {}
-extension Common_ConfirmResponse: @unchecked Sendable {}
-extension Common_ResetPasswordRequest: @unchecked Sendable {}
-extension Common_ResetPasswordResponse: @unchecked Sendable {}
-extension Common_UserInfoRequest: @unchecked Sendable {}
-extension Common_UserInfoResponse: @unchecked Sendable {}
-extension Common_UpdateUserAvatorRequest: @unchecked Sendable {}
-extension Common_UpdateUserAvatorResponse: @unchecked Sendable {}
-extension Common_UserWatchingRequest: @unchecked Sendable {}
-extension Common_UserWatchingResponse: @unchecked Sendable {}
-extension Common_UserGroupRequest: @unchecked Sendable {}
-extension Common_UserGroupResponse: @unchecked Sendable {}
-extension Common_UserFollowingGroupRequest: @unchecked Sendable {}
-extension Common_UserFollowingGroupResponse: @unchecked Sendable {}
-extension Common_UserUpdateRequest: @unchecked Sendable {}
-extension Common_UserUpdateResponse: @unchecked Sendable {}
-extension Common_UserUpdateResponse.DataMessage: @unchecked Sendable {}
-extension Common_FetchUserActivesRequest: @unchecked Sendable {}
-extension Common_FetchUserActivesResponse: @unchecked Sendable {}
-extension Common_SearchUserRequest: @unchecked Sendable {}
-extension Common_SearchUserResponse: @unchecked Sendable {}
-extension Common_UserInitRequest: @unchecked Sendable {}
-extension Common_UserInitResponse: @unchecked Sendable {}
-extension Common_GetProjectRequest: @unchecked Sendable {}
-extension Common_GetProjectResponse: @unchecked Sendable {}
-extension Common_GetProjectListRequest: @unchecked Sendable {}
-extension Common_GetProjectListResponse: @unchecked Sendable {}
-extension Common_CreateProjectRequest: @unchecked Sendable {}
-extension Common_CreateProjectResponse: @unchecked Sendable {}
-extension Common_UpdateProjectRequest: @unchecked Sendable {}
-extension Common_UpdateProjectResponse: @unchecked Sendable {}
-extension Common_DeleteProjectRequest: @unchecked Sendable {}
-extension Common_DeleteProjectResponse: @unchecked Sendable {}
-extension Common_DeleteProjectResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetWatchingProjectRequest: @unchecked Sendable {}
-extension Common_GetWatchingProjectResponse: @unchecked Sendable {}
-extension Common_WatchProjectReqeust: @unchecked Sendable {}
-extension Common_WatchProjectResponse: @unchecked Sendable {}
-extension Common_WatchProjectResponse.DataMessage: @unchecked Sendable {}
-extension Common_UnWatchProjectReqeust: @unchecked Sendable {}
-extension Common_UnWatchProjectResponse: @unchecked Sendable {}
-extension Common_UnWatchProjectResponse.DataMessage: @unchecked Sendable {}
-extension Common_ExploreProjectsRequest: @unchecked Sendable {}
-extension Common_ExploreProjectsResponse: @unchecked Sendable {}
-extension Common_SearchProjectRequest: @unchecked Sendable {}
-extension Common_SearchProjectResponse: @unchecked Sendable {}
-extension Common_SearchAllProjectRequest: @unchecked Sendable {}
-extension Common_SearchAllProjectResponse: @unchecked Sendable {}
-extension Common_GetProjectProfileRequest: @unchecked Sendable {}
-extension Common_GetProjectProfileResponse: @unchecked Sendable {}
-extension Common_UpdateProjectProfileRequest: @unchecked Sendable {}
-extension Common_UpdateProjectProfileResponse: @unchecked Sendable {}
-extension Common_UpdateProjectProfileResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetProjectItemsRequest: @unchecked Sendable {}
-extension Common_GetProjectItemsResponse: @unchecked Sendable {}
-extension Common_GetGroupItemsRequest: @unchecked Sendable {}
-extension Common_GetGroupItemsResponse: @unchecked Sendable {}
-extension Common_GetUserItemsRequest: @unchecked Sendable {}
-extension Common_GetUserItemsResponse: @unchecked Sendable {}
-extension Common_GetItemRequest: @unchecked Sendable {}
-extension Common_GetItemResponse: @unchecked Sendable {}
-extension Common_CreateItemRequest: @unchecked Sendable {}
-extension Common_CreateItemResponse: @unchecked Sendable {}
-extension Common_CreateItemResponse.DataMessage: @unchecked Sendable {}
-extension Common_UpdateItemRequest: @unchecked Sendable {}
-extension Common_UpdateItemResponse: @unchecked Sendable {}
-extension Common_UpdateItemResponse.DataMessage: @unchecked Sendable {}
-extension Common_DeleteItemRequest: @unchecked Sendable {}
-extension Common_DeleteItemResponse: @unchecked Sendable {}
-extension Common_DeleteItemResponse.DataMessage: @unchecked Sendable {}
-extension Common_LikeItemRequest: @unchecked Sendable {}
-extension Common_LikeItemResponse: @unchecked Sendable {}
-extension Common_LikeItemResponse.DataMessage: @unchecked Sendable {}
-extension Common_CreateGroupReqeust: @unchecked Sendable {}
-extension Common_CreateGroupResponse: @unchecked Sendable {}
-extension Common_CreateGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetGroupReqeust: @unchecked Sendable {}
-extension Common_GetGroupResponse: @unchecked Sendable {}
-extension Common_GetGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetGroupActivesRequest: @unchecked Sendable {}
-extension Common_GetGroupActivesResponse: @unchecked Sendable {}
-extension Common_GetGroupActivesResponse.DataMessage: @unchecked Sendable {}
-extension Common_UpdateGroupInfoRequest: @unchecked Sendable {}
-extension Common_UpdateGroupInfoResponse: @unchecked Sendable {}
-extension Common_UpdateGroupInfoResponse.DataMessage: @unchecked Sendable {}
-extension Common_DeleteGroupRequest: @unchecked Sendable {}
-extension Common_DeleteGroupResponse: @unchecked Sendable {}
-extension Common_DeleteGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_FetchGroupMembersRequest: @unchecked Sendable {}
-extension Common_FetchGroupMembersResponse: @unchecked Sendable {}
-extension Common_FetchGroupMembersResponse.DataMessage: @unchecked Sendable {}
-extension Common_SearchGroupReqeust: @unchecked Sendable {}
-extension Common_SearchGroupResponse: @unchecked Sendable {}
-extension Common_SearchGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_FetchGroupProjectsReqeust: @unchecked Sendable {}
-extension Common_FetchGroupProjectsResponse: @unchecked Sendable {}
-extension Common_FetchGroupProjectsResponse.DataMessage: @unchecked Sendable {}
-extension Common_JoinGroupRequest: @unchecked Sendable {}
-extension Common_JoinGroupResponse: @unchecked Sendable {}
-extension Common_JoinGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_LeaveGroupRequest: @unchecked Sendable {}
-extension Common_LeaveGroupResponse: @unchecked Sendable {}
-extension Common_LeaveGroupResponse.DataMessage: @unchecked Sendable {}
-extension Common_DisscussParams: @unchecked Sendable {}
-extension Common_CreateDisscussReq: @unchecked Sendable {}
-extension Common_CreateDisscusResp: @unchecked Sendable {}
-extension Common_CreateDisscusResp.DataMessage: @unchecked Sendable {}
-extension Common_GetDisscusReq: @unchecked Sendable {}
-extension Common_GetDisscusResp: @unchecked Sendable {}
-extension Common_GetDisscusResp.DataMessage: @unchecked Sendable {}
-extension Common_Content: @unchecked Sendable {}
-extension Common_CreateCommentReq: @unchecked Sendable {}
-extension Common_CreateCommentResp: @unchecked Sendable {}
-extension Common_CreateCommentResp.DataMessage: @unchecked Sendable {}
-extension Common_GetItemsCommentReq: @unchecked Sendable {}
-extension Common_GetItemsCommentResp: @unchecked Sendable {}
-extension Common_GetItemsCommentResp.DataMessage: @unchecked Sendable {}
-extension Common_GetUserCommentReq: @unchecked Sendable {}
-extension Common_GetUserCommentResp: @unchecked Sendable {}
-extension Common_GetUserCommentResp.DataMessage: @unchecked Sendable {}
-extension Common_VersionRequest: @unchecked Sendable {}
-extension Common_VersionResponse: @unchecked Sendable {}
-extension Common_VersionResponse.DataMessage: @unchecked Sendable {}
-extension Common_AboutRequest: @unchecked Sendable {}
-extension Common_AboutResponse: @unchecked Sendable {}
-extension Common_ExploreRequest: @unchecked Sendable {}
-extension Common_ExploreResponse: @unchecked Sendable {}
-extension Common_ExploreResponse.DataMessage: @unchecked Sendable {}
-extension Common_TrendingRequest: @unchecked Sendable {}
-extension Common_TrendingResponse: @unchecked Sendable {}
-extension Common_TrendingResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetProjectMembersRequest: @unchecked Sendable {}
-extension Common_GetProjectMembersResponse: @unchecked Sendable {}
-extension Common_GetProjectMembersResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetProjectWatcherReqeust: @unchecked Sendable {}
-extension Common_GetProjectWatcherResponse: @unchecked Sendable {}
-extension Common_GetProjectWatcherResponse.DataMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -3965,8 +3811,8 @@ extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -4678,8 +4524,8 @@ extension Common_DeleteProjectResponse.DataMessage: SwiftProtobuf.Message, Swift
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -4883,8 +4729,8 @@ extension Common_WatchProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -4994,8 +4840,8 @@ extension Common_UnWatchProjectResponse.DataMessage: SwiftProtobuf.Message, Swif
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -5513,8 +5359,8 @@ extension Common_UpdateProjectProfileResponse.DataMessage: SwiftProtobuf.Message
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -6318,8 +6164,8 @@ extension Common_DeleteItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -6441,8 +6287,8 @@ extension Common_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7064,8 +6910,8 @@ extension Common_DeleteGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7565,8 +7411,8 @@ extension Common_JoinGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7670,8 +7516,8 @@ extension Common_LeaveGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7689,8 +7535,8 @@ extension Common_DisscussParams: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7708,8 +7554,8 @@ extension Common_CreateDisscussReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7775,8 +7621,8 @@ extension Common_CreateDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProt
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7794,8 +7640,8 @@ extension Common_GetDisscusReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -7861,8 +7707,8 @@ extension Common_GetDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobu
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8268,8 +8114,8 @@ extension Common_GetUserCommentReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8335,8 +8181,8 @@ extension Common_GetUserCommentResp.DataMessage: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8354,8 +8200,8 @@ extension Common_VersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8459,8 +8305,8 @@ extension Common_AboutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8510,8 +8356,8 @@ extension Common_ExploreRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -8577,8 +8423,8 @@ extension Common_ExploreResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {

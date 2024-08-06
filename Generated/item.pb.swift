@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_WordDetail {
+public struct Common_WordDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ public struct Common_WordDetail {
   public init() {}
 }
 
-public struct Common_PictureInfo {
+public struct Common_PictureInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -56,7 +56,7 @@ public struct Common_PictureInfo {
   public init() {}
 }
 
-public struct Common_PictureDetail {
+public struct Common_PictureDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,7 +76,7 @@ public struct Common_PictureDetail {
   public init() {}
 }
 
-public struct Common_VideoInfo {
+public struct Common_VideoInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ public struct Common_VideoInfo {
   public init() {}
 }
 
-public struct Common_VideoDetail {
+public struct Common_VideoDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -116,7 +116,7 @@ public struct Common_VideoDetail {
   public init() {}
 }
 
-public struct Common_MusicShareDetail {
+public struct Common_MusicShareDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -140,7 +140,7 @@ public struct Common_MusicShareDetail {
   public init() {}
 }
 
-public struct Common_VoiceDetail {
+public struct Common_VoiceDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -160,7 +160,7 @@ public struct Common_VoiceDetail {
   public init() {}
 }
 
-public struct Common_ShareDetail {
+public struct Common_ShareDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,7 +178,7 @@ public struct Common_ShareDetail {
   public init() {}
 }
 
-public struct Common_Location {
+public struct Common_Location: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -196,7 +196,7 @@ public struct Common_Location {
   public init() {}
 }
 
-public struct Common_ItemDetail {
+public struct Common_ItemDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -280,7 +280,7 @@ public struct Common_ItemDetail {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Detail: Equatable {
+  public enum OneOf_Detail: Equatable, Sendable {
     case word(Common_WordDetail)
     case pictures(Common_PictureDetail)
     case video(Common_VideoDetail)
@@ -289,44 +289,6 @@ public struct Common_ItemDetail {
     case share(Common_ShareDetail)
     case locate(Common_Location)
 
-  #if !swift(>=4.1)
-    public static func ==(lhs: Common_ItemDetail.OneOf_Detail, rhs: Common_ItemDetail.OneOf_Detail) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.word, .word): return {
-        guard case .word(let l) = lhs, case .word(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.pictures, .pictures): return {
-        guard case .pictures(let l) = lhs, case .pictures(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.video, .video): return {
-        guard case .video(let l) = lhs, case .video(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.music, .music): return {
-        guard case .music(let l) = lhs, case .music(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.voice, .voice): return {
-        guard case .voice(let l) = lhs, case .voice(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.share, .share): return {
-        guard case .share(let l) = lhs, case .share(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.locate, .locate): return {
-        guard case .locate(let l) = lhs, case .locate(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   public init() {}
@@ -334,7 +296,7 @@ public struct Common_ItemDetail {
   fileprivate var _loc: Common_Location? = nil
 }
 
-public struct Common_ItemInfo {
+public struct Common_ItemInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -390,7 +352,7 @@ public struct Common_ItemInfo {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_TimeLine {
+public struct Common_TimeLine: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -415,22 +377,6 @@ public struct Common_TimeLine {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_WordDetail: @unchecked Sendable {}
-extension Common_PictureInfo: @unchecked Sendable {}
-extension Common_PictureDetail: @unchecked Sendable {}
-extension Common_VideoInfo: @unchecked Sendable {}
-extension Common_VideoDetail: @unchecked Sendable {}
-extension Common_MusicShareDetail: @unchecked Sendable {}
-extension Common_VoiceDetail: @unchecked Sendable {}
-extension Common_ShareDetail: @unchecked Sendable {}
-extension Common_Location: @unchecked Sendable {}
-extension Common_ItemDetail: @unchecked Sendable {}
-extension Common_ItemDetail.OneOf_Detail: @unchecked Sendable {}
-extension Common_ItemInfo: @unchecked Sendable {}
-extension Common_TimeLine: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_UserPrivate {
+public struct Common_UserPrivate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -36,7 +36,7 @@ public struct Common_UserPrivate {
   public init() {}
 }
 
-public struct Common_UserInfo {
+public struct Common_UserInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -62,7 +62,7 @@ public struct Common_UserInfo {
   public init() {}
 }
 
-public struct Common_UserProfileInfo {
+public struct Common_UserProfileInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -99,12 +99,6 @@ public struct Common_UserProfileInfo {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_UserPrivate: @unchecked Sendable {}
-extension Common_UserInfo: @unchecked Sendable {}
-extension Common_UserProfileInfo: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

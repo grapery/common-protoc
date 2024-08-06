@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_LikeType: SwiftProtobuf.Enum {
+public enum Common_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case browser // = 0
   case left // = 1
@@ -52,11 +52,6 @@ public enum Common_LikeType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_LikeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_LikeType] = [
     .browser,
@@ -64,11 +59,10 @@ extension Common_LikeType: CaseIterable {
     .middle,
     .right,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_GenderType: SwiftProtobuf.Enum {
+public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不公开性别
@@ -102,11 +96,6 @@ public enum Common_GenderType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_GenderType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_GenderType] = [
     .none,
@@ -114,11 +103,10 @@ extension Common_GenderType: CaseIterable {
     .women,
     .double,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_UserStatus: SwiftProtobuf.Enum {
+public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case rest // = 0
   case study // = 1
@@ -156,11 +144,6 @@ public enum Common_UserStatus: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_UserStatus: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_UserStatus] = [
     .rest,
@@ -170,11 +153,10 @@ extension Common_UserStatus: CaseIterable {
     .invisible,
     .idle,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_GroupStatus: SwiftProtobuf.Enum {
+public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case notReady // = 0
   case normal // = 1
@@ -206,11 +188,6 @@ public enum Common_GroupStatus: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_GroupStatus: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_GroupStatus] = [
     .notReady,
@@ -218,11 +195,10 @@ extension Common_GroupStatus: CaseIterable {
     .viewOnly,
     .abandon,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_ActiveType: SwiftProtobuf.Enum {
+public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case allActive // = 0
   case like // = 1
@@ -260,11 +236,6 @@ public enum Common_ActiveType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_ActiveType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ActiveType] = [
     .allActive,
@@ -274,11 +245,10 @@ extension Common_ActiveType: CaseIterable {
     .collect,
     .disAgree,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_ItemType: SwiftProtobuf.Enum {
+public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case allItem // = 0
   case shortWord // = 1
@@ -322,11 +292,6 @@ public enum Common_ItemType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_ItemType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ItemType] = [
     .allItem,
@@ -338,11 +303,10 @@ extension Common_ItemType: CaseIterable {
     .link,
     .locate,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_AuthType: SwiftProtobuf.Enum {
+public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case notSupport // = 0
   case withPhone // = 1
@@ -374,11 +338,6 @@ public enum Common_AuthType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_AuthType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_AuthType] = [
     .notSupport,
@@ -386,11 +345,10 @@ extension Common_AuthType: CaseIterable {
     .withEmail,
     .withThirdpart,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_ScopeType: SwiftProtobuf.Enum {
+public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case allPublic // = 0
   case `public` // = 1
@@ -425,11 +383,6 @@ public enum Common_ScopeType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_ScopeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ScopeType] = [
     .allPublic,
@@ -438,11 +391,10 @@ extension Common_ScopeType: CaseIterable {
     .someone,
     .gruopScope,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_TaskStage: SwiftProtobuf.Enum {
+public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unknow // = 0
   case init_ // = 1
@@ -483,11 +435,6 @@ public enum Common_TaskStage: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_TaskStage: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_TaskStage] = [
     .unknow,
@@ -498,11 +445,10 @@ extension Common_TaskStage: CaseIterable {
     .success,
     .fail,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_TaskType: SwiftProtobuf.Enum {
+public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case notSpecify // = 0
   case wordGenerate // = 1
@@ -540,11 +486,6 @@ public enum Common_TaskType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_TaskType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_TaskType] = [
     .notSpecify,
@@ -554,11 +495,10 @@ extension Common_TaskType: CaseIterable {
     .voiceGenerate,
     .musicGenerate,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_SortByType: SwiftProtobuf.Enum {
+public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case sortByTime // = 0
   case sortByLike // = 1
@@ -593,11 +533,6 @@ public enum Common_SortByType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_SortByType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_SortByType] = [
     .sortByTime,
@@ -606,11 +541,10 @@ extension Common_SortByType: CaseIterable {
     .sortByShare,
     .sortByView,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public struct Common_Tags {
+public struct Common_Tags: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -637,21 +571,6 @@ public struct Common_Tags {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_LikeType: @unchecked Sendable {}
-extension Common_GenderType: @unchecked Sendable {}
-extension Common_UserStatus: @unchecked Sendable {}
-extension Common_GroupStatus: @unchecked Sendable {}
-extension Common_ActiveType: @unchecked Sendable {}
-extension Common_ItemType: @unchecked Sendable {}
-extension Common_AuthType: @unchecked Sendable {}
-extension Common_ScopeType: @unchecked Sendable {}
-extension Common_TaskStage: @unchecked Sendable {}
-extension Common_TaskType: @unchecked Sendable {}
-extension Common_SortByType: @unchecked Sendable {}
-extension Common_Tags: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

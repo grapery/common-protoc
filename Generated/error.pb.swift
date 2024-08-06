@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_ErrorCode: SwiftProtobuf.Enum {
+public enum Common_ErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case success // = 0
   case invalidParams // = 1
@@ -79,11 +79,6 @@ public enum Common_ErrorCode: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_ErrorCode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ErrorCode] = [
     .success,
@@ -100,11 +95,10 @@ extension Common_ErrorCode: CaseIterable {
     .notImplemented,
     .timeout,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_ErrorType: SwiftProtobuf.Enum {
+public enum Common_ErrorType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case `internal` // = 0
   case client // = 1
@@ -133,22 +127,16 @@ public enum Common_ErrorType: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_ErrorType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ErrorType] = [
     .internal,
     .client,
     .server,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public enum Common_AuthError: SwiftProtobuf.Enum {
+public enum Common_AuthError: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case none // = 0
   case invalidToken // = 1
@@ -213,11 +201,6 @@ public enum Common_AuthError: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Common_AuthError: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_AuthError] = [
     .none,
@@ -236,11 +219,10 @@ extension Common_AuthError: CaseIterable {
     .invalidVersion,
     .invalidAgent,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
-public struct Common_Error {
+public struct Common_Error: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -253,13 +235,6 @@ public struct Common_Error {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_ErrorCode: @unchecked Sendable {}
-extension Common_ErrorType: @unchecked Sendable {}
-extension Common_AuthError: @unchecked Sendable {}
-extension Common_Error: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

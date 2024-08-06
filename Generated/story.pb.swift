@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_Story {
+public struct Common_Story: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -121,7 +121,7 @@ public struct Common_Story {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_StoryParams {
+public struct Common_StoryParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -139,7 +139,7 @@ public struct Common_StoryParams {
   public init() {}
 }
 
-public struct Common_StoryBoard {
+public struct Common_StoryBoard: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,7 +178,7 @@ public struct Common_StoryBoard {
   fileprivate var _params: Common_StoryBoardParams? = nil
 }
 
-public struct Common_StoryRole {
+public struct Common_StoryRole: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -190,7 +190,7 @@ public struct Common_StoryRole {
   public init() {}
 }
 
-public struct Common_StoryBoardParams {
+public struct Common_StoryBoardParams: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -287,7 +287,7 @@ public struct Common_StoryBoardParams {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_CreateStoryRequest {
+public struct Common_CreateStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -330,7 +330,7 @@ public struct Common_CreateStoryRequest {
   fileprivate var _params: Common_StoryParams? = nil
 }
 
-public struct Common_CreateStoryResponse {
+public struct Common_CreateStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -350,7 +350,7 @@ public struct Common_CreateStoryResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -369,7 +369,7 @@ public struct Common_CreateStoryResponse {
   fileprivate var _data: Common_CreateStoryResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateStoryRequest {
+public struct Common_UpdateStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -404,7 +404,7 @@ public struct Common_UpdateStoryRequest {
   fileprivate var _params: Common_StoryParams? = nil
 }
 
-public struct Common_UpdateStoryResponse {
+public struct Common_UpdateStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -424,7 +424,7 @@ public struct Common_UpdateStoryResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -441,7 +441,7 @@ public struct Common_UpdateStoryResponse {
   fileprivate var _data: Common_UpdateStoryResponse.DataMessage? = nil
 }
 
-public struct Common_GetStoryInfoRequest {
+public struct Common_GetStoryInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -453,7 +453,7 @@ public struct Common_GetStoryInfoRequest {
   public init() {}
 }
 
-public struct Common_GetStoryInfoResponse {
+public struct Common_GetStoryInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -473,7 +473,7 @@ public struct Common_GetStoryInfoResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -499,7 +499,7 @@ public struct Common_GetStoryInfoResponse {
   fileprivate var _data: Common_GetStoryInfoResponse.DataMessage? = nil
 }
 
-public struct Common_CreateStoryboardRequest {
+public struct Common_CreateStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -520,7 +520,7 @@ public struct Common_CreateStoryboardRequest {
   fileprivate var _board: Common_StoryBoard? = nil
 }
 
-public struct Common_CreateStoryboardResponse {
+public struct Common_CreateStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -540,7 +540,7 @@ public struct Common_CreateStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -557,7 +557,7 @@ public struct Common_CreateStoryboardResponse {
   fileprivate var _data: Common_CreateStoryboardResponse.DataMessage? = nil
 }
 
-public struct Common_GetStoryboardRequest {
+public struct Common_GetStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -569,7 +569,7 @@ public struct Common_GetStoryboardRequest {
   public init() {}
 }
 
-public struct Common_GetStoryboardResponse {
+public struct Common_GetStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -589,7 +589,7 @@ public struct Common_GetStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -615,7 +615,7 @@ public struct Common_GetStoryboardResponse {
   fileprivate var _data: Common_GetStoryboardResponse.DataMessage? = nil
 }
 
-public struct Common_GetStoryboardsRequest {
+public struct Common_GetStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -637,7 +637,7 @@ public struct Common_GetStoryboardsRequest {
   public init() {}
 }
 
-public struct Common_GetStoryboardsResponse {
+public struct Common_GetStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -657,7 +657,7 @@ public struct Common_GetStoryboardsResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -676,7 +676,7 @@ public struct Common_GetStoryboardsResponse {
   fileprivate var _data: Common_GetStoryboardsResponse.DataMessage? = nil
 }
 
-public struct Common_DelStoryboardRequest {
+public struct Common_DelStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -692,7 +692,7 @@ public struct Common_DelStoryboardRequest {
   public init() {}
 }
 
-public struct Common_DelStoryboardResponse {
+public struct Common_DelStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -706,7 +706,7 @@ public struct Common_DelStoryboardResponse {
   public init() {}
 }
 
-public struct Common_ForkStoryboardRequest {
+public struct Common_ForkStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -733,7 +733,7 @@ public struct Common_ForkStoryboardRequest {
   fileprivate var _board: Common_StoryBoard? = nil
 }
 
-public struct Common_ForkStoryboardResponse {
+public struct Common_ForkStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -753,7 +753,7 @@ public struct Common_ForkStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -776,7 +776,7 @@ public struct Common_ForkStoryboardResponse {
   fileprivate var _data: Common_ForkStoryboardResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateStoryboardRequest {
+public struct Common_UpdateStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -803,7 +803,7 @@ public struct Common_UpdateStoryboardRequest {
   fileprivate var _params: Common_StoryBoardParams? = nil
 }
 
-public struct Common_UpdateStoryboardResponse {
+public struct Common_UpdateStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -817,7 +817,7 @@ public struct Common_UpdateStoryboardResponse {
   public init() {}
 }
 
-public struct Common_WatchStoryRequest {
+public struct Common_WatchStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -831,7 +831,7 @@ public struct Common_WatchStoryRequest {
   public init() {}
 }
 
-public struct Common_WatchStoryResponse {
+public struct Common_WatchStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -842,7 +842,7 @@ public struct Common_WatchStoryResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -857,7 +857,7 @@ public struct Common_WatchStoryResponse {
   public init() {}
 }
 
-public struct Common_LikeStoryboardRequest {
+public struct Common_LikeStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -873,7 +873,7 @@ public struct Common_LikeStoryboardRequest {
   public init() {}
 }
 
-public struct Common_LikeStoryboardResponse {
+public struct Common_LikeStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -884,7 +884,7 @@ public struct Common_LikeStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -905,7 +905,7 @@ public struct Common_LikeStoryboardResponse {
   public init() {}
 }
 
-public struct Common_ShareStoryboardRequest {
+public struct Common_ShareStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -921,7 +921,7 @@ public struct Common_ShareStoryboardRequest {
   public init() {}
 }
 
-public struct Common_ShareStoryboardResponse {
+public struct Common_ShareStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -932,7 +932,7 @@ public struct Common_ShareStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -953,7 +953,7 @@ public struct Common_ShareStoryboardResponse {
   public init() {}
 }
 
-public struct Common_RenderStoryRequest {
+public struct Common_RenderStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -969,7 +969,7 @@ public struct Common_RenderStoryRequest {
   public init() {}
 }
 
-public struct Common_RenderStoryResponse {
+public struct Common_RenderStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -980,7 +980,7 @@ public struct Common_RenderStoryResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -999,7 +999,7 @@ public struct Common_RenderStoryResponse {
   public init() {}
 }
 
-public struct Common_RenderStoryboardRequest {
+public struct Common_RenderStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1015,7 +1015,7 @@ public struct Common_RenderStoryboardRequest {
   public init() {}
 }
 
-public struct Common_RenderStoryboardResponse {
+public struct Common_RenderStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1026,7 +1026,7 @@ public struct Common_RenderStoryboardResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1041,7 +1041,7 @@ public struct Common_RenderStoryboardResponse {
   public init() {}
 }
 
-public struct Common_GenStoryboardTextRequest {
+public struct Common_GenStoryboardTextRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1059,7 +1059,7 @@ public struct Common_GenStoryboardTextRequest {
   public init() {}
 }
 
-public struct Common_GenStoryboardTextResponse {
+public struct Common_GenStoryboardTextResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1070,7 +1070,7 @@ public struct Common_GenStoryboardTextResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1087,7 +1087,7 @@ public struct Common_GenStoryboardTextResponse {
   public init() {}
 }
 
-public struct Common_GenStoryboardImagesRequest {
+public struct Common_GenStoryboardImagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1105,7 +1105,7 @@ public struct Common_GenStoryboardImagesRequest {
   public init() {}
 }
 
-public struct Common_GenStoryboardImagesResponse {
+public struct Common_GenStoryboardImagesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1116,7 +1116,7 @@ public struct Common_GenStoryboardImagesResponse {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1134,60 +1134,6 @@ public struct Common_GenStoryboardImagesResponse {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Common_Story: @unchecked Sendable {}
-extension Common_StoryParams: @unchecked Sendable {}
-extension Common_StoryBoard: @unchecked Sendable {}
-extension Common_StoryRole: @unchecked Sendable {}
-extension Common_StoryBoardParams: @unchecked Sendable {}
-extension Common_CreateStoryRequest: @unchecked Sendable {}
-extension Common_CreateStoryResponse: @unchecked Sendable {}
-extension Common_CreateStoryResponse.DataMessage: @unchecked Sendable {}
-extension Common_UpdateStoryRequest: @unchecked Sendable {}
-extension Common_UpdateStoryResponse: @unchecked Sendable {}
-extension Common_UpdateStoryResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetStoryInfoRequest: @unchecked Sendable {}
-extension Common_GetStoryInfoResponse: @unchecked Sendable {}
-extension Common_GetStoryInfoResponse.DataMessage: @unchecked Sendable {}
-extension Common_CreateStoryboardRequest: @unchecked Sendable {}
-extension Common_CreateStoryboardResponse: @unchecked Sendable {}
-extension Common_CreateStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetStoryboardRequest: @unchecked Sendable {}
-extension Common_GetStoryboardResponse: @unchecked Sendable {}
-extension Common_GetStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_GetStoryboardsRequest: @unchecked Sendable {}
-extension Common_GetStoryboardsResponse: @unchecked Sendable {}
-extension Common_GetStoryboardsResponse.DataMessage: @unchecked Sendable {}
-extension Common_DelStoryboardRequest: @unchecked Sendable {}
-extension Common_DelStoryboardResponse: @unchecked Sendable {}
-extension Common_ForkStoryboardRequest: @unchecked Sendable {}
-extension Common_ForkStoryboardResponse: @unchecked Sendable {}
-extension Common_ForkStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_UpdateStoryboardRequest: @unchecked Sendable {}
-extension Common_UpdateStoryboardResponse: @unchecked Sendable {}
-extension Common_WatchStoryRequest: @unchecked Sendable {}
-extension Common_WatchStoryResponse: @unchecked Sendable {}
-extension Common_WatchStoryResponse.DataMessage: @unchecked Sendable {}
-extension Common_LikeStoryboardRequest: @unchecked Sendable {}
-extension Common_LikeStoryboardResponse: @unchecked Sendable {}
-extension Common_LikeStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_ShareStoryboardRequest: @unchecked Sendable {}
-extension Common_ShareStoryboardResponse: @unchecked Sendable {}
-extension Common_ShareStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_RenderStoryRequest: @unchecked Sendable {}
-extension Common_RenderStoryResponse: @unchecked Sendable {}
-extension Common_RenderStoryResponse.DataMessage: @unchecked Sendable {}
-extension Common_RenderStoryboardRequest: @unchecked Sendable {}
-extension Common_RenderStoryboardResponse: @unchecked Sendable {}
-extension Common_RenderStoryboardResponse.DataMessage: @unchecked Sendable {}
-extension Common_GenStoryboardTextRequest: @unchecked Sendable {}
-extension Common_GenStoryboardTextResponse: @unchecked Sendable {}
-extension Common_GenStoryboardTextResponse.DataMessage: @unchecked Sendable {}
-extension Common_GenStoryboardImagesRequest: @unchecked Sendable {}
-extension Common_GenStoryboardImagesResponse: @unchecked Sendable {}
-extension Common_GenStoryboardImagesResponse.DataMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -1713,7 +1659,7 @@ extension Common_StoryBoardParams: SwiftProtobuf.Message, SwiftProtobuf._Message
       if _storage._outputQuality != 0 {
         try visitor.visitSingularInt32Field(value: _storage._outputQuality, fieldNumber: 10)
       }
-      if _storage._guidanceScale != 0 {
+      if _storage._guidanceScale.bitPattern != 0 {
         try visitor.visitSingularFloatField(value: _storage._guidanceScale, fieldNumber: 11)
       }
       if _storage._outputFormat != 0 {
