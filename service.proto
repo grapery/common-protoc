@@ -745,62 +745,62 @@ service TeamsAPI {
 
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
     option (google.api.http) = {
-      get : "/api/v1/explore"
+      get : "/common.TeamsAPI/Explore"
     };
   }
   rpc Trending(TrendingRequest) returns (TrendingResponse) {
     option (google.api.http) = {
-      get : "/api/v1/trending"
+      get : "/common.TeamsAPI/Trending"
     };
   }
 
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
-      get : "/api/v1/version"
+      get : "/common.TeamsAPI/Version"
     };
   }
   rpc About(AboutRequest) returns (AboutResponse) {
     option (google.api.http) = {
-      get : "/api/v1/about"
+      get : "/common.TeamsAPI/About"
     };
   }
 
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
-      post : "/api/v1/login"
+      post : "/common.TeamsAPI/Login"
       body : "*"
     };
   }
 
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
-      post : "/api/v1/logout"
+      post : "/common.TeamsAPI/Logout"
       body : "*"
     };
   }
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
-      post : "/api/v1/register"
+      post : "/common.TeamsAPI/Register"
       body : "*"
     };
   }
   rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
     option (google.api.http) = {
-      post : "/api/v1/reset/pwd"
+      post : "/common.TeamsAPI/ResetPwd"
       body : "*"
     };
   }
 
   rpc UserInit(UserInitRequest) returns (UserInitResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/init"
+      post : "/common.TeamsAPI/UserInit"
       body : "*"
     };
   }
 
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info"
+      post : "/common.TeamsAPI/UserInfo"
       body : "*"
     };
   }
@@ -808,21 +808,21 @@ service TeamsAPI {
   rpc UpdateUserAvator(UpdateUserAvatorRequest)
       returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info/avator"
+      post : "/common.TeamsAPI/UpdateUserAvator"
       body : "*"
     };
   }
 
   rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info/watching"
+      post : "/common.TeamsAPI/UserWatching"
       body : "*"
     };
   };
 
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info/groups"
+      post : "/common.TeamsAPI/UserGroup"
       body : "*"
     };
   }
@@ -830,14 +830,14 @@ service TeamsAPI {
   rpc UserFollowingGroup(UserFollowingGroupRequest)
       returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info/groups/following"
+      post : "/common.TeamsAPI/UserFollowingGroup"
       body : "*"
     };
   }
 
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/info/update"
+      post : "/common.TeamsAPI/UserUpdate"
       body : "*"
     };
   }
@@ -845,163 +845,163 @@ service TeamsAPI {
   rpc FetchUserActives(FetchUserActivesRequest)
       returns (FetchUserActivesResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/actives"
+      post : "/common.TeamsAPI/FetchUserActives"
       body : "*"
     };
   }
 
   rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
     option (google.api.http) = {
-      post : "/api/v1/users/search"
+      post : "/common.TeamsAPI/SearchUser"
       body : "*"
     };
   }
 
   rpc CreateGroup(CreateGroupReqeust) returns (CreateGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group"
+      post : "/common.TeamsAPI/CreateGroup"
       body : "*"
     };
   }
   rpc GetGroup(GetGroupReqeust) returns (GetGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info"
+      post : "/common.TeamsAPI/GetGroup"
       body : "*"
     };
   }
   rpc GetGroupActives(GetGroupActivesRequest)
       returns (GetGroupActivesResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/actives"
+      post : "/common.TeamsAPI/GetGroupActives"
       body : "*"
     };
   }
   rpc UpdateGroupInfo(UpdateGroupInfoRequest)
       returns (UpdateGroupInfoResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/update"
+      post : "/common.TeamsAPI/UpdateGroupInfo"
       body : "*"
     };
   }
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/remove"
+      post : "/common.TeamsAPI/DeleteGroup"
       body : "*"
     };
   }
   rpc FetchGroupMembers(FetchGroupMembersRequest)
       returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/members"
+      post : "/common.TeamsAPI/FetchGroupMembers"
       body : "*"
     };
   }
   rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/search"
+      post : "/common.TeamsAPI/SearchGroup"
       body : "*"
     };
   }
   rpc FetchGroupProjects(FetchGroupProjectsReqeust)
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/projects"
+      post : "/common.TeamsAPI/FetchGroupProjects"
       body : "*"
     };
   }
 
   rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/join"
+      post : "/common.TeamsAPI/JoinGroup"
       body : "*"
     };
   }
 
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/leave"
+      post : "/common.TeamsAPI/LeaveGroup"
       body : "*"
     };
   }
 
   rpc GetProjectInfo(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/info"
+      post : "/common.TeamsAPI/GetProjectInfo"
       body : "*"
     };
   }
 
   rpc GetProjectList(GetProjectListRequest) returns (GetProjectListResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/list"
+      post : "/common.TeamsAPI/GetProjectList"
       body : "*"
     };
   }
   rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/add"
+      post : "/common.TeamsAPI/CreateProject"
       body : "*"
     };
   }
 
   rpc GetProjectMembers(GetProjectMembersRequest) returns (GetProjectMembersResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/members"
+      post : "/common.TeamsAPI/GetProjectMembers"
       body : "*"
     };
   }
 
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/update"
+      post : "/common.TeamsAPI/UpdateProject"
       body : "*"
     };
   }
   rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/remove"
+      post : "/common.TeamsAPI/DeleteProject"
       body : "*"
     };
   }
   rpc GetProjectProfile(GetProjectProfileRequest)
       returns (GetProjectProfileResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/profile"
+      post : "/common.TeamsAPI/GetProjectProfile"
       body : "*"
     };
   }
   rpc UpdateProjectProfile(UpdateProjectProfileRequest)
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/profile/update"
+      post : "/common.TeamsAPI/UpdateProjectProfile"
       body : "*"
     };
   }
 
   rpc WatchProject(WatchProjectReqeust) returns (WatchProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/watch"
+      post : "/common.TeamsAPI/WatchProject"
       body : "*"
     };
   }
 
   rpc UnWatchProject(UnWatchProjectReqeust) returns (UnWatchProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/unwatch"
+      post : "/common.TeamsAPI/UnWatchProject"
       body : "*"
     };
   }
 
   rpc GetProjectWatcher(GetProjectWatcherReqeust) returns (GetProjectWatcherResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/project/watcher"
+      post : "/common.TeamsAPI/GetProjectWatcher"
       body : "*"
     };
   }
 
   rpc SearchGroupProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/info/projects/search"
+      post : "/common.TeamsAPI/SearchGroupProject"
       body : "*"
     };
   }
@@ -1009,14 +1009,14 @@ service TeamsAPI {
   rpc SearchProject(SearchAllProjectRequest)
       returns (SearchAllProjectResponse) {
     option (google.api.http) = {
-      post : "/api/v1/projects/search"
+      post : "/common.TeamsAPI/SearchProject"
       body : "*"
     };
   }
 
   rpc ExploreProject(ExploreProjectsRequest) returns (ExploreProjectsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/projects/explore"
+      post : "/common.TeamsAPI/ExploreProject"
       body : "*"
     };
   }
@@ -1024,66 +1024,66 @@ service TeamsAPI {
   rpc GetProjectItems(GetProjectItemsRequest)
       returns (GetProjectItemsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/info/items"
+      post : "/common.TeamsAPI/GetProjectItems"
       body : "*"
     };
   }
   rpc GetGroupItems(GetGroupItemsRequest) returns (GetGroupItemsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/items"
+      post : "/common.TeamsAPI/GetGroupItems"
       body : "*"
     };
   }
 
   rpc GetUserItems(GetUserItemsRequest) returns (GetUserItemsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/user/items"
+      post : "/common.TeamsAPI/GetUserItems"
       body : "*"
     };
   }
 
   rpc GetItem(GetItemRequest) returns (GetItemResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/info"
+      post : "/common.TeamsAPI/GetItem"
       body : "*"
     };
   }
 
   rpc CreateItem(CreateItemRequest) returns (CreateItemResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/add"
+      post : "/common.TeamsAPI/CreateItem"
       body : "*"
     };
   }
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/update"
+      post : "/common.TeamsAPI/UpdateItem"
       body : "*"
     };
   }
   rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/remove"
+      post : "/common.TeamsAPI/DeleteItem"
       body : "*"
     };
   }
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/like"
+      post : "/common.TeamsAPI/LikeItem"
       body : "*"
     };
   }
 
   rpc CreateComment(CreateCommentReq) returns (CreateCommentResp) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/comment/add"
+      post : "/common.TeamsAPI/CreateComment"
       body : "*"
     };
   }
 
   rpc GetItemComment(GetItemsCommentReq) returns (GetItemsCommentResp) {
     option (google.api.http) = {
-      post : "/api/v1/group/project/item/comment/list"
+      post : "/common.TeamsAPI/GetItemComment"
       body : "*"
     };
   }
@@ -1091,21 +1091,21 @@ service TeamsAPI {
 
   rpc CreateStory(CreateStoryRequest) returns (CreateStoryResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/new"
+      post : "/common.TeamsAPI/CreateStory"
       body : "*"
     };
   }
 
   rpc GetStoryInfo(GetStoryInfoRequest) returns (GetStoryInfoResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/Info"
+      post : "/common.TeamsAPI/GetStoryInfo"
       body : "*"
     };
   }
 
   rpc RenderStory(RenderStoryRequest) returns (RenderStoryResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/render"
+      post : "/common.TeamsAPI/RenderStory"
       body : "*"
     };
   }
@@ -1113,7 +1113,7 @@ service TeamsAPI {
 
   rpc UpdateStory(UpdateStoryRequest) returns (UpdateStoryResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/update"
+      post : "/common.TeamsAPI/UpdateStory"
       body : "*"
     };
   }
@@ -1121,7 +1121,7 @@ service TeamsAPI {
 
   rpc WatchStory(WatchStoryRequest) returns (WatchStoryResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/watch"
+      post : "/common.TeamsAPI/WatchStory"
       body : "*"
     };
   }
@@ -1129,35 +1129,35 @@ service TeamsAPI {
 
   rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard"
+      post : "/common.TeamsAPI/CreateStoryboard"
       body : "*"
     };
   }
 
   rpc GetStoryboard(GetStoryboardRequest) returns (GetStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/info"
+      post : "/common.TeamsAPI/GetStoryboard"
       body : "*"
     };
   }
 
   rpc RenderStoryboard(RenderStoryboardRequest) returns (RenderStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/render"
+      post : "/common.TeamsAPI/RenderStoryboard"
       body : "*"
     };
   }
 
   rpc GenStoryboardText(GenStoryboardTextRequest) returns (GenStoryboardTextResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/gen/text"
+      post : "/common.TeamsAPI/GenStoryboardText"
       body : "*"
     };
   }
 
   rpc GenStoryboardImages(GenStoryboardImagesRequest) returns (GenStoryboardImagesResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/gen/images"
+      post : "/common.TeamsAPI/GenStoryboardImages"
       body : "*"
     };
   }
@@ -1165,7 +1165,7 @@ service TeamsAPI {
 
   rpc GetStoryboards(GetStoryboardsRequest) returns (GetStoryboardsResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/list"
+      post : "/common.TeamsAPI/GetStoryboards"
       body : "*"
     };
   }
@@ -1173,14 +1173,14 @@ service TeamsAPI {
 
   rpc DelStoryboard(DelStoryboardRequest) returns (DelStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/del"
+      post : "/common.TeamsAPI/DelStoryboard"
       body : "*"
     };
   }
 
   rpc ForkStoryboard(ForkStoryboardRequest) returns (ForkStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/fork"
+      post : "/common.TeamsAPI/ForkStoryboard"
       body : "*"
     };
   }
@@ -1188,21 +1188,21 @@ service TeamsAPI {
 
   rpc UpdateStoryboard(UpdateStoryboardRequest) returns (UpdateStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/update"
+      post : "/common.TeamsAPI/UpdateStoryboard"
       body : "*"
     };
   }
 
   rpc LikeStoryboard(LikeStoryboardRequest) returns (LikeStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/like"
+      post : "/common.TeamsAPI/LikeStoryboard"
       body : "*"
     };
   }
 
   rpc ShareStoryboard(ShareStoryboardRequest) returns (ShareStoryboardResponse) {
     option (google.api.http) = {
-      post : "/api/v1/group/story/storyboard/share"
+      post : "/common.TeamsAPI/ShareStoryboard"
       body : "*"
     };
   }
