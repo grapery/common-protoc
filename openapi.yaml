@@ -2838,6 +2838,11 @@ components:
                     type: string
                 isRegenerate:
                     type: boolean
+                boardId:
+                    type: string
+                renderType:
+                    type: integer
+                    format: enum
         RenderStoryResponse:
             type: object
             properties:

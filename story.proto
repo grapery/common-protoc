@@ -257,10 +257,22 @@ message CreateStoryRequest {
     }
   }
 
+  enum RenderType{
+    RENDER_TYPE_Text = 0;
+    RENDER_TYPE_StoryBackgroud = 1;
+    RENDER_TYPE_StorySence = 2;
+    RENDER_TYPE_StoryCharacter = 3;
+    RENDER_TYPE_StoryAction = 4;
+    RENDER_TYPE_StorySetting = 5;
+    RENDER_TYPE_StoryEnding = 6;
+  }
+
   message RenderStoryRequest{
     int64 story_id = 1;
     int64 user_id = 2;
     bool is_regenerate = 4;
+    int64 board_id = 7;
+    RenderType render_type = 9;
   }
 
   message RenderStoryResponse{
@@ -270,6 +282,10 @@ message CreateStoryRequest {
       string text = 1;
       int32 status = 2;
       repeated string urls = 3;
+      int64 story_id = 4;
+      int64 board_id = 5;
+      int64 user_id = 6;
+      RenderType render_type = 7;
     }
   }
 

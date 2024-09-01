@@ -21,6 +21,60 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case text // = 0
+  case storyBackgroud // = 1
+  case storySence // = 2
+  case storyCharacter // = 3
+  case storyAction // = 4
+  case storySetting // = 5
+  case storyEnding // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .text
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .text
+    case 1: self = .storyBackgroud
+    case 2: self = .storySence
+    case 3: self = .storyCharacter
+    case 4: self = .storyAction
+    case 5: self = .storySetting
+    case 6: self = .storyEnding
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .text: return 0
+    case .storyBackgroud: return 1
+    case .storySence: return 2
+    case .storyCharacter: return 3
+    case .storyAction: return 4
+    case .storySetting: return 5
+    case .storyEnding: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_RenderType] = [
+    .text,
+    .storyBackgroud,
+    .storySence,
+    .storyCharacter,
+    .storyAction,
+    .storySetting,
+    .storyEnding,
+  ]
+
+}
+
 public struct Common_Story: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -970,6 +1024,10 @@ public struct Common_RenderStoryRequest: Sendable {
 
   public var isRegenerate: Bool = false
 
+  public var boardID: Int64 = 0
+
+  public var renderType: Common_RenderType = .text
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -996,6 +1054,14 @@ public struct Common_RenderStoryResponse: Sendable {
     public var status: Int32 = 0
 
     public var urls: [String] = []
+
+    public var storyID: Int64 = 0
+
+    public var boardID: Int64 = 0
+
+    public var userID: Int64 = 0
+
+    public var renderType: Common_RenderType = .text
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1144,6 +1210,18 @@ public struct Common_GenStoryboardImagesResponse: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
+
+extension Common_RenderType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "RENDER_TYPE_Text"),
+    1: .same(proto: "RENDER_TYPE_StoryBackgroud"),
+    2: .same(proto: "RENDER_TYPE_StorySence"),
+    3: .same(proto: "RENDER_TYPE_StoryCharacter"),
+    4: .same(proto: "RENDER_TYPE_StoryAction"),
+    5: .same(proto: "RENDER_TYPE_StorySetting"),
+    6: .same(proto: "RENDER_TYPE_StoryEnding"),
+  ]
+}
 
 extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Story"
@@ -3275,6 +3353,8 @@ extension Common_RenderStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     1: .standard(proto: "story_id"),
     2: .standard(proto: "user_id"),
     4: .standard(proto: "is_regenerate"),
+    7: .standard(proto: "board_id"),
+    9: .standard(proto: "render_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3286,6 +3366,8 @@ extension Common_RenderStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.isRegenerate) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
       default: break
       }
     }
@@ -3301,6 +3383,12 @@ extension Common_RenderStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.isRegenerate != false {
       try visitor.visitSingularBoolField(value: self.isRegenerate, fieldNumber: 4)
     }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 7)
+    }
+    if self.renderType != .text {
+      try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3308,6 +3396,8 @@ extension Common_RenderStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.isRegenerate != rhs.isRegenerate {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.renderType != rhs.renderType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3357,6 +3447,10 @@ extension Common_RenderStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     1: .same(proto: "text"),
     2: .same(proto: "status"),
     3: .same(proto: "urls"),
+    4: .standard(proto: "story_id"),
+    5: .standard(proto: "board_id"),
+    6: .standard(proto: "user_id"),
+    7: .standard(proto: "render_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3368,6 +3462,10 @@ extension Common_RenderStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
       case 1: try { try decoder.decodeSingularStringField(value: &self.text) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
       case 3: try { try decoder.decodeRepeatedStringField(value: &self.urls) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
       default: break
       }
     }
@@ -3383,6 +3481,18 @@ extension Common_RenderStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     if !self.urls.isEmpty {
       try visitor.visitRepeatedStringField(value: self.urls, fieldNumber: 3)
     }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 4)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 5)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 6)
+    }
+    if self.renderType != .text {
+      try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3390,6 +3500,10 @@ extension Common_RenderStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     if lhs.text != rhs.text {return false}
     if lhs.status != rhs.status {return false}
     if lhs.urls != rhs.urls {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.renderType != rhs.renderType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

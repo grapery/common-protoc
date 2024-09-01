@@ -108,6 +108,8 @@
     - [WatchStoryResponse](#common-WatchStoryResponse)
     - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
   
+    - [RenderType](#common-RenderType)
+  
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
@@ -1584,6 +1586,8 @@
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
+| board_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
 
 
 
@@ -1617,6 +1621,10 @@
 | text | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
 | urls | [string](#string) | repeated |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
 
 
 
@@ -1977,6 +1985,23 @@
 
 
  
+
+
+<a name="common-RenderType"></a>
+
+### RenderType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| RENDER_TYPE_Text | 0 |  |
+| RENDER_TYPE_StoryBackgroud | 1 |  |
+| RENDER_TYPE_StorySence | 2 |  |
+| RENDER_TYPE_StoryCharacter | 3 |  |
+| RENDER_TYPE_StoryAction | 4 |  |
+| RENDER_TYPE_StorySetting | 5 |  |
+| RENDER_TYPE_StoryEnding | 6 |  |
+
 
  
 
