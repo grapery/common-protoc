@@ -1745,6 +1745,7 @@
 | root_board_id | [int64](#int64) |  |  |
 | desc | [string](#string) |  |  |
 | params | [StoryParams](#common-StoryParams) |  |  |
+| status | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 

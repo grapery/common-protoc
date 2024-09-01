@@ -21,6 +21,7 @@ message Story{
   int64 root_board_id = 13;
   string desc = 14;
   StoryParams params = 15;
+  int32 status = 16;
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
