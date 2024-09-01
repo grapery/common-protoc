@@ -2829,6 +2829,34 @@ components:
                     format: int32
                 msg:
                     type: string
+        RenderStoryDetail:
+            type: object
+            properties:
+                text:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                urls:
+                    type: array
+                    items:
+                        type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                renderType:
+                    type: integer
+                    format: enum
+                result:
+                    type: object
+                    additionalProperties:
+                        type: string
+                timecost:
+                    type: integer
+                    format: int32
         RenderStoryRequest:
             type: object
             properties:
@@ -2851,15 +2879,50 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/RenderStoryDetail'
+        RenderStoryboardDetail:
+            type: object
+            properties:
+                text:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                urls:
+                    type: array
+                    items:
+                        type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                renderType:
+                    type: integer
+                    format: enum
+                result:
+                    type: object
+                    additionalProperties:
+                        type: string
+                timecost:
+                    type: integer
+                    format: int32
         RenderStoryboardRequest:
             type: object
             properties:
                 boardId:
                     type: string
+                storyId:
+                    type: string
                 userId:
                     type: string
                 isRegenerate:
                     type: boolean
+                renderType:
+                    type: integer
+                    format: enum
         RenderStoryboardResponse:
             type: object
             properties:
@@ -2868,6 +2931,8 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/RenderStoryboardDetail'
         ResetPasswordRequest:
             type: object
             properties:

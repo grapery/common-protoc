@@ -85,12 +85,14 @@
     - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
     - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
     - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
+    - [RenderStoryDetail](#common-RenderStoryDetail)
+    - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
     - [RenderStoryResponse](#common-RenderStoryResponse)
-    - [RenderStoryResponse.Data](#common-RenderStoryResponse-Data)
+    - [RenderStoryboardDetail](#common-RenderStoryboardDetail)
+    - [RenderStoryboardDetail.ResultEntry](#common-RenderStoryboardDetail-ResultEntry)
     - [RenderStoryboardRequest](#common-RenderStoryboardRequest)
     - [RenderStoryboardResponse](#common-RenderStoryboardResponse)
-    - [RenderStoryboardResponse.Data](#common-RenderStoryboardResponse-Data)
     - [ShareStoryboardRequest](#common-ShareStoryboardRequest)
     - [ShareStoryboardResponse](#common-ShareStoryboardResponse)
     - [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data)
@@ -1575,6 +1577,45 @@
 
 
 
+<a name="common-RenderStoryDetail"></a>
+
+### RenderStoryDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| urls | [string](#string) | repeated |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
+| result | [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry) | repeated |  |
+| timecost | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryDetail-ResultEntry"></a>
+
+### RenderStoryDetail.ResultEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-RenderStoryRequest"></a>
 
 ### RenderStoryRequest
@@ -1604,15 +1645,16 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| data | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryResponse-Data"></a>
+<a name="common-RenderStoryboardDetail"></a>
 
-### RenderStoryResponse.Data
+### RenderStoryboardDetail
 
 
 
@@ -1625,6 +1667,24 @@
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
+| result | [RenderStoryboardDetail.ResultEntry](#common-RenderStoryboardDetail-ResultEntry) | repeated |  |
+| timecost | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryboardDetail-ResultEntry"></a>
+
+### RenderStoryboardDetail.ResultEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
 
 
 
@@ -1640,8 +1700,10 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
 
 
 
@@ -1658,21 +1720,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-RenderStoryboardResponse-Data"></a>
-
-### RenderStoryboardResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  |  |
+| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
 
 
 

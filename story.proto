@@ -275,32 +275,49 @@ message CreateStoryRequest {
     RenderType render_type = 9;
   }
 
+  message RenderStoryDetail {
+    string text = 1;
+    int32 status = 2;
+    repeated string urls = 3;
+    int64 story_id = 4;
+    int64 board_id = 5;
+    int64 user_id = 6;
+    RenderType render_type = 7;
+    map<string,string> result = 8;
+    int32 timecost = 9;
+  }
+
   message RenderStoryResponse{
     int32 code = 1;
     string message = 2;
-    message Data {
-      string text = 1;
-      int32 status = 2;
-      repeated string urls = 3;
-      int64 story_id = 4;
-      int64 board_id = 5;
-      int64 user_id = 6;
-      RenderType render_type = 7;
-    }
+    RenderStoryDetail data = 3;
   }
 
   message RenderStoryboardRequest{
     int64 board_id = 1;
-    int64 user_id = 2;
+    int64 story_id = 2;
+    int64 user_id = 3;
     bool is_regenerate = 4;
+    RenderType render_type = 6;
+  }
+
+
+  message RenderStoryboardDetail {  
+    string text = 1;
+    int32 status = 2;
+    repeated string urls = 3;
+    int64 story_id = 4;
+    int64 board_id = 5;
+    int64 user_id = 6;
+    RenderType render_type = 7;
+    map<string,string> result = 8;
+    int32 timecost = 9;
   }
 
   message RenderStoryboardResponse{
     int32 code = 1;
     string message = 2;
-    message Data {
-      string text = 1;
-    }
+    RenderStoryboardDetail data = 3;
   }
 
   message GenStoryboardTextRequest{
