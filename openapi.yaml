@@ -2052,12 +2052,15 @@ components:
             properties:
                 boardId:
                     type: string
-                userId:
-                    type: string
                 storyId:
+                    type: string
+                userId:
                     type: string
                 isRegenerate:
                     type: boolean
+                renderType:
+                    type: integer
+                    format: enum
         GenStoryboardImagesResponse:
             type: object
             properties:
@@ -2066,17 +2069,22 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/RenderStoryboardDetail'
         GenStoryboardTextRequest:
             type: object
             properties:
                 boardId:
                     type: string
-                userId:
-                    type: string
                 storyId:
+                    type: string
+                userId:
                     type: string
                 isRegenerate:
                     type: boolean
+                renderType:
+                    type: integer
+                    format: enum
         GenStoryboardTextResponse:
             type: object
             properties:
@@ -2085,6 +2093,8 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/RenderStoryboardDetail'
         GetGroupActivesRequest:
             type: object
             properties:
@@ -2853,7 +2863,7 @@ components:
                 result:
                     type: object
                     additionalProperties:
-                        type: string
+                        $ref: '#/components/schemas/RenderStoryStructure'
                 timecost:
                     type: integer
                     format: int32
@@ -2881,6 +2891,36 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryDetail'
+        RenderStoryStructure:
+            type: object
+            properties:
+                text:
+                    type: string
+                    description: 原始内容
+                data:
+                    type: object
+                    additionalProperties:
+                        $ref: '#/components/schemas/RenderStoryStructureValue'
+                    description: 解析结果
+        RenderStoryStructureValue:
+            type: object
+            properties:
+                text:
+                    type: string
+                urls:
+                    type: array
+                    items:
+                        type: string
+                value:
+                    type: integer
+                    format: int32
+                nums:
+                    type: integer
+                    format: int32
+                extra:
+                    type: object
+                    additionalProperties:
+                        type: string
         RenderStoryboardDetail:
             type: object
             properties:
@@ -2905,7 +2945,7 @@ components:
                 result:
                     type: object
                     additionalProperties:
-                        type: string
+                        $ref: '#/components/schemas/RenderStoryStructure'
                 timecost:
                     type: integer
                     format: int32

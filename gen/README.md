@@ -69,10 +69,8 @@
     - [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data)
     - [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest)
     - [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse)
-    - [GenStoryboardImagesResponse.Data](#common-GenStoryboardImagesResponse-Data)
     - [GenStoryboardTextRequest](#common-GenStoryboardTextRequest)
     - [GenStoryboardTextResponse](#common-GenStoryboardTextResponse)
-    - [GenStoryboardTextResponse.Data](#common-GenStoryboardTextResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
     - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
@@ -89,6 +87,10 @@
     - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
     - [RenderStoryResponse](#common-RenderStoryResponse)
+    - [RenderStoryStructure](#common-RenderStoryStructure)
+    - [RenderStoryStructure.DataEntry](#common-RenderStoryStructure-DataEntry)
+    - [RenderStoryStructureValue](#common-RenderStoryStructureValue)
+    - [RenderStoryStructureValue.ExtraEntry](#common-RenderStoryStructureValue-ExtraEntry)
     - [RenderStoryboardDetail](#common-RenderStoryboardDetail)
     - [RenderStoryboardDetail.ResultEntry](#common-RenderStoryboardDetail-ResultEntry)
     - [RenderStoryboardRequest](#common-RenderStoryboardRequest)
@@ -106,6 +108,7 @@
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
     - [UpdateStoryboardRequest](#common-UpdateStoryboardRequest)
     - [UpdateStoryboardResponse](#common-UpdateStoryboardResponse)
+    - [UpdateStoryboardResponse.Data](#common-UpdateStoryboardResponse-Data)
     - [WatchStoryRequest](#common-WatchStoryRequest)
     - [WatchStoryResponse](#common-WatchStoryResponse)
     - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
@@ -1287,9 +1290,10 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
 
 
 
@@ -1306,23 +1310,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-GenStoryboardImagesResponse-Data"></a>
-
-### GenStoryboardImagesResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
-| urls | [string](#string) | repeated |  |
+| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
 
 
 
@@ -1338,9 +1326,10 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
 
 
 
@@ -1357,22 +1346,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-GenStoryboardTextResponse-Data"></a>
-
-### GenStoryboardTextResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
+| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
 
 
 
@@ -1609,7 +1583,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
+| value | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
 
 
 
@@ -1652,6 +1626,73 @@
 
 
 
+<a name="common-RenderStoryStructure"></a>
+
+### RenderStoryStructure
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  | 原始内容 |
+| data | [RenderStoryStructure.DataEntry](#common-RenderStoryStructure-DataEntry) | repeated | 解析结果 |
+
+
+
+
+
+
+<a name="common-RenderStoryStructure-DataEntry"></a>
+
+### RenderStoryStructure.DataEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [RenderStoryStructureValue](#common-RenderStoryStructureValue) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryStructureValue"></a>
+
+### RenderStoryStructureValue
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| urls | [string](#string) | repeated |  |
+| value | [int32](#int32) |  |  |
+| nums | [int32](#int32) |  |  |
+| extra | [RenderStoryStructureValue.ExtraEntry](#common-RenderStoryStructureValue-ExtraEntry) | repeated |  |
+
+
+
+
+
+
+<a name="common-RenderStoryStructureValue-ExtraEntry"></a>
+
+### RenderStoryStructureValue.ExtraEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-RenderStoryboardDetail"></a>
 
 ### RenderStoryboardDetail
@@ -1684,7 +1725,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | key | [string](#string) |  |  |
-| value | [string](#string) |  |  |
+| value | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
 
 
 
@@ -1891,7 +1932,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| CharacterDescription | [string](#string) |  |  |
+| character_description | [string](#string) |  |  |
 
 
 
@@ -1986,6 +2027,22 @@
 
 
 
+<a name="common-UpdateStoryboardResponse-Data"></a>
+
+### UpdateStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-WatchStoryRequest"></a>
 
 ### WatchStoryRequest
@@ -2042,13 +2099,13 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| RENDER_TYPE_Text | 0 |  |
-| RENDER_TYPE_StoryBackgroud | 1 |  |
-| RENDER_TYPE_StorySence | 2 |  |
-| RENDER_TYPE_StoryCharacter | 3 |  |
-| RENDER_TYPE_StoryAction | 4 |  |
-| RENDER_TYPE_StorySetting | 5 |  |
-| RENDER_TYPE_StoryEnding | 6 |  |
+| RENDER_TYPE_TEXT_UNSPECIFIED | 0 | 0: 原创 |
+| RENDER_TYPE_STORYBOARD | 1 | 1: 故事板 |
+| RENDER_TYPE_STORYSENCE | 2 | 2: 故事场景 |
+| RENDER_TYPE_STORYCHARACTERS | 3 | 3: 故事角色 |
+| RENDER_TYPE_STORYACTION | 4 | 4: 故事动作 |
+| RENDER_TYPE_STORYSETTING | 5 | 5: 故事设置 |
+| RENDER_TYPE_STORYENDING | 6 | 6: 故事结局 |
 
 
  

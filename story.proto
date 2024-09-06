@@ -47,7 +47,7 @@ message StoryBoard{
 }
 
 message StoryRole{
-    string CharacterDescription = 1;
+    string character_description = 1;
 }
 
 message StoryBoardParams{
@@ -208,6 +208,10 @@ message CreateStoryRequest {
   message UpdateStoryboardResponse{
     int32 code = 1;
     string message = 2;
+    message Data {
+      int64 story_id = 1;
+      int64 board_id = 2;
+    }
   }
 
   message WatchStoryRequest{
@@ -258,13 +262,20 @@ message CreateStoryRequest {
   }
 
   enum RenderType{
-    RENDER_TYPE_Text = 0;
-    RENDER_TYPE_StoryBackgroud = 1;
-    RENDER_TYPE_StorySence = 2;
-    RENDER_TYPE_StoryCharacter = 3;
-    RENDER_TYPE_StoryAction = 4;
-    RENDER_TYPE_StorySetting = 5;
-    RENDER_TYPE_StoryEnding = 6;
+    // 0: 原创
+    RENDER_TYPE_TEXT_UNSPECIFIED = 0;
+    // 1: 故事板
+    RENDER_TYPE_STORYBOARD = 1;
+    // 2: 故事场景
+    RENDER_TYPE_STORYSENCE = 2;
+    // 3: 故事角色
+    RENDER_TYPE_STORYCHARACTERS = 3;
+    // 4: 故事动作
+    RENDER_TYPE_STORYACTION = 4;
+    // 5: 故事设置
+    RENDER_TYPE_STORYSETTING = 5;
+    // 6: 故事结局
+    RENDER_TYPE_STORYENDING = 6;
   }
 
   message RenderStoryRequest{
@@ -275,6 +286,21 @@ message CreateStoryRequest {
     RenderType render_type = 9;
   }
 
+  message RenderStoryStructureValue{
+    string text = 1;
+    repeated string urls = 2;
+    int32 value = 3;
+    int32 nums = 4;
+    map<string,string> extra = 5;
+  }
+
+  message RenderStoryStructure {
+    // 原始内容
+    string text = 1;
+    // 解析结果
+    map<string,RenderStoryStructureValue> data = 2;
+  }
+
   message RenderStoryDetail {
     string text = 1;
     int32 status = 2;
@@ -283,7 +309,7 @@ message CreateStoryRequest {
     int64 board_id = 5;
     int64 user_id = 6;
     RenderType render_type = 7;
-    map<string,string> result = 8;
+    map<string,RenderStoryStructure> result = 8;
     int32 timecost = 9;
   }
 
@@ -310,7 +336,7 @@ message CreateStoryRequest {
     int64 board_id = 5;
     int64 user_id = 6;
     RenderType render_type = 7;
-    map<string,string> result = 8;
+    map<string,RenderStoryStructure> result = 8;
     int32 timecost = 9;
   }
 
@@ -322,35 +348,30 @@ message CreateStoryRequest {
 
   message GenStoryboardTextRequest{
     int64 board_id = 1;
-    int64 user_id = 2;
-    int64 story_id = 3;
+    int64 story_id = 2;
+    int64 user_id = 3;
     bool is_regenerate = 4;
+    RenderType render_type = 6;
   }
 
   message GenStoryboardTextResponse{
     int32 code = 1;
     string message = 2;
-    message Data {
-      string text = 1;
-      int32 status = 2;
-    }
+    RenderStoryboardDetail data = 3;
   }
 
   message GenStoryboardImagesRequest{
     int64 board_id = 1;
-    int64 user_id = 2;
-    int64 story_id = 3;
+    int64 story_id = 2;
+    int64 user_id = 3;
     bool is_regenerate = 4;
+    RenderType render_type = 6;
   }
 
   message GenStoryboardImagesResponse{
     int32 code = 1;
     string message = 2;
-    message Data {
-      string text = 1;
-      int32 status = 2;
-      repeated string urls = 3;
-    }
+    RenderStoryboardDetail data = 3;
   }
 
 
