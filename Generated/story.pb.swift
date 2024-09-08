@@ -1262,9 +1262,15 @@ public struct Common_GenStoryboardTextRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var isRegenerate: Bool = false
-
   public var renderType: Common_RenderType = .textUnspecified
+
+  public var prompt: String = String()
+
+  public var title: String = String()
+
+  public var description_p: String = String()
+
+  public var senceNum: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1310,6 +1316,12 @@ public struct Common_GenStoryboardImagesRequest: Sendable {
   public var isRegenerate: Bool = false
 
   public var renderType: Common_RenderType = .textUnspecified
+
+  public var senceID: Int32 = 0
+
+  public var senceNameKey: String = String()
+
+  public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4093,8 +4105,11 @@ extension Common_GenStoryboardTextRequest: SwiftProtobuf.Message, SwiftProtobuf.
     1: .standard(proto: "board_id"),
     2: .standard(proto: "story_id"),
     3: .standard(proto: "user_id"),
-    4: .standard(proto: "is_regenerate"),
     6: .standard(proto: "render_type"),
+    9: .same(proto: "prompt"),
+    10: .same(proto: "title"),
+    11: .same(proto: "description"),
+    13: .standard(proto: "sence_num"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4106,8 +4121,11 @@ extension Common_GenStoryboardTextRequest: SwiftProtobuf.Message, SwiftProtobuf.
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.isRegenerate) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self.senceNum) }()
       default: break
       }
     }
@@ -4123,11 +4141,20 @@ extension Common_GenStoryboardTextRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
     }
-    if self.isRegenerate != false {
-      try visitor.visitSingularBoolField(value: self.isRegenerate, fieldNumber: 4)
-    }
     if self.renderType != .textUnspecified {
       try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 6)
+    }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 9)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 10)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 11)
+    }
+    if self.senceNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.senceNum, fieldNumber: 13)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4136,8 +4163,11 @@ extension Common_GenStoryboardTextRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.boardID != rhs.boardID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
-    if lhs.isRegenerate != rhs.isRegenerate {return false}
     if lhs.renderType != rhs.renderType {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.senceNum != rhs.senceNum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4199,6 +4229,9 @@ extension Common_GenStoryboardImagesRequest: SwiftProtobuf.Message, SwiftProtobu
     3: .standard(proto: "user_id"),
     4: .standard(proto: "is_regenerate"),
     6: .standard(proto: "render_type"),
+    7: .standard(proto: "sence_id"),
+    8: .standard(proto: "sence_name_key"),
+    9: .same(proto: "prompt"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4212,6 +4245,9 @@ extension Common_GenStoryboardImagesRequest: SwiftProtobuf.Message, SwiftProtobu
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.isRegenerate) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self.senceID) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.senceNameKey) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
       default: break
       }
     }
@@ -4233,6 +4269,15 @@ extension Common_GenStoryboardImagesRequest: SwiftProtobuf.Message, SwiftProtobu
     if self.renderType != .textUnspecified {
       try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 6)
     }
+    if self.senceID != 0 {
+      try visitor.visitSingularInt32Field(value: self.senceID, fieldNumber: 7)
+    }
+    if !self.senceNameKey.isEmpty {
+      try visitor.visitSingularStringField(value: self.senceNameKey, fieldNumber: 8)
+    }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -4242,6 +4287,9 @@ extension Common_GenStoryboardImagesRequest: SwiftProtobuf.Message, SwiftProtobu
     if lhs.userID != rhs.userID {return false}
     if lhs.isRegenerate != rhs.isRegenerate {return false}
     if lhs.renderType != rhs.renderType {return false}
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.senceNameKey != rhs.senceNameKey {return false}
+    if lhs.prompt != rhs.prompt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

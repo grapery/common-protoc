@@ -1295,6 +1295,9 @@
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
+| sence_id | [int32](#int32) |  |  |
+| sence_name_key | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
 
 
 
@@ -1329,8 +1332,11 @@
 | board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| is_regenerate | [bool](#bool) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| sence_num | [int32](#int32) |  |  |
 
 
 

@@ -359,8 +359,11 @@ message CreateStoryRequest {
     int64 board_id = 1;
     int64 story_id = 2;
     int64 user_id = 3;
-    bool is_regenerate = 4;
     RenderType render_type = 6;
+    string prompt = 9;
+    string title = 10;
+    string description = 11;
+    int32 sence_num = 13;
   }
 
   message GenStoryboardTextResponse{
@@ -375,6 +378,9 @@ message CreateStoryRequest {
     int64 user_id = 3;
     bool is_regenerate = 4;
     RenderType render_type = 6;
+    int32 sence_id = 7;
+    string sence_name_key = 8;  
+    string prompt = 9;
   }
 
   message GenStoryboardImagesResponse{
