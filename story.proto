@@ -40,14 +40,22 @@ message StoryBoard{
     int64 next_board_id = 4;
     int64 creator = 5;
     int64 story_board_id = 6;
+    string title = 8;
+    string content = 9;
     bool is_ai_gen = 11;
-    StoryBoardParams params = 12;
+    repeated StoryRole roles = 12;
+    string backgroud = 13;
+    StoryBoardParams params = 15;
     int64 Ctime = 19;
     int64 Mtime = 20;
 }
 
 message StoryRole{
     string character_description = 1;
+    string character_name = 2;
+    string character_avatar = 3;
+    string character_id = 4;
+    string character_type = 5;  
 }
 
 message StoryBoardParams{
@@ -83,6 +91,7 @@ message CreateStoryRequest {
     bool is_close = 10;
     bool is_ai_gen = 11;
     StoryParams params = 12;
+    repeated StoryRole roles = 13;
   }
   
   message CreateStoryResponse {
@@ -103,12 +112,12 @@ message CreateStoryRequest {
     bool is_ai_gen = 6;
     StoryParams params = 7;
     int64 story_id = 8;
+    repeated StoryRole roles = 10;
   }
   
   message UpdateStoryResponse {
     int32 code = 1;
     string message = 2;
-    
     message Data {
       int32 story_id = 1;
     }Data data = 3;

@@ -229,7 +229,15 @@ public struct Common_StoryBoard: Sendable {
 
   public var storyBoardID: Int64 = 0
 
+  public var title: String = String()
+
+  public var content: String = String()
+
   public var isAiGen: Bool = false
+
+  public var roles: [Common_StoryRole] = []
+
+  public var backgroud: String = String()
 
   public var params: Common_StoryBoardParams {
     get {return _params ?? Common_StoryBoardParams()}
@@ -257,6 +265,14 @@ public struct Common_StoryRole: Sendable {
   // methods supported on all messages.
 
   public var characterDescription: String = String()
+
+  public var characterName: String = String()
+
+  public var characterAvatar: String = String()
+
+  public var characterID: String = String()
+
+  public var characterType: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -396,6 +412,8 @@ public struct Common_CreateStoryRequest: Sendable {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {self._params = nil}
 
+  public var roles: [Common_StoryRole] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -469,6 +487,8 @@ public struct Common_UpdateStoryRequest: Sendable {
   public mutating func clearParams() {self._params = nil}
 
   public var storyID: Int64 = 0
+
+  public var roles: [Common_StoryRole] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -779,31 +799,40 @@ public struct Common_DelStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ForkStoryboardRequest: Sendable {
+public struct Common_ForkStoryboardRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var prevBoardID: Int64 = 0
+  public var prevBoardID: Int64 {
+    get {return _storage._prevBoardID}
+    set {_uniqueStorage()._prevBoardID = newValue}
+  }
 
-  public var storyID: Int64 = 0
+  public var storyID: Int64 {
+    get {return _storage._storyID}
+    set {_uniqueStorage()._storyID = newValue}
+  }
 
-  public var userID: Int64 = 0
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
 
   public var board: Common_StoryBoard {
-    get {return _board ?? Common_StoryBoard()}
-    set {_board = newValue}
+    get {return _storage._board ?? Common_StoryBoard()}
+    set {_uniqueStorage()._board = newValue}
   }
   /// Returns true if `board` has been explicitly set.
-  public var hasBoard: Bool {return self._board != nil}
+  public var hasBoard: Bool {return _storage._board != nil}
   /// Clears the value of `board`. Subsequent reads from it will return its default value.
-  public mutating func clearBoard() {self._board = nil}
+  public mutating func clearBoard() {_uniqueStorage()._board = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _board: Common_StoryBoard? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_ForkStoryboardResponse: Sendable {
@@ -1599,8 +1628,12 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     4: .standard(proto: "next_board_id"),
     5: .same(proto: "creator"),
     6: .standard(proto: "story_board_id"),
+    8: .same(proto: "title"),
+    9: .same(proto: "content"),
     11: .standard(proto: "is_ai_gen"),
-    12: .same(proto: "params"),
+    12: .same(proto: "roles"),
+    13: .same(proto: "backgroud"),
+    15: .same(proto: "params"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -1617,8 +1650,12 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.nextBoardID) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.creator) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyBoardID) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.content) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
-      case 12: try { try decoder.decodeSingularMessageField(value: &self._params) }()
+      case 12: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self.backgroud) }()
+      case 15: try { try decoder.decodeSingularMessageField(value: &self._params) }()
       case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -1649,11 +1686,23 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if self.storyBoardID != 0 {
       try visitor.visitSingularInt64Field(value: self.storyBoardID, fieldNumber: 6)
     }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 8)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 9)
+    }
     if self.isAiGen != false {
       try visitor.visitSingularBoolField(value: self.isAiGen, fieldNumber: 11)
     }
+    if !self.roles.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.roles, fieldNumber: 12)
+    }
+    if !self.backgroud.isEmpty {
+      try visitor.visitSingularStringField(value: self.backgroud, fieldNumber: 13)
+    }
     try { if let v = self._params {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
     } }()
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
@@ -1671,7 +1720,11 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     if lhs.nextBoardID != rhs.nextBoardID {return false}
     if lhs.creator != rhs.creator {return false}
     if lhs.storyBoardID != rhs.storyBoardID {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.content != rhs.content {return false}
     if lhs.isAiGen != rhs.isAiGen {return false}
+    if lhs.roles != rhs.roles {return false}
+    if lhs.backgroud != rhs.backgroud {return false}
     if lhs._params != rhs._params {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
@@ -1684,6 +1737,10 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   public static let protoMessageName: String = _protobuf_package + ".StoryRole"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "character_description"),
+    2: .standard(proto: "character_name"),
+    3: .standard(proto: "character_avatar"),
+    4: .standard(proto: "character_id"),
+    5: .standard(proto: "character_type"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1693,6 +1750,10 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.characterDescription) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.characterName) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.characterAvatar) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.characterID) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.characterType) }()
       default: break
       }
     }
@@ -1702,11 +1763,27 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if !self.characterDescription.isEmpty {
       try visitor.visitSingularStringField(value: self.characterDescription, fieldNumber: 1)
     }
+    if !self.characterName.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterName, fieldNumber: 2)
+    }
+    if !self.characterAvatar.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterAvatar, fieldNumber: 3)
+    }
+    if !self.characterID.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterID, fieldNumber: 4)
+    }
+    if !self.characterType.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterType, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_StoryRole, rhs: Common_StoryRole) -> Bool {
     if lhs.characterDescription != rhs.characterDescription {return false}
+    if lhs.characterName != rhs.characterName {return false}
+    if lhs.characterAvatar != rhs.characterAvatar {return false}
+    if lhs.characterID != rhs.characterID {return false}
+    if lhs.characterType != rhs.characterType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1927,6 +2004,7 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     10: .standard(proto: "is_close"),
     11: .standard(proto: "is_ai_gen"),
     12: .same(proto: "params"),
+    13: .same(proto: "roles"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1947,6 +2025,7 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 10: try { try decoder.decodeSingularBoolField(value: &self.isClose) }()
       case 11: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
       case 12: try { try decoder.decodeSingularMessageField(value: &self._params) }()
+      case 13: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       default: break
       }
     }
@@ -1993,6 +2072,9 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try { if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
     } }()
+    if !self.roles.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.roles, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2009,6 +2091,7 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.isClose != rhs.isClose {return false}
     if lhs.isAiGen != rhs.isAiGen {return false}
     if lhs._params != rhs._params {return false}
+    if lhs.roles != rhs.roles {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2111,6 +2194,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     6: .standard(proto: "is_ai_gen"),
     7: .same(proto: "params"),
     8: .standard(proto: "story_id"),
+    10: .same(proto: "roles"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2127,6 +2211,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 6: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._params) }()
       case 8: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       default: break
       }
     }
@@ -2161,6 +2246,9 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.storyID != 0 {
       try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 8)
     }
+    if !self.roles.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.roles, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2173,6 +2261,7 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.isAiGen != rhs.isAiGen {return false}
     if lhs._params != rhs._params {return false}
     if lhs.storyID != rhs.storyID {return false}
+    if lhs.roles != rhs.roles {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2845,46 +2934,92 @@ extension Common_ForkStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     4: .same(proto: "board"),
   ]
 
+  fileprivate class _StorageClass {
+    var _prevBoardID: Int64 = 0
+    var _storyID: Int64 = 0
+    var _userID: Int64 = 0
+    var _board: Common_StoryBoard? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _prevBoardID = source._prevBoardID
+      _storyID = source._storyID
+      _userID = source._userID
+      _board = source._board
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._board) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._prevBoardID) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
+        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._board) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.prevBoardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.prevBoardID, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._prevBoardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._prevBoardID, fieldNumber: 1)
+      }
+      if _storage._storyID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 2)
+      }
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 3)
+      }
+      try { if let v = _storage._board {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
     }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try { if let v = self._board {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ForkStoryboardRequest, rhs: Common_ForkStoryboardRequest) -> Bool {
-    if lhs.prevBoardID != rhs.prevBoardID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs._board != rhs._board {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._prevBoardID != rhs_storage._prevBoardID {return false}
+        if _storage._storyID != rhs_storage._storyID {return false}
+        if _storage._userID != rhs_storage._userID {return false}
+        if _storage._board != rhs_storage._board {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

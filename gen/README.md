@@ -1109,6 +1109,7 @@
 | is_close | [bool](#bool) |  |  |
 | is_ai_gen | [bool](#bool) |  |  |
 | params | [StoryParams](#common-StoryParams) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
 
 
 
@@ -1865,7 +1866,11 @@
 | next_board_id | [int64](#int64) |  |  |
 | creator | [int64](#int64) |  |  |
 | story_board_id | [int64](#int64) |  |  |
+| title | [string](#string) |  |  |
+| content | [string](#string) |  |  |
 | is_ai_gen | [bool](#bool) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| backgroud | [string](#string) |  |  |
 | params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
@@ -1933,6 +1938,10 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | character_description | [string](#string) |  |  |
+| character_name | [string](#string) |  |  |
+| character_avatar | [string](#string) |  |  |
+| character_id | [string](#string) |  |  |
+| character_type | [string](#string) |  |  |
 
 
 
@@ -1955,6 +1964,7 @@
 | is_ai_gen | [bool](#bool) |  |  |
 | params | [StoryParams](#common-StoryParams) |  |  |
 | story_id | [int64](#int64) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
 
 
 

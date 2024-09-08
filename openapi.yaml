@@ -1775,6 +1775,10 @@ components:
                     type: boolean
                 params:
                     $ref: '#/components/schemas/StoryParams'
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
         CreateStoryResponse:
             type: object
             properties:
@@ -3191,8 +3195,18 @@ components:
                     type: string
                 storyBoardId:
                     type: string
+                title:
+                    type: string
+                content:
+                    type: string
                 isAiGen:
                     type: boolean
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+                backgroud:
+                    type: string
                 params:
                     $ref: '#/components/schemas/StoryBoardParams'
                 Ctime:
@@ -3256,6 +3270,19 @@ components:
                 NegativePrompt:
                     type: string
                 background:
+                    type: string
+        StoryRole:
+            type: object
+            properties:
+                characterDescription:
+                    type: string
+                characterName:
+                    type: string
+                characterAvatar:
+                    type: string
+                characterId:
+                    type: string
+                characterType:
                     type: string
         Tags:
             type: object
@@ -3432,6 +3459,10 @@ components:
                     $ref: '#/components/schemas/StoryParams'
                 storyId:
                     type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
         UpdateStoryResponse:
             type: object
             properties:
