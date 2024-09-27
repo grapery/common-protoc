@@ -1534,6 +1534,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| data | [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data) |  |  |
 
 
 
@@ -1802,6 +1803,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| data | [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data) |  |  |
 
 
 
@@ -2037,6 +2039,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| data | [UpdateStoryboardResponse.Data](#common-UpdateStoryboardResponse-Data) |  |  |
 
 
 
@@ -2085,6 +2088,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| data | [WatchStoryResponse.Data](#common-WatchStoryResponse-Data) |  |  |
 
 
 

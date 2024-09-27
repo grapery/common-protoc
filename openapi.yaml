@@ -2685,6 +2685,19 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/LikeStoryboardResponse_Data'
+        LikeStoryboardResponse_Data:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                likeNum:
+                    type: string
         Location:
             type: object
             properties:
@@ -3135,6 +3148,19 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/ShareStoryboardResponse_Data'
+        ShareStoryboardResponse_Data:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                shareNum:
+                    type: string
         Status:
             type: object
             properties:
@@ -3512,6 +3538,15 @@ components:
                     format: int32
                 message:
                     type: string
+                data:
+                    $ref: '#/components/schemas/UpdateStoryboardResponse_Data'
+        UpdateStoryboardResponse_Data:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
         UpdateUserAvatorRequest:
             type: object
             properties:
@@ -3774,6 +3809,13 @@ components:
                     type: integer
                     format: int32
                 message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/WatchStoryResponse_Data'
+        WatchStoryResponse_Data:
+            type: object
+            properties:
+                storyId:
                     type: string
         WordDetail:
             type: object
