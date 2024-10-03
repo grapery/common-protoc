@@ -389,5 +389,21 @@ message CreateStoryRequest {
     RenderStoryboardDetail data = 3;
   }
 
+  message FetchGroupStorysReqeust{  
+    int64 group_id = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+  }
+
+  message FetchGroupStorysResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated Story list = 1;
+    }Data data = 3;
+  }
+
+
+
 
   

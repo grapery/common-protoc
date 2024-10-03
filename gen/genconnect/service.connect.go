@@ -186,6 +186,9 @@ const (
 	// TeamsAPIShareStoryboardProcedure is the fully-qualified name of the TeamsAPI's ShareStoryboard
 	// RPC.
 	TeamsAPIShareStoryboardProcedure = "/common.TeamsAPI/ShareStoryboard"
+	// TeamsAPIFetchGroupStorysProcedure is the fully-qualified name of the TeamsAPI's FetchGroupStorys
+	// RPC.
+	TeamsAPIFetchGroupStorysProcedure = "/common.TeamsAPI/FetchGroupStorys"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -257,6 +260,7 @@ type TeamsAPIClient interface {
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -604,6 +608,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIShareStoryboardProcedure,
 			opts...,
 		),
+		fetchGroupStorys: connect.NewClient[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse](
+			httpClient,
+			baseURL+TeamsAPIFetchGroupStorysProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -676,6 +685,7 @@ type teamsAPIClient struct {
 	updateStoryboard     *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
 	likeStoryboard       *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
 	shareStoryboard      *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
+	fetchGroupStorys     *connect.Client[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1013,6 +1023,11 @@ func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect.Reque
 	return c.shareStoryboard.CallUnary(ctx, req)
 }
 
+// FetchGroupStorys calls common.TeamsAPI.FetchGroupStorys.
+func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
+	return c.fetchGroupStorys.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
@@ -1082,6 +1097,7 @@ type TeamsAPIHandler interface {
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1425,6 +1441,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.ShareStoryboard,
 		opts...,
 	)
+	teamsAPIFetchGroupStorysHandler := connect.NewUnaryHandler(
+		TeamsAPIFetchGroupStorysProcedure,
+		svc.FetchGroupStorys,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -1561,6 +1582,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPILikeStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIShareStoryboardProcedure:
 			teamsAPIShareStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIFetchGroupStorysProcedure:
+			teamsAPIFetchGroupStorysHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -1836,4 +1859,8 @@ func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect.Req
 
 func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ShareStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupStorys is not implemented"))
 }

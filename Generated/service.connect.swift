@@ -410,6 +410,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `shareStoryboard`(request: Common_ShareStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ShareStoryboardResponse>
+
+    @discardableResult
+    func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupStorysResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1090,6 +1096,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/ShareStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupStorysResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1159,6 +1175,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryboard = Connect.MethodSpec(name: "UpdateStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let likeStoryboard = Connect.MethodSpec(name: "LikeStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let shareStoryboard = Connect.MethodSpec(name: "ShareStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let fetchGroupStorys = Connect.MethodSpec(name: "FetchGroupStorys", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

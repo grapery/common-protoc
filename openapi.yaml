@@ -354,6 +354,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/FetchGroupStorys:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_FetchGroupStorys
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchGroupStorysReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchGroupStorysResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/FetchUserActives:
         post:
             tags:
@@ -1998,6 +2022,34 @@ components:
                     type: string
                 pageSize:
                     type: string
+        FetchGroupStorysReqeust:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                page:
+                    type: integer
+                    format: int32
+                pageSize:
+                    type: integer
+                    format: int32
+        FetchGroupStorysResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/FetchGroupStorysResponse_Data'
+        FetchGroupStorysResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Story'
         FetchUserActivesRequest:
             type: object
             properties:

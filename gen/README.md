@@ -64,6 +64,9 @@
     - [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data)
     - [DelStoryboardRequest](#common-DelStoryboardRequest)
     - [DelStoryboardResponse](#common-DelStoryboardResponse)
+    - [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust)
+    - [FetchGroupStorysResponse](#common-FetchGroupStorysResponse)
+    - [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data)
     - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
     - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
     - [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data)
@@ -1223,6 +1226,55 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-FetchGroupStorysReqeust"></a>
+
+### FetchGroupStorysReqeust
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| page | [int32](#int32) |  |  |
+| page_size | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-FetchGroupStorysResponse"></a>
+
+### FetchGroupStorysResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-FetchGroupStorysResponse-Data"></a>
+
+### FetchGroupStorysResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [Story](#common-Story) | repeated |  |
 
 
 
@@ -4594,6 +4646,7 @@ user ,group .project.item
 | UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) |  |
 | LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) |  |
 | ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) |  |
+| FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) |  |
 
  
 

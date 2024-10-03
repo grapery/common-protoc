@@ -86,6 +86,7 @@ const (
 	TeamsAPI_UpdateStoryboard_FullMethodName     = "/common.TeamsAPI/UpdateStoryboard"
 	TeamsAPI_LikeStoryboard_FullMethodName       = "/common.TeamsAPI/LikeStoryboard"
 	TeamsAPI_ShareStoryboard_FullMethodName      = "/common.TeamsAPI/ShareStoryboard"
+	TeamsAPI_FetchGroupStorys_FullMethodName     = "/common.TeamsAPI/FetchGroupStorys"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -159,6 +160,7 @@ type TeamsAPIClient interface {
 	UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error)
 	LikeStoryboard(ctx context.Context, in *LikeStoryboardRequest, opts ...grpc.CallOption) (*LikeStoryboardResponse, error)
 	ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error)
+	FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -772,6 +774,15 @@ func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, in *ShareStoryboar
 	return out, nil
 }
 
+func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error) {
+	out := new(FetchGroupStorysResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_FetchGroupStorys_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -843,6 +854,7 @@ type TeamsAPIServer interface {
 	UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error)
 	LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error)
 	ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error)
+	FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1050,6 +1062,9 @@ func (UnimplementedTeamsAPIServer) LikeStoryboard(context.Context, *LikeStoryboa
 }
 func (UnimplementedTeamsAPIServer) ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ShareStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupStorys not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2270,6 +2285,24 @@ func _TeamsAPI_ShareStoryboard_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_FetchGroupStorys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchGroupStorysReqeust)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).FetchGroupStorys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_FetchGroupStorys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).FetchGroupStorys(ctx, req.(*FetchGroupStorysReqeust))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2544,6 +2577,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ShareStoryboard",
 			Handler:    _TeamsAPI_ShareStoryboard_Handler,
+		},
+		{
+			MethodName: "FetchGroupStorys",
+			Handler:    _TeamsAPI_FetchGroupStorys_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

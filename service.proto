@@ -1206,5 +1206,12 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc FetchGroupStorys(FetchGroupStorysReqeust) returns (FetchGroupStorysResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/FetchGroupStorys"
+      body : "*"
+    };
+  }
 }
 
