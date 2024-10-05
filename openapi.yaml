@@ -3268,6 +3268,8 @@ components:
                 status:
                     type: integer
                     format: int32
+                title:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:

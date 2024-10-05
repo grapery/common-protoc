@@ -1904,6 +1904,7 @@
 | desc | [string](#string) |  |  |
 | params | [StoryParams](#common-StoryParams) |  |  |
 | status | [int32](#int32) |  |  |
+| title | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 

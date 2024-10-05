@@ -177,6 +177,11 @@ public struct Common_Story: @unchecked Sendable {
     set {_uniqueStorage()._status = newValue}
   }
 
+  public var title: String {
+    get {return _storage._title}
+    set {_uniqueStorage()._title = newValue}
+  }
+
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
@@ -1485,6 +1490,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     14: .same(proto: "desc"),
     15: .same(proto: "params"),
     16: .same(proto: "status"),
+    17: .same(proto: "title"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -1506,6 +1512,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     var _desc: String = String()
     var _params: Common_StoryParams? = nil
     var _status: Int32 = 0
+    var _title: String = String()
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -1538,6 +1545,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       _desc = source._desc
       _params = source._params
       _status = source._status
+      _title = source._title
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -1574,6 +1582,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         case 14: try { try decoder.decodeSingularStringField(value: &_storage._desc) }()
         case 15: try { try decoder.decodeSingularMessageField(value: &_storage._params) }()
         case 16: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._title) }()
         case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
         case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
@@ -1636,6 +1645,9 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       if _storage._status != 0 {
         try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 16)
       }
+      if !_storage._title.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._title, fieldNumber: 17)
+      }
       if _storage._ctime != 0 {
         try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
       }
@@ -1667,6 +1679,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         if _storage._desc != rhs_storage._desc {return false}
         if _storage._params != rhs_storage._params {return false}
         if _storage._status != rhs_storage._status {return false}
+        if _storage._title != rhs_storage._title {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true
