@@ -1,4 +1,3 @@
-
 syntax = "proto3";
 package common;
 
@@ -741,6 +740,21 @@ message GetProjectWatcherResponse{
   } Data data = 3;
 }
 
+message UploadImageRequest {
+  bytes image_data = 1;
+  string filename = 2;
+  string content_type = 3;
+}
+
+message UploadImageResponse {
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    string file_id = 1;
+    string url = 2;
+  }Data data = 3;
+}
+
 service TeamsAPI {
 
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
@@ -1213,5 +1227,11 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // 用来上传文件的proto 接口
+  rpc UploadImageFile(UploadImageRequest) returns (UploadImageResponse) {
+    option (google.api.http) = {
+      post: "/common.TeamsAPI/UploadImageFile"
+      body: "*"
+    };
+  }
 }
-

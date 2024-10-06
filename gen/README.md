@@ -246,6 +246,9 @@
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
+    - [UploadImageRequest](#common-UploadImageRequest)
+    - [UploadImageResponse](#common-UploadImageResponse)
+    - [UploadImageResponse.Data](#common-UploadImageResponse-Data)
     - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
     - [UserFollowingGroupResponse](#common-UserFollowingGroupResponse)
     - [UserGroupRequest](#common-UserGroupRequest)
@@ -4238,6 +4241,56 @@
 
 
 
+<a name="common-UploadImageRequest"></a>
+
+### UploadImageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image_data | [bytes](#bytes) |  |  |
+| filename | [string](#string) |  |  |
+| content_type | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UploadImageResponse"></a>
+
+### UploadImageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [UploadImageResponse.Data](#common-UploadImageResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UploadImageResponse-Data"></a>
+
+### UploadImageResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| file_id | [string](#string) |  |  |
+| url | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UserFollowingGroupRequest"></a>
 
 ### UserFollowingGroupRequest
@@ -4648,6 +4701,7 @@ user ,group .project.item
 | LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) |  |
 | ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) |  |
 | FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) |  |
+| UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
 
  
 

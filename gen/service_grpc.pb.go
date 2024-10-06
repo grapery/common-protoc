@@ -87,6 +87,7 @@ const (
 	TeamsAPI_LikeStoryboard_FullMethodName       = "/common.TeamsAPI/LikeStoryboard"
 	TeamsAPI_ShareStoryboard_FullMethodName      = "/common.TeamsAPI/ShareStoryboard"
 	TeamsAPI_FetchGroupStorys_FullMethodName     = "/common.TeamsAPI/FetchGroupStorys"
+	TeamsAPI_UploadImageFile_FullMethodName      = "/common.TeamsAPI/UploadImageFile"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -161,6 +162,8 @@ type TeamsAPIClient interface {
 	LikeStoryboard(ctx context.Context, in *LikeStoryboardRequest, opts ...grpc.CallOption) (*LikeStoryboardResponse, error)
 	ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error)
 	FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error)
+	// 用来上传文件的proto 接口
+	UploadImageFile(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -783,6 +786,15 @@ func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, in *FetchGroupSto
 	return out, nil
 }
 
+func (c *teamsAPIClient) UploadImageFile(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error) {
+	out := new(UploadImageResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UploadImageFile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -855,6 +867,8 @@ type TeamsAPIServer interface {
 	LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error)
 	ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error)
 	FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error)
+	// 用来上传文件的proto 接口
+	UploadImageFile(context.Context, *UploadImageRequest) (*UploadImageResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1065,6 +1079,9 @@ func (UnimplementedTeamsAPIServer) ShareStoryboard(context.Context, *ShareStoryb
 }
 func (UnimplementedTeamsAPIServer) FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupStorys not implemented")
+}
+func (UnimplementedTeamsAPIServer) UploadImageFile(context.Context, *UploadImageRequest) (*UploadImageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UploadImageFile not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2303,6 +2320,24 @@ func _TeamsAPI_FetchGroupStorys_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UploadImageFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UploadImageFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UploadImageFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UploadImageFile(ctx, req.(*UploadImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2581,6 +2616,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FetchGroupStorys",
 			Handler:    _TeamsAPI_FetchGroupStorys_Handler,
+		},
+		{
+			MethodName: "UploadImageFile",
+			Handler:    _TeamsAPI_UploadImageFile_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

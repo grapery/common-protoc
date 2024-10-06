@@ -1417,6 +1417,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UploadImageFile:
+        post:
+            tags:
+                - TeamsAPI
+            description: 用来上传文件的proto 接口
+            operationId: TeamsAPI_UploadImageFile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UploadImageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UploadImageResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UserFollowingGroup:
         post:
             tags:
@@ -3616,6 +3641,33 @@ components:
                 status:
                     type: integer
                     format: int32
+        UploadImageRequest:
+            type: object
+            properties:
+                imageData:
+                    type: string
+                    format: bytes
+                filename:
+                    type: string
+                contentType:
+                    type: string
+        UploadImageResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/UploadImageResponse_Data'
+        UploadImageResponse_Data:
+            type: object
+            properties:
+                fileId:
+                    type: string
+                url:
+                    type: string
         UserFollowingGroupRequest:
             type: object
             properties:

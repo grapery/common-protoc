@@ -189,6 +189,9 @@ const (
 	// TeamsAPIFetchGroupStorysProcedure is the fully-qualified name of the TeamsAPI's FetchGroupStorys
 	// RPC.
 	TeamsAPIFetchGroupStorysProcedure = "/common.TeamsAPI/FetchGroupStorys"
+	// TeamsAPIUploadImageFileProcedure is the fully-qualified name of the TeamsAPI's UploadImageFile
+	// RPC.
+	TeamsAPIUploadImageFileProcedure = "/common.TeamsAPI/UploadImageFile"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -261,6 +264,8 @@ type TeamsAPIClient interface {
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
+	// 用来上传文件的proto 接口
+	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -613,6 +618,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIFetchGroupStorysProcedure,
 			opts...,
 		),
+		uploadImageFile: connect.NewClient[gen.UploadImageRequest, gen.UploadImageResponse](
+			httpClient,
+			baseURL+TeamsAPIUploadImageFileProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -686,6 +696,7 @@ type teamsAPIClient struct {
 	likeStoryboard       *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
 	shareStoryboard      *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
 	fetchGroupStorys     *connect.Client[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse]
+	uploadImageFile      *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1028,6 +1039,11 @@ func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect.Requ
 	return c.fetchGroupStorys.CallUnary(ctx, req)
 }
 
+// UploadImageFile calls common.TeamsAPI.UploadImageFile.
+func (c *teamsAPIClient) UploadImageFile(ctx context.Context, req *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error) {
+	return c.uploadImageFile.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
@@ -1098,6 +1114,8 @@ type TeamsAPIHandler interface {
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
+	// 用来上传文件的proto 接口
+	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1446,6 +1464,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.FetchGroupStorys,
 		opts...,
 	)
+	teamsAPIUploadImageFileHandler := connect.NewUnaryHandler(
+		TeamsAPIUploadImageFileProcedure,
+		svc.UploadImageFile,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -1584,6 +1607,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIShareStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchGroupStorysProcedure:
 			teamsAPIFetchGroupStorysHandler.ServeHTTP(w, r)
+		case TeamsAPIUploadImageFileProcedure:
+			teamsAPIUploadImageFileHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -1863,4 +1888,8 @@ func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Re
 
 func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupStorys is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UploadImageFile is not implemented"))
 }
