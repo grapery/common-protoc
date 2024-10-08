@@ -1234,4 +1234,18 @@ service TeamsAPI {
       body: "*"
     };
   }
+  // 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+  rpc GetStoryRender(GetStoryRenderRequest) returns (GetStoryRenderResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/StoryRender/list"
+      body : "*"
+    };
+  }
+  // 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+  rpc GetStoryBoardRender(GetStoryBoardRenderRequest) returns (GetStoryBoardRenderResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/StoryBoardRender/list"
+      body : "*"
+    };
+  }
 }

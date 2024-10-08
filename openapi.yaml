@@ -1194,6 +1194,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/StoryBoardRender/list:
+        post:
+            tags:
+                - TeamsAPI
+            description: 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+            operationId: TeamsAPI_GetStoryBoardRender
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryBoardRenderRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryBoardRenderResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/StoryRender/list:
+        post:
+            tags:
+                - TeamsAPI
+            description: 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+            operationId: TeamsAPI_GetStoryRender
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRenderRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRenderResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/Trending:
         get:
             tags:
@@ -2495,6 +2545,34 @@ components:
                     type: object
                     additionalProperties:
                         type: string
+        GetStoryBoardRenderRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                renderStatus:
+                    type: integer
+                    format: int32
+                renderType:
+                    type: integer
+                    format: int32
+        GetStoryBoardRenderResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetStoryBoardRenderResponse_Data'
+        GetStoryBoardRenderResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/RenderStoryboardDetail'
         GetStoryInfoRequest:
             type: object
             properties:
@@ -2515,6 +2593,34 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/Story'
+        GetStoryRenderRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                renderStatus:
+                    type: integer
+                    format: int32
+                renderType:
+                    type: integer
+                    format: int32
+        GetStoryRenderResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetStoryRenderResponse_Data'
+        GetStoryRenderResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/RenderStoryDetail'
         GetStoryboardRequest:
             type: object
             properties:

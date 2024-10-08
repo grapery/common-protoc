@@ -404,6 +404,33 @@ message CreateStoryRequest {
     }Data data = 3;
   }
 
+  message GetStoryRenderRequest{
+    int64 story_id = 1;
+    int32 render_status = 2;
+    int32 render_type = 3;
+  }
+
+  message GetStoryRenderResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated RenderStoryDetail list = 1;
+    }Data data = 3;
+  }
+
+  message GetStoryBoardRenderRequest{
+    int64 board_id = 1;
+    int32 render_status = 2;
+    int32 render_type = 3;
+  }
+
+  message GetStoryBoardRenderResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated RenderStoryboardDetail list = 1;
+    }Data data = 3;
+  }
 
 
 

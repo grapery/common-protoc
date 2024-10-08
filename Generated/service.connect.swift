@@ -424,6 +424,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 用来上传文件的proto 接口
     @available(iOS 13, *)
     func `uploadImageFile`(request: Common_UploadImageRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UploadImageResponse>
+
+    /// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+    @discardableResult
+    func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable
+
+    /// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+    @available(iOS 13, *)
+    func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRenderResponse>
+
+    /// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+    @discardableResult
+    func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable
+
+    /// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+    @available(iOS 13, *)
+    func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardRenderResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1124,6 +1140,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/UploadImageFile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRenderResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardRenderResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1195,6 +1231,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let shareStoryboard = Connect.MethodSpec(name: "ShareStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let fetchGroupStorys = Connect.MethodSpec(name: "FetchGroupStorys", service: "common.TeamsAPI", type: .unary)
             public static let uploadImageFile = Connect.MethodSpec(name: "UploadImageFile", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryRender = Connect.MethodSpec(name: "GetStoryRender", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryBoardRender = Connect.MethodSpec(name: "GetStoryBoardRender", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

@@ -74,9 +74,15 @@
     - [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse)
     - [GenStoryboardTextRequest](#common-GenStoryboardTextRequest)
     - [GenStoryboardTextResponse](#common-GenStoryboardTextResponse)
+    - [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest)
+    - [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse)
+    - [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
     - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
+    - [GetStoryRenderRequest](#common-GetStoryRenderRequest)
+    - [GetStoryRenderResponse](#common-GetStoryRenderResponse)
+    - [GetStoryRenderResponse.Data](#common-GetStoryRenderResponse-Data)
     - [GetStoryboardRequest](#common-GetStoryboardRequest)
     - [GetStoryboardResponse](#common-GetStoryboardResponse)
     - [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data)
@@ -1415,6 +1421,55 @@
 
 
 
+<a name="common-GetStoryBoardRenderRequest"></a>
+
+### GetStoryBoardRenderRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| render_status | [int32](#int32) |  |  |
+| render_type | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardRenderResponse"></a>
+
+### GetStoryBoardRenderResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardRenderResponse-Data"></a>
+
+### GetStoryBoardRenderResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [RenderStoryboardDetail](#common-RenderStoryboardDetail) | repeated |  |
+
+
+
+
+
+
 <a name="common-GetStoryInfoRequest"></a>
 
 ### GetStoryInfoRequest
@@ -1456,6 +1511,55 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [Story](#common-Story) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRenderRequest"></a>
+
+### GetStoryRenderRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| render_status | [int32](#int32) |  |  |
+| render_type | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRenderResponse"></a>
+
+### GetStoryRenderResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryRenderResponse.Data](#common-GetStoryRenderResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRenderResponse-Data"></a>
+
+### GetStoryRenderResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [RenderStoryDetail](#common-RenderStoryDetail) | repeated |  |
 
 
 
@@ -4702,6 +4806,8 @@ user ,group .project.item
 | ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) |  |
 | FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) |  |
 | UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
+| GetStoryRender | [GetStoryRenderRequest](#common-GetStoryRenderRequest) | [GetStoryRenderResponse](#common-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
+| GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
 
  
 

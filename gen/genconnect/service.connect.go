@@ -192,6 +192,11 @@ const (
 	// TeamsAPIUploadImageFileProcedure is the fully-qualified name of the TeamsAPI's UploadImageFile
 	// RPC.
 	TeamsAPIUploadImageFileProcedure = "/common.TeamsAPI/UploadImageFile"
+	// TeamsAPIGetStoryRenderProcedure is the fully-qualified name of the TeamsAPI's GetStoryRender RPC.
+	TeamsAPIGetStoryRenderProcedure = "/common.TeamsAPI/GetStoryRender"
+	// TeamsAPIGetStoryBoardRenderProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryBoardRender RPC.
+	TeamsAPIGetStoryBoardRenderProcedure = "/common.TeamsAPI/GetStoryBoardRender"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -266,6 +271,10 @@ type TeamsAPIClient interface {
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
+	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+	GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error)
+	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -623,6 +632,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUploadImageFileProcedure,
 			opts...,
 		),
+		getStoryRender: connect.NewClient[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryRenderProcedure,
+			opts...,
+		),
+		getStoryBoardRender: connect.NewClient[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryBoardRenderProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -697,6 +716,8 @@ type teamsAPIClient struct {
 	shareStoryboard      *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
 	fetchGroupStorys     *connect.Client[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse]
 	uploadImageFile      *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
+	getStoryRender       *connect.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
+	getStoryBoardRender  *connect.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1044,6 +1065,16 @@ func (c *teamsAPIClient) UploadImageFile(ctx context.Context, req *connect.Reque
 	return c.uploadImageFile.CallUnary(ctx, req)
 }
 
+// GetStoryRender calls common.TeamsAPI.GetStoryRender.
+func (c *teamsAPIClient) GetStoryRender(ctx context.Context, req *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error) {
+	return c.getStoryRender.CallUnary(ctx, req)
+}
+
+// GetStoryBoardRender calls common.TeamsAPI.GetStoryBoardRender.
+func (c *teamsAPIClient) GetStoryBoardRender(ctx context.Context, req *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error) {
+	return c.getStoryBoardRender.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
@@ -1116,6 +1147,10 @@ type TeamsAPIHandler interface {
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
+	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+	GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error)
+	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1469,6 +1504,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.UploadImageFile,
 		opts...,
 	)
+	teamsAPIGetStoryRenderHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryRenderProcedure,
+		svc.GetStoryRender,
+		opts...,
+	)
+	teamsAPIGetStoryBoardRenderHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryBoardRenderProcedure,
+		svc.GetStoryBoardRender,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -1609,6 +1654,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIFetchGroupStorysHandler.ServeHTTP(w, r)
 		case TeamsAPIUploadImageFileProcedure:
 			teamsAPIUploadImageFileHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryRenderProcedure:
+			teamsAPIGetStoryRenderHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryBoardRenderProcedure:
+			teamsAPIGetStoryBoardRenderHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -1892,4 +1941,12 @@ func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.R
 
 func (UnimplementedTeamsAPIHandler) UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UploadImageFile is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRender is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardRender is not implemented"))
 }
