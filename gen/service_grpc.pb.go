@@ -19,77 +19,84 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TeamsAPI_Explore_FullMethodName              = "/common.TeamsAPI/Explore"
-	TeamsAPI_Trending_FullMethodName             = "/common.TeamsAPI/Trending"
-	TeamsAPI_Version_FullMethodName              = "/common.TeamsAPI/Version"
-	TeamsAPI_About_FullMethodName                = "/common.TeamsAPI/About"
-	TeamsAPI_Login_FullMethodName                = "/common.TeamsAPI/Login"
-	TeamsAPI_Logout_FullMethodName               = "/common.TeamsAPI/Logout"
-	TeamsAPI_Register_FullMethodName             = "/common.TeamsAPI/Register"
-	TeamsAPI_ResetPwd_FullMethodName             = "/common.TeamsAPI/ResetPwd"
-	TeamsAPI_UserInit_FullMethodName             = "/common.TeamsAPI/UserInit"
-	TeamsAPI_UserInfo_FullMethodName             = "/common.TeamsAPI/UserInfo"
-	TeamsAPI_UpdateUserAvator_FullMethodName     = "/common.TeamsAPI/UpdateUserAvator"
-	TeamsAPI_UserWatching_FullMethodName         = "/common.TeamsAPI/UserWatching"
-	TeamsAPI_UserGroup_FullMethodName            = "/common.TeamsAPI/UserGroup"
-	TeamsAPI_UserFollowingGroup_FullMethodName   = "/common.TeamsAPI/UserFollowingGroup"
-	TeamsAPI_UserUpdate_FullMethodName           = "/common.TeamsAPI/UserUpdate"
-	TeamsAPI_FetchUserActives_FullMethodName     = "/common.TeamsAPI/FetchUserActives"
-	TeamsAPI_SearchUser_FullMethodName           = "/common.TeamsAPI/SearchUser"
-	TeamsAPI_CreateGroup_FullMethodName          = "/common.TeamsAPI/CreateGroup"
-	TeamsAPI_GetGroup_FullMethodName             = "/common.TeamsAPI/GetGroup"
-	TeamsAPI_GetGroupActives_FullMethodName      = "/common.TeamsAPI/GetGroupActives"
-	TeamsAPI_UpdateGroupInfo_FullMethodName      = "/common.TeamsAPI/UpdateGroupInfo"
-	TeamsAPI_DeleteGroup_FullMethodName          = "/common.TeamsAPI/DeleteGroup"
-	TeamsAPI_FetchGroupMembers_FullMethodName    = "/common.TeamsAPI/FetchGroupMembers"
-	TeamsAPI_SearchGroup_FullMethodName          = "/common.TeamsAPI/SearchGroup"
-	TeamsAPI_FetchGroupProjects_FullMethodName   = "/common.TeamsAPI/FetchGroupProjects"
-	TeamsAPI_JoinGroup_FullMethodName            = "/common.TeamsAPI/JoinGroup"
-	TeamsAPI_LeaveGroup_FullMethodName           = "/common.TeamsAPI/LeaveGroup"
-	TeamsAPI_GetProjectInfo_FullMethodName       = "/common.TeamsAPI/GetProjectInfo"
-	TeamsAPI_GetProjectList_FullMethodName       = "/common.TeamsAPI/GetProjectList"
-	TeamsAPI_CreateProject_FullMethodName        = "/common.TeamsAPI/CreateProject"
-	TeamsAPI_GetProjectMembers_FullMethodName    = "/common.TeamsAPI/GetProjectMembers"
-	TeamsAPI_UpdateProject_FullMethodName        = "/common.TeamsAPI/UpdateProject"
-	TeamsAPI_DeleteProject_FullMethodName        = "/common.TeamsAPI/DeleteProject"
-	TeamsAPI_GetProjectProfile_FullMethodName    = "/common.TeamsAPI/GetProjectProfile"
-	TeamsAPI_UpdateProjectProfile_FullMethodName = "/common.TeamsAPI/UpdateProjectProfile"
-	TeamsAPI_WatchProject_FullMethodName         = "/common.TeamsAPI/WatchProject"
-	TeamsAPI_UnWatchProject_FullMethodName       = "/common.TeamsAPI/UnWatchProject"
-	TeamsAPI_GetProjectWatcher_FullMethodName    = "/common.TeamsAPI/GetProjectWatcher"
-	TeamsAPI_SearchGroupProject_FullMethodName   = "/common.TeamsAPI/SearchGroupProject"
-	TeamsAPI_SearchProject_FullMethodName        = "/common.TeamsAPI/SearchProject"
-	TeamsAPI_ExploreProject_FullMethodName       = "/common.TeamsAPI/ExploreProject"
-	TeamsAPI_GetProjectItems_FullMethodName      = "/common.TeamsAPI/GetProjectItems"
-	TeamsAPI_GetGroupItems_FullMethodName        = "/common.TeamsAPI/GetGroupItems"
-	TeamsAPI_GetUserItems_FullMethodName         = "/common.TeamsAPI/GetUserItems"
-	TeamsAPI_GetItem_FullMethodName              = "/common.TeamsAPI/GetItem"
-	TeamsAPI_CreateItem_FullMethodName           = "/common.TeamsAPI/CreateItem"
-	TeamsAPI_UpdateItem_FullMethodName           = "/common.TeamsAPI/UpdateItem"
-	TeamsAPI_DeleteItem_FullMethodName           = "/common.TeamsAPI/DeleteItem"
-	TeamsAPI_LikeItem_FullMethodName             = "/common.TeamsAPI/LikeItem"
-	TeamsAPI_CreateComment_FullMethodName        = "/common.TeamsAPI/CreateComment"
-	TeamsAPI_GetItemComment_FullMethodName       = "/common.TeamsAPI/GetItemComment"
-	TeamsAPI_CreateStory_FullMethodName          = "/common.TeamsAPI/CreateStory"
-	TeamsAPI_GetStoryInfo_FullMethodName         = "/common.TeamsAPI/GetStoryInfo"
-	TeamsAPI_RenderStory_FullMethodName          = "/common.TeamsAPI/RenderStory"
-	TeamsAPI_UpdateStory_FullMethodName          = "/common.TeamsAPI/UpdateStory"
-	TeamsAPI_WatchStory_FullMethodName           = "/common.TeamsAPI/WatchStory"
-	TeamsAPI_CreateStoryboard_FullMethodName     = "/common.TeamsAPI/CreateStoryboard"
-	TeamsAPI_GetStoryboard_FullMethodName        = "/common.TeamsAPI/GetStoryboard"
-	TeamsAPI_RenderStoryboard_FullMethodName     = "/common.TeamsAPI/RenderStoryboard"
-	TeamsAPI_GenStoryboardText_FullMethodName    = "/common.TeamsAPI/GenStoryboardText"
-	TeamsAPI_GenStoryboardImages_FullMethodName  = "/common.TeamsAPI/GenStoryboardImages"
-	TeamsAPI_GetStoryboards_FullMethodName       = "/common.TeamsAPI/GetStoryboards"
-	TeamsAPI_DelStoryboard_FullMethodName        = "/common.TeamsAPI/DelStoryboard"
-	TeamsAPI_ForkStoryboard_FullMethodName       = "/common.TeamsAPI/ForkStoryboard"
-	TeamsAPI_UpdateStoryboard_FullMethodName     = "/common.TeamsAPI/UpdateStoryboard"
-	TeamsAPI_LikeStoryboard_FullMethodName       = "/common.TeamsAPI/LikeStoryboard"
-	TeamsAPI_ShareStoryboard_FullMethodName      = "/common.TeamsAPI/ShareStoryboard"
-	TeamsAPI_FetchGroupStorys_FullMethodName     = "/common.TeamsAPI/FetchGroupStorys"
-	TeamsAPI_UploadImageFile_FullMethodName      = "/common.TeamsAPI/UploadImageFile"
-	TeamsAPI_GetStoryRender_FullMethodName       = "/common.TeamsAPI/GetStoryRender"
-	TeamsAPI_GetStoryBoardRender_FullMethodName  = "/common.TeamsAPI/GetStoryBoardRender"
+	TeamsAPI_Explore_FullMethodName               = "/common.TeamsAPI/Explore"
+	TeamsAPI_Trending_FullMethodName              = "/common.TeamsAPI/Trending"
+	TeamsAPI_Version_FullMethodName               = "/common.TeamsAPI/Version"
+	TeamsAPI_About_FullMethodName                 = "/common.TeamsAPI/About"
+	TeamsAPI_Login_FullMethodName                 = "/common.TeamsAPI/Login"
+	TeamsAPI_Logout_FullMethodName                = "/common.TeamsAPI/Logout"
+	TeamsAPI_Register_FullMethodName              = "/common.TeamsAPI/Register"
+	TeamsAPI_ResetPwd_FullMethodName              = "/common.TeamsAPI/ResetPwd"
+	TeamsAPI_UserInit_FullMethodName              = "/common.TeamsAPI/UserInit"
+	TeamsAPI_UserInfo_FullMethodName              = "/common.TeamsAPI/UserInfo"
+	TeamsAPI_UpdateUserAvator_FullMethodName      = "/common.TeamsAPI/UpdateUserAvator"
+	TeamsAPI_UserWatching_FullMethodName          = "/common.TeamsAPI/UserWatching"
+	TeamsAPI_UserGroup_FullMethodName             = "/common.TeamsAPI/UserGroup"
+	TeamsAPI_UserFollowingGroup_FullMethodName    = "/common.TeamsAPI/UserFollowingGroup"
+	TeamsAPI_UserUpdate_FullMethodName            = "/common.TeamsAPI/UserUpdate"
+	TeamsAPI_FetchUserActives_FullMethodName      = "/common.TeamsAPI/FetchUserActives"
+	TeamsAPI_SearchUser_FullMethodName            = "/common.TeamsAPI/SearchUser"
+	TeamsAPI_CreateGroup_FullMethodName           = "/common.TeamsAPI/CreateGroup"
+	TeamsAPI_GetGroup_FullMethodName              = "/common.TeamsAPI/GetGroup"
+	TeamsAPI_GetGroupActives_FullMethodName       = "/common.TeamsAPI/GetGroupActives"
+	TeamsAPI_UpdateGroupInfo_FullMethodName       = "/common.TeamsAPI/UpdateGroupInfo"
+	TeamsAPI_DeleteGroup_FullMethodName           = "/common.TeamsAPI/DeleteGroup"
+	TeamsAPI_FetchGroupMembers_FullMethodName     = "/common.TeamsAPI/FetchGroupMembers"
+	TeamsAPI_SearchGroup_FullMethodName           = "/common.TeamsAPI/SearchGroup"
+	TeamsAPI_FetchGroupProjects_FullMethodName    = "/common.TeamsAPI/FetchGroupProjects"
+	TeamsAPI_JoinGroup_FullMethodName             = "/common.TeamsAPI/JoinGroup"
+	TeamsAPI_LeaveGroup_FullMethodName            = "/common.TeamsAPI/LeaveGroup"
+	TeamsAPI_GetProjectInfo_FullMethodName        = "/common.TeamsAPI/GetProjectInfo"
+	TeamsAPI_GetProjectList_FullMethodName        = "/common.TeamsAPI/GetProjectList"
+	TeamsAPI_CreateProject_FullMethodName         = "/common.TeamsAPI/CreateProject"
+	TeamsAPI_GetProjectMembers_FullMethodName     = "/common.TeamsAPI/GetProjectMembers"
+	TeamsAPI_UpdateProject_FullMethodName         = "/common.TeamsAPI/UpdateProject"
+	TeamsAPI_DeleteProject_FullMethodName         = "/common.TeamsAPI/DeleteProject"
+	TeamsAPI_GetProjectProfile_FullMethodName     = "/common.TeamsAPI/GetProjectProfile"
+	TeamsAPI_UpdateProjectProfile_FullMethodName  = "/common.TeamsAPI/UpdateProjectProfile"
+	TeamsAPI_WatchProject_FullMethodName          = "/common.TeamsAPI/WatchProject"
+	TeamsAPI_UnWatchProject_FullMethodName        = "/common.TeamsAPI/UnWatchProject"
+	TeamsAPI_GetProjectWatcher_FullMethodName     = "/common.TeamsAPI/GetProjectWatcher"
+	TeamsAPI_SearchGroupProject_FullMethodName    = "/common.TeamsAPI/SearchGroupProject"
+	TeamsAPI_SearchProject_FullMethodName         = "/common.TeamsAPI/SearchProject"
+	TeamsAPI_ExploreProject_FullMethodName        = "/common.TeamsAPI/ExploreProject"
+	TeamsAPI_GetProjectItems_FullMethodName       = "/common.TeamsAPI/GetProjectItems"
+	TeamsAPI_GetGroupItems_FullMethodName         = "/common.TeamsAPI/GetGroupItems"
+	TeamsAPI_GetUserItems_FullMethodName          = "/common.TeamsAPI/GetUserItems"
+	TeamsAPI_GetItem_FullMethodName               = "/common.TeamsAPI/GetItem"
+	TeamsAPI_CreateItem_FullMethodName            = "/common.TeamsAPI/CreateItem"
+	TeamsAPI_UpdateItem_FullMethodName            = "/common.TeamsAPI/UpdateItem"
+	TeamsAPI_DeleteItem_FullMethodName            = "/common.TeamsAPI/DeleteItem"
+	TeamsAPI_LikeItem_FullMethodName              = "/common.TeamsAPI/LikeItem"
+	TeamsAPI_CreateComment_FullMethodName         = "/common.TeamsAPI/CreateComment"
+	TeamsAPI_GetItemComment_FullMethodName        = "/common.TeamsAPI/GetItemComment"
+	TeamsAPI_CreateStory_FullMethodName           = "/common.TeamsAPI/CreateStory"
+	TeamsAPI_GetStoryInfo_FullMethodName          = "/common.TeamsAPI/GetStoryInfo"
+	TeamsAPI_RenderStory_FullMethodName           = "/common.TeamsAPI/RenderStory"
+	TeamsAPI_UpdateStory_FullMethodName           = "/common.TeamsAPI/UpdateStory"
+	TeamsAPI_WatchStory_FullMethodName            = "/common.TeamsAPI/WatchStory"
+	TeamsAPI_CreateStoryboard_FullMethodName      = "/common.TeamsAPI/CreateStoryboard"
+	TeamsAPI_GetStoryboard_FullMethodName         = "/common.TeamsAPI/GetStoryboard"
+	TeamsAPI_RenderStoryboard_FullMethodName      = "/common.TeamsAPI/RenderStoryboard"
+	TeamsAPI_GenStoryboardText_FullMethodName     = "/common.TeamsAPI/GenStoryboardText"
+	TeamsAPI_GenStoryboardImages_FullMethodName   = "/common.TeamsAPI/GenStoryboardImages"
+	TeamsAPI_GetStoryboards_FullMethodName        = "/common.TeamsAPI/GetStoryboards"
+	TeamsAPI_DelStoryboard_FullMethodName         = "/common.TeamsAPI/DelStoryboard"
+	TeamsAPI_ForkStoryboard_FullMethodName        = "/common.TeamsAPI/ForkStoryboard"
+	TeamsAPI_UpdateStoryboard_FullMethodName      = "/common.TeamsAPI/UpdateStoryboard"
+	TeamsAPI_LikeStoryboard_FullMethodName        = "/common.TeamsAPI/LikeStoryboard"
+	TeamsAPI_ShareStoryboard_FullMethodName       = "/common.TeamsAPI/ShareStoryboard"
+	TeamsAPI_FetchGroupStorys_FullMethodName      = "/common.TeamsAPI/FetchGroupStorys"
+	TeamsAPI_UploadImageFile_FullMethodName       = "/common.TeamsAPI/UploadImageFile"
+	TeamsAPI_GetStoryRender_FullMethodName        = "/common.TeamsAPI/GetStoryRender"
+	TeamsAPI_GetStoryBoardRender_FullMethodName   = "/common.TeamsAPI/GetStoryBoardRender"
+	TeamsAPI_GetStoryContributors_FullMethodName  = "/common.TeamsAPI/GetStoryContributors"
+	TeamsAPI_ContinueRenderStory_FullMethodName   = "/common.TeamsAPI/ContinueRenderStory"
+	TeamsAPI_RenderStoryRoles_FullMethodName      = "/common.TeamsAPI/RenderStoryRoles"
+	TeamsAPI_UpdateStoryRole_FullMethodName       = "/common.TeamsAPI/UpdateStoryRole"
+	TeamsAPI_RenderStoryRoleDetail_FullMethodName = "/common.TeamsAPI/RenderStoryRoleDetail"
+	TeamsAPI_GetStoryRoles_FullMethodName         = "/common.TeamsAPI/GetStoryRoles"
+	TeamsAPI_GetStoryBoardRoles_FullMethodName    = "/common.TeamsAPI/GetStoryBoardRoles"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -170,6 +177,17 @@ type TeamsAPIClient interface {
 	GetStoryRender(ctx context.Context, in *GetStoryRenderRequest, opts ...grpc.CallOption) (*GetStoryRenderResponse, error)
 	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
 	GetStoryBoardRender(ctx context.Context, in *GetStoryBoardRenderRequest, opts ...grpc.CallOption) (*GetStoryBoardRenderResponse, error)
+	// 获取故事的贡献者
+	GetStoryContributors(ctx context.Context, in *GetStoryContributorsRequest, opts ...grpc.CallOption) (*GetStoryContributorsResponse, error)
+	ContinueRenderStory(ctx context.Context, in *ContinueRenderStoryRequest, opts ...grpc.CallOption) (*ContinueRenderStoryResponse, error)
+	RenderStoryRoles(ctx context.Context, in *RenderStoryRolesRequest, opts ...grpc.CallOption) (*RenderStoryRolesResponse, error)
+	// 更新 story role
+	UpdateStoryRole(ctx context.Context, in *UpdateStoryRoleRequest, opts ...grpc.CallOption) (*UpdateStoryRoleResponse, error)
+	RenderStoryRoleDetail(ctx context.Context, in *RenderStoryRoleDetailRequest, opts ...grpc.CallOption) (*RenderStoryRoleDetailResponse, error)
+	// 获取 story roles 的列表
+	GetStoryRoles(ctx context.Context, in *GetStoryRolesRequest, opts ...grpc.CallOption) (*GetStoryRolesResponse, error)
+	// 获取 story board roles 的列表
+	GetStoryBoardRoles(ctx context.Context, in *GetStoryBoardRolesRequest, opts ...grpc.CallOption) (*GetStoryBoardRolesResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -819,6 +837,69 @@ func (c *teamsAPIClient) GetStoryBoardRender(ctx context.Context, in *GetStoryBo
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetStoryContributors(ctx context.Context, in *GetStoryContributorsRequest, opts ...grpc.CallOption) (*GetStoryContributorsResponse, error) {
+	out := new(GetStoryContributorsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryContributors_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) ContinueRenderStory(ctx context.Context, in *ContinueRenderStoryRequest, opts ...grpc.CallOption) (*ContinueRenderStoryResponse, error) {
+	out := new(ContinueRenderStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_ContinueRenderStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RenderStoryRoles(ctx context.Context, in *RenderStoryRolesRequest, opts ...grpc.CallOption) (*RenderStoryRolesResponse, error) {
+	out := new(RenderStoryRolesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RenderStoryRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryRole(ctx context.Context, in *UpdateStoryRoleRequest, opts ...grpc.CallOption) (*UpdateStoryRoleResponse, error) {
+	out := new(UpdateStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RenderStoryRoleDetail(ctx context.Context, in *RenderStoryRoleDetailRequest, opts ...grpc.CallOption) (*RenderStoryRoleDetailResponse, error) {
+	out := new(RenderStoryRoleDetailResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RenderStoryRoleDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryRoles(ctx context.Context, in *GetStoryRolesRequest, opts ...grpc.CallOption) (*GetStoryRolesResponse, error) {
+	out := new(GetStoryRolesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, in *GetStoryBoardRolesRequest, opts ...grpc.CallOption) (*GetStoryBoardRolesResponse, error) {
+	out := new(GetStoryBoardRolesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryBoardRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -897,6 +978,17 @@ type TeamsAPIServer interface {
 	GetStoryRender(context.Context, *GetStoryRenderRequest) (*GetStoryRenderResponse, error)
 	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
 	GetStoryBoardRender(context.Context, *GetStoryBoardRenderRequest) (*GetStoryBoardRenderResponse, error)
+	// 获取故事的贡献者
+	GetStoryContributors(context.Context, *GetStoryContributorsRequest) (*GetStoryContributorsResponse, error)
+	ContinueRenderStory(context.Context, *ContinueRenderStoryRequest) (*ContinueRenderStoryResponse, error)
+	RenderStoryRoles(context.Context, *RenderStoryRolesRequest) (*RenderStoryRolesResponse, error)
+	// 更新 story role
+	UpdateStoryRole(context.Context, *UpdateStoryRoleRequest) (*UpdateStoryRoleResponse, error)
+	RenderStoryRoleDetail(context.Context, *RenderStoryRoleDetailRequest) (*RenderStoryRoleDetailResponse, error)
+	// 获取 story roles 的列表
+	GetStoryRoles(context.Context, *GetStoryRolesRequest) (*GetStoryRolesResponse, error)
+	// 获取 story board roles 的列表
+	GetStoryBoardRoles(context.Context, *GetStoryBoardRolesRequest) (*GetStoryBoardRolesResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1116,6 +1208,27 @@ func (UnimplementedTeamsAPIServer) GetStoryRender(context.Context, *GetStoryRend
 }
 func (UnimplementedTeamsAPIServer) GetStoryBoardRender(context.Context, *GetStoryBoardRenderRequest) (*GetStoryBoardRenderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardRender not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryContributors(context.Context, *GetStoryContributorsRequest) (*GetStoryContributorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryContributors not implemented")
+}
+func (UnimplementedTeamsAPIServer) ContinueRenderStory(context.Context, *ContinueRenderStoryRequest) (*ContinueRenderStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ContinueRenderStory not implemented")
+}
+func (UnimplementedTeamsAPIServer) RenderStoryRoles(context.Context, *RenderStoryRolesRequest) (*RenderStoryRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryRoles not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryRole(context.Context, *UpdateStoryRoleRequest) (*UpdateStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) RenderStoryRoleDetail(context.Context, *RenderStoryRoleDetailRequest) (*RenderStoryRoleDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryRoleDetail not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryRoles(context.Context, *GetStoryRolesRequest) (*GetStoryRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryRoles not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryBoardRoles(context.Context, *GetStoryBoardRolesRequest) (*GetStoryBoardRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardRoles not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2408,6 +2521,132 @@ func _TeamsAPI_GetStoryBoardRender_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetStoryContributors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryContributorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryContributors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryContributors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryContributors(ctx, req.(*GetStoryContributorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_ContinueRenderStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContinueRenderStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).ContinueRenderStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_ContinueRenderStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).ContinueRenderStory(ctx, req.(*ContinueRenderStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RenderStoryRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderStoryRolesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RenderStoryRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RenderStoryRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RenderStoryRoles(ctx, req.(*RenderStoryRolesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryRole(ctx, req.(*UpdateStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RenderStoryRoleDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderStoryRoleDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RenderStoryRoleDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RenderStoryRoleDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RenderStoryRoleDetail(ctx, req.(*RenderStoryRoleDetailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryRolesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryRoles(ctx, req.(*GetStoryRolesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryBoardRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryBoardRolesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryBoardRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryBoardRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryBoardRoles(ctx, req.(*GetStoryBoardRolesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2698,6 +2937,34 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryBoardRender",
 			Handler:    _TeamsAPI_GetStoryBoardRender_Handler,
+		},
+		{
+			MethodName: "GetStoryContributors",
+			Handler:    _TeamsAPI_GetStoryContributors_Handler,
+		},
+		{
+			MethodName: "ContinueRenderStory",
+			Handler:    _TeamsAPI_ContinueRenderStory_Handler,
+		},
+		{
+			MethodName: "RenderStoryRoles",
+			Handler:    _TeamsAPI_RenderStoryRoles_Handler,
+		},
+		{
+			MethodName: "UpdateStoryRole",
+			Handler:    _TeamsAPI_UpdateStoryRole_Handler,
+		},
+		{
+			MethodName: "RenderStoryRoleDetail",
+			Handler:    _TeamsAPI_RenderStoryRoleDetail_Handler,
+		},
+		{
+			MethodName: "GetStoryRoles",
+			Handler:    _TeamsAPI_GetStoryRoles_Handler,
+		},
+		{
+			MethodName: "GetStoryBoardRoles",
+			Handler:    _TeamsAPI_GetStoryBoardRoles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

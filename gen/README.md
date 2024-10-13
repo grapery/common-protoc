@@ -56,6 +56,8 @@
     - [UserProfileInfo](#common-UserProfileInfo)
   
 - [story.proto](#story-proto)
+    - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
+    - [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse)
     - [CreateStoryRequest](#common-CreateStoryRequest)
     - [CreateStoryResponse](#common-CreateStoryResponse)
     - [CreateStoryResponse.Data](#common-CreateStoryResponse-Data)
@@ -77,12 +79,18 @@
     - [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest)
     - [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse)
     - [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data)
+    - [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest)
+    - [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse)
+    - [GetStoryBoardRolesResponse.Data](#common-GetStoryBoardRolesResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
     - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
     - [GetStoryRenderRequest](#common-GetStoryRenderRequest)
     - [GetStoryRenderResponse](#common-GetStoryRenderResponse)
     - [GetStoryRenderResponse.Data](#common-GetStoryRenderResponse-Data)
+    - [GetStoryRolesRequest](#common-GetStoryRolesRequest)
+    - [GetStoryRolesResponse](#common-GetStoryRolesResponse)
+    - [GetStoryRolesResponse.Data](#common-GetStoryRolesResponse-Data)
     - [GetStoryboardRequest](#common-GetStoryboardRequest)
     - [GetStoryboardResponse](#common-GetStoryboardResponse)
     - [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data)
@@ -96,6 +104,10 @@
     - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
     - [RenderStoryResponse](#common-RenderStoryResponse)
+    - [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest)
+    - [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse)
+    - [RenderStoryRolesRequest](#common-RenderStoryRolesRequest)
+    - [RenderStoryRolesResponse](#common-RenderStoryRolesResponse)
     - [RenderStoryStructure](#common-RenderStoryStructure)
     - [RenderStoryStructure.DataEntry](#common-RenderStoryStructure-DataEntry)
     - [RenderStoryStructureValue](#common-RenderStoryStructureValue)
@@ -115,6 +127,8 @@
     - [UpdateStoryRequest](#common-UpdateStoryRequest)
     - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
+    - [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest)
+    - [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse)
     - [UpdateStoryboardRequest](#common-UpdateStoryboardRequest)
     - [UpdateStoryboardResponse](#common-UpdateStoryboardResponse)
     - [UpdateStoryboardResponse.Data](#common-UpdateStoryboardResponse-Data)
@@ -200,6 +214,9 @@
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
     - [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry)
+    - [GetStoryContributorsRequest](#common-GetStoryContributorsRequest)
+    - [GetStoryContributorsResponse](#common-GetStoryContributorsResponse)
+    - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
@@ -233,6 +250,7 @@
     - [SearchProjectResponse](#common-SearchProjectResponse)
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
+    - [StoryContributor](#common-StoryContributor)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
     - [TrendingResponse.Data](#common-TrendingResponse-Data)
@@ -1101,6 +1119,46 @@
 
 
 
+<a name="common-ContinueRenderStoryRequest"></a>
+
+### ContinueRenderStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#common-RenderType) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
+
+
+
+
+
+
+<a name="common-ContinueRenderStoryResponse"></a>
+
+### ContinueRenderStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| structure | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
+
+
+
+
+
+
 <a name="common-CreateStoryRequest"></a>
 
 ### CreateStoryRequest
@@ -1470,6 +1528,53 @@
 
 
 
+<a name="common-GetStoryBoardRolesRequest"></a>
+
+### GetStoryBoardRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardRolesResponse"></a>
+
+### GetStoryBoardRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardRolesResponse.Data](#common-GetStoryBoardRolesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardRolesResponse-Data"></a>
+
+### GetStoryBoardRolesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryRole](#common-StoryRole) | repeated |  |
+
+
+
+
+
+
 <a name="common-GetStoryInfoRequest"></a>
 
 ### GetStoryInfoRequest
@@ -1560,6 +1665,53 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [RenderStoryDetail](#common-RenderStoryDetail) | repeated |  |
+
+
+
+
+
+
+<a name="common-GetStoryRolesRequest"></a>
+
+### GetStoryRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRolesResponse"></a>
+
+### GetStoryRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryRolesResponse.Data](#common-GetStoryRolesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRolesResponse-Data"></a>
+
+### GetStoryRolesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryRole](#common-StoryRole) | repeated |  |
 
 
 
@@ -1787,6 +1939,78 @@
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | data | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRoleDetailRequest"></a>
+
+### RenderStoryRoleDetailRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
+| prompt | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRoleDetailResponse"></a>
+
+### RenderStoryRoleDetailResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRolesRequest"></a>
+
+### RenderStoryRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| params | [StoryRole](#common-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRolesResponse"></a>
+
+### RenderStoryRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| list | [StoryRole](#common-StoryRole) | repeated |  |
 
 
 
@@ -2105,11 +2329,17 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
 | character_description | [string](#string) |  |  |
 | character_name | [string](#string) |  |  |
 | character_avatar | [string](#string) |  |  |
 | character_id | [string](#string) |  |  |
 | character_type | [string](#string) |  |  |
+| character_prompt | [string](#string) |  |  |
+| character_ref_images | [string](#string) | repeated |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
 
 
 
@@ -2165,6 +2395,37 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | story_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRoleRequest"></a>
+
+### UpdateStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role | [StoryRole](#common-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRoleResponse"></a>
+
+### UpdateStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -3509,6 +3770,53 @@
 
 
 
+<a name="common-GetStoryContributorsRequest"></a>
+
+### GetStoryContributorsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryContributorsResponse"></a>
+
+### GetStoryContributorsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryContributorsResponse-Data"></a>
+
+### GetStoryContributorsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryContributor](#common-StoryContributor) | repeated |  |
+
+
+
+
+
+
 <a name="common-GetUserCommentReq"></a>
 
 ### GetUserCommentReq
@@ -4037,6 +4345,24 @@
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryContributor"></a>
+
+### StoryContributor
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| username | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| viplevel | [int64](#int64) |  |  |
 
 
 
@@ -4808,6 +5134,13 @@ user ,group .project.item
 | UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
 | GetStoryRender | [GetStoryRenderRequest](#common-GetStoryRenderRequest) | [GetStoryRenderResponse](#common-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
 | GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
+| GetStoryContributors | [GetStoryContributorsRequest](#common-GetStoryContributorsRequest) | [GetStoryContributorsResponse](#common-GetStoryContributorsResponse) | 获取故事的贡献者 |
+| ContinueRenderStory | [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse) |  |
+| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) |  |
+| UpdateStoryRole | [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest) | [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse) | 更新 story role |
+| RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) |  |
+| GetStoryRoles | [GetStoryRolesRequest](#common-GetStoryRolesRequest) | [GetStoryRolesResponse](#common-GetStoryRolesResponse) | 获取 story roles 的列表 |
+| GetStoryBoardRoles | [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
 
  
 

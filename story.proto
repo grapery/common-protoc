@@ -52,11 +52,17 @@ message StoryBoard{
 }
 
 message StoryRole{
-    string character_description = 1;
-    string character_name = 2;
-    string character_avatar = 3;
-    string character_id = 4;
-    string character_type = 5;  
+    int64 role_id = 1;
+    int64 story_id = 2;
+    string character_description = 5;
+    string character_name = 6;
+    string character_avatar = 7;
+    string character_id = 8;
+    string character_type = 9;
+    string character_prompt = 10;
+    repeated string character_ref_images = 11;
+    int64 Ctime = 16;
+    int64 Mtime = 17;  
 }
 
 message StoryBoardParams{
@@ -432,6 +438,86 @@ message CreateStoryRequest {
     }Data data = 3;
   }
 
+  message ContinueRenderStoryRequest{
+    int64 story_id = 1;
+    int64 prev_board_id = 2;
+    int64 user_id = 3;
+    RenderType render_type = 4;
+    string prompt = 5;
+    string title = 6;
+    string description = 7;
+    string background = 8;
+    repeated StoryRole roles = 9;
+  }
+
+  message ContinueRenderStoryResponse{
+    int32 code = 1;
+    string message = 2;
+    RenderStoryStructure structure = 3;
+  }
+
+  message RenderStoryRolesRequest{
+    int64 story_id = 1;
+    int64 board_id = 2;
+    int64 user_id = 3;
+    string prompt = 4;
+    string background = 5;
+    StoryRole params = 6;
+  }
+
+  message RenderStoryRolesResponse{
+    int32 code = 1;
+    string message = 2;
+    repeated StoryRole list = 3;
+  }
+
+  message RenderStoryRoleDetailRequest{
+    int64 role_id = 1;
+    StoryRole role = 2;
+    string prompt = 3;
+    string background = 4;
+  }
+
+  message RenderStoryRoleDetailResponse{
+    int32 code = 1;
+    string message = 2;
+    StoryRole role = 3;
+  }
+
+  message UpdateStoryRoleRequest{
+    StoryRole role = 1;
+  }
+
+  message UpdateStoryRoleResponse{
+    int32 code = 1;
+    string message = 2;
+  }
+
+  message GetStoryRolesRequest{
+    int64 story_id = 1;
+  }
+
+  message GetStoryRolesResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated StoryRole list = 1;
+    }Data data = 3;
+  }
+
+  message GetStoryBoardRolesRequest{
+    int64 board_id = 1;
+  }
+
+  message GetStoryBoardRolesResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated StoryRole list = 1;
+    }Data data = 3;
+  }
+
+  
 
 
   

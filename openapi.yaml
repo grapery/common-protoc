@@ -24,6 +24,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/ContinueRenderStory:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_ContinueRenderStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ContinueRenderStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ContinueRenderStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CreateComment:
         post:
             tags:
@@ -738,6 +762,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryBoardRoles:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取 story board roles 的列表
+            operationId: TeamsAPI_GetStoryBoardRoles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryBoardRolesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryBoardRolesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryContributors:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事的贡献者
+            operationId: TeamsAPI_GetStoryContributors
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryContributorsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryContributorsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryInfo:
         post:
             tags:
@@ -756,6 +830,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryInfoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryRoles:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取 story roles 的列表
+            operationId: TeamsAPI_GetStoryRoles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRolesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRolesResponse'
                 default:
                     description: Default error response
                     content:
@@ -1020,6 +1119,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/RenderStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RenderStoryRoleDetail:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_RenderStoryRoleDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryRoleDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryRoleDetailResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RenderStoryRoles:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_RenderStoryRoles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryRolesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryRolesResponse'
                 default:
                     description: Default error response
                     content:
@@ -1419,6 +1566,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新 story role
+            operationId: TeamsAPI_UpdateStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryboard:
         post:
             tags:
@@ -1744,6 +1916,40 @@ components:
                     type: string
                 Mtime:
                     type: string
+        ContinueRenderStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                prevBoardId:
+                    type: string
+                userId:
+                    type: string
+                renderType:
+                    type: integer
+                    format: enum
+                prompt:
+                    type: string
+                title:
+                    type: string
+                description:
+                    type: string
+                background:
+                    type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+        ContinueRenderStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                structure:
+                    $ref: '#/components/schemas/RenderStoryStructure'
         CreateCommentReq:
             type: object
             properties:
@@ -2573,6 +2779,50 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/RenderStoryboardDetail'
+        GetStoryBoardRolesRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+        GetStoryBoardRolesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetStoryBoardRolesResponse_Data'
+        GetStoryBoardRolesResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+        GetStoryContributorsRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+        GetStoryContributorsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetStoryContributorsResponse_Data'
+        GetStoryContributorsResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryContributor'
         GetStoryInfoRequest:
             type: object
             properties:
@@ -2621,6 +2871,28 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/RenderStoryDetail'
+        GetStoryRolesRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+        GetStoryRolesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetStoryRolesResponse_Data'
+        GetStoryRolesResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
         GetStoryboardRequest:
             type: object
             properties:
@@ -3105,6 +3377,54 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryDetail'
+        RenderStoryRoleDetailRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                role:
+                    $ref: '#/components/schemas/StoryRole'
+                prompt:
+                    type: string
+                background:
+                    type: string
+        RenderStoryRoleDetailResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                role:
+                    $ref: '#/components/schemas/StoryRole'
+        RenderStoryRolesRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                prompt:
+                    type: string
+                background:
+                    type: string
+                params:
+                    $ref: '#/components/schemas/StoryRole'
+        RenderStoryRolesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
         RenderStoryStructure:
             type: object
             properties:
@@ -3485,6 +3805,17 @@ components:
                 Self128AttentionLayers:
                     type: integer
                     format: int32
+        StoryContributor:
+            type: object
+            properties:
+                userId:
+                    type: string
+                username:
+                    type: string
+                avatar:
+                    type: string
+                viplevel:
+                    type: string
         StoryParams:
             type: object
             properties:
@@ -3499,6 +3830,10 @@ components:
         StoryRole:
             type: object
             properties:
+                roleId:
+                    type: string
+                storyId:
+                    type: string
                 characterDescription:
                     type: string
                 characterName:
@@ -3508,6 +3843,16 @@ components:
                 characterId:
                     type: string
                 characterType:
+                    type: string
+                characterPrompt:
+                    type: string
+                characterRefImages:
+                    type: array
+                    items:
+                        type: string
+                Ctime:
+                    type: string
+                Mtime:
                     type: string
         Tags:
             type: object
@@ -3704,6 +4049,19 @@ components:
                 storyId:
                     type: integer
                     format: int32
+        UpdateStoryRoleRequest:
+            type: object
+            properties:
+                role:
+                    $ref: '#/components/schemas/StoryRole'
+        UpdateStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UpdateStoryboardRequest:
             type: object
             properties:

@@ -755,6 +755,25 @@ message UploadImageResponse {
   }Data data = 3;
 }
 
+message GetStoryContributorsRequest{
+  int64 story_id = 1;
+}
+
+message StoryContributor{
+  int64 user_id = 1;
+  string username = 2;
+  string avatar = 3;
+  int64 viplevel = 4;
+}
+
+message GetStoryContributorsResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryContributor list = 1;
+  }Data data = 3;
+}
+
 service TeamsAPI {
 
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
@@ -1245,6 +1264,60 @@ service TeamsAPI {
   rpc GetStoryBoardRender(GetStoryBoardRenderRequest) returns (GetStoryBoardRenderResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/StoryBoardRender/list"
+      body : "*"
+    };
+  }
+
+  // 获取故事的贡献者
+  rpc GetStoryContributors(GetStoryContributorsRequest) returns (GetStoryContributorsResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryContributors"
+      body : "*"
+    };
+  }
+
+  rpc ContinueRenderStory(ContinueRenderStoryRequest) returns (ContinueRenderStoryResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/ContinueRenderStory"
+      body : "*"
+    };
+  }
+
+  rpc RenderStoryRoles(RenderStoryRolesRequest) returns (RenderStoryRolesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RenderStoryRoles"
+      body : "*"
+    };
+  }
+
+  // 更新 story role
+  rpc UpdateStoryRole(UpdateStoryRoleRequest) returns (UpdateStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryRole"
+      body : "*"
+    };
+  }
+
+
+  rpc RenderStoryRoleDetail(RenderStoryRoleDetailRequest) returns (RenderStoryRoleDetailResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RenderStoryRoleDetail"
+      body : "*"
+    };
+  }
+
+  // 获取 story roles 的列表
+  rpc GetStoryRoles(GetStoryRolesRequest) returns (GetStoryRolesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryRoles"
+      body : "*"
+    };
+  }
+
+  // 获取 story board roles 的列表 
+  rpc GetStoryBoardRoles(GetStoryBoardRolesRequest) returns (GetStoryBoardRolesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardRoles"
       body : "*"
     };
   }
