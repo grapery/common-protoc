@@ -1610,20 +1610,20 @@ public struct Common_ContinueRenderStoryResponse: Sendable {
 
   public var message: String = String()
 
-  public var structure: Common_RenderStoryStructure {
-    get {return _structure ?? Common_RenderStoryStructure()}
-    set {_structure = newValue}
+  public var data: Common_RenderStoryDetail {
+    get {return _data ?? Common_RenderStoryDetail()}
+    set {_data = newValue}
   }
-  /// Returns true if `structure` has been explicitly set.
-  public var hasStructure: Bool {return self._structure != nil}
-  /// Clears the value of `structure`. Subsequent reads from it will return its default value.
-  public mutating func clearStructure() {self._structure = nil}
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _structure: Common_RenderStoryStructure? = nil
+  fileprivate var _data: Common_RenderStoryDetail? = nil
 }
 
 public struct Common_RenderStoryRolesRequest: Sendable {
@@ -5389,7 +5389,7 @@ extension Common_ContinueRenderStoryResponse: SwiftProtobuf.Message, SwiftProtob
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "structure"),
+    3: .same(proto: "data"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5400,7 +5400,7 @@ extension Common_ContinueRenderStoryResponse: SwiftProtobuf.Message, SwiftProtob
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._structure) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
       default: break
       }
     }
@@ -5417,7 +5417,7 @@ extension Common_ContinueRenderStoryResponse: SwiftProtobuf.Message, SwiftProtob
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
-    try { if let v = self._structure {
+    try { if let v = self._data {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -5426,7 +5426,7 @@ extension Common_ContinueRenderStoryResponse: SwiftProtobuf.Message, SwiftProtob
   public static func ==(lhs: Common_ContinueRenderStoryResponse, rhs: Common_ContinueRenderStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
-    if lhs._structure != rhs._structure {return false}
+    if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

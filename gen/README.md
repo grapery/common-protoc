@@ -1152,7 +1152,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| structure | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
+| data | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
 
 
 

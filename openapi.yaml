@@ -1948,8 +1948,8 @@ components:
                     format: int32
                 message:
                     type: string
-                structure:
-                    $ref: '#/components/schemas/RenderStoryStructure'
+                data:
+                    $ref: '#/components/schemas/RenderStoryDetail'
         CreateCommentReq:
             type: object
             properties:

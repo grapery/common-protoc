@@ -453,7 +453,7 @@ message CreateStoryRequest {
   message ContinueRenderStoryResponse{
     int32 code = 1;
     string message = 2;
-    RenderStoryStructure structure = 3;
+    RenderStoryDetail data = 3;
   }
 
   message RenderStoryRolesRequest{
