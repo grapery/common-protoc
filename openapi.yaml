@@ -570,6 +570,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetGroupProfile:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetGroupProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetGroupProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetGroupProfileResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetItem:
         post:
             tags:
@@ -1464,6 +1488,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateGroupInfoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateGroupProfile:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateGroupProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateGroupProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateGroupProfileResponse'
                 default:
                     description: Default error response
                     content:
@@ -2505,6 +2553,28 @@ components:
                     type: string
                 pageSize:
                     type: string
+        GetGroupProfileRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+        GetGroupProfileResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/GetGroupProfileResponse_Data'
+        GetGroupProfileResponse_Data:
+            type: object
+            properties:
+                info:
+                    $ref: '#/components/schemas/GroupProfileInfo'
         GetGroupReqeust:
             type: object
             properties:
@@ -3002,6 +3072,35 @@ components:
                 location:
                     type: string
                 status:
+                    type: integer
+                    format: int32
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
+        GroupProfileInfo:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                groupMemberNum:
+                    type: integer
+                    format: int32
+                groupProjectNum:
+                    type: integer
+                    format: int32
+                defaultProjectList:
+                    type: integer
+                    format: int32
+                publicEmail:
+                    type: string
+                publicWebsite:
+                    type: string
+                isVerified:
+                    type: boolean
+                description:
+                    type: string
+                groupFollowerNum:
                     type: integer
                     format: int32
                 Ctime:
@@ -3941,6 +4040,23 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
+        UpdateGroupProfileRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/GroupProfileInfo'
+                userId:
+                    type: string
+        UpdateGroupProfileResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UpdateItemRequest:
             type: object
             properties:

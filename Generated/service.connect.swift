@@ -136,6 +136,18 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupInfoResponse>
 
     @discardableResult
+    func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupProfileResponse>
+
+    @discardableResult
+    func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupProfileResponse>
+
+    @discardableResult
     func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteGroupResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
@@ -708,6 +720,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateGroupInfoResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/UpdateGroupInfo", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupProfileResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateGroupProfileResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -1303,6 +1335,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getGroup = Connect.MethodSpec(name: "GetGroup", service: "common.TeamsAPI", type: .unary)
             public static let getGroupActives = Connect.MethodSpec(name: "GetGroupActives", service: "common.TeamsAPI", type: .unary)
             public static let updateGroupInfo = Connect.MethodSpec(name: "UpdateGroupInfo", service: "common.TeamsAPI", type: .unary)
+            public static let getGroupProfile = Connect.MethodSpec(name: "GetGroupProfile", service: "common.TeamsAPI", type: .unary)
+            public static let updateGroupProfile = Connect.MethodSpec(name: "UpdateGroupProfile", service: "common.TeamsAPI", type: .unary)
             public static let deleteGroup = Connect.MethodSpec(name: "DeleteGroup", service: "common.TeamsAPI", type: .unary)
             public static let fetchGroupMembers = Connect.MethodSpec(name: "FetchGroupMembers", service: "common.TeamsAPI", type: .unary)
             public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "common.TeamsAPI", type: .unary)

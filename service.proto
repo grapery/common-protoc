@@ -774,6 +774,30 @@ message GetStoryContributorsResponse{
   }Data data = 3;
 }
 
+message GetGroupProfileRequest{
+  int64 group_id = 1;
+  int64 user_id = 2;
+}
+
+message GetGroupProfileResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    GroupProfileInfo info = 1;
+  } Data data = 3;
+}
+
+message UpdateGroupProfileRequest{
+  int64 group_id = 1;
+  GroupProfileInfo info = 2;
+  int64 user_id = 3;
+}
+
+message UpdateGroupProfileResponse{
+  int32 code = 1;
+  string message = 2;
+}
+
 service TeamsAPI {
 
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
@@ -896,12 +920,14 @@ service TeamsAPI {
       body : "*"
     };
   }
+
   rpc GetGroup(GetGroupReqeust) returns (GetGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroup"
       body : "*"
     };
   }
+
   rpc GetGroupActives(GetGroupActivesRequest)
       returns (GetGroupActivesResponse) {
     option (google.api.http) = {
@@ -916,6 +942,22 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc GetGroupProfile(GetGroupProfileRequest) returns (GetGroupProfileResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetGroupProfile"
+      body : "*"
+    };
+  }
+
+  rpc UpdateGroupProfile(UpdateGroupProfileRequest) returns (UpdateGroupProfileResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateGroupProfile"
+      body : "*"
+    };
+  }
+  
+
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteGroup"

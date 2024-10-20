@@ -40,6 +40,8 @@ const (
 	TeamsAPI_GetGroup_FullMethodName              = "/common.TeamsAPI/GetGroup"
 	TeamsAPI_GetGroupActives_FullMethodName       = "/common.TeamsAPI/GetGroupActives"
 	TeamsAPI_UpdateGroupInfo_FullMethodName       = "/common.TeamsAPI/UpdateGroupInfo"
+	TeamsAPI_GetGroupProfile_FullMethodName       = "/common.TeamsAPI/GetGroupProfile"
+	TeamsAPI_UpdateGroupProfile_FullMethodName    = "/common.TeamsAPI/UpdateGroupProfile"
 	TeamsAPI_DeleteGroup_FullMethodName           = "/common.TeamsAPI/DeleteGroup"
 	TeamsAPI_FetchGroupMembers_FullMethodName     = "/common.TeamsAPI/FetchGroupMembers"
 	TeamsAPI_SearchGroup_FullMethodName           = "/common.TeamsAPI/SearchGroup"
@@ -124,6 +126,8 @@ type TeamsAPIClient interface {
 	GetGroup(ctx context.Context, in *GetGroupReqeust, opts ...grpc.CallOption) (*GetGroupResponse, error)
 	GetGroupActives(ctx context.Context, in *GetGroupActivesRequest, opts ...grpc.CallOption) (*GetGroupActivesResponse, error)
 	UpdateGroupInfo(ctx context.Context, in *UpdateGroupInfoRequest, opts ...grpc.CallOption) (*UpdateGroupInfoResponse, error)
+	GetGroupProfile(ctx context.Context, in *GetGroupProfileRequest, opts ...grpc.CallOption) (*GetGroupProfileResponse, error)
+	UpdateGroupProfile(ctx context.Context, in *UpdateGroupProfileRequest, opts ...grpc.CallOption) (*UpdateGroupProfileResponse, error)
 	DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error)
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
 	SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error)
@@ -381,6 +385,24 @@ func (c *teamsAPIClient) GetGroupActives(ctx context.Context, in *GetGroupActive
 func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, in *UpdateGroupInfoRequest, opts ...grpc.CallOption) (*UpdateGroupInfoResponse, error) {
 	out := new(UpdateGroupInfoResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_UpdateGroupInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetGroupProfile(ctx context.Context, in *GetGroupProfileRequest, opts ...grpc.CallOption) (*GetGroupProfileResponse, error) {
+	out := new(GetGroupProfileResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetGroupProfile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateGroupProfile(ctx context.Context, in *UpdateGroupProfileRequest, opts ...grpc.CallOption) (*UpdateGroupProfileResponse, error) {
+	out := new(UpdateGroupProfileResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateGroupProfile_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -925,6 +947,8 @@ type TeamsAPIServer interface {
 	GetGroup(context.Context, *GetGroupReqeust) (*GetGroupResponse, error)
 	GetGroupActives(context.Context, *GetGroupActivesRequest) (*GetGroupActivesResponse, error)
 	UpdateGroupInfo(context.Context, *UpdateGroupInfoRequest) (*UpdateGroupInfoResponse, error)
+	GetGroupProfile(context.Context, *GetGroupProfileRequest) (*GetGroupProfileResponse, error)
+	UpdateGroupProfile(context.Context, *UpdateGroupProfileRequest) (*UpdateGroupProfileResponse, error)
 	DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error)
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
 	SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error)
@@ -1058,6 +1082,12 @@ func (UnimplementedTeamsAPIServer) GetGroupActives(context.Context, *GetGroupAct
 }
 func (UnimplementedTeamsAPIServer) UpdateGroupInfo(context.Context, *UpdateGroupInfoRequest) (*UpdateGroupInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateGroupInfo not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetGroupProfile(context.Context, *GetGroupProfileRequest) (*GetGroupProfileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGroupProfile not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateGroupProfile(context.Context, *UpdateGroupProfileRequest) (*UpdateGroupProfileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGroupProfile not implemented")
 }
 func (UnimplementedTeamsAPIServer) DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteGroup not implemented")
@@ -1617,6 +1647,42 @@ func _TeamsAPI_UpdateGroupInfo_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UpdateGroupInfo(ctx, req.(*UpdateGroupInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetGroupProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetGroupProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetGroupProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetGroupProfile(ctx, req.(*GetGroupProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateGroupProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateGroupProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateGroupProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateGroupProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateGroupProfile(ctx, req.(*UpdateGroupProfileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2737,6 +2803,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateGroupInfo",
 			Handler:    _TeamsAPI_UpdateGroupInfo_Handler,
+		},
+		{
+			MethodName: "GetGroupProfile",
+			Handler:    _TeamsAPI_GetGroupProfile_Handler,
+		},
+		{
+			MethodName: "UpdateGroupProfile",
+			Handler:    _TeamsAPI_UpdateGroupProfile_Handler,
 		},
 		{
 			MethodName: "DeleteGroup",

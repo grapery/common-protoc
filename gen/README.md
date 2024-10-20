@@ -190,6 +190,9 @@
     - [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data)
     - [GetGroupItemsRequest](#common-GetGroupItemsRequest)
     - [GetGroupItemsResponse](#common-GetGroupItemsResponse)
+    - [GetGroupProfileRequest](#common-GetGroupProfileRequest)
+    - [GetGroupProfileResponse](#common-GetGroupProfileResponse)
+    - [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data)
     - [GetGroupReqeust](#common-GetGroupReqeust)
     - [GetGroupResponse](#common-GetGroupResponse)
     - [GetGroupResponse.Data](#common-GetGroupResponse-Data)
@@ -260,6 +263,8 @@
     - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
     - [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse)
     - [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data)
+    - [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest)
+    - [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse)
     - [UpdateItemRequest](#common-UpdateItemRequest)
     - [UpdateItemResponse](#common-UpdateItemResponse)
     - [UpdateItemResponse.Data](#common-UpdateItemResponse-Data)
@@ -3357,6 +3362,54 @@
 
 
 
+<a name="common-GetGroupProfileRequest"></a>
+
+### GetGroupProfileRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetGroupProfileResponse"></a>
+
+### GetGroupProfileResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetGroupProfileResponse-Data"></a>
+
+### GetGroupProfileResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| info | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
+
+
+
+
+
+
 <a name="common-GetGroupReqeust"></a>
 
 ### GetGroupReqeust
@@ -4510,6 +4563,39 @@
 
 
 
+<a name="common-UpdateGroupProfileRequest"></a>
+
+### UpdateGroupProfileRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| info | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateGroupProfileResponse"></a>
+
+### UpdateGroupProfileResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateItemRequest"></a>
 
 ### UpdateItemRequest
@@ -5084,6 +5170,8 @@ user ,group .project.item
 | GetGroup | [GetGroupReqeust](#common-GetGroupReqeust) | [GetGroupResponse](#common-GetGroupResponse) |  |
 | GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) |  |
 | UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) |  |
+| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) |  |
+| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) |  |
 | DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) |  |
 | FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) |  |
 | SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) |  |

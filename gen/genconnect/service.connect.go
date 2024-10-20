@@ -80,6 +80,12 @@ const (
 	// TeamsAPIUpdateGroupInfoProcedure is the fully-qualified name of the TeamsAPI's UpdateGroupInfo
 	// RPC.
 	TeamsAPIUpdateGroupInfoProcedure = "/common.TeamsAPI/UpdateGroupInfo"
+	// TeamsAPIGetGroupProfileProcedure is the fully-qualified name of the TeamsAPI's GetGroupProfile
+	// RPC.
+	TeamsAPIGetGroupProfileProcedure = "/common.TeamsAPI/GetGroupProfile"
+	// TeamsAPIUpdateGroupProfileProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateGroupProfile RPC.
+	TeamsAPIUpdateGroupProfileProcedure = "/common.TeamsAPI/UpdateGroupProfile"
 	// TeamsAPIDeleteGroupProcedure is the fully-qualified name of the TeamsAPI's DeleteGroup RPC.
 	TeamsAPIDeleteGroupProcedure = "/common.TeamsAPI/DeleteGroup"
 	// TeamsAPIFetchGroupMembersProcedure is the fully-qualified name of the TeamsAPI's
@@ -242,6 +248,8 @@ type TeamsAPIClient interface {
 	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
+	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
@@ -421,6 +429,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		updateGroupInfo: connect.NewClient[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateGroupInfoProcedure,
+			opts...,
+		),
+		getGroupProfile: connect.NewClient[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse](
+			httpClient,
+			baseURL+TeamsAPIGetGroupProfileProcedure,
+			opts...,
+		),
+		updateGroupProfile: connect.NewClient[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateGroupProfileProcedure,
 			opts...,
 		),
 		deleteGroup: connect.NewClient[gen.DeleteGroupRequest, gen.DeleteGroupResponse](
@@ -734,6 +752,8 @@ type teamsAPIClient struct {
 	getGroup              *connect.Client[gen.GetGroupReqeust, gen.GetGroupResponse]
 	getGroupActives       *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
 	updateGroupInfo       *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
+	getGroupProfile       *connect.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
+	updateGroupProfile    *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
 	deleteGroup           *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
 	fetchGroupMembers     *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
 	searchGroup           *connect.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
@@ -896,6 +916,16 @@ func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect.Reque
 // UpdateGroupInfo calls common.TeamsAPI.UpdateGroupInfo.
 func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
 	return c.updateGroupInfo.CallUnary(ctx, req)
+}
+
+// GetGroupProfile calls common.TeamsAPI.GetGroupProfile.
+func (c *teamsAPIClient) GetGroupProfile(ctx context.Context, req *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error) {
+	return c.getGroupProfile.CallUnary(ctx, req)
+}
+
+// UpdateGroupProfile calls common.TeamsAPI.UpdateGroupProfile.
+func (c *teamsAPIClient) UpdateGroupProfile(ctx context.Context, req *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error) {
+	return c.updateGroupProfile.CallUnary(ctx, req)
 }
 
 // DeleteGroup calls common.TeamsAPI.DeleteGroup.
@@ -1206,6 +1236,8 @@ type TeamsAPIHandler interface {
 	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
+	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
@@ -1381,6 +1413,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIUpdateGroupInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateGroupInfoProcedure,
 		svc.UpdateGroupInfo,
+		opts...,
+	)
+	teamsAPIGetGroupProfileHandler := connect.NewUnaryHandler(
+		TeamsAPIGetGroupProfileProcedure,
+		svc.GetGroupProfile,
+		opts...,
+	)
+	teamsAPIUpdateGroupProfileHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateGroupProfileProcedure,
+		svc.UpdateGroupProfile,
 		opts...,
 	)
 	teamsAPIDeleteGroupHandler := connect.NewUnaryHandler(
@@ -1712,6 +1754,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetGroupActivesHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateGroupInfoProcedure:
 			teamsAPIUpdateGroupInfoHandler.ServeHTTP(w, r)
+		case TeamsAPIGetGroupProfileProcedure:
+			teamsAPIGetGroupProfileHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateGroupProfileProcedure:
+			teamsAPIUpdateGroupProfileHandler.ServeHTTP(w, r)
 		case TeamsAPIDeleteGroupProcedure:
 			teamsAPIDeleteGroupHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchGroupMembersProcedure:
@@ -1917,6 +1963,14 @@ func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect.Re
 
 func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupInfo is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupProfile is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupProfile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error) {
