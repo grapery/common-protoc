@@ -1096,23 +1096,25 @@
 <a name="common-UserProfileInfo"></a>
 
 ### UserProfileInfo
-
+用户的 profile
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| social_type | [int32](#int32) |  |  |
-| friend_num | [int32](#int32) |  |  |
-| bio | [string](#string) |  |  |
-| in_group_num | [int32](#int32) |  |  |
-| own_group_num | [int32](#int32) |  |  |
+| num_group | [int32](#int32) |  |  |
+| default_group_id | [int64](#int64) |  |  |
+| min_same_group | [int32](#int32) |  |  |
+| limit | [int32](#int32) |  |  |
+| used_tokens | [int32](#int32) |  |  |
+| status | [int32](#int32) |  |  |
 | created_group_num | [int32](#int32) |  |  |
-| contri_project_num | [int32](#int32) |  |  |
-| created_project_num | [int32](#int32) |  |  |
-| default_group | [int32](#int32) |  |  |
-| is_primery | [int32](#int32) |  |  |
-| latest_active_time | [int32](#int32) |  |  |
+| created_story_num | [int32](#int32) |  |  |
+| created_role_num | [int32](#int32) |  |  |
+| watching_story_num | [int32](#int32) |  |  |
+| watching_group_num | [int32](#int32) |  |  |
+| contribut_story_num | [int32](#int32) |  |  |
+| contribut_role_num | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 

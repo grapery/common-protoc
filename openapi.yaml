@@ -4593,42 +4593,49 @@ components:
             properties:
                 userId:
                     type: string
-                socialType:
+                numGroup:
                     type: integer
                     format: int32
-                friendNum:
-                    type: integer
-                    format: int32
-                bio:
+                defaultGroupId:
                     type: string
-                inGroupNum:
+                minSameGroup:
                     type: integer
                     format: int32
-                ownGroupNum:
+                limit:
+                    type: integer
+                    format: int32
+                usedTokens:
+                    type: integer
+                    format: int32
+                status:
                     type: integer
                     format: int32
                 createdGroupNum:
                     type: integer
                     format: int32
-                contriProjectNum:
+                createdStoryNum:
                     type: integer
                     format: int32
-                createdProjectNum:
+                createdRoleNum:
                     type: integer
                     format: int32
-                defaultGroup:
+                watchingStoryNum:
                     type: integer
                     format: int32
-                isPrimery:
+                watchingGroupNum:
                     type: integer
                     format: int32
-                latestActiveTime:
+                contributStoryNum:
+                    type: integer
+                    format: int32
+                contributRoleNum:
                     type: integer
                     format: int32
                 Ctime:
                     type: string
                 Mtime:
                     type: string
+            description: 用户的 profile
         UserUpdateRequest:
             type: object
             properties:

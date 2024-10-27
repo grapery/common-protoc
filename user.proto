@@ -20,21 +20,26 @@ message UserInfo {
     int64 Ctime = 9;
     int64 Mtime = 10;
   }
-  
+
+  // 用户的 profile
   message UserProfileInfo {
     int64 user_id = 1;
-    int32 social_type = 2;
-    int32 friend_num = 3;
-    string bio = 4;
-    int32 in_group_num = 5;
-    int32 own_group_num = 6;
-    int32 created_group_num = 7;
-    int32 contri_project_num = 8;
-    int32 created_project_num = 9;
-    int32 default_group = 10;
-    int32 is_primery = 11;
-    int32 latest_active_time = 12;
-  
+    int32 num_group = 2;
+    int64 default_group_id = 3;
+    int32 min_same_group = 4;
+
+    int32 limit = 5;
+    int32 used_tokens = 6;
+    int32 status = 7;
+
+    int32 created_group_num = 8;
+    int32 created_story_num = 9;
+    int32 created_role_num = 10;
+    int32 watching_story_num = 11;
+    int32 watching_group_num = 12;
+    int32 contribut_story_num = 13;
+    int32 contribut_role_num = 14;
+
     int64 Ctime = 19;
     int64 Mtime = 20;
   }

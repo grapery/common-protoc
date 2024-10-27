@@ -62,6 +62,7 @@ public struct Common_UserInfo: Sendable {
   public init() {}
 }
 
+/// 用户的 profile
 public struct Common_UserProfileInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -69,27 +70,31 @@ public struct Common_UserProfileInfo: Sendable {
 
   public var userID: Int64 = 0
 
-  public var socialType: Int32 = 0
+  public var numGroup: Int32 = 0
 
-  public var friendNum: Int32 = 0
+  public var defaultGroupID: Int64 = 0
 
-  public var bio: String = String()
+  public var minSameGroup: Int32 = 0
 
-  public var inGroupNum: Int32 = 0
+  public var limit: Int32 = 0
 
-  public var ownGroupNum: Int32 = 0
+  public var usedTokens: Int32 = 0
+
+  public var status: Int32 = 0
 
   public var createdGroupNum: Int32 = 0
 
-  public var contriProjectNum: Int32 = 0
+  public var createdStoryNum: Int32 = 0
 
-  public var createdProjectNum: Int32 = 0
+  public var createdRoleNum: Int32 = 0
 
-  public var defaultGroup: Int32 = 0
+  public var watchingStoryNum: Int32 = 0
 
-  public var isPrimery: Int32 = 0
+  public var watchingGroupNum: Int32 = 0
 
-  public var latestActiveTime: Int32 = 0
+  public var contributStoryNum: Int32 = 0
+
+  public var contributRoleNum: Int32 = 0
 
   public var ctime: Int64 = 0
 
@@ -226,17 +231,19 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   public static let protoMessageName: String = _protobuf_package + ".UserProfileInfo"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
-    2: .standard(proto: "social_type"),
-    3: .standard(proto: "friend_num"),
-    4: .same(proto: "bio"),
-    5: .standard(proto: "in_group_num"),
-    6: .standard(proto: "own_group_num"),
-    7: .standard(proto: "created_group_num"),
-    8: .standard(proto: "contri_project_num"),
-    9: .standard(proto: "created_project_num"),
-    10: .standard(proto: "default_group"),
-    11: .standard(proto: "is_primery"),
-    12: .standard(proto: "latest_active_time"),
+    2: .standard(proto: "num_group"),
+    3: .standard(proto: "default_group_id"),
+    4: .standard(proto: "min_same_group"),
+    5: .same(proto: "limit"),
+    6: .standard(proto: "used_tokens"),
+    7: .same(proto: "status"),
+    8: .standard(proto: "created_group_num"),
+    9: .standard(proto: "created_story_num"),
+    10: .standard(proto: "created_role_num"),
+    11: .standard(proto: "watching_story_num"),
+    12: .standard(proto: "watching_group_num"),
+    13: .standard(proto: "contribut_story_num"),
+    14: .standard(proto: "contribut_role_num"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -248,17 +255,19 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.socialType) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.friendNum) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.bio) }()
-      case 5: try { try decoder.decodeSingularInt32Field(value: &self.inGroupNum) }()
-      case 6: try { try decoder.decodeSingularInt32Field(value: &self.ownGroupNum) }()
-      case 7: try { try decoder.decodeSingularInt32Field(value: &self.createdGroupNum) }()
-      case 8: try { try decoder.decodeSingularInt32Field(value: &self.contriProjectNum) }()
-      case 9: try { try decoder.decodeSingularInt32Field(value: &self.createdProjectNum) }()
-      case 10: try { try decoder.decodeSingularInt32Field(value: &self.defaultGroup) }()
-      case 11: try { try decoder.decodeSingularInt32Field(value: &self.isPrimery) }()
-      case 12: try { try decoder.decodeSingularInt32Field(value: &self.latestActiveTime) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.numGroup) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.defaultGroupID) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.minSameGroup) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.limit) }()
+      case 6: try { try decoder.decodeSingularInt32Field(value: &self.usedTokens) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 8: try { try decoder.decodeSingularInt32Field(value: &self.createdGroupNum) }()
+      case 9: try { try decoder.decodeSingularInt32Field(value: &self.createdStoryNum) }()
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self.createdRoleNum) }()
+      case 11: try { try decoder.decodeSingularInt32Field(value: &self.watchingStoryNum) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self.watchingGroupNum) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self.contributStoryNum) }()
+      case 14: try { try decoder.decodeSingularInt32Field(value: &self.contributRoleNum) }()
       case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -270,38 +279,44 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
-    if self.socialType != 0 {
-      try visitor.visitSingularInt32Field(value: self.socialType, fieldNumber: 2)
+    if self.numGroup != 0 {
+      try visitor.visitSingularInt32Field(value: self.numGroup, fieldNumber: 2)
     }
-    if self.friendNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.friendNum, fieldNumber: 3)
+    if self.defaultGroupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.defaultGroupID, fieldNumber: 3)
     }
-    if !self.bio.isEmpty {
-      try visitor.visitSingularStringField(value: self.bio, fieldNumber: 4)
+    if self.minSameGroup != 0 {
+      try visitor.visitSingularInt32Field(value: self.minSameGroup, fieldNumber: 4)
     }
-    if self.inGroupNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.inGroupNum, fieldNumber: 5)
+    if self.limit != 0 {
+      try visitor.visitSingularInt32Field(value: self.limit, fieldNumber: 5)
     }
-    if self.ownGroupNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.ownGroupNum, fieldNumber: 6)
+    if self.usedTokens != 0 {
+      try visitor.visitSingularInt32Field(value: self.usedTokens, fieldNumber: 6)
+    }
+    if self.status != 0 {
+      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 7)
     }
     if self.createdGroupNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.createdGroupNum, fieldNumber: 7)
+      try visitor.visitSingularInt32Field(value: self.createdGroupNum, fieldNumber: 8)
     }
-    if self.contriProjectNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.contriProjectNum, fieldNumber: 8)
+    if self.createdStoryNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.createdStoryNum, fieldNumber: 9)
     }
-    if self.createdProjectNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.createdProjectNum, fieldNumber: 9)
+    if self.createdRoleNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.createdRoleNum, fieldNumber: 10)
     }
-    if self.defaultGroup != 0 {
-      try visitor.visitSingularInt32Field(value: self.defaultGroup, fieldNumber: 10)
+    if self.watchingStoryNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.watchingStoryNum, fieldNumber: 11)
     }
-    if self.isPrimery != 0 {
-      try visitor.visitSingularInt32Field(value: self.isPrimery, fieldNumber: 11)
+    if self.watchingGroupNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.watchingGroupNum, fieldNumber: 12)
     }
-    if self.latestActiveTime != 0 {
-      try visitor.visitSingularInt32Field(value: self.latestActiveTime, fieldNumber: 12)
+    if self.contributStoryNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.contributStoryNum, fieldNumber: 13)
+    }
+    if self.contributRoleNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.contributRoleNum, fieldNumber: 14)
     }
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
@@ -314,17 +329,19 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   public static func ==(lhs: Common_UserProfileInfo, rhs: Common_UserProfileInfo) -> Bool {
     if lhs.userID != rhs.userID {return false}
-    if lhs.socialType != rhs.socialType {return false}
-    if lhs.friendNum != rhs.friendNum {return false}
-    if lhs.bio != rhs.bio {return false}
-    if lhs.inGroupNum != rhs.inGroupNum {return false}
-    if lhs.ownGroupNum != rhs.ownGroupNum {return false}
+    if lhs.numGroup != rhs.numGroup {return false}
+    if lhs.defaultGroupID != rhs.defaultGroupID {return false}
+    if lhs.minSameGroup != rhs.minSameGroup {return false}
+    if lhs.limit != rhs.limit {return false}
+    if lhs.usedTokens != rhs.usedTokens {return false}
+    if lhs.status != rhs.status {return false}
     if lhs.createdGroupNum != rhs.createdGroupNum {return false}
-    if lhs.contriProjectNum != rhs.contriProjectNum {return false}
-    if lhs.createdProjectNum != rhs.createdProjectNum {return false}
-    if lhs.defaultGroup != rhs.defaultGroup {return false}
-    if lhs.isPrimery != rhs.isPrimery {return false}
-    if lhs.latestActiveTime != rhs.latestActiveTime {return false}
+    if lhs.createdStoryNum != rhs.createdStoryNum {return false}
+    if lhs.createdRoleNum != rhs.createdRoleNum {return false}
+    if lhs.watchingStoryNum != rhs.watchingStoryNum {return false}
+    if lhs.watchingGroupNum != rhs.watchingGroupNum {return false}
+    if lhs.contributStoryNum != rhs.contributStoryNum {return false}
+    if lhs.contributRoleNum != rhs.contributRoleNum {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
