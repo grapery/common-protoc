@@ -168,6 +168,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CreateStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 创建新的故事角色
+            operationId: TeamsAPI_CreateStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CreateStoryboard:
         post:
             tags:
@@ -860,6 +885,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryRoleDetail:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取角色详情
+            operationId: TeamsAPI_GetStoryRoleDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRoleDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRoleDetailResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryRoles:
         post:
             tags:
@@ -951,6 +1001,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetUserItemsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserProfile:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户的 profile
+            operationId: TeamsAPI_GetUserProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserProfileResponse'
                 default:
                     description: Default error response
                     content:
@@ -1143,6 +1218,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/RenderStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RenderStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 生成角色的图片
+            operationId: TeamsAPI_RenderStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryRoleResponse'
                 default:
                     description: Default error response
                     content:
@@ -1687,6 +1787,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateUserProfile:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新用户的 profile
+            operationId: TeamsAPI_UpdateUserProfile
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateUserProfileRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateUserProfileResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UploadImageFile:
         post:
             tags:
@@ -1956,6 +2081,10 @@ components:
                     type: string
                 projectId:
                     type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
                 groupId:
                     type: string
                 content:
@@ -2043,6 +2172,10 @@ components:
                 userId:
                     type: string
                 name:
+                    type: string
+                description:
+                    type: string
+                avatar:
                     type: string
         CreateGroupResponse:
             type: object
@@ -2151,6 +2284,21 @@ components:
                 boardId:
                     type: integer
                     format: int32
+        CreateStoryRoleRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/StoryRoleInfo'
+        CreateStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         CreateStoryboardRequest:
             type: object
             properties:
@@ -2941,6 +3089,21 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/RenderStoryDetail'
+        GetStoryRoleDetailRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+        GetStoryRoleDetailResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/StoryRoleInfo'
         GetStoryRolesRequest:
             type: object
             properties:
@@ -3042,6 +3205,21 @@ components:
                     type: string
                 pageSize:
                     type: string
+        GetUserProfileRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+        GetUserProfileResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/UserProfileInfo'
         GoogleProtobufAny:
             type: object
             properties:
@@ -3497,6 +3675,27 @@ components:
                     type: string
                 role:
                     $ref: '#/components/schemas/StoryRole'
+        RenderStoryRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                prompt:
+                    type: string
+                refImages:
+                    type: array
+                    items:
+                        type: string
+                userId:
+                    type: string
+        RenderStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         RenderStoryRolesRequest:
             type: object
             properties:
@@ -3953,6 +4152,33 @@ components:
                     type: string
                 Mtime:
                     type: string
+        StoryRoleInfo:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                characterDescription:
+                    type: string
+                characterName:
+                    type: string
+                characterAvatar:
+                    type: string
+                characterId:
+                    type: string
+                storyId:
+                    type: string
+                characterType:
+                    type: string
+                characterPrompt:
+                    type: string
+                characterRefImages:
+                    type: array
+                    items:
+                        type: string
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
         Tags:
             type: object
             properties:
@@ -4221,6 +4447,21 @@ components:
                 status:
                     type: integer
                     format: int32
+        UpdateUserProfileRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                info:
+                    $ref: '#/components/schemas/UserProfileInfo'
+        UpdateUserProfileResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UploadImageRequest:
             type: object
             properties:
@@ -4347,6 +4588,47 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/GroupInfo'
+        UserProfileInfo:
+            type: object
+            properties:
+                userId:
+                    type: string
+                socialType:
+                    type: integer
+                    format: int32
+                friendNum:
+                    type: integer
+                    format: int32
+                bio:
+                    type: string
+                inGroupNum:
+                    type: integer
+                    format: int32
+                ownGroupNum:
+                    type: integer
+                    format: int32
+                createdGroupNum:
+                    type: integer
+                    format: int32
+                contriProjectNum:
+                    type: integer
+                    format: int32
+                createdProjectNum:
+                    type: integer
+                    format: int32
+                defaultGroup:
+                    type: integer
+                    format: int32
+                isPrimery:
+                    type: integer
+                    format: int32
+                latestActiveTime:
+                    type: integer
+                    format: int32
+                Ctime:
+                    type: string
+                Mtime:
+                    type: string
         UserUpdateRequest:
             type: object
             properties:

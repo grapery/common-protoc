@@ -223,6 +223,20 @@ const (
 	// TeamsAPIGetStoryBoardRolesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardRoles RPC.
 	TeamsAPIGetStoryBoardRolesProcedure = "/common.TeamsAPI/GetStoryBoardRoles"
+	// TeamsAPIGetUserProfileProcedure is the fully-qualified name of the TeamsAPI's GetUserProfile RPC.
+	TeamsAPIGetUserProfileProcedure = "/common.TeamsAPI/GetUserProfile"
+	// TeamsAPIUpdateUserProfileProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateUserProfile RPC.
+	TeamsAPIUpdateUserProfileProcedure = "/common.TeamsAPI/UpdateUserProfile"
+	// TeamsAPICreateStoryRoleProcedure is the fully-qualified name of the TeamsAPI's CreateStoryRole
+	// RPC.
+	TeamsAPICreateStoryRoleProcedure = "/common.TeamsAPI/CreateStoryRole"
+	// TeamsAPIGetStoryRoleDetailProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryRoleDetail RPC.
+	TeamsAPIGetStoryRoleDetailProcedure = "/common.TeamsAPI/GetStoryRoleDetail"
+	// TeamsAPIRenderStoryRoleProcedure is the fully-qualified name of the TeamsAPI's RenderStoryRole
+	// RPC.
+	TeamsAPIRenderStoryRoleProcedure = "/common.TeamsAPI/RenderStoryRole"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -314,6 +328,16 @@ type TeamsAPIClient interface {
 	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
 	// 获取 story board roles 的列表
 	GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error)
+	// 获取用户的 profile
+	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
+	// 更新用户的 profile
+	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
+	// 创建新的故事角色
+	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
+	// 获取角色详情
+	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
+	// 生成角色的图片
+	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -726,6 +750,31 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetStoryBoardRolesProcedure,
 			opts...,
 		),
+		getUserProfile: connect.NewClient[gen.GetUserProfileRequest, gen.GetUserProfileResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserProfileProcedure,
+			opts...,
+		),
+		updateUserProfile: connect.NewClient[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateUserProfileProcedure,
+			opts...,
+		),
+		createStoryRole: connect.NewClient[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPICreateStoryRoleProcedure,
+			opts...,
+		),
+		getStoryRoleDetail: connect.NewClient[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryRoleDetailProcedure,
+			opts...,
+		),
+		renderStoryRole: connect.NewClient[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPIRenderStoryRoleProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -811,6 +860,11 @@ type teamsAPIClient struct {
 	renderStoryRoleDetail *connect.Client[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse]
 	getStoryRoles         *connect.Client[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse]
 	getStoryBoardRoles    *connect.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
+	getUserProfile        *connect.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
+	updateUserProfile     *connect.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
+	createStoryRole       *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
+	getStoryRoleDetail    *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
+	renderStoryRole       *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1213,6 +1267,31 @@ func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, req *connect.Re
 	return c.getStoryBoardRoles.CallUnary(ctx, req)
 }
 
+// GetUserProfile calls common.TeamsAPI.GetUserProfile.
+func (c *teamsAPIClient) GetUserProfile(ctx context.Context, req *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error) {
+	return c.getUserProfile.CallUnary(ctx, req)
+}
+
+// UpdateUserProfile calls common.TeamsAPI.UpdateUserProfile.
+func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, req *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error) {
+	return c.updateUserProfile.CallUnary(ctx, req)
+}
+
+// CreateStoryRole calls common.TeamsAPI.CreateStoryRole.
+func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, req *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
+	return c.createStoryRole.CallUnary(ctx, req)
+}
+
+// GetStoryRoleDetail calls common.TeamsAPI.GetStoryRoleDetail.
+func (c *teamsAPIClient) GetStoryRoleDetail(ctx context.Context, req *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error) {
+	return c.getStoryRoleDetail.CallUnary(ctx, req)
+}
+
+// RenderStoryRole calls common.TeamsAPI.RenderStoryRole.
+func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, req *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error) {
+	return c.renderStoryRole.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
@@ -1302,6 +1381,16 @@ type TeamsAPIHandler interface {
 	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
 	// 获取 story board roles 的列表
 	GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error)
+	// 获取用户的 profile
+	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
+	// 更新用户的 profile
+	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
+	// 创建新的故事角色
+	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
+	// 获取角色详情
+	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
+	// 生成角色的图片
+	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1710,6 +1799,31 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetStoryBoardRoles,
 		opts...,
 	)
+	teamsAPIGetUserProfileHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserProfileProcedure,
+		svc.GetUserProfile,
+		opts...,
+	)
+	teamsAPIUpdateUserProfileHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateUserProfileProcedure,
+		svc.UpdateUserProfile,
+		opts...,
+	)
+	teamsAPICreateStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPICreateStoryRoleProcedure,
+		svc.CreateStoryRole,
+		opts...,
+	)
+	teamsAPIGetStoryRoleDetailHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryRoleDetailProcedure,
+		svc.GetStoryRoleDetail,
+		opts...,
+	)
+	teamsAPIRenderStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPIRenderStoryRoleProcedure,
+		svc.RenderStoryRole,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -1872,6 +1986,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetStoryRolesHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryBoardRolesProcedure:
 			teamsAPIGetStoryBoardRolesHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserProfileProcedure:
+			teamsAPIGetUserProfileHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateUserProfileProcedure:
+			teamsAPIUpdateUserProfileHandler.ServeHTTP(w, r)
+		case TeamsAPICreateStoryRoleProcedure:
+			teamsAPICreateStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryRoleDetailProcedure:
+			teamsAPIGetStoryRoleDetailHandler.ServeHTTP(w, r)
+		case TeamsAPIRenderStoryRoleProcedure:
+			teamsAPIRenderStoryRoleHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -2199,4 +2323,24 @@ func (UnimplementedTeamsAPIHandler) GetStoryRoles(context.Context, *connect.Requ
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardRoles is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserProfile is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserProfile is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleDetail is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRole is not implemented"))
 }

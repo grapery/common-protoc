@@ -1858,6 +1858,38 @@ public struct Common_GetStoryBoardRolesResponse: Sendable {
   fileprivate var _data: Common_GetStoryBoardRolesResponse.DataMessage? = nil
 }
 
+public struct Common_StoryRoleInfo: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var roleID: Int64 = 0
+
+  public var characterDescription: String = String()
+
+  public var characterName: String = String()
+
+  public var characterAvatar: String = String()
+
+  public var characterID: String = String()
+
+  public var storyID: Int64 = 0
+
+  public var characterType: String = String()
+
+  public var characterPrompt: String = String()
+
+  public var characterRefImages: [String] = []
+
+  public var ctime: Int64 = 0
+
+  public var mtime: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
@@ -5937,6 +5969,98 @@ extension Common_GetStoryBoardRolesResponse.DataMessage: SwiftProtobuf.Message, 
 
   public static func ==(lhs: Common_GetStoryBoardRolesResponse.DataMessage, rhs: Common_GetStoryBoardRolesResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryRoleInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "role_id"),
+    2: .standard(proto: "character_description"),
+    3: .standard(proto: "character_name"),
+    4: .standard(proto: "character_avatar"),
+    5: .standard(proto: "character_id"),
+    6: .standard(proto: "story_id"),
+    7: .standard(proto: "character_type"),
+    8: .standard(proto: "character_prompt"),
+    9: .standard(proto: "character_ref_images"),
+    10: .same(proto: "Ctime"),
+    11: .same(proto: "Mtime"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.characterDescription) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.characterName) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.characterAvatar) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.characterID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.characterType) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.characterPrompt) }()
+      case 9: try { try decoder.decodeRepeatedStringField(value: &self.characterRefImages) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 11: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 1)
+    }
+    if !self.characterDescription.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterDescription, fieldNumber: 2)
+    }
+    if !self.characterName.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterName, fieldNumber: 3)
+    }
+    if !self.characterAvatar.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterAvatar, fieldNumber: 4)
+    }
+    if !self.characterID.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterID, fieldNumber: 5)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
+    }
+    if !self.characterType.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterType, fieldNumber: 7)
+    }
+    if !self.characterPrompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.characterPrompt, fieldNumber: 8)
+    }
+    if !self.characterRefImages.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.characterRefImages, fieldNumber: 9)
+    }
+    if self.ctime != 0 {
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 10)
+    }
+    if self.mtime != 0 {
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 11)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryRoleInfo, rhs: Common_StoryRoleInfo) -> Bool {
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.characterDescription != rhs.characterDescription {return false}
+    if lhs.characterName != rhs.characterName {return false}
+    if lhs.characterAvatar != rhs.characterAvatar {return false}
+    if lhs.characterID != rhs.characterID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.characterType != rhs.characterType {return false}
+    if lhs.characterPrompt != rhs.characterPrompt {return false}
+    if lhs.characterRefImages != rhs.characterRefImages {return false}
+    if lhs.ctime != rhs.ctime {return false}
+    if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

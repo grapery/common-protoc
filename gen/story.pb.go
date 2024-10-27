@@ -4551,6 +4551,133 @@ func (x *GetStoryBoardRolesResponse) GetData() *GetStoryBoardRolesResponse_Data 
 	return nil
 }
 
+type StoryRoleInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RoleId               int64    `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	CharacterDescription string   `protobuf:"bytes,2,opt,name=character_description,json=characterDescription,proto3" json:"character_description,omitempty"`
+	CharacterName        string   `protobuf:"bytes,3,opt,name=character_name,json=characterName,proto3" json:"character_name,omitempty"`
+	CharacterAvatar      string   `protobuf:"bytes,4,opt,name=character_avatar,json=characterAvatar,proto3" json:"character_avatar,omitempty"`
+	CharacterId          string   `protobuf:"bytes,5,opt,name=character_id,json=characterId,proto3" json:"character_id,omitempty"`
+	StoryId              int64    `protobuf:"varint,6,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
+	CharacterType        string   `protobuf:"bytes,7,opt,name=character_type,json=characterType,proto3" json:"character_type,omitempty"`
+	CharacterPrompt      string   `protobuf:"bytes,8,opt,name=character_prompt,json=characterPrompt,proto3" json:"character_prompt,omitempty"`
+	CharacterRefImages   []string `protobuf:"bytes,9,rep,name=character_ref_images,json=characterRefImages,proto3" json:"character_ref_images,omitempty"`
+	Ctime                int64    `protobuf:"varint,10,opt,name=Ctime,proto3" json:"Ctime,omitempty"`
+	Mtime                int64    `protobuf:"varint,11,opt,name=Mtime,proto3" json:"Mtime,omitempty"`
+}
+
+func (x *StoryRoleInfo) Reset() {
+	*x = StoryRoleInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_story_proto_msgTypes[59]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StoryRoleInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoryRoleInfo) ProtoMessage() {}
+
+func (x *StoryRoleInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_story_proto_msgTypes[59]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoryRoleInfo.ProtoReflect.Descriptor instead.
+func (*StoryRoleInfo) Descriptor() ([]byte, []int) {
+	return file_story_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *StoryRoleInfo) GetRoleId() int64 {
+	if x != nil {
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *StoryRoleInfo) GetCharacterDescription() string {
+	if x != nil {
+		return x.CharacterDescription
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetCharacterName() string {
+	if x != nil {
+		return x.CharacterName
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetCharacterAvatar() string {
+	if x != nil {
+		return x.CharacterAvatar
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetCharacterId() string {
+	if x != nil {
+		return x.CharacterId
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetStoryId() int64 {
+	if x != nil {
+		return x.StoryId
+	}
+	return 0
+}
+
+func (x *StoryRoleInfo) GetCharacterType() string {
+	if x != nil {
+		return x.CharacterType
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetCharacterPrompt() string {
+	if x != nil {
+		return x.CharacterPrompt
+	}
+	return ""
+}
+
+func (x *StoryRoleInfo) GetCharacterRefImages() []string {
+	if x != nil {
+		return x.CharacterRefImages
+	}
+	return nil
+}
+
+func (x *StoryRoleInfo) GetCtime() int64 {
+	if x != nil {
+		return x.Ctime
+	}
+	return 0
+}
+
+func (x *StoryRoleInfo) GetMtime() int64 {
+	if x != nil {
+		return x.Mtime
+	}
+	return 0
+}
+
 type CreateStoryResponse_Data struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -4563,7 +4690,7 @@ type CreateStoryResponse_Data struct {
 func (x *CreateStoryResponse_Data) Reset() {
 	*x = CreateStoryResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[59]
+		mi := &file_story_proto_msgTypes[60]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4576,7 +4703,7 @@ func (x *CreateStoryResponse_Data) String() string {
 func (*CreateStoryResponse_Data) ProtoMessage() {}
 
 func (x *CreateStoryResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[59]
+	mi := &file_story_proto_msgTypes[60]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4617,7 +4744,7 @@ type UpdateStoryResponse_Data struct {
 func (x *UpdateStoryResponse_Data) Reset() {
 	*x = UpdateStoryResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[60]
+		mi := &file_story_proto_msgTypes[61]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4630,7 +4757,7 @@ func (x *UpdateStoryResponse_Data) String() string {
 func (*UpdateStoryResponse_Data) ProtoMessage() {}
 
 func (x *UpdateStoryResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[60]
+	mi := &file_story_proto_msgTypes[61]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4664,7 +4791,7 @@ type GetStoryInfoResponse_Data struct {
 func (x *GetStoryInfoResponse_Data) Reset() {
 	*x = GetStoryInfoResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[61]
+		mi := &file_story_proto_msgTypes[62]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4677,7 +4804,7 @@ func (x *GetStoryInfoResponse_Data) String() string {
 func (*GetStoryInfoResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryInfoResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[61]
+	mi := &file_story_proto_msgTypes[62]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4711,7 +4838,7 @@ type CreateStoryboardResponse_Data struct {
 func (x *CreateStoryboardResponse_Data) Reset() {
 	*x = CreateStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[62]
+		mi := &file_story_proto_msgTypes[63]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4724,7 +4851,7 @@ func (x *CreateStoryboardResponse_Data) String() string {
 func (*CreateStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *CreateStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[62]
+	mi := &file_story_proto_msgTypes[63]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4758,7 +4885,7 @@ type GetStoryboardResponse_Data struct {
 func (x *GetStoryboardResponse_Data) Reset() {
 	*x = GetStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[63]
+		mi := &file_story_proto_msgTypes[64]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4771,7 +4898,7 @@ func (x *GetStoryboardResponse_Data) String() string {
 func (*GetStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[63]
+	mi := &file_story_proto_msgTypes[64]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4806,7 +4933,7 @@ type GetStoryboardsResponse_Data struct {
 func (x *GetStoryboardsResponse_Data) Reset() {
 	*x = GetStoryboardsResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[64]
+		mi := &file_story_proto_msgTypes[65]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4819,7 +4946,7 @@ func (x *GetStoryboardsResponse_Data) String() string {
 func (*GetStoryboardsResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryboardsResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[64]
+	mi := &file_story_proto_msgTypes[65]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4863,7 +4990,7 @@ type ForkStoryboardResponse_Data struct {
 func (x *ForkStoryboardResponse_Data) Reset() {
 	*x = ForkStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[65]
+		mi := &file_story_proto_msgTypes[66]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4876,7 +5003,7 @@ func (x *ForkStoryboardResponse_Data) String() string {
 func (*ForkStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *ForkStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[65]
+	mi := &file_story_proto_msgTypes[66]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4932,7 +5059,7 @@ type UpdateStoryboardResponse_Data struct {
 func (x *UpdateStoryboardResponse_Data) Reset() {
 	*x = UpdateStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[66]
+		mi := &file_story_proto_msgTypes[67]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4945,7 +5072,7 @@ func (x *UpdateStoryboardResponse_Data) String() string {
 func (*UpdateStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *UpdateStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[66]
+	mi := &file_story_proto_msgTypes[67]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4986,7 +5113,7 @@ type WatchStoryResponse_Data struct {
 func (x *WatchStoryResponse_Data) Reset() {
 	*x = WatchStoryResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[67]
+		mi := &file_story_proto_msgTypes[68]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4999,7 +5126,7 @@ func (x *WatchStoryResponse_Data) String() string {
 func (*WatchStoryResponse_Data) ProtoMessage() {}
 
 func (x *WatchStoryResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[67]
+	mi := &file_story_proto_msgTypes[68]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5036,7 +5163,7 @@ type LikeStoryboardResponse_Data struct {
 func (x *LikeStoryboardResponse_Data) Reset() {
 	*x = LikeStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[68]
+		mi := &file_story_proto_msgTypes[69]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5049,7 +5176,7 @@ func (x *LikeStoryboardResponse_Data) String() string {
 func (*LikeStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *LikeStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[68]
+	mi := &file_story_proto_msgTypes[69]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5107,7 +5234,7 @@ type ShareStoryboardResponse_Data struct {
 func (x *ShareStoryboardResponse_Data) Reset() {
 	*x = ShareStoryboardResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[69]
+		mi := &file_story_proto_msgTypes[70]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5120,7 +5247,7 @@ func (x *ShareStoryboardResponse_Data) String() string {
 func (*ShareStoryboardResponse_Data) ProtoMessage() {}
 
 func (x *ShareStoryboardResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[69]
+	mi := &file_story_proto_msgTypes[70]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5175,7 +5302,7 @@ type FetchGroupStorysResponse_Data struct {
 func (x *FetchGroupStorysResponse_Data) Reset() {
 	*x = FetchGroupStorysResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[74]
+		mi := &file_story_proto_msgTypes[75]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5188,7 +5315,7 @@ func (x *FetchGroupStorysResponse_Data) String() string {
 func (*FetchGroupStorysResponse_Data) ProtoMessage() {}
 
 func (x *FetchGroupStorysResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[74]
+	mi := &file_story_proto_msgTypes[75]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5222,7 +5349,7 @@ type GetStoryRenderResponse_Data struct {
 func (x *GetStoryRenderResponse_Data) Reset() {
 	*x = GetStoryRenderResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[75]
+		mi := &file_story_proto_msgTypes[76]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5235,7 +5362,7 @@ func (x *GetStoryRenderResponse_Data) String() string {
 func (*GetStoryRenderResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryRenderResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[75]
+	mi := &file_story_proto_msgTypes[76]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5269,7 +5396,7 @@ type GetStoryBoardRenderResponse_Data struct {
 func (x *GetStoryBoardRenderResponse_Data) Reset() {
 	*x = GetStoryBoardRenderResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[76]
+		mi := &file_story_proto_msgTypes[77]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5282,7 +5409,7 @@ func (x *GetStoryBoardRenderResponse_Data) String() string {
 func (*GetStoryBoardRenderResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryBoardRenderResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[76]
+	mi := &file_story_proto_msgTypes[77]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5316,7 +5443,7 @@ type GetStoryRolesResponse_Data struct {
 func (x *GetStoryRolesResponse_Data) Reset() {
 	*x = GetStoryRolesResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[77]
+		mi := &file_story_proto_msgTypes[78]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5329,7 +5456,7 @@ func (x *GetStoryRolesResponse_Data) String() string {
 func (*GetStoryRolesResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryRolesResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[77]
+	mi := &file_story_proto_msgTypes[78]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5363,7 +5490,7 @@ type GetStoryBoardRolesResponse_Data struct {
 func (x *GetStoryBoardRolesResponse_Data) Reset() {
 	*x = GetStoryBoardRolesResponse_Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_story_proto_msgTypes[78]
+		mi := &file_story_proto_msgTypes[79]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5376,7 +5503,7 @@ func (x *GetStoryBoardRolesResponse_Data) String() string {
 func (*GetStoryBoardRolesResponse_Data) ProtoMessage() {}
 
 func (x *GetStoryBoardRolesResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_story_proto_msgTypes[78]
+	mi := &file_story_proto_msgTypes[79]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6119,7 +6246,33 @@ var file_story_proto_rawDesc = []byte{
 	0x61, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x1a, 0x2d, 0x0a, 0x04, 0x44, 0x61, 0x74, 0x61, 0x12,
 	0x25, 0x0a, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x11, 0x2e,
 	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x6f, 0x6c, 0x65,
-	0x52, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x2a, 0xdf, 0x01, 0x0a, 0x0a, 0x52, 0x65, 0x6e, 0x64, 0x65,
+	0x52, 0x04, 0x6c, 0x69, 0x73, 0x74, 0x22, 0x9d, 0x03, 0x0a, 0x0d, 0x53, 0x74, 0x6f, 0x72, 0x79,
+	0x52, 0x6f, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x6f, 0x6c, 0x65,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x72, 0x6f, 0x6c, 0x65, 0x49,
+	0x64, 0x12, 0x33, 0x0a, 0x15, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x5f, 0x64,
+	0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x14, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x44, 0x65, 0x73, 0x63, 0x72,
+	0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x0a, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63,
+	0x74, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d,
+	0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x29, 0x0a,
+	0x10, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x5f, 0x61, 0x76, 0x61, 0x74, 0x61,
+	0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
+	0x65, 0x72, 0x41, 0x76, 0x61, 0x74, 0x61, 0x72, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x68, 0x61, 0x72,
+	0x61, 0x63, 0x74, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
+	0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x49, 0x64, 0x12, 0x19, 0x0a, 0x08, 0x73,
+	0x74, 0x6f, 0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x06, 0x20, 0x01, 0x28, 0x03, 0x52, 0x07, 0x73,
+	0x74, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63,
+	0x74, 0x65, 0x72, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d,
+	0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x29, 0x0a,
+	0x10, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x5f, 0x70, 0x72, 0x6f, 0x6d, 0x70,
+	0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
+	0x65, 0x72, 0x50, 0x72, 0x6f, 0x6d, 0x70, 0x74, 0x12, 0x30, 0x0a, 0x14, 0x63, 0x68, 0x61, 0x72,
+	0x61, 0x63, 0x74, 0x65, 0x72, 0x5f, 0x72, 0x65, 0x66, 0x5f, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x73,
+	0x18, 0x09, 0x20, 0x03, 0x28, 0x09, 0x52, 0x12, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
+	0x72, 0x52, 0x65, 0x66, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x43, 0x74,
+	0x69, 0x6d, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x43, 0x74, 0x69, 0x6d, 0x65,
+	0x12, 0x14, 0x0a, 0x05, 0x4d, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x05, 0x4d, 0x74, 0x69, 0x6d, 0x65, 0x2a, 0xdf, 0x01, 0x0a, 0x0a, 0x52, 0x65, 0x6e, 0x64, 0x65,
 	0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x1c, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f,
 	0x54, 0x59, 0x50, 0x45, 0x5f, 0x54, 0x45, 0x58, 0x54, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43,
 	0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x1a, 0x0a, 0x16, 0x52, 0x45, 0x4e, 0x44, 0x45,
@@ -6157,7 +6310,7 @@ func file_story_proto_rawDescGZIP() []byte {
 }
 
 var file_story_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_story_proto_msgTypes = make([]protoimpl.MessageInfo, 79)
+var file_story_proto_msgTypes = make([]protoimpl.MessageInfo, 80)
 var file_story_proto_goTypes = []interface{}{
 	(RenderType)(0),                          // 0: common.RenderType
 	(*Story)(nil),                            // 1: common.Story
@@ -6219,70 +6372,71 @@ var file_story_proto_goTypes = []interface{}{
 	(*GetStoryRolesResponse)(nil),            // 57: common.GetStoryRolesResponse
 	(*GetStoryBoardRolesRequest)(nil),        // 58: common.GetStoryBoardRolesRequest
 	(*GetStoryBoardRolesResponse)(nil),       // 59: common.GetStoryBoardRolesResponse
-	(*CreateStoryResponse_Data)(nil),         // 60: common.CreateStoryResponse.Data
-	(*UpdateStoryResponse_Data)(nil),         // 61: common.UpdateStoryResponse.Data
-	(*GetStoryInfoResponse_Data)(nil),        // 62: common.GetStoryInfoResponse.Data
-	(*CreateStoryboardResponse_Data)(nil),    // 63: common.CreateStoryboardResponse.Data
-	(*GetStoryboardResponse_Data)(nil),       // 64: common.GetStoryboardResponse.Data
-	(*GetStoryboardsResponse_Data)(nil),      // 65: common.GetStoryboardsResponse.Data
-	(*ForkStoryboardResponse_Data)(nil),      // 66: common.ForkStoryboardResponse.Data
-	(*UpdateStoryboardResponse_Data)(nil),    // 67: common.UpdateStoryboardResponse.Data
-	(*WatchStoryResponse_Data)(nil),          // 68: common.WatchStoryResponse.Data
-	(*LikeStoryboardResponse_Data)(nil),      // 69: common.LikeStoryboardResponse.Data
-	(*ShareStoryboardResponse_Data)(nil),     // 70: common.ShareStoryboardResponse.Data
-	nil,                                      // 71: common.RenderStoryStructureValue.ExtraEntry
-	nil,                                      // 72: common.RenderStoryStructure.DataEntry
-	nil,                                      // 73: common.RenderStoryDetail.ResultEntry
-	nil,                                      // 74: common.RenderStoryboardDetail.ResultEntry
-	(*FetchGroupStorysResponse_Data)(nil),    // 75: common.FetchGroupStorysResponse.Data
-	(*GetStoryRenderResponse_Data)(nil),      // 76: common.GetStoryRenderResponse.Data
-	(*GetStoryBoardRenderResponse_Data)(nil), // 77: common.GetStoryBoardRenderResponse.Data
-	(*GetStoryRolesResponse_Data)(nil),       // 78: common.GetStoryRolesResponse.Data
-	(*GetStoryBoardRolesResponse_Data)(nil),  // 79: common.GetStoryBoardRolesResponse.Data
-	(*Tags)(nil),                             // 80: common.Tags
-	(ScopeType)(0),                           // 81: common.ScopeType
+	(*StoryRoleInfo)(nil),                    // 60: common.StoryRoleInfo
+	(*CreateStoryResponse_Data)(nil),         // 61: common.CreateStoryResponse.Data
+	(*UpdateStoryResponse_Data)(nil),         // 62: common.UpdateStoryResponse.Data
+	(*GetStoryInfoResponse_Data)(nil),        // 63: common.GetStoryInfoResponse.Data
+	(*CreateStoryboardResponse_Data)(nil),    // 64: common.CreateStoryboardResponse.Data
+	(*GetStoryboardResponse_Data)(nil),       // 65: common.GetStoryboardResponse.Data
+	(*GetStoryboardsResponse_Data)(nil),      // 66: common.GetStoryboardsResponse.Data
+	(*ForkStoryboardResponse_Data)(nil),      // 67: common.ForkStoryboardResponse.Data
+	(*UpdateStoryboardResponse_Data)(nil),    // 68: common.UpdateStoryboardResponse.Data
+	(*WatchStoryResponse_Data)(nil),          // 69: common.WatchStoryResponse.Data
+	(*LikeStoryboardResponse_Data)(nil),      // 70: common.LikeStoryboardResponse.Data
+	(*ShareStoryboardResponse_Data)(nil),     // 71: common.ShareStoryboardResponse.Data
+	nil,                                      // 72: common.RenderStoryStructureValue.ExtraEntry
+	nil,                                      // 73: common.RenderStoryStructure.DataEntry
+	nil,                                      // 74: common.RenderStoryDetail.ResultEntry
+	nil,                                      // 75: common.RenderStoryboardDetail.ResultEntry
+	(*FetchGroupStorysResponse_Data)(nil),    // 76: common.FetchGroupStorysResponse.Data
+	(*GetStoryRenderResponse_Data)(nil),      // 77: common.GetStoryRenderResponse.Data
+	(*GetStoryBoardRenderResponse_Data)(nil), // 78: common.GetStoryBoardRenderResponse.Data
+	(*GetStoryRolesResponse_Data)(nil),       // 79: common.GetStoryRolesResponse.Data
+	(*GetStoryBoardRolesResponse_Data)(nil),  // 80: common.GetStoryBoardRolesResponse.Data
+	(*Tags)(nil),                             // 81: common.Tags
+	(ScopeType)(0),                           // 82: common.ScopeType
 }
 var file_story_proto_depIdxs = []int32{
-	80, // 0: common.Story.tags:type_name -> common.Tags
-	81, // 1: common.Story.visable:type_name -> common.ScopeType
+	81, // 0: common.Story.tags:type_name -> common.Tags
+	82, // 1: common.Story.visable:type_name -> common.ScopeType
 	2,  // 2: common.Story.params:type_name -> common.StoryParams
 	4,  // 3: common.StoryBoard.roles:type_name -> common.StoryRole
 	5,  // 4: common.StoryBoard.params:type_name -> common.StoryBoardParams
 	2,  // 5: common.CreateStoryRequest.params:type_name -> common.StoryParams
 	4,  // 6: common.CreateStoryRequest.roles:type_name -> common.StoryRole
-	60, // 7: common.CreateStoryResponse.data:type_name -> common.CreateStoryResponse.Data
+	61, // 7: common.CreateStoryResponse.data:type_name -> common.CreateStoryResponse.Data
 	2,  // 8: common.UpdateStoryRequest.params:type_name -> common.StoryParams
 	4,  // 9: common.UpdateStoryRequest.roles:type_name -> common.StoryRole
-	61, // 10: common.UpdateStoryResponse.data:type_name -> common.UpdateStoryResponse.Data
-	62, // 11: common.GetStoryInfoResponse.data:type_name -> common.GetStoryInfoResponse.Data
+	62, // 10: common.UpdateStoryResponse.data:type_name -> common.UpdateStoryResponse.Data
+	63, // 11: common.GetStoryInfoResponse.data:type_name -> common.GetStoryInfoResponse.Data
 	3,  // 12: common.CreateStoryboardRequest.board:type_name -> common.StoryBoard
-	63, // 13: common.CreateStoryboardResponse.data:type_name -> common.CreateStoryboardResponse.Data
-	64, // 14: common.GetStoryboardResponse.data:type_name -> common.GetStoryboardResponse.Data
-	65, // 15: common.GetStoryboardsResponse.data:type_name -> common.GetStoryboardsResponse.Data
+	64, // 13: common.CreateStoryboardResponse.data:type_name -> common.CreateStoryboardResponse.Data
+	65, // 14: common.GetStoryboardResponse.data:type_name -> common.GetStoryboardResponse.Data
+	66, // 15: common.GetStoryboardsResponse.data:type_name -> common.GetStoryboardsResponse.Data
 	3,  // 16: common.ForkStoryboardRequest.board:type_name -> common.StoryBoard
-	66, // 17: common.ForkStoryboardResponse.data:type_name -> common.ForkStoryboardResponse.Data
+	67, // 17: common.ForkStoryboardResponse.data:type_name -> common.ForkStoryboardResponse.Data
 	5,  // 18: common.UpdateStoryboardRequest.params:type_name -> common.StoryBoardParams
-	67, // 19: common.UpdateStoryboardResponse.data:type_name -> common.UpdateStoryboardResponse.Data
-	68, // 20: common.WatchStoryResponse.data:type_name -> common.WatchStoryResponse.Data
-	69, // 21: common.LikeStoryboardResponse.data:type_name -> common.LikeStoryboardResponse.Data
-	70, // 22: common.ShareStoryboardResponse.data:type_name -> common.ShareStoryboardResponse.Data
+	68, // 19: common.UpdateStoryboardResponse.data:type_name -> common.UpdateStoryboardResponse.Data
+	69, // 20: common.WatchStoryResponse.data:type_name -> common.WatchStoryResponse.Data
+	70, // 21: common.LikeStoryboardResponse.data:type_name -> common.LikeStoryboardResponse.Data
+	71, // 22: common.ShareStoryboardResponse.data:type_name -> common.ShareStoryboardResponse.Data
 	0,  // 23: common.RenderStoryRequest.render_type:type_name -> common.RenderType
-	71, // 24: common.RenderStoryStructureValue.extra:type_name -> common.RenderStoryStructureValue.ExtraEntry
-	72, // 25: common.RenderStoryStructure.data:type_name -> common.RenderStoryStructure.DataEntry
+	72, // 24: common.RenderStoryStructureValue.extra:type_name -> common.RenderStoryStructureValue.ExtraEntry
+	73, // 25: common.RenderStoryStructure.data:type_name -> common.RenderStoryStructure.DataEntry
 	0,  // 26: common.RenderStoryDetail.render_type:type_name -> common.RenderType
-	73, // 27: common.RenderStoryDetail.result:type_name -> common.RenderStoryDetail.ResultEntry
+	74, // 27: common.RenderStoryDetail.result:type_name -> common.RenderStoryDetail.ResultEntry
 	33, // 28: common.RenderStoryResponse.data:type_name -> common.RenderStoryDetail
 	0,  // 29: common.RenderStoryboardRequest.render_type:type_name -> common.RenderType
 	0,  // 30: common.RenderStoryboardDetail.render_type:type_name -> common.RenderType
-	74, // 31: common.RenderStoryboardDetail.result:type_name -> common.RenderStoryboardDetail.ResultEntry
+	75, // 31: common.RenderStoryboardDetail.result:type_name -> common.RenderStoryboardDetail.ResultEntry
 	36, // 32: common.RenderStoryboardResponse.data:type_name -> common.RenderStoryboardDetail
 	0,  // 33: common.GenStoryboardTextRequest.render_type:type_name -> common.RenderType
 	36, // 34: common.GenStoryboardTextResponse.data:type_name -> common.RenderStoryboardDetail
 	0,  // 35: common.GenStoryboardImagesRequest.render_type:type_name -> common.RenderType
 	36, // 36: common.GenStoryboardImagesResponse.data:type_name -> common.RenderStoryboardDetail
-	75, // 37: common.FetchGroupStorysResponse.data:type_name -> common.FetchGroupStorysResponse.Data
-	76, // 38: common.GetStoryRenderResponse.data:type_name -> common.GetStoryRenderResponse.Data
-	77, // 39: common.GetStoryBoardRenderResponse.data:type_name -> common.GetStoryBoardRenderResponse.Data
+	76, // 37: common.FetchGroupStorysResponse.data:type_name -> common.FetchGroupStorysResponse.Data
+	77, // 38: common.GetStoryRenderResponse.data:type_name -> common.GetStoryRenderResponse.Data
+	78, // 39: common.GetStoryBoardRenderResponse.data:type_name -> common.GetStoryBoardRenderResponse.Data
 	0,  // 40: common.ContinueRenderStoryRequest.render_type:type_name -> common.RenderType
 	4,  // 41: common.ContinueRenderStoryRequest.roles:type_name -> common.StoryRole
 	33, // 42: common.ContinueRenderStoryResponse.data:type_name -> common.RenderStoryDetail
@@ -6291,8 +6445,8 @@ var file_story_proto_depIdxs = []int32{
 	4,  // 45: common.RenderStoryRoleDetailRequest.role:type_name -> common.StoryRole
 	4,  // 46: common.RenderStoryRoleDetailResponse.role:type_name -> common.StoryRole
 	4,  // 47: common.UpdateStoryRoleRequest.role:type_name -> common.StoryRole
-	78, // 48: common.GetStoryRolesResponse.data:type_name -> common.GetStoryRolesResponse.Data
-	79, // 49: common.GetStoryBoardRolesResponse.data:type_name -> common.GetStoryBoardRolesResponse.Data
+	79, // 48: common.GetStoryRolesResponse.data:type_name -> common.GetStoryRolesResponse.Data
+	80, // 49: common.GetStoryBoardRolesResponse.data:type_name -> common.GetStoryBoardRolesResponse.Data
 	1,  // 50: common.GetStoryInfoResponse.Data.info:type_name -> common.Story
 	3,  // 51: common.GetStoryboardResponse.Data.info:type_name -> common.StoryBoard
 	3,  // 52: common.GetStoryboardsResponse.Data.list:type_name -> common.StoryBoard
@@ -7027,7 +7181,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[59].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateStoryResponse_Data); i {
+			switch v := v.(*StoryRoleInfo); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7039,7 +7193,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[60].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateStoryResponse_Data); i {
+			switch v := v.(*CreateStoryResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7051,7 +7205,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[61].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStoryInfoResponse_Data); i {
+			switch v := v.(*UpdateStoryResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7063,7 +7217,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[62].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateStoryboardResponse_Data); i {
+			switch v := v.(*GetStoryInfoResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7075,7 +7229,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[63].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStoryboardResponse_Data); i {
+			switch v := v.(*CreateStoryboardResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7087,7 +7241,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[64].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetStoryboardsResponse_Data); i {
+			switch v := v.(*GetStoryboardResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7099,7 +7253,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[65].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ForkStoryboardResponse_Data); i {
+			switch v := v.(*GetStoryboardsResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7111,7 +7265,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[66].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateStoryboardResponse_Data); i {
+			switch v := v.(*ForkStoryboardResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7123,7 +7277,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[67].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WatchStoryResponse_Data); i {
+			switch v := v.(*UpdateStoryboardResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7135,7 +7289,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[68].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*LikeStoryboardResponse_Data); i {
+			switch v := v.(*WatchStoryResponse_Data); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7147,6 +7301,18 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[69].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LikeStoryboardResponse_Data); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_story_proto_msgTypes[70].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ShareStoryboardResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7158,7 +7324,7 @@ func file_story_proto_init() {
 				return nil
 			}
 		}
-		file_story_proto_msgTypes[74].Exporter = func(v interface{}, i int) interface{} {
+		file_story_proto_msgTypes[75].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FetchGroupStorysResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7170,7 +7336,7 @@ func file_story_proto_init() {
 				return nil
 			}
 		}
-		file_story_proto_msgTypes[75].Exporter = func(v interface{}, i int) interface{} {
+		file_story_proto_msgTypes[76].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetStoryRenderResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7182,7 +7348,7 @@ func file_story_proto_init() {
 				return nil
 			}
 		}
-		file_story_proto_msgTypes[76].Exporter = func(v interface{}, i int) interface{} {
+		file_story_proto_msgTypes[77].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetStoryBoardRenderResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7194,7 +7360,7 @@ func file_story_proto_init() {
 				return nil
 			}
 		}
-		file_story_proto_msgTypes[77].Exporter = func(v interface{}, i int) interface{} {
+		file_story_proto_msgTypes[78].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetStoryRolesResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7206,7 +7372,7 @@ func file_story_proto_init() {
 				return nil
 			}
 		}
-		file_story_proto_msgTypes[78].Exporter = func(v interface{}, i int) interface{} {
+		file_story_proto_msgTypes[79].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetStoryBoardRolesResponse_Data); i {
 			case 0:
 				return &v.state
@@ -7225,7 +7391,7 @@ func file_story_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_story_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   79,
+			NumMessages:   80,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

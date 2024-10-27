@@ -99,6 +99,11 @@ const (
 	TeamsAPI_RenderStoryRoleDetail_FullMethodName = "/common.TeamsAPI/RenderStoryRoleDetail"
 	TeamsAPI_GetStoryRoles_FullMethodName         = "/common.TeamsAPI/GetStoryRoles"
 	TeamsAPI_GetStoryBoardRoles_FullMethodName    = "/common.TeamsAPI/GetStoryBoardRoles"
+	TeamsAPI_GetUserProfile_FullMethodName        = "/common.TeamsAPI/GetUserProfile"
+	TeamsAPI_UpdateUserProfile_FullMethodName     = "/common.TeamsAPI/UpdateUserProfile"
+	TeamsAPI_CreateStoryRole_FullMethodName       = "/common.TeamsAPI/CreateStoryRole"
+	TeamsAPI_GetStoryRoleDetail_FullMethodName    = "/common.TeamsAPI/GetStoryRoleDetail"
+	TeamsAPI_RenderStoryRole_FullMethodName       = "/common.TeamsAPI/RenderStoryRole"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -192,6 +197,16 @@ type TeamsAPIClient interface {
 	GetStoryRoles(ctx context.Context, in *GetStoryRolesRequest, opts ...grpc.CallOption) (*GetStoryRolesResponse, error)
 	// 获取 story board roles 的列表
 	GetStoryBoardRoles(ctx context.Context, in *GetStoryBoardRolesRequest, opts ...grpc.CallOption) (*GetStoryBoardRolesResponse, error)
+	// 获取用户的 profile
+	GetUserProfile(ctx context.Context, in *GetUserProfileRequest, opts ...grpc.CallOption) (*GetUserProfileResponse, error)
+	// 更新用户的 profile
+	UpdateUserProfile(ctx context.Context, in *UpdateUserProfileRequest, opts ...grpc.CallOption) (*UpdateUserProfileResponse, error)
+	// 创建新的故事角色
+	CreateStoryRole(ctx context.Context, in *CreateStoryRoleRequest, opts ...grpc.CallOption) (*CreateStoryRoleResponse, error)
+	// 获取角色详情
+	GetStoryRoleDetail(ctx context.Context, in *GetStoryRoleDetailRequest, opts ...grpc.CallOption) (*GetStoryRoleDetailResponse, error)
+	// 生成角色的图片
+	RenderStoryRole(ctx context.Context, in *RenderStoryRoleRequest, opts ...grpc.CallOption) (*RenderStoryRoleResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -922,6 +937,51 @@ func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, in *GetStoryBoa
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetUserProfile(ctx context.Context, in *GetUserProfileRequest, opts ...grpc.CallOption) (*GetUserProfileResponse, error) {
+	out := new(GetUserProfileResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUserProfile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, in *UpdateUserProfileRequest, opts ...grpc.CallOption) (*UpdateUserProfileResponse, error) {
+	out := new(UpdateUserProfileResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateUserProfile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, in *CreateStoryRoleRequest, opts ...grpc.CallOption) (*CreateStoryRoleResponse, error) {
+	out := new(CreateStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryRoleDetail(ctx context.Context, in *GetStoryRoleDetailRequest, opts ...grpc.CallOption) (*GetStoryRoleDetailResponse, error) {
+	out := new(GetStoryRoleDetailResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryRoleDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, in *RenderStoryRoleRequest, opts ...grpc.CallOption) (*RenderStoryRoleResponse, error) {
+	out := new(RenderStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RenderStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1013,6 +1073,16 @@ type TeamsAPIServer interface {
 	GetStoryRoles(context.Context, *GetStoryRolesRequest) (*GetStoryRolesResponse, error)
 	// 获取 story board roles 的列表
 	GetStoryBoardRoles(context.Context, *GetStoryBoardRolesRequest) (*GetStoryBoardRolesResponse, error)
+	// 获取用户的 profile
+	GetUserProfile(context.Context, *GetUserProfileRequest) (*GetUserProfileResponse, error)
+	// 更新用户的 profile
+	UpdateUserProfile(context.Context, *UpdateUserProfileRequest) (*UpdateUserProfileResponse, error)
+	// 创建新的故事角色
+	CreateStoryRole(context.Context, *CreateStoryRoleRequest) (*CreateStoryRoleResponse, error)
+	// 获取角色详情
+	GetStoryRoleDetail(context.Context, *GetStoryRoleDetailRequest) (*GetStoryRoleDetailResponse, error)
+	// 生成角色的图片
+	RenderStoryRole(context.Context, *RenderStoryRoleRequest) (*RenderStoryRoleResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1259,6 +1329,21 @@ func (UnimplementedTeamsAPIServer) GetStoryRoles(context.Context, *GetStoryRoles
 }
 func (UnimplementedTeamsAPIServer) GetStoryBoardRoles(context.Context, *GetStoryBoardRolesRequest) (*GetStoryBoardRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardRoles not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUserProfile(context.Context, *GetUserProfileRequest) (*GetUserProfileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserProfile not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateUserProfile(context.Context, *UpdateUserProfileRequest) (*UpdateUserProfileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserProfile not implemented")
+}
+func (UnimplementedTeamsAPIServer) CreateStoryRole(context.Context, *CreateStoryRoleRequest) (*CreateStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryRoleDetail(context.Context, *GetStoryRoleDetailRequest) (*GetStoryRoleDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryRoleDetail not implemented")
+}
+func (UnimplementedTeamsAPIServer) RenderStoryRole(context.Context, *RenderStoryRoleRequest) (*RenderStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryRole not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2713,6 +2798,96 @@ func _TeamsAPI_GetStoryBoardRoles_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUserProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUserProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUserProfile(ctx, req.(*GetUserProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateUserProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateUserProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateUserProfile(ctx, req.(*UpdateUserProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_CreateStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).CreateStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_CreateStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).CreateStoryRole(ctx, req.(*CreateStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryRoleDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryRoleDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryRoleDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryRoleDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryRoleDetail(ctx, req.(*GetStoryRoleDetailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RenderStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenderStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RenderStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RenderStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RenderStoryRole(ctx, req.(*RenderStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -3039,6 +3214,26 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryBoardRoles",
 			Handler:    _TeamsAPI_GetStoryBoardRoles_Handler,
+		},
+		{
+			MethodName: "GetUserProfile",
+			Handler:    _TeamsAPI_GetUserProfile_Handler,
+		},
+		{
+			MethodName: "UpdateUserProfile",
+			Handler:    _TeamsAPI_UpdateUserProfile_Handler,
+		},
+		{
+			MethodName: "CreateStoryRole",
+			Handler:    _TeamsAPI_CreateStoryRole_Handler,
+		},
+		{
+			MethodName: "GetStoryRoleDetail",
+			Handler:    _TeamsAPI_GetStoryRoleDetail_Handler,
+		},
+		{
+			MethodName: "RenderStoryRole",
+			Handler:    _TeamsAPI_RenderStoryRole_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

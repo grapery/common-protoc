@@ -124,6 +124,7 @@
     - [StoryBoardParams](#common-StoryBoardParams)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
+    - [StoryRoleInfo](#common-StoryRoleInfo)
     - [UpdateStoryRequest](#common-UpdateStoryRequest)
     - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
@@ -159,6 +160,8 @@
     - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
+    - [CreateStoryRoleRequest](#common-CreateStoryRoleRequest)
+    - [CreateStoryRoleResponse](#common-CreateStoryRoleResponse)
     - [DeleteGroupRequest](#common-DeleteGroupRequest)
     - [DeleteGroupResponse](#common-DeleteGroupResponse)
     - [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data)
@@ -220,11 +223,15 @@
     - [GetStoryContributorsRequest](#common-GetStoryContributorsRequest)
     - [GetStoryContributorsResponse](#common-GetStoryContributorsResponse)
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
+    - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
+    - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
     - [GetUserItemsRequest](#common-GetUserItemsRequest)
     - [GetUserItemsResponse](#common-GetUserItemsResponse)
+    - [GetUserProfileRequest](#common-GetUserProfileRequest)
+    - [GetUserProfileResponse](#common-GetUserProfileResponse)
     - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
     - [GetWatchingProjectResponse](#common-GetWatchingProjectResponse)
     - [JoinGroupRequest](#common-JoinGroupRequest)
@@ -242,6 +249,8 @@
     - [LogoutResponse](#common-LogoutResponse)
     - [RegisterRequest](#common-RegisterRequest)
     - [RegisterResponse](#common-RegisterResponse)
+    - [RenderStoryRoleRequest](#common-RenderStoryRoleRequest)
+    - [RenderStoryRoleResponse](#common-RenderStoryRoleResponse)
     - [ResetPasswordRequest](#common-ResetPasswordRequest)
     - [ResetPasswordResponse](#common-ResetPasswordResponse)
     - [SearchAllProjectRequest](#common-SearchAllProjectRequest)
@@ -275,6 +284,8 @@
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
+    - [UpdateUserProfileRequest](#common-UpdateUserProfileRequest)
+    - [UpdateUserProfileResponse](#common-UpdateUserProfileResponse)
     - [UploadImageRequest](#common-UploadImageRequest)
     - [UploadImageResponse](#common-UploadImageResponse)
     - [UploadImageResponse.Data](#common-UploadImageResponse-Data)
@@ -533,6 +544,8 @@
 | comment_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | project_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 | content | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
@@ -2351,6 +2364,31 @@
 
 
 
+<a name="common-StoryRoleInfo"></a>
+
+### StoryRoleInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| character_description | [string](#string) |  |  |
+| character_name | [string](#string) |  |  |
+| character_avatar | [string](#string) |  |  |
+| character_id | [string](#string) |  |  |
+| story_id | [int64](#int64) |  |  |
+| character_type | [string](#string) |  |  |
+| character_prompt | [string](#string) |  |  |
+| character_ref_images | [string](#string) | repeated |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateStoryRequest"></a>
 
 ### UpdateStoryRequest
@@ -2765,6 +2803,8 @@
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
 
 
 
@@ -2879,6 +2919,38 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [ProjectInfo](#common-ProjectInfo) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryRoleRequest"></a>
+
+### CreateStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| info | [StoryRoleInfo](#common-StoryRoleInfo) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryRoleResponse"></a>
+
+### CreateStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -3870,6 +3942,38 @@
 
 
 
+<a name="common-GetStoryRoleDetailRequest"></a>
+
+### GetStoryRoleDetailRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRoleDetailResponse"></a>
+
+### GetStoryRoleDetailResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| info | [StoryRoleInfo](#common-StoryRoleInfo) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserCommentReq"></a>
 
 ### GetUserCommentReq
@@ -3936,6 +4040,38 @@
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserProfileRequest"></a>
+
+### GetUserProfileRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserProfileResponse"></a>
+
+### GetUserProfileResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
 
 
 
@@ -4207,6 +4343,40 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | msg | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRoleRequest"></a>
+
+### RenderStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| ref_images | [string](#string) | repeated |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRoleResponse"></a>
+
+### RenderStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -4757,6 +4927,38 @@
 
 
 
+<a name="common-UpdateUserProfileRequest"></a>
+
+### UpdateUserProfileRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateUserProfileResponse"></a>
+
+### UpdateUserProfileResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UploadImageRequest"></a>
 
 ### UploadImageRequest
@@ -5229,6 +5431,11 @@ user ,group .project.item
 | RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) |  |
 | GetStoryRoles | [GetStoryRolesRequest](#common-GetStoryRolesRequest) | [GetStoryRolesResponse](#common-GetStoryRolesResponse) | 获取 story roles 的列表 |
 | GetStoryBoardRoles | [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
+| GetUserProfile | [GetUserProfileRequest](#common-GetUserProfileRequest) | [GetUserProfileResponse](#common-GetUserProfileResponse) | 获取用户的 profile |
+| UpdateUserProfile | [UpdateUserProfileRequest](#common-UpdateUserProfileRequest) | [UpdateUserProfileResponse](#common-UpdateUserProfileResponse) | 更新用户的 profile |
+| CreateStoryRole | [CreateStoryRoleRequest](#common-CreateStoryRoleRequest) | [CreateStoryRoleResponse](#common-CreateStoryRoleResponse) | 创建新的故事角色 |
+| GetStoryRoleDetail | [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest) | [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse) | 获取角色详情 |
+| RenderStoryRole | [RenderStoryRoleRequest](#common-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#common-RenderStoryRoleResponse) | 生成角色的图片 |
 
  
 

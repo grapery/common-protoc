@@ -472,7 +472,10 @@ message LikeItemResponse {
 message CreateGroupReqeust {
   int64 user_id = 1;
   string name = 2;
+  string description = 3;
+  string avatar = 4;
 }
+
 message CreateGroupResponse { 
   int32 code = 1;
   string message = 2;
@@ -964,6 +967,7 @@ service TeamsAPI {
       body : "*"
     };
   }
+
   rpc FetchGroupMembers(FetchGroupMembersRequest)
       returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
@@ -971,12 +975,14 @@ service TeamsAPI {
       body : "*"
     };
   }
+
   rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroup"
       body : "*"
     };
   }
+
   rpc FetchGroupProjects(FetchGroupProjectsReqeust)
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
@@ -1363,4 +1369,96 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取用户的 profile
+  rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetUserProfile"
+      body : "*"
+    };
+  }
+
+  // 更新用户的 profile
+  rpc UpdateUserProfile(UpdateUserProfileRequest) returns (UpdateUserProfileResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateUserProfile"
+      body : "*"
+    };
+  }
+
+  // 创建新的故事角色
+  rpc CreateStoryRole(CreateStoryRoleRequest) returns (CreateStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryRole"
+      body : "*"
+    };
+  }
+
+  // 获取角色详情
+  rpc GetStoryRoleDetail(GetStoryRoleDetailRequest) returns (GetStoryRoleDetailResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryRoleDetail"
+      body : "*"
+    };
+  }
+
+  // 生成角色的图片
+  rpc RenderStoryRole(RenderStoryRoleRequest) returns (RenderStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RenderStoryRole"
+      body : "*"
+    };
+  }
+}
+
+message GetUserProfileRequest {
+  int64 user_id = 1;
+}
+
+message GetUserProfileResponse {
+  int32 code = 1;
+  string message = 2;
+  UserProfileInfo info = 3;
+}
+
+message UpdateUserProfileRequest {
+  int64 user_id = 1;
+  UserProfileInfo info = 2;
+}
+
+message UpdateUserProfileResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message CreateStoryRoleRequest {
+  int64 user_id = 1;
+  StoryRoleInfo info = 2;
+}
+
+message CreateStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetStoryRoleDetailRequest {
+  int64 role_id = 1;
+}
+
+message GetStoryRoleDetailResponse {
+  int32 code = 1;
+  string message = 2;
+  StoryRoleInfo info = 3;
+}
+
+message RenderStoryRoleRequest {
+  int64 role_id = 1;
+  string prompt = 2;
+  repeated string ref_images = 3;
+  int64 user_id = 4;
+}
+
+message RenderStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
 }

@@ -31,6 +31,10 @@ public struct Common_CommentInfo: Sendable {
 
   public var projectID: Int64 = 0
 
+  public var storyID: Int64 = 0
+
+  public var boardID: Int64 = 0
+
   public var groupID: Int64 = 0
 
   public var content: String = String()
@@ -54,10 +58,12 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     1: .standard(proto: "comment_id"),
     2: .standard(proto: "user_id"),
     3: .standard(proto: "project_id"),
-    4: .standard(proto: "group_id"),
-    5: .same(proto: "content"),
-    6: .same(proto: "Ctime"),
-    7: .same(proto: "Mtime"),
+    4: .standard(proto: "story_id"),
+    5: .standard(proto: "board_id"),
+    6: .standard(proto: "group_id"),
+    7: .same(proto: "content"),
+    8: .same(proto: "Ctime"),
+    9: .same(proto: "Mtime"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -69,10 +75,12 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.commentID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.content) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 7: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 8: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 9: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
       }
     }
@@ -88,17 +96,23 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if self.projectID != 0 {
       try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 3)
     }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 4)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 5)
+    }
     if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 4)
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 6)
     }
     if !self.content.isEmpty {
-      try visitor.visitSingularStringField(value: self.content, fieldNumber: 5)
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 7)
     }
     if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 6)
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 8)
     }
     if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 7)
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 9)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -107,6 +121,8 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.projectID != rhs.projectID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.content != rhs.content {return false}
     if lhs.ctime != rhs.ctime {return false}

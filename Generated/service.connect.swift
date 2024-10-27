@@ -502,6 +502,46 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取 story board roles 的列表
     @available(iOS 13, *)
     func `getStoryBoardRoles`(request: Common_GetStoryBoardRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardRolesResponse>
+
+    /// 获取用户的 profile
+    @discardableResult
+    func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserProfileResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取用户的 profile
+    @available(iOS 13, *)
+    func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserProfileResponse>
+
+    /// 更新用户的 profile
+    @discardableResult
+    func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新用户的 profile
+    @available(iOS 13, *)
+    func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserProfileResponse>
+
+    /// 创建新的故事角色
+    @discardableResult
+    func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 创建新的故事角色
+    @available(iOS 13, *)
+    func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryRoleResponse>
+
+    /// 获取角色详情
+    @discardableResult
+    func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取角色详情
+    @available(iOS 13, *)
+    func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleDetailResponse>
+
+    /// 生成角色的图片
+    @discardableResult
+    func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 生成角色的图片
+    @available(iOS 13, *)
+    func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1312,6 +1352,56 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserProfileResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateUserProfileResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleDetailResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1394,6 +1484,11 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let renderStoryRoleDetail = Connect.MethodSpec(name: "RenderStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
             public static let getStoryRoles = Connect.MethodSpec(name: "GetStoryRoles", service: "common.TeamsAPI", type: .unary)
             public static let getStoryBoardRoles = Connect.MethodSpec(name: "GetStoryBoardRoles", service: "common.TeamsAPI", type: .unary)
+            public static let getUserProfile = Connect.MethodSpec(name: "GetUserProfile", service: "common.TeamsAPI", type: .unary)
+            public static let updateUserProfile = Connect.MethodSpec(name: "UpdateUserProfile", service: "common.TeamsAPI", type: .unary)
+            public static let createStoryRole = Connect.MethodSpec(name: "CreateStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryRoleDetail = Connect.MethodSpec(name: "GetStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
+            public static let renderStoryRole = Connect.MethodSpec(name: "RenderStoryRole", service: "common.TeamsAPI", type: .unary)
         }
     }
 }
