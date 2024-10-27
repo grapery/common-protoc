@@ -2383,6 +2383,7 @@
 | character_type | [string](#string) |  |  |
 | character_prompt | [string](#string) |  |  |
 | character_ref_images | [string](#string) | repeated |  |
+| creator_id | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 

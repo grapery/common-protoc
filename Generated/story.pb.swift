@@ -1881,6 +1881,8 @@ public struct Common_StoryRoleInfo: Sendable {
 
   public var characterRefImages: [String] = []
 
+  public var creatorID: Int64 = 0
+
   public var ctime: Int64 = 0
 
   public var mtime: Int64 = 0
@@ -5986,8 +5988,9 @@ extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     7: .standard(proto: "character_type"),
     8: .standard(proto: "character_prompt"),
     9: .standard(proto: "character_ref_images"),
-    10: .same(proto: "Ctime"),
-    11: .same(proto: "Mtime"),
+    10: .standard(proto: "creator_id"),
+    15: .same(proto: "Ctime"),
+    16: .same(proto: "Mtime"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6005,8 +6008,9 @@ extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       case 7: try { try decoder.decodeSingularStringField(value: &self.characterType) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.characterPrompt) }()
       case 9: try { try decoder.decodeRepeatedStringField(value: &self.characterRefImages) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 11: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
+      case 15: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 16: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
       }
     }
@@ -6040,11 +6044,14 @@ extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.characterRefImages.isEmpty {
       try visitor.visitRepeatedStringField(value: self.characterRefImages, fieldNumber: 9)
     }
+    if self.creatorID != 0 {
+      try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 10)
+    }
     if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 10)
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 15)
     }
     if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 11)
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 16)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -6059,6 +6066,7 @@ extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.characterType != rhs.characterType {return false}
     if lhs.characterPrompt != rhs.characterPrompt {return false}
     if lhs.characterRefImages != rhs.characterRefImages {return false}
+    if lhs.creatorID != rhs.creatorID {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

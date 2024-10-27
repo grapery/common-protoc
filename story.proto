@@ -527,8 +527,9 @@ message CreateStoryRequest {
     string character_type = 7;
     string character_prompt = 8;
     repeated string character_ref_images = 9;
-    int64 Ctime = 10;
-    int64 Mtime = 11;
+    int64 creator_id = 10;
+    int64 Ctime = 15;
+    int64 Mtime = 16;
   }
 
   
