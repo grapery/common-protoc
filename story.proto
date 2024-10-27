@@ -260,6 +260,17 @@ message CreateStoryRequest {
     }Data data = 3;
   }
 
+  message UnLikeStoryboardRequest{
+    int64 board_id = 1;
+    int64 user_id = 2;
+    int64 story_id = 3;
+  }
+
+  message UnLikeStoryboardResponse{
+    int32 code = 1;
+    string message = 2;
+  }
+
   message ShareStoryboardRequest{
     int64 board_id = 1;
     int64 user_id = 2;

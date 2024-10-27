@@ -802,48 +802,54 @@ message UpdateGroupProfileResponse{
 }
 
 service TeamsAPI {
-
+  // 探索
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Explore"
     };
   }
+  // 趋势
   rpc Trending(TrendingRequest) returns (TrendingResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Trending"
     };
   }
 
+  // 版本
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Version"
     };
   }
+  // 关于
   rpc About(AboutRequest) returns (AboutResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/About"
     };
   }
 
+  // 登录
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Login"
       body : "*"
     };
   }
-
+  // 登出
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Logout"
       body : "*"
     };
   }
+  // 注册
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Register"
       body : "*"
     };
   }
+  // 重置密码
   rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ResetPwd"
@@ -851,6 +857,7 @@ service TeamsAPI {
     };
   }
 
+  // 用户初始化
   rpc UserInit(UserInitRequest) returns (UserInitResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInit"
@@ -858,6 +865,7 @@ service TeamsAPI {
     };
   }
 
+  // 用户信息
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInfo"
@@ -865,6 +873,7 @@ service TeamsAPI {
     };
   }
 
+  // 更新用户头像
   rpc UpdateUserAvator(UpdateUserAvatorRequest)
       returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
@@ -873,6 +882,7 @@ service TeamsAPI {
     };
   }
 
+  // 用户关注
   rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserWatching"
@@ -880,6 +890,7 @@ service TeamsAPI {
     };
   };
 
+  // 用户关注组织
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserGroup"
@@ -887,6 +898,7 @@ service TeamsAPI {
     };
   }
 
+  // 用户关注组织
   rpc UserFollowingGroup(UserFollowingGroupRequest)
       returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
@@ -895,6 +907,7 @@ service TeamsAPI {
     };
   }
 
+  // 更新用户信息
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserUpdate"
@@ -902,6 +915,7 @@ service TeamsAPI {
     };
   }
 
+  // 用户活跃
   rpc FetchUserActives(FetchUserActivesRequest)
       returns (FetchUserActivesResponse) {
     option (google.api.http) = {
@@ -910,6 +924,7 @@ service TeamsAPI {
     };
   }
 
+  // 搜索用户
   rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchUser"
@@ -917,6 +932,7 @@ service TeamsAPI {
     };
   }
 
+  // 创建组织
   rpc CreateGroup(CreateGroupReqeust) returns (CreateGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateGroup"
@@ -924,6 +940,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取组织
   rpc GetGroup(GetGroupReqeust) returns (GetGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroup"
@@ -931,6 +948,7 @@ service TeamsAPI {
     };
   }
 
+  // 组织活跃
   rpc GetGroupActives(GetGroupActivesRequest)
       returns (GetGroupActivesResponse) {
     option (google.api.http) = {
@@ -938,6 +956,7 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // 更新组织信息
   rpc UpdateGroupInfo(UpdateGroupInfoRequest)
       returns (UpdateGroupInfoResponse) {
     option (google.api.http) = {
@@ -946,6 +965,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取组织信息
   rpc GetGroupProfile(GetGroupProfileRequest) returns (GetGroupProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupProfile"
@@ -953,6 +973,7 @@ service TeamsAPI {
     };
   }
 
+  // 更新组织信息
   rpc UpdateGroupProfile(UpdateGroupProfileRequest) returns (UpdateGroupProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateGroupProfile"
@@ -961,6 +982,7 @@ service TeamsAPI {
   }
   
 
+  // 删除组织
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteGroup"
@@ -968,6 +990,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取组织成员
   rpc FetchGroupMembers(FetchGroupMembersRequest)
       returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
@@ -976,6 +999,7 @@ service TeamsAPI {
     };
   }
 
+  // 搜索组织
   rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroup"
@@ -983,6 +1007,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取组织项目
   rpc FetchGroupProjects(FetchGroupProjectsReqeust)
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
@@ -991,6 +1016,7 @@ service TeamsAPI {
     };
   }
 
+  // 加入组织
   rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/JoinGroup"
@@ -998,6 +1024,7 @@ service TeamsAPI {
     };
   }
 
+  // 离开组织
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LeaveGroup"
@@ -1005,6 +1032,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取项目信息
   rpc GetProjectInfo(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectInfo"
@@ -1012,12 +1040,14 @@ service TeamsAPI {
     };
   }
 
+  // 获取项目列表
   rpc GetProjectList(GetProjectListRequest) returns (GetProjectListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectList"
       body : "*"
     };
   }
+  // 创建项目
   rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateProject"
@@ -1025,6 +1055,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取项目成员
   rpc GetProjectMembers(GetProjectMembersRequest) returns (GetProjectMembersResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectMembers"
@@ -1032,18 +1063,21 @@ service TeamsAPI {
     };
   }
 
+  // 更新项目
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateProject"
       body : "*"
     };
   }
+  // 删除项目
   rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteProject"
       body : "*"
     };
   }
+  // 获取项目信息
   rpc GetProjectProfile(GetProjectProfileRequest)
       returns (GetProjectProfileResponse) {
     option (google.api.http) = {
@@ -1051,6 +1085,7 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // 更新项目信息
   rpc UpdateProjectProfile(UpdateProjectProfileRequest)
       returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
@@ -1059,6 +1094,7 @@ service TeamsAPI {
     };
   }
 
+  // 关注项目
   rpc WatchProject(WatchProjectReqeust) returns (WatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/WatchProject"
@@ -1066,6 +1102,7 @@ service TeamsAPI {
     };
   }
 
+  // 取消关注项目
   rpc UnWatchProject(UnWatchProjectReqeust) returns (UnWatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnWatchProject"
@@ -1073,6 +1110,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取项目关注者
   rpc GetProjectWatcher(GetProjectWatcherReqeust) returns (GetProjectWatcherResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectWatcher"
@@ -1080,6 +1118,7 @@ service TeamsAPI {
     };
   }
 
+  // 搜索组织项目
   rpc SearchGroupProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroupProject"
@@ -1087,6 +1126,7 @@ service TeamsAPI {
     };
   }
 
+  // 搜索项目
   rpc SearchProject(SearchAllProjectRequest)
       returns (SearchAllProjectResponse) {
     option (google.api.http) = {
@@ -1095,6 +1135,7 @@ service TeamsAPI {
     };
   }
 
+  // 探索项目
   rpc ExploreProject(ExploreProjectsRequest) returns (ExploreProjectsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ExploreProject"
@@ -1102,6 +1143,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取项目内容
   rpc GetProjectItems(GetProjectItemsRequest)
       returns (GetProjectItemsResponse) {
     option (google.api.http) = {
@@ -1109,6 +1151,7 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // 获取组织内容
   rpc GetGroupItems(GetGroupItemsRequest) returns (GetGroupItemsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupItems"
@@ -1116,6 +1159,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取用户内容
   rpc GetUserItems(GetUserItemsRequest) returns (GetUserItemsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserItems"
@@ -1123,6 +1167,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取内容
   rpc GetItem(GetItemRequest) returns (GetItemResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetItem"
@@ -1130,24 +1175,28 @@ service TeamsAPI {
     };
   }
 
+  // 创建内容
   rpc CreateItem(CreateItemRequest) returns (CreateItemResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateItem"
       body : "*"
     };
   }
+  // 更新内容
   rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateItem"
       body : "*"
     };
   }
+  // 删除内容
   rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteItem"
       body : "*"
     };
   }
+  // 喜欢内容
   rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeItem"
@@ -1155,6 +1204,7 @@ service TeamsAPI {
     };
   }
 
+  // 创建评论
   rpc CreateComment(CreateCommentReq) returns (CreateCommentResp) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateComment"
@@ -1162,6 +1212,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取内容评论
   rpc GetItemComment(GetItemsCommentReq) returns (GetItemsCommentResp) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetItemComment"
@@ -1170,6 +1221,7 @@ service TeamsAPI {
   }
 
 
+  // 创建故事
   rpc CreateStory(CreateStoryRequest) returns (CreateStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStory"
@@ -1177,6 +1229,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取故事信息
   rpc GetStoryInfo(GetStoryInfoRequest) returns (GetStoryInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryInfo"
@@ -1184,6 +1237,7 @@ service TeamsAPI {
     };
   }
 
+  // 渲染故事
   rpc RenderStory(RenderStoryRequest) returns (RenderStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStory"
@@ -1192,6 +1246,7 @@ service TeamsAPI {
   }
 
 
+  // 更新故事
   rpc UpdateStory(UpdateStoryRequest) returns (UpdateStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStory"
@@ -1200,6 +1255,7 @@ service TeamsAPI {
   }
 
 
+  // 关注故事
   rpc WatchStory(WatchStoryRequest) returns (WatchStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/WatchStory"
@@ -1208,6 +1264,7 @@ service TeamsAPI {
   }
 
 
+  // 创建故事板
   rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryboard"
@@ -1215,6 +1272,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取故事板
   rpc GetStoryboard(GetStoryboardRequest) returns (GetStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryboard"
@@ -1222,6 +1280,7 @@ service TeamsAPI {
     };
   }
 
+  // 渲染故事板
   rpc RenderStoryboard(RenderStoryboardRequest) returns (RenderStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryboard"
@@ -1229,6 +1288,7 @@ service TeamsAPI {
     };
   }
 
+  // 生成故事板文本
   rpc GenStoryboardText(GenStoryboardTextRequest) returns (GenStoryboardTextResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenStoryboardText"
@@ -1236,6 +1296,7 @@ service TeamsAPI {
     };
   }
 
+  // 生成故事板图片
   rpc GenStoryboardImages(GenStoryboardImagesRequest) returns (GenStoryboardImagesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenStoryboardImages"
@@ -1244,6 +1305,7 @@ service TeamsAPI {
   }
 
 
+  // 获取故事板
   rpc GetStoryboards(GetStoryboardsRequest) returns (GetStoryboardsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryboards"
@@ -1252,6 +1314,7 @@ service TeamsAPI {
   }
 
 
+  // 删除故事板
   rpc DelStoryboard(DelStoryboardRequest) returns (DelStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DelStoryboard"
@@ -1259,6 +1322,7 @@ service TeamsAPI {
     };
   }
 
+  // 复制故事板
   rpc ForkStoryboard(ForkStoryboardRequest) returns (ForkStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ForkStoryboard"
@@ -1267,6 +1331,7 @@ service TeamsAPI {
   }
 
 
+  // 更新故事板
   rpc UpdateStoryboard(UpdateStoryboardRequest) returns (UpdateStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryboard"
@@ -1274,13 +1339,22 @@ service TeamsAPI {
     };
   }
 
+  // 喜欢故事板
   rpc LikeStoryboard(LikeStoryboardRequest) returns (LikeStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeStoryboard"
       body : "*"
     };
   }
+  // 取消喜欢故事板
+  rpc UnLikeStoryboard(UnLikeStoryboardRequest) returns (UnLikeStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UnLikeStoryboard"
+      body : "*"
+    };
+  }
 
+  // 分享故事板
   rpc ShareStoryboard(ShareStoryboardRequest) returns (ShareStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ShareStoryboard"
@@ -1288,6 +1362,7 @@ service TeamsAPI {
     };
   }
 
+  // 获取组织故事
   rpc FetchGroupStorys(FetchGroupStorysReqeust) returns (FetchGroupStorysResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupStorys"
@@ -1323,7 +1398,7 @@ service TeamsAPI {
       body : "*"
     };
   }
-
+  // 继续渲染故事
   rpc ContinueRenderStory(ContinueRenderStoryRequest) returns (ContinueRenderStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ContinueRenderStory"
@@ -1331,6 +1406,7 @@ service TeamsAPI {
     };
   }
 
+  // 渲染故事角色
   rpc RenderStoryRoles(RenderStoryRolesRequest) returns (RenderStoryRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRoles"
@@ -1346,7 +1422,7 @@ service TeamsAPI {
     };
   }
 
-
+  // 渲染故事角色详情
   rpc RenderStoryRoleDetail(RenderStoryRoleDetailRequest) returns (RenderStoryRoleDetailResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRoleDetail"
@@ -1409,6 +1485,46 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // // 标星故事
+  // rpc StarStory(StarStoryRequest) returns (StarStoryResponse) {
+  //   option (google.api.http) = {
+  //     post : "/common.TeamsAPI/StarStory"
+  //     body : "*"
+  //   };
+  // }
+
+  // // 取消标星故事
+  // rpc UnStarStory(UnStarStoryRequest) returns (UnStarStoryResponse) {
+  //   option (google.api.http) = {
+  //     post : "/common.TeamsAPI/UnStarStory"
+  //     body : "*"
+  //   };
+  // }
+
+  // 获取标星故事
+  // rpc GetStarredStories(GetStarredStoriesRequest) returns (GetStarredStoriesResponse) {
+  //   option (google.api.http) = {
+  //     post : "/common.TeamsAPI/GetStarredStories"
+  //     body : "*"
+  //   };
+  // }
+
+  // 喜欢故事
+  rpc LikeStory(LikeStoryRequest) returns (LikeStoryResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/LikeStory"
+      body : "*"
+    };
+  }
+
+  // 取消喜欢故事
+  rpc UnLikeStory(UnLikeStoryRequest) returns (UnLikeStoryResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UnLikeStory"
+      body : "*"
+    };
+  }
+
 }
 
 message GetUserProfileRequest {
@@ -1459,6 +1575,26 @@ message RenderStoryRoleRequest {
 }
 
 message RenderStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message LikeStoryRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
+
+message LikeStoryResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message UnLikeStoryRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
+
+message UnLikeStoryResponse {
   int32 code = 1;
   string message = 2;
 }

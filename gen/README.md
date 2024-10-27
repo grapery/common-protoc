@@ -125,6 +125,8 @@
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
     - [StoryRoleInfo](#common-StoryRoleInfo)
+    - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
+    - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
     - [UpdateStoryRequest](#common-UpdateStoryRequest)
     - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
@@ -243,6 +245,8 @@
     - [LikeItemRequest](#common-LikeItemRequest)
     - [LikeItemResponse](#common-LikeItemResponse)
     - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
+    - [LikeStoryRequest](#common-LikeStoryRequest)
+    - [LikeStoryResponse](#common-LikeStoryResponse)
     - [LoginRequest](#common-LoginRequest)
     - [LoginResponse](#common-LoginResponse)
     - [LogoutRequest](#common-LogoutRequest)
@@ -266,6 +270,8 @@
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
     - [TrendingResponse.Data](#common-TrendingResponse-Data)
+    - [UnLikeStoryRequest](#common-UnLikeStoryRequest)
+    - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
     - [UnWatchProjectReqeust](#common-UnWatchProjectReqeust)
     - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
     - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
@@ -2392,6 +2398,39 @@
 
 
 
+<a name="common-UnLikeStoryboardRequest"></a>
+
+### UnLikeStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryboardResponse"></a>
+
+### UnLikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateStoryRequest"></a>
 
 ### UpdateStoryRequest
@@ -4248,6 +4287,38 @@
 
 
 
+<a name="common-LikeStoryRequest"></a>
+
+### LikeStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-LikeStoryResponse"></a>
+
+### LikeStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-LoginRequest"></a>
 
 ### LoginRequest
@@ -4638,6 +4709,38 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryRequest"></a>
+
+### UnLikeStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryResponse"></a>
+
+### UnLikeStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -5354,84 +5457,85 @@ user ,group .project.item
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) |  |
-| Trending | [TrendingRequest](#common-TrendingRequest) | [TrendingResponse](#common-TrendingResponse) |  |
-| Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) |  |
-| About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) |  |
-| Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) |  |
-| Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) |  |
-| Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) |  |
-| ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) |  |
-| UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) |  |
-| UserInfo | [UserInfoRequest](#common-UserInfoRequest) | [UserInfoResponse](#common-UserInfoResponse) |  |
-| UpdateUserAvator | [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse) |  |
-| UserWatching | [UserWatchingRequest](#common-UserWatchingRequest) | [UserWatchingResponse](#common-UserWatchingResponse) |  |
-| UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) |  |
-| UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) |  |
-| UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) |  |
-| FetchUserActives | [FetchUserActivesRequest](#common-FetchUserActivesRequest) | [FetchUserActivesResponse](#common-FetchUserActivesResponse) |  |
-| SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) |  |
-| CreateGroup | [CreateGroupReqeust](#common-CreateGroupReqeust) | [CreateGroupResponse](#common-CreateGroupResponse) |  |
-| GetGroup | [GetGroupReqeust](#common-GetGroupReqeust) | [GetGroupResponse](#common-GetGroupResponse) |  |
-| GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) |  |
-| UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) |  |
-| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) |  |
-| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) |  |
-| DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) |  |
-| FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) |  |
-| SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) |  |
-| FetchGroupProjects | [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) |  |
-| JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) |  |
-| LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) |  |
-| GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) |  |
-| GetProjectList | [GetProjectListRequest](#common-GetProjectListRequest) | [GetProjectListResponse](#common-GetProjectListResponse) |  |
-| CreateProject | [CreateProjectRequest](#common-CreateProjectRequest) | [CreateProjectResponse](#common-CreateProjectResponse) |  |
-| GetProjectMembers | [GetProjectMembersRequest](#common-GetProjectMembersRequest) | [GetProjectMembersResponse](#common-GetProjectMembersResponse) |  |
-| UpdateProject | [UpdateProjectRequest](#common-UpdateProjectRequest) | [UpdateProjectResponse](#common-UpdateProjectResponse) |  |
-| DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) |  |
-| GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) |  |
-| UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) |  |
-| WatchProject | [WatchProjectReqeust](#common-WatchProjectReqeust) | [WatchProjectResponse](#common-WatchProjectResponse) |  |
-| UnWatchProject | [UnWatchProjectReqeust](#common-UnWatchProjectReqeust) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) |  |
-| GetProjectWatcher | [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) |  |
-| SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) |  |
-| SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) |  |
-| ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) |  |
-| GetProjectItems | [GetProjectItemsRequest](#common-GetProjectItemsRequest) | [GetProjectItemsResponse](#common-GetProjectItemsResponse) |  |
-| GetGroupItems | [GetGroupItemsRequest](#common-GetGroupItemsRequest) | [GetGroupItemsResponse](#common-GetGroupItemsResponse) |  |
-| GetUserItems | [GetUserItemsRequest](#common-GetUserItemsRequest) | [GetUserItemsResponse](#common-GetUserItemsResponse) |  |
-| GetItem | [GetItemRequest](#common-GetItemRequest) | [GetItemResponse](#common-GetItemResponse) |  |
-| CreateItem | [CreateItemRequest](#common-CreateItemRequest) | [CreateItemResponse](#common-CreateItemResponse) |  |
-| UpdateItem | [UpdateItemRequest](#common-UpdateItemRequest) | [UpdateItemResponse](#common-UpdateItemResponse) |  |
-| DeleteItem | [DeleteItemRequest](#common-DeleteItemRequest) | [DeleteItemResponse](#common-DeleteItemResponse) |  |
-| LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) |  |
-| CreateComment | [CreateCommentReq](#common-CreateCommentReq) | [CreateCommentResp](#common-CreateCommentResp) |  |
-| GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) |  |
-| CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) |  |
-| GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) |  |
-| RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) |  |
-| UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) |  |
-| WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) |  |
-| CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) |  |
-| GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) |  |
-| RenderStoryboard | [RenderStoryboardRequest](#common-RenderStoryboardRequest) | [RenderStoryboardResponse](#common-RenderStoryboardResponse) |  |
-| GenStoryboardText | [GenStoryboardTextRequest](#common-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#common-GenStoryboardTextResponse) |  |
-| GenStoryboardImages | [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse) |  |
-| GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) |  |
-| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) |  |
-| ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) |  |
-| UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) |  |
-| LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) |  |
-| ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) |  |
-| FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) |  |
+| Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) | 探索 |
+| Trending | [TrendingRequest](#common-TrendingRequest) | [TrendingResponse](#common-TrendingResponse) | 趋势 |
+| Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) | 版本 |
+| About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | 关于 |
+| Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | 登录 |
+| Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) | 登出 |
+| Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) | 注册 |
+| ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) | 重置密码 |
+| UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) | 用户初始化 |
+| UserInfo | [UserInfoRequest](#common-UserInfoRequest) | [UserInfoResponse](#common-UserInfoResponse) | 用户信息 |
+| UpdateUserAvator | [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse) | 更新用户头像 |
+| UserWatching | [UserWatchingRequest](#common-UserWatchingRequest) | [UserWatchingResponse](#common-UserWatchingResponse) | 用户关注 |
+| UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) | 用户关注组织 |
+| UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) | 用户关注组织 |
+| UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | 更新用户信息 |
+| FetchUserActives | [FetchUserActivesRequest](#common-FetchUserActivesRequest) | [FetchUserActivesResponse](#common-FetchUserActivesResponse) | 用户活跃 |
+| SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | 搜索用户 |
+| CreateGroup | [CreateGroupReqeust](#common-CreateGroupReqeust) | [CreateGroupResponse](#common-CreateGroupResponse) | 创建组织 |
+| GetGroup | [GetGroupReqeust](#common-GetGroupReqeust) | [GetGroupResponse](#common-GetGroupResponse) | 获取组织 |
+| GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) | 组织活跃 |
+| UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) | 更新组织信息 |
+| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) | 获取组织信息 |
+| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | 更新组织信息 |
+| DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | 删除组织 |
+| FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | 获取组织成员 |
+| SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
+| FetchGroupProjects | [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | 获取组织项目 |
+| JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | 加入组织 |
+| LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | 离开组织 |
+| GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) | 获取项目信息 |
+| GetProjectList | [GetProjectListRequest](#common-GetProjectListRequest) | [GetProjectListResponse](#common-GetProjectListResponse) | 获取项目列表 |
+| CreateProject | [CreateProjectRequest](#common-CreateProjectRequest) | [CreateProjectResponse](#common-CreateProjectResponse) | 创建项目 |
+| GetProjectMembers | [GetProjectMembersRequest](#common-GetProjectMembersRequest) | [GetProjectMembersResponse](#common-GetProjectMembersResponse) | 获取项目成员 |
+| UpdateProject | [UpdateProjectRequest](#common-UpdateProjectRequest) | [UpdateProjectResponse](#common-UpdateProjectResponse) | 更新项目 |
+| DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) | 删除项目 |
+| GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) | 获取项目信息 |
+| UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) | 更新项目信息 |
+| WatchProject | [WatchProjectReqeust](#common-WatchProjectReqeust) | [WatchProjectResponse](#common-WatchProjectResponse) | 关注项目 |
+| UnWatchProject | [UnWatchProjectReqeust](#common-UnWatchProjectReqeust) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | 取消关注项目 |
+| GetProjectWatcher | [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | 获取项目关注者 |
+| SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) | 搜索组织项目 |
+| SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) | 搜索项目 |
+| ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) | 探索项目 |
+| GetProjectItems | [GetProjectItemsRequest](#common-GetProjectItemsRequest) | [GetProjectItemsResponse](#common-GetProjectItemsResponse) | 获取项目内容 |
+| GetGroupItems | [GetGroupItemsRequest](#common-GetGroupItemsRequest) | [GetGroupItemsResponse](#common-GetGroupItemsResponse) | 获取组织内容 |
+| GetUserItems | [GetUserItemsRequest](#common-GetUserItemsRequest) | [GetUserItemsResponse](#common-GetUserItemsResponse) | 获取用户内容 |
+| GetItem | [GetItemRequest](#common-GetItemRequest) | [GetItemResponse](#common-GetItemResponse) | 获取内容 |
+| CreateItem | [CreateItemRequest](#common-CreateItemRequest) | [CreateItemResponse](#common-CreateItemResponse) | 创建内容 |
+| UpdateItem | [UpdateItemRequest](#common-UpdateItemRequest) | [UpdateItemResponse](#common-UpdateItemResponse) | 更新内容 |
+| DeleteItem | [DeleteItemRequest](#common-DeleteItemRequest) | [DeleteItemResponse](#common-DeleteItemResponse) | 删除内容 |
+| LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) | 喜欢内容 |
+| CreateComment | [CreateCommentReq](#common-CreateCommentReq) | [CreateCommentResp](#common-CreateCommentResp) | 创建评论 |
+| GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) | 获取内容评论 |
+| CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) | 创建故事 |
+| GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) | 获取故事信息 |
+| RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) | 渲染故事 |
+| UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) | 更新故事 |
+| WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) | 关注故事 |
+| CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) | 创建故事板 |
+| GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) | 获取故事板 |
+| RenderStoryboard | [RenderStoryboardRequest](#common-RenderStoryboardRequest) | [RenderStoryboardResponse](#common-RenderStoryboardResponse) | 渲染故事板 |
+| GenStoryboardText | [GenStoryboardTextRequest](#common-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#common-GenStoryboardTextResponse) | 生成故事板文本 |
+| GenStoryboardImages | [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse) | 生成故事板图片 |
+| GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) | 获取故事板 |
+| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) | 删除故事板 |
+| ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) | 复制故事板 |
+| UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) | 更新故事板 |
+| LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) | 喜欢故事板 |
+| UnLikeStoryboard | [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest) | [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse) | 取消喜欢故事板 |
+| ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) | 分享故事板 |
+| FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) | 获取组织故事 |
 | UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
 | GetStoryRender | [GetStoryRenderRequest](#common-GetStoryRenderRequest) | [GetStoryRenderResponse](#common-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
 | GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
 | GetStoryContributors | [GetStoryContributorsRequest](#common-GetStoryContributorsRequest) | [GetStoryContributorsResponse](#common-GetStoryContributorsResponse) | 获取故事的贡献者 |
-| ContinueRenderStory | [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse) |  |
-| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) |  |
+| ContinueRenderStory | [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse) | 继续渲染故事 |
+| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) | 渲染故事角色 |
 | UpdateStoryRole | [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest) | [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse) | 更新 story role |
-| RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) |  |
+| RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) | 渲染故事角色详情 |
 | GetStoryRoles | [GetStoryRolesRequest](#common-GetStoryRolesRequest) | [GetStoryRolesResponse](#common-GetStoryRolesResponse) | 获取 story roles 的列表 |
 | GetStoryBoardRoles | [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
 | GetUserProfile | [GetUserProfileRequest](#common-GetUserProfileRequest) | [GetUserProfileResponse](#common-GetUserProfileResponse) | 获取用户的 profile |
@@ -5439,6 +5543,8 @@ user ,group .project.item
 | CreateStoryRole | [CreateStoryRoleRequest](#common-CreateStoryRoleRequest) | [CreateStoryRoleResponse](#common-CreateStoryRoleResponse) | 创建新的故事角色 |
 | GetStoryRoleDetail | [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest) | [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse) | 获取角色详情 |
 | RenderStoryRole | [RenderStoryRoleRequest](#common-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#common-RenderStoryRoleResponse) | 生成角色的图片 |
+| LikeStory | [LikeStoryRequest](#common-LikeStoryRequest) | [LikeStoryResponse](#common-LikeStoryResponse) | 喜欢故事 |
+| UnLikeStory | [UnLikeStoryRequest](#common-UnLikeStoryRequest) | [UnLikeStoryResponse](#common-UnLikeStoryResponse) | 取消喜欢故事 |
 
  
 

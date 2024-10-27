@@ -87,6 +87,7 @@ const (
 	TeamsAPI_ForkStoryboard_FullMethodName        = "/common.TeamsAPI/ForkStoryboard"
 	TeamsAPI_UpdateStoryboard_FullMethodName      = "/common.TeamsAPI/UpdateStoryboard"
 	TeamsAPI_LikeStoryboard_FullMethodName        = "/common.TeamsAPI/LikeStoryboard"
+	TeamsAPI_UnLikeStoryboard_FullMethodName      = "/common.TeamsAPI/UnLikeStoryboard"
 	TeamsAPI_ShareStoryboard_FullMethodName       = "/common.TeamsAPI/ShareStoryboard"
 	TeamsAPI_FetchGroupStorys_FullMethodName      = "/common.TeamsAPI/FetchGroupStorys"
 	TeamsAPI_UploadImageFile_FullMethodName       = "/common.TeamsAPI/UploadImageFile"
@@ -104,81 +105,155 @@ const (
 	TeamsAPI_CreateStoryRole_FullMethodName       = "/common.TeamsAPI/CreateStoryRole"
 	TeamsAPI_GetStoryRoleDetail_FullMethodName    = "/common.TeamsAPI/GetStoryRoleDetail"
 	TeamsAPI_RenderStoryRole_FullMethodName       = "/common.TeamsAPI/RenderStoryRole"
+	TeamsAPI_LikeStory_FullMethodName             = "/common.TeamsAPI/LikeStory"
+	TeamsAPI_UnLikeStory_FullMethodName           = "/common.TeamsAPI/UnLikeStory"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TeamsAPIClient interface {
+	// 探索
 	Explore(ctx context.Context, in *ExploreRequest, opts ...grpc.CallOption) (*ExploreResponse, error)
+	// 趋势
 	Trending(ctx context.Context, in *TrendingRequest, opts ...grpc.CallOption) (*TrendingResponse, error)
+	// 版本
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
+	// 关于
 	About(ctx context.Context, in *AboutRequest, opts ...grpc.CallOption) (*AboutResponse, error)
+	// 登录
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	// 登出
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
+	// 注册
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	// 重置密码
 	ResetPwd(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error)
+	// 用户初始化
 	UserInit(ctx context.Context, in *UserInitRequest, opts ...grpc.CallOption) (*UserInitResponse, error)
+	// 用户信息
 	UserInfo(ctx context.Context, in *UserInfoRequest, opts ...grpc.CallOption) (*UserInfoResponse, error)
+	// 更新用户头像
 	UpdateUserAvator(ctx context.Context, in *UpdateUserAvatorRequest, opts ...grpc.CallOption) (*UpdateUserAvatorResponse, error)
+	// 用户关注
 	UserWatching(ctx context.Context, in *UserWatchingRequest, opts ...grpc.CallOption) (*UserWatchingResponse, error)
+	// 用户关注组织
 	UserGroup(ctx context.Context, in *UserGroupRequest, opts ...grpc.CallOption) (*UserGroupResponse, error)
+	// 用户关注组织
 	UserFollowingGroup(ctx context.Context, in *UserFollowingGroupRequest, opts ...grpc.CallOption) (*UserFollowingGroupResponse, error)
+	// 更新用户信息
 	UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
+	// 用户活跃
 	FetchUserActives(ctx context.Context, in *FetchUserActivesRequest, opts ...grpc.CallOption) (*FetchUserActivesResponse, error)
+	// 搜索用户
 	SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error)
+	// 创建组织
 	CreateGroup(ctx context.Context, in *CreateGroupReqeust, opts ...grpc.CallOption) (*CreateGroupResponse, error)
+	// 获取组织
 	GetGroup(ctx context.Context, in *GetGroupReqeust, opts ...grpc.CallOption) (*GetGroupResponse, error)
+	// 组织活跃
 	GetGroupActives(ctx context.Context, in *GetGroupActivesRequest, opts ...grpc.CallOption) (*GetGroupActivesResponse, error)
+	// 更新组织信息
 	UpdateGroupInfo(ctx context.Context, in *UpdateGroupInfoRequest, opts ...grpc.CallOption) (*UpdateGroupInfoResponse, error)
+	// 获取组织信息
 	GetGroupProfile(ctx context.Context, in *GetGroupProfileRequest, opts ...grpc.CallOption) (*GetGroupProfileResponse, error)
+	// 更新组织信息
 	UpdateGroupProfile(ctx context.Context, in *UpdateGroupProfileRequest, opts ...grpc.CallOption) (*UpdateGroupProfileResponse, error)
+	// 删除组织
 	DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error)
+	// 获取组织成员
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
+	// 搜索组织
 	SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error)
+	// 获取组织项目
 	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsReqeust, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
+	// 加入组织
 	JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error)
+	// 离开组织
 	LeaveGroup(ctx context.Context, in *LeaveGroupRequest, opts ...grpc.CallOption) (*LeaveGroupResponse, error)
+	// 获取项目信息
 	GetProjectInfo(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error)
+	// 获取项目列表
 	GetProjectList(ctx context.Context, in *GetProjectListRequest, opts ...grpc.CallOption) (*GetProjectListResponse, error)
+	// 创建项目
 	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
+	// 获取项目成员
 	GetProjectMembers(ctx context.Context, in *GetProjectMembersRequest, opts ...grpc.CallOption) (*GetProjectMembersResponse, error)
+	// 更新项目
 	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
+	// 删除项目
 	DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error)
+	// 获取项目信息
 	GetProjectProfile(ctx context.Context, in *GetProjectProfileRequest, opts ...grpc.CallOption) (*GetProjectProfileResponse, error)
+	// 更新项目信息
 	UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error)
+	// 关注项目
 	WatchProject(ctx context.Context, in *WatchProjectReqeust, opts ...grpc.CallOption) (*WatchProjectResponse, error)
+	// 取消关注项目
 	UnWatchProject(ctx context.Context, in *UnWatchProjectReqeust, opts ...grpc.CallOption) (*UnWatchProjectResponse, error)
+	// 获取项目关注者
 	GetProjectWatcher(ctx context.Context, in *GetProjectWatcherReqeust, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error)
+	// 搜索组织项目
 	SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error)
+	// 搜索项目
 	SearchProject(ctx context.Context, in *SearchAllProjectRequest, opts ...grpc.CallOption) (*SearchAllProjectResponse, error)
+	// 探索项目
 	ExploreProject(ctx context.Context, in *ExploreProjectsRequest, opts ...grpc.CallOption) (*ExploreProjectsResponse, error)
+	// 获取项目内容
 	GetProjectItems(ctx context.Context, in *GetProjectItemsRequest, opts ...grpc.CallOption) (*GetProjectItemsResponse, error)
+	// 获取组织内容
 	GetGroupItems(ctx context.Context, in *GetGroupItemsRequest, opts ...grpc.CallOption) (*GetGroupItemsResponse, error)
+	// 获取用户内容
 	GetUserItems(ctx context.Context, in *GetUserItemsRequest, opts ...grpc.CallOption) (*GetUserItemsResponse, error)
+	// 获取内容
 	GetItem(ctx context.Context, in *GetItemRequest, opts ...grpc.CallOption) (*GetItemResponse, error)
+	// 创建内容
 	CreateItem(ctx context.Context, in *CreateItemRequest, opts ...grpc.CallOption) (*CreateItemResponse, error)
+	// 更新内容
 	UpdateItem(ctx context.Context, in *UpdateItemRequest, opts ...grpc.CallOption) (*UpdateItemResponse, error)
+	// 删除内容
 	DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error)
+	// 喜欢内容
 	LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error)
+	// 创建评论
 	CreateComment(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*CreateCommentResp, error)
+	// 获取内容评论
 	GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error)
+	// 创建故事
 	CreateStory(ctx context.Context, in *CreateStoryRequest, opts ...grpc.CallOption) (*CreateStoryResponse, error)
+	// 获取故事信息
 	GetStoryInfo(ctx context.Context, in *GetStoryInfoRequest, opts ...grpc.CallOption) (*GetStoryInfoResponse, error)
+	// 渲染故事
 	RenderStory(ctx context.Context, in *RenderStoryRequest, opts ...grpc.CallOption) (*RenderStoryResponse, error)
+	// 更新故事
 	UpdateStory(ctx context.Context, in *UpdateStoryRequest, opts ...grpc.CallOption) (*UpdateStoryResponse, error)
+	// 关注故事
 	WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error)
+	// 创建故事板
 	CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error)
+	// 获取故事板
 	GetStoryboard(ctx context.Context, in *GetStoryboardRequest, opts ...grpc.CallOption) (*GetStoryboardResponse, error)
+	// 渲染故事板
 	RenderStoryboard(ctx context.Context, in *RenderStoryboardRequest, opts ...grpc.CallOption) (*RenderStoryboardResponse, error)
+	// 生成故事板文本
 	GenStoryboardText(ctx context.Context, in *GenStoryboardTextRequest, opts ...grpc.CallOption) (*GenStoryboardTextResponse, error)
+	// 生成故事板图片
 	GenStoryboardImages(ctx context.Context, in *GenStoryboardImagesRequest, opts ...grpc.CallOption) (*GenStoryboardImagesResponse, error)
+	// 获取故事板
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
+	// 删除故事板
 	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
+	// 复制故事板
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
+	// 更新故事板
 	UpdateStoryboard(ctx context.Context, in *UpdateStoryboardRequest, opts ...grpc.CallOption) (*UpdateStoryboardResponse, error)
+	// 喜欢故事板
 	LikeStoryboard(ctx context.Context, in *LikeStoryboardRequest, opts ...grpc.CallOption) (*LikeStoryboardResponse, error)
+	// 取消喜欢故事板
+	UnLikeStoryboard(ctx context.Context, in *UnLikeStoryboardRequest, opts ...grpc.CallOption) (*UnLikeStoryboardResponse, error)
+	// 分享故事板
 	ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error)
+	// 获取组织故事
 	FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error)
@@ -188,10 +263,13 @@ type TeamsAPIClient interface {
 	GetStoryBoardRender(ctx context.Context, in *GetStoryBoardRenderRequest, opts ...grpc.CallOption) (*GetStoryBoardRenderResponse, error)
 	// 获取故事的贡献者
 	GetStoryContributors(ctx context.Context, in *GetStoryContributorsRequest, opts ...grpc.CallOption) (*GetStoryContributorsResponse, error)
+	// 继续渲染故事
 	ContinueRenderStory(ctx context.Context, in *ContinueRenderStoryRequest, opts ...grpc.CallOption) (*ContinueRenderStoryResponse, error)
+	// 渲染故事角色
 	RenderStoryRoles(ctx context.Context, in *RenderStoryRolesRequest, opts ...grpc.CallOption) (*RenderStoryRolesResponse, error)
 	// 更新 story role
 	UpdateStoryRole(ctx context.Context, in *UpdateStoryRoleRequest, opts ...grpc.CallOption) (*UpdateStoryRoleResponse, error)
+	// 渲染故事角色详情
 	RenderStoryRoleDetail(ctx context.Context, in *RenderStoryRoleDetailRequest, opts ...grpc.CallOption) (*RenderStoryRoleDetailResponse, error)
 	// 获取 story roles 的列表
 	GetStoryRoles(ctx context.Context, in *GetStoryRolesRequest, opts ...grpc.CallOption) (*GetStoryRolesResponse, error)
@@ -207,6 +285,10 @@ type TeamsAPIClient interface {
 	GetStoryRoleDetail(ctx context.Context, in *GetStoryRoleDetailRequest, opts ...grpc.CallOption) (*GetStoryRoleDetailResponse, error)
 	// 生成角色的图片
 	RenderStoryRole(ctx context.Context, in *RenderStoryRoleRequest, opts ...grpc.CallOption) (*RenderStoryRoleResponse, error)
+	// 喜欢故事
+	LikeStory(ctx context.Context, in *LikeStoryRequest, opts ...grpc.CallOption) (*LikeStoryResponse, error)
+	// 取消喜欢故事
+	UnLikeStory(ctx context.Context, in *UnLikeStoryRequest, opts ...grpc.CallOption) (*UnLikeStoryResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -829,6 +911,15 @@ func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, in *LikeStoryboardR
 	return out, nil
 }
 
+func (c *teamsAPIClient) UnLikeStoryboard(ctx context.Context, in *UnLikeStoryboardRequest, opts ...grpc.CallOption) (*UnLikeStoryboardResponse, error) {
+	out := new(UnLikeStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnLikeStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error) {
 	out := new(ShareStoryboardResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_ShareStoryboard_FullMethodName, in, out, opts...)
@@ -982,79 +1073,169 @@ func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, in *RenderStoryRol
 	return out, nil
 }
 
+func (c *teamsAPIClient) LikeStory(ctx context.Context, in *LikeStoryRequest, opts ...grpc.CallOption) (*LikeStoryResponse, error) {
+	out := new(LikeStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_LikeStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UnLikeStory(ctx context.Context, in *UnLikeStoryRequest, opts ...grpc.CallOption) (*UnLikeStoryResponse, error) {
+	out := new(UnLikeStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnLikeStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
 type TeamsAPIServer interface {
+	// 探索
 	Explore(context.Context, *ExploreRequest) (*ExploreResponse, error)
+	// 趋势
 	Trending(context.Context, *TrendingRequest) (*TrendingResponse, error)
+	// 版本
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
+	// 关于
 	About(context.Context, *AboutRequest) (*AboutResponse, error)
+	// 登录
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	// 登出
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
+	// 注册
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	// 重置密码
 	ResetPwd(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error)
+	// 用户初始化
 	UserInit(context.Context, *UserInitRequest) (*UserInitResponse, error)
+	// 用户信息
 	UserInfo(context.Context, *UserInfoRequest) (*UserInfoResponse, error)
+	// 更新用户头像
 	UpdateUserAvator(context.Context, *UpdateUserAvatorRequest) (*UpdateUserAvatorResponse, error)
+	// 用户关注
 	UserWatching(context.Context, *UserWatchingRequest) (*UserWatchingResponse, error)
+	// 用户关注组织
 	UserGroup(context.Context, *UserGroupRequest) (*UserGroupResponse, error)
+	// 用户关注组织
 	UserFollowingGroup(context.Context, *UserFollowingGroupRequest) (*UserFollowingGroupResponse, error)
+	// 更新用户信息
 	UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error)
+	// 用户活跃
 	FetchUserActives(context.Context, *FetchUserActivesRequest) (*FetchUserActivesResponse, error)
+	// 搜索用户
 	SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error)
+	// 创建组织
 	CreateGroup(context.Context, *CreateGroupReqeust) (*CreateGroupResponse, error)
+	// 获取组织
 	GetGroup(context.Context, *GetGroupReqeust) (*GetGroupResponse, error)
+	// 组织活跃
 	GetGroupActives(context.Context, *GetGroupActivesRequest) (*GetGroupActivesResponse, error)
+	// 更新组织信息
 	UpdateGroupInfo(context.Context, *UpdateGroupInfoRequest) (*UpdateGroupInfoResponse, error)
+	// 获取组织信息
 	GetGroupProfile(context.Context, *GetGroupProfileRequest) (*GetGroupProfileResponse, error)
+	// 更新组织信息
 	UpdateGroupProfile(context.Context, *UpdateGroupProfileRequest) (*UpdateGroupProfileResponse, error)
+	// 删除组织
 	DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error)
+	// 获取组织成员
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
+	// 搜索组织
 	SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error)
+	// 获取组织项目
 	FetchGroupProjects(context.Context, *FetchGroupProjectsReqeust) (*FetchGroupProjectsResponse, error)
+	// 加入组织
 	JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error)
+	// 离开组织
 	LeaveGroup(context.Context, *LeaveGroupRequest) (*LeaveGroupResponse, error)
+	// 获取项目信息
 	GetProjectInfo(context.Context, *GetProjectRequest) (*GetProjectResponse, error)
+	// 获取项目列表
 	GetProjectList(context.Context, *GetProjectListRequest) (*GetProjectListResponse, error)
+	// 创建项目
 	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
+	// 获取项目成员
 	GetProjectMembers(context.Context, *GetProjectMembersRequest) (*GetProjectMembersResponse, error)
+	// 更新项目
 	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
+	// 删除项目
 	DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error)
+	// 获取项目信息
 	GetProjectProfile(context.Context, *GetProjectProfileRequest) (*GetProjectProfileResponse, error)
+	// 更新项目信息
 	UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error)
+	// 关注项目
 	WatchProject(context.Context, *WatchProjectReqeust) (*WatchProjectResponse, error)
+	// 取消关注项目
 	UnWatchProject(context.Context, *UnWatchProjectReqeust) (*UnWatchProjectResponse, error)
+	// 获取项目关注者
 	GetProjectWatcher(context.Context, *GetProjectWatcherReqeust) (*GetProjectWatcherResponse, error)
+	// 搜索组织项目
 	SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error)
+	// 搜索项目
 	SearchProject(context.Context, *SearchAllProjectRequest) (*SearchAllProjectResponse, error)
+	// 探索项目
 	ExploreProject(context.Context, *ExploreProjectsRequest) (*ExploreProjectsResponse, error)
+	// 获取项目内容
 	GetProjectItems(context.Context, *GetProjectItemsRequest) (*GetProjectItemsResponse, error)
+	// 获取组织内容
 	GetGroupItems(context.Context, *GetGroupItemsRequest) (*GetGroupItemsResponse, error)
+	// 获取用户内容
 	GetUserItems(context.Context, *GetUserItemsRequest) (*GetUserItemsResponse, error)
+	// 获取内容
 	GetItem(context.Context, *GetItemRequest) (*GetItemResponse, error)
+	// 创建内容
 	CreateItem(context.Context, *CreateItemRequest) (*CreateItemResponse, error)
+	// 更新内容
 	UpdateItem(context.Context, *UpdateItemRequest) (*UpdateItemResponse, error)
+	// 删除内容
 	DeleteItem(context.Context, *DeleteItemRequest) (*DeleteItemResponse, error)
+	// 喜欢内容
 	LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error)
+	// 创建评论
 	CreateComment(context.Context, *CreateCommentReq) (*CreateCommentResp, error)
+	// 获取内容评论
 	GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error)
+	// 创建故事
 	CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error)
+	// 获取故事信息
 	GetStoryInfo(context.Context, *GetStoryInfoRequest) (*GetStoryInfoResponse, error)
+	// 渲染故事
 	RenderStory(context.Context, *RenderStoryRequest) (*RenderStoryResponse, error)
+	// 更新故事
 	UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error)
+	// 关注故事
 	WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error)
+	// 创建故事板
 	CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error)
+	// 获取故事板
 	GetStoryboard(context.Context, *GetStoryboardRequest) (*GetStoryboardResponse, error)
+	// 渲染故事板
 	RenderStoryboard(context.Context, *RenderStoryboardRequest) (*RenderStoryboardResponse, error)
+	// 生成故事板文本
 	GenStoryboardText(context.Context, *GenStoryboardTextRequest) (*GenStoryboardTextResponse, error)
+	// 生成故事板图片
 	GenStoryboardImages(context.Context, *GenStoryboardImagesRequest) (*GenStoryboardImagesResponse, error)
+	// 获取故事板
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
+	// 删除故事板
 	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
+	// 复制故事板
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
+	// 更新故事板
 	UpdateStoryboard(context.Context, *UpdateStoryboardRequest) (*UpdateStoryboardResponse, error)
+	// 喜欢故事板
 	LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error)
+	// 取消喜欢故事板
+	UnLikeStoryboard(context.Context, *UnLikeStoryboardRequest) (*UnLikeStoryboardResponse, error)
+	// 分享故事板
 	ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error)
+	// 获取组织故事
 	FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *UploadImageRequest) (*UploadImageResponse, error)
@@ -1064,10 +1245,13 @@ type TeamsAPIServer interface {
 	GetStoryBoardRender(context.Context, *GetStoryBoardRenderRequest) (*GetStoryBoardRenderResponse, error)
 	// 获取故事的贡献者
 	GetStoryContributors(context.Context, *GetStoryContributorsRequest) (*GetStoryContributorsResponse, error)
+	// 继续渲染故事
 	ContinueRenderStory(context.Context, *ContinueRenderStoryRequest) (*ContinueRenderStoryResponse, error)
+	// 渲染故事角色
 	RenderStoryRoles(context.Context, *RenderStoryRolesRequest) (*RenderStoryRolesResponse, error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *UpdateStoryRoleRequest) (*UpdateStoryRoleResponse, error)
+	// 渲染故事角色详情
 	RenderStoryRoleDetail(context.Context, *RenderStoryRoleDetailRequest) (*RenderStoryRoleDetailResponse, error)
 	// 获取 story roles 的列表
 	GetStoryRoles(context.Context, *GetStoryRolesRequest) (*GetStoryRolesResponse, error)
@@ -1083,6 +1267,10 @@ type TeamsAPIServer interface {
 	GetStoryRoleDetail(context.Context, *GetStoryRoleDetailRequest) (*GetStoryRoleDetailResponse, error)
 	// 生成角色的图片
 	RenderStoryRole(context.Context, *RenderStoryRoleRequest) (*RenderStoryRoleResponse, error)
+	// 喜欢故事
+	LikeStory(context.Context, *LikeStoryRequest) (*LikeStoryResponse, error)
+	// 取消喜欢故事
+	UnLikeStory(context.Context, *UnLikeStoryRequest) (*UnLikeStoryResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1294,6 +1482,9 @@ func (UnimplementedTeamsAPIServer) UpdateStoryboard(context.Context, *UpdateStor
 func (UnimplementedTeamsAPIServer) LikeStoryboard(context.Context, *LikeStoryboardRequest) (*LikeStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LikeStoryboard not implemented")
 }
+func (UnimplementedTeamsAPIServer) UnLikeStoryboard(context.Context, *UnLikeStoryboardRequest) (*UnLikeStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnLikeStoryboard not implemented")
+}
 func (UnimplementedTeamsAPIServer) ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ShareStoryboard not implemented")
 }
@@ -1344,6 +1535,12 @@ func (UnimplementedTeamsAPIServer) GetStoryRoleDetail(context.Context, *GetStory
 }
 func (UnimplementedTeamsAPIServer) RenderStoryRole(context.Context, *RenderStoryRoleRequest) (*RenderStoryRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) LikeStory(context.Context, *LikeStoryRequest) (*LikeStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeStory not implemented")
+}
+func (UnimplementedTeamsAPIServer) UnLikeStory(context.Context, *UnLikeStoryRequest) (*UnLikeStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnLikeStory not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2582,6 +2779,24 @@ func _TeamsAPI_LikeStoryboard_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UnLikeStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnLikeStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnLikeStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnLikeStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnLikeStoryboard(ctx, req.(*UnLikeStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TeamsAPI_ShareStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ShareStoryboardRequest)
 	if err := dec(in); err != nil {
@@ -2888,6 +3103,42 @@ func _TeamsAPI_RenderStoryRole_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_LikeStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LikeStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).LikeStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_LikeStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).LikeStory(ctx, req.(*LikeStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UnLikeStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnLikeStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnLikeStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnLikeStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnLikeStory(ctx, req.(*UnLikeStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -3168,6 +3419,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_LikeStoryboard_Handler,
 		},
 		{
+			MethodName: "UnLikeStoryboard",
+			Handler:    _TeamsAPI_UnLikeStoryboard_Handler,
+		},
+		{
 			MethodName: "ShareStoryboard",
 			Handler:    _TeamsAPI_ShareStoryboard_Handler,
 		},
@@ -3234,6 +3489,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RenderStoryRole",
 			Handler:    _TeamsAPI_RenderStoryRole_Handler,
+		},
+		{
+			MethodName: "LikeStory",
+			Handler:    _TeamsAPI_LikeStory_Handler,
+		},
+		{
+			MethodName: "UnLikeStory",
+			Handler:    _TeamsAPI_UnLikeStory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

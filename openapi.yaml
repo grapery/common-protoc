@@ -10,6 +10,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
+            description: 关于
             operationId: TeamsAPI_About
             responses:
                 "200":
@@ -28,6 +29,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 继续渲染故事
             operationId: TeamsAPI_ContinueRenderStory
             requestBody:
                 content:
@@ -52,6 +54,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建评论
             operationId: TeamsAPI_CreateComment
             requestBody:
                 content:
@@ -76,6 +79,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建组织
             operationId: TeamsAPI_CreateGroup
             requestBody:
                 content:
@@ -100,6 +104,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建内容
             operationId: TeamsAPI_CreateItem
             requestBody:
                 content:
@@ -124,6 +129,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建项目
             operationId: TeamsAPI_CreateProject
             requestBody:
                 content:
@@ -148,6 +154,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建故事
             operationId: TeamsAPI_CreateStory
             requestBody:
                 content:
@@ -197,6 +204,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 创建故事板
             operationId: TeamsAPI_CreateStoryboard
             requestBody:
                 content:
@@ -221,6 +229,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 删除故事板
             operationId: TeamsAPI_DelStoryboard
             requestBody:
                 content:
@@ -245,6 +254,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 删除组织
             operationId: TeamsAPI_DeleteGroup
             requestBody:
                 content:
@@ -269,6 +279,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 删除内容
             operationId: TeamsAPI_DeleteItem
             requestBody:
                 content:
@@ -293,6 +304,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 删除项目
             operationId: TeamsAPI_DeleteProject
             requestBody:
                 content:
@@ -317,6 +329,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
+            description: 探索
             operationId: TeamsAPI_Explore
             responses:
                 "200":
@@ -335,6 +348,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 探索项目
             operationId: TeamsAPI_ExploreProject
             requestBody:
                 content:
@@ -359,6 +373,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织成员
             operationId: TeamsAPI_FetchGroupMembers
             requestBody:
                 content:
@@ -383,6 +398,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织项目
             operationId: TeamsAPI_FetchGroupProjects
             requestBody:
                 content:
@@ -407,6 +423,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织故事
             operationId: TeamsAPI_FetchGroupStorys
             requestBody:
                 content:
@@ -431,6 +448,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户活跃
             operationId: TeamsAPI_FetchUserActives
             requestBody:
                 content:
@@ -455,6 +473,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 复制故事板
             operationId: TeamsAPI_ForkStoryboard
             requestBody:
                 content:
@@ -479,6 +498,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 生成故事板图片
             operationId: TeamsAPI_GenStoryboardImages
             requestBody:
                 content:
@@ -503,6 +523,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 生成故事板文本
             operationId: TeamsAPI_GenStoryboardText
             requestBody:
                 content:
@@ -527,6 +548,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织
             operationId: TeamsAPI_GetGroup
             requestBody:
                 content:
@@ -551,6 +573,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 组织活跃
             operationId: TeamsAPI_GetGroupActives
             requestBody:
                 content:
@@ -575,6 +598,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织内容
             operationId: TeamsAPI_GetGroupItems
             requestBody:
                 content:
@@ -599,6 +623,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取组织信息
             operationId: TeamsAPI_GetGroupProfile
             requestBody:
                 content:
@@ -623,6 +648,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取内容
             operationId: TeamsAPI_GetItem
             requestBody:
                 content:
@@ -647,6 +673,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取内容评论
             operationId: TeamsAPI_GetItemComment
             requestBody:
                 content:
@@ -671,6 +698,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目信息
             operationId: TeamsAPI_GetProjectInfo
             requestBody:
                 content:
@@ -695,6 +723,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目内容
             operationId: TeamsAPI_GetProjectItems
             requestBody:
                 content:
@@ -719,6 +748,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目列表
             operationId: TeamsAPI_GetProjectList
             requestBody:
                 content:
@@ -743,6 +773,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目成员
             operationId: TeamsAPI_GetProjectMembers
             requestBody:
                 content:
@@ -767,6 +798,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目信息
             operationId: TeamsAPI_GetProjectProfile
             requestBody:
                 content:
@@ -791,6 +823,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取项目关注者
             operationId: TeamsAPI_GetProjectWatcher
             requestBody:
                 content:
@@ -865,6 +898,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取故事信息
             operationId: TeamsAPI_GetStoryInfo
             requestBody:
                 content:
@@ -939,6 +973,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取故事板
             operationId: TeamsAPI_GetStoryboard
             requestBody:
                 content:
@@ -963,6 +998,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取故事板
             operationId: TeamsAPI_GetStoryboards
             requestBody:
                 content:
@@ -987,6 +1023,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 获取用户内容
             operationId: TeamsAPI_GetUserItems
             requestBody:
                 content:
@@ -1036,6 +1073,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 加入组织
             operationId: TeamsAPI_JoinGroup
             requestBody:
                 content:
@@ -1060,6 +1098,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 离开组织
             operationId: TeamsAPI_LeaveGroup
             requestBody:
                 content:
@@ -1084,6 +1123,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 喜欢内容
             operationId: TeamsAPI_LikeItem
             requestBody:
                 content:
@@ -1104,10 +1144,36 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/LikeStory:
+        post:
+            tags:
+                - TeamsAPI
+            description: 喜欢故事
+            operationId: TeamsAPI_LikeStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LikeStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LikeStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/LikeStoryboard:
         post:
             tags:
                 - TeamsAPI
+            description: 喜欢故事板
             operationId: TeamsAPI_LikeStoryboard
             requestBody:
                 content:
@@ -1132,6 +1198,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 登录
             operationId: TeamsAPI_Login
             requestBody:
                 content:
@@ -1156,6 +1223,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 登出
             operationId: TeamsAPI_Logout
             requestBody:
                 content:
@@ -1180,6 +1248,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 注册
             operationId: TeamsAPI_Register
             requestBody:
                 content:
@@ -1204,6 +1273,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 渲染故事
             operationId: TeamsAPI_RenderStory
             requestBody:
                 content:
@@ -1253,6 +1323,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 渲染故事角色详情
             operationId: TeamsAPI_RenderStoryRoleDetail
             requestBody:
                 content:
@@ -1277,6 +1348,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 渲染故事角色
             operationId: TeamsAPI_RenderStoryRoles
             requestBody:
                 content:
@@ -1301,6 +1373,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 渲染故事板
             operationId: TeamsAPI_RenderStoryboard
             requestBody:
                 content:
@@ -1325,6 +1398,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 重置密码
             operationId: TeamsAPI_ResetPwd
             requestBody:
                 content:
@@ -1349,6 +1423,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 搜索组织
             operationId: TeamsAPI_SearchGroup
             requestBody:
                 content:
@@ -1373,6 +1448,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 搜索组织项目
             operationId: TeamsAPI_SearchGroupProject
             requestBody:
                 content:
@@ -1397,6 +1473,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 搜索项目
             operationId: TeamsAPI_SearchProject
             requestBody:
                 content:
@@ -1421,6 +1498,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 搜索用户
             operationId: TeamsAPI_SearchUser
             requestBody:
                 content:
@@ -1445,6 +1523,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 分享故事板
             operationId: TeamsAPI_ShareStoryboard
             requestBody:
                 content:
@@ -1519,6 +1598,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
+            description: 趋势
             operationId: TeamsAPI_Trending
             parameters:
                 - name: area
@@ -1546,10 +1626,61 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnLikeStory:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消喜欢故事
+            operationId: TeamsAPI_UnLikeStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnLikeStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnLikeStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnLikeStoryboard:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消喜欢故事板
+            operationId: TeamsAPI_UnLikeStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnLikeStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnLikeStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UnWatchProject:
         post:
             tags:
                 - TeamsAPI
+            description: 取消关注项目
             operationId: TeamsAPI_UnWatchProject
             requestBody:
                 content:
@@ -1574,6 +1705,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新组织信息
             operationId: TeamsAPI_UpdateGroupInfo
             requestBody:
                 content:
@@ -1598,6 +1730,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新组织信息
             operationId: TeamsAPI_UpdateGroupProfile
             requestBody:
                 content:
@@ -1622,6 +1755,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新内容
             operationId: TeamsAPI_UpdateItem
             requestBody:
                 content:
@@ -1646,6 +1780,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新项目
             operationId: TeamsAPI_UpdateProject
             requestBody:
                 content:
@@ -1670,6 +1805,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新项目信息
             operationId: TeamsAPI_UpdateProjectProfile
             requestBody:
                 content:
@@ -1694,6 +1830,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新故事
             operationId: TeamsAPI_UpdateStory
             requestBody:
                 content:
@@ -1743,6 +1880,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新故事板
             operationId: TeamsAPI_UpdateStoryboard
             requestBody:
                 content:
@@ -1767,6 +1905,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新用户头像
             operationId: TeamsAPI_UpdateUserAvator
             requestBody:
                 content:
@@ -1841,6 +1980,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户关注组织
             operationId: TeamsAPI_UserFollowingGroup
             requestBody:
                 content:
@@ -1865,6 +2005,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户关注组织
             operationId: TeamsAPI_UserGroup
             requestBody:
                 content:
@@ -1889,6 +2030,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户信息
             operationId: TeamsAPI_UserInfo
             requestBody:
                 content:
@@ -1913,6 +2055,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户初始化
             operationId: TeamsAPI_UserInit
             requestBody:
                 content:
@@ -1937,6 +2080,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新用户信息
             operationId: TeamsAPI_UserUpdate
             requestBody:
                 content:
@@ -1961,6 +2105,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 用户关注
             operationId: TeamsAPI_UserWatching
             requestBody:
                 content:
@@ -1985,6 +2130,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
+            description: 版本
             operationId: TeamsAPI_Version
             responses:
                 "200":
@@ -2003,6 +2149,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 关注项目
             operationId: TeamsAPI_WatchProject
             requestBody:
                 content:
@@ -2027,6 +2174,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 关注故事
             operationId: TeamsAPI_WatchStory
             requestBody:
                 content:
@@ -3400,6 +3548,21 @@ components:
         LikeItemResponse_Data:
             type: object
             properties: {}
+        LikeStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+        LikeStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         LikeStoryboardRequest:
             type: object
             properties:
@@ -4224,6 +4387,38 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ProjectInfo'
+        UnLikeStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+        UnLikeStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        UnLikeStoryboardRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        UnLikeStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UnWatchProjectReqeust:
             type: object
             properties:

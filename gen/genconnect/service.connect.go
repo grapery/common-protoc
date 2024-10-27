@@ -189,6 +189,9 @@ const (
 	TeamsAPIUpdateStoryboardProcedure = "/common.TeamsAPI/UpdateStoryboard"
 	// TeamsAPILikeStoryboardProcedure is the fully-qualified name of the TeamsAPI's LikeStoryboard RPC.
 	TeamsAPILikeStoryboardProcedure = "/common.TeamsAPI/LikeStoryboard"
+	// TeamsAPIUnLikeStoryboardProcedure is the fully-qualified name of the TeamsAPI's UnLikeStoryboard
+	// RPC.
+	TeamsAPIUnLikeStoryboardProcedure = "/common.TeamsAPI/UnLikeStoryboard"
 	// TeamsAPIShareStoryboardProcedure is the fully-qualified name of the TeamsAPI's ShareStoryboard
 	// RPC.
 	TeamsAPIShareStoryboardProcedure = "/common.TeamsAPI/ShareStoryboard"
@@ -237,79 +240,155 @@ const (
 	// TeamsAPIRenderStoryRoleProcedure is the fully-qualified name of the TeamsAPI's RenderStoryRole
 	// RPC.
 	TeamsAPIRenderStoryRoleProcedure = "/common.TeamsAPI/RenderStoryRole"
+	// TeamsAPILikeStoryProcedure is the fully-qualified name of the TeamsAPI's LikeStory RPC.
+	TeamsAPILikeStoryProcedure = "/common.TeamsAPI/LikeStory"
+	// TeamsAPIUnLikeStoryProcedure is the fully-qualified name of the TeamsAPI's UnLikeStory RPC.
+	TeamsAPIUnLikeStoryProcedure = "/common.TeamsAPI/UnLikeStory"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
 type TeamsAPIClient interface {
+	// 探索
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
+	// 趋势
 	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
+	// 版本
 	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
+	// 关于
 	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
+	// 登录
 	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
+	// 登出
 	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	// 注册
 	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
+	// 重置密码
 	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
+	// 用户初始化
 	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
+	// 用户信息
 	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
+	// 更新用户头像
 	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
+	// 用户关注
 	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
+	// 用户关注组织
 	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
+	// 用户关注组织
 	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
+	// 更新用户信息
 	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
+	// 用户活跃
 	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
+	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
+	// 创建组织
 	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	// 获取组织
 	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	// 组织活跃
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
+	// 更新组织信息
 	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	// 获取组织信息
 	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
+	// 更新组织信息
 	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
+	// 删除组织
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
+	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
+	// 搜索组织
 	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	// 获取组织项目
 	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	// 加入组织
 	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
+	// 离开组织
 	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
+	// 获取项目信息
 	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
+	// 获取项目列表
 	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
+	// 创建项目
 	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	// 获取项目成员
 	GetProjectMembers(context.Context, *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error)
+	// 更新项目
 	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
+	// 删除项目
 	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
+	// 获取项目信息
 	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
+	// 更新项目信息
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
+	// 关注项目
 	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	// 取消关注项目
 	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	// 获取项目关注者
 	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
+	// 搜索组织项目
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
+	// 搜索项目
 	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
+	// 探索项目
 	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
+	// 获取项目内容
 	GetProjectItems(context.Context, *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error)
+	// 获取组织内容
 	GetGroupItems(context.Context, *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error)
+	// 获取用户内容
 	GetUserItems(context.Context, *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error)
+	// 获取内容
 	GetItem(context.Context, *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error)
+	// 创建内容
 	CreateItem(context.Context, *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error)
+	// 更新内容
 	UpdateItem(context.Context, *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error)
+	// 删除内容
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
+	// 喜欢内容
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
+	// 创建评论
 	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
+	// 获取内容评论
 	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
+	// 创建故事
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
+	// 获取故事信息
 	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
+	// 渲染故事
 	RenderStory(context.Context, *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error)
+	// 更新故事
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
+	// 关注故事
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	// 创建故事板
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
+	// 获取故事板
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
+	// 渲染故事板
 	RenderStoryboard(context.Context, *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error)
+	// 生成故事板文本
 	GenStoryboardText(context.Context, *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error)
+	// 生成故事板图片
 	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
+	// 获取故事板
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
+	// 删除故事板
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
+	// 复制故事板
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
+	// 更新故事板
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
+	// 喜欢故事板
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
+	// 取消喜欢故事板
+	UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error)
+	// 分享故事板
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
+	// 获取组织故事
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
@@ -319,10 +398,13 @@ type TeamsAPIClient interface {
 	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 	// 获取故事的贡献者
 	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
+	// 继续渲染故事
 	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
+	// 渲染故事角色
 	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
+	// 渲染故事角色详情
 	RenderStoryRoleDetail(context.Context, *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error)
 	// 获取 story roles 的列表
 	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
@@ -338,6 +420,10 @@ type TeamsAPIClient interface {
 	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
 	// 生成角色的图片
 	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
+	// 喜欢故事
+	LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error)
+	// 取消喜欢故事
+	UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -690,6 +776,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPILikeStoryboardProcedure,
 			opts...,
 		),
+		unLikeStoryboard: connect.NewClient[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIUnLikeStoryboardProcedure,
+			opts...,
+		),
 		shareStoryboard: connect.NewClient[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIShareStoryboardProcedure,
@@ -775,6 +866,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIRenderStoryRoleProcedure,
 			opts...,
 		),
+		likeStory: connect.NewClient[gen.LikeStoryRequest, gen.LikeStoryResponse](
+			httpClient,
+			baseURL+TeamsAPILikeStoryProcedure,
+			opts...,
+		),
+		unLikeStory: connect.NewClient[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse](
+			httpClient,
+			baseURL+TeamsAPIUnLikeStoryProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -848,6 +949,7 @@ type teamsAPIClient struct {
 	forkStoryboard        *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
 	updateStoryboard      *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
 	likeStoryboard        *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
+	unLikeStoryboard      *connect.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
 	shareStoryboard       *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
 	fetchGroupStorys      *connect.Client[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse]
 	uploadImageFile       *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
@@ -865,6 +967,8 @@ type teamsAPIClient struct {
 	createStoryRole       *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
 	getStoryRoleDetail    *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
 	renderStoryRole       *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
+	likeStory             *connect.Client[gen.LikeStoryRequest, gen.LikeStoryResponse]
+	unLikeStory           *connect.Client[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1207,6 +1311,11 @@ func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, req *connect.Reques
 	return c.likeStoryboard.CallUnary(ctx, req)
 }
 
+// UnLikeStoryboard calls common.TeamsAPI.UnLikeStoryboard.
+func (c *teamsAPIClient) UnLikeStoryboard(ctx context.Context, req *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error) {
+	return c.unLikeStoryboard.CallUnary(ctx, req)
+}
+
 // ShareStoryboard calls common.TeamsAPI.ShareStoryboard.
 func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
 	return c.shareStoryboard.CallUnary(ctx, req)
@@ -1292,77 +1401,159 @@ func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, req *connect.Reque
 	return c.renderStoryRole.CallUnary(ctx, req)
 }
 
+// LikeStory calls common.TeamsAPI.LikeStory.
+func (c *teamsAPIClient) LikeStory(ctx context.Context, req *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error) {
+	return c.likeStory.CallUnary(ctx, req)
+}
+
+// UnLikeStory calls common.TeamsAPI.UnLikeStory.
+func (c *teamsAPIClient) UnLikeStory(ctx context.Context, req *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error) {
+	return c.unLikeStory.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
+	// 探索
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
+	// 趋势
 	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
+	// 版本
 	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
+	// 关于
 	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
+	// 登录
 	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
+	// 登出
 	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	// 注册
 	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
+	// 重置密码
 	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
+	// 用户初始化
 	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
+	// 用户信息
 	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
+	// 更新用户头像
 	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
+	// 用户关注
 	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
+	// 用户关注组织
 	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
+	// 用户关注组织
 	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
+	// 更新用户信息
 	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
+	// 用户活跃
 	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
+	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
+	// 创建组织
 	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	// 获取组织
 	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	// 组织活跃
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
+	// 更新组织信息
 	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
+	// 获取组织信息
 	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
+	// 更新组织信息
 	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
+	// 删除组织
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
+	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
+	// 搜索组织
 	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	// 获取组织项目
 	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	// 加入组织
 	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
+	// 离开组织
 	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
+	// 获取项目信息
 	GetProjectInfo(context.Context, *connect.Request[gen.GetProjectRequest]) (*connect.Response[gen.GetProjectResponse], error)
+	// 获取项目列表
 	GetProjectList(context.Context, *connect.Request[gen.GetProjectListRequest]) (*connect.Response[gen.GetProjectListResponse], error)
+	// 创建项目
 	CreateProject(context.Context, *connect.Request[gen.CreateProjectRequest]) (*connect.Response[gen.CreateProjectResponse], error)
+	// 获取项目成员
 	GetProjectMembers(context.Context, *connect.Request[gen.GetProjectMembersRequest]) (*connect.Response[gen.GetProjectMembersResponse], error)
+	// 更新项目
 	UpdateProject(context.Context, *connect.Request[gen.UpdateProjectRequest]) (*connect.Response[gen.UpdateProjectResponse], error)
+	// 删除项目
 	DeleteProject(context.Context, *connect.Request[gen.DeleteProjectRequest]) (*connect.Response[gen.DeleteProjectResponse], error)
+	// 获取项目信息
 	GetProjectProfile(context.Context, *connect.Request[gen.GetProjectProfileRequest]) (*connect.Response[gen.GetProjectProfileResponse], error)
+	// 更新项目信息
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
+	// 关注项目
 	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	// 取消关注项目
 	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	// 获取项目关注者
 	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
+	// 搜索组织项目
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
+	// 搜索项目
 	SearchProject(context.Context, *connect.Request[gen.SearchAllProjectRequest]) (*connect.Response[gen.SearchAllProjectResponse], error)
+	// 探索项目
 	ExploreProject(context.Context, *connect.Request[gen.ExploreProjectsRequest]) (*connect.Response[gen.ExploreProjectsResponse], error)
+	// 获取项目内容
 	GetProjectItems(context.Context, *connect.Request[gen.GetProjectItemsRequest]) (*connect.Response[gen.GetProjectItemsResponse], error)
+	// 获取组织内容
 	GetGroupItems(context.Context, *connect.Request[gen.GetGroupItemsRequest]) (*connect.Response[gen.GetGroupItemsResponse], error)
+	// 获取用户内容
 	GetUserItems(context.Context, *connect.Request[gen.GetUserItemsRequest]) (*connect.Response[gen.GetUserItemsResponse], error)
+	// 获取内容
 	GetItem(context.Context, *connect.Request[gen.GetItemRequest]) (*connect.Response[gen.GetItemResponse], error)
+	// 创建内容
 	CreateItem(context.Context, *connect.Request[gen.CreateItemRequest]) (*connect.Response[gen.CreateItemResponse], error)
+	// 更新内容
 	UpdateItem(context.Context, *connect.Request[gen.UpdateItemRequest]) (*connect.Response[gen.UpdateItemResponse], error)
+	// 删除内容
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
+	// 喜欢内容
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
+	// 创建评论
 	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
+	// 获取内容评论
 	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
+	// 创建故事
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
+	// 获取故事信息
 	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
+	// 渲染故事
 	RenderStory(context.Context, *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error)
+	// 更新故事
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
+	// 关注故事
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	// 创建故事板
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
+	// 获取故事板
 	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
+	// 渲染故事板
 	RenderStoryboard(context.Context, *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error)
+	// 生成故事板文本
 	GenStoryboardText(context.Context, *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error)
+	// 生成故事板图片
 	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
+	// 获取故事板
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
+	// 删除故事板
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
+	// 复制故事板
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
+	// 更新故事板
 	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
+	// 喜欢故事板
 	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
+	// 取消喜欢故事板
+	UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error)
+	// 分享故事板
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
+	// 获取组织故事
 	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
@@ -1372,10 +1563,13 @@ type TeamsAPIHandler interface {
 	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 	// 获取故事的贡献者
 	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
+	// 继续渲染故事
 	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
+	// 渲染故事角色
 	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
+	// 渲染故事角色详情
 	RenderStoryRoleDetail(context.Context, *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error)
 	// 获取 story roles 的列表
 	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
@@ -1391,6 +1585,10 @@ type TeamsAPIHandler interface {
 	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
 	// 生成角色的图片
 	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
+	// 喜欢故事
+	LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error)
+	// 取消喜欢故事
+	UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1739,6 +1937,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.LikeStoryboard,
 		opts...,
 	)
+	teamsAPIUnLikeStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIUnLikeStoryboardProcedure,
+		svc.UnLikeStoryboard,
+		opts...,
+	)
 	teamsAPIShareStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIShareStoryboardProcedure,
 		svc.ShareStoryboard,
@@ -1822,6 +2025,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIRenderStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryRoleProcedure,
 		svc.RenderStoryRole,
+		opts...,
+	)
+	teamsAPILikeStoryHandler := connect.NewUnaryHandler(
+		TeamsAPILikeStoryProcedure,
+		svc.LikeStory,
+		opts...,
+	)
+	teamsAPIUnLikeStoryHandler := connect.NewUnaryHandler(
+		TeamsAPIUnLikeStoryProcedure,
+		svc.UnLikeStory,
 		opts...,
 	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -1962,6 +2175,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPILikeStoryboardProcedure:
 			teamsAPILikeStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIUnLikeStoryboardProcedure:
+			teamsAPIUnLikeStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIShareStoryboardProcedure:
 			teamsAPIShareStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchGroupStorysProcedure:
@@ -1996,6 +2211,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetStoryRoleDetailHandler.ServeHTTP(w, r)
 		case TeamsAPIRenderStoryRoleProcedure:
 			teamsAPIRenderStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPILikeStoryProcedure:
+			teamsAPILikeStoryHandler.ServeHTTP(w, r)
+		case TeamsAPIUnLikeStoryProcedure:
+			teamsAPIUnLikeStoryHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -2277,6 +2496,10 @@ func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect.Req
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryboard is not implemented"))
 }
 
+func (UnimplementedTeamsAPIHandler) UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryboard is not implemented"))
+}
+
 func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ShareStoryboard is not implemented"))
 }
@@ -2343,4 +2566,12 @@ func (UnimplementedTeamsAPIHandler) GetStoryRoleDetail(context.Context, *connect
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStory is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStory is not implemented"))
 }
