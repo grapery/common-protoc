@@ -251,6 +251,8 @@
     - [LoginResponse](#common-LoginResponse)
     - [LogoutRequest](#common-LogoutRequest)
     - [LogoutResponse](#common-LogoutResponse)
+    - [RefreshTokenRequest](#common-RefreshTokenRequest)
+    - [RefreshTokenResponse](#common-RefreshTokenResponse)
     - [RegisterRequest](#common-RegisterRequest)
     - [RegisterResponse](#common-RegisterResponse)
     - [RenderStoryRoleRequest](#common-RenderStoryRoleRequest)
@@ -4388,6 +4390,37 @@
 
 
 
+<a name="common-RefreshTokenRequest"></a>
+
+### RefreshTokenRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RefreshTokenResponse"></a>
+
+### RefreshTokenResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-RegisterRequest"></a>
 
 ### RegisterRequest
@@ -5463,6 +5496,7 @@ user ,group .project.item
 | About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | 关于 |
 | Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | 登录 |
 | Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) | 登出 |
+| RefreshToken | [RefreshTokenRequest](#common-RefreshTokenRequest) | [RefreshTokenResponse](#common-RefreshTokenResponse) | 刷新登录 |
 | Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) | 注册 |
 | ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) | 重置密码 |
 | UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) | 用户初始化 |

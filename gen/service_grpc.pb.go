@@ -25,6 +25,7 @@ const (
 	TeamsAPI_About_FullMethodName                 = "/common.TeamsAPI/About"
 	TeamsAPI_Login_FullMethodName                 = "/common.TeamsAPI/Login"
 	TeamsAPI_Logout_FullMethodName                = "/common.TeamsAPI/Logout"
+	TeamsAPI_RefreshToken_FullMethodName          = "/common.TeamsAPI/RefreshToken"
 	TeamsAPI_Register_FullMethodName              = "/common.TeamsAPI/Register"
 	TeamsAPI_ResetPwd_FullMethodName              = "/common.TeamsAPI/ResetPwd"
 	TeamsAPI_UserInit_FullMethodName              = "/common.TeamsAPI/UserInit"
@@ -125,6 +126,8 @@ type TeamsAPIClient interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	// 登出
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
+	// 刷新登录
+	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
 	// 注册
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	// 重置密码
@@ -347,6 +350,15 @@ func (c *teamsAPIClient) Login(ctx context.Context, in *LoginRequest, opts ...gr
 func (c *teamsAPIClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error) {
 	out := new(LogoutResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_Logout_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error) {
+	out := new(RefreshTokenResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RefreshToken_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1107,6 +1119,8 @@ type TeamsAPIServer interface {
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	// 登出
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
+	// 刷新登录
+	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
 	// 注册
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	// 重置密码
@@ -1295,6 +1309,9 @@ func (UnimplementedTeamsAPIServer) Login(context.Context, *LoginRequest) (*Login
 }
 func (UnimplementedTeamsAPIServer) Logout(context.Context, *LogoutRequest) (*LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
+}
+func (UnimplementedTeamsAPIServer) RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
 }
 func (UnimplementedTeamsAPIServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
@@ -1659,6 +1676,24 @@ func _TeamsAPI_Logout_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Logout(ctx, req.(*LogoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RefreshToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RefreshToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3169,6 +3204,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Logout",
 			Handler:    _TeamsAPI_Logout_Handler,
+		},
+		{
+			MethodName: "RefreshToken",
+			Handler:    _TeamsAPI_RefreshToken_Handler,
 		},
 		{
 			MethodName: "Register",

@@ -50,6 +50,14 @@ message LogoutResponse {
   string msg = 2;
 }
 
+message RefreshTokenRequest {
+  string token = 1;
+}
+
+message RefreshTokenResponse {
+  string token = 1;
+  int64 user_id = 2;
+}
 
 message RegisterRequest {
   string account = 1;
@@ -839,6 +847,13 @@ service TeamsAPI {
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Logout"
+      body : "*"
+    };
+  }
+  // 刷新登录
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RefreshToken"
       body : "*"
     };
   }

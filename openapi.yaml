@@ -1244,6 +1244,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RefreshToken:
+        post:
+            tags:
+                - TeamsAPI
+            description: 刷新登录
+            operationId: TeamsAPI_RefreshToken
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RefreshTokenRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RefreshTokenResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/Register:
         post:
             tags:
@@ -3743,6 +3768,18 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        RefreshTokenRequest:
+            type: object
+            properties:
+                token:
+                    type: string
+        RefreshTokenResponse:
+            type: object
+            properties:
+                token:
+                    type: string
+                userId:
                     type: string
         RegisterRequest:
             type: object

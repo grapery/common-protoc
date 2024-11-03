@@ -57,6 +57,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `logout`(request: Common_LogoutRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LogoutResponse>
 
+    /// 刷新登录
+    @discardableResult
+    func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RefreshTokenResponse>) -> Void) -> Connect.Cancelable
+
+    /// 刷新登录
+    @available(iOS 13, *)
+    func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RefreshTokenResponse>
+
     /// 注册
     @discardableResult
     func `register`(request: Common_RegisterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RegisterResponse>) -> Void) -> Connect.Cancelable
@@ -780,6 +788,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `logout`(request: Common_LogoutRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LogoutResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/Logout", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RefreshTokenResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RefreshTokenResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -1610,6 +1628,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let about = Connect.MethodSpec(name: "About", service: "common.TeamsAPI", type: .unary)
             public static let login = Connect.MethodSpec(name: "Login", service: "common.TeamsAPI", type: .unary)
             public static let logout = Connect.MethodSpec(name: "Logout", service: "common.TeamsAPI", type: .unary)
+            public static let refreshToken = Connect.MethodSpec(name: "RefreshToken", service: "common.TeamsAPI", type: .unary)
             public static let register = Connect.MethodSpec(name: "Register", service: "common.TeamsAPI", type: .unary)
             public static let resetPwd = Connect.MethodSpec(name: "ResetPwd", service: "common.TeamsAPI", type: .unary)
             public static let userInit = Connect.MethodSpec(name: "UserInit", service: "common.TeamsAPI", type: .unary)

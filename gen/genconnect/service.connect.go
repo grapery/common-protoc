@@ -45,6 +45,8 @@ const (
 	TeamsAPILoginProcedure = "/common.TeamsAPI/Login"
 	// TeamsAPILogoutProcedure is the fully-qualified name of the TeamsAPI's Logout RPC.
 	TeamsAPILogoutProcedure = "/common.TeamsAPI/Logout"
+	// TeamsAPIRefreshTokenProcedure is the fully-qualified name of the TeamsAPI's RefreshToken RPC.
+	TeamsAPIRefreshTokenProcedure = "/common.TeamsAPI/RefreshToken"
 	// TeamsAPIRegisterProcedure is the fully-qualified name of the TeamsAPI's Register RPC.
 	TeamsAPIRegisterProcedure = "/common.TeamsAPI/Register"
 	// TeamsAPIResetPwdProcedure is the fully-qualified name of the TeamsAPI's ResetPwd RPC.
@@ -260,6 +262,8 @@ type TeamsAPIClient interface {
 	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
 	// 登出
 	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	// 刷新登录
+	RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error)
 	// 注册
 	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
 	// 重置密码
@@ -464,6 +468,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		logout: connect.NewClient[gen.LogoutRequest, gen.LogoutResponse](
 			httpClient,
 			baseURL+TeamsAPILogoutProcedure,
+			opts...,
+		),
+		refreshToken: connect.NewClient[gen.RefreshTokenRequest, gen.RefreshTokenResponse](
+			httpClient,
+			baseURL+TeamsAPIRefreshTokenProcedure,
 			opts...,
 		),
 		register: connect.NewClient[gen.RegisterRequest, gen.RegisterResponse](
@@ -887,6 +896,7 @@ type teamsAPIClient struct {
 	about                 *connect.Client[gen.AboutRequest, gen.AboutResponse]
 	login                 *connect.Client[gen.LoginRequest, gen.LoginResponse]
 	logout                *connect.Client[gen.LogoutRequest, gen.LogoutResponse]
+	refreshToken          *connect.Client[gen.RefreshTokenRequest, gen.RefreshTokenResponse]
 	register              *connect.Client[gen.RegisterRequest, gen.RegisterResponse]
 	resetPwd              *connect.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
 	userInit              *connect.Client[gen.UserInitRequest, gen.UserInitResponse]
@@ -999,6 +1009,11 @@ func (c *teamsAPIClient) Login(ctx context.Context, req *connect.Request[gen.Log
 // Logout calls common.TeamsAPI.Logout.
 func (c *teamsAPIClient) Logout(ctx context.Context, req *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
 	return c.logout.CallUnary(ctx, req)
+}
+
+// RefreshToken calls common.TeamsAPI.RefreshToken.
+func (c *teamsAPIClient) RefreshToken(ctx context.Context, req *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error) {
+	return c.refreshToken.CallUnary(ctx, req)
 }
 
 // Register calls common.TeamsAPI.Register.
@@ -1425,6 +1440,8 @@ type TeamsAPIHandler interface {
 	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
 	// 登出
 	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
+	// 刷新登录
+	RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error)
 	// 注册
 	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
 	// 重置密码
@@ -1625,6 +1642,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPILogoutHandler := connect.NewUnaryHandler(
 		TeamsAPILogoutProcedure,
 		svc.Logout,
+		opts...,
+	)
+	teamsAPIRefreshTokenHandler := connect.NewUnaryHandler(
+		TeamsAPIRefreshTokenProcedure,
+		svc.RefreshToken,
 		opts...,
 	)
 	teamsAPIRegisterHandler := connect.NewUnaryHandler(
@@ -2051,6 +2073,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPILoginHandler.ServeHTTP(w, r)
 		case TeamsAPILogoutProcedure:
 			teamsAPILogoutHandler.ServeHTTP(w, r)
+		case TeamsAPIRefreshTokenProcedure:
+			teamsAPIRefreshTokenHandler.ServeHTTP(w, r)
 		case TeamsAPIRegisterProcedure:
 			teamsAPIRegisterHandler.ServeHTTP(w, r)
 		case TeamsAPIResetPwdProcedure:
@@ -2246,6 +2270,10 @@ func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect.Request[gen.
 
 func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Logout is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RefreshToken is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error) {
