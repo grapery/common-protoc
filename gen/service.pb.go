@@ -11371,7 +11371,7 @@ var file_service_proto_rawDesc = []byte{
 	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
 	0x73, 0x73, 0x61, 0x67, 0x65, 0x2a, 0x24, 0x0a, 0x09, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x54, 0x79,
 	0x70, 0x65, 0x12, 0x0a, 0x0a, 0x06, 0x50, 0x55, 0x42, 0x4c, 0x49, 0x43, 0x10, 0x00, 0x12, 0x0b,
-	0x0a, 0x07, 0x50, 0x52, 0x49, 0x56, 0x41, 0x54, 0x45, 0x10, 0x01, 0x32, 0x87, 0x5c, 0x0a, 0x08,
+	0x0a, 0x07, 0x50, 0x52, 0x49, 0x56, 0x41, 0x54, 0x45, 0x10, 0x01, 0x32, 0xbd, 0x5e, 0x0a, 0x08,
 	0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x12, 0x5c, 0x0a, 0x07, 0x45, 0x78, 0x70, 0x6c,
 	0x6f, 0x72, 0x65, 0x12, 0x16, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x78, 0x70,
 	0x6c, 0x6f, 0x72, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x63, 0x6f,
@@ -12097,26 +12097,45 @@ var file_service_proto_rawDesc = []byte{
 	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2b, 0x3a, 0x01, 0x2a, 0x22,
 	0x26, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50,
 	0x49, 0x2f, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61,
-	0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0xab, 0x01, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x53,
+	0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x99, 0x01, 0x0a, 0x16, 0x52, 0x65, 0x6e, 0x64,
+	0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63,
+	0x65, 0x73, 0x12, 0x24, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64,
+	0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61,
+	0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x32, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2c, 0x3a, 0x01, 0x2a, 0x22, 0x27, 0x2f, 0x63, 0x6f, 0x6d,
+	0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x52, 0x65, 0x6e,
+	0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
+	0x63, 0x65, 0x73, 0x12, 0xab, 0x01, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79,
+	0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61,
+	0x74, 0x65, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53,
 	0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65,
-	0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e,
-	0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
-	0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74,
-	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e,
-	0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82,
-	0xd3, 0xe4, 0x93, 0x02, 0x30, 0x3a, 0x01, 0x2a, 0x22, 0x2b, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
-	0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x47, 0x65, 0x74, 0x53, 0x74,
-	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e,
-	0x65, 0x72, 0x61, 0x74, 0x65, 0x42, 0x78, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d,
-	0x6d, 0x6f, 0x6e, 0x42, 0x0c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74,
-	0x6f, 0x50, 0x01, 0x5a, 0x24, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x67, 0x72, 0x61, 0x70, 0x65, 0x72, 0x79, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0xa2, 0x02, 0x03, 0x43, 0x58, 0x58, 0xaa,
-	0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xca, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f,
-	0x6e, 0xe2, 0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65,
-	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2a, 0x2e,
+	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42,
+	0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x30, 0x3a, 0x01, 0x2a, 0x22, 0x2b, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65,
+	0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42,
+	0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74,
+	0x65, 0x12, 0x97, 0x01, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f,
+	0x61, 0x72, 0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x12, 0x24, 0x2e, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61,
+	0x72, 0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2b,
+	0x3a, 0x01, 0x2a, 0x22, 0x26, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61,
+	0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f,
+	0x61, 0x72, 0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x42, 0x78, 0x0a, 0x0a, 0x63,
+	0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x42, 0x0c, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x67, 0x69, 0x74, 0x68, 0x75,
+	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x65, 0x72, 0x79, 0x2f, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0xa2,
+	0x02, 0x03, 0x43, 0x58, 0x58, 0xaa, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xca, 0x02,
+	0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xe2, 0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
+	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x06, 0x43,
+	0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -12352,38 +12371,40 @@ var file_service_proto_goTypes = []interface{}{
 	(*DeleteStoryBoardSenceRequest)(nil),       // 215: common.DeleteStoryBoardSenceRequest
 	(*RenderStoryBoardSenceRequest)(nil),       // 216: common.RenderStoryBoardSenceRequest
 	(*GetStoryBoardSenceGenerateRequest)(nil),  // 217: common.GetStoryBoardSenceGenerateRequest
-	(*CreateStoryResponse)(nil),                // 218: common.CreateStoryResponse
-	(*GetStoryInfoResponse)(nil),               // 219: common.GetStoryInfoResponse
-	(*RenderStoryResponse)(nil),                // 220: common.RenderStoryResponse
-	(*UpdateStoryResponse)(nil),                // 221: common.UpdateStoryResponse
-	(*WatchStoryResponse)(nil),                 // 222: common.WatchStoryResponse
-	(*CreateStoryboardResponse)(nil),           // 223: common.CreateStoryboardResponse
-	(*GetStoryboardResponse)(nil),              // 224: common.GetStoryboardResponse
-	(*RenderStoryboardResponse)(nil),           // 225: common.RenderStoryboardResponse
-	(*GenStoryboardTextResponse)(nil),          // 226: common.GenStoryboardTextResponse
-	(*GenStoryboardImagesResponse)(nil),        // 227: common.GenStoryboardImagesResponse
-	(*GetStoryboardsResponse)(nil),             // 228: common.GetStoryboardsResponse
-	(*DelStoryboardResponse)(nil),              // 229: common.DelStoryboardResponse
-	(*ForkStoryboardResponse)(nil),             // 230: common.ForkStoryboardResponse
-	(*UpdateStoryboardResponse)(nil),           // 231: common.UpdateStoryboardResponse
-	(*LikeStoryboardResponse)(nil),             // 232: common.LikeStoryboardResponse
-	(*UnLikeStoryboardResponse)(nil),           // 233: common.UnLikeStoryboardResponse
-	(*ShareStoryboardResponse)(nil),            // 234: common.ShareStoryboardResponse
-	(*FetchGroupStorysResponse)(nil),           // 235: common.FetchGroupStorysResponse
-	(*GetStoryRenderResponse)(nil),             // 236: common.GetStoryRenderResponse
-	(*GetStoryBoardRenderResponse)(nil),        // 237: common.GetStoryBoardRenderResponse
-	(*ContinueRenderStoryResponse)(nil),        // 238: common.ContinueRenderStoryResponse
-	(*RenderStoryRolesResponse)(nil),           // 239: common.RenderStoryRolesResponse
-	(*UpdateStoryRoleResponse)(nil),            // 240: common.UpdateStoryRoleResponse
-	(*RenderStoryRoleDetailResponse)(nil),      // 241: common.RenderStoryRoleDetailResponse
-	(*GetStoryRolesResponse)(nil),              // 242: common.GetStoryRolesResponse
-	(*GetStoryBoardRolesResponse)(nil),         // 243: common.GetStoryBoardRolesResponse
-	(*GetStoryBoardSencesResponse)(nil),        // 244: common.GetStoryBoardSencesResponse
-	(*CreateStoryBoardSenceResponse)(nil),      // 245: common.CreateStoryBoardSenceResponse
-	(*UpdateStoryBoardSenceResponse)(nil),      // 246: common.UpdateStoryBoardSenceResponse
-	(*DeleteStoryBoardSenceResponse)(nil),      // 247: common.DeleteStoryBoardSenceResponse
-	(*RenderStoryBoardSenceResponse)(nil),      // 248: common.RenderStoryBoardSenceResponse
-	(*GetStoryBoardSenceGenerateResponse)(nil), // 249: common.GetStoryBoardSenceGenerateResponse
+	(*GetStoryBoardGenerateRequest)(nil),       // 218: common.GetStoryBoardGenerateRequest
+	(*CreateStoryResponse)(nil),                // 219: common.CreateStoryResponse
+	(*GetStoryInfoResponse)(nil),               // 220: common.GetStoryInfoResponse
+	(*RenderStoryResponse)(nil),                // 221: common.RenderStoryResponse
+	(*UpdateStoryResponse)(nil),                // 222: common.UpdateStoryResponse
+	(*WatchStoryResponse)(nil),                 // 223: common.WatchStoryResponse
+	(*CreateStoryboardResponse)(nil),           // 224: common.CreateStoryboardResponse
+	(*GetStoryboardResponse)(nil),              // 225: common.GetStoryboardResponse
+	(*RenderStoryboardResponse)(nil),           // 226: common.RenderStoryboardResponse
+	(*GenStoryboardTextResponse)(nil),          // 227: common.GenStoryboardTextResponse
+	(*GenStoryboardImagesResponse)(nil),        // 228: common.GenStoryboardImagesResponse
+	(*GetStoryboardsResponse)(nil),             // 229: common.GetStoryboardsResponse
+	(*DelStoryboardResponse)(nil),              // 230: common.DelStoryboardResponse
+	(*ForkStoryboardResponse)(nil),             // 231: common.ForkStoryboardResponse
+	(*UpdateStoryboardResponse)(nil),           // 232: common.UpdateStoryboardResponse
+	(*LikeStoryboardResponse)(nil),             // 233: common.LikeStoryboardResponse
+	(*UnLikeStoryboardResponse)(nil),           // 234: common.UnLikeStoryboardResponse
+	(*ShareStoryboardResponse)(nil),            // 235: common.ShareStoryboardResponse
+	(*FetchGroupStorysResponse)(nil),           // 236: common.FetchGroupStorysResponse
+	(*GetStoryRenderResponse)(nil),             // 237: common.GetStoryRenderResponse
+	(*GetStoryBoardRenderResponse)(nil),        // 238: common.GetStoryBoardRenderResponse
+	(*ContinueRenderStoryResponse)(nil),        // 239: common.ContinueRenderStoryResponse
+	(*RenderStoryRolesResponse)(nil),           // 240: common.RenderStoryRolesResponse
+	(*UpdateStoryRoleResponse)(nil),            // 241: common.UpdateStoryRoleResponse
+	(*RenderStoryRoleDetailResponse)(nil),      // 242: common.RenderStoryRoleDetailResponse
+	(*GetStoryRolesResponse)(nil),              // 243: common.GetStoryRolesResponse
+	(*GetStoryBoardRolesResponse)(nil),         // 244: common.GetStoryBoardRolesResponse
+	(*GetStoryBoardSencesResponse)(nil),        // 245: common.GetStoryBoardSencesResponse
+	(*CreateStoryBoardSenceResponse)(nil),      // 246: common.CreateStoryBoardSenceResponse
+	(*UpdateStoryBoardSenceResponse)(nil),      // 247: common.UpdateStoryBoardSenceResponse
+	(*DeleteStoryBoardSenceResponse)(nil),      // 248: common.DeleteStoryBoardSenceResponse
+	(*RenderStoryBoardSenceResponse)(nil),      // 249: common.RenderStoryBoardSenceResponse
+	(*GetStoryBoardSenceGenerateResponse)(nil), // 250: common.GetStoryBoardSenceGenerateResponse
+	(*GetStoryBoardGenerateResponse)(nil),      // 251: common.GetStoryBoardGenerateResponse
 }
 var file_service_proto_depIdxs = []int32{
 	176, // 0: common.ActiveInfo.user:type_name -> common.UserInfo
@@ -12569,104 +12590,108 @@ var file_service_proto_depIdxs = []int32{
 	214, // 180: common.TeamsAPI.UpdateStoryBoardSence:input_type -> common.UpdateStoryBoardSenceRequest
 	215, // 181: common.TeamsAPI.DeleteStoryBoardSence:input_type -> common.DeleteStoryBoardSenceRequest
 	216, // 182: common.TeamsAPI.RenderStoryBoardSence:input_type -> common.RenderStoryBoardSenceRequest
-	217, // 183: common.TeamsAPI.GetStoryBoardSenceGenerate:input_type -> common.GetStoryBoardSenceGenerateRequest
-	111, // 184: common.TeamsAPI.Explore:output_type -> common.ExploreResponse
-	113, // 185: common.TeamsAPI.Trending:output_type -> common.TrendingResponse
-	107, // 186: common.TeamsAPI.Version:output_type -> common.VersionResponse
-	109, // 187: common.TeamsAPI.About:output_type -> common.AboutResponse
-	3,   // 188: common.TeamsAPI.Login:output_type -> common.LoginResponse
-	5,   // 189: common.TeamsAPI.Logout:output_type -> common.LogoutResponse
-	7,   // 190: common.TeamsAPI.RefreshToken:output_type -> common.RefreshTokenResponse
-	9,   // 191: common.TeamsAPI.Register:output_type -> common.RegisterResponse
-	13,  // 192: common.TeamsAPI.ResetPwd:output_type -> common.ResetPasswordResponse
-	31,  // 193: common.TeamsAPI.UserInit:output_type -> common.UserInitResponse
-	15,  // 194: common.TeamsAPI.UserInfo:output_type -> common.UserInfoResponse
-	17,  // 195: common.TeamsAPI.UpdateUserAvator:output_type -> common.UpdateUserAvatorResponse
-	19,  // 196: common.TeamsAPI.UserWatching:output_type -> common.UserWatchingResponse
-	21,  // 197: common.TeamsAPI.UserGroup:output_type -> common.UserGroupResponse
-	23,  // 198: common.TeamsAPI.UserFollowingGroup:output_type -> common.UserFollowingGroupResponse
-	25,  // 199: common.TeamsAPI.UserUpdate:output_type -> common.UserUpdateResponse
-	27,  // 200: common.TeamsAPI.FetchUserActives:output_type -> common.FetchUserActivesResponse
-	29,  // 201: common.TeamsAPI.SearchUser:output_type -> common.SearchUserResponse
-	75,  // 202: common.TeamsAPI.CreateGroup:output_type -> common.CreateGroupResponse
-	77,  // 203: common.TeamsAPI.GetGroup:output_type -> common.GetGroupResponse
-	79,  // 204: common.TeamsAPI.GetGroupActives:output_type -> common.GetGroupActivesResponse
-	81,  // 205: common.TeamsAPI.UpdateGroupInfo:output_type -> common.UpdateGroupInfoResponse
-	124, // 206: common.TeamsAPI.GetGroupProfile:output_type -> common.GetGroupProfileResponse
-	126, // 207: common.TeamsAPI.UpdateGroupProfile:output_type -> common.UpdateGroupProfileResponse
-	83,  // 208: common.TeamsAPI.DeleteGroup:output_type -> common.DeleteGroupResponse
-	85,  // 209: common.TeamsAPI.FetchGroupMembers:output_type -> common.FetchGroupMembersResponse
-	87,  // 210: common.TeamsAPI.SearchGroup:output_type -> common.SearchGroupResponse
-	89,  // 211: common.TeamsAPI.FetchGroupProjects:output_type -> common.FetchGroupProjectsResponse
-	91,  // 212: common.TeamsAPI.JoinGroup:output_type -> common.JoinGroupResponse
-	93,  // 213: common.TeamsAPI.LeaveGroup:output_type -> common.LeaveGroupResponse
-	33,  // 214: common.TeamsAPI.GetProjectInfo:output_type -> common.GetProjectResponse
-	35,  // 215: common.TeamsAPI.GetProjectList:output_type -> common.GetProjectListResponse
-	37,  // 216: common.TeamsAPI.CreateProject:output_type -> common.CreateProjectResponse
-	115, // 217: common.TeamsAPI.GetProjectMembers:output_type -> common.GetProjectMembersResponse
-	39,  // 218: common.TeamsAPI.UpdateProject:output_type -> common.UpdateProjectResponse
-	41,  // 219: common.TeamsAPI.DeleteProject:output_type -> common.DeleteProjectResponse
-	55,  // 220: common.TeamsAPI.GetProjectProfile:output_type -> common.GetProjectProfileResponse
-	57,  // 221: common.TeamsAPI.UpdateProjectProfile:output_type -> common.UpdateProjectProfileResponse
-	45,  // 222: common.TeamsAPI.WatchProject:output_type -> common.WatchProjectResponse
-	47,  // 223: common.TeamsAPI.UnWatchProject:output_type -> common.UnWatchProjectResponse
-	117, // 224: common.TeamsAPI.GetProjectWatcher:output_type -> common.GetProjectWatcherResponse
-	51,  // 225: common.TeamsAPI.SearchGroupProject:output_type -> common.SearchProjectResponse
-	53,  // 226: common.TeamsAPI.SearchProject:output_type -> common.SearchAllProjectResponse
-	49,  // 227: common.TeamsAPI.ExploreProject:output_type -> common.ExploreProjectsResponse
-	59,  // 228: common.TeamsAPI.GetProjectItems:output_type -> common.GetProjectItemsResponse
-	61,  // 229: common.TeamsAPI.GetGroupItems:output_type -> common.GetGroupItemsResponse
-	63,  // 230: common.TeamsAPI.GetUserItems:output_type -> common.GetUserItemsResponse
-	65,  // 231: common.TeamsAPI.GetItem:output_type -> common.GetItemResponse
-	67,  // 232: common.TeamsAPI.CreateItem:output_type -> common.CreateItemResponse
-	69,  // 233: common.TeamsAPI.UpdateItem:output_type -> common.UpdateItemResponse
-	71,  // 234: common.TeamsAPI.DeleteItem:output_type -> common.DeleteItemResponse
-	73,  // 235: common.TeamsAPI.LikeItem:output_type -> common.LikeItemResponse
-	101, // 236: common.TeamsAPI.CreateComment:output_type -> common.CreateCommentResp
-	103, // 237: common.TeamsAPI.GetItemComment:output_type -> common.GetItemsCommentResp
-	218, // 238: common.TeamsAPI.CreateStory:output_type -> common.CreateStoryResponse
-	219, // 239: common.TeamsAPI.GetStoryInfo:output_type -> common.GetStoryInfoResponse
-	220, // 240: common.TeamsAPI.RenderStory:output_type -> common.RenderStoryResponse
-	221, // 241: common.TeamsAPI.UpdateStory:output_type -> common.UpdateStoryResponse
-	222, // 242: common.TeamsAPI.WatchStory:output_type -> common.WatchStoryResponse
-	223, // 243: common.TeamsAPI.CreateStoryboard:output_type -> common.CreateStoryboardResponse
-	224, // 244: common.TeamsAPI.GetStoryboard:output_type -> common.GetStoryboardResponse
-	225, // 245: common.TeamsAPI.RenderStoryboard:output_type -> common.RenderStoryboardResponse
-	226, // 246: common.TeamsAPI.GenStoryboardText:output_type -> common.GenStoryboardTextResponse
-	227, // 247: common.TeamsAPI.GenStoryboardImages:output_type -> common.GenStoryboardImagesResponse
-	228, // 248: common.TeamsAPI.GetStoryboards:output_type -> common.GetStoryboardsResponse
-	229, // 249: common.TeamsAPI.DelStoryboard:output_type -> common.DelStoryboardResponse
-	230, // 250: common.TeamsAPI.ForkStoryboard:output_type -> common.ForkStoryboardResponse
-	231, // 251: common.TeamsAPI.UpdateStoryboard:output_type -> common.UpdateStoryboardResponse
-	232, // 252: common.TeamsAPI.LikeStoryboard:output_type -> common.LikeStoryboardResponse
-	233, // 253: common.TeamsAPI.UnLikeStoryboard:output_type -> common.UnLikeStoryboardResponse
-	234, // 254: common.TeamsAPI.ShareStoryboard:output_type -> common.ShareStoryboardResponse
-	235, // 255: common.TeamsAPI.FetchGroupStorys:output_type -> common.FetchGroupStorysResponse
-	119, // 256: common.TeamsAPI.UploadImageFile:output_type -> common.UploadImageResponse
-	236, // 257: common.TeamsAPI.GetStoryRender:output_type -> common.GetStoryRenderResponse
-	237, // 258: common.TeamsAPI.GetStoryBoardRender:output_type -> common.GetStoryBoardRenderResponse
-	122, // 259: common.TeamsAPI.GetStoryContributors:output_type -> common.GetStoryContributorsResponse
-	238, // 260: common.TeamsAPI.ContinueRenderStory:output_type -> common.ContinueRenderStoryResponse
-	239, // 261: common.TeamsAPI.RenderStoryRoles:output_type -> common.RenderStoryRolesResponse
-	240, // 262: common.TeamsAPI.UpdateStoryRole:output_type -> common.UpdateStoryRoleResponse
-	241, // 263: common.TeamsAPI.RenderStoryRoleDetail:output_type -> common.RenderStoryRoleDetailResponse
-	242, // 264: common.TeamsAPI.GetStoryRoles:output_type -> common.GetStoryRolesResponse
-	243, // 265: common.TeamsAPI.GetStoryBoardRoles:output_type -> common.GetStoryBoardRolesResponse
-	128, // 266: common.TeamsAPI.GetUserProfile:output_type -> common.GetUserProfileResponse
-	130, // 267: common.TeamsAPI.UpdateUserProfile:output_type -> common.UpdateUserProfileResponse
-	132, // 268: common.TeamsAPI.CreateStoryRole:output_type -> common.CreateStoryRoleResponse
-	134, // 269: common.TeamsAPI.GetStoryRoleDetail:output_type -> common.GetStoryRoleDetailResponse
-	136, // 270: common.TeamsAPI.RenderStoryRole:output_type -> common.RenderStoryRoleResponse
-	138, // 271: common.TeamsAPI.LikeStory:output_type -> common.LikeStoryResponse
-	140, // 272: common.TeamsAPI.UnLikeStory:output_type -> common.UnLikeStoryResponse
-	244, // 273: common.TeamsAPI.GetStoryBoardSences:output_type -> common.GetStoryBoardSencesResponse
-	245, // 274: common.TeamsAPI.CreateStoryBoardSence:output_type -> common.CreateStoryBoardSenceResponse
-	246, // 275: common.TeamsAPI.UpdateStoryBoardSence:output_type -> common.UpdateStoryBoardSenceResponse
-	247, // 276: common.TeamsAPI.DeleteStoryBoardSence:output_type -> common.DeleteStoryBoardSenceResponse
-	248, // 277: common.TeamsAPI.RenderStoryBoardSence:output_type -> common.RenderStoryBoardSenceResponse
-	249, // 278: common.TeamsAPI.GetStoryBoardSenceGenerate:output_type -> common.GetStoryBoardSenceGenerateResponse
-	184, // [184:279] is the sub-list for method output_type
-	89,  // [89:184] is the sub-list for method input_type
+	216, // 183: common.TeamsAPI.RenderStoryBoardSences:input_type -> common.RenderStoryBoardSenceRequest
+	217, // 184: common.TeamsAPI.GetStoryBoardSenceGenerate:input_type -> common.GetStoryBoardSenceGenerateRequest
+	218, // 185: common.TeamsAPI.GetStoryBoardGenerate:input_type -> common.GetStoryBoardGenerateRequest
+	111, // 186: common.TeamsAPI.Explore:output_type -> common.ExploreResponse
+	113, // 187: common.TeamsAPI.Trending:output_type -> common.TrendingResponse
+	107, // 188: common.TeamsAPI.Version:output_type -> common.VersionResponse
+	109, // 189: common.TeamsAPI.About:output_type -> common.AboutResponse
+	3,   // 190: common.TeamsAPI.Login:output_type -> common.LoginResponse
+	5,   // 191: common.TeamsAPI.Logout:output_type -> common.LogoutResponse
+	7,   // 192: common.TeamsAPI.RefreshToken:output_type -> common.RefreshTokenResponse
+	9,   // 193: common.TeamsAPI.Register:output_type -> common.RegisterResponse
+	13,  // 194: common.TeamsAPI.ResetPwd:output_type -> common.ResetPasswordResponse
+	31,  // 195: common.TeamsAPI.UserInit:output_type -> common.UserInitResponse
+	15,  // 196: common.TeamsAPI.UserInfo:output_type -> common.UserInfoResponse
+	17,  // 197: common.TeamsAPI.UpdateUserAvator:output_type -> common.UpdateUserAvatorResponse
+	19,  // 198: common.TeamsAPI.UserWatching:output_type -> common.UserWatchingResponse
+	21,  // 199: common.TeamsAPI.UserGroup:output_type -> common.UserGroupResponse
+	23,  // 200: common.TeamsAPI.UserFollowingGroup:output_type -> common.UserFollowingGroupResponse
+	25,  // 201: common.TeamsAPI.UserUpdate:output_type -> common.UserUpdateResponse
+	27,  // 202: common.TeamsAPI.FetchUserActives:output_type -> common.FetchUserActivesResponse
+	29,  // 203: common.TeamsAPI.SearchUser:output_type -> common.SearchUserResponse
+	75,  // 204: common.TeamsAPI.CreateGroup:output_type -> common.CreateGroupResponse
+	77,  // 205: common.TeamsAPI.GetGroup:output_type -> common.GetGroupResponse
+	79,  // 206: common.TeamsAPI.GetGroupActives:output_type -> common.GetGroupActivesResponse
+	81,  // 207: common.TeamsAPI.UpdateGroupInfo:output_type -> common.UpdateGroupInfoResponse
+	124, // 208: common.TeamsAPI.GetGroupProfile:output_type -> common.GetGroupProfileResponse
+	126, // 209: common.TeamsAPI.UpdateGroupProfile:output_type -> common.UpdateGroupProfileResponse
+	83,  // 210: common.TeamsAPI.DeleteGroup:output_type -> common.DeleteGroupResponse
+	85,  // 211: common.TeamsAPI.FetchGroupMembers:output_type -> common.FetchGroupMembersResponse
+	87,  // 212: common.TeamsAPI.SearchGroup:output_type -> common.SearchGroupResponse
+	89,  // 213: common.TeamsAPI.FetchGroupProjects:output_type -> common.FetchGroupProjectsResponse
+	91,  // 214: common.TeamsAPI.JoinGroup:output_type -> common.JoinGroupResponse
+	93,  // 215: common.TeamsAPI.LeaveGroup:output_type -> common.LeaveGroupResponse
+	33,  // 216: common.TeamsAPI.GetProjectInfo:output_type -> common.GetProjectResponse
+	35,  // 217: common.TeamsAPI.GetProjectList:output_type -> common.GetProjectListResponse
+	37,  // 218: common.TeamsAPI.CreateProject:output_type -> common.CreateProjectResponse
+	115, // 219: common.TeamsAPI.GetProjectMembers:output_type -> common.GetProjectMembersResponse
+	39,  // 220: common.TeamsAPI.UpdateProject:output_type -> common.UpdateProjectResponse
+	41,  // 221: common.TeamsAPI.DeleteProject:output_type -> common.DeleteProjectResponse
+	55,  // 222: common.TeamsAPI.GetProjectProfile:output_type -> common.GetProjectProfileResponse
+	57,  // 223: common.TeamsAPI.UpdateProjectProfile:output_type -> common.UpdateProjectProfileResponse
+	45,  // 224: common.TeamsAPI.WatchProject:output_type -> common.WatchProjectResponse
+	47,  // 225: common.TeamsAPI.UnWatchProject:output_type -> common.UnWatchProjectResponse
+	117, // 226: common.TeamsAPI.GetProjectWatcher:output_type -> common.GetProjectWatcherResponse
+	51,  // 227: common.TeamsAPI.SearchGroupProject:output_type -> common.SearchProjectResponse
+	53,  // 228: common.TeamsAPI.SearchProject:output_type -> common.SearchAllProjectResponse
+	49,  // 229: common.TeamsAPI.ExploreProject:output_type -> common.ExploreProjectsResponse
+	59,  // 230: common.TeamsAPI.GetProjectItems:output_type -> common.GetProjectItemsResponse
+	61,  // 231: common.TeamsAPI.GetGroupItems:output_type -> common.GetGroupItemsResponse
+	63,  // 232: common.TeamsAPI.GetUserItems:output_type -> common.GetUserItemsResponse
+	65,  // 233: common.TeamsAPI.GetItem:output_type -> common.GetItemResponse
+	67,  // 234: common.TeamsAPI.CreateItem:output_type -> common.CreateItemResponse
+	69,  // 235: common.TeamsAPI.UpdateItem:output_type -> common.UpdateItemResponse
+	71,  // 236: common.TeamsAPI.DeleteItem:output_type -> common.DeleteItemResponse
+	73,  // 237: common.TeamsAPI.LikeItem:output_type -> common.LikeItemResponse
+	101, // 238: common.TeamsAPI.CreateComment:output_type -> common.CreateCommentResp
+	103, // 239: common.TeamsAPI.GetItemComment:output_type -> common.GetItemsCommentResp
+	219, // 240: common.TeamsAPI.CreateStory:output_type -> common.CreateStoryResponse
+	220, // 241: common.TeamsAPI.GetStoryInfo:output_type -> common.GetStoryInfoResponse
+	221, // 242: common.TeamsAPI.RenderStory:output_type -> common.RenderStoryResponse
+	222, // 243: common.TeamsAPI.UpdateStory:output_type -> common.UpdateStoryResponse
+	223, // 244: common.TeamsAPI.WatchStory:output_type -> common.WatchStoryResponse
+	224, // 245: common.TeamsAPI.CreateStoryboard:output_type -> common.CreateStoryboardResponse
+	225, // 246: common.TeamsAPI.GetStoryboard:output_type -> common.GetStoryboardResponse
+	226, // 247: common.TeamsAPI.RenderStoryboard:output_type -> common.RenderStoryboardResponse
+	227, // 248: common.TeamsAPI.GenStoryboardText:output_type -> common.GenStoryboardTextResponse
+	228, // 249: common.TeamsAPI.GenStoryboardImages:output_type -> common.GenStoryboardImagesResponse
+	229, // 250: common.TeamsAPI.GetStoryboards:output_type -> common.GetStoryboardsResponse
+	230, // 251: common.TeamsAPI.DelStoryboard:output_type -> common.DelStoryboardResponse
+	231, // 252: common.TeamsAPI.ForkStoryboard:output_type -> common.ForkStoryboardResponse
+	232, // 253: common.TeamsAPI.UpdateStoryboard:output_type -> common.UpdateStoryboardResponse
+	233, // 254: common.TeamsAPI.LikeStoryboard:output_type -> common.LikeStoryboardResponse
+	234, // 255: common.TeamsAPI.UnLikeStoryboard:output_type -> common.UnLikeStoryboardResponse
+	235, // 256: common.TeamsAPI.ShareStoryboard:output_type -> common.ShareStoryboardResponse
+	236, // 257: common.TeamsAPI.FetchGroupStorys:output_type -> common.FetchGroupStorysResponse
+	119, // 258: common.TeamsAPI.UploadImageFile:output_type -> common.UploadImageResponse
+	237, // 259: common.TeamsAPI.GetStoryRender:output_type -> common.GetStoryRenderResponse
+	238, // 260: common.TeamsAPI.GetStoryBoardRender:output_type -> common.GetStoryBoardRenderResponse
+	122, // 261: common.TeamsAPI.GetStoryContributors:output_type -> common.GetStoryContributorsResponse
+	239, // 262: common.TeamsAPI.ContinueRenderStory:output_type -> common.ContinueRenderStoryResponse
+	240, // 263: common.TeamsAPI.RenderStoryRoles:output_type -> common.RenderStoryRolesResponse
+	241, // 264: common.TeamsAPI.UpdateStoryRole:output_type -> common.UpdateStoryRoleResponse
+	242, // 265: common.TeamsAPI.RenderStoryRoleDetail:output_type -> common.RenderStoryRoleDetailResponse
+	243, // 266: common.TeamsAPI.GetStoryRoles:output_type -> common.GetStoryRolesResponse
+	244, // 267: common.TeamsAPI.GetStoryBoardRoles:output_type -> common.GetStoryBoardRolesResponse
+	128, // 268: common.TeamsAPI.GetUserProfile:output_type -> common.GetUserProfileResponse
+	130, // 269: common.TeamsAPI.UpdateUserProfile:output_type -> common.UpdateUserProfileResponse
+	132, // 270: common.TeamsAPI.CreateStoryRole:output_type -> common.CreateStoryRoleResponse
+	134, // 271: common.TeamsAPI.GetStoryRoleDetail:output_type -> common.GetStoryRoleDetailResponse
+	136, // 272: common.TeamsAPI.RenderStoryRole:output_type -> common.RenderStoryRoleResponse
+	138, // 273: common.TeamsAPI.LikeStory:output_type -> common.LikeStoryResponse
+	140, // 274: common.TeamsAPI.UnLikeStory:output_type -> common.UnLikeStoryResponse
+	245, // 275: common.TeamsAPI.GetStoryBoardSences:output_type -> common.GetStoryBoardSencesResponse
+	246, // 276: common.TeamsAPI.CreateStoryBoardSence:output_type -> common.CreateStoryBoardSenceResponse
+	247, // 277: common.TeamsAPI.UpdateStoryBoardSence:output_type -> common.UpdateStoryBoardSenceResponse
+	248, // 278: common.TeamsAPI.DeleteStoryBoardSence:output_type -> common.DeleteStoryBoardSenceResponse
+	249, // 279: common.TeamsAPI.RenderStoryBoardSence:output_type -> common.RenderStoryBoardSenceResponse
+	249, // 280: common.TeamsAPI.RenderStoryBoardSences:output_type -> common.RenderStoryBoardSenceResponse
+	250, // 281: common.TeamsAPI.GetStoryBoardSenceGenerate:output_type -> common.GetStoryBoardSenceGenerateResponse
+	251, // 282: common.TeamsAPI.GetStoryBoardGenerate:output_type -> common.GetStoryBoardGenerateResponse
+	186, // [186:283] is the sub-list for method output_type
+	89,  // [89:186] is the sub-list for method input_type
 	89,  // [89:89] is the sub-list for extension type_name
 	89,  // [89:89] is the sub-list for extension extendee
 	0,   // [0:89] is the sub-list for field type_name

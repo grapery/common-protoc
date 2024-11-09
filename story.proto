@@ -611,6 +611,20 @@ message CreateStoryRequest {
   message RenderStoryBoardSenceResponse{
     int32 code = 1;
     string message = 2;
+    int32 generating_stage = 3;
+    StoryBoardSence data = 4;
+  }
+
+  message RenderStoryBoardSencesRequest{
+    int64 user_id = 1;
+    int32 board_id = 2;
+  }
+
+  message RenderStoryBoardSencesResponse{
+    int32 code = 1;
+    string message = 2;
+    int32 generating_stage = 3;
+    repeated StoryBoardSence list = 4;
   }
 
   message GetStoryBoardSenceGenerateRequest{
@@ -621,6 +635,18 @@ message CreateStoryRequest {
     int32 code = 1;
     string message = 2;
     int32 generating_stage = 3;
+    StoryBoardSence data = 4;
+  }
+
+  message GetStoryBoardGenerateRequest{
+    int64 board_id = 1;
+  }
+
+  message GetStoryBoardGenerateResponse{
+    int32 code = 1;
+    string message = 2;
+    int32 generating_stage = 3;
+    repeated StoryBoardSence list = 4;
   }
 
   

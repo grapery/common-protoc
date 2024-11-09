@@ -2144,7 +2144,57 @@ public struct Common_RenderStoryBoardSenceRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryBoardSenceResponse: Sendable {
+public struct Common_RenderStoryBoardSenceResponse: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 {
+    get {return _storage._code}
+    set {_uniqueStorage()._code = newValue}
+  }
+
+  public var message: String {
+    get {return _storage._message}
+    set {_uniqueStorage()._message = newValue}
+  }
+
+  public var generatingStage: Int32 {
+    get {return _storage._generatingStage}
+    set {_uniqueStorage()._generatingStage = newValue}
+  }
+
+  public var data: Common_StoryBoardSence {
+    get {return _storage._data ?? Common_StoryBoardSence()}
+    set {_uniqueStorage()._data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return _storage._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {_uniqueStorage()._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct Common_RenderStoryBoardSencesRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var boardID: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_RenderStoryBoardSencesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2152,6 +2202,10 @@ public struct Common_RenderStoryBoardSenceResponse: Sendable {
   public var code: Int32 = 0
 
   public var message: String = String()
+
+  public var generatingStage: Int32 = 0
+
+  public var list: [Common_StoryBoardSence] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2170,7 +2224,55 @@ public struct Common_GetStoryBoardSenceGenerateRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardSenceGenerateResponse: Sendable {
+public struct Common_GetStoryBoardSenceGenerateResponse: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 {
+    get {return _storage._code}
+    set {_uniqueStorage()._code = newValue}
+  }
+
+  public var message: String {
+    get {return _storage._message}
+    set {_uniqueStorage()._message = newValue}
+  }
+
+  public var generatingStage: Int32 {
+    get {return _storage._generatingStage}
+    set {_uniqueStorage()._generatingStage = newValue}
+  }
+
+  public var data: Common_StoryBoardSence {
+    get {return _storage._data ?? Common_StoryBoardSence()}
+    set {_uniqueStorage()._data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return _storage._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {_uniqueStorage()._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct Common_GetStoryBoardGenerateRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var boardID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryBoardGenerateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2180,6 +2282,8 @@ public struct Common_GetStoryBoardSenceGenerateResponse: Sendable {
   public var message: String = String()
 
   public var generatingStage: Int32 = 0
+
+  public var list: [Common_StoryBoardSence] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6981,6 +7085,146 @@ extension Common_RenderStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProt
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
+    3: .standard(proto: "generating_stage"),
+    4: .same(proto: "data"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _code: Int32 = 0
+    var _message: String = String()
+    var _generatingStage: Int32 = 0
+    var _data: Common_StoryBoardSence? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _code = source._code
+      _message = source._message
+      _generatingStage = source._generatingStage
+      _data = source._data
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._code) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._generatingStage) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._data) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._code != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._code, fieldNumber: 1)
+      }
+      if !_storage._message.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 2)
+      }
+      if _storage._generatingStage != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._generatingStage, fieldNumber: 3)
+      }
+      try { if let v = _storage._data {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryBoardSenceResponse, rhs: Common_RenderStoryBoardSenceResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._code != rhs_storage._code {return false}
+        if _storage._message != rhs_storage._message {return false}
+        if _storage._generatingStage != rhs_storage._generatingStage {return false}
+        if _storage._data != rhs_storage._data {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RenderStoryBoardSencesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryBoardSencesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt32Field(value: self.boardID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryBoardSencesRequest, rhs: Common_RenderStoryBoardSencesRequest) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RenderStoryBoardSencesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryBoardSencesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .standard(proto: "generating_stage"),
+    4: .same(proto: "list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6991,6 +7235,8 @@ extension Common_RenderStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProt
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.generatingStage) }()
+      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       default: break
       }
     }
@@ -7003,12 +7249,20 @@ extension Common_RenderStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProt
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
+    if self.generatingStage != 0 {
+      try visitor.visitSingularInt32Field(value: self.generatingStage, fieldNumber: 3)
+    }
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryBoardSenceResponse, rhs: Common_RenderStoryBoardSenceResponse) -> Bool {
+  public static func ==(lhs: Common_RenderStoryBoardSencesResponse, rhs: Common_RenderStoryBoardSencesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs.generatingStage != rhs.generatingStage {return false}
+    if lhs.list != rhs.list {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -7052,6 +7306,139 @@ extension Common_GetStoryBoardSenceGenerateResponse: SwiftProtobuf.Message, Swif
     1: .same(proto: "code"),
     2: .same(proto: "message"),
     3: .standard(proto: "generating_stage"),
+    4: .same(proto: "data"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _code: Int32 = 0
+    var _message: String = String()
+    var _generatingStage: Int32 = 0
+    var _data: Common_StoryBoardSence? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _code = source._code
+      _message = source._message
+      _generatingStage = source._generatingStage
+      _data = source._data
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._code) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._generatingStage) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._data) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._code != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._code, fieldNumber: 1)
+      }
+      if !_storage._message.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 2)
+      }
+      if _storage._generatingStage != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._generatingStage, fieldNumber: 3)
+      }
+      try { if let v = _storage._data {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSenceGenerateResponse, rhs: Common_GetStoryBoardSenceGenerateResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._code != rhs_storage._code {return false}
+        if _storage._message != rhs_storage._message {return false}
+        if _storage._generatingStage != rhs_storage._generatingStage {return false}
+        if _storage._data != rhs_storage._data {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardGenerateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardGenerateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardGenerateRequest, rhs: Common_GetStoryBoardGenerateRequest) -> Bool {
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardGenerateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardGenerateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .standard(proto: "generating_stage"),
+    4: .same(proto: "list"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7063,6 +7450,7 @@ extension Common_GetStoryBoardSenceGenerateResponse: SwiftProtobuf.Message, Swif
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.generatingStage) }()
+      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       default: break
       }
     }
@@ -7078,13 +7466,17 @@ extension Common_GetStoryBoardSenceGenerateResponse: SwiftProtobuf.Message, Swif
     if self.generatingStage != 0 {
       try visitor.visitSingularInt32Field(value: self.generatingStage, fieldNumber: 3)
     }
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryBoardSenceGenerateResponse, rhs: Common_GetStoryBoardSenceGenerateResponse) -> Bool {
+  public static func ==(lhs: Common_GetStoryBoardGenerateResponse, rhs: Common_GetStoryBoardGenerateResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.generatingStage != rhs.generatingStage {return false}
+    if lhs.list != rhs.list {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

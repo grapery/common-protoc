@@ -753,13 +753,21 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `deleteStoryBoardSence`(request: Common_DeleteStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteStoryBoardSenceResponse>
 
-    /// 渲染故事板场景
+    /// 渲染故事板指定场景
     @discardableResult
     func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
 
-    /// 渲染故事板场景
+    /// 渲染故事板指定场景
     @available(iOS 13, *)
     func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse>
+
+    /// 渲染故事板的所有场景
+    @discardableResult
+    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+
+    /// 渲染故事板的所有场景
+    @available(iOS 13, *)
+    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse>
 
     /// 获取故事板场景生成状态
     @discardableResult
@@ -768,6 +776,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取故事板场景生成状态
     @available(iOS 13, *)
     func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardSenceGenerateResponse>
+
+    /// 获取故事板生成状态
+    @discardableResult
+    func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取故事板生成状态
+    @available(iOS 13, *)
+    func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardGenerateResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1719,6 +1735,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardSenceGenerateResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -1726,6 +1752,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardSenceGenerateResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardGenerateResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     public enum Metadata {
@@ -1824,7 +1860,9 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryBoardSence = Connect.MethodSpec(name: "UpdateStoryBoardSence", service: "common.TeamsAPI", type: .unary)
             public static let deleteStoryBoardSence = Connect.MethodSpec(name: "DeleteStoryBoardSence", service: "common.TeamsAPI", type: .unary)
             public static let renderStoryBoardSence = Connect.MethodSpec(name: "RenderStoryBoardSence", service: "common.TeamsAPI", type: .unary)
+            public static let renderStoryBoardSences = Connect.MethodSpec(name: "RenderStoryBoardSences", service: "common.TeamsAPI", type: .unary)
             public static let getStoryBoardSenceGenerate = Connect.MethodSpec(name: "GetStoryBoardSenceGenerate", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryBoardGenerate = Connect.MethodSpec(name: "GetStoryBoardGenerate", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

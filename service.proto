@@ -1568,13 +1568,22 @@ service TeamsAPI {
       body : "*"
     };
   }
-  // 渲染故事板场景
+  // 渲染故事板指定场景
   rpc RenderStoryBoardSence(RenderStoryBoardSenceRequest) returns (RenderStoryBoardSenceResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryBoardSence"
       body : "*"
     };
   }
+  
+  // 渲染故事板的所有场景
+  rpc RenderStoryBoardSences(RenderStoryBoardSenceRequest) returns (RenderStoryBoardSenceResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RenderStoryBoardSences"
+      body : "*"
+    };
+  }
+
   // 获取故事板场景生成状态
   rpc GetStoryBoardSenceGenerate(GetStoryBoardSenceGenerateRequest) returns (GetStoryBoardSenceGenerateResponse) {
     option (google.api.http) = {
@@ -1583,6 +1592,13 @@ service TeamsAPI {
     };
   }
 
+  // 获取故事板生成状态
+  rpc GetStoryBoardGenerate(GetStoryBoardGenerateRequest) returns (GetStoryBoardGenerateResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardGenerate"
+      body : "*"
+    };
+  }
 }
 
 message GetUserProfileRequest {

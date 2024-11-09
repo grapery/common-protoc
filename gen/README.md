@@ -81,6 +81,8 @@
     - [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse)
     - [GenStoryboardTextRequest](#common-GenStoryboardTextRequest)
     - [GenStoryboardTextResponse](#common-GenStoryboardTextResponse)
+    - [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest)
+    - [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse)
     - [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest)
     - [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse)
     - [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data)
@@ -112,6 +114,8 @@
     - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
     - [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest)
     - [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse)
+    - [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest)
+    - [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse)
     - [RenderStoryDetail](#common-RenderStoryDetail)
     - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
@@ -1600,6 +1604,39 @@
 
 
 
+<a name="common-GetStoryBoardGenerateRequest"></a>
+
+### GetStoryBoardGenerateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardGenerateResponse"></a>
+
+### GetStoryBoardGenerateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
 <a name="common-GetStoryBoardRenderRequest"></a>
 
 ### GetStoryBoardRenderRequest
@@ -1722,6 +1759,7 @@
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | generating_stage | [int32](#int32) |  |  |
+| data | [StoryBoardSence](#common-StoryBoardSence) |  |  |
 
 
 
@@ -2097,6 +2135,42 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| data | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryBoardSencesRequest"></a>
+
+### RenderStoryBoardSencesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryBoardSencesResponse"></a>
+
+### RenderStoryBoardSencesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
 
 
 
@@ -5847,8 +5921,10 @@ user ,group .project.item
 | CreateStoryBoardSence | [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest) | [CreateStoryBoardSenceResponse](#common-CreateStoryBoardSenceResponse) | 创建故事板场景 |
 | UpdateStoryBoardSence | [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest) | [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse) | 更新故事板场景 |
 | DeleteStoryBoardSence | [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest) | [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse) | 删除故事板场景 |
-| RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板场景 |
+| RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板指定场景 |
+| RenderStoryBoardSences | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板的所有场景 |
 | GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
+| GetStoryBoardGenerate | [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest) | [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse) | 获取故事板生成状态 |
 
  
 

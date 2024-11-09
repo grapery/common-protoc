@@ -894,6 +894,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryBoardGenerate:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事板生成状态
+            operationId: TeamsAPI_GetStoryBoardGenerate
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryBoardGenerateRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryBoardGenerateResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryBoardRoles:
         post:
             tags:
@@ -1423,8 +1448,33 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 渲染故事板场景
+            description: 渲染故事板指定场景
             operationId: TeamsAPI_RenderStoryBoardSence
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryBoardSenceRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryBoardSenceResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RenderStoryBoardSences:
+        post:
+            tags:
+                - TeamsAPI
+            description: 渲染故事板的所有场景
+            operationId: TeamsAPI_RenderStoryBoardSences
             requestBody:
                 content:
                     application/json:
@@ -3325,6 +3375,26 @@ components:
                     type: object
                     additionalProperties:
                         type: string
+        GetStoryBoardGenerateRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+        GetStoryBoardGenerateResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                generatingStage:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardSence'
         GetStoryBoardRenderRequest:
             type: object
             properties:
@@ -3391,6 +3461,8 @@ components:
                 generatingStage:
                     type: integer
                     format: int32
+                data:
+                    $ref: '#/components/schemas/StoryBoardSence'
         GetStoryBoardSencesRequest:
             type: object
             properties:
@@ -4041,6 +4113,11 @@ components:
                     format: int32
                 message:
                     type: string
+                generatingStage:
+                    type: integer
+                    format: int32
+                data:
+                    $ref: '#/components/schemas/StoryBoardSence'
         RenderStoryDetail:
             type: object
             properties:
