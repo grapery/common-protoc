@@ -58,6 +58,9 @@
 - [story.proto](#story-proto)
     - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
     - [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse)
+    - [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest)
+    - [CreateStoryBoardSenceResponse](#common-CreateStoryBoardSenceResponse)
+    - [CreateStoryBoardSenceResponse.Data](#common-CreateStoryBoardSenceResponse-Data)
     - [CreateStoryRequest](#common-CreateStoryRequest)
     - [CreateStoryResponse](#common-CreateStoryResponse)
     - [CreateStoryResponse.Data](#common-CreateStoryResponse-Data)
@@ -66,6 +69,8 @@
     - [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data)
     - [DelStoryboardRequest](#common-DelStoryboardRequest)
     - [DelStoryboardResponse](#common-DelStoryboardResponse)
+    - [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest)
+    - [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse)
     - [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust)
     - [FetchGroupStorysResponse](#common-FetchGroupStorysResponse)
     - [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data)
@@ -82,6 +87,11 @@
     - [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest)
     - [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse)
     - [GetStoryBoardRolesResponse.Data](#common-GetStoryBoardRolesResponse-Data)
+    - [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest)
+    - [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse)
+    - [GetStoryBoardSencesRequest](#common-GetStoryBoardSencesRequest)
+    - [GetStoryBoardSencesResponse](#common-GetStoryBoardSencesResponse)
+    - [GetStoryBoardSencesResponse.Data](#common-GetStoryBoardSencesResponse-Data)
     - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
     - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
     - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
@@ -100,6 +110,8 @@
     - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
     - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
     - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
+    - [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest)
+    - [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse)
     - [RenderStoryDetail](#common-RenderStoryDetail)
     - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
@@ -122,11 +134,14 @@
     - [Story](#common-Story)
     - [StoryBoard](#common-StoryBoard)
     - [StoryBoardParams](#common-StoryBoardParams)
+    - [StoryBoardSence](#common-StoryBoardSence)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
     - [StoryRoleInfo](#common-StoryRoleInfo)
     - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
     - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
+    - [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest)
+    - [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse)
     - [UpdateStoryRequest](#common-UpdateStoryRequest)
     - [UpdateStoryResponse](#common-UpdateStoryResponse)
     - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
@@ -1187,6 +1202,53 @@
 
 
 
+<a name="common-CreateStoryBoardSenceRequest"></a>
+
+### CreateStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryBoardSenceResponse"></a>
+
+### CreateStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [CreateStoryBoardSenceResponse.Data](#common-CreateStoryBoardSenceResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryBoardSenceResponse-Data"></a>
+
+### CreateStoryBoardSenceResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-CreateStoryRequest"></a>
 
 ### CreateStoryRequest
@@ -1314,6 +1376,37 @@
 <a name="common-DelStoryboardResponse"></a>
 
 ### DelStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryBoardSenceRequest"></a>
+
+### DeleteStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryBoardSenceResponse"></a>
+
+### DeleteStoryBoardSenceResponse
 
 
 
@@ -1597,6 +1690,85 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryRole](#common-StoryRole) | repeated |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardSenceGenerateRequest"></a>
+
+### GetStoryBoardSenceGenerateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardSenceGenerateResponse"></a>
+
+### GetStoryBoardSenceGenerateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardSencesRequest"></a>
+
+### GetStoryBoardSencesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardSencesResponse"></a>
+
+### GetStoryBoardSencesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardSencesResponse.Data](#common-GetStoryBoardSencesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardSencesResponse-Data"></a>
+
+### GetStoryBoardSencesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
 
 
 
@@ -1892,6 +2064,39 @@
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | like_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryBoardSenceRequest"></a>
+
+### RenderStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryBoardSenceResponse"></a>
+
+### RenderStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -2331,6 +2536,34 @@
 
 
 
+<a name="common-StoryBoardSence"></a>
+
+### StoryBoardSence
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+| character_ids | [string](#string) | repeated |  |
+| creator_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| image_prompts | [string](#string) |  |  |
+| audio_prompts | [string](#string) |  |  |
+| video_prompts | [string](#string) |  |  |
+| is_generating | [int32](#int32) |  |  |
+| gen_result | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-StoryParams"></a>
 
 ### StoryParams
@@ -2420,6 +2653,37 @@
 <a name="common-UnLikeStoryboardResponse"></a>
 
 ### UnLikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryBoardSenceRequest"></a>
+
+### UpdateStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryBoardSenceResponse"></a>
+
+### UpdateStoryBoardSenceResponse
 
 
 
@@ -5579,6 +5843,12 @@ user ,group .project.item
 | RenderStoryRole | [RenderStoryRoleRequest](#common-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#common-RenderStoryRoleResponse) | 生成角色的图片 |
 | LikeStory | [LikeStoryRequest](#common-LikeStoryRequest) | [LikeStoryResponse](#common-LikeStoryResponse) | 喜欢故事 |
 | UnLikeStory | [UnLikeStoryRequest](#common-UnLikeStoryRequest) | [UnLikeStoryResponse](#common-UnLikeStoryResponse) | 取消喜欢故事 |
+| GetStoryBoardSences | [GetStoryBoardSencesRequest](#common-GetStoryBoardSencesRequest) | [GetStoryBoardSencesResponse](#common-GetStoryBoardSencesResponse) | 获取故事板场景 |
+| CreateStoryBoardSence | [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest) | [CreateStoryBoardSenceResponse](#common-CreateStoryBoardSenceResponse) | 创建故事板场景 |
+| UpdateStoryBoardSence | [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest) | [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse) | 更新故事板场景 |
+| DeleteStoryBoardSence | [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest) | [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse) | 删除故事板场景 |
+| RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板场景 |
+| GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
 
  
 

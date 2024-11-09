@@ -11371,7 +11371,7 @@ var file_service_proto_rawDesc = []byte{
 	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
 	0x73, 0x73, 0x61, 0x67, 0x65, 0x2a, 0x24, 0x0a, 0x09, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x54, 0x79,
 	0x70, 0x65, 0x12, 0x0a, 0x0a, 0x06, 0x50, 0x55, 0x42, 0x4c, 0x49, 0x43, 0x10, 0x00, 0x12, 0x0b,
-	0x0a, 0x07, 0x50, 0x52, 0x49, 0x56, 0x41, 0x54, 0x45, 0x10, 0x01, 0x32, 0xdf, 0x54, 0x0a, 0x08,
+	0x0a, 0x07, 0x50, 0x52, 0x49, 0x56, 0x41, 0x54, 0x45, 0x10, 0x01, 0x32, 0x87, 0x5c, 0x0a, 0x08,
 	0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x12, 0x5c, 0x0a, 0x07, 0x45, 0x78, 0x70, 0x6c,
 	0x6f, 0x72, 0x65, 0x12, 0x16, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x45, 0x78, 0x70,
 	0x6c, 0x6f, 0x72, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x63, 0x6f,
@@ -12049,15 +12049,74 @@ var file_service_proto_rawDesc = []byte{
 	0x2e, 0x55, 0x6e, 0x4c, 0x69, 0x6b, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x27, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x21, 0x3a, 0x01, 0x2a, 0x22,
 	0x1c, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50,
-	0x49, 0x2f, 0x55, 0x6e, 0x4c, 0x69, 0x6b, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x78, 0x0a,
-	0x0a, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x42, 0x0c, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x67, 0x69, 0x74,
-	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x65, 0x72, 0x79, 0x2f,
-	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65,
-	0x6e, 0xa2, 0x02, 0x03, 0x43, 0x58, 0x58, 0xaa, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
-	0xca, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xe2, 0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d,
-	0x6f, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02,
-	0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x49, 0x2f, 0x55, 0x6e, 0x4c, 0x69, 0x6b, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x12, 0x8f, 0x01,
+	0x0a, 0x13, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53,
+	0x65, 0x6e, 0x63, 0x65, 0x73, 0x12, 0x22, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47,
+	0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63,
+	0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64,
+	0x53, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2f,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x29, 0x3a, 0x01, 0x2a, 0x22, 0x24, 0x2f, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x47, 0x65, 0x74, 0x53,
+	0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x12,
+	0x97, 0x01, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42,
+	0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x24, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f,
+	0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x25, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53,
+	0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2b, 0x3a, 0x01,
+	0x2a, 0x22, 0x26, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73,
+	0x41, 0x50, 0x49, 0x2f, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42,
+	0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x97, 0x01, 0x0a, 0x15, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65,
+	0x6e, 0x63, 0x65, 0x12, 0x24, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
+	0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f,
+	0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2b, 0x3a, 0x01, 0x2a, 0x22, 0x26, 0x2f, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65,
+	0x6e, 0x63, 0x65, 0x12, 0x97, 0x01, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x24, 0x2e,
+	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x74, 0x6f,
+	0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
+	0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93,
+	0x02, 0x2b, 0x3a, 0x01, 0x2a, 0x22, 0x26, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54,
+	0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x97, 0x01,
+	0x0a, 0x15, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61,
+	0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x24, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
+	0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72,
+	0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e,
+	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f,
+	0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x31, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2b, 0x3a, 0x01, 0x2a, 0x22,
+	0x26, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50,
+	0x49, 0x2f, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61,
+	0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x12, 0xab, 0x01, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x53,
+	0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65,
+	0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x12, 0x29, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e,
+	0x47, 0x65, 0x74, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
+	0x63, 0x65, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e,
+	0x65, 0x72, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x36, 0x82,
+	0xd3, 0xe4, 0x93, 0x02, 0x30, 0x3a, 0x01, 0x2a, 0x22, 0x2b, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2e, 0x54, 0x65, 0x61, 0x6d, 0x73, 0x41, 0x50, 0x49, 0x2f, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x47, 0x65, 0x6e,
+	0x65, 0x72, 0x61, 0x74, 0x65, 0x42, 0x78, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d,
+	0x6d, 0x6f, 0x6e, 0x42, 0x0c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74,
+	0x6f, 0x50, 0x01, 0x5a, 0x24, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x67, 0x72, 0x61, 0x70, 0x65, 0x72, 0x79, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0xa2, 0x02, 0x03, 0x43, 0x58, 0x58, 0xaa,
+	0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xca, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0xe2, 0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -12075,244 +12134,256 @@ func file_service_proto_rawDescGZIP() []byte {
 var file_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_service_proto_msgTypes = make([]protoimpl.MessageInfo, 175)
 var file_service_proto_goTypes = []interface{}{
-	(GroupType)(0),                            // 0: common.GroupType
-	(*ActiveInfo)(nil),                        // 1: common.ActiveInfo
-	(*LoginRequest)(nil),                      // 2: common.LoginRequest
-	(*LoginResponse)(nil),                     // 3: common.LoginResponse
-	(*LogoutRequest)(nil),                     // 4: common.LogoutRequest
-	(*LogoutResponse)(nil),                    // 5: common.LogoutResponse
-	(*RefreshTokenRequest)(nil),               // 6: common.RefreshTokenRequest
-	(*RefreshTokenResponse)(nil),              // 7: common.RefreshTokenResponse
-	(*RegisterRequest)(nil),                   // 8: common.RegisterRequest
-	(*RegisterResponse)(nil),                  // 9: common.RegisterResponse
-	(*ConfirmRequest)(nil),                    // 10: common.ConfirmRequest
-	(*ConfirmResponse)(nil),                   // 11: common.ConfirmResponse
-	(*ResetPasswordRequest)(nil),              // 12: common.ResetPasswordRequest
-	(*ResetPasswordResponse)(nil),             // 13: common.ResetPasswordResponse
-	(*UserInfoRequest)(nil),                   // 14: common.UserInfoRequest
-	(*UserInfoResponse)(nil),                  // 15: common.UserInfoResponse
-	(*UpdateUserAvatorRequest)(nil),           // 16: common.UpdateUserAvatorRequest
-	(*UpdateUserAvatorResponse)(nil),          // 17: common.UpdateUserAvatorResponse
-	(*UserWatchingRequest)(nil),               // 18: common.UserWatchingRequest
-	(*UserWatchingResponse)(nil),              // 19: common.UserWatchingResponse
-	(*UserGroupRequest)(nil),                  // 20: common.UserGroupRequest
-	(*UserGroupResponse)(nil),                 // 21: common.UserGroupResponse
-	(*UserFollowingGroupRequest)(nil),         // 22: common.UserFollowingGroupRequest
-	(*UserFollowingGroupResponse)(nil),        // 23: common.UserFollowingGroupResponse
-	(*UserUpdateRequest)(nil),                 // 24: common.UserUpdateRequest
-	(*UserUpdateResponse)(nil),                // 25: common.UserUpdateResponse
-	(*FetchUserActivesRequest)(nil),           // 26: common.FetchUserActivesRequest
-	(*FetchUserActivesResponse)(nil),          // 27: common.FetchUserActivesResponse
-	(*SearchUserRequest)(nil),                 // 28: common.SearchUserRequest
-	(*SearchUserResponse)(nil),                // 29: common.SearchUserResponse
-	(*UserInitRequest)(nil),                   // 30: common.UserInitRequest
-	(*UserInitResponse)(nil),                  // 31: common.UserInitResponse
-	(*GetProjectRequest)(nil),                 // 32: common.GetProjectRequest
-	(*GetProjectResponse)(nil),                // 33: common.GetProjectResponse
-	(*GetProjectListRequest)(nil),             // 34: common.GetProjectListRequest
-	(*GetProjectListResponse)(nil),            // 35: common.GetProjectListResponse
-	(*CreateProjectRequest)(nil),              // 36: common.CreateProjectRequest
-	(*CreateProjectResponse)(nil),             // 37: common.CreateProjectResponse
-	(*UpdateProjectRequest)(nil),              // 38: common.UpdateProjectRequest
-	(*UpdateProjectResponse)(nil),             // 39: common.UpdateProjectResponse
-	(*DeleteProjectRequest)(nil),              // 40: common.DeleteProjectRequest
-	(*DeleteProjectResponse)(nil),             // 41: common.DeleteProjectResponse
-	(*GetWatchingProjectRequest)(nil),         // 42: common.GetWatchingProjectRequest
-	(*GetWatchingProjectResponse)(nil),        // 43: common.GetWatchingProjectResponse
-	(*WatchProjectReqeust)(nil),               // 44: common.WatchProjectReqeust
-	(*WatchProjectResponse)(nil),              // 45: common.WatchProjectResponse
-	(*UnWatchProjectReqeust)(nil),             // 46: common.UnWatchProjectReqeust
-	(*UnWatchProjectResponse)(nil),            // 47: common.UnWatchProjectResponse
-	(*ExploreProjectsRequest)(nil),            // 48: common.ExploreProjectsRequest
-	(*ExploreProjectsResponse)(nil),           // 49: common.ExploreProjectsResponse
-	(*SearchProjectRequest)(nil),              // 50: common.SearchProjectRequest
-	(*SearchProjectResponse)(nil),             // 51: common.SearchProjectResponse
-	(*SearchAllProjectRequest)(nil),           // 52: common.SearchAllProjectRequest
-	(*SearchAllProjectResponse)(nil),          // 53: common.SearchAllProjectResponse
-	(*GetProjectProfileRequest)(nil),          // 54: common.GetProjectProfileRequest
-	(*GetProjectProfileResponse)(nil),         // 55: common.GetProjectProfileResponse
-	(*UpdateProjectProfileRequest)(nil),       // 56: common.UpdateProjectProfileRequest
-	(*UpdateProjectProfileResponse)(nil),      // 57: common.UpdateProjectProfileResponse
-	(*GetProjectItemsRequest)(nil),            // 58: common.GetProjectItemsRequest
-	(*GetProjectItemsResponse)(nil),           // 59: common.GetProjectItemsResponse
-	(*GetGroupItemsRequest)(nil),              // 60: common.GetGroupItemsRequest
-	(*GetGroupItemsResponse)(nil),             // 61: common.GetGroupItemsResponse
-	(*GetUserItemsRequest)(nil),               // 62: common.GetUserItemsRequest
-	(*GetUserItemsResponse)(nil),              // 63: common.GetUserItemsResponse
-	(*GetItemRequest)(nil),                    // 64: common.GetItemRequest
-	(*GetItemResponse)(nil),                   // 65: common.GetItemResponse
-	(*CreateItemRequest)(nil),                 // 66: common.CreateItemRequest
-	(*CreateItemResponse)(nil),                // 67: common.CreateItemResponse
-	(*UpdateItemRequest)(nil),                 // 68: common.UpdateItemRequest
-	(*UpdateItemResponse)(nil),                // 69: common.UpdateItemResponse
-	(*DeleteItemRequest)(nil),                 // 70: common.DeleteItemRequest
-	(*DeleteItemResponse)(nil),                // 71: common.DeleteItemResponse
-	(*LikeItemRequest)(nil),                   // 72: common.LikeItemRequest
-	(*LikeItemResponse)(nil),                  // 73: common.LikeItemResponse
-	(*CreateGroupReqeust)(nil),                // 74: common.CreateGroupReqeust
-	(*CreateGroupResponse)(nil),               // 75: common.CreateGroupResponse
-	(*GetGroupReqeust)(nil),                   // 76: common.GetGroupReqeust
-	(*GetGroupResponse)(nil),                  // 77: common.GetGroupResponse
-	(*GetGroupActivesRequest)(nil),            // 78: common.GetGroupActivesRequest
-	(*GetGroupActivesResponse)(nil),           // 79: common.GetGroupActivesResponse
-	(*UpdateGroupInfoRequest)(nil),            // 80: common.UpdateGroupInfoRequest
-	(*UpdateGroupInfoResponse)(nil),           // 81: common.UpdateGroupInfoResponse
-	(*DeleteGroupRequest)(nil),                // 82: common.DeleteGroupRequest
-	(*DeleteGroupResponse)(nil),               // 83: common.DeleteGroupResponse
-	(*FetchGroupMembersRequest)(nil),          // 84: common.FetchGroupMembersRequest
-	(*FetchGroupMembersResponse)(nil),         // 85: common.FetchGroupMembersResponse
-	(*SearchGroupReqeust)(nil),                // 86: common.SearchGroupReqeust
-	(*SearchGroupResponse)(nil),               // 87: common.SearchGroupResponse
-	(*FetchGroupProjectsReqeust)(nil),         // 88: common.FetchGroupProjectsReqeust
-	(*FetchGroupProjectsResponse)(nil),        // 89: common.FetchGroupProjectsResponse
-	(*JoinGroupRequest)(nil),                  // 90: common.JoinGroupRequest
-	(*JoinGroupResponse)(nil),                 // 91: common.JoinGroupResponse
-	(*LeaveGroupRequest)(nil),                 // 92: common.LeaveGroupRequest
-	(*LeaveGroupResponse)(nil),                // 93: common.LeaveGroupResponse
-	(*DisscussParams)(nil),                    // 94: common.DisscussParams
-	(*CreateDisscussReq)(nil),                 // 95: common.CreateDisscussReq
-	(*CreateDisscusResp)(nil),                 // 96: common.CreateDisscusResp
-	(*GetDisscusReq)(nil),                     // 97: common.GetDisscusReq
-	(*GetDisscusResp)(nil),                    // 98: common.GetDisscusResp
-	(*Content)(nil),                           // 99: common.Content
-	(*CreateCommentReq)(nil),                  // 100: common.CreateCommentReq
-	(*CreateCommentResp)(nil),                 // 101: common.CreateCommentResp
-	(*GetItemsCommentReq)(nil),                // 102: common.GetItemsCommentReq
-	(*GetItemsCommentResp)(nil),               // 103: common.GetItemsCommentResp
-	(*GetUserCommentReq)(nil),                 // 104: common.GetUserCommentReq
-	(*GetUserCommentResp)(nil),                // 105: common.GetUserCommentResp
-	(*VersionRequest)(nil),                    // 106: common.VersionRequest
-	(*VersionResponse)(nil),                   // 107: common.VersionResponse
-	(*AboutRequest)(nil),                      // 108: common.AboutRequest
-	(*AboutResponse)(nil),                     // 109: common.AboutResponse
-	(*ExploreRequest)(nil),                    // 110: common.ExploreRequest
-	(*ExploreResponse)(nil),                   // 111: common.ExploreResponse
-	(*TrendingRequest)(nil),                   // 112: common.TrendingRequest
-	(*TrendingResponse)(nil),                  // 113: common.TrendingResponse
-	(*GetProjectMembersRequest)(nil),          // 114: common.GetProjectMembersRequest
-	(*GetProjectMembersResponse)(nil),         // 115: common.GetProjectMembersResponse
-	(*GetProjectWatcherReqeust)(nil),          // 116: common.GetProjectWatcherReqeust
-	(*GetProjectWatcherResponse)(nil),         // 117: common.GetProjectWatcherResponse
-	(*UploadImageRequest)(nil),                // 118: common.UploadImageRequest
-	(*UploadImageResponse)(nil),               // 119: common.UploadImageResponse
-	(*GetStoryContributorsRequest)(nil),       // 120: common.GetStoryContributorsRequest
-	(*StoryContributor)(nil),                  // 121: common.StoryContributor
-	(*GetStoryContributorsResponse)(nil),      // 122: common.GetStoryContributorsResponse
-	(*GetGroupProfileRequest)(nil),            // 123: common.GetGroupProfileRequest
-	(*GetGroupProfileResponse)(nil),           // 124: common.GetGroupProfileResponse
-	(*UpdateGroupProfileRequest)(nil),         // 125: common.UpdateGroupProfileRequest
-	(*UpdateGroupProfileResponse)(nil),        // 126: common.UpdateGroupProfileResponse
-	(*GetUserProfileRequest)(nil),             // 127: common.GetUserProfileRequest
-	(*GetUserProfileResponse)(nil),            // 128: common.GetUserProfileResponse
-	(*UpdateUserProfileRequest)(nil),          // 129: common.UpdateUserProfileRequest
-	(*UpdateUserProfileResponse)(nil),         // 130: common.UpdateUserProfileResponse
-	(*CreateStoryRoleRequest)(nil),            // 131: common.CreateStoryRoleRequest
-	(*CreateStoryRoleResponse)(nil),           // 132: common.CreateStoryRoleResponse
-	(*GetStoryRoleDetailRequest)(nil),         // 133: common.GetStoryRoleDetailRequest
-	(*GetStoryRoleDetailResponse)(nil),        // 134: common.GetStoryRoleDetailResponse
-	(*RenderStoryRoleRequest)(nil),            // 135: common.RenderStoryRoleRequest
-	(*RenderStoryRoleResponse)(nil),           // 136: common.RenderStoryRoleResponse
-	(*LikeStoryRequest)(nil),                  // 137: common.LikeStoryRequest
-	(*LikeStoryResponse)(nil),                 // 138: common.LikeStoryResponse
-	(*UnLikeStoryRequest)(nil),                // 139: common.UnLikeStoryRequest
-	(*UnLikeStoryResponse)(nil),               // 140: common.UnLikeStoryResponse
-	nil,                                       // 141: common.UserUpdateRequest.DataEntry
-	(*UserUpdateResponse_Data)(nil),           // 142: common.UserUpdateResponse.Data
-	(*DeleteProjectResponse_Data)(nil),        // 143: common.DeleteProjectResponse.Data
-	(*WatchProjectResponse_Data)(nil),         // 144: common.WatchProjectResponse.Data
-	(*UnWatchProjectResponse_Data)(nil),       // 145: common.UnWatchProjectResponse.Data
-	(*UpdateProjectProfileResponse_Data)(nil), // 146: common.UpdateProjectProfileResponse.Data
-	(*CreateItemResponse_Data)(nil),           // 147: common.CreateItemResponse.Data
-	(*UpdateItemResponse_Data)(nil),           // 148: common.UpdateItemResponse.Data
-	(*DeleteItemResponse_Data)(nil),           // 149: common.DeleteItemResponse.Data
-	(*LikeItemResponse_Data)(nil),             // 150: common.LikeItemResponse.Data
-	(*CreateGroupResponse_Data)(nil),          // 151: common.CreateGroupResponse.Data
-	(*GetGroupResponse_Data)(nil),             // 152: common.GetGroupResponse.Data
-	(*GetGroupActivesResponse_Data)(nil),      // 153: common.GetGroupActivesResponse.Data
-	(*UpdateGroupInfoResponse_Data)(nil),      // 154: common.UpdateGroupInfoResponse.Data
-	(*DeleteGroupResponse_Data)(nil),          // 155: common.DeleteGroupResponse.Data
-	(*FetchGroupMembersResponse_Data)(nil),    // 156: common.FetchGroupMembersResponse.Data
-	(*SearchGroupResponse_Data)(nil),          // 157: common.SearchGroupResponse.Data
-	(*FetchGroupProjectsResponse_Data)(nil),   // 158: common.FetchGroupProjectsResponse.Data
-	(*JoinGroupResponse_Data)(nil),            // 159: common.JoinGroupResponse.Data
-	(*LeaveGroupResponse_Data)(nil),           // 160: common.LeaveGroupResponse.Data
-	(*CreateDisscusResp_Data)(nil),            // 161: common.CreateDisscusResp.Data
-	(*GetDisscusResp_Data)(nil),               // 162: common.GetDisscusResp.Data
-	(*CreateCommentResp_Data)(nil),            // 163: common.CreateCommentResp.Data
-	(*GetItemsCommentResp_Data)(nil),          // 164: common.GetItemsCommentResp.Data
-	(*GetUserCommentResp_Data)(nil),           // 165: common.GetUserCommentResp.Data
-	(*VersionResponse_Data)(nil),              // 166: common.VersionResponse.Data
-	(*ExploreResponse_Data)(nil),              // 167: common.ExploreResponse.Data
-	(*TrendingResponse_Data)(nil),             // 168: common.TrendingResponse.Data
-	(*GetProjectMembersResponse_Data)(nil),    // 169: common.GetProjectMembersResponse.Data
-	nil,                                       // 170: common.GetProjectMembersResponse.Data.RoleEntry
-	(*GetProjectWatcherResponse_Data)(nil),    // 171: common.GetProjectWatcherResponse.Data
-	nil,                                       // 172: common.GetProjectWatcherResponse.Data.TimestampEntry
-	(*UploadImageResponse_Data)(nil),          // 173: common.UploadImageResponse.Data
-	(*GetStoryContributorsResponse_Data)(nil), // 174: common.GetStoryContributorsResponse.Data
-	(*GetGroupProfileResponse_Data)(nil),      // 175: common.GetGroupProfileResponse.Data
-	(*UserInfo)(nil),                          // 176: common.UserInfo
-	(ActiveType)(0),                           // 177: common.ActiveType
-	(*ItemInfo)(nil),                          // 178: common.ItemInfo
-	(*ProjectInfo)(nil),                       // 179: common.ProjectInfo
-	(*GroupInfo)(nil),                         // 180: common.GroupInfo
-	(*ProjectProfileInfo)(nil),                // 181: common.ProjectProfileInfo
-	(*GroupProfileInfo)(nil),                  // 182: common.GroupProfileInfo
-	(*UserProfileInfo)(nil),                   // 183: common.UserProfileInfo
-	(*StoryRoleInfo)(nil),                     // 184: common.StoryRoleInfo
-	(*CommentInfo)(nil),                       // 185: common.CommentInfo
-	(*CreateStoryRequest)(nil),                // 186: common.CreateStoryRequest
-	(*GetStoryInfoRequest)(nil),               // 187: common.GetStoryInfoRequest
-	(*RenderStoryRequest)(nil),                // 188: common.RenderStoryRequest
-	(*UpdateStoryRequest)(nil),                // 189: common.UpdateStoryRequest
-	(*WatchStoryRequest)(nil),                 // 190: common.WatchStoryRequest
-	(*CreateStoryboardRequest)(nil),           // 191: common.CreateStoryboardRequest
-	(*GetStoryboardRequest)(nil),              // 192: common.GetStoryboardRequest
-	(*RenderStoryboardRequest)(nil),           // 193: common.RenderStoryboardRequest
-	(*GenStoryboardTextRequest)(nil),          // 194: common.GenStoryboardTextRequest
-	(*GenStoryboardImagesRequest)(nil),        // 195: common.GenStoryboardImagesRequest
-	(*GetStoryboardsRequest)(nil),             // 196: common.GetStoryboardsRequest
-	(*DelStoryboardRequest)(nil),              // 197: common.DelStoryboardRequest
-	(*ForkStoryboardRequest)(nil),             // 198: common.ForkStoryboardRequest
-	(*UpdateStoryboardRequest)(nil),           // 199: common.UpdateStoryboardRequest
-	(*LikeStoryboardRequest)(nil),             // 200: common.LikeStoryboardRequest
-	(*UnLikeStoryboardRequest)(nil),           // 201: common.UnLikeStoryboardRequest
-	(*ShareStoryboardRequest)(nil),            // 202: common.ShareStoryboardRequest
-	(*FetchGroupStorysReqeust)(nil),           // 203: common.FetchGroupStorysReqeust
-	(*GetStoryRenderRequest)(nil),             // 204: common.GetStoryRenderRequest
-	(*GetStoryBoardRenderRequest)(nil),        // 205: common.GetStoryBoardRenderRequest
-	(*ContinueRenderStoryRequest)(nil),        // 206: common.ContinueRenderStoryRequest
-	(*RenderStoryRolesRequest)(nil),           // 207: common.RenderStoryRolesRequest
-	(*UpdateStoryRoleRequest)(nil),            // 208: common.UpdateStoryRoleRequest
-	(*RenderStoryRoleDetailRequest)(nil),      // 209: common.RenderStoryRoleDetailRequest
-	(*GetStoryRolesRequest)(nil),              // 210: common.GetStoryRolesRequest
-	(*GetStoryBoardRolesRequest)(nil),         // 211: common.GetStoryBoardRolesRequest
-	(*CreateStoryResponse)(nil),               // 212: common.CreateStoryResponse
-	(*GetStoryInfoResponse)(nil),              // 213: common.GetStoryInfoResponse
-	(*RenderStoryResponse)(nil),               // 214: common.RenderStoryResponse
-	(*UpdateStoryResponse)(nil),               // 215: common.UpdateStoryResponse
-	(*WatchStoryResponse)(nil),                // 216: common.WatchStoryResponse
-	(*CreateStoryboardResponse)(nil),          // 217: common.CreateStoryboardResponse
-	(*GetStoryboardResponse)(nil),             // 218: common.GetStoryboardResponse
-	(*RenderStoryboardResponse)(nil),          // 219: common.RenderStoryboardResponse
-	(*GenStoryboardTextResponse)(nil),         // 220: common.GenStoryboardTextResponse
-	(*GenStoryboardImagesResponse)(nil),       // 221: common.GenStoryboardImagesResponse
-	(*GetStoryboardsResponse)(nil),            // 222: common.GetStoryboardsResponse
-	(*DelStoryboardResponse)(nil),             // 223: common.DelStoryboardResponse
-	(*ForkStoryboardResponse)(nil),            // 224: common.ForkStoryboardResponse
-	(*UpdateStoryboardResponse)(nil),          // 225: common.UpdateStoryboardResponse
-	(*LikeStoryboardResponse)(nil),            // 226: common.LikeStoryboardResponse
-	(*UnLikeStoryboardResponse)(nil),          // 227: common.UnLikeStoryboardResponse
-	(*ShareStoryboardResponse)(nil),           // 228: common.ShareStoryboardResponse
-	(*FetchGroupStorysResponse)(nil),          // 229: common.FetchGroupStorysResponse
-	(*GetStoryRenderResponse)(nil),            // 230: common.GetStoryRenderResponse
-	(*GetStoryBoardRenderResponse)(nil),       // 231: common.GetStoryBoardRenderResponse
-	(*ContinueRenderStoryResponse)(nil),       // 232: common.ContinueRenderStoryResponse
-	(*RenderStoryRolesResponse)(nil),          // 233: common.RenderStoryRolesResponse
-	(*UpdateStoryRoleResponse)(nil),           // 234: common.UpdateStoryRoleResponse
-	(*RenderStoryRoleDetailResponse)(nil),     // 235: common.RenderStoryRoleDetailResponse
-	(*GetStoryRolesResponse)(nil),             // 236: common.GetStoryRolesResponse
-	(*GetStoryBoardRolesResponse)(nil),        // 237: common.GetStoryBoardRolesResponse
+	(GroupType)(0),                             // 0: common.GroupType
+	(*ActiveInfo)(nil),                         // 1: common.ActiveInfo
+	(*LoginRequest)(nil),                       // 2: common.LoginRequest
+	(*LoginResponse)(nil),                      // 3: common.LoginResponse
+	(*LogoutRequest)(nil),                      // 4: common.LogoutRequest
+	(*LogoutResponse)(nil),                     // 5: common.LogoutResponse
+	(*RefreshTokenRequest)(nil),                // 6: common.RefreshTokenRequest
+	(*RefreshTokenResponse)(nil),               // 7: common.RefreshTokenResponse
+	(*RegisterRequest)(nil),                    // 8: common.RegisterRequest
+	(*RegisterResponse)(nil),                   // 9: common.RegisterResponse
+	(*ConfirmRequest)(nil),                     // 10: common.ConfirmRequest
+	(*ConfirmResponse)(nil),                    // 11: common.ConfirmResponse
+	(*ResetPasswordRequest)(nil),               // 12: common.ResetPasswordRequest
+	(*ResetPasswordResponse)(nil),              // 13: common.ResetPasswordResponse
+	(*UserInfoRequest)(nil),                    // 14: common.UserInfoRequest
+	(*UserInfoResponse)(nil),                   // 15: common.UserInfoResponse
+	(*UpdateUserAvatorRequest)(nil),            // 16: common.UpdateUserAvatorRequest
+	(*UpdateUserAvatorResponse)(nil),           // 17: common.UpdateUserAvatorResponse
+	(*UserWatchingRequest)(nil),                // 18: common.UserWatchingRequest
+	(*UserWatchingResponse)(nil),               // 19: common.UserWatchingResponse
+	(*UserGroupRequest)(nil),                   // 20: common.UserGroupRequest
+	(*UserGroupResponse)(nil),                  // 21: common.UserGroupResponse
+	(*UserFollowingGroupRequest)(nil),          // 22: common.UserFollowingGroupRequest
+	(*UserFollowingGroupResponse)(nil),         // 23: common.UserFollowingGroupResponse
+	(*UserUpdateRequest)(nil),                  // 24: common.UserUpdateRequest
+	(*UserUpdateResponse)(nil),                 // 25: common.UserUpdateResponse
+	(*FetchUserActivesRequest)(nil),            // 26: common.FetchUserActivesRequest
+	(*FetchUserActivesResponse)(nil),           // 27: common.FetchUserActivesResponse
+	(*SearchUserRequest)(nil),                  // 28: common.SearchUserRequest
+	(*SearchUserResponse)(nil),                 // 29: common.SearchUserResponse
+	(*UserInitRequest)(nil),                    // 30: common.UserInitRequest
+	(*UserInitResponse)(nil),                   // 31: common.UserInitResponse
+	(*GetProjectRequest)(nil),                  // 32: common.GetProjectRequest
+	(*GetProjectResponse)(nil),                 // 33: common.GetProjectResponse
+	(*GetProjectListRequest)(nil),              // 34: common.GetProjectListRequest
+	(*GetProjectListResponse)(nil),             // 35: common.GetProjectListResponse
+	(*CreateProjectRequest)(nil),               // 36: common.CreateProjectRequest
+	(*CreateProjectResponse)(nil),              // 37: common.CreateProjectResponse
+	(*UpdateProjectRequest)(nil),               // 38: common.UpdateProjectRequest
+	(*UpdateProjectResponse)(nil),              // 39: common.UpdateProjectResponse
+	(*DeleteProjectRequest)(nil),               // 40: common.DeleteProjectRequest
+	(*DeleteProjectResponse)(nil),              // 41: common.DeleteProjectResponse
+	(*GetWatchingProjectRequest)(nil),          // 42: common.GetWatchingProjectRequest
+	(*GetWatchingProjectResponse)(nil),         // 43: common.GetWatchingProjectResponse
+	(*WatchProjectReqeust)(nil),                // 44: common.WatchProjectReqeust
+	(*WatchProjectResponse)(nil),               // 45: common.WatchProjectResponse
+	(*UnWatchProjectReqeust)(nil),              // 46: common.UnWatchProjectReqeust
+	(*UnWatchProjectResponse)(nil),             // 47: common.UnWatchProjectResponse
+	(*ExploreProjectsRequest)(nil),             // 48: common.ExploreProjectsRequest
+	(*ExploreProjectsResponse)(nil),            // 49: common.ExploreProjectsResponse
+	(*SearchProjectRequest)(nil),               // 50: common.SearchProjectRequest
+	(*SearchProjectResponse)(nil),              // 51: common.SearchProjectResponse
+	(*SearchAllProjectRequest)(nil),            // 52: common.SearchAllProjectRequest
+	(*SearchAllProjectResponse)(nil),           // 53: common.SearchAllProjectResponse
+	(*GetProjectProfileRequest)(nil),           // 54: common.GetProjectProfileRequest
+	(*GetProjectProfileResponse)(nil),          // 55: common.GetProjectProfileResponse
+	(*UpdateProjectProfileRequest)(nil),        // 56: common.UpdateProjectProfileRequest
+	(*UpdateProjectProfileResponse)(nil),       // 57: common.UpdateProjectProfileResponse
+	(*GetProjectItemsRequest)(nil),             // 58: common.GetProjectItemsRequest
+	(*GetProjectItemsResponse)(nil),            // 59: common.GetProjectItemsResponse
+	(*GetGroupItemsRequest)(nil),               // 60: common.GetGroupItemsRequest
+	(*GetGroupItemsResponse)(nil),              // 61: common.GetGroupItemsResponse
+	(*GetUserItemsRequest)(nil),                // 62: common.GetUserItemsRequest
+	(*GetUserItemsResponse)(nil),               // 63: common.GetUserItemsResponse
+	(*GetItemRequest)(nil),                     // 64: common.GetItemRequest
+	(*GetItemResponse)(nil),                    // 65: common.GetItemResponse
+	(*CreateItemRequest)(nil),                  // 66: common.CreateItemRequest
+	(*CreateItemResponse)(nil),                 // 67: common.CreateItemResponse
+	(*UpdateItemRequest)(nil),                  // 68: common.UpdateItemRequest
+	(*UpdateItemResponse)(nil),                 // 69: common.UpdateItemResponse
+	(*DeleteItemRequest)(nil),                  // 70: common.DeleteItemRequest
+	(*DeleteItemResponse)(nil),                 // 71: common.DeleteItemResponse
+	(*LikeItemRequest)(nil),                    // 72: common.LikeItemRequest
+	(*LikeItemResponse)(nil),                   // 73: common.LikeItemResponse
+	(*CreateGroupReqeust)(nil),                 // 74: common.CreateGroupReqeust
+	(*CreateGroupResponse)(nil),                // 75: common.CreateGroupResponse
+	(*GetGroupReqeust)(nil),                    // 76: common.GetGroupReqeust
+	(*GetGroupResponse)(nil),                   // 77: common.GetGroupResponse
+	(*GetGroupActivesRequest)(nil),             // 78: common.GetGroupActivesRequest
+	(*GetGroupActivesResponse)(nil),            // 79: common.GetGroupActivesResponse
+	(*UpdateGroupInfoRequest)(nil),             // 80: common.UpdateGroupInfoRequest
+	(*UpdateGroupInfoResponse)(nil),            // 81: common.UpdateGroupInfoResponse
+	(*DeleteGroupRequest)(nil),                 // 82: common.DeleteGroupRequest
+	(*DeleteGroupResponse)(nil),                // 83: common.DeleteGroupResponse
+	(*FetchGroupMembersRequest)(nil),           // 84: common.FetchGroupMembersRequest
+	(*FetchGroupMembersResponse)(nil),          // 85: common.FetchGroupMembersResponse
+	(*SearchGroupReqeust)(nil),                 // 86: common.SearchGroupReqeust
+	(*SearchGroupResponse)(nil),                // 87: common.SearchGroupResponse
+	(*FetchGroupProjectsReqeust)(nil),          // 88: common.FetchGroupProjectsReqeust
+	(*FetchGroupProjectsResponse)(nil),         // 89: common.FetchGroupProjectsResponse
+	(*JoinGroupRequest)(nil),                   // 90: common.JoinGroupRequest
+	(*JoinGroupResponse)(nil),                  // 91: common.JoinGroupResponse
+	(*LeaveGroupRequest)(nil),                  // 92: common.LeaveGroupRequest
+	(*LeaveGroupResponse)(nil),                 // 93: common.LeaveGroupResponse
+	(*DisscussParams)(nil),                     // 94: common.DisscussParams
+	(*CreateDisscussReq)(nil),                  // 95: common.CreateDisscussReq
+	(*CreateDisscusResp)(nil),                  // 96: common.CreateDisscusResp
+	(*GetDisscusReq)(nil),                      // 97: common.GetDisscusReq
+	(*GetDisscusResp)(nil),                     // 98: common.GetDisscusResp
+	(*Content)(nil),                            // 99: common.Content
+	(*CreateCommentReq)(nil),                   // 100: common.CreateCommentReq
+	(*CreateCommentResp)(nil),                  // 101: common.CreateCommentResp
+	(*GetItemsCommentReq)(nil),                 // 102: common.GetItemsCommentReq
+	(*GetItemsCommentResp)(nil),                // 103: common.GetItemsCommentResp
+	(*GetUserCommentReq)(nil),                  // 104: common.GetUserCommentReq
+	(*GetUserCommentResp)(nil),                 // 105: common.GetUserCommentResp
+	(*VersionRequest)(nil),                     // 106: common.VersionRequest
+	(*VersionResponse)(nil),                    // 107: common.VersionResponse
+	(*AboutRequest)(nil),                       // 108: common.AboutRequest
+	(*AboutResponse)(nil),                      // 109: common.AboutResponse
+	(*ExploreRequest)(nil),                     // 110: common.ExploreRequest
+	(*ExploreResponse)(nil),                    // 111: common.ExploreResponse
+	(*TrendingRequest)(nil),                    // 112: common.TrendingRequest
+	(*TrendingResponse)(nil),                   // 113: common.TrendingResponse
+	(*GetProjectMembersRequest)(nil),           // 114: common.GetProjectMembersRequest
+	(*GetProjectMembersResponse)(nil),          // 115: common.GetProjectMembersResponse
+	(*GetProjectWatcherReqeust)(nil),           // 116: common.GetProjectWatcherReqeust
+	(*GetProjectWatcherResponse)(nil),          // 117: common.GetProjectWatcherResponse
+	(*UploadImageRequest)(nil),                 // 118: common.UploadImageRequest
+	(*UploadImageResponse)(nil),                // 119: common.UploadImageResponse
+	(*GetStoryContributorsRequest)(nil),        // 120: common.GetStoryContributorsRequest
+	(*StoryContributor)(nil),                   // 121: common.StoryContributor
+	(*GetStoryContributorsResponse)(nil),       // 122: common.GetStoryContributorsResponse
+	(*GetGroupProfileRequest)(nil),             // 123: common.GetGroupProfileRequest
+	(*GetGroupProfileResponse)(nil),            // 124: common.GetGroupProfileResponse
+	(*UpdateGroupProfileRequest)(nil),          // 125: common.UpdateGroupProfileRequest
+	(*UpdateGroupProfileResponse)(nil),         // 126: common.UpdateGroupProfileResponse
+	(*GetUserProfileRequest)(nil),              // 127: common.GetUserProfileRequest
+	(*GetUserProfileResponse)(nil),             // 128: common.GetUserProfileResponse
+	(*UpdateUserProfileRequest)(nil),           // 129: common.UpdateUserProfileRequest
+	(*UpdateUserProfileResponse)(nil),          // 130: common.UpdateUserProfileResponse
+	(*CreateStoryRoleRequest)(nil),             // 131: common.CreateStoryRoleRequest
+	(*CreateStoryRoleResponse)(nil),            // 132: common.CreateStoryRoleResponse
+	(*GetStoryRoleDetailRequest)(nil),          // 133: common.GetStoryRoleDetailRequest
+	(*GetStoryRoleDetailResponse)(nil),         // 134: common.GetStoryRoleDetailResponse
+	(*RenderStoryRoleRequest)(nil),             // 135: common.RenderStoryRoleRequest
+	(*RenderStoryRoleResponse)(nil),            // 136: common.RenderStoryRoleResponse
+	(*LikeStoryRequest)(nil),                   // 137: common.LikeStoryRequest
+	(*LikeStoryResponse)(nil),                  // 138: common.LikeStoryResponse
+	(*UnLikeStoryRequest)(nil),                 // 139: common.UnLikeStoryRequest
+	(*UnLikeStoryResponse)(nil),                // 140: common.UnLikeStoryResponse
+	nil,                                        // 141: common.UserUpdateRequest.DataEntry
+	(*UserUpdateResponse_Data)(nil),            // 142: common.UserUpdateResponse.Data
+	(*DeleteProjectResponse_Data)(nil),         // 143: common.DeleteProjectResponse.Data
+	(*WatchProjectResponse_Data)(nil),          // 144: common.WatchProjectResponse.Data
+	(*UnWatchProjectResponse_Data)(nil),        // 145: common.UnWatchProjectResponse.Data
+	(*UpdateProjectProfileResponse_Data)(nil),  // 146: common.UpdateProjectProfileResponse.Data
+	(*CreateItemResponse_Data)(nil),            // 147: common.CreateItemResponse.Data
+	(*UpdateItemResponse_Data)(nil),            // 148: common.UpdateItemResponse.Data
+	(*DeleteItemResponse_Data)(nil),            // 149: common.DeleteItemResponse.Data
+	(*LikeItemResponse_Data)(nil),              // 150: common.LikeItemResponse.Data
+	(*CreateGroupResponse_Data)(nil),           // 151: common.CreateGroupResponse.Data
+	(*GetGroupResponse_Data)(nil),              // 152: common.GetGroupResponse.Data
+	(*GetGroupActivesResponse_Data)(nil),       // 153: common.GetGroupActivesResponse.Data
+	(*UpdateGroupInfoResponse_Data)(nil),       // 154: common.UpdateGroupInfoResponse.Data
+	(*DeleteGroupResponse_Data)(nil),           // 155: common.DeleteGroupResponse.Data
+	(*FetchGroupMembersResponse_Data)(nil),     // 156: common.FetchGroupMembersResponse.Data
+	(*SearchGroupResponse_Data)(nil),           // 157: common.SearchGroupResponse.Data
+	(*FetchGroupProjectsResponse_Data)(nil),    // 158: common.FetchGroupProjectsResponse.Data
+	(*JoinGroupResponse_Data)(nil),             // 159: common.JoinGroupResponse.Data
+	(*LeaveGroupResponse_Data)(nil),            // 160: common.LeaveGroupResponse.Data
+	(*CreateDisscusResp_Data)(nil),             // 161: common.CreateDisscusResp.Data
+	(*GetDisscusResp_Data)(nil),                // 162: common.GetDisscusResp.Data
+	(*CreateCommentResp_Data)(nil),             // 163: common.CreateCommentResp.Data
+	(*GetItemsCommentResp_Data)(nil),           // 164: common.GetItemsCommentResp.Data
+	(*GetUserCommentResp_Data)(nil),            // 165: common.GetUserCommentResp.Data
+	(*VersionResponse_Data)(nil),               // 166: common.VersionResponse.Data
+	(*ExploreResponse_Data)(nil),               // 167: common.ExploreResponse.Data
+	(*TrendingResponse_Data)(nil),              // 168: common.TrendingResponse.Data
+	(*GetProjectMembersResponse_Data)(nil),     // 169: common.GetProjectMembersResponse.Data
+	nil,                                        // 170: common.GetProjectMembersResponse.Data.RoleEntry
+	(*GetProjectWatcherResponse_Data)(nil),     // 171: common.GetProjectWatcherResponse.Data
+	nil,                                        // 172: common.GetProjectWatcherResponse.Data.TimestampEntry
+	(*UploadImageResponse_Data)(nil),           // 173: common.UploadImageResponse.Data
+	(*GetStoryContributorsResponse_Data)(nil),  // 174: common.GetStoryContributorsResponse.Data
+	(*GetGroupProfileResponse_Data)(nil),       // 175: common.GetGroupProfileResponse.Data
+	(*UserInfo)(nil),                           // 176: common.UserInfo
+	(ActiveType)(0),                            // 177: common.ActiveType
+	(*ItemInfo)(nil),                           // 178: common.ItemInfo
+	(*ProjectInfo)(nil),                        // 179: common.ProjectInfo
+	(*GroupInfo)(nil),                          // 180: common.GroupInfo
+	(*ProjectProfileInfo)(nil),                 // 181: common.ProjectProfileInfo
+	(*GroupProfileInfo)(nil),                   // 182: common.GroupProfileInfo
+	(*UserProfileInfo)(nil),                    // 183: common.UserProfileInfo
+	(*StoryRoleInfo)(nil),                      // 184: common.StoryRoleInfo
+	(*CommentInfo)(nil),                        // 185: common.CommentInfo
+	(*CreateStoryRequest)(nil),                 // 186: common.CreateStoryRequest
+	(*GetStoryInfoRequest)(nil),                // 187: common.GetStoryInfoRequest
+	(*RenderStoryRequest)(nil),                 // 188: common.RenderStoryRequest
+	(*UpdateStoryRequest)(nil),                 // 189: common.UpdateStoryRequest
+	(*WatchStoryRequest)(nil),                  // 190: common.WatchStoryRequest
+	(*CreateStoryboardRequest)(nil),            // 191: common.CreateStoryboardRequest
+	(*GetStoryboardRequest)(nil),               // 192: common.GetStoryboardRequest
+	(*RenderStoryboardRequest)(nil),            // 193: common.RenderStoryboardRequest
+	(*GenStoryboardTextRequest)(nil),           // 194: common.GenStoryboardTextRequest
+	(*GenStoryboardImagesRequest)(nil),         // 195: common.GenStoryboardImagesRequest
+	(*GetStoryboardsRequest)(nil),              // 196: common.GetStoryboardsRequest
+	(*DelStoryboardRequest)(nil),               // 197: common.DelStoryboardRequest
+	(*ForkStoryboardRequest)(nil),              // 198: common.ForkStoryboardRequest
+	(*UpdateStoryboardRequest)(nil),            // 199: common.UpdateStoryboardRequest
+	(*LikeStoryboardRequest)(nil),              // 200: common.LikeStoryboardRequest
+	(*UnLikeStoryboardRequest)(nil),            // 201: common.UnLikeStoryboardRequest
+	(*ShareStoryboardRequest)(nil),             // 202: common.ShareStoryboardRequest
+	(*FetchGroupStorysReqeust)(nil),            // 203: common.FetchGroupStorysReqeust
+	(*GetStoryRenderRequest)(nil),              // 204: common.GetStoryRenderRequest
+	(*GetStoryBoardRenderRequest)(nil),         // 205: common.GetStoryBoardRenderRequest
+	(*ContinueRenderStoryRequest)(nil),         // 206: common.ContinueRenderStoryRequest
+	(*RenderStoryRolesRequest)(nil),            // 207: common.RenderStoryRolesRequest
+	(*UpdateStoryRoleRequest)(nil),             // 208: common.UpdateStoryRoleRequest
+	(*RenderStoryRoleDetailRequest)(nil),       // 209: common.RenderStoryRoleDetailRequest
+	(*GetStoryRolesRequest)(nil),               // 210: common.GetStoryRolesRequest
+	(*GetStoryBoardRolesRequest)(nil),          // 211: common.GetStoryBoardRolesRequest
+	(*GetStoryBoardSencesRequest)(nil),         // 212: common.GetStoryBoardSencesRequest
+	(*CreateStoryBoardSenceRequest)(nil),       // 213: common.CreateStoryBoardSenceRequest
+	(*UpdateStoryBoardSenceRequest)(nil),       // 214: common.UpdateStoryBoardSenceRequest
+	(*DeleteStoryBoardSenceRequest)(nil),       // 215: common.DeleteStoryBoardSenceRequest
+	(*RenderStoryBoardSenceRequest)(nil),       // 216: common.RenderStoryBoardSenceRequest
+	(*GetStoryBoardSenceGenerateRequest)(nil),  // 217: common.GetStoryBoardSenceGenerateRequest
+	(*CreateStoryResponse)(nil),                // 218: common.CreateStoryResponse
+	(*GetStoryInfoResponse)(nil),               // 219: common.GetStoryInfoResponse
+	(*RenderStoryResponse)(nil),                // 220: common.RenderStoryResponse
+	(*UpdateStoryResponse)(nil),                // 221: common.UpdateStoryResponse
+	(*WatchStoryResponse)(nil),                 // 222: common.WatchStoryResponse
+	(*CreateStoryboardResponse)(nil),           // 223: common.CreateStoryboardResponse
+	(*GetStoryboardResponse)(nil),              // 224: common.GetStoryboardResponse
+	(*RenderStoryboardResponse)(nil),           // 225: common.RenderStoryboardResponse
+	(*GenStoryboardTextResponse)(nil),          // 226: common.GenStoryboardTextResponse
+	(*GenStoryboardImagesResponse)(nil),        // 227: common.GenStoryboardImagesResponse
+	(*GetStoryboardsResponse)(nil),             // 228: common.GetStoryboardsResponse
+	(*DelStoryboardResponse)(nil),              // 229: common.DelStoryboardResponse
+	(*ForkStoryboardResponse)(nil),             // 230: common.ForkStoryboardResponse
+	(*UpdateStoryboardResponse)(nil),           // 231: common.UpdateStoryboardResponse
+	(*LikeStoryboardResponse)(nil),             // 232: common.LikeStoryboardResponse
+	(*UnLikeStoryboardResponse)(nil),           // 233: common.UnLikeStoryboardResponse
+	(*ShareStoryboardResponse)(nil),            // 234: common.ShareStoryboardResponse
+	(*FetchGroupStorysResponse)(nil),           // 235: common.FetchGroupStorysResponse
+	(*GetStoryRenderResponse)(nil),             // 236: common.GetStoryRenderResponse
+	(*GetStoryBoardRenderResponse)(nil),        // 237: common.GetStoryBoardRenderResponse
+	(*ContinueRenderStoryResponse)(nil),        // 238: common.ContinueRenderStoryResponse
+	(*RenderStoryRolesResponse)(nil),           // 239: common.RenderStoryRolesResponse
+	(*UpdateStoryRoleResponse)(nil),            // 240: common.UpdateStoryRoleResponse
+	(*RenderStoryRoleDetailResponse)(nil),      // 241: common.RenderStoryRoleDetailResponse
+	(*GetStoryRolesResponse)(nil),              // 242: common.GetStoryRolesResponse
+	(*GetStoryBoardRolesResponse)(nil),         // 243: common.GetStoryBoardRolesResponse
+	(*GetStoryBoardSencesResponse)(nil),        // 244: common.GetStoryBoardSencesResponse
+	(*CreateStoryBoardSenceResponse)(nil),      // 245: common.CreateStoryBoardSenceResponse
+	(*UpdateStoryBoardSenceResponse)(nil),      // 246: common.UpdateStoryBoardSenceResponse
+	(*DeleteStoryBoardSenceResponse)(nil),      // 247: common.DeleteStoryBoardSenceResponse
+	(*RenderStoryBoardSenceResponse)(nil),      // 248: common.RenderStoryBoardSenceResponse
+	(*GetStoryBoardSenceGenerateResponse)(nil), // 249: common.GetStoryBoardSenceGenerateResponse
 }
 var file_service_proto_depIdxs = []int32{
 	176, // 0: common.ActiveInfo.user:type_name -> common.UserInfo
@@ -12493,97 +12564,109 @@ var file_service_proto_depIdxs = []int32{
 	135, // 175: common.TeamsAPI.RenderStoryRole:input_type -> common.RenderStoryRoleRequest
 	137, // 176: common.TeamsAPI.LikeStory:input_type -> common.LikeStoryRequest
 	139, // 177: common.TeamsAPI.UnLikeStory:input_type -> common.UnLikeStoryRequest
-	111, // 178: common.TeamsAPI.Explore:output_type -> common.ExploreResponse
-	113, // 179: common.TeamsAPI.Trending:output_type -> common.TrendingResponse
-	107, // 180: common.TeamsAPI.Version:output_type -> common.VersionResponse
-	109, // 181: common.TeamsAPI.About:output_type -> common.AboutResponse
-	3,   // 182: common.TeamsAPI.Login:output_type -> common.LoginResponse
-	5,   // 183: common.TeamsAPI.Logout:output_type -> common.LogoutResponse
-	7,   // 184: common.TeamsAPI.RefreshToken:output_type -> common.RefreshTokenResponse
-	9,   // 185: common.TeamsAPI.Register:output_type -> common.RegisterResponse
-	13,  // 186: common.TeamsAPI.ResetPwd:output_type -> common.ResetPasswordResponse
-	31,  // 187: common.TeamsAPI.UserInit:output_type -> common.UserInitResponse
-	15,  // 188: common.TeamsAPI.UserInfo:output_type -> common.UserInfoResponse
-	17,  // 189: common.TeamsAPI.UpdateUserAvator:output_type -> common.UpdateUserAvatorResponse
-	19,  // 190: common.TeamsAPI.UserWatching:output_type -> common.UserWatchingResponse
-	21,  // 191: common.TeamsAPI.UserGroup:output_type -> common.UserGroupResponse
-	23,  // 192: common.TeamsAPI.UserFollowingGroup:output_type -> common.UserFollowingGroupResponse
-	25,  // 193: common.TeamsAPI.UserUpdate:output_type -> common.UserUpdateResponse
-	27,  // 194: common.TeamsAPI.FetchUserActives:output_type -> common.FetchUserActivesResponse
-	29,  // 195: common.TeamsAPI.SearchUser:output_type -> common.SearchUserResponse
-	75,  // 196: common.TeamsAPI.CreateGroup:output_type -> common.CreateGroupResponse
-	77,  // 197: common.TeamsAPI.GetGroup:output_type -> common.GetGroupResponse
-	79,  // 198: common.TeamsAPI.GetGroupActives:output_type -> common.GetGroupActivesResponse
-	81,  // 199: common.TeamsAPI.UpdateGroupInfo:output_type -> common.UpdateGroupInfoResponse
-	124, // 200: common.TeamsAPI.GetGroupProfile:output_type -> common.GetGroupProfileResponse
-	126, // 201: common.TeamsAPI.UpdateGroupProfile:output_type -> common.UpdateGroupProfileResponse
-	83,  // 202: common.TeamsAPI.DeleteGroup:output_type -> common.DeleteGroupResponse
-	85,  // 203: common.TeamsAPI.FetchGroupMembers:output_type -> common.FetchGroupMembersResponse
-	87,  // 204: common.TeamsAPI.SearchGroup:output_type -> common.SearchGroupResponse
-	89,  // 205: common.TeamsAPI.FetchGroupProjects:output_type -> common.FetchGroupProjectsResponse
-	91,  // 206: common.TeamsAPI.JoinGroup:output_type -> common.JoinGroupResponse
-	93,  // 207: common.TeamsAPI.LeaveGroup:output_type -> common.LeaveGroupResponse
-	33,  // 208: common.TeamsAPI.GetProjectInfo:output_type -> common.GetProjectResponse
-	35,  // 209: common.TeamsAPI.GetProjectList:output_type -> common.GetProjectListResponse
-	37,  // 210: common.TeamsAPI.CreateProject:output_type -> common.CreateProjectResponse
-	115, // 211: common.TeamsAPI.GetProjectMembers:output_type -> common.GetProjectMembersResponse
-	39,  // 212: common.TeamsAPI.UpdateProject:output_type -> common.UpdateProjectResponse
-	41,  // 213: common.TeamsAPI.DeleteProject:output_type -> common.DeleteProjectResponse
-	55,  // 214: common.TeamsAPI.GetProjectProfile:output_type -> common.GetProjectProfileResponse
-	57,  // 215: common.TeamsAPI.UpdateProjectProfile:output_type -> common.UpdateProjectProfileResponse
-	45,  // 216: common.TeamsAPI.WatchProject:output_type -> common.WatchProjectResponse
-	47,  // 217: common.TeamsAPI.UnWatchProject:output_type -> common.UnWatchProjectResponse
-	117, // 218: common.TeamsAPI.GetProjectWatcher:output_type -> common.GetProjectWatcherResponse
-	51,  // 219: common.TeamsAPI.SearchGroupProject:output_type -> common.SearchProjectResponse
-	53,  // 220: common.TeamsAPI.SearchProject:output_type -> common.SearchAllProjectResponse
-	49,  // 221: common.TeamsAPI.ExploreProject:output_type -> common.ExploreProjectsResponse
-	59,  // 222: common.TeamsAPI.GetProjectItems:output_type -> common.GetProjectItemsResponse
-	61,  // 223: common.TeamsAPI.GetGroupItems:output_type -> common.GetGroupItemsResponse
-	63,  // 224: common.TeamsAPI.GetUserItems:output_type -> common.GetUserItemsResponse
-	65,  // 225: common.TeamsAPI.GetItem:output_type -> common.GetItemResponse
-	67,  // 226: common.TeamsAPI.CreateItem:output_type -> common.CreateItemResponse
-	69,  // 227: common.TeamsAPI.UpdateItem:output_type -> common.UpdateItemResponse
-	71,  // 228: common.TeamsAPI.DeleteItem:output_type -> common.DeleteItemResponse
-	73,  // 229: common.TeamsAPI.LikeItem:output_type -> common.LikeItemResponse
-	101, // 230: common.TeamsAPI.CreateComment:output_type -> common.CreateCommentResp
-	103, // 231: common.TeamsAPI.GetItemComment:output_type -> common.GetItemsCommentResp
-	212, // 232: common.TeamsAPI.CreateStory:output_type -> common.CreateStoryResponse
-	213, // 233: common.TeamsAPI.GetStoryInfo:output_type -> common.GetStoryInfoResponse
-	214, // 234: common.TeamsAPI.RenderStory:output_type -> common.RenderStoryResponse
-	215, // 235: common.TeamsAPI.UpdateStory:output_type -> common.UpdateStoryResponse
-	216, // 236: common.TeamsAPI.WatchStory:output_type -> common.WatchStoryResponse
-	217, // 237: common.TeamsAPI.CreateStoryboard:output_type -> common.CreateStoryboardResponse
-	218, // 238: common.TeamsAPI.GetStoryboard:output_type -> common.GetStoryboardResponse
-	219, // 239: common.TeamsAPI.RenderStoryboard:output_type -> common.RenderStoryboardResponse
-	220, // 240: common.TeamsAPI.GenStoryboardText:output_type -> common.GenStoryboardTextResponse
-	221, // 241: common.TeamsAPI.GenStoryboardImages:output_type -> common.GenStoryboardImagesResponse
-	222, // 242: common.TeamsAPI.GetStoryboards:output_type -> common.GetStoryboardsResponse
-	223, // 243: common.TeamsAPI.DelStoryboard:output_type -> common.DelStoryboardResponse
-	224, // 244: common.TeamsAPI.ForkStoryboard:output_type -> common.ForkStoryboardResponse
-	225, // 245: common.TeamsAPI.UpdateStoryboard:output_type -> common.UpdateStoryboardResponse
-	226, // 246: common.TeamsAPI.LikeStoryboard:output_type -> common.LikeStoryboardResponse
-	227, // 247: common.TeamsAPI.UnLikeStoryboard:output_type -> common.UnLikeStoryboardResponse
-	228, // 248: common.TeamsAPI.ShareStoryboard:output_type -> common.ShareStoryboardResponse
-	229, // 249: common.TeamsAPI.FetchGroupStorys:output_type -> common.FetchGroupStorysResponse
-	119, // 250: common.TeamsAPI.UploadImageFile:output_type -> common.UploadImageResponse
-	230, // 251: common.TeamsAPI.GetStoryRender:output_type -> common.GetStoryRenderResponse
-	231, // 252: common.TeamsAPI.GetStoryBoardRender:output_type -> common.GetStoryBoardRenderResponse
-	122, // 253: common.TeamsAPI.GetStoryContributors:output_type -> common.GetStoryContributorsResponse
-	232, // 254: common.TeamsAPI.ContinueRenderStory:output_type -> common.ContinueRenderStoryResponse
-	233, // 255: common.TeamsAPI.RenderStoryRoles:output_type -> common.RenderStoryRolesResponse
-	234, // 256: common.TeamsAPI.UpdateStoryRole:output_type -> common.UpdateStoryRoleResponse
-	235, // 257: common.TeamsAPI.RenderStoryRoleDetail:output_type -> common.RenderStoryRoleDetailResponse
-	236, // 258: common.TeamsAPI.GetStoryRoles:output_type -> common.GetStoryRolesResponse
-	237, // 259: common.TeamsAPI.GetStoryBoardRoles:output_type -> common.GetStoryBoardRolesResponse
-	128, // 260: common.TeamsAPI.GetUserProfile:output_type -> common.GetUserProfileResponse
-	130, // 261: common.TeamsAPI.UpdateUserProfile:output_type -> common.UpdateUserProfileResponse
-	132, // 262: common.TeamsAPI.CreateStoryRole:output_type -> common.CreateStoryRoleResponse
-	134, // 263: common.TeamsAPI.GetStoryRoleDetail:output_type -> common.GetStoryRoleDetailResponse
-	136, // 264: common.TeamsAPI.RenderStoryRole:output_type -> common.RenderStoryRoleResponse
-	138, // 265: common.TeamsAPI.LikeStory:output_type -> common.LikeStoryResponse
-	140, // 266: common.TeamsAPI.UnLikeStory:output_type -> common.UnLikeStoryResponse
-	178, // [178:267] is the sub-list for method output_type
-	89,  // [89:178] is the sub-list for method input_type
+	212, // 178: common.TeamsAPI.GetStoryBoardSences:input_type -> common.GetStoryBoardSencesRequest
+	213, // 179: common.TeamsAPI.CreateStoryBoardSence:input_type -> common.CreateStoryBoardSenceRequest
+	214, // 180: common.TeamsAPI.UpdateStoryBoardSence:input_type -> common.UpdateStoryBoardSenceRequest
+	215, // 181: common.TeamsAPI.DeleteStoryBoardSence:input_type -> common.DeleteStoryBoardSenceRequest
+	216, // 182: common.TeamsAPI.RenderStoryBoardSence:input_type -> common.RenderStoryBoardSenceRequest
+	217, // 183: common.TeamsAPI.GetStoryBoardSenceGenerate:input_type -> common.GetStoryBoardSenceGenerateRequest
+	111, // 184: common.TeamsAPI.Explore:output_type -> common.ExploreResponse
+	113, // 185: common.TeamsAPI.Trending:output_type -> common.TrendingResponse
+	107, // 186: common.TeamsAPI.Version:output_type -> common.VersionResponse
+	109, // 187: common.TeamsAPI.About:output_type -> common.AboutResponse
+	3,   // 188: common.TeamsAPI.Login:output_type -> common.LoginResponse
+	5,   // 189: common.TeamsAPI.Logout:output_type -> common.LogoutResponse
+	7,   // 190: common.TeamsAPI.RefreshToken:output_type -> common.RefreshTokenResponse
+	9,   // 191: common.TeamsAPI.Register:output_type -> common.RegisterResponse
+	13,  // 192: common.TeamsAPI.ResetPwd:output_type -> common.ResetPasswordResponse
+	31,  // 193: common.TeamsAPI.UserInit:output_type -> common.UserInitResponse
+	15,  // 194: common.TeamsAPI.UserInfo:output_type -> common.UserInfoResponse
+	17,  // 195: common.TeamsAPI.UpdateUserAvator:output_type -> common.UpdateUserAvatorResponse
+	19,  // 196: common.TeamsAPI.UserWatching:output_type -> common.UserWatchingResponse
+	21,  // 197: common.TeamsAPI.UserGroup:output_type -> common.UserGroupResponse
+	23,  // 198: common.TeamsAPI.UserFollowingGroup:output_type -> common.UserFollowingGroupResponse
+	25,  // 199: common.TeamsAPI.UserUpdate:output_type -> common.UserUpdateResponse
+	27,  // 200: common.TeamsAPI.FetchUserActives:output_type -> common.FetchUserActivesResponse
+	29,  // 201: common.TeamsAPI.SearchUser:output_type -> common.SearchUserResponse
+	75,  // 202: common.TeamsAPI.CreateGroup:output_type -> common.CreateGroupResponse
+	77,  // 203: common.TeamsAPI.GetGroup:output_type -> common.GetGroupResponse
+	79,  // 204: common.TeamsAPI.GetGroupActives:output_type -> common.GetGroupActivesResponse
+	81,  // 205: common.TeamsAPI.UpdateGroupInfo:output_type -> common.UpdateGroupInfoResponse
+	124, // 206: common.TeamsAPI.GetGroupProfile:output_type -> common.GetGroupProfileResponse
+	126, // 207: common.TeamsAPI.UpdateGroupProfile:output_type -> common.UpdateGroupProfileResponse
+	83,  // 208: common.TeamsAPI.DeleteGroup:output_type -> common.DeleteGroupResponse
+	85,  // 209: common.TeamsAPI.FetchGroupMembers:output_type -> common.FetchGroupMembersResponse
+	87,  // 210: common.TeamsAPI.SearchGroup:output_type -> common.SearchGroupResponse
+	89,  // 211: common.TeamsAPI.FetchGroupProjects:output_type -> common.FetchGroupProjectsResponse
+	91,  // 212: common.TeamsAPI.JoinGroup:output_type -> common.JoinGroupResponse
+	93,  // 213: common.TeamsAPI.LeaveGroup:output_type -> common.LeaveGroupResponse
+	33,  // 214: common.TeamsAPI.GetProjectInfo:output_type -> common.GetProjectResponse
+	35,  // 215: common.TeamsAPI.GetProjectList:output_type -> common.GetProjectListResponse
+	37,  // 216: common.TeamsAPI.CreateProject:output_type -> common.CreateProjectResponse
+	115, // 217: common.TeamsAPI.GetProjectMembers:output_type -> common.GetProjectMembersResponse
+	39,  // 218: common.TeamsAPI.UpdateProject:output_type -> common.UpdateProjectResponse
+	41,  // 219: common.TeamsAPI.DeleteProject:output_type -> common.DeleteProjectResponse
+	55,  // 220: common.TeamsAPI.GetProjectProfile:output_type -> common.GetProjectProfileResponse
+	57,  // 221: common.TeamsAPI.UpdateProjectProfile:output_type -> common.UpdateProjectProfileResponse
+	45,  // 222: common.TeamsAPI.WatchProject:output_type -> common.WatchProjectResponse
+	47,  // 223: common.TeamsAPI.UnWatchProject:output_type -> common.UnWatchProjectResponse
+	117, // 224: common.TeamsAPI.GetProjectWatcher:output_type -> common.GetProjectWatcherResponse
+	51,  // 225: common.TeamsAPI.SearchGroupProject:output_type -> common.SearchProjectResponse
+	53,  // 226: common.TeamsAPI.SearchProject:output_type -> common.SearchAllProjectResponse
+	49,  // 227: common.TeamsAPI.ExploreProject:output_type -> common.ExploreProjectsResponse
+	59,  // 228: common.TeamsAPI.GetProjectItems:output_type -> common.GetProjectItemsResponse
+	61,  // 229: common.TeamsAPI.GetGroupItems:output_type -> common.GetGroupItemsResponse
+	63,  // 230: common.TeamsAPI.GetUserItems:output_type -> common.GetUserItemsResponse
+	65,  // 231: common.TeamsAPI.GetItem:output_type -> common.GetItemResponse
+	67,  // 232: common.TeamsAPI.CreateItem:output_type -> common.CreateItemResponse
+	69,  // 233: common.TeamsAPI.UpdateItem:output_type -> common.UpdateItemResponse
+	71,  // 234: common.TeamsAPI.DeleteItem:output_type -> common.DeleteItemResponse
+	73,  // 235: common.TeamsAPI.LikeItem:output_type -> common.LikeItemResponse
+	101, // 236: common.TeamsAPI.CreateComment:output_type -> common.CreateCommentResp
+	103, // 237: common.TeamsAPI.GetItemComment:output_type -> common.GetItemsCommentResp
+	218, // 238: common.TeamsAPI.CreateStory:output_type -> common.CreateStoryResponse
+	219, // 239: common.TeamsAPI.GetStoryInfo:output_type -> common.GetStoryInfoResponse
+	220, // 240: common.TeamsAPI.RenderStory:output_type -> common.RenderStoryResponse
+	221, // 241: common.TeamsAPI.UpdateStory:output_type -> common.UpdateStoryResponse
+	222, // 242: common.TeamsAPI.WatchStory:output_type -> common.WatchStoryResponse
+	223, // 243: common.TeamsAPI.CreateStoryboard:output_type -> common.CreateStoryboardResponse
+	224, // 244: common.TeamsAPI.GetStoryboard:output_type -> common.GetStoryboardResponse
+	225, // 245: common.TeamsAPI.RenderStoryboard:output_type -> common.RenderStoryboardResponse
+	226, // 246: common.TeamsAPI.GenStoryboardText:output_type -> common.GenStoryboardTextResponse
+	227, // 247: common.TeamsAPI.GenStoryboardImages:output_type -> common.GenStoryboardImagesResponse
+	228, // 248: common.TeamsAPI.GetStoryboards:output_type -> common.GetStoryboardsResponse
+	229, // 249: common.TeamsAPI.DelStoryboard:output_type -> common.DelStoryboardResponse
+	230, // 250: common.TeamsAPI.ForkStoryboard:output_type -> common.ForkStoryboardResponse
+	231, // 251: common.TeamsAPI.UpdateStoryboard:output_type -> common.UpdateStoryboardResponse
+	232, // 252: common.TeamsAPI.LikeStoryboard:output_type -> common.LikeStoryboardResponse
+	233, // 253: common.TeamsAPI.UnLikeStoryboard:output_type -> common.UnLikeStoryboardResponse
+	234, // 254: common.TeamsAPI.ShareStoryboard:output_type -> common.ShareStoryboardResponse
+	235, // 255: common.TeamsAPI.FetchGroupStorys:output_type -> common.FetchGroupStorysResponse
+	119, // 256: common.TeamsAPI.UploadImageFile:output_type -> common.UploadImageResponse
+	236, // 257: common.TeamsAPI.GetStoryRender:output_type -> common.GetStoryRenderResponse
+	237, // 258: common.TeamsAPI.GetStoryBoardRender:output_type -> common.GetStoryBoardRenderResponse
+	122, // 259: common.TeamsAPI.GetStoryContributors:output_type -> common.GetStoryContributorsResponse
+	238, // 260: common.TeamsAPI.ContinueRenderStory:output_type -> common.ContinueRenderStoryResponse
+	239, // 261: common.TeamsAPI.RenderStoryRoles:output_type -> common.RenderStoryRolesResponse
+	240, // 262: common.TeamsAPI.UpdateStoryRole:output_type -> common.UpdateStoryRoleResponse
+	241, // 263: common.TeamsAPI.RenderStoryRoleDetail:output_type -> common.RenderStoryRoleDetailResponse
+	242, // 264: common.TeamsAPI.GetStoryRoles:output_type -> common.GetStoryRolesResponse
+	243, // 265: common.TeamsAPI.GetStoryBoardRoles:output_type -> common.GetStoryBoardRolesResponse
+	128, // 266: common.TeamsAPI.GetUserProfile:output_type -> common.GetUserProfileResponse
+	130, // 267: common.TeamsAPI.UpdateUserProfile:output_type -> common.UpdateUserProfileResponse
+	132, // 268: common.TeamsAPI.CreateStoryRole:output_type -> common.CreateStoryRoleResponse
+	134, // 269: common.TeamsAPI.GetStoryRoleDetail:output_type -> common.GetStoryRoleDetailResponse
+	136, // 270: common.TeamsAPI.RenderStoryRole:output_type -> common.RenderStoryRoleResponse
+	138, // 271: common.TeamsAPI.LikeStory:output_type -> common.LikeStoryResponse
+	140, // 272: common.TeamsAPI.UnLikeStory:output_type -> common.UnLikeStoryResponse
+	244, // 273: common.TeamsAPI.GetStoryBoardSences:output_type -> common.GetStoryBoardSencesResponse
+	245, // 274: common.TeamsAPI.CreateStoryBoardSence:output_type -> common.CreateStoryBoardSenceResponse
+	246, // 275: common.TeamsAPI.UpdateStoryBoardSence:output_type -> common.UpdateStoryBoardSenceResponse
+	247, // 276: common.TeamsAPI.DeleteStoryBoardSence:output_type -> common.DeleteStoryBoardSenceResponse
+	248, // 277: common.TeamsAPI.RenderStoryBoardSence:output_type -> common.RenderStoryBoardSenceResponse
+	249, // 278: common.TeamsAPI.GetStoryBoardSenceGenerate:output_type -> common.GetStoryBoardSenceGenerateResponse
+	184, // [184:279] is the sub-list for method output_type
+	89,  // [89:184] is the sub-list for method input_type
 	89,  // [89:89] is the sub-list for extension type_name
 	89,  // [89:89] is the sub-list for extension extendee
 	0,   // [0:89] is the sub-list for field type_name

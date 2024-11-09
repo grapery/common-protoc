@@ -543,6 +543,86 @@ message CreateStoryRequest {
     int64 Mtime = 16;
   }
 
+  message StoryBoardSence{
+    int64 sence_id = 1;
+    string content = 2;
+    repeated string character_ids = 3;
+    int64 creator_id = 4;
+    int64 story_id = 5;
+    int64 board_id = 6;
+    string image_prompts = 7;
+    string audio_prompts = 8;
+    string video_prompts = 9;
+    int32 is_generating = 10;
+    string gen_result = 11;
+    int32 status = 12;
+    int64 Ctime = 13;
+    int64 Mtime = 14;
+  }
+
+  message GetStoryBoardSencesRequest{
+    int64 board_id = 1;
+  }
+
+  message GetStoryBoardSencesResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      repeated StoryBoardSence list = 1;
+    }Data data = 3;
+  }
+
+  message CreateStoryBoardSenceRequest{
+    StoryBoardSence sence = 1;
+  }
+
+  message CreateStoryBoardSenceResponse{
+    int32 code = 1;
+    string message = 2;
+    message Data {
+      int64 sence_id = 1;
+    }Data data = 3;
+  }
+
+  message UpdateStoryBoardSenceRequest{
+    StoryBoardSence sence = 1;
+  }
+
+  message UpdateStoryBoardSenceResponse{
+    int32 code = 1;
+    string message = 2;
+  }
+
+  message DeleteStoryBoardSenceRequest{
+    int64 sence_id = 1;
+  }
+
+  message DeleteStoryBoardSenceResponse{
+    int32 code = 1;
+    string message = 2;
+  }
+
+  message RenderStoryBoardSenceRequest{
+    int64 sence_id = 1;
+    int64 user_id = 2;
+    int32 board_id = 3;
+  }
+
+  message RenderStoryBoardSenceResponse{
+    int32 code = 1;
+    string message = 2;
+  }
+
+  message GetStoryBoardSenceGenerateRequest{
+    int64 sence_id = 1;
+  }
+
+  message GetStoryBoardSenceGenerateResponse{
+    int32 code = 1;
+    string message = 2;
+    int32 generating_stage = 3;
+  }
+
   
 
 

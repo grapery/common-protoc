@@ -1922,6 +1922,270 @@ public struct Common_StoryRoleInfo: Sendable {
   public init() {}
 }
 
+public struct Common_StoryBoardSence: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var senceID: Int64 = 0
+
+  public var content: String = String()
+
+  public var characterIds: [String] = []
+
+  public var creatorID: Int64 = 0
+
+  public var storyID: Int64 = 0
+
+  public var boardID: Int64 = 0
+
+  public var imagePrompts: String = String()
+
+  public var audioPrompts: String = String()
+
+  public var videoPrompts: String = String()
+
+  public var isGenerating: Int32 = 0
+
+  public var genResult: String = String()
+
+  public var status: Int32 = 0
+
+  public var ctime: Int64 = 0
+
+  public var mtime: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryBoardSencesRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var boardID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryBoardSencesResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var data: Common_GetStoryBoardSencesResponse.DataMessage {
+    get {return _data ?? Common_GetStoryBoardSencesResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public struct DataMessage: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var list: [Common_StoryBoardSence] = []
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
+  public init() {}
+
+  fileprivate var _data: Common_GetStoryBoardSencesResponse.DataMessage? = nil
+}
+
+public struct Common_CreateStoryBoardSenceRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var sence: Common_StoryBoardSence {
+    get {return _sence ?? Common_StoryBoardSence()}
+    set {_sence = newValue}
+  }
+  /// Returns true if `sence` has been explicitly set.
+  public var hasSence: Bool {return self._sence != nil}
+  /// Clears the value of `sence`. Subsequent reads from it will return its default value.
+  public mutating func clearSence() {self._sence = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _sence: Common_StoryBoardSence? = nil
+}
+
+public struct Common_CreateStoryBoardSenceResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var data: Common_CreateStoryBoardSenceResponse.DataMessage {
+    get {return _data ?? Common_CreateStoryBoardSenceResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public struct DataMessage: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var senceID: Int64 = 0
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
+  public init() {}
+
+  fileprivate var _data: Common_CreateStoryBoardSenceResponse.DataMessage? = nil
+}
+
+public struct Common_UpdateStoryBoardSenceRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var sence: Common_StoryBoardSence {
+    get {return _sence ?? Common_StoryBoardSence()}
+    set {_sence = newValue}
+  }
+  /// Returns true if `sence` has been explicitly set.
+  public var hasSence: Bool {return self._sence != nil}
+  /// Clears the value of `sence`. Subsequent reads from it will return its default value.
+  public mutating func clearSence() {self._sence = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _sence: Common_StoryBoardSence? = nil
+}
+
+public struct Common_UpdateStoryBoardSenceResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_DeleteStoryBoardSenceRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var senceID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_DeleteStoryBoardSenceResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_RenderStoryBoardSenceRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var senceID: Int64 = 0
+
+  public var userID: Int64 = 0
+
+  public var boardID: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_RenderStoryBoardSenceResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryBoardSenceGenerateRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var senceID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryBoardSenceGenerateResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var generatingStage: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
@@ -6181,6 +6445,646 @@ extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.creatorID != rhs.creatorID {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryBoardSence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryBoardSence"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sence_id"),
+    2: .same(proto: "content"),
+    3: .standard(proto: "character_ids"),
+    4: .standard(proto: "creator_id"),
+    5: .standard(proto: "story_id"),
+    6: .standard(proto: "board_id"),
+    7: .standard(proto: "image_prompts"),
+    8: .standard(proto: "audio_prompts"),
+    9: .standard(proto: "video_prompts"),
+    10: .standard(proto: "is_generating"),
+    11: .standard(proto: "gen_result"),
+    12: .same(proto: "status"),
+    13: .same(proto: "Ctime"),
+    14: .same(proto: "Mtime"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.characterIds) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.imagePrompts) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.audioPrompts) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.videoPrompts) }()
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self.isGenerating) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.genResult) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 13: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 14: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
+    }
+    if !self.characterIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.characterIds, fieldNumber: 3)
+    }
+    if self.creatorID != 0 {
+      try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 4)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 5)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 6)
+    }
+    if !self.imagePrompts.isEmpty {
+      try visitor.visitSingularStringField(value: self.imagePrompts, fieldNumber: 7)
+    }
+    if !self.audioPrompts.isEmpty {
+      try visitor.visitSingularStringField(value: self.audioPrompts, fieldNumber: 8)
+    }
+    if !self.videoPrompts.isEmpty {
+      try visitor.visitSingularStringField(value: self.videoPrompts, fieldNumber: 9)
+    }
+    if self.isGenerating != 0 {
+      try visitor.visitSingularInt32Field(value: self.isGenerating, fieldNumber: 10)
+    }
+    if !self.genResult.isEmpty {
+      try visitor.visitSingularStringField(value: self.genResult, fieldNumber: 11)
+    }
+    if self.status != 0 {
+      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 12)
+    }
+    if self.ctime != 0 {
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 13)
+    }
+    if self.mtime != 0 {
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 14)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryBoardSence, rhs: Common_StoryBoardSence) -> Bool {
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.characterIds != rhs.characterIds {return false}
+    if lhs.creatorID != rhs.creatorID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.imagePrompts != rhs.imagePrompts {return false}
+    if lhs.audioPrompts != rhs.audioPrompts {return false}
+    if lhs.videoPrompts != rhs.videoPrompts {return false}
+    if lhs.isGenerating != rhs.isGenerating {return false}
+    if lhs.genResult != rhs.genResult {return false}
+    if lhs.status != rhs.status {return false}
+    if lhs.ctime != rhs.ctime {return false}
+    if lhs.mtime != rhs.mtime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardSencesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSencesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSencesRequest, rhs: Common_GetStoryBoardSencesRequest) -> Bool {
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardSencesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSencesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSencesResponse, rhs: Common_GetStoryBoardSencesResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardSencesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_GetStoryBoardSencesResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "list"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.list.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSencesResponse.DataMessage, rhs: Common_GetStoryBoardSencesResponse.DataMessage) -> Bool {
+    if lhs.list != rhs.list {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CreateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardSenceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "sence"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._sence) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._sence {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CreateStoryBoardSenceRequest, rhs: Common_CreateStoryBoardSenceRequest) -> Bool {
+    if lhs._sence != rhs._sence {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CreateStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardSenceResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CreateStoryBoardSenceResponse, rhs: Common_CreateStoryBoardSenceResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CreateStoryBoardSenceResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_CreateStoryBoardSenceResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sence_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CreateStoryBoardSenceResponse.DataMessage, rhs: Common_CreateStoryBoardSenceResponse.DataMessage) -> Bool {
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryBoardSenceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "sence"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._sence) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._sence {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryBoardSenceRequest, rhs: Common_UpdateStoryBoardSenceRequest) -> Bool {
+    if lhs._sence != rhs._sence {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryBoardSenceResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryBoardSenceResponse, rhs: Common_UpdateStoryBoardSenceResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardSenceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sence_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_DeleteStoryBoardSenceRequest, rhs: Common_DeleteStoryBoardSenceRequest) -> Bool {
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_DeleteStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardSenceResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_DeleteStoryBoardSenceResponse, rhs: Common_DeleteStoryBoardSenceResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RenderStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryBoardSenceRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sence_id"),
+    2: .standard(proto: "user_id"),
+    3: .standard(proto: "board_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.boardID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt32Field(value: self.boardID, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryBoardSenceRequest, rhs: Common_RenderStoryBoardSenceRequest) -> Bool {
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RenderStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryBoardSenceResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryBoardSenceResponse, rhs: Common_RenderStoryBoardSenceResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardSenceGenerateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSenceGenerateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sence_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSenceGenerateRequest, rhs: Common_GetStoryBoardSenceGenerateRequest) -> Bool {
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryBoardSenceGenerateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSenceGenerateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .standard(proto: "generating_stage"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.generatingStage) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if self.generatingStage != 0 {
+      try visitor.visitSingularInt32Field(value: self.generatingStage, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryBoardSenceGenerateResponse, rhs: Common_GetStoryBoardSenceGenerateResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.generatingStage != rhs.generatingStage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -1540,6 +1540,49 @@ service TeamsAPI {
     };
   }
 
+  // 获取故事板场景
+  rpc GetStoryBoardSences(GetStoryBoardSencesRequest) returns (GetStoryBoardSencesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardSences"
+      body : "*"
+    };
+  }
+  // 创建故事板场景
+  rpc CreateStoryBoardSence(CreateStoryBoardSenceRequest) returns (CreateStoryBoardSenceResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryBoardSence"
+      body : "*"
+    };
+  }
+  // 更新故事板场景
+  rpc UpdateStoryBoardSence(UpdateStoryBoardSenceRequest) returns (UpdateStoryBoardSenceResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryBoardSence"
+      body : "*"
+    };
+  }
+  // 删除故事板场景
+  rpc DeleteStoryBoardSence(DeleteStoryBoardSenceRequest) returns (DeleteStoryBoardSenceResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DeleteStoryBoardSence"
+      body : "*"
+    };
+  }
+  // 渲染故事板场景
+  rpc RenderStoryBoardSence(RenderStoryBoardSenceRequest) returns (RenderStoryBoardSenceResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RenderStoryBoardSence"
+      body : "*"
+    };
+  }
+  // 获取故事板场景生成状态
+  rpc GetStoryBoardSenceGenerate(GetStoryBoardSenceGenerateRequest) returns (GetStoryBoardSenceGenerateResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardSenceGenerate"
+      body : "*"
+    };
+  }
+
 }
 
 message GetUserProfileRequest {
