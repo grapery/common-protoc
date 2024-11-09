@@ -311,7 +311,7 @@ type TeamsAPIClient interface {
 	// 渲染故事板指定场景
 	RenderStoryBoardSence(ctx context.Context, in *RenderStoryBoardSenceRequest, opts ...grpc.CallOption) (*RenderStoryBoardSenceResponse, error)
 	// 渲染故事板的所有场景
-	RenderStoryBoardSences(ctx context.Context, in *RenderStoryBoardSenceRequest, opts ...grpc.CallOption) (*RenderStoryBoardSenceResponse, error)
+	RenderStoryBoardSences(ctx context.Context, in *RenderStoryBoardSencesRequest, opts ...grpc.CallOption) (*RenderStoryBoardSencesResponse, error)
 	// 获取故事板场景生成状态
 	GetStoryBoardSenceGenerate(ctx context.Context, in *GetStoryBoardSenceGenerateRequest, opts ...grpc.CallOption) (*GetStoryBoardSenceGenerateResponse, error)
 	// 获取故事板生成状态
@@ -1172,8 +1172,8 @@ func (c *teamsAPIClient) RenderStoryBoardSence(ctx context.Context, in *RenderSt
 	return out, nil
 }
 
-func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, in *RenderStoryBoardSenceRequest, opts ...grpc.CallOption) (*RenderStoryBoardSenceResponse, error) {
-	out := new(RenderStoryBoardSenceResponse)
+func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, in *RenderStoryBoardSencesRequest, opts ...grpc.CallOption) (*RenderStoryBoardSencesResponse, error) {
+	out := new(RenderStoryBoardSencesResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_RenderStoryBoardSences_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1392,7 +1392,7 @@ type TeamsAPIServer interface {
 	// 渲染故事板指定场景
 	RenderStoryBoardSence(context.Context, *RenderStoryBoardSenceRequest) (*RenderStoryBoardSenceResponse, error)
 	// 渲染故事板的所有场景
-	RenderStoryBoardSences(context.Context, *RenderStoryBoardSenceRequest) (*RenderStoryBoardSenceResponse, error)
+	RenderStoryBoardSences(context.Context, *RenderStoryBoardSencesRequest) (*RenderStoryBoardSencesResponse, error)
 	// 获取故事板场景生成状态
 	GetStoryBoardSenceGenerate(context.Context, *GetStoryBoardSenceGenerateRequest) (*GetStoryBoardSenceGenerateResponse, error)
 	// 获取故事板生成状态
@@ -1686,7 +1686,7 @@ func (UnimplementedTeamsAPIServer) DeleteStoryBoardSence(context.Context, *Delet
 func (UnimplementedTeamsAPIServer) RenderStoryBoardSence(context.Context, *RenderStoryBoardSenceRequest) (*RenderStoryBoardSenceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryBoardSence not implemented")
 }
-func (UnimplementedTeamsAPIServer) RenderStoryBoardSences(context.Context, *RenderStoryBoardSenceRequest) (*RenderStoryBoardSenceResponse, error) {
+func (UnimplementedTeamsAPIServer) RenderStoryBoardSences(context.Context, *RenderStoryBoardSencesRequest) (*RenderStoryBoardSencesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryBoardSences not implemented")
 }
 func (UnimplementedTeamsAPIServer) GetStoryBoardSenceGenerate(context.Context, *GetStoryBoardSenceGenerateRequest) (*GetStoryBoardSenceGenerateResponse, error) {
@@ -3401,7 +3401,7 @@ func _TeamsAPI_RenderStoryBoardSence_Handler(srv interface{}, ctx context.Contex
 }
 
 func _TeamsAPI_RenderStoryBoardSences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RenderStoryBoardSenceRequest)
+	in := new(RenderStoryBoardSencesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3413,7 +3413,7 @@ func _TeamsAPI_RenderStoryBoardSences_Handler(srv interface{}, ctx context.Conte
 		FullMethod: TeamsAPI_RenderStoryBoardSences_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).RenderStoryBoardSences(ctx, req.(*RenderStoryBoardSenceRequest))
+		return srv.(TeamsAPIServer).RenderStoryBoardSences(ctx, req.(*RenderStoryBoardSencesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

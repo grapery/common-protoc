@@ -1479,7 +1479,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/RenderStoryBoardSenceRequest'
+                            $ref: '#/components/schemas/RenderStoryBoardSencesRequest'
                 required: true
             responses:
                 "200":
@@ -1487,7 +1487,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/RenderStoryBoardSenceResponse'
+                                $ref: '#/components/schemas/RenderStoryBoardSencesResponse'
                 default:
                     description: Default error response
                     content:
@@ -4118,6 +4118,29 @@ components:
                     format: int32
                 data:
                     $ref: '#/components/schemas/StoryBoardSence'
+        RenderStoryBoardSencesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                boardId:
+                    type: integer
+                    format: int32
+        RenderStoryBoardSencesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                generatingStage:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardSence'
         RenderStoryDetail:
             type: object
             properties:

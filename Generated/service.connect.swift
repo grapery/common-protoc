@@ -763,11 +763,11 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 渲染故事板的所有场景
     @discardableResult
-    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事板的所有场景
     @available(iOS 13, *)
-    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse>
+    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSencesResponse>
 
     /// 获取故事板场景生成状态
     @discardableResult
@@ -1735,12 +1735,12 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse> {
+    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryBoardSencesResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 

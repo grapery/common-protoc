@@ -5922,7 +5922,7 @@ user ,group .project.item
 | UpdateStoryBoardSence | [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest) | [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse) | 更新故事板场景 |
 | DeleteStoryBoardSence | [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest) | [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse) | 删除故事板场景 |
 | RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板指定场景 |
-| RenderStoryBoardSences | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板的所有场景 |
+| RenderStoryBoardSences | [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest) | [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse) | 渲染故事板的所有场景 |
 | GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
 | GetStoryBoardGenerate | [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest) | [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse) | 获取故事板生成状态 |
 

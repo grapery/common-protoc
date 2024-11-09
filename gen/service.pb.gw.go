@@ -3182,7 +3182,7 @@ func local_request_TeamsAPI_RenderStoryBoardSence_0(ctx context.Context, marshal
 }
 
 func request_TeamsAPI_RenderStoryBoardSences_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RenderStoryBoardSenceRequest
+	var protoReq RenderStoryBoardSencesRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -3199,7 +3199,7 @@ func request_TeamsAPI_RenderStoryBoardSences_0(ctx context.Context, marshaler ru
 }
 
 func local_request_TeamsAPI_RenderStoryBoardSences_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RenderStoryBoardSenceRequest
+	var protoReq RenderStoryBoardSencesRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

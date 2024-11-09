@@ -1577,7 +1577,7 @@ service TeamsAPI {
   }
   
   // 渲染故事板的所有场景
-  rpc RenderStoryBoardSences(RenderStoryBoardSenceRequest) returns (RenderStoryBoardSenceResponse) {
+  rpc RenderStoryBoardSences(RenderStoryBoardSencesRequest) returns (RenderStoryBoardSencesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryBoardSences"
       body : "*"

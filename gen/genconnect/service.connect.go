@@ -463,7 +463,7 @@ type TeamsAPIClient interface {
 	// 渲染故事板指定场景
 	RenderStoryBoardSence(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
 	// 渲染故事板的所有场景
-	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
+	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error)
 	// 获取故事板场景生成状态
 	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// 获取故事板生成状态
@@ -950,7 +950,7 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIRenderStoryBoardSenceProcedure,
 			opts...,
 		),
-		renderStoryBoardSences: connect.NewClient[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse](
+		renderStoryBoardSences: connect.NewClient[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryBoardSencesProcedure,
 			opts...,
@@ -1064,7 +1064,7 @@ type teamsAPIClient struct {
 	updateStoryBoardSence      *connect.Client[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse]
 	deleteStoryBoardSence      *connect.Client[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse]
 	renderStoryBoardSence      *connect.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
-	renderStoryBoardSences     *connect.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
+	renderStoryBoardSences     *connect.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
 	getStoryBoardSenceGenerate *connect.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
 	getStoryBoardGenerate      *connect.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
 }
@@ -1540,7 +1540,7 @@ func (c *teamsAPIClient) RenderStoryBoardSence(ctx context.Context, req *connect
 }
 
 // RenderStoryBoardSences calls common.TeamsAPI.RenderStoryBoardSences.
-func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, req *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error) {
+func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, req *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error) {
 	return c.renderStoryBoardSences.CallUnary(ctx, req)
 }
 
@@ -1745,7 +1745,7 @@ type TeamsAPIHandler interface {
 	// 渲染故事板指定场景
 	RenderStoryBoardSence(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
 	// 渲染故事板的所有场景
-	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
+	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error)
 	// 获取故事板场景生成状态
 	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// 获取故事板生成状态
@@ -2824,7 +2824,7 @@ func (UnimplementedTeamsAPIHandler) RenderStoryBoardSence(context.Context, *conn
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryBoardSence is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error) {
+func (UnimplementedTeamsAPIHandler) RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryBoardSences is not implemented"))
 }
 
