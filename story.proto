@@ -409,8 +409,9 @@ message CreateStoryRequest {
 
   message FetchGroupStorysReqeust{  
     int64 group_id = 1;
-    int32 page = 2;
-    int32 page_size = 3;
+    int64 user_id = 2;
+    int32 page = 3;
+    int32 page_size = 4;
   }
 
   message FetchGroupStorysResponse{
@@ -425,6 +426,7 @@ message CreateStoryRequest {
     int64 story_id = 1;
     int32 render_status = 2;
     int32 render_type = 3;
+    int64 user_id = 4;
   }
 
   message GetStoryRenderResponse{
@@ -487,6 +489,7 @@ message CreateStoryRequest {
     StoryRole role = 2;
     string prompt = 3;
     string background = 4;
+    int64 user_id = 5;
   }
 
   message RenderStoryRoleDetailResponse{
@@ -497,6 +500,7 @@ message CreateStoryRequest {
 
   message UpdateStoryRoleRequest{
     StoryRole role = 1;
+    int64 user_id = 2;
   }
 
   message UpdateStoryRoleResponse{
@@ -506,6 +510,7 @@ message CreateStoryRequest {
 
   message GetStoryRolesRequest{
     int64 story_id = 1;
+    int64 user_id = 2;
   }
 
   message GetStoryRolesResponse{
@@ -518,6 +523,7 @@ message CreateStoryRequest {
 
   message GetStoryBoardRolesRequest{
     int64 board_id = 1;
+    int64 user_id = 2;
   }
 
   message GetStoryBoardRolesResponse{
@@ -562,6 +568,7 @@ message CreateStoryRequest {
 
   message GetStoryBoardSencesRequest{
     int64 board_id = 1;
+    int64 user_id = 2;
   }
 
   message GetStoryBoardSencesResponse{
@@ -574,6 +581,7 @@ message CreateStoryRequest {
 
   message CreateStoryBoardSenceRequest{
     StoryBoardSence sence = 1;
+    int64 user_id = 2;
   }
 
   message CreateStoryBoardSenceResponse{
@@ -586,6 +594,7 @@ message CreateStoryRequest {
 
   message UpdateStoryBoardSenceRequest{
     StoryBoardSence sence = 1;
+    int64 user_id = 2;
   }
 
   message UpdateStoryBoardSenceResponse{
@@ -595,6 +604,7 @@ message CreateStoryRequest {
 
   message DeleteStoryBoardSenceRequest{
     int64 sence_id = 1;
+    int64 user_id = 2;
   }
 
   message DeleteStoryBoardSenceResponse{
@@ -629,6 +639,7 @@ message CreateStoryRequest {
 
   message GetStoryBoardSenceGenerateRequest{
     int64 sence_id = 1;
+    int64 user_id = 2;
   }
 
   message GetStoryBoardSenceGenerateResponse{
@@ -640,6 +651,7 @@ message CreateStoryRequest {
 
   message GetStoryBoardGenerateRequest{
     int64 board_id = 1;
+    int64 user_id = 2;
   }
 
   message GetStoryBoardGenerateResponse{

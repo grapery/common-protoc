@@ -1215,6 +1215,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1402,6 +1403,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1433,6 +1435,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | page | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
 
@@ -1613,6 +1616,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1695,6 +1699,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1742,6 +1747,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1775,6 +1781,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1871,6 +1878,7 @@
 | story_id | [int64](#int64) |  |  |
 | render_status | [int32](#int32) |  |  |
 | render_type | [int32](#int32) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -1918,6 +1926,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -2264,6 +2273,7 @@
 | role | [StoryRole](#common-StoryRole) |  |  |
 | prompt | [string](#string) |  |  |
 | background | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -2749,6 +2759,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -2835,6 +2846,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | role | [StoryRole](#common-StoryRole) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 

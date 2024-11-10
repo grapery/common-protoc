@@ -1451,6 +1451,8 @@ public struct Common_FetchGroupStorysReqeust: Sendable {
 
   public var groupID: Int64 = 0
 
+  public var userID: Int64 = 0
+
   public var page: Int32 = 0
 
   public var pageSize: Int32 = 0
@@ -1507,6 +1509,8 @@ public struct Common_GetStoryRenderRequest: Sendable {
   public var renderStatus: Int32 = 0
 
   public var renderType: Int32 = 0
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1723,6 +1727,8 @@ public struct Common_RenderStoryRoleDetailRequest: Sendable {
 
   public var background: String = String()
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1769,6 +1775,8 @@ public struct Common_UpdateStoryRoleRequest: Sendable {
   /// Clears the value of `role`. Subsequent reads from it will return its default value.
   public mutating func clearRole() {self._role = nil}
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1796,6 +1804,8 @@ public struct Common_GetStoryRolesRequest: Sendable {
   // methods supported on all messages.
 
   public var storyID: Int64 = 0
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1845,6 +1855,8 @@ public struct Common_GetStoryBoardRolesRequest: Sendable {
   // methods supported on all messages.
 
   public var boardID: Int64 = 0
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1967,6 +1979,8 @@ public struct Common_GetStoryBoardSencesRequest: Sendable {
 
   public var boardID: Int64 = 0
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2022,6 +2036,8 @@ public struct Common_CreateStoryBoardSenceRequest: Sendable {
   public var hasSence: Bool {return self._sence != nil}
   /// Clears the value of `sence`. Subsequent reads from it will return its default value.
   public mutating func clearSence() {self._sence = nil}
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2081,6 +2097,8 @@ public struct Common_UpdateStoryBoardSenceRequest: Sendable {
   /// Clears the value of `sence`. Subsequent reads from it will return its default value.
   public mutating func clearSence() {self._sence = nil}
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2108,6 +2126,8 @@ public struct Common_DeleteStoryBoardSenceRequest: Sendable {
   // methods supported on all messages.
 
   public var senceID: Int64 = 0
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2219,6 +2239,8 @@ public struct Common_GetStoryBoardSenceGenerateRequest: Sendable {
 
   public var senceID: Int64 = 0
 
+  public var userID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2266,6 +2288,8 @@ public struct Common_GetStoryBoardGenerateRequest: Sendable {
   // methods supported on all messages.
 
   public var boardID: Int64 = 0
+
+  public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5450,8 +5474,9 @@ extension Common_FetchGroupStorysReqeust: SwiftProtobuf.Message, SwiftProtobuf._
   public static let protoMessageName: String = _protobuf_package + ".FetchGroupStorysReqeust"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
-    2: .same(proto: "page"),
-    3: .standard(proto: "page_size"),
+    2: .standard(proto: "user_id"),
+    3: .same(proto: "page"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5461,8 +5486,9 @@ extension Common_FetchGroupStorysReqeust: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.page) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.page) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -5472,17 +5498,21 @@ extension Common_FetchGroupStorysReqeust: SwiftProtobuf.Message, SwiftProtobuf._
     if self.groupID != 0 {
       try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     if self.page != 0 {
-      try visitor.visitSingularInt32Field(value: self.page, fieldNumber: 2)
+      try visitor.visitSingularInt32Field(value: self.page, fieldNumber: 3)
     }
     if self.pageSize != 0 {
-      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_FetchGroupStorysReqeust, rhs: Common_FetchGroupStorysReqeust) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.page != rhs.page {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -5576,6 +5606,7 @@ extension Common_GetStoryRenderRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     1: .standard(proto: "story_id"),
     2: .standard(proto: "render_status"),
     3: .standard(proto: "render_type"),
+    4: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5587,6 +5618,7 @@ extension Common_GetStoryRenderRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.renderStatus) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.renderType) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -5602,6 +5634,9 @@ extension Common_GetStoryRenderRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.renderType != 0 {
       try visitor.visitSingularInt32Field(value: self.renderType, fieldNumber: 3)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5609,6 +5644,7 @@ extension Common_GetStoryRenderRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.storyID != rhs.storyID {return false}
     if lhs.renderStatus != rhs.renderStatus {return false}
     if lhs.renderType != rhs.renderType {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6063,6 +6099,7 @@ extension Common_RenderStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     2: .same(proto: "role"),
     3: .same(proto: "prompt"),
     4: .same(proto: "background"),
+    5: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6075,6 +6112,7 @@ extension Common_RenderStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
       case 2: try { try decoder.decodeSingularMessageField(value: &self._role) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.background) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6097,6 +6135,9 @@ extension Common_RenderStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     if !self.background.isEmpty {
       try visitor.visitSingularStringField(value: self.background, fieldNumber: 4)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -6105,6 +6146,7 @@ extension Common_RenderStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     if lhs._role != rhs._role {return false}
     if lhs.prompt != rhs.prompt {return false}
     if lhs.background != rhs.background {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6162,6 +6204,7 @@ extension Common_UpdateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "role"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6171,6 +6214,7 @@ extension Common_UpdateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._role) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6184,11 +6228,15 @@ extension Common_UpdateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try { if let v = self._role {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateStoryRoleRequest, rhs: Common_UpdateStoryRoleRequest) -> Bool {
     if lhs._role != rhs._role {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6236,6 +6284,7 @@ extension Common_GetStoryRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRolesRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "story_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6245,6 +6294,7 @@ extension Common_GetStoryRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6254,11 +6304,15 @@ extension Common_GetStoryRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.storyID != 0 {
       try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryRolesRequest, rhs: Common_GetStoryRolesRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6348,6 +6402,7 @@ extension Common_GetStoryBoardRolesRequest: SwiftProtobuf.Message, SwiftProtobuf
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardRolesRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "board_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6357,6 +6412,7 @@ extension Common_GetStoryBoardRolesRequest: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6366,11 +6422,15 @@ extension Common_GetStoryBoardRolesRequest: SwiftProtobuf.Message, SwiftProtobuf
     if self.boardID != 0 {
       try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryBoardRolesRequest, rhs: Common_GetStoryBoardRolesRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6668,6 +6728,7 @@ extension Common_GetStoryBoardSencesRequest: SwiftProtobuf.Message, SwiftProtobu
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSencesRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "board_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6677,6 +6738,7 @@ extension Common_GetStoryBoardSencesRequest: SwiftProtobuf.Message, SwiftProtobu
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6686,11 +6748,15 @@ extension Common_GetStoryBoardSencesRequest: SwiftProtobuf.Message, SwiftProtobu
     if self.boardID != 0 {
       try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryBoardSencesRequest, rhs: Common_GetStoryBoardSencesRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6780,6 +6846,7 @@ extension Common_CreateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardSenceRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sence"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6789,6 +6856,7 @@ extension Common_CreateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._sence) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6802,11 +6870,15 @@ extension Common_CreateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
     try { if let v = self._sence {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_CreateStoryBoardSenceRequest, rhs: Common_CreateStoryBoardSenceRequest) -> Bool {
     if lhs._sence != rhs._sence {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6896,6 +6968,7 @@ extension Common_UpdateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryBoardSenceRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sence"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6905,6 +6978,7 @@ extension Common_UpdateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._sence) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6918,11 +6992,15 @@ extension Common_UpdateStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
     try { if let v = self._sence {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateStoryBoardSenceRequest, rhs: Common_UpdateStoryBoardSenceRequest) -> Bool {
     if lhs._sence != rhs._sence {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6970,6 +7048,7 @@ extension Common_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardSenceRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sence_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6979,6 +7058,7 @@ extension Common_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -6988,11 +7068,15 @@ extension Common_DeleteStoryBoardSenceRequest: SwiftProtobuf.Message, SwiftProto
     if self.senceID != 0 {
       try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_DeleteStoryBoardSenceRequest, rhs: Common_DeleteStoryBoardSenceRequest) -> Bool {
     if lhs.senceID != rhs.senceID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -7272,6 +7356,7 @@ extension Common_GetStoryBoardSenceGenerateRequest: SwiftProtobuf.Message, Swift
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardSenceGenerateRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sence_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7281,6 +7366,7 @@ extension Common_GetStoryBoardSenceGenerateRequest: SwiftProtobuf.Message, Swift
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -7290,11 +7376,15 @@ extension Common_GetStoryBoardSenceGenerateRequest: SwiftProtobuf.Message, Swift
     if self.senceID != 0 {
       try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryBoardSenceGenerateRequest, rhs: Common_GetStoryBoardSenceGenerateRequest) -> Bool {
     if lhs.senceID != rhs.senceID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -7404,6 +7494,7 @@ extension Common_GetStoryBoardGenerateRequest: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardGenerateRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "board_id"),
+    2: .standard(proto: "user_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7413,6 +7504,7 @@ extension Common_GetStoryBoardGenerateRequest: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       default: break
       }
     }
@@ -7422,11 +7514,15 @@ extension Common_GetStoryBoardGenerateRequest: SwiftProtobuf.Message, SwiftProto
     if self.boardID != 0 {
       try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryBoardGenerateRequest, rhs: Common_GetStoryBoardGenerateRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

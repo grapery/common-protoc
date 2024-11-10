@@ -2611,6 +2611,8 @@ components:
             properties:
                 sence:
                     $ref: '#/components/schemas/StoryBoardSence'
+                userId:
+                    type: string
         CreateStoryBoardSenceResponse:
             type: object
             properties:
@@ -2800,6 +2802,8 @@ components:
             properties:
                 senceId:
                     type: string
+                userId:
+                    type: string
         DeleteStoryBoardSenceResponse:
             type: object
             properties:
@@ -2909,6 +2913,8 @@ components:
             type: object
             properties:
                 groupId:
+                    type: string
+                userId:
                     type: string
                 page:
                     type: integer
@@ -3380,6 +3386,8 @@ components:
             properties:
                 boardId:
                     type: string
+                userId:
+                    type: string
         GetStoryBoardGenerateResponse:
             type: object
             properties:
@@ -3428,6 +3436,8 @@ components:
             properties:
                 boardId:
                     type: string
+                userId:
+                    type: string
         GetStoryBoardRolesResponse:
             type: object
             properties:
@@ -3450,6 +3460,8 @@ components:
             properties:
                 senceId:
                     type: string
+                userId:
+                    type: string
         GetStoryBoardSenceGenerateResponse:
             type: object
             properties:
@@ -3467,6 +3479,8 @@ components:
             type: object
             properties:
                 boardId:
+                    type: string
+                userId:
                     type: string
         GetStoryBoardSencesResponse:
             type: object
@@ -3538,6 +3552,8 @@ components:
                 renderType:
                     type: integer
                     format: int32
+                userId:
+                    type: string
         GetStoryRenderResponse:
             type: object
             properties:
@@ -3574,6 +3590,8 @@ components:
             type: object
             properties:
                 storyId:
+                    type: string
+                userId:
                     type: string
         GetStoryRolesResponse:
             type: object
@@ -4203,6 +4221,8 @@ components:
                 prompt:
                     type: string
                 background:
+                    type: string
+                userId:
                     type: string
         RenderStoryRoleDetailResponse:
             type: object
@@ -4964,6 +4984,8 @@ components:
             properties:
                 sence:
                     $ref: '#/components/schemas/StoryBoardSence'
+                userId:
+                    type: string
         UpdateStoryBoardSenceResponse:
             type: object
             properties:
@@ -5017,6 +5039,8 @@ components:
             properties:
                 role:
                     $ref: '#/components/schemas/StoryRole'
+                userId:
+                    type: string
         UpdateStoryRoleResponse:
             type: object
             properties:
