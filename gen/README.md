@@ -139,6 +139,7 @@
     - [StoryBoard](#common-StoryBoard)
     - [StoryBoardParams](#common-StoryBoardParams)
     - [StoryBoardSence](#common-StoryBoardSence)
+    - [StoryBoardSences](#common-StoryBoardSences)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
     - [StoryRoleInfo](#common-StoryRoleInfo)
@@ -159,6 +160,7 @@
     - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
   
     - [RenderType](#common-RenderType)
+    - [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage)
   
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
@@ -2553,6 +2555,7 @@
 | params | [StoryParams](#common-StoryParams) |  |  |
 | status | [int32](#int32) |  |  |
 | title | [string](#string) |  |  |
+| total_boards | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2581,6 +2584,7 @@
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | backgroud | [string](#string) |  |  |
 | params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
+| sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2648,6 +2652,22 @@
 
 
 
+<a name="common-StoryBoardSences"></a>
+
+### StoryBoardSences
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| total | [int64](#int64) |  |  |
+| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
 <a name="common-StoryParams"></a>
 
 ### StoryParams
@@ -2659,6 +2679,9 @@
 | StoryDescription | [string](#string) |  |  |
 | RefImage | [string](#string) |  |  |
 | NegativePrompt | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
+| ComicLayoutStyle | [string](#string) |  |  |
+| ComicStyle | [string](#string) |  |  |
 | background | [string](#string) |  |  |
 
 
@@ -2984,6 +3007,29 @@
 | RENDER_TYPE_STORYACTION | 4 | 4: 故事动作 |
 | RENDER_TYPE_STORYSETTING | 5 | 5: 故事设置 |
 | RENDER_TYPE_STORYENDING | 6 | 6: 故事结局 |
+
+
+
+<a name="common-StoryBoardGeneratingStage"></a>
+
+### StoryBoardGeneratingStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORY_BOARD_GENERATING_STAGE_UNSPECIFIED | 0 | 0: 未开始 |
+| STORY_BOARD_GENERATING_STAGE_GENERATING | 101 | 1: 生成中 |
+| STORY_BOARD_GENERATING_STAGE_COMPLETED | 102 | 2: 生成完成 |
+| STORY_BOARD_GENERATING_STAGE_FAILED | 103 | 3: 生成失败 |
+| STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES | 201 | 4: 生成图片 |
+| STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED | 202 | 5: 图片生成完成 |
+| STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED | 203 | 6: 图片生成失败 |
+| STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO | 301 | 7: 生成音频 |
+| STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED | 302 | 8: 音频生成完成 |
+| STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED | 303 | 9: 音频生成失败 |
+| STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO | 401 | 10: 生成视频 |
+| STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED | 402 | 11: 视频生成完成 |
+| STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED | 403 | 12: 视频生成失败 |
 
 
  

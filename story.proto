@@ -23,6 +23,7 @@ message Story{
   StoryParams params = 15;
   int32 status = 16;
   string title = 17;
+  int64 total_boards = 18;
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
@@ -31,7 +32,10 @@ message StoryParams{
     string StoryDescription = 1;
     string RefImage = 2;
     string NegativePrompt = 3;
-    string background = 4;
+    string prompt = 4;
+    string ComicLayoutStyle = 5;
+    string ComicStyle = 6;
+    string background = 7;
 }
 
 message StoryBoard{
@@ -47,8 +51,14 @@ message StoryBoard{
     repeated StoryRole roles = 12;
     string backgroud = 13;
     StoryBoardParams params = 15;
+    StoryBoardSences sences = 16;
     int64 Ctime = 19;
     int64 Mtime = 20;
+}
+
+message StoryBoardSences{
+    int64 total = 1;
+    repeated StoryBoardSence list = 2;
 }
 
 message StoryRole{
@@ -661,7 +671,34 @@ message CreateStoryRequest {
     repeated StoryBoardSence list = 4;
   }
 
-  
+  enum StoryBoardGeneratingStage{
+    // 0: 未开始
+    STORY_BOARD_GENERATING_STAGE_UNSPECIFIED = 0;
+    // 1: 生成中
+    STORY_BOARD_GENERATING_STAGE_GENERATING = 101;
+    // 2: 生成完成
+    STORY_BOARD_GENERATING_STAGE_COMPLETED = 102;
+    // 3: 生成失败
+    STORY_BOARD_GENERATING_STAGE_FAILED = 103;
+    // 4: 生成图片
+    STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES = 201;
+    // 5: 图片生成完成
+    STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED = 202;
+    // 6: 图片生成失败
+    STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED = 203;
+    // 7: 生成音频
+    STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO = 301;
+    // 8: 音频生成完成
+    STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED = 302;
+    // 9: 音频生成失败
+    STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED = 303;
+    // 10: 生成视频
+    STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO = 401;
+    // 11: 视频生成完成
+    STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED = 402;
+    // 12: 视频生成失败
+    STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED = 403;
+  }
 
 
   

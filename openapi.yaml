@@ -4578,6 +4578,8 @@ components:
                     format: int32
                 title:
                     type: string
+                totalBoards:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -4611,6 +4613,8 @@ components:
                     type: string
                 params:
                     $ref: '#/components/schemas/StoryBoardParams'
+                sences:
+                    $ref: '#/components/schemas/StoryBoardSences'
                 Ctime:
                     type: string
                 Mtime:
@@ -4697,6 +4701,15 @@ components:
                     type: string
                 Mtime:
                     type: string
+        StoryBoardSences:
+            type: object
+            properties:
+                total:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardSence'
         StoryContributor:
             type: object
             properties:
@@ -4716,6 +4729,12 @@ components:
                 RefImage:
                     type: string
                 NegativePrompt:
+                    type: string
+                prompt:
+                    type: string
+                ComicLayoutStyle:
+                    type: string
+                ComicStyle:
                     type: string
                 background:
                     type: string
