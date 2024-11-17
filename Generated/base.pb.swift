@@ -22,9 +22,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 public enum Common_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 浏览
   case browser // = 0
+
+  /// 左
   case left // = 1
+
+  /// 中
   case middle // = 2
+
+  /// 右
   case right // = 3
   case UNRECOGNIZED(Int)
 
@@ -108,11 +116,23 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 休息
   case rest // = 0
+
+  /// 学习
   case study // = 1
+
+  /// 忙碌
   case busy // = 2
+
+  /// 工作
   case working // = 3
+
+  /// 隐身
   case invisible // = 4
+
+  /// 空闲
   case idle // = 5
   case UNRECOGNIZED(Int)
 
@@ -158,38 +178,52 @@ public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
-  case notReady // = 0
-  case normal // = 1
-  case viewOnly // = 2
-  case abandon // = 3
+
+  /// 未知
+  case unknow // = 0
+
+  /// 未准备
+  case notReady // = 1
+
+  /// 正常
+  case normal // = 2
+
+  /// 仅查看
+  case viewOnly // = 3
+
+  /// 废弃
+  case abandon // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .notReady
+    self = .unknow
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .notReady
-    case 1: self = .normal
-    case 2: self = .viewOnly
-    case 3: self = .abandon
+    case 0: self = .unknow
+    case 1: self = .notReady
+    case 2: self = .normal
+    case 3: self = .viewOnly
+    case 4: self = .abandon
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .notReady: return 0
-    case .normal: return 1
-    case .viewOnly: return 2
-    case .abandon: return 3
+    case .unknow: return 0
+    case .notReady: return 1
+    case .normal: return 2
+    case .viewOnly: return 3
+    case .abandon: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_GroupStatus] = [
+    .unknow,
     .notReady,
     .normal,
     .viewOnly,
@@ -200,63 +234,121 @@ public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
-  case allActive // = 0
-  case like // = 1
-  case share // = 2
-  case comment // = 3
-  case collect // = 4
-  case disAgree // = 5
+
+  /// 不公开互动
+  case noneActive // = 0
+
+  /// 所有互动
+  case allActive // = 1
+
+  /// 新故事
+  case newStory // = 2
+
+  /// 新角色
+  case newRole // = 3
+
+  /// 加入群组
+  case joinGroup // = 4
+
+  /// 关注角色
+  case followRole // = 5
+
+  /// 点赞角色
+  case likeRole // = 6
+
+  /// 关注故事
+  case followStory // = 7
+
+  /// 点赞故事
+  case likeStory // = 8
+
+  /// 关注群组
+  case followGroup // = 9
+
+  /// 点赞群组
+  case likeGroup // = 10
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .allActive
+    self = .noneActive
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .allActive
-    case 1: self = .like
-    case 2: self = .share
-    case 3: self = .comment
-    case 4: self = .collect
-    case 5: self = .disAgree
+    case 0: self = .noneActive
+    case 1: self = .allActive
+    case 2: self = .newStory
+    case 3: self = .newRole
+    case 4: self = .joinGroup
+    case 5: self = .followRole
+    case 6: self = .likeRole
+    case 7: self = .followStory
+    case 8: self = .likeStory
+    case 9: self = .followGroup
+    case 10: self = .likeGroup
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .allActive: return 0
-    case .like: return 1
-    case .share: return 2
-    case .comment: return 3
-    case .collect: return 4
-    case .disAgree: return 5
+    case .noneActive: return 0
+    case .allActive: return 1
+    case .newStory: return 2
+    case .newRole: return 3
+    case .joinGroup: return 4
+    case .followRole: return 5
+    case .likeRole: return 6
+    case .followStory: return 7
+    case .likeStory: return 8
+    case .followGroup: return 9
+    case .likeGroup: return 10
     case .UNRECOGNIZED(let i): return i
     }
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ActiveType] = [
+    .noneActive,
     .allActive,
-    .like,
-    .share,
-    .comment,
-    .collect,
-    .disAgree,
+    .newStory,
+    .newRole,
+    .joinGroup,
+    .followRole,
+    .likeRole,
+    .followStory,
+    .likeStory,
+    .followGroup,
+    .likeGroup,
   ]
 
 }
 
 public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 所有内容
   case allItem // = 0
+
+  /// 短文
   case shortWord // = 1
+
+  /// 纸片
   case paper // = 2
+
+  /// 图片
   case picture // = 3
+
+  /// 视频
   case video // = 4
+
+  /// 音乐
   case music // = 5
+
+  /// 链接
   case link // = 6
+
+  /// 定位
   case locate // = 7
   case UNRECOGNIZED(Int)
 
@@ -308,9 +400,17 @@ public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 不支持
   case notSupport // = 0
+
+  /// 手机号
   case withPhone // = 1
+
+  /// 邮箱
   case withEmail // = 2
+
+  /// 第三方
   case withThirdpart // = 3
   case UNRECOGNIZED(Int)
 
@@ -350,10 +450,20 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 所有人可见
   case allPublic // = 0
+
+  /// 公开
   case `public` // = 1
+
+  /// 私密
   case `private` // = 2
+
+  /// 指定人可见
   case someone // = 3
+
+  /// 群组可见
   case gruopScope // = 4
   case UNRECOGNIZED(Int)
 
@@ -396,22 +506,36 @@ public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
-  case unknow // = 0
+
+  /// 未知
+  case unknowTaskStage // = 0
+
+  /// 初始化
   case init_ // = 1
+
+  /// 处理中
   case processing // = 2
+
+  /// 等待
   case waiting // = 3
+
+  /// 重试
   case retry // = 4
+
+  /// 成功
   case success // = 5
+
+  /// 失败
   case fail // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .unknow
+    self = .unknowTaskStage
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .unknow
+    case 0: self = .unknowTaskStage
     case 1: self = .init_
     case 2: self = .processing
     case 3: self = .waiting
@@ -424,7 +548,7 @@ public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   public var rawValue: Int {
     switch self {
-    case .unknow: return 0
+    case .unknowTaskStage: return 0
     case .init_: return 1
     case .processing: return 2
     case .waiting: return 3
@@ -437,7 +561,7 @@ public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_TaskStage] = [
-    .unknow,
+    .unknowTaskStage,
     .init_,
     .processing,
     .waiting,
@@ -450,11 +574,23 @@ public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 不指定
   case notSpecify // = 0
+
+  /// 文字生成
   case wordGenerate // = 1
+
+  /// 图片生成
   case picGenerate // = 2
+
+  /// 视频生成
   case videoGenerate // = 3
+
+  /// 语音生成
   case voiceGenerate // = 4
+
+  /// 音乐生成
   case musicGenerate // = 5
   case UNRECOGNIZED(Int)
 
@@ -500,10 +636,20 @@ public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 时间排序
   case sortByTime // = 0
+
+  /// 点赞排序
   case sortByLike // = 1
+
+  /// 评论排序
   case sortByComment // = 2
+
+  /// 分享排序
   case sortByShare // = 3
+
+  /// 浏览排序
   case sortByView // = 4
   case UNRECOGNIZED(Int)
 
@@ -607,21 +753,27 @@ extension Common_UserStatus: SwiftProtobuf._ProtoNameProviding {
 
 extension Common_GroupStatus: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NotReady"),
-    1: .same(proto: "Normal"),
-    2: .same(proto: "ViewOnly"),
-    3: .same(proto: "Abandon"),
+    0: .same(proto: "Unknow"),
+    1: .same(proto: "NotReady"),
+    2: .same(proto: "Normal"),
+    3: .same(proto: "ViewOnly"),
+    4: .same(proto: "Abandon"),
   ]
 }
 
 extension Common_ActiveType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AllActive"),
-    1: .same(proto: "Like"),
-    2: .same(proto: "Share"),
-    3: .same(proto: "Comment"),
-    4: .same(proto: "Collect"),
-    5: .same(proto: "DisAgree"),
+    0: .same(proto: "NoneActive"),
+    1: .same(proto: "AllActive"),
+    2: .same(proto: "NewStory"),
+    3: .same(proto: "NewRole"),
+    4: .same(proto: "JoinGroup"),
+    5: .same(proto: "FollowRole"),
+    6: .same(proto: "LikeRole"),
+    7: .same(proto: "FollowStory"),
+    8: .same(proto: "LikeStory"),
+    9: .same(proto: "FollowGroup"),
+    10: .same(proto: "LikeGroup"),
   ]
 }
 
@@ -659,7 +811,7 @@ extension Common_ScopeType: SwiftProtobuf._ProtoNameProviding {
 
 extension Common_TaskStage: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Unknow"),
+    0: .same(proto: "UnknowTaskStage"),
     1: .same(proto: "Init"),
     2: .same(proto: "Processing"),
     3: .same(proto: "Waiting"),

@@ -3,9 +3,13 @@ syntax = "proto3";
 package common;
 
 enum LikeType {
+  // 浏览
   Browser = 0;
+  // 左
   Left = 1;
+  // 中
   Middle = 2;
+  // 右
   Right = 3;
 }
 
@@ -18,53 +22,98 @@ enum GenderType {
 }
 
 enum UserStatus {
+  // 休息
   Rest = 0;
+  // 学习
   Study = 1;
+  // 忙碌
   Busy = 2;
+  // 工作
   Working = 3;
+  // 隐身
   Invisible = 4;
+  // 空闲
   Idle = 5;
 }
 
 enum GroupStatus {
-  NotReady = 0;
-  Normal = 1;
-  ViewOnly = 2;
-  Abandon = 3;
+  // 未知
+  Unknow = 0;
+  // 未准备
+  NotReady = 1;
+  // 正常
+  Normal = 2;
+  // 仅查看
+  ViewOnly = 3;
+  // 废弃
+  Abandon = 4;
 }
 
 enum ActiveType {
-  AllActive = 0;
-  Like = 1;
-  Share = 2;
-  Comment = 3;
-  Collect = 4;
-  DisAgree = 5;
+  // 不公开互动
+  NoneActive = 0;
+  // 所有互动
+  AllActive = 1;
+  // 新故事
+  NewStory = 2;
+  // 新角色
+  NewRole = 3;
+  // 加入群组
+  JoinGroup = 4;
+  // 关注角色
+  FollowRole = 5;
+  // 点赞角色
+  LikeRole = 6;
+  // 关注故事
+  FollowStory = 7;
+  // 点赞故事
+  LikeStory = 8;
+  // 关注群组
+  FollowGroup = 9;
+  // 点赞群组
+  LikeGroup = 10;
 }
 
 enum ItemType {
+  // 所有内容
   AllItem = 0;
+  // 短文
   ShortWord = 1;
+  // 纸片
   Paper = 2;
+  // 图片
   Picture = 3;
+  // 视频
   Video = 4;
+  // 音乐
   Music = 5;
+  // 链接
   Link = 6;
+  // 定位
   Locate = 7;
 }
 
 enum AuthType {
+  // 不支持
   NotSupport = 0;
+  // 手机号
   WithPhone = 1;
+  // 邮箱
   WithEmail = 2;
+  // 第三方
   WithThirdpart = 3;
 }
 
 enum ScopeType {
+  // 所有人可见
   AllPublic = 0;
+  // 公开
   Public = 1;
+  // 私密
   Private = 2;
+  // 指定人可见
   Someone = 3;
+  // 群组可见
   GruopScope = 4;
 }
 
@@ -82,28 +131,46 @@ message Tags {
 }
 
 enum TaskStage{
-  Unknow = 0;
+  // 未知
+  UnknowTaskStage = 0;
+  // 初始化
   Init = 1;
+  // 处理中
   Processing = 2;
+  // 等待
   Waiting = 3;
+  // 重试
   Retry = 4;
+  // 成功
   Success = 5;
+  // 失败
   Fail = 6;
 }
 
 enum TaskType{
+  // 不指定
   NotSpecify = 0;
+  // 文字生成
   Word_Generate = 1;
+  // 图片生成
   Pic_Generate = 2;
+  // 视频生成
   Video_Generate = 3;
+  // 语音生成
   Voice_Generate = 4;
+  // 音乐生成
   Music_Generate = 5;
 }
 
 enum SortByType{
+  // 时间排序
   SortByTime = 0;
+  // 点赞排序
   SortByLike = 1;
+  // 评论排序
   SortByComment = 2;
+  // 分享排序
   SortByShare = 3;
+  // 浏览排序
   SortByView = 4;
 }

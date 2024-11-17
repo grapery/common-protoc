@@ -401,12 +401,17 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| AllActive | 0 |  |
-| Like | 1 |  |
-| Share | 2 |  |
-| Comment | 3 |  |
-| Collect | 4 |  |
-| DisAgree | 5 |  |
+| NoneActive | 0 | 不公开互动 |
+| AllActive | 1 | 所有互动 |
+| NewStory | 2 | 新故事 |
+| NewRole | 3 | 新角色 |
+| JoinGroup | 4 | 加入群组 |
+| FollowRole | 5 | 关注角色 |
+| LikeRole | 6 | 点赞角色 |
+| FollowStory | 7 | 关注故事 |
+| LikeStory | 8 | 点赞故事 |
+| FollowGroup | 9 | 关注群组 |
+| LikeGroup | 10 | 点赞群组 |
 
 
 
@@ -417,10 +422,10 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| NotSupport | 0 |  |
-| WithPhone | 1 |  |
-| WithEmail | 2 |  |
-| WithThirdpart | 3 |  |
+| NotSupport | 0 | 不支持 |
+| WithPhone | 1 | 手机号 |
+| WithEmail | 2 | 邮箱 |
+| WithThirdpart | 3 | 第三方 |
 
 
 
@@ -445,10 +450,11 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| NotReady | 0 |  |
-| Normal | 1 |  |
-| ViewOnly | 2 |  |
-| Abandon | 3 |  |
+| Unknow | 0 | 未知 |
+| NotReady | 1 | 未准备 |
+| Normal | 2 | 正常 |
+| ViewOnly | 3 | 仅查看 |
+| Abandon | 4 | 废弃 |
 
 
 
@@ -459,14 +465,14 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| AllItem | 0 |  |
-| ShortWord | 1 |  |
-| Paper | 2 |  |
-| Picture | 3 |  |
-| Video | 4 |  |
-| Music | 5 |  |
-| Link | 6 |  |
-| Locate | 7 |  |
+| AllItem | 0 | 所有内容 |
+| ShortWord | 1 | 短文 |
+| Paper | 2 | 纸片 |
+| Picture | 3 | 图片 |
+| Video | 4 | 视频 |
+| Music | 5 | 音乐 |
+| Link | 6 | 链接 |
+| Locate | 7 | 定位 |
 
 
 
@@ -477,10 +483,10 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| Browser | 0 |  |
-| Left | 1 |  |
-| Middle | 2 |  |
-| Right | 3 |  |
+| Browser | 0 | 浏览 |
+| Left | 1 | 左 |
+| Middle | 2 | 中 |
+| Right | 3 | 右 |
 
 
 
@@ -491,11 +497,11 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| AllPublic | 0 |  |
-| Public | 1 |  |
-| Private | 2 |  |
-| Someone | 3 |  |
-| GruopScope | 4 |  |
+| AllPublic | 0 | 所有人可见 |
+| Public | 1 | 公开 |
+| Private | 2 | 私密 |
+| Someone | 3 | 指定人可见 |
+| GruopScope | 4 | 群组可见 |
 
 
 
@@ -506,11 +512,11 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| SortByTime | 0 |  |
-| SortByLike | 1 |  |
-| SortByComment | 2 |  |
-| SortByShare | 3 |  |
-| SortByView | 4 |  |
+| SortByTime | 0 | 时间排序 |
+| SortByLike | 1 | 点赞排序 |
+| SortByComment | 2 | 评论排序 |
+| SortByShare | 3 | 分享排序 |
+| SortByView | 4 | 浏览排序 |
 
 
 
@@ -521,13 +527,13 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| Unknow | 0 |  |
-| Init | 1 |  |
-| Processing | 2 |  |
-| Waiting | 3 |  |
-| Retry | 4 |  |
-| Success | 5 |  |
-| Fail | 6 |  |
+| UnknowTaskStage | 0 | 未知 |
+| Init | 1 | 初始化 |
+| Processing | 2 | 处理中 |
+| Waiting | 3 | 等待 |
+| Retry | 4 | 重试 |
+| Success | 5 | 成功 |
+| Fail | 6 | 失败 |
 
 
 
@@ -538,12 +544,12 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| NotSpecify | 0 |  |
-| Word_Generate | 1 |  |
-| Pic_Generate | 2 |  |
-| Video_Generate | 3 |  |
-| Voice_Generate | 4 |  |
-| Music_Generate | 5 |  |
+| NotSpecify | 0 | 不指定 |
+| Word_Generate | 1 | 文字生成 |
+| Pic_Generate | 2 | 图片生成 |
+| Video_Generate | 3 | 视频生成 |
+| Voice_Generate | 4 | 语音生成 |
+| Music_Generate | 5 | 音乐生成 |
 
 
 
@@ -554,12 +560,12 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| Rest | 0 |  |
-| Study | 1 |  |
-| Busy | 2 |  |
-| Working | 3 |  |
-| Invisible | 4 |  |
-| Idle | 5 |  |
+| Rest | 0 | 休息 |
+| Study | 1 | 学习 |
+| Busy | 2 | 忙碌 |
+| Working | 3 | 工作 |
+| Invisible | 4 | 隐身 |
+| Idle | 5 | 空闲 |
 
 
  

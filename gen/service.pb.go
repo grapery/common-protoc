@@ -207,7 +207,7 @@ func (x *ActiveInfo) GetActiveType() ActiveType {
 	if x != nil {
 		return x.ActiveType
 	}
-	return ActiveType_AllActive
+	return ActiveType_NoneActive
 }
 
 func (x *ActiveInfo) GetItemInfo() *ItemInfo {
@@ -1778,7 +1778,7 @@ func (x *FetchUserActivesRequest) GetAtype() ActiveType {
 	if x != nil {
 		return x.Atype
 	}
-	return ActiveType_AllActive
+	return ActiveType_NoneActive
 }
 
 type FetchUserActivesResponse struct {
@@ -4411,7 +4411,7 @@ func (x *CreateItemRequest) GetAtype() ActiveType {
 	if x != nil {
 		return x.Atype
 	}
-	return ActiveType_AllActive
+	return ActiveType_NoneActive
 }
 
 func (x *CreateItemRequest) GetUserId() int64 {
@@ -5216,7 +5216,7 @@ func (x *GetGroupActivesRequest) GetAtype() ActiveType {
 	if x != nil {
 		return x.Atype
 	}
-	return ActiveType_AllActive
+	return ActiveType_NoneActive
 }
 
 func (x *GetGroupActivesRequest) GetOffset() int64 {

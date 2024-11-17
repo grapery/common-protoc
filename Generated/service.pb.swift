@@ -625,7 +625,7 @@ public struct Common_FetchUserActivesRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var atype: Common_ActiveType = .allActive
+  public var atype: Common_ActiveType = .noneActive
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1432,7 +1432,7 @@ public struct Common_CreateItemRequest: Sendable {
 
   public var name: String = String()
 
-  public var atype: Common_ActiveType = .allActive
+  public var atype: Common_ActiveType = .noneActive
 
   public var userID: Int64 = 0
 
@@ -1803,7 +1803,7 @@ public struct Common_GetGroupActivesRequest: Sendable {
 
   public var groupID: Int64 = 0
 
-  public var atype: Common_ActiveType = .allActive
+  public var atype: Common_ActiveType = .noneActive
 
   public var offset: Int64 = 0
 
@@ -3530,7 +3530,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
   fileprivate class _StorageClass {
     var _user: Common_UserInfo? = nil
-    var _activeType: Common_ActiveType = .allActive
+    var _activeType: Common_ActiveType = .noneActive
     var _itemInfo: Common_ItemInfo? = nil
     var _projectInfo: Common_ProjectInfo? = nil
     var _groupInfo: Common_GroupInfo? = nil
@@ -3597,7 +3597,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       try { if let v = _storage._user {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       } }()
-      if _storage._activeType != .allActive {
+      if _storage._activeType != .noneActive {
         try visitor.visitSingularEnumField(value: _storage._activeType, fieldNumber: 2)
       }
       try { if let v = _storage._itemInfo {
@@ -4727,7 +4727,7 @@ extension Common_FetchUserActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
-    if self.atype != .allActive {
+    if self.atype != .noneActive {
       try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -6691,7 +6691,7 @@ extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
     }
-    if self.atype != .allActive {
+    if self.atype != .noneActive {
       try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 4)
     }
     if self.userID != 0 {
@@ -7469,7 +7469,7 @@ extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.groupID != 0 {
       try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
     }
-    if self.atype != .allActive {
+    if self.atype != .noneActive {
       try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 2)
     }
     if self.offset != 0 {
