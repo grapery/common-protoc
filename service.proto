@@ -1014,14 +1014,6 @@ service TeamsAPI {
     };
   }
 
-  // 搜索组织
-  rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/SearchGroup"
-      body : "*"
-    };
-  }
-
   // 获取组织项目
   rpc FetchGroupProjects(FetchGroupProjectsReqeust)
       returns (FetchGroupProjectsResponse) {
@@ -1599,6 +1591,166 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 点赞故事角色
+  rpc LikeStoryRole(LikeStoryRoleRequest) returns (LikeStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/LikeStoryRole"
+      body : "*"
+    };
+  }
+  // 取消点赞故事角色
+  rpc UnLikeStoryRole(UnLikeStoryRoleRequest) returns (UnLikeStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UnLikeStoryRole"
+      body : "*"
+    };
+  }
+  // 关注故事角色
+  rpc FollowStoryRole(FollowStoryRoleRequest) returns (FollowStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/FollowStoryRole"
+      body : "*"
+    };
+  }
+  // 取消关注故事角色
+  rpc UnFollowStoryRole(UnFollowStoryRoleRequest) returns (UnFollowStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UnFollowStoryRole"
+      body : "*"
+    };
+  }
+  // 根据关键字查询故事
+  rpc SearchStories(SearchStoriesRequest) returns (SearchStoriesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/SearchStories"
+      body : "*"
+    };
+  }
+
+  // 搜索组织
+  rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/SearchGroup"
+      body : "*"
+    };
+  }
+
+  // 搜索角色
+  rpc SearchRoles(SearchRolesReqeust) returns (SearchRolesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/SearchRoles"
+      body : "*"
+    };
+  }
+
+  // 恢复故事板的状态
+  rpc RestoreStoryboard(RestoreStoryboardRequest) returns (RestoreStoryboardResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/RestoreStoryboard"
+      body : "*"
+    };
+  }
+}
+
+message LikeStoryRoleRequest{
+  int64 role_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
+
+message LikeStoryRoleResponse{
+  int32 code = 1;
+  string message = 2;
+}
+
+message UnLikeStoryRoleRequest {
+  int64 role_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
+
+message UnLikeStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message FollowStoryRoleRequest{
+  int64 role_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
+
+message FollowStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message UnFollowStoryRoleRequest {
+  int64 role_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
+
+message UnFollowStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message SearchStoriesRequest{
+  int64 user_id = 1;
+  string keyword = 2;
+}
+
+message SearchStoriesResponse{
+  int32 code = 1;
+  string message = 2;
+  repeated Story stories = 3;
+}
+
+message SearchRolesReqeust {
+  int64 user_id = 1;
+  string keyword = 2;
+}
+
+message SearchRolesResponse{
+  int32 code = 1;
+  string message = 2;
+  repeated StoryRoleInfo roles = 3;
+}
+
+message RestoreStoryboardRequest {
+  int64 storyboard_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
+
+message RestoreStoryboardResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+enum StoryboardStage{
+  // 未指定
+  STORYBOARD_STAGE_UNSPECIFIED = 0;
+  // 创建
+  STORYBOARD_STAGE_CREATED = 1;
+  // 渲染完成
+  STORYBOARD_STAGE_RENDERED = 2;
+  // 生成图片
+  STORYBOARD_STAGE_GEN_IMAGE = 3;
+  // 生成视频
+  STORYBOARD_STAGE_GEN_VIDEO = 4;
+  // 生成音频
+  STORYBOARD_STAGE_GEN_AUDIO = 5;
+  // 生成文本
+  STORYBOARD_STAGE_GEN_TEXT = 6;
+  // 完成
+  STORYBOARD_STAGE_FINISHED = 7;
+  // 失败
+  STORYBOARD_STAGE_FAILED = 8;
+  // 发布
+  STORYBOARD_STAGE_PUBLISHED = 9;
 }
 
 message GetUserProfileRequest {

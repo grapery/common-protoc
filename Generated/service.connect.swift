@@ -217,14 +217,6 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupMembersResponse>
 
-    /// 搜索组织
-    @discardableResult
-    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable
-
-    /// 搜索组织
-    @available(iOS 13, *)
-    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_SearchGroupResponse>
-
     /// 获取组织项目
     @discardableResult
     func `fetchGroupProjects`(request: Common_FetchGroupProjectsReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable
@@ -784,6 +776,70 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取故事板生成状态
     @available(iOS 13, *)
     func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardGenerateResponse>
+
+    /// 点赞故事角色
+    @discardableResult
+    func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 点赞故事角色
+    @available(iOS 13, *)
+    func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeStoryRoleResponse>
+
+    /// 取消点赞故事角色
+    @discardableResult
+    func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 取消点赞故事角色
+    @available(iOS 13, *)
+    func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnLikeStoryRoleResponse>
+
+    /// 关注故事角色
+    @discardableResult
+    func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 关注故事角色
+    @available(iOS 13, *)
+    func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FollowStoryRoleResponse>
+
+    /// 取消关注故事角色
+    @discardableResult
+    func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 取消关注故事角色
+    @available(iOS 13, *)
+    func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnFollowStoryRoleResponse>
+
+    /// 根据关键字查询故事
+    @discardableResult
+    func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchStoriesResponse>) -> Void) -> Connect.Cancelable
+
+    /// 根据关键字查询故事
+    @available(iOS 13, *)
+    func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchStoriesResponse>
+
+    /// 搜索组织
+    @discardableResult
+    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable
+
+    /// 搜索组织
+    @available(iOS 13, *)
+    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_SearchGroupResponse>
+
+    /// 搜索角色
+    @discardableResult
+    func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable
+
+    /// 搜索角色
+    @available(iOS 13, *)
+    func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_SearchRolesResponse>
+
+    /// 恢复故事板的状态
+    @discardableResult
+    func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    /// 恢复故事板的状态
+    @available(iOS 13, *)
+    func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RestoreStoryboardResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1052,16 +1108,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupMembersResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/FetchGroupMembers", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @discardableResult
-    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
-    }
-
-    @available(iOS 13, *)
-    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -1764,6 +1810,86 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnLikeStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FollowStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnFollowStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchStoriesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchStoriesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchGroupResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchRolesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RestoreStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1792,7 +1918,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateGroupProfile = Connect.MethodSpec(name: "UpdateGroupProfile", service: "common.TeamsAPI", type: .unary)
             public static let deleteGroup = Connect.MethodSpec(name: "DeleteGroup", service: "common.TeamsAPI", type: .unary)
             public static let fetchGroupMembers = Connect.MethodSpec(name: "FetchGroupMembers", service: "common.TeamsAPI", type: .unary)
-            public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "common.TeamsAPI", type: .unary)
             public static let fetchGroupProjects = Connect.MethodSpec(name: "FetchGroupProjects", service: "common.TeamsAPI", type: .unary)
             public static let joinGroup = Connect.MethodSpec(name: "JoinGroup", service: "common.TeamsAPI", type: .unary)
             public static let leaveGroup = Connect.MethodSpec(name: "LeaveGroup", service: "common.TeamsAPI", type: .unary)
@@ -1863,6 +1988,14 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let renderStoryBoardSences = Connect.MethodSpec(name: "RenderStoryBoardSences", service: "common.TeamsAPI", type: .unary)
             public static let getStoryBoardSenceGenerate = Connect.MethodSpec(name: "GetStoryBoardSenceGenerate", service: "common.TeamsAPI", type: .unary)
             public static let getStoryBoardGenerate = Connect.MethodSpec(name: "GetStoryBoardGenerate", service: "common.TeamsAPI", type: .unary)
+            public static let likeStoryRole = Connect.MethodSpec(name: "LikeStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let unLikeStoryRole = Connect.MethodSpec(name: "UnLikeStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let followStoryRole = Connect.MethodSpec(name: "FollowStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let unFollowStoryRole = Connect.MethodSpec(name: "UnFollowStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let searchStories = Connect.MethodSpec(name: "SearchStories", service: "common.TeamsAPI", type: .unary)
+            public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "common.TeamsAPI", type: .unary)
+            public static let searchRoles = Connect.MethodSpec(name: "SearchRoles", service: "common.TeamsAPI", type: .unary)
+            public static let restoreStoryboard = Connect.MethodSpec(name: "RestoreStoryboard", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

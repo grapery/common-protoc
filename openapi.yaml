@@ -519,6 +519,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/FollowStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 关注故事角色
+            operationId: TeamsAPI_FollowStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FollowStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FollowStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/ForkStoryboard:
         post:
             tags:
@@ -1294,6 +1319,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/LikeStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 点赞故事角色
+            operationId: TeamsAPI_LikeStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LikeStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LikeStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/LikeStoryboard:
         post:
             tags:
@@ -1619,6 +1669,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RestoreStoryboard:
+        post:
+            tags:
+                - TeamsAPI
+            description: 恢复故事板的状态
+            operationId: TeamsAPI_RestoreStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RestoreStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RestoreStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/SearchGroup:
         post:
             tags:
@@ -1688,6 +1763,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/SearchAllProjectResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/SearchRoles:
+        post:
+            tags:
+                - TeamsAPI
+            description: 搜索角色
+            operationId: TeamsAPI_SearchRoles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchRolesReqeust'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchRolesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/SearchStories:
+        post:
+            tags:
+                - TeamsAPI
+            description: 根据关键字查询故事
+            operationId: TeamsAPI_SearchStories
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchStoriesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchStoriesResponse'
                 default:
                     description: Default error response
                     content:
@@ -1826,6 +1951,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnFollowStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消关注故事角色
+            operationId: TeamsAPI_UnFollowStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnFollowStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnFollowStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UnLikeStory:
         post:
             tags:
@@ -1845,6 +1995,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UnLikeStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnLikeStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消点赞故事角色
+            operationId: TeamsAPI_UnLikeStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnLikeStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnLikeStoryRoleResponse'
                 default:
                     description: Default error response
                     content:
@@ -2960,6 +3135,23 @@ components:
                     type: string
                 pageSize:
                     type: string
+        FollowStoryRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        FollowStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         ForkStoryboardRequest:
             type: object
             properties:
@@ -3899,6 +4091,23 @@ components:
                     format: int32
                 message:
                     type: string
+        LikeStoryRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        LikeStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         LikeStoryboardRequest:
             type: object
             properties:
@@ -4382,6 +4591,23 @@ components:
                     type: string
                 timestamp:
                     type: string
+        RestoreStoryboardRequest:
+            type: object
+            properties:
+                storyboardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        RestoreStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         SearchAllProjectRequest:
             type: object
             properties:
@@ -4456,6 +4682,44 @@ components:
                     type: string
                 pageSize:
                     type: string
+        SearchRolesReqeust:
+            type: object
+            properties:
+                userId:
+                    type: string
+                keyword:
+                    type: string
+        SearchRolesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRoleInfo'
+        SearchStoriesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                keyword:
+                    type: string
+        SearchStoriesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                stories:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Story'
         SearchUserRequest:
             type: object
             properties:
@@ -4837,6 +5101,23 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ProjectInfo'
+        UnFollowStoryRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        UnFollowStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UnLikeStoryRequest:
             type: object
             properties:
@@ -4845,6 +5126,23 @@ components:
                 userId:
                     type: string
         UnLikeStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        UnLikeStoryRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        UnLikeStoryRoleResponse:
             type: object
             properties:
                 code:

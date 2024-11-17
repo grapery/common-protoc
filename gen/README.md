@@ -208,6 +208,8 @@
     - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FetchUserActivesRequest](#common-FetchUserActivesRequest)
     - [FetchUserActivesResponse](#common-FetchUserActivesResponse)
+    - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
+    - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
@@ -268,6 +270,8 @@
     - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
     - [LikeStoryRequest](#common-LikeStoryRequest)
     - [LikeStoryResponse](#common-LikeStoryResponse)
+    - [LikeStoryRoleRequest](#common-LikeStoryRoleRequest)
+    - [LikeStoryRoleResponse](#common-LikeStoryRoleResponse)
     - [LoginRequest](#common-LoginRequest)
     - [LoginResponse](#common-LoginResponse)
     - [LogoutRequest](#common-LogoutRequest)
@@ -280,6 +284,8 @@
     - [RenderStoryRoleResponse](#common-RenderStoryRoleResponse)
     - [ResetPasswordRequest](#common-ResetPasswordRequest)
     - [ResetPasswordResponse](#common-ResetPasswordResponse)
+    - [RestoreStoryboardRequest](#common-RestoreStoryboardRequest)
+    - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
     - [SearchAllProjectRequest](#common-SearchAllProjectRequest)
     - [SearchAllProjectResponse](#common-SearchAllProjectResponse)
     - [SearchGroupReqeust](#common-SearchGroupReqeust)
@@ -287,14 +293,22 @@
     - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
     - [SearchProjectRequest](#common-SearchProjectRequest)
     - [SearchProjectResponse](#common-SearchProjectResponse)
+    - [SearchRolesReqeust](#common-SearchRolesReqeust)
+    - [SearchRolesResponse](#common-SearchRolesResponse)
+    - [SearchStoriesRequest](#common-SearchStoriesRequest)
+    - [SearchStoriesResponse](#common-SearchStoriesResponse)
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [StoryContributor](#common-StoryContributor)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
     - [TrendingResponse.Data](#common-TrendingResponse-Data)
+    - [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest)
+    - [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse)
     - [UnLikeStoryRequest](#common-UnLikeStoryRequest)
     - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
+    - [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest)
+    - [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse)
     - [UnWatchProjectReqeust](#common-UnWatchProjectReqeust)
     - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
     - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
@@ -340,6 +354,7 @@
     - [WatchProjectResponse.Data](#common-WatchProjectResponse-Data)
   
     - [GroupType](#common-GroupType)
+    - [StoryboardStage](#common-StoryboardStage)
   
     - [TeamsAPI](#common-TeamsAPI)
   
@@ -3748,6 +3763,39 @@
 
 
 
+<a name="common-FollowStoryRoleRequest"></a>
+
+### FollowStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-FollowStoryRoleResponse"></a>
+
+### FollowStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-GetDisscusReq"></a>
 
 ### GetDisscusReq
@@ -4717,6 +4765,39 @@
 
 
 
+<a name="common-LikeStoryRoleRequest"></a>
+
+### LikeStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-LikeStoryRoleResponse"></a>
+
+### LikeStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-LoginRequest"></a>
 
 ### LoginRequest
@@ -4920,6 +5001,39 @@
 
 
 
+<a name="common-RestoreStoryboardRequest"></a>
+
+### RestoreStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-RestoreStoryboardResponse"></a>
+
+### RestoreStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-SearchAllProjectRequest"></a>
 
 ### SearchAllProjectRequest
@@ -5041,6 +5155,72 @@
 
 
 
+<a name="common-SearchRolesReqeust"></a>
+
+### SearchRolesReqeust
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| keyword | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-SearchRolesResponse"></a>
+
+### SearchRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| roles | [StoryRoleInfo](#common-StoryRoleInfo) | repeated |  |
+
+
+
+
+
+
+<a name="common-SearchStoriesRequest"></a>
+
+### SearchStoriesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| keyword | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-SearchStoriesResponse"></a>
+
+### SearchStoriesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| stories | [Story](#common-Story) | repeated |  |
+
+
+
+
+
+
 <a name="common-SearchUserRequest"></a>
 
 ### SearchUserRequest
@@ -5144,6 +5324,39 @@
 
 
 
+<a name="common-UnFollowStoryRoleRequest"></a>
+
+### UnFollowStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnFollowStoryRoleResponse"></a>
+
+### UnFollowStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UnLikeStoryRequest"></a>
 
 ### UnLikeStoryRequest
@@ -5163,6 +5376,39 @@
 <a name="common-UnLikeStoryResponse"></a>
 
 ### UnLikeStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryRoleRequest"></a>
+
+### UnLikeStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryRoleResponse"></a>
+
+### UnLikeStoryRoleResponse
 
 
 
@@ -5874,6 +6120,26 @@ user ,group .project.item
 | PRIVATE | 1 |  |
 
 
+
+<a name="common-StoryboardStage"></a>
+
+### StoryboardStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
+| STORYBOARD_STAGE_CREATED | 1 | 创建 |
+| STORYBOARD_STAGE_RENDERED | 2 | 渲染完成 |
+| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成图片 |
+| STORYBOARD_STAGE_GEN_VIDEO | 4 | 生成视频 |
+| STORYBOARD_STAGE_GEN_AUDIO | 5 | 生成音频 |
+| STORYBOARD_STAGE_GEN_TEXT | 6 | 生成文本 |
+| STORYBOARD_STAGE_FINISHED | 7 | 完成 |
+| STORYBOARD_STAGE_FAILED | 8 | 失败 |
+| STORYBOARD_STAGE_PUBLISHED | 9 | 发布 |
+
+
  
 
  
@@ -5912,7 +6178,6 @@ user ,group .project.item
 | UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | 更新组织信息 |
 | DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | 删除组织 |
 | FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | 获取组织成员 |
-| SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
 | FetchGroupProjects | [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | 获取组织项目 |
 | JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | 加入组织 |
 | LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | 离开组织 |
@@ -5983,6 +6248,14 @@ user ,group .project.item
 | RenderStoryBoardSences | [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest) | [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse) | 渲染故事板的所有场景 |
 | GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
 | GetStoryBoardGenerate | [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest) | [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse) | 获取故事板生成状态 |
+| LikeStoryRole | [LikeStoryRoleRequest](#common-LikeStoryRoleRequest) | [LikeStoryRoleResponse](#common-LikeStoryRoleResponse) | 点赞故事角色 |
+| UnLikeStoryRole | [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest) | [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse) | 取消点赞故事角色 |
+| FollowStoryRole | [FollowStoryRoleRequest](#common-FollowStoryRoleRequest) | [FollowStoryRoleResponse](#common-FollowStoryRoleResponse) | 关注故事角色 |
+| UnFollowStoryRole | [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest) | [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse) | 取消关注故事角色 |
+| SearchStories | [SearchStoriesRequest](#common-SearchStoriesRequest) | [SearchStoriesResponse](#common-SearchStoriesResponse) | 根据关键字查询故事 |
+| SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
+| SearchRoles | [SearchRolesReqeust](#common-SearchRolesReqeust) | [SearchRolesResponse](#common-SearchRolesResponse) | 搜索角色 |
+| RestoreStoryboard | [RestoreStoryboardRequest](#common-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#common-RestoreStoryboardResponse) | 恢复故事板的状态 |
 
  
 

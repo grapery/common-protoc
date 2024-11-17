@@ -93,8 +93,6 @@ const (
 	// TeamsAPIFetchGroupMembersProcedure is the fully-qualified name of the TeamsAPI's
 	// FetchGroupMembers RPC.
 	TeamsAPIFetchGroupMembersProcedure = "/common.TeamsAPI/FetchGroupMembers"
-	// TeamsAPISearchGroupProcedure is the fully-qualified name of the TeamsAPI's SearchGroup RPC.
-	TeamsAPISearchGroupProcedure = "/common.TeamsAPI/SearchGroup"
 	// TeamsAPIFetchGroupProjectsProcedure is the fully-qualified name of the TeamsAPI's
 	// FetchGroupProjects RPC.
 	TeamsAPIFetchGroupProjectsProcedure = "/common.TeamsAPI/FetchGroupProjects"
@@ -270,6 +268,26 @@ const (
 	// TeamsAPIGetStoryBoardGenerateProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardGenerate RPC.
 	TeamsAPIGetStoryBoardGenerateProcedure = "/common.TeamsAPI/GetStoryBoardGenerate"
+	// TeamsAPILikeStoryRoleProcedure is the fully-qualified name of the TeamsAPI's LikeStoryRole RPC.
+	TeamsAPILikeStoryRoleProcedure = "/common.TeamsAPI/LikeStoryRole"
+	// TeamsAPIUnLikeStoryRoleProcedure is the fully-qualified name of the TeamsAPI's UnLikeStoryRole
+	// RPC.
+	TeamsAPIUnLikeStoryRoleProcedure = "/common.TeamsAPI/UnLikeStoryRole"
+	// TeamsAPIFollowStoryRoleProcedure is the fully-qualified name of the TeamsAPI's FollowStoryRole
+	// RPC.
+	TeamsAPIFollowStoryRoleProcedure = "/common.TeamsAPI/FollowStoryRole"
+	// TeamsAPIUnFollowStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
+	// UnFollowStoryRole RPC.
+	TeamsAPIUnFollowStoryRoleProcedure = "/common.TeamsAPI/UnFollowStoryRole"
+	// TeamsAPISearchStoriesProcedure is the fully-qualified name of the TeamsAPI's SearchStories RPC.
+	TeamsAPISearchStoriesProcedure = "/common.TeamsAPI/SearchStories"
+	// TeamsAPISearchGroupProcedure is the fully-qualified name of the TeamsAPI's SearchGroup RPC.
+	TeamsAPISearchGroupProcedure = "/common.TeamsAPI/SearchGroup"
+	// TeamsAPISearchRolesProcedure is the fully-qualified name of the TeamsAPI's SearchRoles RPC.
+	TeamsAPISearchRolesProcedure = "/common.TeamsAPI/SearchRoles"
+	// TeamsAPIRestoreStoryboardProcedure is the fully-qualified name of the TeamsAPI's
+	// RestoreStoryboard RPC.
+	TeamsAPIRestoreStoryboardProcedure = "/common.TeamsAPI/RestoreStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -326,8 +344,6 @@ type TeamsAPIClient interface {
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
-	// 搜索组织
-	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
 	// 获取组织项目
 	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
 	// 加入组织
@@ -468,6 +484,22 @@ type TeamsAPIClient interface {
 	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// 获取故事板生成状态
 	GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error)
+	// 点赞故事角色
+	LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error)
+	// 取消点赞故事角色
+	UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error)
+	// 关注故事角色
+	FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error)
+	// 取消关注故事角色
+	UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error)
+	// 根据关键字查询故事
+	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
+	// 搜索组织
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	// 搜索角色
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error)
+	// 恢复故事板的状态
+	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -608,11 +640,6 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		fetchGroupMembers: connect.NewClient[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupMembersProcedure,
-			opts...,
-		),
-		searchGroup: connect.NewClient[gen.SearchGroupReqeust, gen.SearchGroupResponse](
-			httpClient,
-			baseURL+TeamsAPISearchGroupProcedure,
 			opts...,
 		),
 		fetchGroupProjects: connect.NewClient[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse](
@@ -965,6 +992,46 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetStoryBoardGenerateProcedure,
 			opts...,
 		),
+		likeStoryRole: connect.NewClient[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPILikeStoryRoleProcedure,
+			opts...,
+		),
+		unLikeStoryRole: connect.NewClient[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPIUnLikeStoryRoleProcedure,
+			opts...,
+		),
+		followStoryRole: connect.NewClient[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPIFollowStoryRoleProcedure,
+			opts...,
+		),
+		unFollowStoryRole: connect.NewClient[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPIUnFollowStoryRoleProcedure,
+			opts...,
+		),
+		searchStories: connect.NewClient[gen.SearchStoriesRequest, gen.SearchStoriesResponse](
+			httpClient,
+			baseURL+TeamsAPISearchStoriesProcedure,
+			opts...,
+		),
+		searchGroup: connect.NewClient[gen.SearchGroupReqeust, gen.SearchGroupResponse](
+			httpClient,
+			baseURL+TeamsAPISearchGroupProcedure,
+			opts...,
+		),
+		searchRoles: connect.NewClient[gen.SearchRolesReqeust, gen.SearchRolesResponse](
+			httpClient,
+			baseURL+TeamsAPISearchRolesProcedure,
+			opts...,
+		),
+		restoreStoryboard: connect.NewClient[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIRestoreStoryboardProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -996,7 +1063,6 @@ type teamsAPIClient struct {
 	updateGroupProfile         *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
 	deleteGroup                *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
 	fetchGroupMembers          *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
-	searchGroup                *connect.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
 	fetchGroupProjects         *connect.Client[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse]
 	joinGroup                  *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
 	leaveGroup                 *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
@@ -1067,6 +1133,14 @@ type teamsAPIClient struct {
 	renderStoryBoardSences     *connect.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
 	getStoryBoardSenceGenerate *connect.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
 	getStoryBoardGenerate      *connect.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
+	likeStoryRole              *connect.Client[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse]
+	unLikeStoryRole            *connect.Client[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse]
+	followStoryRole            *connect.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
+	unFollowStoryRole          *connect.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
+	searchStories              *connect.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
+	searchGroup                *connect.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
+	searchRoles                *connect.Client[gen.SearchRolesReqeust, gen.SearchRolesResponse]
+	restoreStoryboard          *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1197,11 +1271,6 @@ func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect.Request[g
 // FetchGroupMembers calls common.TeamsAPI.FetchGroupMembers.
 func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
 	return c.fetchGroupMembers.CallUnary(ctx, req)
-}
-
-// SearchGroup calls common.TeamsAPI.SearchGroup.
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
-	return c.searchGroup.CallUnary(ctx, req)
 }
 
 // FetchGroupProjects calls common.TeamsAPI.FetchGroupProjects.
@@ -1554,6 +1623,46 @@ func (c *teamsAPIClient) GetStoryBoardGenerate(ctx context.Context, req *connect
 	return c.getStoryBoardGenerate.CallUnary(ctx, req)
 }
 
+// LikeStoryRole calls common.TeamsAPI.LikeStoryRole.
+func (c *teamsAPIClient) LikeStoryRole(ctx context.Context, req *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error) {
+	return c.likeStoryRole.CallUnary(ctx, req)
+}
+
+// UnLikeStoryRole calls common.TeamsAPI.UnLikeStoryRole.
+func (c *teamsAPIClient) UnLikeStoryRole(ctx context.Context, req *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error) {
+	return c.unLikeStoryRole.CallUnary(ctx, req)
+}
+
+// FollowStoryRole calls common.TeamsAPI.FollowStoryRole.
+func (c *teamsAPIClient) FollowStoryRole(ctx context.Context, req *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error) {
+	return c.followStoryRole.CallUnary(ctx, req)
+}
+
+// UnFollowStoryRole calls common.TeamsAPI.UnFollowStoryRole.
+func (c *teamsAPIClient) UnFollowStoryRole(ctx context.Context, req *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error) {
+	return c.unFollowStoryRole.CallUnary(ctx, req)
+}
+
+// SearchStories calls common.TeamsAPI.SearchStories.
+func (c *teamsAPIClient) SearchStories(ctx context.Context, req *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error) {
+	return c.searchStories.CallUnary(ctx, req)
+}
+
+// SearchGroup calls common.TeamsAPI.SearchGroup.
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
+	return c.searchGroup.CallUnary(ctx, req)
+}
+
+// SearchRoles calls common.TeamsAPI.SearchRoles.
+func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error) {
+	return c.searchRoles.CallUnary(ctx, req)
+}
+
+// RestoreStoryboard calls common.TeamsAPI.RestoreStoryboard.
+func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, req *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error) {
+	return c.restoreStoryboard.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -1608,8 +1717,6 @@ type TeamsAPIHandler interface {
 	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
-	// 搜索组织
-	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
 	// 获取组织项目
 	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
 	// 加入组织
@@ -1750,6 +1857,22 @@ type TeamsAPIHandler interface {
 	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// 获取故事板生成状态
 	GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error)
+	// 点赞故事角色
+	LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error)
+	// 取消点赞故事角色
+	UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error)
+	// 关注故事角色
+	FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error)
+	// 取消关注故事角色
+	UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error)
+	// 根据关键字查询故事
+	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
+	// 搜索组织
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	// 搜索角色
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error)
+	// 恢复故事板的状态
+	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -1886,11 +2009,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIFetchGroupMembersHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchGroupMembersProcedure,
 		svc.FetchGroupMembers,
-		opts...,
-	)
-	teamsAPISearchGroupHandler := connect.NewUnaryHandler(
-		TeamsAPISearchGroupProcedure,
-		svc.SearchGroup,
 		opts...,
 	)
 	teamsAPIFetchGroupProjectsHandler := connect.NewUnaryHandler(
@@ -2243,6 +2361,46 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetStoryBoardGenerate,
 		opts...,
 	)
+	teamsAPILikeStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPILikeStoryRoleProcedure,
+		svc.LikeStoryRole,
+		opts...,
+	)
+	teamsAPIUnLikeStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPIUnLikeStoryRoleProcedure,
+		svc.UnLikeStoryRole,
+		opts...,
+	)
+	teamsAPIFollowStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPIFollowStoryRoleProcedure,
+		svc.FollowStoryRole,
+		opts...,
+	)
+	teamsAPIUnFollowStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPIUnFollowStoryRoleProcedure,
+		svc.UnFollowStoryRole,
+		opts...,
+	)
+	teamsAPISearchStoriesHandler := connect.NewUnaryHandler(
+		TeamsAPISearchStoriesProcedure,
+		svc.SearchStories,
+		opts...,
+	)
+	teamsAPISearchGroupHandler := connect.NewUnaryHandler(
+		TeamsAPISearchGroupProcedure,
+		svc.SearchGroup,
+		opts...,
+	)
+	teamsAPISearchRolesHandler := connect.NewUnaryHandler(
+		TeamsAPISearchRolesProcedure,
+		svc.SearchRoles,
+		opts...,
+	)
+	teamsAPIRestoreStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIRestoreStoryboardProcedure,
+		svc.RestoreStoryboard,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2297,8 +2455,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIDeleteGroupHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchGroupMembersProcedure:
 			teamsAPIFetchGroupMembersHandler.ServeHTTP(w, r)
-		case TeamsAPISearchGroupProcedure:
-			teamsAPISearchGroupHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchGroupProjectsProcedure:
 			teamsAPIFetchGroupProjectsHandler.ServeHTTP(w, r)
 		case TeamsAPIJoinGroupProcedure:
@@ -2439,6 +2595,22 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetStoryBoardSenceGenerateHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryBoardGenerateProcedure:
 			teamsAPIGetStoryBoardGenerateHandler.ServeHTTP(w, r)
+		case TeamsAPILikeStoryRoleProcedure:
+			teamsAPILikeStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIUnLikeStoryRoleProcedure:
+			teamsAPIUnLikeStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIFollowStoryRoleProcedure:
+			teamsAPIFollowStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIUnFollowStoryRoleProcedure:
+			teamsAPIUnFollowStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPISearchStoriesProcedure:
+			teamsAPISearchStoriesHandler.ServeHTTP(w, r)
+		case TeamsAPISearchGroupProcedure:
+			teamsAPISearchGroupHandler.ServeHTTP(w, r)
+		case TeamsAPISearchRolesProcedure:
+			teamsAPISearchRolesHandler.ServeHTTP(w, r)
+		case TeamsAPIRestoreStoryboardProcedure:
+			teamsAPIRestoreStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -2550,10 +2722,6 @@ func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect.Reques
 
 func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupMembers is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
@@ -2834,4 +3002,36 @@ func (UnimplementedTeamsAPIHandler) GetStoryBoardSenceGenerate(context.Context, 
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardGenerate is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FollowStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnFollowStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchStories is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchRoles is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RestoreStoryboard is not implemented"))
 }

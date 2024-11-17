@@ -45,7 +45,6 @@ const (
 	TeamsAPI_UpdateGroupProfile_FullMethodName         = "/common.TeamsAPI/UpdateGroupProfile"
 	TeamsAPI_DeleteGroup_FullMethodName                = "/common.TeamsAPI/DeleteGroup"
 	TeamsAPI_FetchGroupMembers_FullMethodName          = "/common.TeamsAPI/FetchGroupMembers"
-	TeamsAPI_SearchGroup_FullMethodName                = "/common.TeamsAPI/SearchGroup"
 	TeamsAPI_FetchGroupProjects_FullMethodName         = "/common.TeamsAPI/FetchGroupProjects"
 	TeamsAPI_JoinGroup_FullMethodName                  = "/common.TeamsAPI/JoinGroup"
 	TeamsAPI_LeaveGroup_FullMethodName                 = "/common.TeamsAPI/LeaveGroup"
@@ -116,6 +115,14 @@ const (
 	TeamsAPI_RenderStoryBoardSences_FullMethodName     = "/common.TeamsAPI/RenderStoryBoardSences"
 	TeamsAPI_GetStoryBoardSenceGenerate_FullMethodName = "/common.TeamsAPI/GetStoryBoardSenceGenerate"
 	TeamsAPI_GetStoryBoardGenerate_FullMethodName      = "/common.TeamsAPI/GetStoryBoardGenerate"
+	TeamsAPI_LikeStoryRole_FullMethodName              = "/common.TeamsAPI/LikeStoryRole"
+	TeamsAPI_UnLikeStoryRole_FullMethodName            = "/common.TeamsAPI/UnLikeStoryRole"
+	TeamsAPI_FollowStoryRole_FullMethodName            = "/common.TeamsAPI/FollowStoryRole"
+	TeamsAPI_UnFollowStoryRole_FullMethodName          = "/common.TeamsAPI/UnFollowStoryRole"
+	TeamsAPI_SearchStories_FullMethodName              = "/common.TeamsAPI/SearchStories"
+	TeamsAPI_SearchGroup_FullMethodName                = "/common.TeamsAPI/SearchGroup"
+	TeamsAPI_SearchRoles_FullMethodName                = "/common.TeamsAPI/SearchRoles"
+	TeamsAPI_RestoreStoryboard_FullMethodName          = "/common.TeamsAPI/RestoreStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -174,8 +181,6 @@ type TeamsAPIClient interface {
 	DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error)
 	// 获取组织成员
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
-	// 搜索组织
-	SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error)
 	// 获取组织项目
 	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsReqeust, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
 	// 加入组织
@@ -316,6 +321,22 @@ type TeamsAPIClient interface {
 	GetStoryBoardSenceGenerate(ctx context.Context, in *GetStoryBoardSenceGenerateRequest, opts ...grpc.CallOption) (*GetStoryBoardSenceGenerateResponse, error)
 	// 获取故事板生成状态
 	GetStoryBoardGenerate(ctx context.Context, in *GetStoryBoardGenerateRequest, opts ...grpc.CallOption) (*GetStoryBoardGenerateResponse, error)
+	// 点赞故事角色
+	LikeStoryRole(ctx context.Context, in *LikeStoryRoleRequest, opts ...grpc.CallOption) (*LikeStoryRoleResponse, error)
+	// 取消点赞故事角色
+	UnLikeStoryRole(ctx context.Context, in *UnLikeStoryRoleRequest, opts ...grpc.CallOption) (*UnLikeStoryRoleResponse, error)
+	// 关注故事角色
+	FollowStoryRole(ctx context.Context, in *FollowStoryRoleRequest, opts ...grpc.CallOption) (*FollowStoryRoleResponse, error)
+	// 取消关注故事角色
+	UnFollowStoryRole(ctx context.Context, in *UnFollowStoryRoleRequest, opts ...grpc.CallOption) (*UnFollowStoryRoleResponse, error)
+	// 根据关键字查询故事
+	SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error)
+	// 搜索组织
+	SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error)
+	// 搜索角色
+	SearchRoles(ctx context.Context, in *SearchRolesReqeust, opts ...grpc.CallOption) (*SearchRolesResponse, error)
+	// 恢复故事板的状态
+	RestoreStoryboard(ctx context.Context, in *RestoreStoryboardRequest, opts ...grpc.CallOption) (*RestoreStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -554,15 +575,6 @@ func (c *teamsAPIClient) DeleteGroup(ctx context.Context, in *DeleteGroupRequest
 func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error) {
 	out := new(FetchGroupMembersResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_FetchGroupMembers_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error) {
-	out := new(SearchGroupResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_SearchGroup_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1199,6 +1211,78 @@ func (c *teamsAPIClient) GetStoryBoardGenerate(ctx context.Context, in *GetStory
 	return out, nil
 }
 
+func (c *teamsAPIClient) LikeStoryRole(ctx context.Context, in *LikeStoryRoleRequest, opts ...grpc.CallOption) (*LikeStoryRoleResponse, error) {
+	out := new(LikeStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_LikeStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UnLikeStoryRole(ctx context.Context, in *UnLikeStoryRoleRequest, opts ...grpc.CallOption) (*UnLikeStoryRoleResponse, error) {
+	out := new(UnLikeStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnLikeStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) FollowStoryRole(ctx context.Context, in *FollowStoryRoleRequest, opts ...grpc.CallOption) (*FollowStoryRoleResponse, error) {
+	out := new(FollowStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_FollowStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UnFollowStoryRole(ctx context.Context, in *UnFollowStoryRoleRequest, opts ...grpc.CallOption) (*UnFollowStoryRoleResponse, error) {
+	out := new(UnFollowStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnFollowStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error) {
+	out := new(SearchStoriesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_SearchStories_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error) {
+	out := new(SearchGroupResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_SearchGroup_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) SearchRoles(ctx context.Context, in *SearchRolesReqeust, opts ...grpc.CallOption) (*SearchRolesResponse, error) {
+	out := new(SearchRolesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_SearchRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, in *RestoreStoryboardRequest, opts ...grpc.CallOption) (*RestoreStoryboardResponse, error) {
+	out := new(RestoreStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_RestoreStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1255,8 +1339,6 @@ type TeamsAPIServer interface {
 	DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error)
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
-	// 搜索组织
-	SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error)
 	// 获取组织项目
 	FetchGroupProjects(context.Context, *FetchGroupProjectsReqeust) (*FetchGroupProjectsResponse, error)
 	// 加入组织
@@ -1397,6 +1479,22 @@ type TeamsAPIServer interface {
 	GetStoryBoardSenceGenerate(context.Context, *GetStoryBoardSenceGenerateRequest) (*GetStoryBoardSenceGenerateResponse, error)
 	// 获取故事板生成状态
 	GetStoryBoardGenerate(context.Context, *GetStoryBoardGenerateRequest) (*GetStoryBoardGenerateResponse, error)
+	// 点赞故事角色
+	LikeStoryRole(context.Context, *LikeStoryRoleRequest) (*LikeStoryRoleResponse, error)
+	// 取消点赞故事角色
+	UnLikeStoryRole(context.Context, *UnLikeStoryRoleRequest) (*UnLikeStoryRoleResponse, error)
+	// 关注故事角色
+	FollowStoryRole(context.Context, *FollowStoryRoleRequest) (*FollowStoryRoleResponse, error)
+	// 取消关注故事角色
+	UnFollowStoryRole(context.Context, *UnFollowStoryRoleRequest) (*UnFollowStoryRoleResponse, error)
+	// 根据关键字查询故事
+	SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error)
+	// 搜索组织
+	SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error)
+	// 搜索角色
+	SearchRoles(context.Context, *SearchRolesReqeust) (*SearchRolesResponse, error)
+	// 恢复故事板的状态
+	RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1481,9 +1579,6 @@ func (UnimplementedTeamsAPIServer) DeleteGroup(context.Context, *DeleteGroupRequ
 }
 func (UnimplementedTeamsAPIServer) FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupMembers not implemented")
-}
-func (UnimplementedTeamsAPIServer) SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchGroup not implemented")
 }
 func (UnimplementedTeamsAPIServer) FetchGroupProjects(context.Context, *FetchGroupProjectsReqeust) (*FetchGroupProjectsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupProjects not implemented")
@@ -1694,6 +1789,30 @@ func (UnimplementedTeamsAPIServer) GetStoryBoardSenceGenerate(context.Context, *
 }
 func (UnimplementedTeamsAPIServer) GetStoryBoardGenerate(context.Context, *GetStoryBoardGenerateRequest) (*GetStoryBoardGenerateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardGenerate not implemented")
+}
+func (UnimplementedTeamsAPIServer) LikeStoryRole(context.Context, *LikeStoryRoleRequest) (*LikeStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) UnLikeStoryRole(context.Context, *UnLikeStoryRoleRequest) (*UnLikeStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnLikeStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) FollowStoryRole(context.Context, *FollowStoryRoleRequest) (*FollowStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FollowStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) UnFollowStoryRole(context.Context, *UnFollowStoryRoleRequest) (*UnFollowStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnFollowStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchStories not implemented")
+}
+func (UnimplementedTeamsAPIServer) SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchGroup not implemented")
+}
+func (UnimplementedTeamsAPIServer) SearchRoles(context.Context, *SearchRolesReqeust) (*SearchRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchRoles not implemented")
+}
+func (UnimplementedTeamsAPIServer) RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RestoreStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2172,24 +2291,6 @@ func _TeamsAPI_FetchGroupMembers_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).FetchGroupMembers(ctx, req.(*FetchGroupMembersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_SearchGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchGroupReqeust)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).SearchGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_SearchGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).SearchGroup(ctx, req.(*SearchGroupReqeust))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3454,6 +3555,150 @@ func _TeamsAPI_GetStoryBoardGenerate_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_LikeStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LikeStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).LikeStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_LikeStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).LikeStoryRole(ctx, req.(*LikeStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UnLikeStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnLikeStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnLikeStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnLikeStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnLikeStoryRole(ctx, req.(*UnLikeStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_FollowStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FollowStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).FollowStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_FollowStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).FollowStoryRole(ctx, req.(*FollowStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UnFollowStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnFollowStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnFollowStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnFollowStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnFollowStoryRole(ctx, req.(*UnFollowStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_SearchStories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchStoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).SearchStories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_SearchStories_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).SearchStories(ctx, req.(*SearchStoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_SearchGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchGroupReqeust)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).SearchGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_SearchGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).SearchGroup(ctx, req.(*SearchGroupReqeust))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_SearchRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchRolesReqeust)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).SearchRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_SearchRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).SearchRoles(ctx, req.(*SearchRolesReqeust))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_RestoreStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).RestoreStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_RestoreStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).RestoreStoryboard(ctx, req.(*RestoreStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -3564,10 +3809,6 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FetchGroupMembers",
 			Handler:    _TeamsAPI_FetchGroupMembers_Handler,
-		},
-		{
-			MethodName: "SearchGroup",
-			Handler:    _TeamsAPI_SearchGroup_Handler,
 		},
 		{
 			MethodName: "FetchGroupProjects",
@@ -3848,6 +4089,38 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryBoardGenerate",
 			Handler:    _TeamsAPI_GetStoryBoardGenerate_Handler,
+		},
+		{
+			MethodName: "LikeStoryRole",
+			Handler:    _TeamsAPI_LikeStoryRole_Handler,
+		},
+		{
+			MethodName: "UnLikeStoryRole",
+			Handler:    _TeamsAPI_UnLikeStoryRole_Handler,
+		},
+		{
+			MethodName: "FollowStoryRole",
+			Handler:    _TeamsAPI_FollowStoryRole_Handler,
+		},
+		{
+			MethodName: "UnFollowStoryRole",
+			Handler:    _TeamsAPI_UnFollowStoryRole_Handler,
+		},
+		{
+			MethodName: "SearchStories",
+			Handler:    _TeamsAPI_SearchStories_Handler,
+		},
+		{
+			MethodName: "SearchGroup",
+			Handler:    _TeamsAPI_SearchGroup_Handler,
+		},
+		{
+			MethodName: "SearchRoles",
+			Handler:    _TeamsAPI_SearchRoles_Handler,
+		},
+		{
+			MethodName: "RestoreStoryboard",
+			Handler:    _TeamsAPI_RestoreStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
