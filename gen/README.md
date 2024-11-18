@@ -5189,6 +5189,8 @@
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | keyword | [string](#string) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -5206,6 +5208,7 @@
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | stories | [Story](#common-Story) | repeated |  |
+| total | [int64](#int64) |  |  |
 
 
 

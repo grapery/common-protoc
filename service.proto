@@ -1706,12 +1706,15 @@ message UnFollowStoryRoleResponse {
 message SearchStoriesRequest{
   int64 user_id = 1;
   string keyword = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchStoriesResponse{
   int32 code = 1;
   string message = 2;
   repeated Story stories = 3;
+  int64 total = 4;
 }
 
 message SearchRolesRequest {

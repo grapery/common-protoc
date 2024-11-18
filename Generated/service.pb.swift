@@ -3170,6 +3170,10 @@ public struct Common_SearchStoriesRequest: Sendable {
 
   public var keyword: String = String()
 
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3185,6 +3189,8 @@ public struct Common_SearchStoriesResponse: Sendable {
   public var message: String = String()
 
   public var stories: [Common_Story] = []
+
+  public var total: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10568,6 +10574,8 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "keyword"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10578,6 +10586,8 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.keyword) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -10590,12 +10600,20 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if !self.keyword.isEmpty {
       try visitor.visitSingularStringField(value: self.keyword, fieldNumber: 2)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_SearchStoriesRequest, rhs: Common_SearchStoriesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.keyword != rhs.keyword {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10607,6 +10625,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     1: .same(proto: "code"),
     2: .same(proto: "message"),
     3: .same(proto: "stories"),
+    4: .same(proto: "total"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10618,6 +10637,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.stories) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       default: break
       }
     }
@@ -10633,6 +10653,9 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.stories.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.stories, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10640,6 +10663,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.stories != rhs.stories {return false}
+    if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

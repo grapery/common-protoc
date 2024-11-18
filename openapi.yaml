@@ -4720,6 +4720,10 @@ components:
                     type: string
                 keyword:
                     type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         SearchStoriesResponse:
             type: object
             properties:
@@ -4732,6 +4736,8 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/Story'
+                total:
+                    type: string
         SearchUserRequest:
             type: object
             properties:
