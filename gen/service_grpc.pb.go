@@ -166,9 +166,9 @@ type TeamsAPIClient interface {
 	// 搜索用户
 	SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error)
 	// 创建组织
-	CreateGroup(ctx context.Context, in *CreateGroupReqeust, opts ...grpc.CallOption) (*CreateGroupResponse, error)
+	CreateGroup(ctx context.Context, in *CreateGroupRequest, opts ...grpc.CallOption) (*CreateGroupResponse, error)
 	// 获取组织
-	GetGroup(ctx context.Context, in *GetGroupReqeust, opts ...grpc.CallOption) (*GetGroupResponse, error)
+	GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error)
 	// 组织活跃
 	GetGroupActives(ctx context.Context, in *GetGroupActivesRequest, opts ...grpc.CallOption) (*GetGroupActivesResponse, error)
 	// 更新组织信息
@@ -182,7 +182,7 @@ type TeamsAPIClient interface {
 	// 获取组织成员
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
 	// 获取组织项目
-	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsReqeust, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
+	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsRequest, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
 	// 加入组织
 	JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error)
 	// 离开组织
@@ -204,11 +204,11 @@ type TeamsAPIClient interface {
 	// 更新项目信息
 	UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error)
 	// 关注项目
-	WatchProject(ctx context.Context, in *WatchProjectReqeust, opts ...grpc.CallOption) (*WatchProjectResponse, error)
+	WatchProject(ctx context.Context, in *WatchProjectRequest, opts ...grpc.CallOption) (*WatchProjectResponse, error)
 	// 取消关注项目
-	UnWatchProject(ctx context.Context, in *UnWatchProjectReqeust, opts ...grpc.CallOption) (*UnWatchProjectResponse, error)
+	UnWatchProject(ctx context.Context, in *UnWatchProjectRequest, opts ...grpc.CallOption) (*UnWatchProjectResponse, error)
 	// 获取项目关注者
-	GetProjectWatcher(ctx context.Context, in *GetProjectWatcherReqeust, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error)
+	GetProjectWatcher(ctx context.Context, in *GetProjectWatcherRequest, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error)
 	// 搜索组织项目
 	SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error)
 	// 搜索项目
@@ -270,7 +270,7 @@ type TeamsAPIClient interface {
 	// 分享故事板
 	ShareStoryboard(ctx context.Context, in *ShareStoryboardRequest, opts ...grpc.CallOption) (*ShareStoryboardResponse, error)
 	// 获取组织故事
-	FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error)
+	FetchGroupStorys(ctx context.Context, in *FetchGroupStorysRequest, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error)
 	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
@@ -332,9 +332,9 @@ type TeamsAPIClient interface {
 	// 根据关键字查询故事
 	SearchStories(ctx context.Context, in *SearchStoriesRequest, opts ...grpc.CallOption) (*SearchStoriesResponse, error)
 	// 搜索组织
-	SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error)
+	SearchGroup(ctx context.Context, in *SearchGroupRequest, opts ...grpc.CallOption) (*SearchGroupResponse, error)
 	// 搜索角色
-	SearchRoles(ctx context.Context, in *SearchRolesReqeust, opts ...grpc.CallOption) (*SearchRolesResponse, error)
+	SearchRoles(ctx context.Context, in *SearchRolesRequest, opts ...grpc.CallOption) (*SearchRolesResponse, error)
 	// 恢复故事板的状态
 	RestoreStoryboard(ctx context.Context, in *RestoreStoryboardRequest, opts ...grpc.CallOption) (*RestoreStoryboardResponse, error)
 }
@@ -509,7 +509,7 @@ func (c *teamsAPIClient) SearchUser(ctx context.Context, in *SearchUserRequest, 
 	return out, nil
 }
 
-func (c *teamsAPIClient) CreateGroup(ctx context.Context, in *CreateGroupReqeust, opts ...grpc.CallOption) (*CreateGroupResponse, error) {
+func (c *teamsAPIClient) CreateGroup(ctx context.Context, in *CreateGroupRequest, opts ...grpc.CallOption) (*CreateGroupResponse, error) {
 	out := new(CreateGroupResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_CreateGroup_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -518,7 +518,7 @@ func (c *teamsAPIClient) CreateGroup(ctx context.Context, in *CreateGroupReqeust
 	return out, nil
 }
 
-func (c *teamsAPIClient) GetGroup(ctx context.Context, in *GetGroupReqeust, opts ...grpc.CallOption) (*GetGroupResponse, error) {
+func (c *teamsAPIClient) GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error) {
 	out := new(GetGroupResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GetGroup_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -581,7 +581,7 @@ func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, in *FetchGroupMe
 	return out, nil
 }
 
-func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsReqeust, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error) {
+func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsRequest, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error) {
 	out := new(FetchGroupProjectsResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_FetchGroupProjects_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -680,7 +680,7 @@ func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, in *UpdatePro
 	return out, nil
 }
 
-func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectReqeust, opts ...grpc.CallOption) (*WatchProjectResponse, error) {
+func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectRequest, opts ...grpc.CallOption) (*WatchProjectResponse, error) {
 	out := new(WatchProjectResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_WatchProject_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -689,7 +689,7 @@ func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectReqeu
 	return out, nil
 }
 
-func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectReqeust, opts ...grpc.CallOption) (*UnWatchProjectResponse, error) {
+func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectRequest, opts ...grpc.CallOption) (*UnWatchProjectResponse, error) {
 	out := new(UnWatchProjectResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_UnWatchProject_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -698,7 +698,7 @@ func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectR
 	return out, nil
 }
 
-func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, in *GetProjectWatcherReqeust, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error) {
+func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, in *GetProjectWatcherRequest, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error) {
 	out := new(GetProjectWatcherResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectWatcher_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -977,7 +977,7 @@ func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, in *ShareStoryboar
 	return out, nil
 }
 
-func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, in *FetchGroupStorysReqeust, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error) {
+func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, in *FetchGroupStorysRequest, opts ...grpc.CallOption) (*FetchGroupStorysResponse, error) {
 	out := new(FetchGroupStorysResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_FetchGroupStorys_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -1256,7 +1256,7 @@ func (c *teamsAPIClient) SearchStories(ctx context.Context, in *SearchStoriesReq
 	return out, nil
 }
 
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust, opts ...grpc.CallOption) (*SearchGroupResponse, error) {
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupRequest, opts ...grpc.CallOption) (*SearchGroupResponse, error) {
 	out := new(SearchGroupResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_SearchGroup_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -1265,7 +1265,7 @@ func (c *teamsAPIClient) SearchGroup(ctx context.Context, in *SearchGroupReqeust
 	return out, nil
 }
 
-func (c *teamsAPIClient) SearchRoles(ctx context.Context, in *SearchRolesReqeust, opts ...grpc.CallOption) (*SearchRolesResponse, error) {
+func (c *teamsAPIClient) SearchRoles(ctx context.Context, in *SearchRolesRequest, opts ...grpc.CallOption) (*SearchRolesResponse, error) {
 	out := new(SearchRolesResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_SearchRoles_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -1324,9 +1324,9 @@ type TeamsAPIServer interface {
 	// 搜索用户
 	SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error)
 	// 创建组织
-	CreateGroup(context.Context, *CreateGroupReqeust) (*CreateGroupResponse, error)
+	CreateGroup(context.Context, *CreateGroupRequest) (*CreateGroupResponse, error)
 	// 获取组织
-	GetGroup(context.Context, *GetGroupReqeust) (*GetGroupResponse, error)
+	GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error)
 	// 组织活跃
 	GetGroupActives(context.Context, *GetGroupActivesRequest) (*GetGroupActivesResponse, error)
 	// 更新组织信息
@@ -1340,7 +1340,7 @@ type TeamsAPIServer interface {
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
 	// 获取组织项目
-	FetchGroupProjects(context.Context, *FetchGroupProjectsReqeust) (*FetchGroupProjectsResponse, error)
+	FetchGroupProjects(context.Context, *FetchGroupProjectsRequest) (*FetchGroupProjectsResponse, error)
 	// 加入组织
 	JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error)
 	// 离开组织
@@ -1362,11 +1362,11 @@ type TeamsAPIServer interface {
 	// 更新项目信息
 	UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error)
 	// 关注项目
-	WatchProject(context.Context, *WatchProjectReqeust) (*WatchProjectResponse, error)
+	WatchProject(context.Context, *WatchProjectRequest) (*WatchProjectResponse, error)
 	// 取消关注项目
-	UnWatchProject(context.Context, *UnWatchProjectReqeust) (*UnWatchProjectResponse, error)
+	UnWatchProject(context.Context, *UnWatchProjectRequest) (*UnWatchProjectResponse, error)
 	// 获取项目关注者
-	GetProjectWatcher(context.Context, *GetProjectWatcherReqeust) (*GetProjectWatcherResponse, error)
+	GetProjectWatcher(context.Context, *GetProjectWatcherRequest) (*GetProjectWatcherResponse, error)
 	// 搜索组织项目
 	SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error)
 	// 搜索项目
@@ -1428,7 +1428,7 @@ type TeamsAPIServer interface {
 	// 分享故事板
 	ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error)
 	// 获取组织故事
-	FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error)
+	FetchGroupStorys(context.Context, *FetchGroupStorysRequest) (*FetchGroupStorysResponse, error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *UploadImageRequest) (*UploadImageResponse, error)
 	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
@@ -1490,9 +1490,9 @@ type TeamsAPIServer interface {
 	// 根据关键字查询故事
 	SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error)
 	// 搜索组织
-	SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error)
+	SearchGroup(context.Context, *SearchGroupRequest) (*SearchGroupResponse, error)
 	// 搜索角色
-	SearchRoles(context.Context, *SearchRolesReqeust) (*SearchRolesResponse, error)
+	SearchRoles(context.Context, *SearchRolesRequest) (*SearchRolesResponse, error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
@@ -1556,10 +1556,10 @@ func (UnimplementedTeamsAPIServer) FetchUserActives(context.Context, *FetchUserA
 func (UnimplementedTeamsAPIServer) SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchUser not implemented")
 }
-func (UnimplementedTeamsAPIServer) CreateGroup(context.Context, *CreateGroupReqeust) (*CreateGroupResponse, error) {
+func (UnimplementedTeamsAPIServer) CreateGroup(context.Context, *CreateGroupRequest) (*CreateGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateGroup not implemented")
 }
-func (UnimplementedTeamsAPIServer) GetGroup(context.Context, *GetGroupReqeust) (*GetGroupResponse, error) {
+func (UnimplementedTeamsAPIServer) GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGroup not implemented")
 }
 func (UnimplementedTeamsAPIServer) GetGroupActives(context.Context, *GetGroupActivesRequest) (*GetGroupActivesResponse, error) {
@@ -1580,7 +1580,7 @@ func (UnimplementedTeamsAPIServer) DeleteGroup(context.Context, *DeleteGroupRequ
 func (UnimplementedTeamsAPIServer) FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupMembers not implemented")
 }
-func (UnimplementedTeamsAPIServer) FetchGroupProjects(context.Context, *FetchGroupProjectsReqeust) (*FetchGroupProjectsResponse, error) {
+func (UnimplementedTeamsAPIServer) FetchGroupProjects(context.Context, *FetchGroupProjectsRequest) (*FetchGroupProjectsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupProjects not implemented")
 }
 func (UnimplementedTeamsAPIServer) JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error) {
@@ -1613,13 +1613,13 @@ func (UnimplementedTeamsAPIServer) GetProjectProfile(context.Context, *GetProjec
 func (UnimplementedTeamsAPIServer) UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProjectProfile not implemented")
 }
-func (UnimplementedTeamsAPIServer) WatchProject(context.Context, *WatchProjectReqeust) (*WatchProjectResponse, error) {
+func (UnimplementedTeamsAPIServer) WatchProject(context.Context, *WatchProjectRequest) (*WatchProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WatchProject not implemented")
 }
-func (UnimplementedTeamsAPIServer) UnWatchProject(context.Context, *UnWatchProjectReqeust) (*UnWatchProjectResponse, error) {
+func (UnimplementedTeamsAPIServer) UnWatchProject(context.Context, *UnWatchProjectRequest) (*UnWatchProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnWatchProject not implemented")
 }
-func (UnimplementedTeamsAPIServer) GetProjectWatcher(context.Context, *GetProjectWatcherReqeust) (*GetProjectWatcherResponse, error) {
+func (UnimplementedTeamsAPIServer) GetProjectWatcher(context.Context, *GetProjectWatcherRequest) (*GetProjectWatcherResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProjectWatcher not implemented")
 }
 func (UnimplementedTeamsAPIServer) SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error) {
@@ -1712,7 +1712,7 @@ func (UnimplementedTeamsAPIServer) UnLikeStoryboard(context.Context, *UnLikeStor
 func (UnimplementedTeamsAPIServer) ShareStoryboard(context.Context, *ShareStoryboardRequest) (*ShareStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ShareStoryboard not implemented")
 }
-func (UnimplementedTeamsAPIServer) FetchGroupStorys(context.Context, *FetchGroupStorysReqeust) (*FetchGroupStorysResponse, error) {
+func (UnimplementedTeamsAPIServer) FetchGroupStorys(context.Context, *FetchGroupStorysRequest) (*FetchGroupStorysResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupStorys not implemented")
 }
 func (UnimplementedTeamsAPIServer) UploadImageFile(context.Context, *UploadImageRequest) (*UploadImageResponse, error) {
@@ -1805,10 +1805,10 @@ func (UnimplementedTeamsAPIServer) UnFollowStoryRole(context.Context, *UnFollowS
 func (UnimplementedTeamsAPIServer) SearchStories(context.Context, *SearchStoriesRequest) (*SearchStoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchStories not implemented")
 }
-func (UnimplementedTeamsAPIServer) SearchGroup(context.Context, *SearchGroupReqeust) (*SearchGroupResponse, error) {
+func (UnimplementedTeamsAPIServer) SearchGroup(context.Context, *SearchGroupRequest) (*SearchGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchGroup not implemented")
 }
-func (UnimplementedTeamsAPIServer) SearchRoles(context.Context, *SearchRolesReqeust) (*SearchRolesResponse, error) {
+func (UnimplementedTeamsAPIServer) SearchRoles(context.Context, *SearchRolesRequest) (*SearchRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchRoles not implemented")
 }
 func (UnimplementedTeamsAPIServer) RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error) {
@@ -2152,7 +2152,7 @@ func _TeamsAPI_SearchUser_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _TeamsAPI_CreateGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateGroupReqeust)
+	in := new(CreateGroupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2164,13 +2164,13 @@ func _TeamsAPI_CreateGroup_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: TeamsAPI_CreateGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).CreateGroup(ctx, req.(*CreateGroupReqeust))
+		return srv.(TeamsAPIServer).CreateGroup(ctx, req.(*CreateGroupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TeamsAPI_GetGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupReqeust)
+	in := new(GetGroupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2182,7 +2182,7 @@ func _TeamsAPI_GetGroup_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: TeamsAPI_GetGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetGroup(ctx, req.(*GetGroupReqeust))
+		return srv.(TeamsAPIServer).GetGroup(ctx, req.(*GetGroupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2296,7 +2296,7 @@ func _TeamsAPI_FetchGroupMembers_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _TeamsAPI_FetchGroupProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchGroupProjectsReqeust)
+	in := new(FetchGroupProjectsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2308,7 +2308,7 @@ func _TeamsAPI_FetchGroupProjects_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: TeamsAPI_FetchGroupProjects_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).FetchGroupProjects(ctx, req.(*FetchGroupProjectsReqeust))
+		return srv.(TeamsAPIServer).FetchGroupProjects(ctx, req.(*FetchGroupProjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2494,7 +2494,7 @@ func _TeamsAPI_UpdateProjectProfile_Handler(srv interface{}, ctx context.Context
 }
 
 func _TeamsAPI_WatchProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchProjectReqeust)
+	in := new(WatchProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2506,13 +2506,13 @@ func _TeamsAPI_WatchProject_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: TeamsAPI_WatchProject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).WatchProject(ctx, req.(*WatchProjectReqeust))
+		return srv.(TeamsAPIServer).WatchProject(ctx, req.(*WatchProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TeamsAPI_UnWatchProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnWatchProjectReqeust)
+	in := new(UnWatchProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2524,13 +2524,13 @@ func _TeamsAPI_UnWatchProject_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: TeamsAPI_UnWatchProject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UnWatchProject(ctx, req.(*UnWatchProjectReqeust))
+		return srv.(TeamsAPIServer).UnWatchProject(ctx, req.(*UnWatchProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TeamsAPI_GetProjectWatcher_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectWatcherReqeust)
+	in := new(GetProjectWatcherRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2542,7 +2542,7 @@ func _TeamsAPI_GetProjectWatcher_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TeamsAPI_GetProjectWatcher_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectWatcher(ctx, req.(*GetProjectWatcherReqeust))
+		return srv.(TeamsAPIServer).GetProjectWatcher(ctx, req.(*GetProjectWatcherRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3088,7 +3088,7 @@ func _TeamsAPI_ShareStoryboard_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _TeamsAPI_FetchGroupStorys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchGroupStorysReqeust)
+	in := new(FetchGroupStorysRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3100,7 +3100,7 @@ func _TeamsAPI_FetchGroupStorys_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: TeamsAPI_FetchGroupStorys_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).FetchGroupStorys(ctx, req.(*FetchGroupStorysReqeust))
+		return srv.(TeamsAPIServer).FetchGroupStorys(ctx, req.(*FetchGroupStorysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3646,7 +3646,7 @@ func _TeamsAPI_SearchStories_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _TeamsAPI_SearchGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchGroupReqeust)
+	in := new(SearchGroupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3658,13 +3658,13 @@ func _TeamsAPI_SearchGroup_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: TeamsAPI_SearchGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).SearchGroup(ctx, req.(*SearchGroupReqeust))
+		return srv.(TeamsAPIServer).SearchGroup(ctx, req.(*SearchGroupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TeamsAPI_SearchRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchRolesReqeust)
+	in := new(SearchRolesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3676,7 +3676,7 @@ func _TeamsAPI_SearchRoles_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: TeamsAPI_SearchRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).SearchRoles(ctx, req.(*SearchRolesReqeust))
+		return srv.(TeamsAPIServer).SearchRoles(ctx, req.(*SearchRolesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

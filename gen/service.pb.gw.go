@@ -598,7 +598,7 @@ func local_request_TeamsAPI_SearchUser_0(ctx context.Context, marshaler runtime.
 }
 
 func request_TeamsAPI_CreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateGroupReqeust
+	var protoReq CreateGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -615,7 +615,7 @@ func request_TeamsAPI_CreateGroup_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_TeamsAPI_CreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateGroupReqeust
+	var protoReq CreateGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -632,7 +632,7 @@ func local_request_TeamsAPI_CreateGroup_0(ctx context.Context, marshaler runtime
 }
 
 func request_TeamsAPI_GetGroup_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetGroupReqeust
+	var protoReq GetGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -649,7 +649,7 @@ func request_TeamsAPI_GetGroup_0(ctx context.Context, marshaler runtime.Marshale
 }
 
 func local_request_TeamsAPI_GetGroup_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetGroupReqeust
+	var protoReq GetGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -870,7 +870,7 @@ func local_request_TeamsAPI_FetchGroupMembers_0(ctx context.Context, marshaler r
 }
 
 func request_TeamsAPI_FetchGroupProjects_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq FetchGroupProjectsReqeust
+	var protoReq FetchGroupProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -887,7 +887,7 @@ func request_TeamsAPI_FetchGroupProjects_0(ctx context.Context, marshaler runtim
 }
 
 func local_request_TeamsAPI_FetchGroupProjects_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq FetchGroupProjectsReqeust
+	var protoReq FetchGroupProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1244,7 +1244,7 @@ func local_request_TeamsAPI_UpdateProjectProfile_0(ctx context.Context, marshale
 }
 
 func request_TeamsAPI_WatchProject_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WatchProjectReqeust
+	var protoReq WatchProjectRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1261,7 +1261,7 @@ func request_TeamsAPI_WatchProject_0(ctx context.Context, marshaler runtime.Mars
 }
 
 func local_request_TeamsAPI_WatchProject_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WatchProjectReqeust
+	var protoReq WatchProjectRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1278,7 +1278,7 @@ func local_request_TeamsAPI_WatchProject_0(ctx context.Context, marshaler runtim
 }
 
 func request_TeamsAPI_UnWatchProject_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UnWatchProjectReqeust
+	var protoReq UnWatchProjectRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1295,7 +1295,7 @@ func request_TeamsAPI_UnWatchProject_0(ctx context.Context, marshaler runtime.Ma
 }
 
 func local_request_TeamsAPI_UnWatchProject_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UnWatchProjectReqeust
+	var protoReq UnWatchProjectRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1312,7 +1312,7 @@ func local_request_TeamsAPI_UnWatchProject_0(ctx context.Context, marshaler runt
 }
 
 func request_TeamsAPI_GetProjectWatcher_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetProjectWatcherReqeust
+	var protoReq GetProjectWatcherRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1329,7 +1329,7 @@ func request_TeamsAPI_GetProjectWatcher_0(ctx context.Context, marshaler runtime
 }
 
 func local_request_TeamsAPI_GetProjectWatcher_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetProjectWatcherReqeust
+	var protoReq GetProjectWatcherRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -2366,7 +2366,7 @@ func local_request_TeamsAPI_ShareStoryboard_0(ctx context.Context, marshaler run
 }
 
 func request_TeamsAPI_FetchGroupStorys_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq FetchGroupStorysReqeust
+	var protoReq FetchGroupStorysRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -2383,7 +2383,7 @@ func request_TeamsAPI_FetchGroupStorys_0(ctx context.Context, marshaler runtime.
 }
 
 func local_request_TeamsAPI_FetchGroupStorys_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq FetchGroupStorysReqeust
+	var protoReq FetchGroupStorysRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -3420,7 +3420,7 @@ func local_request_TeamsAPI_SearchStories_0(ctx context.Context, marshaler runti
 }
 
 func request_TeamsAPI_SearchGroup_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SearchGroupReqeust
+	var protoReq SearchGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -3437,7 +3437,7 @@ func request_TeamsAPI_SearchGroup_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_TeamsAPI_SearchGroup_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SearchGroupReqeust
+	var protoReq SearchGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -3454,7 +3454,7 @@ func local_request_TeamsAPI_SearchGroup_0(ctx context.Context, marshaler runtime
 }
 
 func request_TeamsAPI_SearchRoles_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SearchRolesReqeust
+	var protoReq SearchRolesRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -3471,7 +3471,7 @@ func request_TeamsAPI_SearchRoles_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_TeamsAPI_SearchRoles_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq SearchRolesReqeust
+	var protoReq SearchRolesRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

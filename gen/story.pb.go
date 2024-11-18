@@ -3746,7 +3746,7 @@ func (x *GenStoryboardImagesResponse) GetData() *RenderStoryboardDetail {
 	return nil
 }
 
-type FetchGroupStorysReqeust struct {
+type FetchGroupStorysRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -3757,8 +3757,8 @@ type FetchGroupStorysReqeust struct {
 	PageSize int32 `protobuf:"varint,4,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 }
 
-func (x *FetchGroupStorysReqeust) Reset() {
-	*x = FetchGroupStorysReqeust{}
+func (x *FetchGroupStorysRequest) Reset() {
+	*x = FetchGroupStorysRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_story_proto_msgTypes[44]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3766,13 +3766,13 @@ func (x *FetchGroupStorysReqeust) Reset() {
 	}
 }
 
-func (x *FetchGroupStorysReqeust) String() string {
+func (x *FetchGroupStorysRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FetchGroupStorysReqeust) ProtoMessage() {}
+func (*FetchGroupStorysRequest) ProtoMessage() {}
 
-func (x *FetchGroupStorysReqeust) ProtoReflect() protoreflect.Message {
+func (x *FetchGroupStorysRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_story_proto_msgTypes[44]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3784,33 +3784,33 @@ func (x *FetchGroupStorysReqeust) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FetchGroupStorysReqeust.ProtoReflect.Descriptor instead.
-func (*FetchGroupStorysReqeust) Descriptor() ([]byte, []int) {
+// Deprecated: Use FetchGroupStorysRequest.ProtoReflect.Descriptor instead.
+func (*FetchGroupStorysRequest) Descriptor() ([]byte, []int) {
 	return file_story_proto_rawDescGZIP(), []int{44}
 }
 
-func (x *FetchGroupStorysReqeust) GetGroupId() int64 {
+func (x *FetchGroupStorysRequest) GetGroupId() int64 {
 	if x != nil {
 		return x.GroupId
 	}
 	return 0
 }
 
-func (x *FetchGroupStorysReqeust) GetUserId() int64 {
+func (x *FetchGroupStorysRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
 	return 0
 }
 
-func (x *FetchGroupStorysReqeust) GetPage() int32 {
+func (x *FetchGroupStorysRequest) GetPage() int32 {
 	if x != nil {
 		return x.Page
 	}
 	return 0
 }
 
-func (x *FetchGroupStorysReqeust) GetPageSize() int32 {
+func (x *FetchGroupStorysRequest) GetPageSize() int32 {
 	if x != nil {
 		return x.PageSize
 	}
@@ -7614,7 +7614,7 @@ var file_story_proto_rawDesc = []byte{
 	0x32, 0x1e, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72,
 	0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
 	0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x22, 0x7e, 0x0a, 0x17, 0x46, 0x65, 0x74, 0x63, 0x68, 0x47,
-	0x72, 0x6f, 0x75, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x73, 0x52, 0x65, 0x71, 0x65, 0x75, 0x73,
+	0x72, 0x6f, 0x75, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x12, 0x19, 0x0a, 0x08, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x03, 0x52, 0x07, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07,
 	0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x75,
@@ -8059,7 +8059,7 @@ var file_story_proto_goTypes = []interface{}{
 	(*GenStoryboardTextResponse)(nil),          // 43: common.GenStoryboardTextResponse
 	(*GenStoryboardImagesRequest)(nil),         // 44: common.GenStoryboardImagesRequest
 	(*GenStoryboardImagesResponse)(nil),        // 45: common.GenStoryboardImagesResponse
-	(*FetchGroupStorysReqeust)(nil),            // 46: common.FetchGroupStorysReqeust
+	(*FetchGroupStorysRequest)(nil),            // 46: common.FetchGroupStorysRequest
 	(*FetchGroupStorysResponse)(nil),           // 47: common.FetchGroupStorysResponse
 	(*GetStoryRenderRequest)(nil),              // 48: common.GetStoryRenderRequest
 	(*GetStoryRenderResponse)(nil),             // 49: common.GetStoryRenderResponse
@@ -8735,7 +8735,7 @@ func file_story_proto_init() {
 			}
 		}
 		file_story_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FetchGroupStorysReqeust); i {
+			switch v := v.(*FetchGroupStorysRequest); i {
 			case 0:
 				return &v.state
 			case 1:

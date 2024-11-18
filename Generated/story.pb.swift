@@ -1690,7 +1690,7 @@ public struct Common_GenStoryboardImagesResponse: Sendable {
   fileprivate var _data: Common_RenderStoryboardDetail? = nil
 }
 
-public struct Common_FetchGroupStorysReqeust: Sendable {
+public struct Common_FetchGroupStorysRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5986,8 +5986,8 @@ extension Common_GenStoryboardImagesResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_FetchGroupStorysReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchGroupStorysReqeust"
+extension Common_FetchGroupStorysRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchGroupStorysRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "user_id"),
@@ -6026,7 +6026,7 @@ extension Common_FetchGroupStorysReqeust: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchGroupStorysReqeust, rhs: Common_FetchGroupStorysReqeust) -> Bool {
+  public static func ==(lhs: Common_FetchGroupStorysRequest, rhs: Common_FetchGroupStorysRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.page != rhs.page {return false}

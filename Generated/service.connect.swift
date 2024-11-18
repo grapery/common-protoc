@@ -155,19 +155,19 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 创建组织
     @discardableResult
-    func `createGroup`(request: Common_CreateGroupReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable
+    func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建组织
     @available(iOS 13, *)
-    func `createGroup`(request: Common_CreateGroupReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_CreateGroupResponse>
+    func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateGroupResponse>
 
     /// 获取组织
     @discardableResult
-    func `getGroup`(request: Common_GetGroupReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable
+    func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取组织
     @available(iOS 13, *)
-    func `getGroup`(request: Common_GetGroupReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupResponse>
+    func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupResponse>
 
     /// 组织活跃
     @discardableResult
@@ -219,11 +219,11 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 获取组织项目
     @discardableResult
-    func `fetchGroupProjects`(request: Common_FetchGroupProjectsReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable
+    func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取组织项目
     @available(iOS 13, *)
-    func `fetchGroupProjects`(request: Common_FetchGroupProjectsReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupProjectsResponse>
+    func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupProjectsResponse>
 
     /// 加入组织
     @discardableResult
@@ -307,27 +307,27 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 关注项目
     @discardableResult
-    func `watchProject`(request: Common_WatchProjectReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_WatchProjectResponse>) -> Void) -> Connect.Cancelable
+    func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_WatchProjectResponse>) -> Void) -> Connect.Cancelable
 
     /// 关注项目
     @available(iOS 13, *)
-    func `watchProject`(request: Common_WatchProjectReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_WatchProjectResponse>
+    func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_WatchProjectResponse>
 
     /// 取消关注项目
     @discardableResult
-    func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnWatchProjectResponse>) -> Void) -> Connect.Cancelable
+    func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnWatchProjectResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消关注项目
     @available(iOS 13, *)
-    func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_UnWatchProjectResponse>
+    func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnWatchProjectResponse>
 
     /// 获取项目关注者
     @discardableResult
-    func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable
+    func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取项目关注者
     @available(iOS 13, *)
-    func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectWatcherResponse>
+    func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectWatcherResponse>
 
     /// 搜索组织项目
     @discardableResult
@@ -571,11 +571,11 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 获取组织故事
     @discardableResult
-    func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable
+    func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取组织故事
     @available(iOS 13, *)
-    func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupStorysResponse>
+    func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupStorysResponse>
 
     /// 用来上传文件的proto 接口
     @discardableResult
@@ -819,19 +819,19 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     /// 搜索组织
     @discardableResult
-    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable
+    func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// 搜索组织
     @available(iOS 13, *)
-    func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_SearchGroupResponse>
+    func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchGroupResponse>
 
     /// 搜索角色
     @discardableResult
-    func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable
+    func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 搜索角色
     @available(iOS 13, *)
-    func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers) async -> ResponseMessage<Common_SearchRolesResponse>
+    func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchRolesResponse>
 
     /// 恢复故事板的状态
     @discardableResult
@@ -1031,22 +1031,22 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `createGroup`(request: Common_CreateGroupReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable {
+    public func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createGroup`(request: Common_CreateGroupReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateGroupResponse> {
+    public func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateGroupResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getGroup`(request: Common_GetGroupReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable {
+    public func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getGroup`(request: Common_GetGroupReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupResponse> {
+    public func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
@@ -1111,12 +1111,12 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `fetchGroupProjects`(request: Common_FetchGroupProjectsReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable {
+    public func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/FetchGroupProjects", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchGroupProjects`(request: Common_FetchGroupProjectsReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupProjectsResponse> {
+    public func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupProjectsResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/FetchGroupProjects", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
@@ -1221,32 +1221,32 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `watchProject`(request: Common_WatchProjectReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_WatchProjectResponse>) -> Void) -> Connect.Cancelable {
+    public func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_WatchProjectResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/WatchProject", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `watchProject`(request: Common_WatchProjectReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_WatchProjectResponse> {
+    public func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_WatchProjectResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/WatchProject", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnWatchProjectResponse>) -> Void) -> Connect.Cancelable {
+    public func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnWatchProjectResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/UnWatchProject", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unWatchProject`(request: Common_UnWatchProjectReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnWatchProjectResponse> {
+    public func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnWatchProjectResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/UnWatchProject", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable {
+    public func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/GetProjectWatcher", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getProjectWatcher`(request: Common_GetProjectWatcherReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetProjectWatcherResponse> {
+    public func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetProjectWatcherResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/GetProjectWatcher", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
@@ -1551,12 +1551,12 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable {
+    public func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchGroupStorys`(request: Common_FetchGroupStorysReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupStorysResponse> {
+    public func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupStorysResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
@@ -1861,22 +1861,22 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
+    public func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchGroup`(request: Common_SearchGroupReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchGroupResponse> {
+    public func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchGroupResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable {
+    public func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchRoles`(request: Common_SearchRolesReqeust, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchRolesResponse> {
+    public func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchRolesResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 

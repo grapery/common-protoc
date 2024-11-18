@@ -267,7 +267,7 @@ message GetWatchingProjectResponse {
   int64 page_size = 4;
 }
 
-message WatchProjectReqeust {
+message WatchProjectRequest {
   int64 group_id = 1;
   int64 project_id = 2;
   int64 user_id = 3;
@@ -280,7 +280,7 @@ message WatchProjectResponse {
   } Data data = 3;
 }
 
-message UnWatchProjectReqeust {
+message UnWatchProjectRequest {
   int64 group_id = 1;
   int64 project_id = 2;
   int64 user_id = 3;
@@ -477,7 +477,7 @@ message LikeItemResponse {
   } Data data = 3;
 }
 
-message CreateGroupReqeust {
+message CreateGroupRequest {
   int64 user_id = 1;
   string name = 2;
   string description = 3;
@@ -492,7 +492,7 @@ message CreateGroupResponse {
   } Data data = 3;
 }
 
-message GetGroupReqeust {
+message GetGroupRequest {
   int64 group_id = 1;
   int64 user_id = 2;
   string name = 3;
@@ -559,7 +559,7 @@ message FetchGroupMembersResponse {
   } Data data = 3;
 }
 
-message SearchGroupReqeust { 
+message SearchGroupRequest { 
   string name = 1;
   int64 user_id = 2; 
   int64 offset = 3;
@@ -576,7 +576,7 @@ message SearchGroupResponse {
   } Data data = 3;
 }
 
-message FetchGroupProjectsReqeust {
+message FetchGroupProjectsRequest {
   int64 group_id = 1;
   int64 offset = 2;
   int64 page_size = 3;
@@ -743,7 +743,7 @@ message GetProjectMembersResponse{
   } Data data = 3;
 }
 
-message GetProjectWatcherReqeust{
+message GetProjectWatcherRequest{
   int32 projectId = 1;
 }
 
@@ -954,7 +954,7 @@ service TeamsAPI {
   }
 
   // 创建组织
-  rpc CreateGroup(CreateGroupReqeust) returns (CreateGroupResponse) {
+  rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateGroup"
       body : "*"
@@ -962,7 +962,7 @@ service TeamsAPI {
   }
 
   // 获取组织
-  rpc GetGroup(GetGroupReqeust) returns (GetGroupResponse) {
+  rpc GetGroup(GetGroupRequest) returns (GetGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroup"
       body : "*"
@@ -1021,7 +1021,7 @@ service TeamsAPI {
   }
 
   // 获取组织项目
-  rpc FetchGroupProjects(FetchGroupProjectsReqeust)
+  rpc FetchGroupProjects(FetchGroupProjectsRequest)
       returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupProjects"
@@ -1108,7 +1108,7 @@ service TeamsAPI {
   }
 
   // 关注项目
-  rpc WatchProject(WatchProjectReqeust) returns (WatchProjectResponse) {
+  rpc WatchProject(WatchProjectRequest) returns (WatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/WatchProject"
       body : "*"
@@ -1116,7 +1116,7 @@ service TeamsAPI {
   }
 
   // 取消关注项目
-  rpc UnWatchProject(UnWatchProjectReqeust) returns (UnWatchProjectResponse) {
+  rpc UnWatchProject(UnWatchProjectRequest) returns (UnWatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnWatchProject"
       body : "*"
@@ -1124,7 +1124,7 @@ service TeamsAPI {
   }
 
   // 获取项目关注者
-  rpc GetProjectWatcher(GetProjectWatcherReqeust) returns (GetProjectWatcherResponse) {
+  rpc GetProjectWatcher(GetProjectWatcherRequest) returns (GetProjectWatcherResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectWatcher"
       body : "*"
@@ -1376,7 +1376,7 @@ service TeamsAPI {
   }
 
   // 获取组织故事
-  rpc FetchGroupStorys(FetchGroupStorysReqeust) returns (FetchGroupStorysResponse) {
+  rpc FetchGroupStorys(FetchGroupStorysRequest) returns (FetchGroupStorysResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupStorys"
       body : "*"
@@ -1635,7 +1635,7 @@ service TeamsAPI {
   }
 
   // 搜索组织
-  rpc SearchGroup(SearchGroupReqeust) returns (SearchGroupResponse) {
+  rpc SearchGroup(SearchGroupRequest) returns (SearchGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroup"
       body : "*"
@@ -1643,7 +1643,7 @@ service TeamsAPI {
   }
 
   // 搜索角色
-  rpc SearchRoles(SearchRolesReqeust) returns (SearchRolesResponse) {
+  rpc SearchRoles(SearchRolesRequest) returns (SearchRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchRoles"
       body : "*"
@@ -1714,7 +1714,7 @@ message SearchStoriesResponse{
   repeated Story stories = 3;
 }
 
-message SearchRolesReqeust {
+message SearchRolesRequest {
   int64 user_id = 1;
   string keyword = 2;
   int64 offset = 3;

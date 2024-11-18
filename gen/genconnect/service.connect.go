@@ -329,9 +329,9 @@ type TeamsAPIClient interface {
 	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// 创建组织
-	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error)
 	// 获取组织
-	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error)
 	// 组织活跃
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	// 更新组织信息
@@ -345,7 +345,7 @@ type TeamsAPIClient interface {
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	// 获取组织项目
-	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsRequest]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
 	// 加入组织
 	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
 	// 离开组织
@@ -367,11 +367,11 @@ type TeamsAPIClient interface {
 	// 更新项目信息
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
 	// 关注项目
-	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	WatchProject(context.Context, *connect.Request[gen.WatchProjectRequest]) (*connect.Response[gen.WatchProjectResponse], error)
 	// 取消关注项目
-	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectRequest]) (*connect.Response[gen.UnWatchProjectResponse], error)
 	// 获取项目关注者
-	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
+	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherRequest]) (*connect.Response[gen.GetProjectWatcherResponse], error)
 	// 搜索组织项目
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
 	// 搜索项目
@@ -433,7 +433,7 @@ type TeamsAPIClient interface {
 	// 分享故事板
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	// 获取组织故事
-	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
@@ -495,9 +495,9 @@ type TeamsAPIClient interface {
 	// 根据关键字查询故事
 	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
 	// 搜索组织
-	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error)
 	// 搜索角色
-	SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error)
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 }
@@ -602,12 +602,12 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPISearchUserProcedure,
 			opts...,
 		),
-		createGroup: connect.NewClient[gen.CreateGroupReqeust, gen.CreateGroupResponse](
+		createGroup: connect.NewClient[gen.CreateGroupRequest, gen.CreateGroupResponse](
 			httpClient,
 			baseURL+TeamsAPICreateGroupProcedure,
 			opts...,
 		),
-		getGroup: connect.NewClient[gen.GetGroupReqeust, gen.GetGroupResponse](
+		getGroup: connect.NewClient[gen.GetGroupRequest, gen.GetGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupProcedure,
 			opts...,
@@ -642,7 +642,7 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIFetchGroupMembersProcedure,
 			opts...,
 		),
-		fetchGroupProjects: connect.NewClient[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse](
+		fetchGroupProjects: connect.NewClient[gen.FetchGroupProjectsRequest, gen.FetchGroupProjectsResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupProjectsProcedure,
 			opts...,
@@ -697,17 +697,17 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUpdateProjectProfileProcedure,
 			opts...,
 		),
-		watchProject: connect.NewClient[gen.WatchProjectReqeust, gen.WatchProjectResponse](
+		watchProject: connect.NewClient[gen.WatchProjectRequest, gen.WatchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIWatchProjectProcedure,
 			opts...,
 		),
-		unWatchProject: connect.NewClient[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse](
+		unWatchProject: connect.NewClient[gen.UnWatchProjectRequest, gen.UnWatchProjectResponse](
 			httpClient,
 			baseURL+TeamsAPIUnWatchProjectProcedure,
 			opts...,
 		),
-		getProjectWatcher: connect.NewClient[gen.GetProjectWatcherReqeust, gen.GetProjectWatcherResponse](
+		getProjectWatcher: connect.NewClient[gen.GetProjectWatcherRequest, gen.GetProjectWatcherResponse](
 			httpClient,
 			baseURL+TeamsAPIGetProjectWatcherProcedure,
 			opts...,
@@ -862,7 +862,7 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIShareStoryboardProcedure,
 			opts...,
 		),
-		fetchGroupStorys: connect.NewClient[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse](
+		fetchGroupStorys: connect.NewClient[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupStorysProcedure,
 			opts...,
@@ -1017,12 +1017,12 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPISearchStoriesProcedure,
 			opts...,
 		),
-		searchGroup: connect.NewClient[gen.SearchGroupReqeust, gen.SearchGroupResponse](
+		searchGroup: connect.NewClient[gen.SearchGroupRequest, gen.SearchGroupResponse](
 			httpClient,
 			baseURL+TeamsAPISearchGroupProcedure,
 			opts...,
 		),
-		searchRoles: connect.NewClient[gen.SearchRolesReqeust, gen.SearchRolesResponse](
+		searchRoles: connect.NewClient[gen.SearchRolesRequest, gen.SearchRolesResponse](
 			httpClient,
 			baseURL+TeamsAPISearchRolesProcedure,
 			opts...,
@@ -1055,15 +1055,15 @@ type teamsAPIClient struct {
 	userUpdate                 *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
 	fetchUserActives           *connect.Client[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse]
 	searchUser                 *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
-	createGroup                *connect.Client[gen.CreateGroupReqeust, gen.CreateGroupResponse]
-	getGroup                   *connect.Client[gen.GetGroupReqeust, gen.GetGroupResponse]
+	createGroup                *connect.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
+	getGroup                   *connect.Client[gen.GetGroupRequest, gen.GetGroupResponse]
 	getGroupActives            *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
 	updateGroupInfo            *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
 	getGroupProfile            *connect.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
 	updateGroupProfile         *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
 	deleteGroup                *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
 	fetchGroupMembers          *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
-	fetchGroupProjects         *connect.Client[gen.FetchGroupProjectsReqeust, gen.FetchGroupProjectsResponse]
+	fetchGroupProjects         *connect.Client[gen.FetchGroupProjectsRequest, gen.FetchGroupProjectsResponse]
 	joinGroup                  *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
 	leaveGroup                 *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
 	getProjectInfo             *connect.Client[gen.GetProjectRequest, gen.GetProjectResponse]
@@ -1074,9 +1074,9 @@ type teamsAPIClient struct {
 	deleteProject              *connect.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
 	getProjectProfile          *connect.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
 	updateProjectProfile       *connect.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
-	watchProject               *connect.Client[gen.WatchProjectReqeust, gen.WatchProjectResponse]
-	unWatchProject             *connect.Client[gen.UnWatchProjectReqeust, gen.UnWatchProjectResponse]
-	getProjectWatcher          *connect.Client[gen.GetProjectWatcherReqeust, gen.GetProjectWatcherResponse]
+	watchProject               *connect.Client[gen.WatchProjectRequest, gen.WatchProjectResponse]
+	unWatchProject             *connect.Client[gen.UnWatchProjectRequest, gen.UnWatchProjectResponse]
+	getProjectWatcher          *connect.Client[gen.GetProjectWatcherRequest, gen.GetProjectWatcherResponse]
 	searchGroupProject         *connect.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
 	searchProject              *connect.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
 	exploreProject             *connect.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
@@ -1107,7 +1107,7 @@ type teamsAPIClient struct {
 	likeStoryboard             *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
 	unLikeStoryboard           *connect.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
 	shareStoryboard            *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
-	fetchGroupStorys           *connect.Client[gen.FetchGroupStorysReqeust, gen.FetchGroupStorysResponse]
+	fetchGroupStorys           *connect.Client[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse]
 	uploadImageFile            *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
 	getStoryRender             *connect.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
 	getStoryBoardRender        *connect.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
@@ -1138,8 +1138,8 @@ type teamsAPIClient struct {
 	followStoryRole            *connect.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
 	unFollowStoryRole          *connect.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
 	searchStories              *connect.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
-	searchGroup                *connect.Client[gen.SearchGroupReqeust, gen.SearchGroupResponse]
-	searchRoles                *connect.Client[gen.SearchRolesReqeust, gen.SearchRolesResponse]
+	searchGroup                *connect.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
+	searchRoles                *connect.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
 	restoreStoryboard          *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
 }
 
@@ -1234,12 +1234,12 @@ func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect.Request[ge
 }
 
 // CreateGroup calls common.TeamsAPI.CreateGroup.
-func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error) {
+func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error) {
 	return c.createGroup.CallUnary(ctx, req)
 }
 
 // GetGroup calls common.TeamsAPI.GetGroup.
-func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error) {
+func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error) {
 	return c.getGroup.CallUnary(ctx, req)
 }
 
@@ -1274,7 +1274,7 @@ func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect.Req
 }
 
 // FetchGroupProjects calls common.TeamsAPI.FetchGroupProjects.
-func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, req *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
+func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, req *connect.Request[gen.FetchGroupProjectsRequest]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
 	return c.fetchGroupProjects.CallUnary(ctx, req)
 }
 
@@ -1329,17 +1329,17 @@ func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, req *connect.
 }
 
 // WatchProject calls common.TeamsAPI.WatchProject.
-func (c *teamsAPIClient) WatchProject(ctx context.Context, req *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error) {
+func (c *teamsAPIClient) WatchProject(ctx context.Context, req *connect.Request[gen.WatchProjectRequest]) (*connect.Response[gen.WatchProjectResponse], error) {
 	return c.watchProject.CallUnary(ctx, req)
 }
 
 // UnWatchProject calls common.TeamsAPI.UnWatchProject.
-func (c *teamsAPIClient) UnWatchProject(ctx context.Context, req *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
+func (c *teamsAPIClient) UnWatchProject(ctx context.Context, req *connect.Request[gen.UnWatchProjectRequest]) (*connect.Response[gen.UnWatchProjectResponse], error) {
 	return c.unWatchProject.CallUnary(ctx, req)
 }
 
 // GetProjectWatcher calls common.TeamsAPI.GetProjectWatcher.
-func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, req *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
+func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, req *connect.Request[gen.GetProjectWatcherRequest]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
 	return c.getProjectWatcher.CallUnary(ctx, req)
 }
 
@@ -1494,7 +1494,7 @@ func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect.Reque
 }
 
 // FetchGroupStorys calls common.TeamsAPI.FetchGroupStorys.
-func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
+func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
 	return c.fetchGroupStorys.CallUnary(ctx, req)
 }
 
@@ -1649,12 +1649,12 @@ func (c *teamsAPIClient) SearchStories(ctx context.Context, req *connect.Request
 }
 
 // SearchGroup calls common.TeamsAPI.SearchGroup.
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error) {
 	return c.searchGroup.CallUnary(ctx, req)
 }
 
 // SearchRoles calls common.TeamsAPI.SearchRoles.
-func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error) {
+func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error) {
 	return c.searchRoles.CallUnary(ctx, req)
 }
 
@@ -1702,9 +1702,9 @@ type TeamsAPIHandler interface {
 	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// 创建组织
-	CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error)
 	// 获取组织
-	GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error)
 	// 组织活跃
 	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	// 更新组织信息
@@ -1718,7 +1718,7 @@ type TeamsAPIHandler interface {
 	// 获取组织成员
 	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	// 获取组织项目
-	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
+	FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsRequest]) (*connect.Response[gen.FetchGroupProjectsResponse], error)
 	// 加入组织
 	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
 	// 离开组织
@@ -1740,11 +1740,11 @@ type TeamsAPIHandler interface {
 	// 更新项目信息
 	UpdateProjectProfile(context.Context, *connect.Request[gen.UpdateProjectProfileRequest]) (*connect.Response[gen.UpdateProjectProfileResponse], error)
 	// 关注项目
-	WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error)
+	WatchProject(context.Context, *connect.Request[gen.WatchProjectRequest]) (*connect.Response[gen.WatchProjectResponse], error)
 	// 取消关注项目
-	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error)
+	UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectRequest]) (*connect.Response[gen.UnWatchProjectResponse], error)
 	// 获取项目关注者
-	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error)
+	GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherRequest]) (*connect.Response[gen.GetProjectWatcherResponse], error)
 	// 搜索组织项目
 	SearchGroupProject(context.Context, *connect.Request[gen.SearchProjectRequest]) (*connect.Response[gen.SearchProjectResponse], error)
 	// 搜索项目
@@ -1806,7 +1806,7 @@ type TeamsAPIHandler interface {
 	// 分享故事板
 	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	// 获取组织故事
-	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// 用来上传文件的proto 接口
 	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
@@ -1868,9 +1868,9 @@ type TeamsAPIHandler interface {
 	// 根据关键字查询故事
 	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
 	// 搜索组织
-	SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error)
 	// 搜索角色
-	SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error)
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 }
@@ -2692,11 +2692,11 @@ func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect.Request
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchUser is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect.Request[gen.CreateGroupReqeust]) (*connect.Response[gen.CreateGroupResponse], error) {
+func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect.Request[gen.GetGroupReqeust]) (*connect.Response[gen.GetGroupResponse], error) {
+func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroup is not implemented"))
 }
 
@@ -2724,7 +2724,7 @@ func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect.
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupMembers is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsReqeust]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
+func (UnimplementedTeamsAPIHandler) FetchGroupProjects(context.Context, *connect.Request[gen.FetchGroupProjectsRequest]) (*connect.Response[gen.FetchGroupProjectsResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupProjects is not implemented"))
 }
 
@@ -2768,15 +2768,15 @@ func (UnimplementedTeamsAPIHandler) UpdateProjectProfile(context.Context, *conne
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateProjectProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) WatchProject(context.Context, *connect.Request[gen.WatchProjectReqeust]) (*connect.Response[gen.WatchProjectResponse], error) {
+func (UnimplementedTeamsAPIHandler) WatchProject(context.Context, *connect.Request[gen.WatchProjectRequest]) (*connect.Response[gen.WatchProjectResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.WatchProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectReqeust]) (*connect.Response[gen.UnWatchProjectResponse], error) {
+func (UnimplementedTeamsAPIHandler) UnWatchProject(context.Context, *connect.Request[gen.UnWatchProjectRequest]) (*connect.Response[gen.UnWatchProjectResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnWatchProject is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherReqeust]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
+func (UnimplementedTeamsAPIHandler) GetProjectWatcher(context.Context, *connect.Request[gen.GetProjectWatcherRequest]) (*connect.Response[gen.GetProjectWatcherResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetProjectWatcher is not implemented"))
 }
 
@@ -2900,7 +2900,7 @@ func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Re
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ShareStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysReqeust]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
+func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupStorys is not implemented"))
 }
 
@@ -3024,11 +3024,11 @@ func (UnimplementedTeamsAPIHandler) SearchStories(context.Context, *connect.Requ
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchStories is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupReqeust]) (*connect.Response[gen.SearchGroupResponse], error) {
+func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect.Request[gen.SearchRolesReqeust]) (*connect.Response[gen.SearchRolesResponse], error) {
+func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SearchRoles is not implemented"))
 }
 

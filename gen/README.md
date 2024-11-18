@@ -71,7 +71,7 @@
     - [DelStoryboardResponse](#common-DelStoryboardResponse)
     - [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest)
     - [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse)
-    - [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust)
+    - [FetchGroupStorysRequest](#common-FetchGroupStorysRequest)
     - [FetchGroupStorysResponse](#common-FetchGroupStorysResponse)
     - [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data)
     - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
@@ -174,7 +174,7 @@
     - [CreateDisscusResp](#common-CreateDisscusResp)
     - [CreateDisscusResp.Data](#common-CreateDisscusResp-Data)
     - [CreateDisscussReq](#common-CreateDisscussReq)
-    - [CreateGroupReqeust](#common-CreateGroupReqeust)
+    - [CreateGroupRequest](#common-CreateGroupRequest)
     - [CreateGroupResponse](#common-CreateGroupResponse)
     - [CreateGroupResponse.Data](#common-CreateGroupResponse-Data)
     - [CreateItemRequest](#common-CreateItemRequest)
@@ -202,7 +202,7 @@
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
     - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
-    - [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust)
+    - [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest)
     - [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse)
     - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FetchUserActivesRequest](#common-FetchUserActivesRequest)
@@ -220,7 +220,7 @@
     - [GetGroupProfileRequest](#common-GetGroupProfileRequest)
     - [GetGroupProfileResponse](#common-GetGroupProfileResponse)
     - [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data)
-    - [GetGroupReqeust](#common-GetGroupReqeust)
+    - [GetGroupRequest](#common-GetGroupRequest)
     - [GetGroupResponse](#common-GetGroupResponse)
     - [GetGroupResponse.Data](#common-GetGroupResponse-Data)
     - [GetItemRequest](#common-GetItemRequest)
@@ -240,7 +240,7 @@
     - [GetProjectProfileResponse](#common-GetProjectProfileResponse)
     - [GetProjectRequest](#common-GetProjectRequest)
     - [GetProjectResponse](#common-GetProjectResponse)
-    - [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust)
+    - [GetProjectWatcherRequest](#common-GetProjectWatcherRequest)
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
     - [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry)
@@ -287,12 +287,12 @@
     - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
     - [SearchAllProjectRequest](#common-SearchAllProjectRequest)
     - [SearchAllProjectResponse](#common-SearchAllProjectResponse)
-    - [SearchGroupReqeust](#common-SearchGroupReqeust)
+    - [SearchGroupRequest](#common-SearchGroupRequest)
     - [SearchGroupResponse](#common-SearchGroupResponse)
     - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
     - [SearchProjectRequest](#common-SearchProjectRequest)
     - [SearchProjectResponse](#common-SearchProjectResponse)
-    - [SearchRolesReqeust](#common-SearchRolesReqeust)
+    - [SearchRolesRequest](#common-SearchRolesRequest)
     - [SearchRolesResponse](#common-SearchRolesResponse)
     - [SearchStoriesRequest](#common-SearchStoriesRequest)
     - [SearchStoriesResponse](#common-SearchStoriesResponse)
@@ -308,7 +308,7 @@
     - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
     - [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest)
     - [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse)
-    - [UnWatchProjectReqeust](#common-UnWatchProjectReqeust)
+    - [UnWatchProjectRequest](#common-UnWatchProjectRequest)
     - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
     - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
     - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
@@ -348,7 +348,7 @@
     - [VersionRequest](#common-VersionRequest)
     - [VersionResponse](#common-VersionResponse)
     - [VersionResponse.Data](#common-VersionResponse-Data)
-    - [WatchProjectReqeust](#common-WatchProjectReqeust)
+    - [WatchProjectRequest](#common-WatchProjectRequest)
     - [WatchProjectResponse](#common-WatchProjectResponse)
     - [WatchProjectResponse.Data](#common-WatchProjectResponse-Data)
   
@@ -1448,9 +1448,9 @@
 
 
 
-<a name="common-FetchGroupStorysReqeust"></a>
+<a name="common-FetchGroupStorysRequest"></a>
 
-### FetchGroupStorysReqeust
+### FetchGroupStorysRequest
 
 
 
@@ -3233,9 +3233,9 @@
 
 
 
-<a name="common-CreateGroupReqeust"></a>
+<a name="common-CreateGroupRequest"></a>
 
-### CreateGroupReqeust
+### CreateGroupRequest
 
 
 
@@ -3663,9 +3663,9 @@
 
 
 
-<a name="common-FetchGroupProjectsReqeust"></a>
+<a name="common-FetchGroupProjectsRequest"></a>
 
-### FetchGroupProjectsReqeust
+### FetchGroupProjectsRequest
 
 
 
@@ -3955,9 +3955,9 @@
 
 
 
-<a name="common-GetGroupReqeust"></a>
+<a name="common-GetGroupRequest"></a>
 
-### GetGroupReqeust
+### GetGroupRequest
 
 
 
@@ -4303,9 +4303,9 @@
 
 
 
-<a name="common-GetProjectWatcherReqeust"></a>
+<a name="common-GetProjectWatcherRequest"></a>
 
-### GetProjectWatcherReqeust
+### GetProjectWatcherRequest
 
 
 
@@ -5055,9 +5055,9 @@
 
 
 
-<a name="common-SearchGroupReqeust"></a>
+<a name="common-SearchGroupRequest"></a>
 
-### SearchGroupReqeust
+### SearchGroupRequest
 
 
 
@@ -5143,9 +5143,9 @@
 
 
 
-<a name="common-SearchRolesReqeust"></a>
+<a name="common-SearchRolesRequest"></a>
 
-### SearchRolesReqeust
+### SearchRolesRequest
 
 
 
@@ -5413,9 +5413,9 @@
 
 
 
-<a name="common-UnWatchProjectReqeust"></a>
+<a name="common-UnWatchProjectRequest"></a>
 
-### UnWatchProjectReqeust
+### UnWatchProjectRequest
 
 
 
@@ -6054,9 +6054,9 @@ user ,group .project.item
 
 
 
-<a name="common-WatchProjectReqeust"></a>
+<a name="common-WatchProjectRequest"></a>
 
-### WatchProjectReqeust
+### WatchProjectRequest
 
 
 
@@ -6161,15 +6161,15 @@ user ,group .project.item
 | UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | 更新用户信息 |
 | FetchUserActives | [FetchUserActivesRequest](#common-FetchUserActivesRequest) | [FetchUserActivesResponse](#common-FetchUserActivesResponse) | 用户活跃 |
 | SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | 搜索用户 |
-| CreateGroup | [CreateGroupReqeust](#common-CreateGroupReqeust) | [CreateGroupResponse](#common-CreateGroupResponse) | 创建组织 |
-| GetGroup | [GetGroupReqeust](#common-GetGroupReqeust) | [GetGroupResponse](#common-GetGroupResponse) | 获取组织 |
+| CreateGroup | [CreateGroupRequest](#common-CreateGroupRequest) | [CreateGroupResponse](#common-CreateGroupResponse) | 创建组织 |
+| GetGroup | [GetGroupRequest](#common-GetGroupRequest) | [GetGroupResponse](#common-GetGroupResponse) | 获取组织 |
 | GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) | 组织活跃 |
 | UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) | 更新组织信息 |
 | GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) | 获取组织信息 |
 | UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | 更新组织信息 |
 | DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | 删除组织 |
 | FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | 获取组织成员 |
-| FetchGroupProjects | [FetchGroupProjectsReqeust](#common-FetchGroupProjectsReqeust) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | 获取组织项目 |
+| FetchGroupProjects | [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | 获取组织项目 |
 | JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | 加入组织 |
 | LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | 离开组织 |
 | GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) | 获取项目信息 |
@@ -6180,9 +6180,9 @@ user ,group .project.item
 | DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) | 删除项目 |
 | GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) | 获取项目信息 |
 | UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) | 更新项目信息 |
-| WatchProject | [WatchProjectReqeust](#common-WatchProjectReqeust) | [WatchProjectResponse](#common-WatchProjectResponse) | 关注项目 |
-| UnWatchProject | [UnWatchProjectReqeust](#common-UnWatchProjectReqeust) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | 取消关注项目 |
-| GetProjectWatcher | [GetProjectWatcherReqeust](#common-GetProjectWatcherReqeust) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | 获取项目关注者 |
+| WatchProject | [WatchProjectRequest](#common-WatchProjectRequest) | [WatchProjectResponse](#common-WatchProjectResponse) | 关注项目 |
+| UnWatchProject | [UnWatchProjectRequest](#common-UnWatchProjectRequest) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | 取消关注项目 |
+| GetProjectWatcher | [GetProjectWatcherRequest](#common-GetProjectWatcherRequest) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | 获取项目关注者 |
 | SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) | 搜索组织项目 |
 | SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) | 搜索项目 |
 | ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) | 探索项目 |
@@ -6213,7 +6213,7 @@ user ,group .project.item
 | LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) | 喜欢故事板 |
 | UnLikeStoryboard | [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest) | [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse) | 取消喜欢故事板 |
 | ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) | 分享故事板 |
-| FetchGroupStorys | [FetchGroupStorysReqeust](#common-FetchGroupStorysReqeust) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) | 获取组织故事 |
+| FetchGroupStorys | [FetchGroupStorysRequest](#common-FetchGroupStorysRequest) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) | 获取组织故事 |
 | UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
 | GetStoryRender | [GetStoryRenderRequest](#common-GetStoryRenderRequest) | [GetStoryRenderResponse](#common-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
 | GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
@@ -6244,8 +6244,8 @@ user ,group .project.item
 | FollowStoryRole | [FollowStoryRoleRequest](#common-FollowStoryRoleRequest) | [FollowStoryRoleResponse](#common-FollowStoryRoleResponse) | 关注故事角色 |
 | UnFollowStoryRole | [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest) | [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse) | 取消关注故事角色 |
 | SearchStories | [SearchStoriesRequest](#common-SearchStoriesRequest) | [SearchStoriesResponse](#common-SearchStoriesResponse) | 根据关键字查询故事 |
-| SearchGroup | [SearchGroupReqeust](#common-SearchGroupReqeust) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
-| SearchRoles | [SearchRolesReqeust](#common-SearchRolesReqeust) | [SearchRolesResponse](#common-SearchRolesResponse) | 搜索角色 |
+| SearchGroup | [SearchGroupRequest](#common-SearchGroupRequest) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
+| SearchRoles | [SearchRolesRequest](#common-SearchRolesRequest) | [SearchRolesResponse](#common-SearchRolesResponse) | 搜索角色 |
 | RestoreStoryboard | [RestoreStoryboardRequest](#common-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#common-RestoreStoryboardResponse) | 恢复故事板的状态 |
 
  

@@ -85,7 +85,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/CreateGroupReqeust'
+                            $ref: '#/components/schemas/CreateGroupRequest'
                 required: true
             responses:
                 "200":
@@ -454,7 +454,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/FetchGroupProjectsReqeust'
+                            $ref: '#/components/schemas/FetchGroupProjectsRequest'
                 required: true
             responses:
                 "200":
@@ -479,7 +479,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/FetchGroupStorysReqeust'
+                            $ref: '#/components/schemas/FetchGroupStorysRequest'
                 required: true
             responses:
                 "200":
@@ -629,7 +629,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/GetGroupReqeust'
+                            $ref: '#/components/schemas/GetGroupRequest'
                 required: true
             responses:
                 "200":
@@ -904,7 +904,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/GetProjectWatcherReqeust'
+                            $ref: '#/components/schemas/GetProjectWatcherRequest'
                 required: true
             responses:
                 "200":
@@ -1704,7 +1704,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/SearchGroupReqeust'
+                            $ref: '#/components/schemas/SearchGroupRequest'
                 required: true
             responses:
                 "200":
@@ -1779,7 +1779,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/SearchRolesReqeust'
+                            $ref: '#/components/schemas/SearchRolesRequest'
                 required: true
             responses:
                 "200":
@@ -2061,7 +2061,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/UnWatchProjectReqeust'
+                            $ref: '#/components/schemas/UnWatchProjectRequest'
                 required: true
             responses:
                 "200":
@@ -2555,7 +2555,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/WatchProjectReqeust'
+                            $ref: '#/components/schemas/WatchProjectRequest'
                 required: true
             responses:
                 "200":
@@ -2714,7 +2714,7 @@ components:
                     type: string
                 timestamp:
                     type: string
-        CreateGroupReqeust:
+        CreateGroupRequest:
             type: object
             properties:
                 userId:
@@ -3054,7 +3054,7 @@ components:
                     type: string
                 total:
                     type: string
-        FetchGroupProjectsReqeust:
+        FetchGroupProjectsRequest:
             type: object
             properties:
                 groupId:
@@ -3084,7 +3084,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-        FetchGroupStorysReqeust:
+        FetchGroupStorysRequest:
             type: object
             properties:
                 groupId:
@@ -3327,7 +3327,7 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupProfileInfo'
-        GetGroupReqeust:
+        GetGroupRequest:
             type: object
             properties:
                 groupId:
@@ -3543,7 +3543,7 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
-        GetProjectWatcherReqeust:
+        GetProjectWatcherRequest:
             type: object
             properties:
                 projectId:
@@ -4632,7 +4632,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-        SearchGroupReqeust:
+        SearchGroupRequest:
             type: object
             properties:
                 name:
@@ -4688,7 +4688,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-        SearchRolesReqeust:
+        SearchRolesRequest:
             type: object
             properties:
                 userId:
@@ -5163,7 +5163,7 @@ components:
                     format: int32
                 message:
                     type: string
-        UnWatchProjectReqeust:
+        UnWatchProjectRequest:
             type: object
             properties:
                 groupId:
@@ -5706,7 +5706,7 @@ components:
                     type: string
                 Mtime:
                     type: string
-        WatchProjectReqeust:
+        WatchProjectRequest:
             type: object
             properties:
                 groupId:

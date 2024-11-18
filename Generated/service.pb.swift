@@ -953,7 +953,7 @@ public struct Common_GetWatchingProjectResponse: Sendable {
   public init() {}
 }
 
-public struct Common_WatchProjectReqeust: Sendable {
+public struct Common_WatchProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1004,7 +1004,7 @@ public struct Common_WatchProjectResponse: Sendable {
   fileprivate var _data: Common_WatchProjectResponse.DataMessage? = nil
 }
 
-public struct Common_UnWatchProjectReqeust: Sendable {
+public struct Common_UnWatchProjectRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1670,7 +1670,7 @@ public struct Common_LikeItemResponse: Sendable {
   fileprivate var _data: Common_LikeItemResponse.DataMessage? = nil
 }
 
-public struct Common_CreateGroupReqeust: Sendable {
+public struct Common_CreateGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1734,7 +1734,7 @@ public struct Common_CreateGroupResponse: Sendable {
   fileprivate var _data: Common_CreateGroupResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupReqeust: Sendable {
+public struct Common_GetGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2030,7 +2030,7 @@ public struct Common_FetchGroupMembersResponse: Sendable {
   fileprivate var _data: Common_FetchGroupMembersResponse.DataMessage? = nil
 }
 
-public struct Common_SearchGroupReqeust: Sendable {
+public struct Common_SearchGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2089,7 +2089,7 @@ public struct Common_SearchGroupResponse: Sendable {
   fileprivate var _data: Common_SearchGroupResponse.DataMessage? = nil
 }
 
-public struct Common_FetchGroupProjectsReqeust: Sendable {
+public struct Common_FetchGroupProjectsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2767,7 +2767,7 @@ public struct Common_GetProjectMembersResponse: Sendable {
   fileprivate var _data: Common_GetProjectMembersResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectWatcherReqeust: Sendable {
+public struct Common_GetProjectWatcherRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3191,7 +3191,7 @@ public struct Common_SearchStoriesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_SearchRolesReqeust: Sendable {
+public struct Common_SearchRolesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5522,8 +5522,8 @@ extension Common_GetWatchingProjectResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_WatchProjectReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".WatchProjectReqeust"
+extension Common_WatchProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".WatchProjectRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "project_id"),
@@ -5557,7 +5557,7 @@ extension Common_WatchProjectReqeust: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_WatchProjectReqeust, rhs: Common_WatchProjectReqeust) -> Bool {
+  public static func ==(lhs: Common_WatchProjectRequest, rhs: Common_WatchProjectRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -5633,8 +5633,8 @@ extension Common_WatchProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_UnWatchProjectReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UnWatchProjectReqeust"
+extension Common_UnWatchProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UnWatchProjectRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "project_id"),
@@ -5668,7 +5668,7 @@ extension Common_UnWatchProjectReqeust: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnWatchProjectReqeust, rhs: Common_UnWatchProjectReqeust) -> Bool {
+  public static func ==(lhs: Common_UnWatchProjectRequest, rhs: Common_UnWatchProjectRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -7191,8 +7191,8 @@ extension Common_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_CreateGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CreateGroupReqeust"
+extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CreateGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "name"),
@@ -7231,7 +7231,7 @@ extension Common_CreateGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateGroupReqeust, rhs: Common_CreateGroupReqeust) -> Bool {
+  public static func ==(lhs: Common_CreateGroupRequest, rhs: Common_CreateGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.description_p != rhs.description_p {return false}
@@ -7325,8 +7325,8 @@ extension Common_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetGroupReqeust"
+extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "user_id"),
@@ -7360,7 +7360,7 @@ extension Common_GetGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupReqeust, rhs: Common_GetGroupReqeust) -> Bool {
+  public static func ==(lhs: Common_GetGroupRequest, rhs: Common_GetGroupRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
@@ -7962,8 +7962,8 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_SearchGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchGroupReqeust"
+extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SearchGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "user_id"),
@@ -8002,7 +8002,7 @@ extension Common_SearchGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchGroupReqeust, rhs: Common_SearchGroupReqeust) -> Bool {
+  public static func ==(lhs: Common_SearchGroupRequest, rhs: Common_SearchGroupRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -8104,8 +8104,8 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_FetchGroupProjectsReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchGroupProjectsReqeust"
+extension Common_FetchGroupProjectsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchGroupProjectsRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .same(proto: "offset"),
@@ -8139,7 +8139,7 @@ extension Common_FetchGroupProjectsReqeust: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchGroupProjectsReqeust, rhs: Common_FetchGroupProjectsReqeust) -> Bool {
+  public static func ==(lhs: Common_FetchGroupProjectsRequest, rhs: Common_FetchGroupProjectsRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -9611,8 +9611,8 @@ extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_GetProjectWatcherReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherReqeust"
+extension Common_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "projectId"),
   ]
@@ -9636,7 +9636,7 @@ extension Common_GetProjectWatcherReqeust: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectWatcherReqeust, rhs: Common_GetProjectWatcherReqeust) -> Bool {
+  public static func ==(lhs: Common_GetProjectWatcherRequest, rhs: Common_GetProjectWatcherRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -10645,8 +10645,8 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_SearchRolesReqeust: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchRolesReqeust"
+extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SearchRolesRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "keyword"),
@@ -10685,7 +10685,7 @@ extension Common_SearchRolesReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchRolesReqeust, rhs: Common_SearchRolesReqeust) -> Bool {
+  public static func ==(lhs: Common_SearchRolesRequest, rhs: Common_SearchRolesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.keyword != rhs.keyword {return false}
     if lhs.offset != rhs.offset {return false}
