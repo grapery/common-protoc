@@ -2859,8 +2859,8 @@ components:
             properties:
                 userId:
                     type: string
-                info:
-                    $ref: '#/components/schemas/StoryRoleInfo'
+                role:
+                    $ref: '#/components/schemas/StoryRole'
         CreateStoryRoleResponse:
             type: object
             properties:
@@ -3777,7 +3777,7 @@ components:
                 message:
                     type: string
                 info:
-                    $ref: '#/components/schemas/StoryRoleInfo'
+                    $ref: '#/components/schemas/StoryRole'
         GetStoryRolesRequest:
             type: object
             properties:
@@ -4637,6 +4637,12 @@ components:
             properties:
                 name:
                     type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         SearchGroupResponse:
             type: object
             properties:
@@ -4689,6 +4695,10 @@ components:
                     type: string
                 keyword:
                     type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         SearchRolesResponse:
             type: object
             properties:
@@ -4700,7 +4710,9 @@ components:
                 roles:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryRoleInfo'
+                        $ref: '#/components/schemas/StoryRole'
+                total:
+                    type: string
         SearchStoriesRequest:
             type: object
             properties:
@@ -5025,34 +5037,18 @@ components:
                     type: array
                     items:
                         type: string
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
-        StoryRoleInfo:
-            type: object
-            properties:
-                roleId:
-                    type: string
-                characterDescription:
-                    type: string
-                characterName:
-                    type: string
-                characterAvatar:
-                    type: string
-                characterId:
-                    type: string
-                storyId:
-                    type: string
-                characterType:
-                    type: string
-                characterPrompt:
-                    type: string
-                characterRefImages:
-                    type: array
-                    items:
-                        type: string
                 creatorId:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                likeCount:
+                    type: string
+                followCount:
+                    type: string
+                storyboardNum:
+                    type: string
+                version:
                     type: string
                 Ctime:
                     type: string

@@ -142,7 +142,6 @@
     - [StoryBoardSences](#common-StoryBoardSences)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
-    - [StoryRoleInfo](#common-StoryRoleInfo)
     - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
     - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
     - [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest)
@@ -2727,32 +2726,12 @@
 | character_type | [string](#string) |  |  |
 | character_prompt | [string](#string) |  |  |
 | character_ref_images | [string](#string) | repeated |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-StoryRoleInfo"></a>
-
-### StoryRoleInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| role_id | [int64](#int64) |  |  |
-| character_description | [string](#string) |  |  |
-| character_name | [string](#string) |  |  |
-| character_avatar | [string](#string) |  |  |
-| character_id | [string](#string) |  |  |
-| story_id | [int64](#int64) |  |  |
-| character_type | [string](#string) |  |  |
-| character_prompt | [string](#string) |  |  |
-| character_ref_images | [string](#string) | repeated |  |
 | creator_id | [int64](#int64) |  |  |
+| status | [int32](#int32) |  |  |
+| like_count | [int64](#int64) |  |  |
+| follow_count | [int64](#int64) |  |  |
+| storyboard_num | [int64](#int64) |  |  |
+| version | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3395,7 +3374,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| info | [StoryRoleInfo](#common-StoryRoleInfo) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
 
 
 
@@ -4461,7 +4440,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| info | [StoryRoleInfo](#common-StoryRoleInfo) |  |  |
+| info | [StoryRole](#common-StoryRole) |  |  |
 
 
 
@@ -5085,6 +5064,9 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -5171,6 +5153,8 @@
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | keyword | [string](#string) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -5187,7 +5171,8 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| roles | [StoryRoleInfo](#common-StoryRoleInfo) | repeated |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| total | [int64](#int64) |  |  |
 
 
 

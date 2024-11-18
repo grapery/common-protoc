@@ -2037,6 +2037,12 @@ public struct Common_SearchGroupReqeust: Sendable {
 
   public var name: String = String()
 
+  public var userID: Int64 = 0
+
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3194,6 +3200,10 @@ public struct Common_SearchRolesReqeust: Sendable {
 
   public var keyword: String = String()
 
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3208,7 +3218,9 @@ public struct Common_SearchRolesResponse: Sendable {
 
   public var message: String = String()
 
-  public var roles: [Common_StoryRoleInfo] = []
+  public var roles: [Common_StoryRole] = []
+
+  public var total: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3335,20 +3347,20 @@ public struct Common_CreateStoryRoleRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var info: Common_StoryRoleInfo {
-    get {return _info ?? Common_StoryRoleInfo()}
-    set {_info = newValue}
+  public var role: Common_StoryRole {
+    get {return _role ?? Common_StoryRole()}
+    set {_role = newValue}
   }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
+  /// Returns true if `role` has been explicitly set.
+  public var hasRole: Bool {return self._role != nil}
+  /// Clears the value of `role`. Subsequent reads from it will return its default value.
+  public mutating func clearRole() {self._role = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _info: Common_StoryRoleInfo? = nil
+  fileprivate var _role: Common_StoryRole? = nil
 }
 
 public struct Common_CreateStoryRoleResponse: Sendable {
@@ -3386,8 +3398,8 @@ public struct Common_GetStoryRoleDetailResponse: Sendable {
 
   public var message: String = String()
 
-  public var info: Common_StoryRoleInfo {
-    get {return _info ?? Common_StoryRoleInfo()}
+  public var info: Common_StoryRole {
+    get {return _info ?? Common_StoryRole()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -3399,7 +3411,7 @@ public struct Common_GetStoryRoleDetailResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_StoryRoleInfo? = nil
+  fileprivate var _info: Common_StoryRole? = nil
 }
 
 public struct Common_RenderStoryRoleRequest: Sendable {
@@ -7954,6 +7966,9 @@ extension Common_SearchGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public static let protoMessageName: String = _protobuf_package + ".SearchGroupReqeust"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
+    2: .standard(proto: "user_id"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7963,6 +7978,9 @@ extension Common_SearchGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -7972,11 +7990,23 @@ extension Common_SearchGroupReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_SearchGroupReqeust, rhs: Common_SearchGroupReqeust) -> Bool {
     if lhs.name != rhs.name {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10620,6 +10650,8 @@ extension Common_SearchRolesReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "keyword"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10630,6 +10662,8 @@ extension Common_SearchRolesReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.keyword) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -10642,12 +10676,20 @@ extension Common_SearchRolesReqeust: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if !self.keyword.isEmpty {
       try visitor.visitSingularStringField(value: self.keyword, fieldNumber: 2)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_SearchRolesReqeust, rhs: Common_SearchRolesReqeust) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.keyword != rhs.keyword {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10659,6 +10701,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     1: .same(proto: "code"),
     2: .same(proto: "message"),
     3: .same(proto: "roles"),
+    4: .same(proto: "total"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10670,6 +10713,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       default: break
       }
     }
@@ -10685,6 +10729,9 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if !self.roles.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.roles, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10692,6 +10739,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
+    if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11029,7 +11077,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
-    2: .same(proto: "info"),
+    2: .same(proto: "role"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -11039,7 +11087,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._role) }()
       default: break
       }
     }
@@ -11053,7 +11101,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
-    try { if let v = self._info {
+    try { if let v = self._role {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -11061,7 +11109,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
   public static func ==(lhs: Common_CreateStoryRoleRequest, rhs: Common_CreateStoryRoleRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
-    if lhs._info != rhs._info {return false}
+    if lhs._role != rhs._role {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

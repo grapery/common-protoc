@@ -559,7 +559,13 @@ message FetchGroupMembersResponse {
   } Data data = 3;
 }
 
-message SearchGroupReqeust { string name = 1; }
+message SearchGroupReqeust { 
+  string name = 1;
+  int64 user_id = 2; 
+  int64 offset = 3;
+  int64 page_size = 4;
+}
+
 message SearchGroupResponse {
   int32 code = 1;
   string message = 2;
@@ -1711,12 +1717,15 @@ message SearchStoriesResponse{
 message SearchRolesReqeust {
   int64 user_id = 1;
   string keyword = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message SearchRolesResponse{
   int32 code = 1;
   string message = 2;
-  repeated StoryRoleInfo roles = 3;
+  repeated StoryRole roles = 3;
+  int64 total = 4;
 }
 
 message RestoreStoryboardRequest {
@@ -1775,7 +1784,7 @@ message UpdateUserProfileResponse {
 
 message CreateStoryRoleRequest {
   int64 user_id = 1;
-  StoryRoleInfo info = 2;
+  StoryRole role = 2;
 }
 
 message CreateStoryRoleResponse {
@@ -1790,7 +1799,7 @@ message GetStoryRoleDetailRequest {
 message GetStoryRoleDetailResponse {
   int32 code = 1;
   string message = 2;
-  StoryRoleInfo info = 3;
+  StoryRole info = 3;
 }
 
 message RenderStoryRoleRequest {

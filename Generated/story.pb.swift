@@ -403,36 +403,101 @@ public struct Common_StoryBoardSences: Sendable {
   public init() {}
 }
 
-public struct Common_StoryRole: Sendable {
+public struct Common_StoryRole: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var roleID: Int64 = 0
+  public var roleID: Int64 {
+    get {return _storage._roleID}
+    set {_uniqueStorage()._roleID = newValue}
+  }
 
-  public var storyID: Int64 = 0
+  public var storyID: Int64 {
+    get {return _storage._storyID}
+    set {_uniqueStorage()._storyID = newValue}
+  }
 
-  public var characterDescription: String = String()
+  public var characterDescription: String {
+    get {return _storage._characterDescription}
+    set {_uniqueStorage()._characterDescription = newValue}
+  }
 
-  public var characterName: String = String()
+  public var characterName: String {
+    get {return _storage._characterName}
+    set {_uniqueStorage()._characterName = newValue}
+  }
 
-  public var characterAvatar: String = String()
+  public var characterAvatar: String {
+    get {return _storage._characterAvatar}
+    set {_uniqueStorage()._characterAvatar = newValue}
+  }
 
-  public var characterID: String = String()
+  public var characterID: String {
+    get {return _storage._characterID}
+    set {_uniqueStorage()._characterID = newValue}
+  }
 
-  public var characterType: String = String()
+  public var characterType: String {
+    get {return _storage._characterType}
+    set {_uniqueStorage()._characterType = newValue}
+  }
 
-  public var characterPrompt: String = String()
+  public var characterPrompt: String {
+    get {return _storage._characterPrompt}
+    set {_uniqueStorage()._characterPrompt = newValue}
+  }
 
-  public var characterRefImages: [String] = []
+  public var characterRefImages: [String] {
+    get {return _storage._characterRefImages}
+    set {_uniqueStorage()._characterRefImages = newValue}
+  }
 
-  public var ctime: Int64 = 0
+  public var creatorID: Int64 {
+    get {return _storage._creatorID}
+    set {_uniqueStorage()._creatorID = newValue}
+  }
 
-  public var mtime: Int64 = 0
+  public var status: Int32 {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
+
+  public var likeCount: Int64 {
+    get {return _storage._likeCount}
+    set {_uniqueStorage()._likeCount = newValue}
+  }
+
+  public var followCount: Int64 {
+    get {return _storage._followCount}
+    set {_uniqueStorage()._followCount = newValue}
+  }
+
+  public var storyboardNum: Int64 {
+    get {return _storage._storyboardNum}
+    set {_uniqueStorage()._storyboardNum = newValue}
+  }
+
+  public var version: Int64 {
+    get {return _storage._version}
+    set {_uniqueStorage()._version = newValue}
+  }
+
+  public var ctime: Int64 {
+    get {return _storage._ctime}
+    set {_uniqueStorage()._ctime = newValue}
+  }
+
+  public var mtime: Int64 {
+    get {return _storage._mtime}
+    set {_uniqueStorage()._mtime = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_StoryBoardParams: @unchecked Sendable {
@@ -2081,40 +2146,6 @@ public struct Common_GetStoryBoardRolesResponse: Sendable {
   fileprivate var _data: Common_GetStoryBoardRolesResponse.DataMessage? = nil
 }
 
-public struct Common_StoryRoleInfo: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var roleID: Int64 = 0
-
-  public var characterDescription: String = String()
-
-  public var characterName: String = String()
-
-  public var characterAvatar: String = String()
-
-  public var characterID: String = String()
-
-  public var storyID: Int64 = 0
-
-  public var characterType: String = String()
-
-  public var characterPrompt: String = String()
-
-  public var characterRefImages: [String] = []
-
-  public var creatorID: Int64 = 0
-
-  public var ctime: Int64 = 0
-
-  public var mtime: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
 public struct Common_StoryBoardSence: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2995,81 +3026,189 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     9: .standard(proto: "character_type"),
     10: .standard(proto: "character_prompt"),
     11: .standard(proto: "character_ref_images"),
-    16: .same(proto: "Ctime"),
-    17: .same(proto: "Mtime"),
+    12: .standard(proto: "creator_id"),
+    13: .same(proto: "status"),
+    14: .standard(proto: "like_count"),
+    15: .standard(proto: "follow_count"),
+    16: .standard(proto: "storyboard_num"),
+    17: .same(proto: "version"),
+    18: .same(proto: "Ctime"),
+    19: .same(proto: "Mtime"),
   ]
 
+  fileprivate class _StorageClass {
+    var _roleID: Int64 = 0
+    var _storyID: Int64 = 0
+    var _characterDescription: String = String()
+    var _characterName: String = String()
+    var _characterAvatar: String = String()
+    var _characterID: String = String()
+    var _characterType: String = String()
+    var _characterPrompt: String = String()
+    var _characterRefImages: [String] = []
+    var _creatorID: Int64 = 0
+    var _status: Int32 = 0
+    var _likeCount: Int64 = 0
+    var _followCount: Int64 = 0
+    var _storyboardNum: Int64 = 0
+    var _version: Int64 = 0
+    var _ctime: Int64 = 0
+    var _mtime: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _roleID = source._roleID
+      _storyID = source._storyID
+      _characterDescription = source._characterDescription
+      _characterName = source._characterName
+      _characterAvatar = source._characterAvatar
+      _characterID = source._characterID
+      _characterType = source._characterType
+      _characterPrompt = source._characterPrompt
+      _characterRefImages = source._characterRefImages
+      _creatorID = source._creatorID
+      _status = source._status
+      _likeCount = source._likeCount
+      _followCount = source._followCount
+      _storyboardNum = source._storyboardNum
+      _version = source._version
+      _ctime = source._ctime
+      _mtime = source._mtime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.characterDescription) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.characterName) }()
-      case 7: try { try decoder.decodeSingularStringField(value: &self.characterAvatar) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.characterID) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.characterType) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self.characterPrompt) }()
-      case 11: try { try decoder.decodeRepeatedStringField(value: &self.characterRefImages) }()
-      case 16: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 17: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._roleID) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._characterDescription) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._characterName) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._characterAvatar) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._characterID) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._characterType) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._characterPrompt) }()
+        case 11: try { try decoder.decodeRepeatedStringField(value: &_storage._characterRefImages) }()
+        case 12: try { try decoder.decodeSingularInt64Field(value: &_storage._creatorID) }()
+        case 13: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
+        case 14: try { try decoder.decodeSingularInt64Field(value: &_storage._likeCount) }()
+        case 15: try { try decoder.decodeSingularInt64Field(value: &_storage._followCount) }()
+        case 16: try { try decoder.decodeSingularInt64Field(value: &_storage._storyboardNum) }()
+        case 17: try { try decoder.decodeSingularInt64Field(value: &_storage._version) }()
+        case 18: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.roleID != 0 {
-      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 1)
-    }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
-    }
-    if !self.characterDescription.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterDescription, fieldNumber: 5)
-    }
-    if !self.characterName.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterName, fieldNumber: 6)
-    }
-    if !self.characterAvatar.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterAvatar, fieldNumber: 7)
-    }
-    if !self.characterID.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterID, fieldNumber: 8)
-    }
-    if !self.characterType.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterType, fieldNumber: 9)
-    }
-    if !self.characterPrompt.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterPrompt, fieldNumber: 10)
-    }
-    if !self.characterRefImages.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.characterRefImages, fieldNumber: 11)
-    }
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 16)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 17)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._roleID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._roleID, fieldNumber: 1)
+      }
+      if _storage._storyID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 2)
+      }
+      if !_storage._characterDescription.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterDescription, fieldNumber: 5)
+      }
+      if !_storage._characterName.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterName, fieldNumber: 6)
+      }
+      if !_storage._characterAvatar.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterAvatar, fieldNumber: 7)
+      }
+      if !_storage._characterID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterID, fieldNumber: 8)
+      }
+      if !_storage._characterType.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterType, fieldNumber: 9)
+      }
+      if !_storage._characterPrompt.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._characterPrompt, fieldNumber: 10)
+      }
+      if !_storage._characterRefImages.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._characterRefImages, fieldNumber: 11)
+      }
+      if _storage._creatorID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._creatorID, fieldNumber: 12)
+      }
+      if _storage._status != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 13)
+      }
+      if _storage._likeCount != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._likeCount, fieldNumber: 14)
+      }
+      if _storage._followCount != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._followCount, fieldNumber: 15)
+      }
+      if _storage._storyboardNum != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyboardNum, fieldNumber: 16)
+      }
+      if _storage._version != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._version, fieldNumber: 17)
+      }
+      if _storage._ctime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 18)
+      }
+      if _storage._mtime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 19)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_StoryRole, rhs: Common_StoryRole) -> Bool {
-    if lhs.roleID != rhs.roleID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.characterDescription != rhs.characterDescription {return false}
-    if lhs.characterName != rhs.characterName {return false}
-    if lhs.characterAvatar != rhs.characterAvatar {return false}
-    if lhs.characterID != rhs.characterID {return false}
-    if lhs.characterType != rhs.characterType {return false}
-    if lhs.characterPrompt != rhs.characterPrompt {return false}
-    if lhs.characterRefImages != rhs.characterRefImages {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._roleID != rhs_storage._roleID {return false}
+        if _storage._storyID != rhs_storage._storyID {return false}
+        if _storage._characterDescription != rhs_storage._characterDescription {return false}
+        if _storage._characterName != rhs_storage._characterName {return false}
+        if _storage._characterAvatar != rhs_storage._characterAvatar {return false}
+        if _storage._characterID != rhs_storage._characterID {return false}
+        if _storage._characterType != rhs_storage._characterType {return false}
+        if _storage._characterPrompt != rhs_storage._characterPrompt {return false}
+        if _storage._characterRefImages != rhs_storage._characterRefImages {return false}
+        if _storage._creatorID != rhs_storage._creatorID {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._likeCount != rhs_storage._likeCount {return false}
+        if _storage._followCount != rhs_storage._followCount {return false}
+        if _storage._storyboardNum != rhs_storage._storyboardNum {return false}
+        if _storage._version != rhs_storage._version {return false}
+        if _storage._ctime != rhs_storage._ctime {return false}
+        if _storage._mtime != rhs_storage._mtime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6888,104 +7027,6 @@ extension Common_GetStoryBoardRolesResponse.DataMessage: SwiftProtobuf.Message, 
 
   public static func ==(lhs: Common_GetStoryBoardRolesResponse.DataMessage, rhs: Common_GetStoryBoardRolesResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_StoryRoleInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".StoryRoleInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "character_description"),
-    3: .standard(proto: "character_name"),
-    4: .standard(proto: "character_avatar"),
-    5: .standard(proto: "character_id"),
-    6: .standard(proto: "story_id"),
-    7: .standard(proto: "character_type"),
-    8: .standard(proto: "character_prompt"),
-    9: .standard(proto: "character_ref_images"),
-    10: .standard(proto: "creator_id"),
-    15: .same(proto: "Ctime"),
-    16: .same(proto: "Mtime"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.characterDescription) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.characterName) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.characterAvatar) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.characterID) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 7: try { try decoder.decodeSingularStringField(value: &self.characterType) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.characterPrompt) }()
-      case 9: try { try decoder.decodeRepeatedStringField(value: &self.characterRefImages) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
-      case 15: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 16: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.roleID != 0 {
-      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 1)
-    }
-    if !self.characterDescription.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterDescription, fieldNumber: 2)
-    }
-    if !self.characterName.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterName, fieldNumber: 3)
-    }
-    if !self.characterAvatar.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterAvatar, fieldNumber: 4)
-    }
-    if !self.characterID.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterID, fieldNumber: 5)
-    }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
-    }
-    if !self.characterType.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterType, fieldNumber: 7)
-    }
-    if !self.characterPrompt.isEmpty {
-      try visitor.visitSingularStringField(value: self.characterPrompt, fieldNumber: 8)
-    }
-    if !self.characterRefImages.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.characterRefImages, fieldNumber: 9)
-    }
-    if self.creatorID != 0 {
-      try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 10)
-    }
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 15)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 16)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_StoryRoleInfo, rhs: Common_StoryRoleInfo) -> Bool {
-    if lhs.roleID != rhs.roleID {return false}
-    if lhs.characterDescription != rhs.characterDescription {return false}
-    if lhs.characterName != rhs.characterName {return false}
-    if lhs.characterAvatar != rhs.characterAvatar {return false}
-    if lhs.characterID != rhs.characterID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.characterType != rhs.characterType {return false}
-    if lhs.characterPrompt != rhs.characterPrompt {return false}
-    if lhs.characterRefImages != rhs.characterRefImages {return false}
-    if lhs.creatorID != rhs.creatorID {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
