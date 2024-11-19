@@ -299,6 +299,7 @@
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [StoryContributor](#common-StoryContributor)
+    - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
     - [TrendingResponse.Data](#common-TrendingResponse-Data)
@@ -5013,6 +5014,7 @@
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+| store | [StoryboardStageStore](#common-StoryboardStageStore) |  |  |
 
 
 
@@ -5067,6 +5069,9 @@
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| scope | [ScopeType](#common-ScopeType) |  |  |
+| story_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
 
 
 
@@ -5155,6 +5160,9 @@
 | keyword | [string](#string) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| scope | [ScopeType](#common-ScopeType) |  |  |
+| story_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
 
 
 
@@ -5191,6 +5199,9 @@
 | keyword | [string](#string) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| scope | [ScopeType](#common-ScopeType) |  |  |
+| story_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
 
 
 
@@ -5263,6 +5274,26 @@
 | username | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | viplevel | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryboardStageStore"></a>
+
+### StoryboardStageStore
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
+| sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
+| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
+| last_update_time | [int64](#int64) |  |  |
+| version | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 

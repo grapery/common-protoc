@@ -564,6 +564,9 @@ message SearchGroupRequest {
   int64 user_id = 2; 
   int64 offset = 3;
   int64 page_size = 4;
+  ScopeType scope = 5;
+  int64 story_id = 6;
+  int64 group_id = 7;
 }
 
 message SearchGroupResponse {
@@ -1708,6 +1711,9 @@ message SearchStoriesRequest{
   string keyword = 2;
   int64 offset = 3;
   int64 page_size = 4;
+  ScopeType scope = 5;
+  int64 story_id = 6;
+  int64 group_id = 7;
 }
 
 message SearchStoriesResponse{
@@ -1722,6 +1728,9 @@ message SearchRolesRequest {
   string keyword = 2;
   int64 offset = 3;
   int64 page_size = 4;
+  ScopeType scope = 5;
+  int64 story_id = 6;
+  int64 group_id = 7;
 }
 
 message SearchRolesResponse{
@@ -1740,6 +1749,16 @@ message RestoreStoryboardRequest {
 message RestoreStoryboardResponse {
   int32 code = 1;
   string message = 2;
+  StoryboardStageStore store = 3;
+}
+
+message StoryboardStageStore{
+  StoryBoard storyboard = 1;
+  StoryBoardSences sences = 2;
+  StoryboardStage stage = 3;
+  int64 last_update_time = 4;
+  int64 version = 5;
+  int64 user_id = 6;
 }
 
 enum StoryboardStage{

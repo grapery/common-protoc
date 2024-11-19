@@ -2043,6 +2043,12 @@ public struct Common_SearchGroupRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
+  public var scope: Common_ScopeType = .allPublic
+
+  public var storyID: Int64 = 0
+
+  public var groupID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3174,6 +3180,12 @@ public struct Common_SearchStoriesRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
+  public var scope: Common_ScopeType = .allPublic
+
+  public var storyID: Int64 = 0
+
+  public var groupID: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3209,6 +3221,12 @@ public struct Common_SearchRolesRequest: Sendable {
   public var offset: Int64 = 0
 
   public var pageSize: Int64 = 0
+
+  public var scope: Common_ScopeType = .allPublic
+
+  public var storyID: Int64 = 0
+
+  public var groupID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3258,9 +3276,70 @@ public struct Common_RestoreStoryboardResponse: Sendable {
 
   public var message: String = String()
 
+  public var store: Common_StoryboardStageStore {
+    get {return _store ?? Common_StoryboardStageStore()}
+    set {_store = newValue}
+  }
+  /// Returns true if `store` has been explicitly set.
+  public var hasStore: Bool {return self._store != nil}
+  /// Clears the value of `store`. Subsequent reads from it will return its default value.
+  public mutating func clearStore() {self._store = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _store: Common_StoryboardStageStore? = nil
+}
+
+public struct Common_StoryboardStageStore: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyboard: Common_StoryBoard {
+    get {return _storage._storyboard ?? Common_StoryBoard()}
+    set {_uniqueStorage()._storyboard = newValue}
+  }
+  /// Returns true if `storyboard` has been explicitly set.
+  public var hasStoryboard: Bool {return _storage._storyboard != nil}
+  /// Clears the value of `storyboard`. Subsequent reads from it will return its default value.
+  public mutating func clearStoryboard() {_uniqueStorage()._storyboard = nil}
+
+  public var sences: Common_StoryBoardSences {
+    get {return _storage._sences ?? Common_StoryBoardSences()}
+    set {_uniqueStorage()._sences = newValue}
+  }
+  /// Returns true if `sences` has been explicitly set.
+  public var hasSences: Bool {return _storage._sences != nil}
+  /// Clears the value of `sences`. Subsequent reads from it will return its default value.
+  public mutating func clearSences() {_uniqueStorage()._sences = nil}
+
+  public var stage: Common_StoryboardStage {
+    get {return _storage._stage}
+    set {_uniqueStorage()._stage = newValue}
+  }
+
+  public var lastUpdateTime: Int64 {
+    get {return _storage._lastUpdateTime}
+    set {_uniqueStorage()._lastUpdateTime = newValue}
+  }
+
+  public var version: Int64 {
+    get {return _storage._version}
+    set {_uniqueStorage()._version = newValue}
+  }
+
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_GetUserProfileRequest: Sendable {
@@ -7975,6 +8054,9 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     2: .standard(proto: "user_id"),
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
+    5: .same(proto: "scope"),
+    6: .standard(proto: "story_id"),
+    7: .standard(proto: "group_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7987,6 +8069,9 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.scope) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       default: break
       }
     }
@@ -8005,6 +8090,15 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
+    if self.scope != .allPublic {
+      try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -8013,6 +8107,9 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.scope != rhs.scope {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.groupID != rhs.groupID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10576,6 +10673,9 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     2: .same(proto: "keyword"),
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
+    5: .same(proto: "scope"),
+    6: .standard(proto: "story_id"),
+    7: .standard(proto: "group_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10588,6 +10688,9 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 2: try { try decoder.decodeSingularStringField(value: &self.keyword) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.scope) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       default: break
       }
     }
@@ -10606,6 +10709,15 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
+    if self.scope != .allPublic {
+      try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10614,6 +10726,9 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.keyword != rhs.keyword {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.scope != rhs.scope {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.groupID != rhs.groupID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10676,6 +10791,9 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     2: .same(proto: "keyword"),
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
+    5: .same(proto: "scope"),
+    6: .standard(proto: "story_id"),
+    7: .standard(proto: "group_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10688,6 +10806,9 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       case 2: try { try decoder.decodeSingularStringField(value: &self.keyword) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.scope) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       default: break
       }
     }
@@ -10706,6 +10827,15 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
+    if self.scope != .allPublic {
+      try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10714,6 +10844,9 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if lhs.keyword != rhs.keyword {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.scope != rhs.scope {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.groupID != rhs.groupID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10818,6 +10951,7 @@ extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
+    3: .same(proto: "store"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10828,24 +10962,149 @@ extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._store) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != 0 {
       try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
+    try { if let v = self._store {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_RestoreStoryboardResponse, rhs: Common_RestoreStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs._store != rhs._store {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryboardStageStore"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "storyboard"),
+    2: .same(proto: "sences"),
+    3: .same(proto: "stage"),
+    4: .standard(proto: "last_update_time"),
+    5: .same(proto: "version"),
+    6: .standard(proto: "user_id"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _storyboard: Common_StoryBoard? = nil
+    var _sences: Common_StoryBoardSences? = nil
+    var _stage: Common_StoryboardStage = .unspecified
+    var _lastUpdateTime: Int64 = 0
+    var _version: Int64 = 0
+    var _userID: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _storyboard = source._storyboard
+      _sences = source._sences
+      _stage = source._stage
+      _lastUpdateTime = source._lastUpdateTime
+      _version = source._version
+      _userID = source._userID
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._storyboard) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._sences) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
+        case 4: try { try decoder.decodeSingularInt64Field(value: &_storage._lastUpdateTime) }()
+        case 5: try { try decoder.decodeSingularInt64Field(value: &_storage._version) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._storyboard {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._sences {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      if _storage._stage != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._stage, fieldNumber: 3)
+      }
+      if _storage._lastUpdateTime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._lastUpdateTime, fieldNumber: 4)
+      }
+      if _storage._version != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._version, fieldNumber: 5)
+      }
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 6)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryboardStageStore, rhs: Common_StoryboardStageStore) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._storyboard != rhs_storage._storyboard {return false}
+        if _storage._sences != rhs_storage._sences {return false}
+        if _storage._stage != rhs_storage._stage {return false}
+        if _storage._lastUpdateTime != rhs_storage._lastUpdateTime {return false}
+        if _storage._version != rhs_storage._version {return false}
+        if _storage._userID != rhs_storage._userID {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

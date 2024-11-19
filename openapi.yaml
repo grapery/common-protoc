@@ -4608,6 +4608,8 @@ components:
                     format: int32
                 message:
                     type: string
+                store:
+                    $ref: '#/components/schemas/StoryboardStageStore'
         SearchAllProjectRequest:
             type: object
             properties:
@@ -4642,6 +4644,13 @@ components:
                 offset:
                     type: string
                 pageSize:
+                    type: string
+                scope:
+                    type: integer
+                    format: enum
+                storyId:
+                    type: string
+                groupId:
                     type: string
         SearchGroupResponse:
             type: object
@@ -4699,6 +4708,13 @@ components:
                     type: string
                 pageSize:
                     type: string
+                scope:
+                    type: integer
+                    format: enum
+                storyId:
+                    type: string
+                groupId:
+                    type: string
         SearchRolesResponse:
             type: object
             properties:
@@ -4723,6 +4739,13 @@ components:
                 offset:
                     type: string
                 pageSize:
+                    type: string
+                scope:
+                    type: integer
+                    format: enum
+                storyId:
+                    type: string
+                groupId:
                     type: string
         SearchStoriesResponse:
             type: object
@@ -5059,6 +5082,22 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        StoryboardStageStore:
+            type: object
+            properties:
+                storyboard:
+                    $ref: '#/components/schemas/StoryBoard'
+                sences:
+                    $ref: '#/components/schemas/StoryBoardSences'
+                stage:
+                    type: integer
+                    format: enum
+                lastUpdateTime:
+                    type: string
+                version:
+                    type: string
+                userId:
                     type: string
         Tags:
             type: object
