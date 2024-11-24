@@ -252,6 +252,10 @@
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
+    - [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest)
+    - [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse)
+    - [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest)
+    - [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse)
     - [GetUserItemsRequest](#common-GetUserItemsRequest)
     - [GetUserItemsResponse](#common-GetUserItemsResponse)
     - [GetUserProfileRequest](#common-GetUserProfileRequest)
@@ -4485,6 +4489,84 @@
 
 
 
+<a name="common-GetUserCreatedRolesRequest"></a>
+
+### GetUserCreatedRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int32](#int32) |  |  |
+| stage | [int32](#int32) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserCreatedRolesResponse"></a>
+
+### GetUserCreatedRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserCreatedStoryboardsRequest"></a>
+
+### GetUserCreatedStoryboardsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int32](#int32) |  |  |
+| stage | [int32](#int32) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserCreatedStoryboardsResponse"></a>
+
+### GetUserCreatedStoryboardsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserItemsRequest"></a>
 
 ### GetUserItemsRequest
@@ -6281,6 +6363,8 @@ user ,group .project.item
 | SearchGroup | [SearchGroupRequest](#common-SearchGroupRequest) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
 | SearchRoles | [SearchRolesRequest](#common-SearchRolesRequest) | [SearchRolesResponse](#common-SearchRolesResponse) | 搜索角色 |
 | RestoreStoryboard | [RestoreStoryboardRequest](#common-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#common-RestoreStoryboardResponse) | 恢复故事板的状态 |
+| GetUserCreatedStoryboards | [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest) | [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse) | 获取用户创建的故事板 |
+| GetUserCreatedRoles | [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest) | [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse) | 获取用户创建的角色 |
 
  
 

@@ -1169,6 +1169,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserCreatedRoles:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户创建的角色
+            operationId: TeamsAPI_GetUserCreatedRoles
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserCreatedRolesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserCreatedRolesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserCreatedStoryboards:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户创建的故事板
+            operationId: TeamsAPI_GetUserCreatedStoryboards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserCreatedStoryboardsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserCreatedStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetUserItems:
         post:
             tags:
@@ -3859,6 +3909,72 @@ components:
                 total:
                     type: integer
                     format: int32
+        GetUserCreatedRolesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                storyId:
+                    type: integer
+                    format: int32
+                stage:
+                    type: integer
+                    format: int32
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUserCreatedRolesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUserCreatedStoryboardsRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                storyId:
+                    type: integer
+                    format: int32
+                stage:
+                    type: integer
+                    format: int32
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUserCreatedStoryboardsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                storyboards:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoard'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetUserItemsRequest:
             type: object
             properties:

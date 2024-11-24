@@ -288,6 +288,12 @@ const (
 	// TeamsAPIRestoreStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// RestoreStoryboard RPC.
 	TeamsAPIRestoreStoryboardProcedure = "/common.TeamsAPI/RestoreStoryboard"
+	// TeamsAPIGetUserCreatedStoryboardsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserCreatedStoryboards RPC.
+	TeamsAPIGetUserCreatedStoryboardsProcedure = "/common.TeamsAPI/GetUserCreatedStoryboards"
+	// TeamsAPIGetUserCreatedRolesProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserCreatedRoles RPC.
+	TeamsAPIGetUserCreatedRolesProcedure = "/common.TeamsAPI/GetUserCreatedRoles"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -500,6 +506,10 @@ type TeamsAPIClient interface {
 	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
+	// 获取用户创建的故事板
+	GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error)
+	// 获取用户创建的角色
+	GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1032,6 +1042,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIRestoreStoryboardProcedure,
 			opts...,
 		),
+		getUserCreatedStoryboards: connect.NewClient[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserCreatedStoryboardsProcedure,
+			opts...,
+		),
+		getUserCreatedRoles: connect.NewClient[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserCreatedRolesProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1141,6 +1161,8 @@ type teamsAPIClient struct {
 	searchGroup                *connect.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
 	searchRoles                *connect.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
 	restoreStoryboard          *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
+	getUserCreatedStoryboards  *connect.Client[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse]
+	getUserCreatedRoles        *connect.Client[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1663,6 +1685,16 @@ func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, req *connect.Req
 	return c.restoreStoryboard.CallUnary(ctx, req)
 }
 
+// GetUserCreatedStoryboards calls common.TeamsAPI.GetUserCreatedStoryboards.
+func (c *teamsAPIClient) GetUserCreatedStoryboards(ctx context.Context, req *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error) {
+	return c.getUserCreatedStoryboards.CallUnary(ctx, req)
+}
+
+// GetUserCreatedRoles calls common.TeamsAPI.GetUserCreatedRoles.
+func (c *teamsAPIClient) GetUserCreatedRoles(ctx context.Context, req *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error) {
+	return c.getUserCreatedRoles.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -1873,6 +1905,10 @@ type TeamsAPIHandler interface {
 	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
+	// 获取用户创建的故事板
+	GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error)
+	// 获取用户创建的角色
+	GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2401,6 +2437,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.RestoreStoryboard,
 		opts...,
 	)
+	teamsAPIGetUserCreatedStoryboardsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserCreatedStoryboardsProcedure,
+		svc.GetUserCreatedStoryboards,
+		opts...,
+	)
+	teamsAPIGetUserCreatedRolesHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserCreatedRolesProcedure,
+		svc.GetUserCreatedRoles,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2611,6 +2657,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPISearchRolesHandler.ServeHTTP(w, r)
 		case TeamsAPIRestoreStoryboardProcedure:
 			teamsAPIRestoreStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserCreatedStoryboardsProcedure:
+			teamsAPIGetUserCreatedStoryboardsHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserCreatedRolesProcedure:
+			teamsAPIGetUserCreatedRolesHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3034,4 +3084,12 @@ func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect.Reques
 
 func (UnimplementedTeamsAPIHandler) RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RestoreStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserCreatedStoryboards is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserCreatedRoles is not implemented"))
 }

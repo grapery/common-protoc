@@ -123,6 +123,8 @@ const (
 	TeamsAPI_SearchGroup_FullMethodName                = "/common.TeamsAPI/SearchGroup"
 	TeamsAPI_SearchRoles_FullMethodName                = "/common.TeamsAPI/SearchRoles"
 	TeamsAPI_RestoreStoryboard_FullMethodName          = "/common.TeamsAPI/RestoreStoryboard"
+	TeamsAPI_GetUserCreatedStoryboards_FullMethodName  = "/common.TeamsAPI/GetUserCreatedStoryboards"
+	TeamsAPI_GetUserCreatedRoles_FullMethodName        = "/common.TeamsAPI/GetUserCreatedRoles"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -337,6 +339,10 @@ type TeamsAPIClient interface {
 	SearchRoles(ctx context.Context, in *SearchRolesRequest, opts ...grpc.CallOption) (*SearchRolesResponse, error)
 	// 恢复故事板的状态
 	RestoreStoryboard(ctx context.Context, in *RestoreStoryboardRequest, opts ...grpc.CallOption) (*RestoreStoryboardResponse, error)
+	// 获取用户创建的故事板
+	GetUserCreatedStoryboards(ctx context.Context, in *GetUserCreatedStoryboardsRequest, opts ...grpc.CallOption) (*GetUserCreatedStoryboardsResponse, error)
+	// 获取用户创建的角色
+	GetUserCreatedRoles(ctx context.Context, in *GetUserCreatedRolesRequest, opts ...grpc.CallOption) (*GetUserCreatedRolesResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1283,6 +1289,24 @@ func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, in *RestoreStory
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetUserCreatedStoryboards(ctx context.Context, in *GetUserCreatedStoryboardsRequest, opts ...grpc.CallOption) (*GetUserCreatedStoryboardsResponse, error) {
+	out := new(GetUserCreatedStoryboardsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUserCreatedStoryboards_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetUserCreatedRoles(ctx context.Context, in *GetUserCreatedRolesRequest, opts ...grpc.CallOption) (*GetUserCreatedRolesResponse, error) {
+	out := new(GetUserCreatedRolesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUserCreatedRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1495,6 +1519,10 @@ type TeamsAPIServer interface {
 	SearchRoles(context.Context, *SearchRolesRequest) (*SearchRolesResponse, error)
 	// 恢复故事板的状态
 	RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error)
+	// 获取用户创建的故事板
+	GetUserCreatedStoryboards(context.Context, *GetUserCreatedStoryboardsRequest) (*GetUserCreatedStoryboardsResponse, error)
+	// 获取用户创建的角色
+	GetUserCreatedRoles(context.Context, *GetUserCreatedRolesRequest) (*GetUserCreatedRolesResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1813,6 +1841,12 @@ func (UnimplementedTeamsAPIServer) SearchRoles(context.Context, *SearchRolesRequ
 }
 func (UnimplementedTeamsAPIServer) RestoreStoryboard(context.Context, *RestoreStoryboardRequest) (*RestoreStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RestoreStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUserCreatedStoryboards(context.Context, *GetUserCreatedStoryboardsRequest) (*GetUserCreatedStoryboardsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserCreatedStoryboards not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUserCreatedRoles(context.Context, *GetUserCreatedRolesRequest) (*GetUserCreatedRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserCreatedRoles not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -3699,6 +3733,42 @@ func _TeamsAPI_RestoreStoryboard_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetUserCreatedStoryboards_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserCreatedStoryboardsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUserCreatedStoryboards(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUserCreatedStoryboards_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUserCreatedStoryboards(ctx, req.(*GetUserCreatedStoryboardsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetUserCreatedRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserCreatedRolesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUserCreatedRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUserCreatedRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUserCreatedRoles(ctx, req.(*GetUserCreatedRolesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4121,6 +4191,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RestoreStoryboard",
 			Handler:    _TeamsAPI_RestoreStoryboard_Handler,
+		},
+		{
+			MethodName: "GetUserCreatedStoryboards",
+			Handler:    _TeamsAPI_GetUserCreatedStoryboards_Handler,
+		},
+		{
+			MethodName: "GetUserCreatedRoles",
+			Handler:    _TeamsAPI_GetUserCreatedRoles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

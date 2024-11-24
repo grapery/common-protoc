@@ -840,6 +840,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 恢复故事板的状态
     @available(iOS 13, *)
     func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RestoreStoryboardResponse>
+
+    /// 获取用户创建的故事板
+    @discardableResult
+    func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取用户创建的故事板
+    @available(iOS 13, *)
+    func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserCreatedStoryboardsResponse>
+
+    /// 获取用户创建的角色
+    @discardableResult
+    func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取用户创建的角色
+    @available(iOS 13, *)
+    func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserCreatedRolesResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1890,6 +1906,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserCreatedStoryboardsResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserCreatedRolesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -1996,6 +2032,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "common.TeamsAPI", type: .unary)
             public static let searchRoles = Connect.MethodSpec(name: "SearchRoles", service: "common.TeamsAPI", type: .unary)
             public static let restoreStoryboard = Connect.MethodSpec(name: "RestoreStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let getUserCreatedStoryboards = Connect.MethodSpec(name: "GetUserCreatedStoryboards", service: "common.TeamsAPI", type: .unary)
+            public static let getUserCreatedRoles = Connect.MethodSpec(name: "GetUserCreatedRoles", service: "common.TeamsAPI", type: .unary)
         }
     }
 }
