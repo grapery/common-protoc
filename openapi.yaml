@@ -25,6 +25,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/ChatWithStoryRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 与角色聊天
+            operationId: TeamsAPI_ChatWithStoryRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ChatWithStoryRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ChatWithStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/ContinueRenderStory:
         post:
             tags:
@@ -219,6 +244,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/CreateStoryRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CreateStoryRoleChat:
+        post:
+            tags:
+                - TeamsAPI
+            description: 创建与角色的对话
+            operationId: TeamsAPI_CreateStoryRoleChat
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryRoleChatRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryRoleChatResponse'
                 default:
                     description: Default error response
                     content:
@@ -1094,6 +1144,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryRoleStories:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取角色参与的故事
+            operationId: TeamsAPI_GetStoryRoleStories
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRoleStoriesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRoleStoriesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryRoleStoryboards:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取角色参与的故事板
+            operationId: TeamsAPI_GetStoryRoleStoryboards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRoleStoryboardsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRoleStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryRoles:
         post:
             tags:
@@ -1263,6 +1363,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetUserProfileResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserWithRoleChatList:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户的对话列表
+            operationId: TeamsAPI_GetUserWithRoleChatList
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserWithRoleChatListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserWithRoleChatListResponse'
                 default:
                     description: Default error response
                     content:
@@ -2326,6 +2451,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRoleDetail:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新角色详情
+            operationId: TeamsAPI_UpdateStoryRoleDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRoleDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRoleDetailResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryboard:
         post:
             tags:
@@ -2670,6 +2820,55 @@ components:
                     type: string
                 Mtime:
                     type: string
+        ChatContext:
+            type: object
+            properties:
+                chatId:
+                    type: string
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                timestamp:
+                    type: string
+                lastUpdateTime:
+                    type: string
+                totalTokens:
+                    type: string
+                totalMessages:
+                    type: string
+        ChatMessage:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                message:
+                    type: string
+                chatId:
+                    type: string
+                timestamp:
+                    type: string
+        ChatWithStoryRoleRequest:
+            type: object
+            properties:
+                messages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatMessage'
+        ChatWithStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                replyMessages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatMessage'
         CommentInfo:
             type: object
             properties:
@@ -2904,6 +3103,23 @@ components:
                 boardId:
                     type: integer
                     format: int32
+        CreateStoryRoleChatRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+        CreateStoryRoleChatResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                chatContext:
+                    $ref: '#/components/schemas/ChatContext'
         CreateStoryRoleRequest:
             type: object
             properties:
@@ -3828,6 +4044,70 @@ components:
                     type: string
                 info:
                     $ref: '#/components/schemas/StoryRole'
+        GetStoryRoleStoriesRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                filter:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryRoleStoriesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                stories:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Story'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryRoleStoryboardsRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                filter:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryRoleStoryboardsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                storyboards:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoard'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetStoryRolesRequest:
             type: object
             properties:
@@ -4012,6 +4292,25 @@ components:
                     type: string
                 info:
                     $ref: '#/components/schemas/UserProfileInfo'
+        GetUserWithRoleChatListRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                storyId:
+                    type: string
+        GetUserWithRoleChatListResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                chats:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatContext'
         GoogleProtobufAny:
             type: object
             properties:
@@ -5508,6 +5807,25 @@ components:
                 storyId:
                     type: integer
                     format: int32
+        UpdateStoryRoleDetailRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                role:
+                    $ref: '#/components/schemas/StoryRole'
+                userId:
+                    type: string
+                needRegen:
+                    type: boolean
+        UpdateStoryRoleDetailResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
         UpdateStoryRoleRequest:
             type: object
             properties:

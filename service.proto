@@ -1501,6 +1501,7 @@ service TeamsAPI {
       body : "*"
     };
   }
+
   // // 标星故事
   // rpc StarStory(StarStoryRequest) returns (StarStoryResponse) {
   //   option (google.api.http) = {
@@ -1676,6 +1677,149 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取角色参与的故事板
+  rpc GetStoryRoleStoryboards(GetStoryRoleStoryboardsRequest) returns (GetStoryRoleStoryboardsResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryRoleStoryboards"
+      body : "*"
+    };
+  }
+
+  // 获取角色参与的故事
+  rpc GetStoryRoleStories(GetStoryRoleStoriesRequest) returns (GetStoryRoleStoriesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryRoleStories"
+      body : "*"
+    };
+  }
+  // 创建与角色的对话
+  rpc CreateStoryRoleChat(CreateStoryRoleChatRequest) returns (CreateStoryRoleChatResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryRoleChat"
+      body : "*"
+    };
+  }
+  // 与角色聊天
+  rpc ChatWithStoryRole(ChatWithStoryRoleRequest) returns (ChatWithStoryRoleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/ChatWithStoryRole"
+      body : "*"
+    };
+  }
+
+  // 更新角色详情
+  rpc UpdateStoryRoleDetail(UpdateStoryRoleDetailRequest) returns (UpdateStoryRoleDetailResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryRoleDetail"
+      body : "*"
+    };
+  }
+
+  // 获取用户的对话列表
+  rpc GetUserWithRoleChatList(GetUserWithRoleChatListRequest) returns (GetUserWithRoleChatListResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetUserWithRoleChatList"
+      body : "*"
+    };
+  }
+}
+
+message GetStoryRoleStoryboardsRequest {
+  int64 role_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+  string filter = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message GetStoryRoleStoryboardsResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated StoryBoard storyboards = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message GetStoryRoleStoriesRequest {
+  int64 role_id = 1;
+  int64 user_id = 2;
+  string filter = 3;
+  int64 offset = 4;
+  int64 page_size = 5;
+}
+
+message GetStoryRoleStoriesResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated Story stories = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message CreateStoryRoleChatRequest {
+  int64 role_id = 1;
+  int64 user_id = 2;
+}
+
+message ChatContext{
+  int64 chat_id = 1;
+  int64 role_id = 2;
+  int64 user_id = 3;
+  int64 timestamp = 4;
+  int64 last_update_time = 5;
+  int64 total_tokens = 6;
+  int64 total_messages = 7;
+}
+
+message CreateStoryRoleChatResponse {
+  int32 code = 1;
+  string message = 2;
+  ChatContext chat_context = 3;
+}
+
+message ChatMessage {
+  int64 role_id = 1;
+  int64 user_id = 2;
+  string message = 3;
+  int64 chat_id = 4;
+  int64 timestamp = 5;
+}
+
+message ChatWithStoryRoleRequest {
+  repeated ChatMessage messages = 1;
+}
+
+message ChatWithStoryRoleResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated ChatMessage reply_messages = 3;
+}
+
+message UpdateStoryRoleDetailRequest {
+  int64 role_id = 1;
+  StoryRole role = 2;
+  int64 user_id = 3;
+  bool need_regen = 4;
+}
+
+message UpdateStoryRoleDetailResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetUserWithRoleChatListRequest {
+  int64 user_id = 1;
+  int64 story_id = 2;
+}
+
+message GetUserWithRoleChatListResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated ChatContext chats = 3;
 }
 
 message GetUserCreatedStoryboardsRequest {

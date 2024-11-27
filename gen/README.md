@@ -165,6 +165,10 @@
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
     - [ActiveInfo](#common-ActiveInfo)
+    - [ChatContext](#common-ChatContext)
+    - [ChatMessage](#common-ChatMessage)
+    - [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest)
+    - [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse)
     - [ConfirmRequest](#common-ConfirmRequest)
     - [ConfirmResponse](#common-ConfirmResponse)
     - [Content](#common-Content)
@@ -182,6 +186,8 @@
     - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
+    - [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest)
+    - [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse)
     - [CreateStoryRoleRequest](#common-CreateStoryRoleRequest)
     - [CreateStoryRoleResponse](#common-CreateStoryRoleResponse)
     - [DeleteGroupRequest](#common-DeleteGroupRequest)
@@ -249,6 +255,10 @@
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
     - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
     - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
+    - [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest)
+    - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
+    - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
+    - [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
@@ -260,6 +270,8 @@
     - [GetUserItemsResponse](#common-GetUserItemsResponse)
     - [GetUserProfileRequest](#common-GetUserProfileRequest)
     - [GetUserProfileResponse](#common-GetUserProfileResponse)
+    - [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest)
+    - [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse)
     - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
     - [GetWatchingProjectResponse](#common-GetWatchingProjectResponse)
     - [JoinGroupRequest](#common-JoinGroupRequest)
@@ -329,6 +341,8 @@
     - [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data)
     - [UpdateProjectRequest](#common-UpdateProjectRequest)
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
+    - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
+    - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UpdateUserProfileRequest](#common-UpdateUserProfileRequest)
@@ -3098,6 +3112,78 @@
 
 
 
+<a name="common-ChatContext"></a>
+
+### ChatContext
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| chat_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| last_update_time | [int64](#int64) |  |  |
+| total_tokens | [int64](#int64) |  |  |
+| total_messages | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ChatMessage"></a>
+
+### ChatMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| message | [string](#string) |  |  |
+| chat_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ChatWithStoryRoleRequest"></a>
+
+### ChatWithStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+
+
+
+
+
+
+<a name="common-ChatWithStoryRoleResponse"></a>
+
+### ChatWithStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| reply_messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+
+
+
+
+
+
 <a name="common-ConfirmRequest"></a>
 
 ### ConfirmRequest
@@ -3364,6 +3450,39 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [ProjectInfo](#common-ProjectInfo) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryRoleChatRequest"></a>
+
+### CreateStoryRoleChatRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryRoleChatResponse"></a>
+
+### CreateStoryRoleChatResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| chat_context | [ChatContext](#common-ChatContext) |  |  |
 
 
 
@@ -4452,6 +4571,85 @@
 
 
 
+<a name="common-GetStoryRoleStoriesRequest"></a>
+
+### GetStoryRoleStoriesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| filter | [string](#string) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRoleStoriesResponse"></a>
+
+### GetStoryRoleStoriesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| stories | [Story](#common-Story) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRoleStoryboardsRequest"></a>
+
+### GetStoryRoleStoryboardsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| filter | [string](#string) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRoleStoryboardsResponse"></a>
+
+### GetStoryRoleStoryboardsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserCommentReq"></a>
 
 ### GetUserCommentReq
@@ -4628,6 +4826,39 @@
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserWithRoleChatListRequest"></a>
+
+### GetUserWithRoleChatListRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserWithRoleChatListResponse"></a>
+
+### GetUserWithRoleChatListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| chats | [ChatContext](#common-ChatContext) | repeated |  |
 
 
 
@@ -5783,6 +6014,40 @@
 
 
 
+<a name="common-UpdateStoryRoleDetailRequest"></a>
+
+### UpdateStoryRoleDetailRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
+| user_id | [int64](#int64) |  |  |
+| need_regen | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRoleDetailResponse"></a>
+
+### UpdateStoryRoleDetailResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateUserAvatorRequest"></a>
 
 ### UpdateUserAvatorRequest
@@ -6365,6 +6630,12 @@ user ,group .project.item
 | RestoreStoryboard | [RestoreStoryboardRequest](#common-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#common-RestoreStoryboardResponse) | 恢复故事板的状态 |
 | GetUserCreatedStoryboards | [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest) | [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse) | 获取用户创建的故事板 |
 | GetUserCreatedRoles | [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest) | [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse) | 获取用户创建的角色 |
+| GetStoryRoleStoryboards | [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest) | [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse) | 获取角色参与的故事板 |
+| GetStoryRoleStories | [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest) | [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse) | 获取角色参与的故事 |
+| CreateStoryRoleChat | [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest) | [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse) | 创建与角色的对话 |
+| ChatWithStoryRole | [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest) | [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse) | 与角色聊天 |
+| UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse) | 更新角色详情 |
+| GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
 
  
 
