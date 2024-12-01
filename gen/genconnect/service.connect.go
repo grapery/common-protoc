@@ -312,6 +312,9 @@ const (
 	// TeamsAPIGetUserWithRoleChatListProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserWithRoleChatList RPC.
 	TeamsAPIGetUserWithRoleChatListProcedure = "/common.TeamsAPI/GetUserWithRoleChatList"
+	// TeamsAPIGetUserChatWithRoleProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserChatWithRole RPC.
+	TeamsAPIGetUserChatWithRoleProcedure = "/common.TeamsAPI/GetUserChatWithRole"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -540,6 +543,8 @@ type TeamsAPIClient interface {
 	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// 获取用户的对话列表
 	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
+	// 获取用户与角色的对话
+	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1112,6 +1117,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetUserWithRoleChatListProcedure,
 			opts...,
 		),
+		getUserChatWithRole: connect.NewClient[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserChatWithRoleProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1229,6 +1239,7 @@ type teamsAPIClient struct {
 	chatWithStoryRole          *connect.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
 	updateStoryRoleDetail      *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
 	getUserWithRoleChatList    *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
+	getUserChatWithRole        *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1791,6 +1802,11 @@ func (c *teamsAPIClient) GetUserWithRoleChatList(ctx context.Context, req *conne
 	return c.getUserWithRoleChatList.CallUnary(ctx, req)
 }
 
+// GetUserChatWithRole calls common.TeamsAPI.GetUserChatWithRole.
+func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, req *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error) {
+	return c.getUserChatWithRole.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2017,6 +2033,8 @@ type TeamsAPIHandler interface {
 	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// 获取用户的对话列表
 	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
+	// 获取用户与角色的对话
+	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2585,6 +2603,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetUserWithRoleChatList,
 		opts...,
 	)
+	teamsAPIGetUserChatWithRoleHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserChatWithRoleProcedure,
+		svc.GetUserChatWithRole,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2811,6 +2834,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryRoleDetailHandler.ServeHTTP(w, r)
 		case TeamsAPIGetUserWithRoleChatListProcedure:
 			teamsAPIGetUserWithRoleChatListHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserChatWithRoleProcedure:
+			teamsAPIGetUserChatWithRoleHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3266,4 +3291,8 @@ func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDetail(context.Context, *conn
 
 func (UnimplementedTeamsAPIHandler) GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWithRoleChatList is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserChatWithRole is not implemented"))
 }

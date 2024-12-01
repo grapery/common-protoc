@@ -904,6 +904,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取用户的对话列表
     @available(iOS 13, *)
     func `getUserWithRoleChatList`(request: Common_GetUserWithRoleChatListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWithRoleChatListResponse>
+
+    /// 获取用户与角色的对话
+    @discardableResult
+    func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取用户与角色的对话
+    @available(iOS 13, *)
+    func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserChatWithRoleResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2034,6 +2042,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetUserWithRoleChatList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserChatWithRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2148,6 +2166,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let chatWithStoryRole = Connect.MethodSpec(name: "ChatWithStoryRole", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryRoleDetail = Connect.MethodSpec(name: "UpdateStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
             public static let getUserWithRoleChatList = Connect.MethodSpec(name: "GetUserWithRoleChatList", service: "common.TeamsAPI", type: .unary)
+            public static let getUserChatWithRole = Connect.MethodSpec(name: "GetUserChatWithRole", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

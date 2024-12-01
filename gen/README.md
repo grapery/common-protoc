@@ -259,6 +259,8 @@
     - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
     - [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse)
+    - [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest)
+    - [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse)
     - [GetUserCommentReq](#common-GetUserCommentReq)
     - [GetUserCommentResp](#common-GetUserCommentResp)
     - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
@@ -4650,6 +4652,40 @@
 
 
 
+<a name="common-GetUserChatWithRoleRequest"></a>
+
+### GetUserChatWithRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserChatWithRoleResponse"></a>
+
+### GetUserChatWithRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| chat_context | [ChatContext](#common-ChatContext) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserCommentReq"></a>
 
 ### GetUserCommentReq
@@ -6636,6 +6672,7 @@ user ,group .project.item
 | ChatWithStoryRole | [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest) | [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse) | 与角色聊天 |
 | UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse) | 更新角色详情 |
 | GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
+| GetUserChatWithRole | [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |
 
  
 

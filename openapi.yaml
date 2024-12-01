@@ -1269,6 +1269,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserChatWithRole:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户与角色的对话
+            operationId: TeamsAPI_GetUserChatWithRole
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserChatWithRoleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserChatWithRoleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetUserCreatedRoles:
         post:
             tags:
@@ -4189,6 +4214,27 @@ components:
                 total:
                     type: integer
                     format: int32
+        GetUserChatWithRoleRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+        GetUserChatWithRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                messages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatMessage'
+                chatContext:
+                    $ref: '#/components/schemas/ChatContext'
         GetUserCreatedRolesRequest:
             type: object
             properties:

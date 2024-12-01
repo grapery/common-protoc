@@ -131,6 +131,7 @@ const (
 	TeamsAPI_ChatWithStoryRole_FullMethodName          = "/common.TeamsAPI/ChatWithStoryRole"
 	TeamsAPI_UpdateStoryRoleDetail_FullMethodName      = "/common.TeamsAPI/UpdateStoryRoleDetail"
 	TeamsAPI_GetUserWithRoleChatList_FullMethodName    = "/common.TeamsAPI/GetUserWithRoleChatList"
+	TeamsAPI_GetUserChatWithRole_FullMethodName        = "/common.TeamsAPI/GetUserChatWithRole"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -361,6 +362,8 @@ type TeamsAPIClient interface {
 	UpdateStoryRoleDetail(ctx context.Context, in *UpdateStoryRoleDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDetailResponse, error)
 	// 获取用户的对话列表
 	GetUserWithRoleChatList(ctx context.Context, in *GetUserWithRoleChatListRequest, opts ...grpc.CallOption) (*GetUserWithRoleChatListResponse, error)
+	// 获取用户与角色的对话
+	GetUserChatWithRole(ctx context.Context, in *GetUserChatWithRoleRequest, opts ...grpc.CallOption) (*GetUserChatWithRoleResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1379,6 +1382,15 @@ func (c *teamsAPIClient) GetUserWithRoleChatList(ctx context.Context, in *GetUse
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, in *GetUserChatWithRoleRequest, opts ...grpc.CallOption) (*GetUserChatWithRoleResponse, error) {
+	out := new(GetUserChatWithRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUserChatWithRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1607,6 +1619,8 @@ type TeamsAPIServer interface {
 	UpdateStoryRoleDetail(context.Context, *UpdateStoryRoleDetailRequest) (*UpdateStoryRoleDetailResponse, error)
 	// 获取用户的对话列表
 	GetUserWithRoleChatList(context.Context, *GetUserWithRoleChatListRequest) (*GetUserWithRoleChatListResponse, error)
+	// 获取用户与角色的对话
+	GetUserChatWithRole(context.Context, *GetUserChatWithRoleRequest) (*GetUserChatWithRoleResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1949,6 +1963,9 @@ func (UnimplementedTeamsAPIServer) UpdateStoryRoleDetail(context.Context, *Updat
 }
 func (UnimplementedTeamsAPIServer) GetUserWithRoleChatList(context.Context, *GetUserWithRoleChatListRequest) (*GetUserWithRoleChatListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserWithRoleChatList not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUserChatWithRole(context.Context, *GetUserChatWithRoleRequest) (*GetUserChatWithRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserChatWithRole not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -3979,6 +3996,24 @@ func _TeamsAPI_GetUserWithRoleChatList_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetUserChatWithRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserChatWithRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUserChatWithRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUserChatWithRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUserChatWithRole(ctx, req.(*GetUserChatWithRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4433,6 +4468,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserWithRoleChatList",
 			Handler:    _TeamsAPI_GetUserWithRoleChatList_Handler,
+		},
+		{
+			MethodName: "GetUserChatWithRole",
+			Handler:    _TeamsAPI_GetUserChatWithRole_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
