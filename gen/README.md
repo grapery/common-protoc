@@ -3129,6 +3129,9 @@
 | last_update_time | [int64](#int64) |  |  |
 | total_tokens | [int64](#int64) |  |  |
 | total_messages | [int64](#int64) |  |  |
+| last_message | [ChatMessage](#common-ChatMessage) |  |  |
+| user | [UserInfo](#common-UserInfo) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
 
 
 
@@ -3143,11 +3146,15 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
+| sender | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | chat_id | [int64](#int64) |  |  |
 | timestamp | [int64](#int64) |  |  |
+| user | [UserInfo](#common-UserInfo) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
 
 
 

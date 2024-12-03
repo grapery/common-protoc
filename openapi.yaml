@@ -2862,19 +2862,34 @@ components:
                     type: string
                 totalMessages:
                     type: string
+                lastMessage:
+                    $ref: '#/components/schemas/ChatMessage'
+                user:
+                    $ref: '#/components/schemas/UserInfo'
+                role:
+                    $ref: '#/components/schemas/StoryRole'
         ChatMessage:
             type: object
             properties:
+                id:
+                    type: string
                 roleId:
                     type: string
                 userId:
                     type: string
+                sender:
+                    type: integer
+                    format: int32
                 message:
                     type: string
                 chatId:
                     type: string
                 timestamp:
                     type: string
+                user:
+                    $ref: '#/components/schemas/UserInfo'
+                role:
+                    $ref: '#/components/schemas/StoryRole'
         ChatWithStoryRoleRequest:
             type: object
             properties:

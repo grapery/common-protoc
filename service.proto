@@ -1793,6 +1793,9 @@ message ChatContext{
   int64 last_update_time = 5;
   int64 total_tokens = 6;
   int64 total_messages = 7;
+  ChatMessage last_message = 8;
+  UserInfo user = 9;
+  StoryRole role = 10;
 }
 
 message CreateStoryRoleChatResponse {
@@ -1802,11 +1805,15 @@ message CreateStoryRoleChatResponse {
 }
 
 message ChatMessage {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  string message = 3;
-  int64 chat_id = 4;
-  int64 timestamp = 5;
+  int64 id = 1;
+  int64 role_id = 2;
+  int64 user_id = 3;
+  int32 sender = 4; 
+  string message = 5;
+  int64 chat_id = 6;
+  int64 timestamp = 7;
+  UserInfo user = 8;
+  StoryRole role = 9;
 }
 
 message ChatWithStoryRoleRequest {
