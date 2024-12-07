@@ -137,14 +137,6 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserUpdateResponse>
 
-    /// 用户活跃
-    @discardableResult
-    func `fetchUserActives`(request: Common_FetchUserActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchUserActivesResponse>) -> Void) -> Connect.Cancelable
-
-    /// 用户活跃
-    @available(iOS 13, *)
-    func `fetchUserActives`(request: Common_FetchUserActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchUserActivesResponse>
-
     /// 搜索用户
     @discardableResult
     func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchUserResponse>) -> Void) -> Connect.Cancelable
@@ -912,6 +904,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取用户与角色的对话
     @available(iOS 13, *)
     func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserChatWithRoleResponse>
+
+    /// 获取用户的消息
+    @discardableResult
+    func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取用户的消息
+    @available(iOS 13, *)
+    func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserChatMessagesResponse>
+
+    /// 活动信息
+    @discardableResult
+    func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchActivesResponse>) -> Void) -> Connect.Cancelable
+
+    /// 活动信息
+    @available(iOS 13, *)
+    func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchActivesResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1080,16 +1088,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserUpdateResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/UserUpdate", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @discardableResult
-    public func `fetchUserActives`(request: Common_FetchUserActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchUserActivesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FetchUserActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
-    }
-
-    @available(iOS 13, *)
-    public func `fetchUserActives`(request: Common_FetchUserActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchUserActivesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FetchUserActives", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -2052,6 +2050,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserChatMessagesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchActivesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchActivesResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2070,7 +2088,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let userGroup = Connect.MethodSpec(name: "UserGroup", service: "common.TeamsAPI", type: .unary)
             public static let userFollowingGroup = Connect.MethodSpec(name: "UserFollowingGroup", service: "common.TeamsAPI", type: .unary)
             public static let userUpdate = Connect.MethodSpec(name: "UserUpdate", service: "common.TeamsAPI", type: .unary)
-            public static let fetchUserActives = Connect.MethodSpec(name: "FetchUserActives", service: "common.TeamsAPI", type: .unary)
             public static let searchUser = Connect.MethodSpec(name: "SearchUser", service: "common.TeamsAPI", type: .unary)
             public static let createGroup = Connect.MethodSpec(name: "CreateGroup", service: "common.TeamsAPI", type: .unary)
             public static let getGroup = Connect.MethodSpec(name: "GetGroup", service: "common.TeamsAPI", type: .unary)
@@ -2167,6 +2184,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryRoleDetail = Connect.MethodSpec(name: "UpdateStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
             public static let getUserWithRoleChatList = Connect.MethodSpec(name: "GetUserWithRoleChatList", service: "common.TeamsAPI", type: .unary)
             public static let getUserChatWithRole = Connect.MethodSpec(name: "GetUserChatWithRole", service: "common.TeamsAPI", type: .unary)
+            public static let getUserChatMessages = Connect.MethodSpec(name: "GetUserChatMessages", service: "common.TeamsAPI", type: .unary)
+            public static let fetchActives = Connect.MethodSpec(name: "FetchActives", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

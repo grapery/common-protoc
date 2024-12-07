@@ -160,24 +160,6 @@ public struct Common_ActiveInfo: @unchecked Sendable {
     set {_uniqueStorage()._activeType = newValue}
   }
 
-  public var itemInfo: Common_ItemInfo {
-    get {return _storage._itemInfo ?? Common_ItemInfo()}
-    set {_uniqueStorage()._itemInfo = newValue}
-  }
-  /// Returns true if `itemInfo` has been explicitly set.
-  public var hasItemInfo: Bool {return _storage._itemInfo != nil}
-  /// Clears the value of `itemInfo`. Subsequent reads from it will return its default value.
-  public mutating func clearItemInfo() {_uniqueStorage()._itemInfo = nil}
-
-  public var projectInfo: Common_ProjectInfo {
-    get {return _storage._projectInfo ?? Common_ProjectInfo()}
-    set {_uniqueStorage()._projectInfo = newValue}
-  }
-  /// Returns true if `projectInfo` has been explicitly set.
-  public var hasProjectInfo: Bool {return _storage._projectInfo != nil}
-  /// Clears the value of `projectInfo`. Subsequent reads from it will return its default value.
-  public mutating func clearProjectInfo() {_uniqueStorage()._projectInfo = nil}
-
   public var groupInfo: Common_GroupInfo {
     get {return _storage._groupInfo ?? Common_GroupInfo()}
     set {_uniqueStorage()._groupInfo = newValue}
@@ -186,6 +168,38 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   public var hasGroupInfo: Bool {return _storage._groupInfo != nil}
   /// Clears the value of `groupInfo`. Subsequent reads from it will return its default value.
   public mutating func clearGroupInfo() {_uniqueStorage()._groupInfo = nil}
+
+  public var storyInfo: Common_Story {
+    get {return _storage._storyInfo ?? Common_Story()}
+    set {_uniqueStorage()._storyInfo = newValue}
+  }
+  /// Returns true if `storyInfo` has been explicitly set.
+  public var hasStoryInfo: Bool {return _storage._storyInfo != nil}
+  /// Clears the value of `storyInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearStoryInfo() {_uniqueStorage()._storyInfo = nil}
+
+  public var roleInfo: Common_StoryRole {
+    get {return _storage._roleInfo ?? Common_StoryRole()}
+    set {_uniqueStorage()._roleInfo = newValue}
+  }
+  /// Returns true if `roleInfo` has been explicitly set.
+  public var hasRoleInfo: Bool {return _storage._roleInfo != nil}
+  /// Clears the value of `roleInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearRoleInfo() {_uniqueStorage()._roleInfo = nil}
+
+  public var boardInfo: Common_StoryBoard {
+    get {return _storage._boardInfo ?? Common_StoryBoard()}
+    set {_uniqueStorage()._boardInfo = newValue}
+  }
+  /// Returns true if `boardInfo` has been explicitly set.
+  public var hasBoardInfo: Bool {return _storage._boardInfo != nil}
+  /// Clears the value of `boardInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearBoardInfo() {_uniqueStorage()._boardInfo = nil}
+
+  public var status: Int32 {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
 
   public var ctime: Int64 {
     get {return _storage._ctime}
@@ -618,7 +632,7 @@ public struct Common_UserUpdateResponse: Sendable {
   fileprivate var _data: Common_UserUpdateResponse.DataMessage? = nil
 }
 
-public struct Common_FetchUserActivesRequest: Sendable {
+public struct Common_FetchActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -627,12 +641,18 @@ public struct Common_FetchUserActivesRequest: Sendable {
 
   public var atype: Common_ActiveType = .noneActive
 
+  public var timestamp: Int64 = 0
+
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_FetchUserActivesResponse: Sendable {
+public struct Common_FetchActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1745,6 +1765,8 @@ public struct Common_GetGroupRequest: Sendable {
 
   public var name: String = String()
 
+  public var withProfile: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1770,25 +1792,34 @@ public struct Common_GetGroupResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage: Sendable {
+  public struct DataMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     public var info: Common_GroupInfo {
-      get {return _info ?? Common_GroupInfo()}
-      set {_info = newValue}
+      get {return _storage._info ?? Common_GroupInfo()}
+      set {_uniqueStorage()._info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return self._info != nil}
+    public var hasInfo: Bool {return _storage._info != nil}
     /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {self._info = nil}
+    public mutating func clearInfo() {_uniqueStorage()._info = nil}
+
+    public var profile: Common_GroupProfileInfo {
+      get {return _storage._profile ?? Common_GroupProfileInfo()}
+      set {_uniqueStorage()._profile = newValue}
+    }
+    /// Returns true if `profile` has been explicitly set.
+    public var hasProfile: Bool {return _storage._profile != nil}
+    /// Clears the value of `profile`. Subsequent reads from it will return its default value.
+    public mutating func clearProfile() {_uniqueStorage()._profile = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
 
-    fileprivate var _info: Common_GroupInfo? = nil
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   public init() {}
@@ -3047,6 +3078,44 @@ public struct Common_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
+public struct Common_GetUserChatMessagesRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var chatID: Int64 = 0
+
+  public var roleID: Int64 = 0
+
+  public var timestamp: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetUserChatMessagesResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Int32 = 0
+
+  public var message: String = String()
+
+  public var messages: [Common_ChatMessage] = []
+
+  public var timestamp: Int64 = 0
+
+  public var total: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct Common_GetUserChatWithRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4086,9 +4155,11 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "user"),
     2: .standard(proto: "active_type"),
-    3: .standard(proto: "item_info"),
-    4: .standard(proto: "project_info"),
     5: .standard(proto: "group_info"),
+    6: .standard(proto: "story_info"),
+    7: .standard(proto: "role_info"),
+    8: .standard(proto: "board_info"),
+    9: .same(proto: "status"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -4096,9 +4167,11 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   fileprivate class _StorageClass {
     var _user: Common_UserInfo? = nil
     var _activeType: Common_ActiveType = .noneActive
-    var _itemInfo: Common_ItemInfo? = nil
-    var _projectInfo: Common_ProjectInfo? = nil
     var _groupInfo: Common_GroupInfo? = nil
+    var _storyInfo: Common_Story? = nil
+    var _roleInfo: Common_StoryRole? = nil
+    var _boardInfo: Common_StoryBoard? = nil
+    var _status: Int32 = 0
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -4117,9 +4190,11 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     init(copying source: _StorageClass) {
       _user = source._user
       _activeType = source._activeType
-      _itemInfo = source._itemInfo
-      _projectInfo = source._projectInfo
       _groupInfo = source._groupInfo
+      _storyInfo = source._storyInfo
+      _roleInfo = source._roleInfo
+      _boardInfo = source._boardInfo
+      _status = source._status
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -4142,9 +4217,11 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._user) }()
         case 2: try { try decoder.decodeSingularEnumField(value: &_storage._activeType) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._itemInfo) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._projectInfo) }()
         case 5: try { try decoder.decodeSingularMessageField(value: &_storage._groupInfo) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._storyInfo) }()
+        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._roleInfo) }()
+        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._boardInfo) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
         case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
         case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
@@ -4165,15 +4242,21 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       if _storage._activeType != .noneActive {
         try visitor.visitSingularEnumField(value: _storage._activeType, fieldNumber: 2)
       }
-      try { if let v = _storage._itemInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._projectInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
       try { if let v = _storage._groupInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       } }()
+      try { if let v = _storage._storyInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._roleInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._boardInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      } }()
+      if _storage._status != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 9)
+      }
       if _storage._ctime != 0 {
         try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
       }
@@ -4191,9 +4274,11 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         let rhs_storage = _args.1
         if _storage._user != rhs_storage._user {return false}
         if _storage._activeType != rhs_storage._activeType {return false}
-        if _storage._itemInfo != rhs_storage._itemInfo {return false}
-        if _storage._projectInfo != rhs_storage._projectInfo {return false}
         if _storage._groupInfo != rhs_storage._groupInfo {return false}
+        if _storage._storyInfo != rhs_storage._storyInfo {return false}
+        if _storage._roleInfo != rhs_storage._roleInfo {return false}
+        if _storage._boardInfo != rhs_storage._boardInfo {return false}
+        if _storage._status != rhs_storage._status {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true
@@ -5268,11 +5353,14 @@ extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_FetchUserActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchUserActivesRequest"
+extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchActivesRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .same(proto: "atype"),
+    3: .same(proto: "timestamp"),
+    4: .same(proto: "offset"),
+    5: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5283,6 +5371,9 @@ extension Common_FetchUserActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.atype) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -5295,19 +5386,31 @@ extension Common_FetchUserActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if self.atype != .noneActive {
       try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 2)
     }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 4)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchUserActivesRequest, rhs: Common_FetchUserActivesRequest) -> Bool {
+  public static func ==(lhs: Common_FetchActivesRequest, rhs: Common_FetchActivesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.atype != rhs.atype {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_FetchUserActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchUserActivesResponse"
+extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchActivesResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
     2: .same(proto: "timestamp"),
@@ -5346,7 +5449,7 @@ extension Common_FetchUserActivesResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchUserActivesResponse, rhs: Common_FetchUserActivesResponse) -> Bool {
+  public static func ==(lhs: Common_FetchActivesResponse, rhs: Common_FetchActivesResponse) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.offset != rhs.offset {return false}
@@ -7884,6 +7987,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .standard(proto: "group_id"),
     2: .standard(proto: "user_id"),
     3: .same(proto: "name"),
+    4: .standard(proto: "with_profile"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7895,6 +7999,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.withProfile) }()
       default: break
       }
     }
@@ -7910,6 +8015,9 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 3)
     }
+    if self.withProfile != false {
+      try visitor.visitSingularBoolField(value: self.withProfile, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -7917,6 +8025,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
+    if lhs.withProfile != rhs.withProfile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -7974,33 +8083,81 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = Common_GetGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "info"),
+    2: .same(proto: "profile"),
   ]
 
+  fileprivate class _StorageClass {
+    var _info: Common_GroupInfo? = nil
+    var _profile: Common_GroupProfileInfo? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _info = source._info
+      _profile = source._profile
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._info) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._profile) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._info {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._profile {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetGroupResponse.DataMessage, rhs: Common_GetGroupResponse.DataMessage) -> Bool {
-    if lhs._info != rhs._info {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._info != rhs_storage._info {return false}
+        if _storage._profile != rhs_storage._profile {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10801,6 +10958,112 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
   public static func ==(lhs: Common_UpdateGroupProfileResponse, rhs: Common_UpdateGroupProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .standard(proto: "chat_id"),
+    3: .standard(proto: "role_id"),
+    4: .same(proto: "timestamp"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.chatID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if self.chatID != 0 {
+      try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 2)
+    }
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 3)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetUserChatMessagesRequest, rhs: Common_GetUserChatMessagesRequest) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.chatID != rhs.chatID {return false}
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "messages"),
+    4: .same(proto: "timestamp"),
+    5: .same(proto: "total"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.messages) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if !self.messages.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.messages, fieldNumber: 3)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 4)
+    }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetUserChatMessagesResponse, rhs: Common_GetUserChatMessagesResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.messages != rhs.messages {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

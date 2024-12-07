@@ -17,10 +17,11 @@ import "story.proto";
 message ActiveInfo {
   UserInfo user = 1;
   ActiveType active_type = 2;
-  ItemInfo item_info = 3;
-  ProjectInfo project_info = 4;
   GroupInfo group_info = 5;
-  
+  Story story_info = 6;
+  StoryRole role_info = 7;
+  StoryBoard board_info = 8;
+  int32 status = 9;
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
@@ -172,11 +173,15 @@ message UserUpdateResponse {
   } Data data = 3;
 }
 
-message FetchUserActivesRequest {
+message FetchActivesRequest {
   int64 user_id = 1;
   ActiveType atype = 2;
+  int64 timestamp = 3;
+  int64 offset = 4;
+  int64 page_size = 5;
 }
-message FetchUserActivesResponse { 
+
+message FetchActivesResponse { 
   repeated ActiveInfo list = 1; 
   int64 timestamp = 2;
   int64 offset = 3;
@@ -496,12 +501,14 @@ message GetGroupRequest {
   int64 group_id = 1;
   int64 user_id = 2;
   string name = 3;
+  bool with_profile = 4;
 }
 message GetGroupResponse { 
   int32 code = 1;
   string message = 2;
   message Data {
     GroupInfo info = 1; 
+    GroupProfileInfo profile = 2;
   } Data data = 3;
 }
 
@@ -935,15 +942,6 @@ service TeamsAPI {
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserUpdate"
-      body : "*"
-    };
-  }
-
-  // 用户活跃
-  rpc FetchUserActives(FetchUserActivesRequest)
-      returns (FetchUserActivesResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/FetchUserActives"
       body : "*"
     };
   }
@@ -1731,6 +1729,38 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取用户的消息
+  rpc GetUserChatMessages(GetUserChatMessagesRequest) returns (GetUserChatMessagesResponse ) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetUserChatMessages"
+      body : "*"
+    };
+  }
+
+  // 活动信息
+  rpc FetchActives(FetchActivesRequest)
+      returns (FetchActivesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/FetchActives"
+      body : "*"
+    };
+  }
+}
+
+message GetUserChatMessagesRequest {
+  int64 user_id = 1;
+  int64 chat_id = 2;
+  int64 role_id = 3;
+  int64 timestamp = 4;
+}
+
+message GetUserChatMessagesResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated ChatMessage messages = 3;
+  int64 timestamp = 4;
+  int64 total = 5;
 }
 
 message GetUserChatWithRoleRequest {

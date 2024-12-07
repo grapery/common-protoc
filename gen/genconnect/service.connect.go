@@ -67,9 +67,6 @@ const (
 	TeamsAPIUserFollowingGroupProcedure = "/common.TeamsAPI/UserFollowingGroup"
 	// TeamsAPIUserUpdateProcedure is the fully-qualified name of the TeamsAPI's UserUpdate RPC.
 	TeamsAPIUserUpdateProcedure = "/common.TeamsAPI/UserUpdate"
-	// TeamsAPIFetchUserActivesProcedure is the fully-qualified name of the TeamsAPI's FetchUserActives
-	// RPC.
-	TeamsAPIFetchUserActivesProcedure = "/common.TeamsAPI/FetchUserActives"
 	// TeamsAPISearchUserProcedure is the fully-qualified name of the TeamsAPI's SearchUser RPC.
 	TeamsAPISearchUserProcedure = "/common.TeamsAPI/SearchUser"
 	// TeamsAPICreateGroupProcedure is the fully-qualified name of the TeamsAPI's CreateGroup RPC.
@@ -315,6 +312,11 @@ const (
 	// TeamsAPIGetUserChatWithRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserChatWithRole RPC.
 	TeamsAPIGetUserChatWithRoleProcedure = "/common.TeamsAPI/GetUserChatWithRole"
+	// TeamsAPIGetUserChatMessagesProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserChatMessages RPC.
+	TeamsAPIGetUserChatMessagesProcedure = "/common.TeamsAPI/GetUserChatMessages"
+	// TeamsAPIFetchActivesProcedure is the fully-qualified name of the TeamsAPI's FetchActives RPC.
+	TeamsAPIFetchActivesProcedure = "/common.TeamsAPI/FetchActives"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -351,8 +353,6 @@ type TeamsAPIClient interface {
 	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
 	// 更新用户信息
 	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
-	// 用户活跃
-	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
 	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// 创建组织
@@ -545,6 +545,10 @@ type TeamsAPIClient interface {
 	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
 	// 获取用户与角色的对话
 	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
+	// 获取用户的消息
+	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
+	// 活动信息
+	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -635,11 +639,6 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		userUpdate: connect.NewClient[gen.UserUpdateRequest, gen.UserUpdateResponse](
 			httpClient,
 			baseURL+TeamsAPIUserUpdateProcedure,
-			opts...,
-		),
-		fetchUserActives: connect.NewClient[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse](
-			httpClient,
-			baseURL+TeamsAPIFetchUserActivesProcedure,
 			opts...,
 		),
 		searchUser: connect.NewClient[gen.SearchUserRequest, gen.SearchUserResponse](
@@ -1122,6 +1121,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetUserChatWithRoleProcedure,
 			opts...,
 		),
+		getUserChatMessages: connect.NewClient[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserChatMessagesProcedure,
+			opts...,
+		),
+		fetchActives: connect.NewClient[gen.FetchActivesRequest, gen.FetchActivesResponse](
+			httpClient,
+			baseURL+TeamsAPIFetchActivesProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1143,7 +1152,6 @@ type teamsAPIClient struct {
 	userGroup                  *connect.Client[gen.UserGroupRequest, gen.UserGroupResponse]
 	userFollowingGroup         *connect.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
 	userUpdate                 *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
-	fetchUserActives           *connect.Client[gen.FetchUserActivesRequest, gen.FetchUserActivesResponse]
 	searchUser                 *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
 	createGroup                *connect.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
 	getGroup                   *connect.Client[gen.GetGroupRequest, gen.GetGroupResponse]
@@ -1240,6 +1248,8 @@ type teamsAPIClient struct {
 	updateStoryRoleDetail      *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
 	getUserWithRoleChatList    *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
 	getUserChatWithRole        *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
+	getUserChatMessages        *connect.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
+	fetchActives               *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1320,11 +1330,6 @@ func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect.Re
 // UserUpdate calls common.TeamsAPI.UserUpdate.
 func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
 	return c.userUpdate.CallUnary(ctx, req)
-}
-
-// FetchUserActives calls common.TeamsAPI.FetchUserActives.
-func (c *teamsAPIClient) FetchUserActives(ctx context.Context, req *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error) {
-	return c.fetchUserActives.CallUnary(ctx, req)
 }
 
 // SearchUser calls common.TeamsAPI.SearchUser.
@@ -1807,6 +1812,16 @@ func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, req *connect.R
 	return c.getUserChatWithRole.CallUnary(ctx, req)
 }
 
+// GetUserChatMessages calls common.TeamsAPI.GetUserChatMessages.
+func (c *teamsAPIClient) GetUserChatMessages(ctx context.Context, req *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error) {
+	return c.getUserChatMessages.CallUnary(ctx, req)
+}
+
+// FetchActives calls common.TeamsAPI.FetchActives.
+func (c *teamsAPIClient) FetchActives(ctx context.Context, req *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error) {
+	return c.fetchActives.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -1841,8 +1856,6 @@ type TeamsAPIHandler interface {
 	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
 	// 更新用户信息
 	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
-	// 用户活跃
-	FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error)
 	// 搜索用户
 	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// 创建组织
@@ -2035,6 +2048,10 @@ type TeamsAPIHandler interface {
 	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
 	// 获取用户与角色的对话
 	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
+	// 获取用户的消息
+	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
+	// 活动信息
+	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2121,11 +2138,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIUserUpdateHandler := connect.NewUnaryHandler(
 		TeamsAPIUserUpdateProcedure,
 		svc.UserUpdate,
-		opts...,
-	)
-	teamsAPIFetchUserActivesHandler := connect.NewUnaryHandler(
-		TeamsAPIFetchUserActivesProcedure,
-		svc.FetchUserActives,
 		opts...,
 	)
 	teamsAPISearchUserHandler := connect.NewUnaryHandler(
@@ -2608,6 +2620,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetUserChatWithRole,
 		opts...,
 	)
+	teamsAPIGetUserChatMessagesHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserChatMessagesProcedure,
+		svc.GetUserChatMessages,
+		opts...,
+	)
+	teamsAPIFetchActivesHandler := connect.NewUnaryHandler(
+		TeamsAPIFetchActivesProcedure,
+		svc.FetchActives,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2642,8 +2664,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUserFollowingGroupHandler.ServeHTTP(w, r)
 		case TeamsAPIUserUpdateProcedure:
 			teamsAPIUserUpdateHandler.ServeHTTP(w, r)
-		case TeamsAPIFetchUserActivesProcedure:
-			teamsAPIFetchUserActivesHandler.ServeHTTP(w, r)
 		case TeamsAPISearchUserProcedure:
 			teamsAPISearchUserHandler.ServeHTTP(w, r)
 		case TeamsAPICreateGroupProcedure:
@@ -2836,6 +2856,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetUserWithRoleChatListHandler.ServeHTTP(w, r)
 		case TeamsAPIGetUserChatWithRoleProcedure:
 			teamsAPIGetUserChatWithRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserChatMessagesProcedure:
+			teamsAPIGetUserChatMessagesHandler.ServeHTTP(w, r)
+		case TeamsAPIFetchActivesProcedure:
+			teamsAPIFetchActivesHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -2907,10 +2931,6 @@ func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect
 
 func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UserUpdate is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) FetchUserActives(context.Context, *connect.Request[gen.FetchUserActivesRequest]) (*connect.Response[gen.FetchUserActivesResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserActives is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error) {
@@ -3295,4 +3315,12 @@ func (UnimplementedTeamsAPIHandler) GetUserWithRoleChatList(context.Context, *co
 
 func (UnimplementedTeamsAPIHandler) GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserChatWithRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserChatMessages is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchActives is not implemented"))
 }

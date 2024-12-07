@@ -205,14 +205,14 @@
     - [ExploreRequest](#common-ExploreRequest)
     - [ExploreResponse](#common-ExploreResponse)
     - [ExploreResponse.Data](#common-ExploreResponse-Data)
+    - [FetchActivesRequest](#common-FetchActivesRequest)
+    - [FetchActivesResponse](#common-FetchActivesResponse)
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
     - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
     - [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest)
     - [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse)
     - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
-    - [FetchUserActivesRequest](#common-FetchUserActivesRequest)
-    - [FetchUserActivesResponse](#common-FetchUserActivesResponse)
     - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
@@ -259,6 +259,8 @@
     - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
     - [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse)
+    - [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest)
+    - [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse)
     - [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest)
     - [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse)
     - [GetUserCommentReq](#common-GetUserCommentReq)
@@ -3103,9 +3105,11 @@
 | ----- | ---- | ----- | ----------- |
 | user | [UserInfo](#common-UserInfo) |  |  |
 | active_type | [ActiveType](#common-ActiveType) |  |  |
-| item_info | [ItemInfo](#common-ItemInfo) |  |  |
-| project_info | [ProjectInfo](#common-ProjectInfo) |  |  |
 | group_info | [GroupInfo](#common-GroupInfo) |  |  |
+| story_info | [Story](#common-Story) |  |  |
+| role_info | [StoryRole](#common-StoryRole) |  |  |
+| board_info | [StoryBoard](#common-StoryBoard) |  |  |
+| status | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3745,6 +3749,43 @@
 
 
 
+<a name="common-FetchActivesRequest"></a>
+
+### FetchActivesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| atype | [ActiveType](#common-ActiveType) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-FetchActivesResponse"></a>
+
+### FetchActivesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
+| timestamp | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-FetchGroupMembersRequest"></a>
 
 ### FetchGroupMembersRequest
@@ -3839,40 +3880,6 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-FetchUserActivesRequest"></a>
-
-### FetchUserActivesRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| atype | [ActiveType](#common-ActiveType) |  |  |
-
-
-
-
-
-
-<a name="common-FetchUserActivesResponse"></a>
-
-### FetchUserActivesResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
-| timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -4099,6 +4106,7 @@
 | group_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | name | [string](#string) |  |  |
+| with_profile | [bool](#bool) |  |  |
 
 
 
@@ -4131,6 +4139,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [GroupInfo](#common-GroupInfo) |  |  |
+| profile | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
 
 
 
@@ -4653,6 +4662,43 @@
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserChatMessagesRequest"></a>
+
+### GetUserChatMessagesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| chat_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserChatMessagesResponse"></a>
+
+### GetUserChatMessagesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| timestamp | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
@@ -6583,7 +6629,6 @@ user ,group .project.item
 | UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) | 用户关注组织 |
 | UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) | 用户关注组织 |
 | UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | 更新用户信息 |
-| FetchUserActives | [FetchUserActivesRequest](#common-FetchUserActivesRequest) | [FetchUserActivesResponse](#common-FetchUserActivesResponse) | 用户活跃 |
 | SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | 搜索用户 |
 | CreateGroup | [CreateGroupRequest](#common-CreateGroupRequest) | [CreateGroupResponse](#common-CreateGroupResponse) | 创建组织 |
 | GetGroup | [GetGroupRequest](#common-GetGroupRequest) | [GetGroupResponse](#common-GetGroupResponse) | 获取组织 |
@@ -6680,6 +6725,8 @@ user ,group .project.item
 | UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse) | 更新角色详情 |
 | GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
 | GetUserChatWithRole | [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |
+| GetUserChatMessages | [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest) | [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse) | 获取用户的消息 |
+| FetchActives | [FetchActivesRequest](#common-FetchActivesRequest) | [FetchActivesResponse](#common-FetchActivesResponse) | 活动信息 |
 
  
 

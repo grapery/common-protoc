@@ -469,6 +469,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/FetchActives:
+        post:
+            tags:
+                - TeamsAPI
+            description: 活动信息
+            operationId: TeamsAPI_FetchActives
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchActivesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchActivesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/FetchGroupMembers:
         post:
             tags:
@@ -538,31 +563,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/FetchGroupStorysResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/FetchUserActives:
-        post:
-            tags:
-                - TeamsAPI
-            description: 用户活跃
-            operationId: TeamsAPI_FetchUserActives
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/FetchUserActivesRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/FetchUserActivesResponse'
                 default:
                     description: Default error response
                     content:
@@ -1263,6 +1263,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryboardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserChatMessages:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取用户的消息
+            operationId: TeamsAPI_GetUserChatMessages
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserChatMessagesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserChatMessagesResponse'
                 default:
                     description: Default error response
                     content:
@@ -2835,12 +2860,17 @@ components:
                 activeType:
                     type: integer
                     format: enum
-                itemInfo:
-                    $ref: '#/components/schemas/ItemInfo'
-                projectInfo:
-                    $ref: '#/components/schemas/ProjectInfo'
                 groupInfo:
                     $ref: '#/components/schemas/GroupInfo'
+                storyInfo:
+                    $ref: '#/components/schemas/Story'
+                roleInfo:
+                    $ref: '#/components/schemas/StoryRole'
+                boardInfo:
+                    $ref: '#/components/schemas/StoryBoard'
+                status:
+                    type: integer
+                    format: int32
                 Ctime:
                     type: string
                 Mtime:
@@ -3330,6 +3360,33 @@ components:
         ExploreResponse_Data:
             type: object
             properties: {}
+        FetchActivesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                atype:
+                    type: integer
+                    format: enum
+                timestamp:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        FetchActivesResponse:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ActiveInfo'
+                timestamp:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         FetchGroupMembersRequest:
             type: object
             properties:
@@ -3420,27 +3477,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/Story'
-        FetchUserActivesRequest:
-            type: object
-            properties:
-                userId:
-                    type: string
-                atype:
-                    type: integer
-                    format: enum
-        FetchUserActivesResponse:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ActiveInfo'
-                timestamp:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
         FollowStoryRoleRequest:
             type: object
             properties:
@@ -3642,6 +3678,8 @@ components:
                     type: string
                 name:
                     type: string
+                withProfile:
+                    type: boolean
         GetGroupResponse:
             type: object
             properties:
@@ -3657,6 +3695,8 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
+                profile:
+                    $ref: '#/components/schemas/GroupProfileInfo'
         GetItemRequest:
             type: object
             properties:
@@ -4229,6 +4269,33 @@ components:
                 total:
                     type: integer
                     format: int32
+        GetUserChatMessagesRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                chatId:
+                    type: string
+                roleId:
+                    type: string
+                timestamp:
+                    type: string
+        GetUserChatMessagesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                messages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatMessage'
+                timestamp:
+                    type: string
+                total:
+                    type: string
         GetUserChatWithRoleRequest:
             type: object
             properties:

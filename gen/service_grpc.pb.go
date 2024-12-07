@@ -35,7 +35,6 @@ const (
 	TeamsAPI_UserGroup_FullMethodName                  = "/common.TeamsAPI/UserGroup"
 	TeamsAPI_UserFollowingGroup_FullMethodName         = "/common.TeamsAPI/UserFollowingGroup"
 	TeamsAPI_UserUpdate_FullMethodName                 = "/common.TeamsAPI/UserUpdate"
-	TeamsAPI_FetchUserActives_FullMethodName           = "/common.TeamsAPI/FetchUserActives"
 	TeamsAPI_SearchUser_FullMethodName                 = "/common.TeamsAPI/SearchUser"
 	TeamsAPI_CreateGroup_FullMethodName                = "/common.TeamsAPI/CreateGroup"
 	TeamsAPI_GetGroup_FullMethodName                   = "/common.TeamsAPI/GetGroup"
@@ -132,6 +131,8 @@ const (
 	TeamsAPI_UpdateStoryRoleDetail_FullMethodName      = "/common.TeamsAPI/UpdateStoryRoleDetail"
 	TeamsAPI_GetUserWithRoleChatList_FullMethodName    = "/common.TeamsAPI/GetUserWithRoleChatList"
 	TeamsAPI_GetUserChatWithRole_FullMethodName        = "/common.TeamsAPI/GetUserChatWithRole"
+	TeamsAPI_GetUserChatMessages_FullMethodName        = "/common.TeamsAPI/GetUserChatMessages"
+	TeamsAPI_FetchActives_FullMethodName               = "/common.TeamsAPI/FetchActives"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -170,8 +171,6 @@ type TeamsAPIClient interface {
 	UserFollowingGroup(ctx context.Context, in *UserFollowingGroupRequest, opts ...grpc.CallOption) (*UserFollowingGroupResponse, error)
 	// 更新用户信息
 	UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
-	// 用户活跃
-	FetchUserActives(ctx context.Context, in *FetchUserActivesRequest, opts ...grpc.CallOption) (*FetchUserActivesResponse, error)
 	// 搜索用户
 	SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error)
 	// 创建组织
@@ -364,6 +363,10 @@ type TeamsAPIClient interface {
 	GetUserWithRoleChatList(ctx context.Context, in *GetUserWithRoleChatListRequest, opts ...grpc.CallOption) (*GetUserWithRoleChatListResponse, error)
 	// 获取用户与角色的对话
 	GetUserChatWithRole(ctx context.Context, in *GetUserChatWithRoleRequest, opts ...grpc.CallOption) (*GetUserChatWithRoleResponse, error)
+	// 获取用户的消息
+	GetUserChatMessages(ctx context.Context, in *GetUserChatMessagesRequest, opts ...grpc.CallOption) (*GetUserChatMessagesResponse, error)
+	// 活动信息
+	FetchActives(ctx context.Context, in *FetchActivesRequest, opts ...grpc.CallOption) (*FetchActivesResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -512,15 +515,6 @@ func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, in *UserFollowi
 func (c *teamsAPIClient) UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error) {
 	out := new(UserUpdateResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_UserUpdate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) FetchUserActives(ctx context.Context, in *FetchUserActivesRequest, opts ...grpc.CallOption) (*FetchUserActivesResponse, error) {
-	out := new(FetchUserActivesResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_FetchUserActives_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1391,6 +1385,24 @@ func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, in *GetUserCha
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetUserChatMessages(ctx context.Context, in *GetUserChatMessagesRequest, opts ...grpc.CallOption) (*GetUserChatMessagesResponse, error) {
+	out := new(GetUserChatMessagesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUserChatMessages_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) FetchActives(ctx context.Context, in *FetchActivesRequest, opts ...grpc.CallOption) (*FetchActivesResponse, error) {
+	out := new(FetchActivesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_FetchActives_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1427,8 +1439,6 @@ type TeamsAPIServer interface {
 	UserFollowingGroup(context.Context, *UserFollowingGroupRequest) (*UserFollowingGroupResponse, error)
 	// 更新用户信息
 	UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error)
-	// 用户活跃
-	FetchUserActives(context.Context, *FetchUserActivesRequest) (*FetchUserActivesResponse, error)
 	// 搜索用户
 	SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error)
 	// 创建组织
@@ -1621,6 +1631,10 @@ type TeamsAPIServer interface {
 	GetUserWithRoleChatList(context.Context, *GetUserWithRoleChatListRequest) (*GetUserWithRoleChatListResponse, error)
 	// 获取用户与角色的对话
 	GetUserChatWithRole(context.Context, *GetUserChatWithRoleRequest) (*GetUserChatWithRoleResponse, error)
+	// 获取用户的消息
+	GetUserChatMessages(context.Context, *GetUserChatMessagesRequest) (*GetUserChatMessagesResponse, error)
+	// 活动信息
+	FetchActives(context.Context, *FetchActivesRequest) (*FetchActivesResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1675,9 +1689,6 @@ func (UnimplementedTeamsAPIServer) UserFollowingGroup(context.Context, *UserFoll
 }
 func (UnimplementedTeamsAPIServer) UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserUpdate not implemented")
-}
-func (UnimplementedTeamsAPIServer) FetchUserActives(context.Context, *FetchUserActivesRequest) (*FetchUserActivesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchUserActives not implemented")
 }
 func (UnimplementedTeamsAPIServer) SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchUser not implemented")
@@ -1966,6 +1977,12 @@ func (UnimplementedTeamsAPIServer) GetUserWithRoleChatList(context.Context, *Get
 }
 func (UnimplementedTeamsAPIServer) GetUserChatWithRole(context.Context, *GetUserChatWithRoleRequest) (*GetUserChatWithRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserChatWithRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUserChatMessages(context.Context, *GetUserChatMessagesRequest) (*GetUserChatMessagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserChatMessages not implemented")
+}
+func (UnimplementedTeamsAPIServer) FetchActives(context.Context, *FetchActivesRequest) (*FetchActivesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchActives not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -2264,24 +2281,6 @@ func _TeamsAPI_UserUpdate_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).UserUpdate(ctx, req.(*UserUpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_FetchUserActives_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchUserActivesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).FetchUserActives(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_FetchUserActives_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).FetchUserActives(ctx, req.(*FetchUserActivesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4014,6 +4013,42 @@ func _TeamsAPI_GetUserChatWithRole_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetUserChatMessages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserChatMessagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUserChatMessages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUserChatMessages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUserChatMessages(ctx, req.(*GetUserChatMessagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_FetchActives_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchActivesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).FetchActives(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_FetchActives_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).FetchActives(ctx, req.(*FetchActivesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4084,10 +4119,6 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UserUpdate",
 			Handler:    _TeamsAPI_UserUpdate_Handler,
-		},
-		{
-			MethodName: "FetchUserActives",
-			Handler:    _TeamsAPI_FetchUserActives_Handler,
 		},
 		{
 			MethodName: "SearchUser",
@@ -4472,6 +4503,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserChatWithRole",
 			Handler:    _TeamsAPI_GetUserChatWithRole_Handler,
+		},
+		{
+			MethodName: "GetUserChatMessages",
+			Handler:    _TeamsAPI_GetUserChatMessages_Handler,
+		},
+		{
+			MethodName: "FetchActives",
+			Handler:    _TeamsAPI_FetchActives_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
