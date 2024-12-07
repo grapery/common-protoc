@@ -2920,6 +2920,8 @@ components:
                     $ref: '#/components/schemas/UserInfo'
                 role:
                     $ref: '#/components/schemas/StoryRole'
+                uuid:
+                    type: string
         ChatWithStoryRoleRequest:
             type: object
             properties:

@@ -3159,6 +3159,7 @@
 | timestamp | [int64](#int64) |  |  |
 | user | [UserInfo](#common-UserInfo) |  |  |
 | role | [StoryRole](#common-StoryRole) |  |  |
+| uuid | [string](#string) |  |  |
 
 
 

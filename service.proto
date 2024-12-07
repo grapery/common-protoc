@@ -1844,6 +1844,7 @@ message ChatMessage {
   int64 timestamp = 7;
   UserInfo user = 8;
   StoryRole role = 9;
+  string uuid = 10;
 }
 
 message ChatWithStoryRoleRequest {

@@ -3356,49 +3356,74 @@ public struct Common_CreateStoryRoleChatResponse: Sendable {
   fileprivate var _chatContext: Common_ChatContext? = nil
 }
 
-public struct Common_ChatMessage: Sendable {
+public struct Common_ChatMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: Int64 = 0
+  public var id: Int64 {
+    get {return _storage._id}
+    set {_uniqueStorage()._id = newValue}
+  }
 
-  public var roleID: Int64 = 0
+  public var roleID: Int64 {
+    get {return _storage._roleID}
+    set {_uniqueStorage()._roleID = newValue}
+  }
 
-  public var userID: Int64 = 0
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
 
-  public var sender: Int32 = 0
+  public var sender: Int32 {
+    get {return _storage._sender}
+    set {_uniqueStorage()._sender = newValue}
+  }
 
-  public var message: String = String()
+  public var message: String {
+    get {return _storage._message}
+    set {_uniqueStorage()._message = newValue}
+  }
 
-  public var chatID: Int64 = 0
+  public var chatID: Int64 {
+    get {return _storage._chatID}
+    set {_uniqueStorage()._chatID = newValue}
+  }
 
-  public var timestamp: Int64 = 0
+  public var timestamp: Int64 {
+    get {return _storage._timestamp}
+    set {_uniqueStorage()._timestamp = newValue}
+  }
 
   public var user: Common_UserInfo {
-    get {return _user ?? Common_UserInfo()}
-    set {_user = newValue}
+    get {return _storage._user ?? Common_UserInfo()}
+    set {_uniqueStorage()._user = newValue}
   }
   /// Returns true if `user` has been explicitly set.
-  public var hasUser: Bool {return self._user != nil}
+  public var hasUser: Bool {return _storage._user != nil}
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
-  public mutating func clearUser() {self._user = nil}
+  public mutating func clearUser() {_uniqueStorage()._user = nil}
 
   public var role: Common_StoryRole {
-    get {return _role ?? Common_StoryRole()}
-    set {_role = newValue}
+    get {return _storage._role ?? Common_StoryRole()}
+    set {_uniqueStorage()._role = newValue}
   }
   /// Returns true if `role` has been explicitly set.
-  public var hasRole: Bool {return self._role != nil}
+  public var hasRole: Bool {return _storage._role != nil}
   /// Clears the value of `role`. Subsequent reads from it will return its default value.
-  public mutating func clearRole() {self._role = nil}
+  public mutating func clearRole() {_uniqueStorage()._role = nil}
+
+  public var uuid: String {
+    get {return _storage._uuid}
+    set {_uniqueStorage()._uuid = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _user: Common_UserInfo? = nil
-  fileprivate var _role: Common_StoryRole? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_ChatWithStoryRoleRequest: Sendable {
@@ -11649,73 +11674,137 @@ extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     7: .same(proto: "timestamp"),
     8: .same(proto: "user"),
     9: .same(proto: "role"),
+    10: .same(proto: "uuid"),
   ]
 
+  fileprivate class _StorageClass {
+    var _id: Int64 = 0
+    var _roleID: Int64 = 0
+    var _userID: Int64 = 0
+    var _sender: Int32 = 0
+    var _message: String = String()
+    var _chatID: Int64 = 0
+    var _timestamp: Int64 = 0
+    var _user: Common_UserInfo? = nil
+    var _role: Common_StoryRole? = nil
+    var _uuid: String = String()
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _id = source._id
+      _roleID = source._roleID
+      _userID = source._userID
+      _sender = source._sender
+      _message = source._message
+      _chatID = source._chatID
+      _timestamp = source._timestamp
+      _user = source._user
+      _role = source._role
+      _uuid = source._uuid
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularInt32Field(value: &self.sender) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.chatID) }()
-      case 7: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
-      case 8: try { try decoder.decodeSingularMessageField(value: &self._user) }()
-      case 9: try { try decoder.decodeSingularMessageField(value: &self._role) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._id) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._roleID) }()
+        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._sender) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._chatID) }()
+        case 7: try { try decoder.decodeSingularInt64Field(value: &_storage._timestamp) }()
+        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._user) }()
+        case 9: try { try decoder.decodeSingularMessageField(value: &_storage._role) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._uuid) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.id != 0 {
-      try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._id != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._id, fieldNumber: 1)
+      }
+      if _storage._roleID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._roleID, fieldNumber: 2)
+      }
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 3)
+      }
+      if _storage._sender != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._sender, fieldNumber: 4)
+      }
+      if !_storage._message.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 5)
+      }
+      if _storage._chatID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._chatID, fieldNumber: 6)
+      }
+      if _storage._timestamp != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._timestamp, fieldNumber: 7)
+      }
+      try { if let v = _storage._user {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._role {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      } }()
+      if !_storage._uuid.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._uuid, fieldNumber: 10)
+      }
     }
-    if self.roleID != 0 {
-      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    if self.sender != 0 {
-      try visitor.visitSingularInt32Field(value: self.sender, fieldNumber: 4)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 5)
-    }
-    if self.chatID != 0 {
-      try visitor.visitSingularInt64Field(value: self.chatID, fieldNumber: 6)
-    }
-    if self.timestamp != 0 {
-      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 7)
-    }
-    try { if let v = self._user {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    } }()
-    try { if let v = self._role {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ChatMessage, rhs: Common_ChatMessage) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.roleID != rhs.roleID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.sender != rhs.sender {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs.chatID != rhs.chatID {return false}
-    if lhs.timestamp != rhs.timestamp {return false}
-    if lhs._user != rhs._user {return false}
-    if lhs._role != rhs._role {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._id != rhs_storage._id {return false}
+        if _storage._roleID != rhs_storage._roleID {return false}
+        if _storage._userID != rhs_storage._userID {return false}
+        if _storage._sender != rhs_storage._sender {return false}
+        if _storage._message != rhs_storage._message {return false}
+        if _storage._chatID != rhs_storage._chatID {return false}
+        if _storage._timestamp != rhs_storage._timestamp {return false}
+        if _storage._user != rhs_storage._user {return false}
+        if _storage._role != rhs_storage._role {return false}
+        if _storage._uuid != rhs_storage._uuid {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
