@@ -3174,6 +3174,8 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 
 

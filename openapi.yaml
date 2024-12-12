@@ -2925,6 +2925,10 @@ components:
         ChatWithStoryRoleRequest:
             type: object
             properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
                 messages:
                     type: array
                     items:

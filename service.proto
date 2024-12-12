@@ -1848,7 +1848,9 @@ message ChatMessage {
 }
 
 message ChatWithStoryRoleRequest {
-  repeated ChatMessage messages = 1;
+  int64 role_id = 1;
+  int64 user_id = 2;
+  repeated ChatMessage messages = 3;
 }
 
 message ChatWithStoryRoleResponse {
