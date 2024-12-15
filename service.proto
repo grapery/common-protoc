@@ -33,12 +33,16 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  int64 user_id = 1;
-  string token = 2;
-  int64 timestamp = 3;
-  int64 expire_at = 4;
-  int32 status = 5;
-  string msg = 6;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    string token = 2;
+    int64 timestamp = 3;
+    int64 expire_at = 4;
+    int32 status = 5;
+  }
+  Data data = 3;
 }
 
 message LogoutRequest {
@@ -100,8 +104,14 @@ message UserInfoRequest {
   string account = 2;
 }
 
-message UserInfoResponse { 
-  UserInfo info = 1; 
+message UserInfoResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    UserInfo info = 1;
+    UserProfileInfo profile = 2;
+  }
+  Data data = 3;
 }
 
 message UpdateUserAvatorRequest {
@@ -109,9 +119,14 @@ message UpdateUserAvatorRequest {
   string avatar = 2;
 }
 
-message UpdateUserAvatorResponse { 
-  UserInfo info = 1; 
-  int32 status = 2;
+message UpdateUserAvatorResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    UserInfo info = 1;
+    int32 status = 2;
+  }
+  Data data = 3;
 }
 
 message UserWatchingRequest { 
@@ -121,10 +136,15 @@ message UserWatchingRequest {
   int32 page_size = 4;
 }
 
-message UserWatchingResponse { 
-  repeated ProjectInfo list = 1; 
-  int32 offset = 2;
-  int32 page_size = 3;
+message UserWatchingResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ProjectInfo list = 1;
+    int32 offset = 2;
+    int32 page_size = 3;
+  }
+  Data data = 3;
 }
 
 enum GroupType {
@@ -139,10 +159,15 @@ message UserGroupRequest {
   int32 page_size = 4;
 }
 
-message UserGroupResponse { 
-  repeated GroupInfo list = 1; 
-  int32 offset = 2;
-  int32 page_size = 3;
+message UserGroupResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated GroupInfo list = 1;
+    int32 offset = 2;
+    int32 page_size = 3;
+  }
+  Data data = 3;
 }
 
 message UserFollowingGroupRequest { 
@@ -152,10 +177,15 @@ message UserFollowingGroupRequest {
 }
 
 message UserFollowingGroupResponse {
-  int64 user_id = 1;
-  repeated GroupInfo list = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    repeated GroupInfo list = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message UserUpdateRequest {
@@ -181,11 +211,16 @@ message FetchActivesRequest {
   int64 page_size = 5;
 }
 
-message FetchActivesResponse { 
-  repeated ActiveInfo list = 1; 
-  int64 timestamp = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+message FetchActivesResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ActiveInfo list = 1;
+    int64 timestamp = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 message SearchUserRequest {
   string name = 1;
@@ -196,9 +231,14 @@ message SearchUserRequest {
 }
 
 message SearchUserResponse {
-  repeated UserInfo list = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated UserInfo list = 1;
+    int64 offset = 2;
+    int64 page_size = 3;
+  }
+  Data data = 3;
 }
 
 message UserInitRequest { 
@@ -207,8 +247,13 @@ message UserInitRequest {
 }
 
 message UserInitResponse {
-  int64 user_id = 1;
-  repeated GroupInfo list = 2;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    repeated GroupInfo list = 2;
+  }
+  Data data = 3;
 }
 
 
@@ -218,8 +263,13 @@ message GetProjectRequest {
   int64 user_id = 3;
 }
 
-message GetProjectResponse { 
-  ProjectInfo info = 1; 
+message GetProjectResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    ProjectInfo info = 1;
+  }
+  Data data = 3;
 }
 
 message GetProjectListRequest {
@@ -230,16 +280,28 @@ message GetProjectListRequest {
 }
 
 message GetProjectListResponse {
-  repeated ProjectInfo List = 1;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ProjectInfo List = 1;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message CreateProjectRequest {
   int64 group_id = 1;
   string name = 2;
 }
-message CreateProjectResponse { ProjectInfo info = 1; }
+message CreateProjectResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    ProjectInfo info = 1;
+  }
+  Data data = 3;
+}
 message UpdateProjectRequest {
   int64 group_id = 1;
   int64 project_id = 2;
@@ -266,10 +328,15 @@ message GetWatchingProjectRequest {
 }
 
 message GetWatchingProjectResponse {
-  int64 user_id = 1;
-  repeated ProjectInfo list = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    repeated ProjectInfo list = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message WatchProjectRequest {
@@ -306,10 +373,15 @@ message ExploreProjectsRequest {
 }
 
 message ExploreProjectsResponse {
-  int64 user_id = 1;
-  repeated ProjectInfo list = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    repeated ProjectInfo list = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message SearchProjectRequest {
@@ -320,10 +392,15 @@ message SearchProjectRequest {
 }
 
 message SearchProjectResponse {
-  int64 group_id = 1;
-  repeated ProjectInfo list = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 group_id = 1;
+    repeated ProjectInfo list = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message SearchAllProjectRequest {
@@ -334,10 +411,15 @@ message SearchAllProjectRequest {
 }
 
 message SearchAllProjectResponse {
-  int64 user_id = 1;
-  repeated ProjectInfo list = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 user_id = 1;
+    repeated ProjectInfo list = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message GetProjectProfileRequest {
@@ -347,10 +429,15 @@ message GetProjectProfileRequest {
 }
 
 message GetProjectProfileResponse {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-  ProjectProfileInfo info = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    int64 group_id = 1;
+    int64 project_id = 2;
+    int64 user_id = 3;
+    ProjectProfileInfo info = 4;
+  }
+  Data data = 3;
 }
 
 message UpdateProjectProfileRequest {
@@ -376,12 +463,17 @@ message GetProjectItemsRequest {
 }
 
 message GetProjectItemsResponse {
-  repeated ItemInfo list = 1;
-  int64 group_id = 2;
-  int64 project_id = 3;
-  int64 user_id = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ItemInfo list = 1;
+    int64 group_id = 2;
+    int64 project_id = 3;
+    int64 user_id = 4;
+    int64 offset = 5;
+    int64 page_size = 6;
+  }
+  Data data = 3;
 }
 
 message GetGroupItemsRequest {
@@ -392,11 +484,16 @@ message GetGroupItemsRequest {
 }
 
 message GetGroupItemsResponse {
-  repeated ItemInfo list = 1;
-  int64 group_id = 2;
-  int64 user_id = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ItemInfo list = 1;
+    int64 group_id = 2;
+    int64 user_id = 3;
+    int64 offset = 4;
+    int64 page_size = 5;
+  }
+  Data data = 3;
 }
 
 message GetUserItemsRequest {
@@ -406,10 +503,15 @@ message GetUserItemsRequest {
 }
 
 message GetUserItemsResponse {
-  repeated ItemInfo list = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    repeated ItemInfo list = 1;
+    int64 user_id = 2;
+    int64 offset = 3;
+    int64 page_size = 4;
+  }
+  Data data = 3;
 }
 
 message GetItemRequest {
@@ -419,7 +521,14 @@ message GetItemRequest {
   int64 user_id = 4;
 }
 
-message GetItemResponse { ItemInfo info = 1; }
+message GetItemResponse {
+  int32 code = 1;
+  string msg = 2;
+  message Data {
+    ItemInfo info = 1;
+  }
+  Data data = 3;
+}
 
 message CreateItemRequest {
   int64 group_id = 1;
@@ -1328,7 +1437,7 @@ service TeamsAPI {
   }
 
 
-  // 删除故事板
+  // 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
   rpc DelStoryboard(DelStoryboardRequest) returns (DelStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DelStoryboard"
@@ -1420,7 +1529,7 @@ service TeamsAPI {
     };
   }
 
-  // 渲染故事角色
+  // 渲���故事角色
   rpc RenderStoryRoles(RenderStoryRolesRequest) returns (RenderStoryRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRoles"
@@ -1731,7 +1840,7 @@ service TeamsAPI {
   }
 
   // 获取用户的消息
-  rpc GetUserChatMessages(GetUserChatMessagesRequest) returns (GetUserChatMessagesResponse ) {
+  rpc GetUserChatMessages(GetUserChatMessagesRequest) returns (GetUserChatMessagesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserChatMessages"
       body : "*"
@@ -1739,13 +1848,41 @@ service TeamsAPI {
   }
 
   // 活动信息
-  rpc FetchActives(FetchActivesRequest)
-      returns (FetchActivesResponse) {
+  rpc FetchActives(FetchActivesRequest) returns (FetchActivesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchActives"
       body : "*"
     };
   }
+
+  // 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+  rpc GetNextStoryboard(GetNextStoryboardRequest) returns (GetNextStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetNextStoryboards"
+      body : "*"
+    };
+  }
+}
+
+message GetNextStoryboardRequest {
+  int64 storyboard_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+  bool is_multi_branch = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+  int64 total = 7;
+  MultiBranchOrderBy order_by = 8;
+}
+
+message GetNextStoryboardResponse {
+  int32 code = 1;
+  string message = 2;
+  repeated StoryBoard storyboards = 3;
+  bool is_multi_branch = 4;
+  int64 total = 5;
+  int64 offset = 6;
+  int64 page_size = 7;
 }
 
 message GetUserChatMessagesRequest {
@@ -2022,7 +2159,7 @@ enum StoryboardStage{
   STORYBOARD_STAGE_CREATED = 1;
   // 渲染完成
   STORYBOARD_STAGE_RENDERED = 2;
-  // 生成图片
+  // 生成���片
   STORYBOARD_STAGE_GEN_IMAGE = 3;
   // 生成视频
   STORYBOARD_STAGE_GEN_VIDEO = 4;

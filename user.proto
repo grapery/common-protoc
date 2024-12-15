@@ -11,35 +11,53 @@ message UserPrivate {
 }
 
 message UserInfo {
-    int64 user_id = 1;
-    string name = 2;
-    string avatar = 3;
-    string email = 4;
-    string location = 5;
-    string desc = 6;
-    int64 Ctime = 9;
-    int64 Mtime = 10;
-  }
+  int64 user_id = 1;
+  string name = 2;
+  string avatar = 3;
+  string email = 4;
+  string location = 5;
+  string desc = 6;
+  int64 Ctime = 9;
+  int64 Mtime = 10;
+}
 
-  // 用户的 profile
-  message UserProfileInfo {
-    int64 user_id = 1;
-    int32 num_group = 2;
-    int64 default_group_id = 3;
-    int32 min_same_group = 4;
+// 用户的 profile
+message UserProfileInfo {
+  int64 user_id = 1;
+  int32 num_group = 2;
+  int64 default_group_id = 3;
+  int32 min_same_group = 4;
 
-    int32 limit = 5;
-    int32 used_tokens = 6;
-    int32 status = 7;
+  int32 limit = 5;
+  int32 used_tokens = 6;
+  int32 status = 7;
 
-    int32 created_group_num = 8;
-    int32 created_story_num = 9;
-    int32 created_role_num = 10;
-    int32 watching_story_num = 11;
-    int32 watching_group_num = 12;
-    int32 contribut_story_num = 13;
-    int32 contribut_role_num = 14;
+  int32 created_group_num = 8;
+  int32 created_story_num = 9;
+  int32 created_role_num = 10;
+  int32 watching_story_num = 11;
+  int32 watching_group_num = 12;
+  int32 contribut_story_num = 13;
+  int32 contribut_role_num = 14;
 
-    int64 Ctime = 19;
-    int64 Mtime = 20;
-  }
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
+
+message UserInteractStatus {
+  int64 user_id = 1;
+  int64 story_id = 2;
+  int64 role_id = 3;
+  int64 group_id = 4;
+  int64 board_id = 5;
+  int64 timeline_id = 6;
+
+  bool is_like = 7;
+  bool is_follow = 8;
+  bool is_watch = 9;
+  bool is_contribute = 10;
+  bool is_comment = 11;
+  bool is_share = 12; 
+  bool is_star = 13;
+  bool is_creator = 14;
+}

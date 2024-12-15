@@ -12,6 +12,7 @@
     - [GroupStatus](#common-GroupStatus)
     - [ItemType](#common-ItemType)
     - [LikeType](#common-LikeType)
+    - [MultiBranchOrderBy](#common-MultiBranchOrderBy)
     - [ScopeType](#common-ScopeType)
     - [SortByType](#common-SortByType)
     - [TaskStage](#common-TaskStage)
@@ -52,6 +53,7 @@
   
 - [user.proto](#user-proto)
     - [UserInfo](#common-UserInfo)
+    - [UserInteractStatus](#common-UserInteractStatus)
     - [UserPrivate](#common-UserPrivate)
     - [UserProfileInfo](#common-UserProfileInfo)
   
@@ -186,6 +188,7 @@
     - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
+    - [CreateProjectResponse.Data](#common-CreateProjectResponse-Data)
     - [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest)
     - [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse)
     - [CreateStoryRoleRequest](#common-CreateStoryRoleRequest)
@@ -202,11 +205,13 @@
     - [DisscussParams](#common-DisscussParams)
     - [ExploreProjectsRequest](#common-ExploreProjectsRequest)
     - [ExploreProjectsResponse](#common-ExploreProjectsResponse)
+    - [ExploreProjectsResponse.Data](#common-ExploreProjectsResponse-Data)
     - [ExploreRequest](#common-ExploreRequest)
     - [ExploreResponse](#common-ExploreResponse)
     - [ExploreResponse.Data](#common-ExploreResponse-Data)
     - [FetchActivesRequest](#common-FetchActivesRequest)
     - [FetchActivesResponse](#common-FetchActivesResponse)
+    - [FetchActivesResponse.Data](#common-FetchActivesResponse-Data)
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
     - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
@@ -223,6 +228,7 @@
     - [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data)
     - [GetGroupItemsRequest](#common-GetGroupItemsRequest)
     - [GetGroupItemsResponse](#common-GetGroupItemsResponse)
+    - [GetGroupItemsResponse.Data](#common-GetGroupItemsResponse-Data)
     - [GetGroupProfileRequest](#common-GetGroupProfileRequest)
     - [GetGroupProfileResponse](#common-GetGroupProfileResponse)
     - [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data)
@@ -231,21 +237,28 @@
     - [GetGroupResponse.Data](#common-GetGroupResponse-Data)
     - [GetItemRequest](#common-GetItemRequest)
     - [GetItemResponse](#common-GetItemResponse)
+    - [GetItemResponse.Data](#common-GetItemResponse-Data)
     - [GetItemsCommentReq](#common-GetItemsCommentReq)
     - [GetItemsCommentResp](#common-GetItemsCommentResp)
     - [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data)
+    - [GetNextStoryboardRequest](#common-GetNextStoryboardRequest)
+    - [GetNextStoryboardResponse](#common-GetNextStoryboardResponse)
     - [GetProjectItemsRequest](#common-GetProjectItemsRequest)
     - [GetProjectItemsResponse](#common-GetProjectItemsResponse)
+    - [GetProjectItemsResponse.Data](#common-GetProjectItemsResponse-Data)
     - [GetProjectListRequest](#common-GetProjectListRequest)
     - [GetProjectListResponse](#common-GetProjectListResponse)
+    - [GetProjectListResponse.Data](#common-GetProjectListResponse-Data)
     - [GetProjectMembersRequest](#common-GetProjectMembersRequest)
     - [GetProjectMembersResponse](#common-GetProjectMembersResponse)
     - [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data)
     - [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry)
     - [GetProjectProfileRequest](#common-GetProjectProfileRequest)
     - [GetProjectProfileResponse](#common-GetProjectProfileResponse)
+    - [GetProjectProfileResponse.Data](#common-GetProjectProfileResponse-Data)
     - [GetProjectRequest](#common-GetProjectRequest)
     - [GetProjectResponse](#common-GetProjectResponse)
+    - [GetProjectResponse.Data](#common-GetProjectResponse-Data)
     - [GetProjectWatcherRequest](#common-GetProjectWatcherRequest)
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
@@ -272,12 +285,14 @@
     - [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse)
     - [GetUserItemsRequest](#common-GetUserItemsRequest)
     - [GetUserItemsResponse](#common-GetUserItemsResponse)
+    - [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data)
     - [GetUserProfileRequest](#common-GetUserProfileRequest)
     - [GetUserProfileResponse](#common-GetUserProfileResponse)
     - [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest)
     - [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse)
     - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
     - [GetWatchingProjectResponse](#common-GetWatchingProjectResponse)
+    - [GetWatchingProjectResponse.Data](#common-GetWatchingProjectResponse-Data)
     - [JoinGroupRequest](#common-JoinGroupRequest)
     - [JoinGroupResponse](#common-JoinGroupResponse)
     - [JoinGroupResponse.Data](#common-JoinGroupResponse-Data)
@@ -293,6 +308,7 @@
     - [LikeStoryRoleResponse](#common-LikeStoryRoleResponse)
     - [LoginRequest](#common-LoginRequest)
     - [LoginResponse](#common-LoginResponse)
+    - [LoginResponse.Data](#common-LoginResponse-Data)
     - [LogoutRequest](#common-LogoutRequest)
     - [LogoutResponse](#common-LogoutResponse)
     - [RefreshTokenRequest](#common-RefreshTokenRequest)
@@ -307,17 +323,20 @@
     - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
     - [SearchAllProjectRequest](#common-SearchAllProjectRequest)
     - [SearchAllProjectResponse](#common-SearchAllProjectResponse)
+    - [SearchAllProjectResponse.Data](#common-SearchAllProjectResponse-Data)
     - [SearchGroupRequest](#common-SearchGroupRequest)
     - [SearchGroupResponse](#common-SearchGroupResponse)
     - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
     - [SearchProjectRequest](#common-SearchProjectRequest)
     - [SearchProjectResponse](#common-SearchProjectResponse)
+    - [SearchProjectResponse.Data](#common-SearchProjectResponse-Data)
     - [SearchRolesRequest](#common-SearchRolesRequest)
     - [SearchRolesResponse](#common-SearchRolesResponse)
     - [SearchStoriesRequest](#common-SearchStoriesRequest)
     - [SearchStoriesResponse](#common-SearchStoriesResponse)
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
+    - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
     - [StoryContributor](#common-StoryContributor)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
@@ -349,6 +368,7 @@
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
+    - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
     - [UpdateUserProfileRequest](#common-UpdateUserProfileRequest)
     - [UpdateUserProfileResponse](#common-UpdateUserProfileResponse)
     - [UploadImageRequest](#common-UploadImageRequest)
@@ -356,18 +376,23 @@
     - [UploadImageResponse.Data](#common-UploadImageResponse-Data)
     - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
     - [UserFollowingGroupResponse](#common-UserFollowingGroupResponse)
+    - [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data)
     - [UserGroupRequest](#common-UserGroupRequest)
     - [UserGroupResponse](#common-UserGroupResponse)
+    - [UserGroupResponse.Data](#common-UserGroupResponse-Data)
     - [UserInfoRequest](#common-UserInfoRequest)
     - [UserInfoResponse](#common-UserInfoResponse)
+    - [UserInfoResponse.Data](#common-UserInfoResponse-Data)
     - [UserInitRequest](#common-UserInitRequest)
     - [UserInitResponse](#common-UserInitResponse)
+    - [UserInitResponse.Data](#common-UserInitResponse-Data)
     - [UserUpdateRequest](#common-UserUpdateRequest)
     - [UserUpdateRequest.DataEntry](#common-UserUpdateRequest-DataEntry)
     - [UserUpdateResponse](#common-UserUpdateResponse)
     - [UserUpdateResponse.Data](#common-UserUpdateResponse-Data)
     - [UserWatchingRequest](#common-UserWatchingRequest)
     - [UserWatchingResponse](#common-UserWatchingResponse)
+    - [UserWatchingResponse.Data](#common-UserWatchingResponse-Data)
     - [VersionRequest](#common-VersionRequest)
     - [VersionResponse](#common-VersionResponse)
     - [VersionResponse.Data](#common-VersionResponse-Data)
@@ -509,6 +534,23 @@
 | Left | 1 | 左 |
 | Middle | 2 | 中 |
 | Right | 3 | 右 |
+
+
+
+<a name="common-MultiBranchOrderBy"></a>
+
+### MultiBranchOrderBy
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MultiBranchOrderByUnspecified | 0 | 不指定 |
+| MultiBranchOrderByCreatedAt | 1 | 创建时间 |
+| MultiBranchOrderByUpdatedAt | 2 | 更新时间 |
+| MultiBranchOrderByLikes | 3 | 点赞数 |
+| MultiBranchOrderByComments | 4 | 评论数 |
+| MultiBranchOrderByViews | 5 | 浏览数 |
+| MultiBranchOrderByFollowRole | 6 | 关注的角色参与数 |
 
 
 
@@ -1148,6 +1190,34 @@
 
 
 
+<a name="common-UserInteractStatus"></a>
+
+### UserInteractStatus
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| timeline_id | [int64](#int64) |  |  |
+| is_like | [bool](#bool) |  |  |
+| is_follow | [bool](#bool) |  |  |
+| is_watch | [bool](#bool) |  |  |
+| is_contribute | [bool](#bool) |  |  |
+| is_comment | [bool](#bool) |  |  |
+| is_share | [bool](#bool) |  |  |
+| is_star | [bool](#bool) |  |  |
+| is_creator | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="common-UserPrivate"></a>
 
 ### UserPrivate
@@ -1515,6 +1585,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [Story](#common-Story) | repeated |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
+| creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
 
@@ -1777,6 +1849,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryRole](#common-StoryRole) | repeated |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
+| creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
 
@@ -1859,6 +1933,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 
 
 
@@ -1906,6 +1981,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [Story](#common-Story) |  |  |
+| creator | [UserInfo](#common-UserInfo) |  |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) |  |  |
 
 
 
@@ -2004,6 +2081,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryRole](#common-StoryRole) | repeated |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
+| creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
 
@@ -2019,6 +2098,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 
 
 
@@ -2051,6 +2131,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [StoryBoard](#common-StoryBoard) |  |  |
+| creator | [UserInfo](#common-UserInfo) |  |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) |  |  |
 
 
 
@@ -2069,8 +2151,11 @@
 | timeline_id | [int64](#int64) |  |  |
 | start_time | [int64](#int64) |  |  |
 | end_time | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_multi_branch | [bool](#bool) |  |  |
 | page | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
+| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  |  |
 
 
 
@@ -2103,7 +2188,12 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryBoard](#common-StoryBoard) | repeated |  |
-| total | [int32](#int32) |  |  |
+| creator | [UserInfo](#common-UserInfo) | repeated |  |
+| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
+| is_multi_branch | [bool](#bool) |  |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -2618,7 +2708,7 @@
 | story_id | [int64](#int64) |  |  |
 | num | [int64](#int64) |  |  |
 | prev_board_id | [int64](#int64) |  |  |
-| next_board_id | [int64](#int64) |  |  |
+| next_board_id | [int64](#int64) | repeated |  |
 | creator | [int64](#int64) |  |  |
 | story_board_id | [int64](#int64) |  |  |
 | title | [string](#string) |  |  |
@@ -3465,6 +3555,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [CreateProjectResponse.Data](#common-CreateProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-CreateProjectResponse-Data"></a>
+
+### CreateProjectResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [ProjectInfo](#common-ProjectInfo) |  |  |
 
 
@@ -3705,6 +3812,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [ExploreProjectsResponse.Data](#common-ExploreProjectsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-ExploreProjectsResponse-Data"></a>
+
+### ExploreProjectsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
@@ -3774,6 +3898,23 @@
 <a name="common-FetchActivesResponse"></a>
 
 ### FetchActivesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [FetchActivesResponse.Data](#common-FetchActivesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-FetchActivesResponse-Data"></a>
+
+### FetchActivesResponse.Data
 
 
 
@@ -4039,6 +4180,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetGroupItemsResponse.Data](#common-GetGroupItemsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetGroupItemsResponse-Data"></a>
+
+### GetGroupItemsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [ItemInfo](#common-ItemInfo) | repeated |  |
 | group_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
@@ -4175,6 +4333,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetItemResponse.Data](#common-GetItemResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetItemResponse-Data"></a>
+
+### GetItemResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [ItemInfo](#common-ItemInfo) |  |  |
 
 
@@ -4241,6 +4416,49 @@
 
 
 
+<a name="common-GetNextStoryboardRequest"></a>
+
+### GetNextStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| is_multi_branch | [bool](#bool) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  |  |
+
+
+
+
+
+
+<a name="common-GetNextStoryboardResponse"></a>
+
+### GetNextStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| is_multi_branch | [bool](#bool) |  |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetProjectItemsRequest"></a>
 
 ### GetProjectItemsRequest
@@ -4263,6 +4481,23 @@
 <a name="common-GetProjectItemsResponse"></a>
 
 ### GetProjectItemsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetProjectItemsResponse.Data](#common-GetProjectItemsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectItemsResponse-Data"></a>
+
+### GetProjectItemsResponse.Data
 
 
 
@@ -4301,6 +4536,23 @@
 <a name="common-GetProjectListResponse"></a>
 
 ### GetProjectListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetProjectListResponse.Data](#common-GetProjectListResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectListResponse-Data"></a>
+
+### GetProjectListResponse.Data
 
 
 
@@ -4406,6 +4658,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetProjectProfileResponse.Data](#common-GetProjectProfileResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectProfileResponse-Data"></a>
+
+### GetProjectProfileResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
 | project_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
@@ -4436,6 +4705,23 @@
 <a name="common-GetProjectResponse"></a>
 
 ### GetProjectResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetProjectResponse.Data](#common-GetProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetProjectResponse-Data"></a>
+
+### GetProjectResponse.Data
 
 
 
@@ -4882,6 +5168,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserItemsResponse-Data"></a>
+
+### GetUserItemsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | list | [ItemInfo](#common-ItemInfo) | repeated |  |
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -4977,6 +5280,23 @@
 <a name="common-GetWatchingProjectResponse"></a>
 
 ### GetWatchingProjectResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [GetWatchingProjectResponse.Data](#common-GetWatchingProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-GetWatchingProjectResponse-Data"></a>
+
+### GetWatchingProjectResponse.Data
 
 
 
@@ -5214,12 +5534,28 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [LoginResponse.Data](#common-LoginResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-LoginResponse-Data"></a>
+
+### LoginResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | token | [string](#string) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | expire_at | [int64](#int64) |  |  |
 | status | [int32](#int32) |  |  |
-| msg | [string](#string) |  |  |
 
 
 
@@ -5452,6 +5788,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [SearchAllProjectResponse.Data](#common-SearchAllProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-SearchAllProjectResponse-Data"></a>
+
+### SearchAllProjectResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
@@ -5538,6 +5891,23 @@
 <a name="common-SearchProjectResponse"></a>
 
 ### SearchProjectResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [SearchProjectResponse.Data](#common-SearchProjectResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-SearchProjectResponse-Data"></a>
+
+### SearchProjectResponse.Data
 
 
 
@@ -5653,6 +6023,23 @@
 <a name="common-SearchUserResponse"></a>
 
 ### SearchUserResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [SearchUserResponse.Data](#common-SearchUserResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-SearchUserResponse-Data"></a>
+
+### SearchUserResponse.Data
 
 
 
@@ -6164,6 +6551,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateUserAvatorResponse-Data"></a>
+
+### UpdateUserAvatorResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [UserInfo](#common-UserInfo) |  |  |
 | status | [int32](#int32) |  |  |
 
@@ -6279,6 +6683,23 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserFollowingGroupResponse-Data"></a>
+
+### UserFollowingGroupResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
@@ -6310,6 +6731,23 @@
 <a name="common-UserGroupResponse"></a>
 
 ### UserGroupResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UserGroupResponse.Data](#common-UserGroupResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserGroupResponse-Data"></a>
+
+### UserGroupResponse.Data
 
 
 
@@ -6348,7 +6786,25 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UserInfoResponse.Data](#common-UserInfoResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserInfoResponse-Data"></a>
+
+### UserInfoResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
 | info | [UserInfo](#common-UserInfo) |  |  |
+| profile | [UserProfileInfo](#common-UserProfileInfo) |  |  |
 
 
 
@@ -6374,6 +6830,23 @@ user ,group .project.item
 <a name="common-UserInitResponse"></a>
 
 ### UserInitResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UserInitResponse.Data](#common-UserInitResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserInitResponse-Data"></a>
+
+### UserInitResponse.Data
 
 
 
@@ -6470,6 +6943,23 @@ user ,group .project.item
 <a name="common-UserWatchingResponse"></a>
 
 ### UserWatchingResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| msg | [string](#string) |  |  |
+| data | [UserWatchingResponse.Data](#common-UserWatchingResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-UserWatchingResponse-Data"></a>
+
+### UserWatchingResponse.Data
 
 
 
@@ -6595,7 +7085,7 @@ user ,group .project.item
 | STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
 | STORYBOARD_STAGE_CREATED | 1 | 创建 |
 | STORYBOARD_STAGE_RENDERED | 2 | 渲染完成 |
-| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成图片 |
+| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成���片 |
 | STORYBOARD_STAGE_GEN_VIDEO | 4 | 生成视频 |
 | STORYBOARD_STAGE_GEN_AUDIO | 5 | 生成音频 |
 | STORYBOARD_STAGE_GEN_TEXT | 6 | 生成文本 |
@@ -6679,7 +7169,7 @@ user ,group .project.item
 | GenStoryboardText | [GenStoryboardTextRequest](#common-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#common-GenStoryboardTextResponse) | 生成故事板文本 |
 | GenStoryboardImages | [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse) | 生成故事板图片 |
 | GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) | 获取故事板 |
-| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) | 删除故事板 |
+| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) | 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除 |
 | ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) | 复制故事板 |
 | UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) | 更新故事板 |
 | LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) | 喜欢故事板 |
@@ -6691,7 +7181,7 @@ user ,group .project.item
 | GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
 | GetStoryContributors | [GetStoryContributorsRequest](#common-GetStoryContributorsRequest) | [GetStoryContributorsResponse](#common-GetStoryContributorsResponse) | 获取故事的贡献者 |
 | ContinueRenderStory | [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse) | 继续渲染故事 |
-| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) | 渲染故事角色 |
+| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) | 渲���故事角色 |
 | UpdateStoryRole | [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest) | [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse) | 更新 story role |
 | RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) | 渲染故事角色详情 |
 | GetStoryRoles | [GetStoryRolesRequest](#common-GetStoryRolesRequest) | [GetStoryRolesResponse](#common-GetStoryRolesResponse) | 获取 story roles 的列表 |
@@ -6730,6 +7220,7 @@ user ,group .project.item
 | GetUserChatWithRole | [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |
 | GetUserChatMessages | [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest) | [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse) | 获取用户的消息 |
 | FetchActives | [FetchActivesRequest](#common-FetchActivesRequest) | [FetchActivesResponse](#common-FetchActivesResponse) | 活动信息 |
+| GetNextStoryboard | [GetNextStoryboardRequest](#common-GetNextStoryboardRequest) | [GetNextStoryboardResponse](#common-GetNextStoryboardResponse) | 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位 |
 
  
 

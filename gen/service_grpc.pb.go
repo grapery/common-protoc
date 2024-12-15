@@ -133,6 +133,7 @@ const (
 	TeamsAPI_GetUserChatWithRole_FullMethodName        = "/common.TeamsAPI/GetUserChatWithRole"
 	TeamsAPI_GetUserChatMessages_FullMethodName        = "/common.TeamsAPI/GetUserChatMessages"
 	TeamsAPI_FetchActives_FullMethodName               = "/common.TeamsAPI/FetchActives"
+	TeamsAPI_GetNextStoryboard_FullMethodName          = "/common.TeamsAPI/GetNextStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -265,7 +266,7 @@ type TeamsAPIClient interface {
 	GenStoryboardImages(ctx context.Context, in *GenStoryboardImagesRequest, opts ...grpc.CallOption) (*GenStoryboardImagesResponse, error)
 	// 获取故事板
 	GetStoryboards(ctx context.Context, in *GetStoryboardsRequest, opts ...grpc.CallOption) (*GetStoryboardsResponse, error)
-	// 删除故事板
+	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
 	DelStoryboard(ctx context.Context, in *DelStoryboardRequest, opts ...grpc.CallOption) (*DelStoryboardResponse, error)
 	// 复制故事板
 	ForkStoryboard(ctx context.Context, in *ForkStoryboardRequest, opts ...grpc.CallOption) (*ForkStoryboardResponse, error)
@@ -289,7 +290,7 @@ type TeamsAPIClient interface {
 	GetStoryContributors(ctx context.Context, in *GetStoryContributorsRequest, opts ...grpc.CallOption) (*GetStoryContributorsResponse, error)
 	// 继续渲染故事
 	ContinueRenderStory(ctx context.Context, in *ContinueRenderStoryRequest, opts ...grpc.CallOption) (*ContinueRenderStoryResponse, error)
-	// 渲染故事角色
+	// 渲���故事角色
 	RenderStoryRoles(ctx context.Context, in *RenderStoryRolesRequest, opts ...grpc.CallOption) (*RenderStoryRolesResponse, error)
 	// 更新 story role
 	UpdateStoryRole(ctx context.Context, in *UpdateStoryRoleRequest, opts ...grpc.CallOption) (*UpdateStoryRoleResponse, error)
@@ -367,6 +368,8 @@ type TeamsAPIClient interface {
 	GetUserChatMessages(ctx context.Context, in *GetUserChatMessagesRequest, opts ...grpc.CallOption) (*GetUserChatMessagesResponse, error)
 	// 活动信息
 	FetchActives(ctx context.Context, in *FetchActivesRequest, opts ...grpc.CallOption) (*FetchActivesResponse, error)
+	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	GetNextStoryboard(ctx context.Context, in *GetNextStoryboardRequest, opts ...grpc.CallOption) (*GetNextStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1403,6 +1406,15 @@ func (c *teamsAPIClient) FetchActives(ctx context.Context, in *FetchActivesReque
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetNextStoryboard(ctx context.Context, in *GetNextStoryboardRequest, opts ...grpc.CallOption) (*GetNextStoryboardResponse, error) {
+	out := new(GetNextStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetNextStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1533,7 +1545,7 @@ type TeamsAPIServer interface {
 	GenStoryboardImages(context.Context, *GenStoryboardImagesRequest) (*GenStoryboardImagesResponse, error)
 	// 获取故事板
 	GetStoryboards(context.Context, *GetStoryboardsRequest) (*GetStoryboardsResponse, error)
-	// 删除故事板
+	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
 	DelStoryboard(context.Context, *DelStoryboardRequest) (*DelStoryboardResponse, error)
 	// 复制故事板
 	ForkStoryboard(context.Context, *ForkStoryboardRequest) (*ForkStoryboardResponse, error)
@@ -1557,7 +1569,7 @@ type TeamsAPIServer interface {
 	GetStoryContributors(context.Context, *GetStoryContributorsRequest) (*GetStoryContributorsResponse, error)
 	// 继续渲染故事
 	ContinueRenderStory(context.Context, *ContinueRenderStoryRequest) (*ContinueRenderStoryResponse, error)
-	// 渲染故事角色
+	// 渲���故事角色
 	RenderStoryRoles(context.Context, *RenderStoryRolesRequest) (*RenderStoryRolesResponse, error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *UpdateStoryRoleRequest) (*UpdateStoryRoleResponse, error)
@@ -1635,6 +1647,8 @@ type TeamsAPIServer interface {
 	GetUserChatMessages(context.Context, *GetUserChatMessagesRequest) (*GetUserChatMessagesResponse, error)
 	// 活动信息
 	FetchActives(context.Context, *FetchActivesRequest) (*FetchActivesResponse, error)
+	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	GetNextStoryboard(context.Context, *GetNextStoryboardRequest) (*GetNextStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1983,6 +1997,9 @@ func (UnimplementedTeamsAPIServer) GetUserChatMessages(context.Context, *GetUser
 }
 func (UnimplementedTeamsAPIServer) FetchActives(context.Context, *FetchActivesRequest) (*FetchActivesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchActives not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetNextStoryboard(context.Context, *GetNextStoryboardRequest) (*GetNextStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNextStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4049,6 +4066,24 @@ func _TeamsAPI_FetchActives_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetNextStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNextStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetNextStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetNextStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetNextStoryboard(ctx, req.(*GetNextStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4511,6 +4546,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FetchActives",
 			Handler:    _TeamsAPI_FetchActives_Handler,
+		},
+		{
+			MethodName: "GetNextStoryboard",
+			Handler:    _TeamsAPI_GetNextStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

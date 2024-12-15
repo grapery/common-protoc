@@ -3,6 +3,7 @@ syntax = "proto3";
 package common;
 
 import "base.proto";
+import "user.proto";
 
 
 message Story{
@@ -42,7 +43,7 @@ message StoryBoard{
     int64 story_id = 1;
     int64 num = 2;
     int64 prev_board_id = 3;
-    int64 next_board_id = 4;
+    repeated int64 next_board_id = 4;
     int64 creator = 5;
     int64 story_board_id = 6;
     string title = 8;
@@ -153,10 +154,11 @@ message CreateStoryRequest {
   message GetStoryInfoResponse {
     int32 code = 1;
     string message = 2;
-   
     message Data {
       Story info = 1;
-    }Data data = 3;
+      UserInfo creator = 2;
+      UserInteractStatus interact = 3;
+    }Data data = 4;
   }
   
   message CreateStoryboardRequest {
@@ -173,6 +175,7 @@ message CreateStoryRequest {
   
   message GetStoryboardRequest {
     int64 board_id = 1;
+    int64 user_id = 2;
   }
   
   message GetStoryboardResponse {
@@ -180,6 +183,8 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       StoryBoard info = 1;
+      UserInfo creator = 2;
+      UserInteractStatus interact = 3;
     }Data data = 3;
   }
   
@@ -188,8 +193,11 @@ message CreateStoryRequest {
     int64 timeline_id = 2;
     int64 start_time = 4;
     int64 end_time = 5;
-    int32 page = 6;
-    int32 page_size = 7;
+    int64 user_id = 6;
+    bool is_multi_branch = 7;
+    int32 page = 8;
+    int32 page_size = 9;
+    MultiBranchOrderBy order_by = 10;
   }
   
   message GetStoryboardsResponse {
@@ -197,7 +205,12 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryBoard list = 1;
-      int32 total = 2;
+      repeated UserInfo creator = 2;
+      repeated UserInteractStatus interact = 3;
+      bool is_multi_branch = 4;
+      int64 total = 5;
+      int64 offset = 6;
+      int64 page_size = 7;
     }Data data = 3;
   }
   
@@ -435,6 +448,8 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated Story list = 1;
+      repeated UserInteractStatus interact = 2;
+      repeated UserInfo creator = 3;
     }Data data = 3;
   }
 
@@ -534,6 +549,8 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryRole list = 1;
+      repeated UserInteractStatus interact = 2;
+      repeated UserInfo creator = 3;
     }Data data = 3;
   }
 
@@ -547,6 +564,8 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryRole list = 1;
+      repeated UserInteractStatus interact = 2;
+      repeated UserInfo creator = 3;
     }Data data = 3;
   }
 
@@ -577,6 +596,7 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryBoardSence list = 1;
+      repeated UserInteractStatus interact = 2;
     }Data data = 3;
   }
 

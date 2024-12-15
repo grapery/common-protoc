@@ -690,6 +690,74 @@ public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum Common_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 不指定
+  case unspecified // = 0
+
+  /// 创建时间
+  case createdAt // = 1
+
+  /// 更新时间
+  case updatedAt // = 2
+
+  /// 点赞数
+  case likes // = 3
+
+  /// 评论数
+  case comments // = 4
+
+  /// 浏览数
+  case views // = 5
+
+  /// 关注的角色参与数
+  case followRole // = 6
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .createdAt
+    case 2: self = .updatedAt
+    case 3: self = .likes
+    case 4: self = .comments
+    case 5: self = .views
+    case 6: self = .followRole
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .createdAt: return 1
+    case .updatedAt: return 2
+    case .likes: return 3
+    case .comments: return 4
+    case .views: return 5
+    case .followRole: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_MultiBranchOrderBy] = [
+    .unspecified,
+    .createdAt,
+    .updatedAt,
+    .likes,
+    .comments,
+    .views,
+    .followRole,
+  ]
+
+}
+
 public struct Common_Tags: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -839,6 +907,18 @@ extension Common_SortByType: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "SortByComment"),
     3: .same(proto: "SortByShare"),
     4: .same(proto: "SortByView"),
+  ]
+}
+
+extension Common_MultiBranchOrderBy: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MultiBranchOrderByUnspecified"),
+    1: .same(proto: "MultiBranchOrderByCreatedAt"),
+    2: .same(proto: "MultiBranchOrderByUpdatedAt"),
+    3: .same(proto: "MultiBranchOrderByLikes"),
+    4: .same(proto: "MultiBranchOrderByComments"),
+    5: .same(proto: "MultiBranchOrderByViews"),
+    6: .same(proto: "MultiBranchOrderByFollowRole"),
   ]
 }
 

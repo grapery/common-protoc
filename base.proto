@@ -174,3 +174,20 @@ enum SortByType{
   // 浏览排序
   SortByView = 4;
 }
+
+enum MultiBranchOrderBy {
+  // 不指定
+  MultiBranchOrderByUnspecified = 0;
+  // 创建时间
+  MultiBranchOrderByCreatedAt = 1;
+  // 更新时间
+  MultiBranchOrderByUpdatedAt = 2;
+  // 点赞数
+  MultiBranchOrderByLikes = 3;
+  // 评论数
+  MultiBranchOrderByComments = 4;
+  // 浏览数
+  MultiBranchOrderByViews = 5;
+  // 关注的角色参与数
+  MultiBranchOrderByFollowRole = 6;
+}

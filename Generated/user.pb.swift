@@ -105,6 +105,44 @@ public struct Common_UserProfileInfo: Sendable {
   public init() {}
 }
 
+public struct Common_UserInteractStatus: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var storyID: Int64 = 0
+
+  public var roleID: Int64 = 0
+
+  public var groupID: Int64 = 0
+
+  public var boardID: Int64 = 0
+
+  public var timelineID: Int64 = 0
+
+  public var isLike: Bool = false
+
+  public var isFollow: Bool = false
+
+  public var isWatch: Bool = false
+
+  public var isContribute: Bool = false
+
+  public var isComment: Bool = false
+
+  public var isShare: Bool = false
+
+  public var isStar: Bool = false
+
+  public var isCreator: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
@@ -344,6 +382,116 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.contributRoleNum != rhs.contributRoleNum {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UserInteractStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UserInteractStatus"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .standard(proto: "story_id"),
+    3: .standard(proto: "role_id"),
+    4: .standard(proto: "group_id"),
+    5: .standard(proto: "board_id"),
+    6: .standard(proto: "timeline_id"),
+    7: .standard(proto: "is_like"),
+    8: .standard(proto: "is_follow"),
+    9: .standard(proto: "is_watch"),
+    10: .standard(proto: "is_contribute"),
+    11: .standard(proto: "is_comment"),
+    12: .standard(proto: "is_share"),
+    13: .standard(proto: "is_star"),
+    14: .standard(proto: "is_creator"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.timelineID) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.isLike) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.isFollow) }()
+      case 9: try { try decoder.decodeSingularBoolField(value: &self.isWatch) }()
+      case 10: try { try decoder.decodeSingularBoolField(value: &self.isContribute) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.isComment) }()
+      case 12: try { try decoder.decodeSingularBoolField(value: &self.isShare) }()
+      case 13: try { try decoder.decodeSingularBoolField(value: &self.isStar) }()
+      case 14: try { try decoder.decodeSingularBoolField(value: &self.isCreator) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
+    }
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 3)
+    }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 4)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 5)
+    }
+    if self.timelineID != 0 {
+      try visitor.visitSingularInt64Field(value: self.timelineID, fieldNumber: 6)
+    }
+    if self.isLike != false {
+      try visitor.visitSingularBoolField(value: self.isLike, fieldNumber: 7)
+    }
+    if self.isFollow != false {
+      try visitor.visitSingularBoolField(value: self.isFollow, fieldNumber: 8)
+    }
+    if self.isWatch != false {
+      try visitor.visitSingularBoolField(value: self.isWatch, fieldNumber: 9)
+    }
+    if self.isContribute != false {
+      try visitor.visitSingularBoolField(value: self.isContribute, fieldNumber: 10)
+    }
+    if self.isComment != false {
+      try visitor.visitSingularBoolField(value: self.isComment, fieldNumber: 11)
+    }
+    if self.isShare != false {
+      try visitor.visitSingularBoolField(value: self.isShare, fieldNumber: 12)
+    }
+    if self.isStar != false {
+      try visitor.visitSingularBoolField(value: self.isStar, fieldNumber: 13)
+    }
+    if self.isCreator != false {
+      try visitor.visitSingularBoolField(value: self.isCreator, fieldNumber: 14)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UserInteractStatus, rhs: Common_UserInteractStatus) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.timelineID != rhs.timelineID {return false}
+    if lhs.isLike != rhs.isLike {return false}
+    if lhs.isFollow != rhs.isFollow {return false}
+    if lhs.isWatch != rhs.isWatch {return false}
+    if lhs.isContribute != rhs.isContribute {return false}
+    if lhs.isComment != rhs.isComment {return false}
+    if lhs.isShare != rhs.isShare {return false}
+    if lhs.isStar != rhs.isStar {return false}
+    if lhs.isCreator != rhs.isCreator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

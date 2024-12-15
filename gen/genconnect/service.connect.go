@@ -317,6 +317,9 @@ const (
 	TeamsAPIGetUserChatMessagesProcedure = "/common.TeamsAPI/GetUserChatMessages"
 	// TeamsAPIFetchActivesProcedure is the fully-qualified name of the TeamsAPI's FetchActives RPC.
 	TeamsAPIFetchActivesProcedure = "/common.TeamsAPI/FetchActives"
+	// TeamsAPIGetNextStoryboardProcedure is the fully-qualified name of the TeamsAPI's
+	// GetNextStoryboard RPC.
+	TeamsAPIGetNextStoryboardProcedure = "/common.TeamsAPI/GetNextStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -447,7 +450,7 @@ type TeamsAPIClient interface {
 	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
 	// 获取故事板
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
-	// 删除故事板
+	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	// 复制故事板
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
@@ -471,7 +474,7 @@ type TeamsAPIClient interface {
 	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
 	// 继续渲染故事
 	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
-	// 渲染故事角色
+	// 渲���故事角色
 	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
@@ -549,6 +552,8 @@ type TeamsAPIClient interface {
 	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
 	// 活动信息
 	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
+	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1131,6 +1136,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIFetchActivesProcedure,
 			opts...,
 		),
+		getNextStoryboard: connect.NewClient[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIGetNextStoryboardProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1250,6 +1260,7 @@ type teamsAPIClient struct {
 	getUserChatWithRole        *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
 	getUserChatMessages        *connect.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
 	fetchActives               *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
+	getNextStoryboard          *connect.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1822,6 +1833,11 @@ func (c *teamsAPIClient) FetchActives(ctx context.Context, req *connect.Request[
 	return c.fetchActives.CallUnary(ctx, req)
 }
 
+// GetNextStoryboard calls common.TeamsAPI.GetNextStoryboard.
+func (c *teamsAPIClient) GetNextStoryboard(ctx context.Context, req *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error) {
+	return c.getNextStoryboard.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -1950,7 +1966,7 @@ type TeamsAPIHandler interface {
 	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
 	// 获取故事板
 	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
-	// 删除故事板
+	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
 	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	// 复制故事板
 	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
@@ -1974,7 +1990,7 @@ type TeamsAPIHandler interface {
 	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
 	// 继续渲染故事
 	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
-	// 渲染故事角色
+	// 渲���故事角色
 	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// 更新 story role
 	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
@@ -2052,6 +2068,8 @@ type TeamsAPIHandler interface {
 	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
 	// 活动信息
 	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
+	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2630,6 +2648,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.FetchActives,
 		opts...,
 	)
+	teamsAPIGetNextStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIGetNextStoryboardProcedure,
+		svc.GetNextStoryboard,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2860,6 +2883,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetUserChatMessagesHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchActivesProcedure:
 			teamsAPIFetchActivesHandler.ServeHTTP(w, r)
+		case TeamsAPIGetNextStoryboardProcedure:
+			teamsAPIGetNextStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3323,4 +3348,8 @@ func (UnimplementedTeamsAPIHandler) GetUserChatMessages(context.Context, *connec
 
 func (UnimplementedTeamsAPIHandler) FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FetchActives is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetNextStoryboard is not implemented"))
 }
