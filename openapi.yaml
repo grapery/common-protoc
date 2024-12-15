@@ -2963,7 +2963,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 replyMessages:
@@ -3043,7 +3043,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3080,7 +3080,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3109,7 +3109,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3131,7 +3131,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3226,7 +3226,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 chatContext:
@@ -3243,7 +3243,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         CreateStoryboardRequest:
@@ -3295,7 +3295,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3319,7 +3319,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3341,7 +3341,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3380,7 +3380,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3403,7 +3403,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3430,7 +3430,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3462,7 +3462,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3492,7 +3492,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3560,7 +3560,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         ForkStoryboardRequest:
@@ -3674,7 +3674,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3706,7 +3706,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3738,7 +3738,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3764,7 +3764,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3792,7 +3792,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3833,7 +3833,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -3884,7 +3884,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 storyboards:
@@ -3917,7 +3917,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3955,7 +3955,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -3985,7 +3985,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4018,7 +4018,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -4048,7 +4048,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -4069,7 +4069,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4228,7 +4228,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4304,7 +4304,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 info:
@@ -4327,7 +4327,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 stories:
@@ -4360,7 +4360,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 storyboards:
@@ -4504,7 +4504,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 messages:
@@ -4527,7 +4527,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 messages:
@@ -4556,7 +4556,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 roles:
@@ -4589,7 +4589,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 storyboards:
@@ -4616,7 +4616,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -4644,7 +4644,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 info:
@@ -4661,7 +4661,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 chats:
@@ -4794,7 +4794,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4814,7 +4814,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4840,7 +4840,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -4860,7 +4860,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         LikeStoryRoleRequest:
@@ -4877,7 +4877,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         LikeStoryboardRequest:
@@ -4936,7 +4936,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -4967,7 +4967,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
         MusicShareDetail:
@@ -5099,7 +5099,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
         RenderStoryBoardSenceRequest:
@@ -5241,7 +5241,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         RenderStoryRolesRequest:
@@ -5385,7 +5385,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 store:
@@ -5406,7 +5406,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -5447,7 +5447,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -5479,7 +5479,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -5520,7 +5520,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 roles:
@@ -5552,7 +5552,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 stories:
@@ -5579,7 +5579,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -5942,7 +5942,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -5968,7 +5968,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UnLikeStoryRequest:
@@ -5983,7 +5983,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UnLikeStoryRoleRequest:
@@ -6000,7 +6000,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UnLikeStoryboardRequest:
@@ -6034,7 +6034,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6054,7 +6054,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6078,7 +6078,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UpdateItemRequest:
@@ -6099,7 +6099,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6125,7 +6125,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6220,7 +6220,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UpdateStoryRoleRequest:
@@ -6278,7 +6278,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6303,7 +6303,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
         UploadImageRequest:
@@ -6321,7 +6321,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6349,7 +6349,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6386,7 +6386,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6436,7 +6436,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6460,7 +6460,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6573,7 +6573,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6599,7 +6599,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 msg:
                     type: string
                 data:
@@ -6622,7 +6622,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:
@@ -6689,7 +6689,7 @@ components:
             properties:
                 code:
                     type: integer
-                    format: int32
+                    format: enum
                 message:
                     type: string
                 data:

@@ -23,11 +23,7 @@
     - [CommentInfo](#common-CommentInfo)
   
 - [error.proto](#error-proto)
-    - [Error](#common-Error)
-  
-    - [AuthError](#common-AuthError)
-    - [ErrorCode](#common-ErrorCode)
-    - [ErrorType](#common-ErrorType)
+    - [ResponseCode](#common-ResponseCode)
   
 - [group.proto](#group-proto)
     - [GroupInfo](#common-GroupInfo)
@@ -685,83 +681,190 @@
 ## error.proto
 
 
-
-<a name="common-Error"></a>
-
-### Error
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
-
-
-
-
-
  
 
 
-<a name="common-AuthError"></a>
+<a name="common-ResponseCode"></a>
 
-### AuthError
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| NONE | 0 |  |
-| INVALID_TOKEN | 1 |  |
-| EXPIRED_TOKEN | 2 |  |
-| INVALID_SIGNATURE | 3 |  |
-| INVALID_APP | 4 |  |
-| INVALID_USER | 5 |  |
-| INVALID_PASSWORD | 6 |  |
-| INVALID_ACCOUNT | 7 |  |
-| INVALID_ROLE | 8 |  |
-| INVALID_PERMISSION | 9 |  |
-| INVALID_GROUP | 10 |  |
-| INVALID_PROJECT | 11 |  |
-| INVALID_ITEM | 12 |  |
-| INVALID_VERSION | 13 |  |
-| INVALID_AGENT | 14 |  |
-
-
-
-<a name="common-ErrorCode"></a>
-
-### ErrorCode
-
+### ResponseCode
+通用响应状态码
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| SUCCESS | 0 |  |
-| INVALID_PARAMS | 1 |  |
-| NOT_FOUND | 2 |  |
-| FORBIDDEN | 3 |  |
-| UNAUTHORIZED | 4 |  |
-| ERROR | 5 |  |
-| UNKNOWN | 6 |  |
-| EXPIRED | 7 |  |
-| DUPLICATE | 8 |  |
-| ALREADY_EXISTS | 9 |  |
-| NOT_SUPPORTED | 10 |  |
-| NOT_IMPLEMENTED | 11 |  |
-| TIMEOUT | 12 |  |
+| OK | 0 | 成功 (0)
 
+请求成功 |
+| SYSTEM_ERROR | 1 | 系统级错误 (1-99)
 
+系统错误 |
+| INTERNAL_ERROR | 2 | 内部错误 |
+| DATABASE_ERROR | 3 | 数据库错误 |
+| CACHE_ERROR | 4 | 缓存错误 |
+| NETWORK_ERROR | 5 | 网络错误 |
+| TIMEOUT_ERROR | 6 | 超时错误 |
+| SERVICE_UNAVAILABLE | 7 | 服务不可用 |
+| TOO_MANY_REQUESTS | 8 | 请求过于频繁 |
+| CONFIGURATION_ERROR | 9 | 配置错误 |
+| INITIALIZATION_ERROR | 10 | 初始化错误 |
+| UNAUTHORIZED | 100 | 认证和授权错误 (100-199)
 
-<a name="common-ErrorType"></a>
+未授权 |
+| TOKEN_EXPIRED | 101 | Token过期 |
+| TOKEN_INVALID | 102 | Token无效 |
+| PERMISSION_DENIED | 103 | 权限不足 |
+| ACCOUNT_NOT_FOUND | 104 | 账号不存在 |
+| WRONG_PASSWORD | 105 | 密码错误 |
+| ACCOUNT_DISABLED | 106 | 账号已禁用 |
+| LOGIN_REQUIRED | 107 | 需要登��� |
+| TOKEN_MISSING | 108 | Token缺失 |
+| SESSION_EXPIRED | 109 | 会话过期 |
+| INVALID_CREDENTIALS | 110 | 无效的凭证 |
+| ACCOUNT_LOCKED | 111 | 账号已锁定 |
+| ACCOUNT_EXPIRED | 112 | 账号已过期 |
+| INVALID_LOGIN_TYPE | 113 | 无效的登录类型 |
+| INVALID_PARAMETER | 200 | 参数验证错误 (200-299)
 
-### ErrorType
+无效的参数 |
+| MISSING_PARAMETER | 201 | 缺少参数 |
+| INVALID_FORMAT | 202 | 格式错误 |
+| INVALID_LENGTH | 203 | 长度错误 |
+| INVALID_VALUE | 204 | 值错误 |
+| INVALID_TYPE | 205 | 类型错误 |
+| INVALID_SYNTAX | 206 | 语法错误 |
+| INVALID_ENCODING | 207 | 编码错误 |
+| INVALID_OPERATION | 208 | 无效的操作 |
+| VALIDATION_FAILED | 209 | 验证失败 |
+| RESOURCE_NOT_FOUND | 300 | 资源错误 (300-399)
 
+资源不存在 |
+| RESOURCE_ALREADY_EXISTS | 301 | 资源已存在 |
+| RESOURCE_EXPIRED | 302 | 资源已过期 |
+| RESOURCE_EXHAUSTED | 303 | 资源耗尽 |
+| RESOURCE_BUSY | 304 | 资源忙碌 |
+| RESOURCE_LOCKED | 305 | 资源已锁定 |
+| RESOURCE_UNAVAILABLE | 306 | 资源不可用 |
+| RESOURCE_QUOTA_EXCEEDED | 307 | 资源配额超限 |
+| RESOURCE_CORRUPTED | 308 | 资源已损坏 |
+| USER_NOT_FOUND | 400 | 用户相关错误 (400-499)
 
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| Internal | 0 |  |
-| Client | 1 |  |
-| Server | 2 |  |
+用户不存在 |
+| USER_ALREADY_EXISTS | 401 | 用户已存在 |
+| USER_NOT_ACTIVE | 402 | 用户未激活 |
+| USER_BLOCKED | 403 | 用户已封禁 |
+| USER_PROFILE_INCOMPLETE | 404 | 用户资料不完整 |
+| USER_OPERATION_DENIED | 405 | 用户操作被拒绝 |
+| USER_QUOTA_EXCEEDED | 406 | 用户配额超限 |
+| USER_STATUS_ERROR | 407 | 用户状态错误 |
+| USER_VERIFICATION_FAILED | 408 | 用户验证失败 |
+| USER_ROLE_INVALID | 409 | 用户角色无效 |
+| GROUP_NOT_FOUND | 500 | 组织相关错误 (500-599)
+
+组织不存在 |
+| GROUP_ALREADY_EXISTS | 501 | 组织已存在 |
+| NOT_GROUP_MEMBER | 502 | 非组织成员 |
+| GROUP_PERMISSION_DENIED | 503 | 组织权限不足 |
+| GROUP_FULL | 504 | 组织人数已满 |
+| GROUP_CLOSED | 505 | 组织已关闭 |
+| GROUP_OPERATION_DENIED | 506 | 组织操作被拒绝 |
+| GROUP_STATUS_ERROR | 507 | 组织状态错误 |
+| GROUP_TYPE_INVALID | 508 | 组织类型无效 |
+| GROUP_QUOTA_EXCEEDED | 509 | 组织配额超限 |
+| PROJECT_NOT_FOUND | 600 | 项目相关错误 (600-699)
+
+项目不存在 |
+| PROJECT_ALREADY_EXISTS | 601 | 项目已存在 |
+| PROJECT_PERMISSION_DENIED | 602 | 项目权限不足 |
+| PROJECT_CLOSED | 603 | 项目已关闭 |
+| PROJECT_ARCHIVED | 604 | 项目已归档 |
+| PROJECT_FULL | 605 | 项目已满 |
+| PROJECT_STATUS_ERROR | 606 | 项目状态错误 |
+| PROJECT_TYPE_INVALID | 607 | 项目类型无效 |
+| PROJECT_OPERATION_DENIED | 608 | 项目操作被拒绝 |
+| PROJECT_QUOTA_EXCEEDED | 609 | 项目配额超限 |
+| STORY_NOT_FOUND | 700 | 故事相关错误 (700-799)
+
+故事不存在 |
+| STORY_ALREADY_EXISTS | 701 | 故事已存在 |
+| STORY_PERMISSION_DENIED | 702 | 故事权限不足 |
+| STORY_LOCKED | 703 | 故事已锁定 |
+| STORY_ARCHIVED | 704 | 故事已归档 |
+| STORY_STATUS_ERROR | 705 | 故事状态错误 |
+| STORY_VERSION_ERROR | 706 | 故事版本错误 |
+| STORY_CONTENT_ERROR | 707 | 故事内容错误 |
+| STORY_OPERATION_DENIED | 708 | 故事操作被拒绝 |
+| STORY_GENERATION_FAILED | 709 | 故事生成失败 |
+| STORYBOARD_NOT_FOUND | 800 | 故事板相关错误 (800-899)
+
+故事板不存在 |
+| STORYBOARD_ALREADY_EXISTS | 801 | 故事板已存在 |
+| STORYBOARD_PERMISSION_DENIED | 802 | 故事板权限不足 |
+| STORYBOARD_RENDER_ERROR | 803 | 故事板渲染错误 |
+| STORYBOARD_LOCKED | 804 | 故事板已锁定 |
+| STORYBOARD_STATUS_ERROR | 805 | 故事板状态错误 |
+| STORYBOARD_VERSION_ERROR | 806 | 故事板版本错误 |
+| STORYBOARD_SCENE_ERROR | 807 | 故���板场景错误 |
+| STORYBOARD_GENERATION_FAILED | 808 | 故事板生成失败 |
+| STORYBOARD_OPERATION_DENIED | 809 | 故事板操作被拒绝 |
+| ROLE_NOT_FOUND | 900 | 角色相关错误 (900-999)
+
+角色不存在 |
+| ROLE_ALREADY_EXISTS | 901 | 角色已存在 |
+| ROLE_PERMISSION_DENIED | 902 | 角色权限不足 |
+| ROLE_RENDER_ERROR | 903 | 角色渲染错误 |
+| ROLE_LOCKED | 904 | 角色已锁定 |
+| ROLE_STATUS_ERROR | 905 | 角色状态错误 |
+| ROLE_TYPE_INVALID | 906 | 角色类型无效 |
+| ROLE_QUOTA_EXCEEDED | 907 | 角色配额超限 |
+| ROLE_GENERATION_FAILED | 908 | 角色生成失败 |
+| ROLE_OPERATION_DENIED | 909 | 角色操作被拒绝 |
+| CONTENT_NOT_FOUND | 1000 | 内容相关错误 (1000-1099)
+
+内容不存在 |
+| CONTENT_ALREADY_EXISTS | 1001 | 内容已存在 |
+| CONTENT_PERMISSION_DENIED | 1002 | 内容权限不足 |
+| CONTENT_TYPE_INVALID | 1003 | 内容类型无效 |
+| CONTENT_SIZE_EXCEEDED | 1004 | 内容大小超限 |
+| CONTENT_FORMAT_ERROR | 1005 | 内容格式错误 |
+| CONTENT_LOCKED | 1006 | 内容已锁定 |
+| CONTENT_EXPIRED | 1007 | 内容已过期 |
+| CONTENT_CORRUPTED | 1008 | 内容已损坏 |
+| CONTENT_OPERATION_DENIED | 1009 | 内容操作被拒绝 |
+| OPERATION_FAILED | 1100 | 操作相关错误 (1100-1199)
+
+操作失败 |
+| OPERATION_TIMEOUT | 1101 | 操作超时 |
+| OPERATION_CANCELLED | 1102 | 操作已取消 |
+| OPERATION_NOT_SUPPORTED | 1103 | 操作不支持 |
+| OPERATION_IN_PROGRESS | 1104 | 操作进行中 |
+| OPERATION_ABORTED | 1105 | 操作已中止 |
+| OPERATION_REJECTED | 1106 | 操作被拒绝 |
+| OPERATION_INVALID | 1107 | 操作无效 |
+| OPERATION_CONFLICT | 1108 | 操作冲突 |
+| OPERATION_TOO_FREQUENT | 1109 | 操作过于频繁 |
+| RATE_LIMIT_EXCEEDED | 1200 | 限制相关错误 (1200-1299)
+
+速率限制超限 |
+| QUOTA_EXCEEDED | 1201 | 配额超限 |
+| SIZE_LIMIT_EXCEEDED | 1202 | 大小限制超限 |
+| TIME_LIMIT_EXCEEDED | 1203 | 时间限制超限 |
+| FREQUENCY_LIMIT_EXCEEDED | 1204 | 频率限制超限 |
+| CONCURRENT_LIMIT_EXCEEDED | 1205 | 并发限制超限 |
+| STORAGE_LIMIT_EXCEEDED | 1206 | 存储限制超限 |
+| BANDWIDTH_LIMIT_EXCEEDED | 1207 | 带宽限制超限 |
+| REQUEST_LIMIT_EXCEEDED | 1208 | 请求限制超限 |
+| USER_LIMIT_EXCEEDED | 1209 | 用户限制超限 |
+| AI_GENERATION_FAILED | 1300 | AI生成相关错误 (1300-1399)
+
+AI生成失败 |
+| AI_SERVICE_UNAVAILABLE | 1301 | AI服务不可用 |
+| AI_QUOTA_EXCEEDED | 1302 | AI配额超限 |
+| AI_MODEL_ERROR | 1303 | AI模型错误 |
+| AI_PARAMETER_ERROR | 1304 | AI参数错误 |
+| AI_CONTENT_ERROR | 1305 | AI内容错误 |
+| AI_TIMEOUT | 1306 | AI处理超时 |
+| AI_RATE_LIMITED | 1307 | AI速率受限 |
+| AI_CONTEXT_ERROR | 1308 | AI上下文错误 |
+| AI_RESPONSE_ERROR | 1309 | AI响应错误 |
 
 
  
@@ -3281,7 +3384,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | reply_messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 
@@ -3365,7 +3468,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [CreateCommentResp.Data](#common-CreateCommentResp-Data) |  |  |
 
@@ -3401,7 +3504,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [CreateDisscusResp.Data](#common-CreateDisscusResp-Data) |  |  |
 
@@ -3456,7 +3559,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [CreateGroupResponse.Data](#common-CreateGroupResponse-Data) |  |  |
 
@@ -3507,7 +3610,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [CreateItemResponse.Data](#common-CreateItemResponse-Data) |  |  |
 
@@ -3555,7 +3658,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [CreateProjectResponse.Data](#common-CreateProjectResponse-Data) |  |  |
 
@@ -3603,7 +3706,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | chat_context | [ChatContext](#common-ChatContext) |  |  |
 
@@ -3636,7 +3739,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -3668,7 +3771,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data) |  |  |
 
@@ -3713,7 +3816,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [DeleteItemResponse.Data](#common-DeleteItemResponse-Data) |  |  |
 
@@ -3757,7 +3860,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data) |  |  |
 
@@ -3812,7 +3915,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [ExploreProjectsResponse.Data](#common-ExploreProjectsResponse-Data) |  |  |
 
@@ -3857,7 +3960,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [ExploreResponse.Data](#common-ExploreResponse-Data) |  |  |
 
@@ -3903,7 +4006,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [FetchActivesResponse.Data](#common-FetchActivesResponse-Data) |  |  |
 
@@ -3955,7 +4058,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data) |  |  |
 
@@ -4006,7 +4109,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data) |  |  |
 
@@ -4057,7 +4160,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -4083,7 +4186,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetDisscusResp.Data](#common-GetDisscusResp-Data) |  |  |
 
@@ -4128,7 +4231,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data) |  |  |
 
@@ -4180,7 +4283,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetGroupItemsResponse.Data](#common-GetGroupItemsResponse-Data) |  |  |
 
@@ -4232,7 +4335,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data) |  |  |
 
@@ -4282,7 +4385,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetGroupResponse.Data](#common-GetGroupResponse-Data) |  |  |
 
@@ -4333,7 +4436,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetItemResponse.Data](#common-GetItemResponse-Data) |  |  |
 
@@ -4387,7 +4490,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data) |  |  |
 
@@ -4446,7 +4549,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
 | is_multi_branch | [bool](#bool) |  |  |
@@ -4486,7 +4589,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetProjectItemsResponse.Data](#common-GetProjectItemsResponse-Data) |  |  |
 
@@ -4541,7 +4644,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetProjectListResponse.Data](#common-GetProjectListResponse-Data) |  |  |
 
@@ -4591,7 +4694,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data) |  |  |
 
@@ -4658,7 +4761,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetProjectProfileResponse.Data](#common-GetProjectProfileResponse-Data) |  |  |
 
@@ -4710,7 +4813,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetProjectResponse.Data](#common-GetProjectResponse-Data) |  |  |
 
@@ -4757,7 +4860,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data) |  |  |
 
@@ -4822,7 +4925,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data) |  |  |
 
@@ -4869,7 +4972,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | info | [StoryRole](#common-StoryRole) |  |  |
 
@@ -4905,7 +5008,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | stories | [Story](#common-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -4945,7 +5048,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -4983,7 +5086,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | timestamp | [int64](#int64) |  |  |
@@ -5018,7 +5121,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | chat_context | [ChatContext](#common-ChatContext) |  |  |
@@ -5046,7 +5149,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [GetUserCommentResp.Data](#common-GetUserCommentResp-Data) |  |  |
 
@@ -5092,7 +5195,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -5131,7 +5234,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -5168,7 +5271,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data) |  |  |
 
@@ -5218,7 +5321,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
 
@@ -5251,7 +5354,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | chats | [ChatContext](#common-ChatContext) | repeated |  |
 
@@ -5285,7 +5388,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [GetWatchingProjectResponse.Data](#common-GetWatchingProjectResponse-Data) |  |  |
 
@@ -5336,7 +5439,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [JoinGroupResponse.Data](#common-JoinGroupResponse-Data) |  |  |
 
@@ -5379,7 +5482,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data) |  |  |
 
@@ -5425,7 +5528,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [LikeItemResponse.Data](#common-LikeItemResponse-Data) |  |  |
 
@@ -5468,7 +5571,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5501,7 +5604,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5534,7 +5637,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [LoginResponse.Data](#common-LoginResponse-Data) |  |  |
 
@@ -5586,7 +5689,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 
 
@@ -5652,7 +5755,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 
 
@@ -5686,7 +5789,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5753,7 +5856,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | store | [StoryboardStageStore](#common-StoryboardStageStore) |  |  |
 
@@ -5788,7 +5891,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [SearchAllProjectResponse.Data](#common-SearchAllProjectResponse-Data) |  |  |
 
@@ -5844,7 +5947,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [SearchGroupResponse.Data](#common-SearchGroupResponse-Data) |  |  |
 
@@ -5896,7 +5999,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [SearchProjectResponse.Data](#common-SearchProjectResponse-Data) |  |  |
 
@@ -5952,7 +6055,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -5991,7 +6094,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | stories | [Story](#common-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
@@ -6028,7 +6131,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [SearchUserResponse.Data](#common-SearchUserResponse-Data) |  |  |
 
@@ -6117,7 +6220,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [TrendingResponse.Data](#common-TrendingResponse-Data) |  |  |
 
@@ -6166,7 +6269,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6198,7 +6301,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6231,7 +6334,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6264,7 +6367,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data) |  |  |
 
@@ -6307,7 +6410,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data) |  |  |
 
@@ -6356,7 +6459,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6391,7 +6494,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UpdateItemResponse.Data](#common-UpdateItemResponse-Data) |  |  |
 
@@ -6441,7 +6544,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data) |  |  |
 
@@ -6519,7 +6622,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6551,7 +6654,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data) |  |  |
 
@@ -6600,7 +6703,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6633,7 +6736,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UploadImageResponse.Data](#common-UploadImageResponse-Data) |  |  |
 
@@ -6683,7 +6786,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data) |  |  |
 
@@ -6736,7 +6839,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UserGroupResponse.Data](#common-UserGroupResponse-Data) |  |  |
 
@@ -6786,7 +6889,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UserInfoResponse.Data](#common-UserInfoResponse-Data) |  |  |
 
@@ -6835,7 +6938,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UserInitResponse.Data](#common-UserInitResponse-Data) |  |  |
 
@@ -6903,7 +7006,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [UserUpdateResponse.Data](#common-UserUpdateResponse-Data) |  |  |
 
@@ -6948,7 +7051,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 | data | [UserWatchingResponse.Data](#common-UserWatchingResponse-Data) |  |  |
 
@@ -6992,7 +7095,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [VersionResponse.Data](#common-VersionResponse-Data) |  |  |
 
@@ -7042,7 +7145,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | data | [WatchProjectResponse.Data](#common-WatchProjectResponse-Data) |  |  |
 

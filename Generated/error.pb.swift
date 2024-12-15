@@ -20,306 +20,1044 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_ErrorCode: SwiftProtobuf.Enum, Swift.CaseIterable {
+/// 通用响应状态码
+public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
-  case success // = 0
-  case invalidParams // = 1
-  case notFound // = 2
-  case forbidden // = 3
-  case unauthorized // = 4
-  case error // = 5
-  case unknown // = 6
-  case expired // = 7
-  case duplicate // = 8
-  case alreadyExists // = 9
-  case notSupported // = 10
-  case notImplemented // = 11
-  case timeout // = 12
+
+  /// 成功 (0)
+  case ok // = 0
+
+  /// 系统级错误 (1-99)
+  case systemError // = 1
+
+  /// 内部错误
+  case internalError // = 2
+
+  /// 数据库错误
+  case databaseError // = 3
+
+  /// 缓存错误
+  case cacheError // = 4
+
+  /// 网络错误
+  case networkError // = 5
+
+  /// 超时错误
+  case timeoutError // = 6
+
+  /// 服务不可用
+  case serviceUnavailable // = 7
+
+  /// 请求过于频繁
+  case tooManyRequests // = 8
+
+  /// 配置错误
+  case configurationError // = 9
+
+  /// 初始化错误
+  case initializationError // = 10
+
+  /// 认证和授权错误 (100-199)
+  case unauthorized // = 100
+
+  /// Token过期
+  case tokenExpired // = 101
+
+  /// Token无效
+  case tokenInvalid // = 102
+
+  /// 权限不足
+  case permissionDenied // = 103
+
+  /// 账号不存在
+  case accountNotFound // = 104
+
+  /// 密码错误
+  case wrongPassword // = 105
+
+  /// 账号已禁用
+  case accountDisabled // = 106
+
+  /// 需要登���
+  case loginRequired // = 107
+
+  /// Token缺失
+  case tokenMissing // = 108
+
+  /// 会话过期
+  case sessionExpired // = 109
+
+  /// 无效的凭证
+  case invalidCredentials // = 110
+
+  /// 账号已锁定
+  case accountLocked // = 111
+
+  /// 账号已过期
+  case accountExpired // = 112
+
+  /// 无效的登录类型
+  case invalidLoginType // = 113
+
+  /// 参数验证错误 (200-299)
+  case invalidParameter // = 200
+
+  /// 缺少参数
+  case missingParameter // = 201
+
+  /// 格式错误
+  case invalidFormat // = 202
+
+  /// 长度错误
+  case invalidLength // = 203
+
+  /// 值错误
+  case invalidValue // = 204
+
+  /// 类型错误
+  case invalidType // = 205
+
+  /// 语法错误
+  case invalidSyntax // = 206
+
+  /// 编码错误
+  case invalidEncoding // = 207
+
+  /// 无效的操作
+  case invalidOperation // = 208
+
+  /// 验证失败
+  case validationFailed // = 209
+
+  /// 资源错误 (300-399)
+  case resourceNotFound // = 300
+
+  /// 资源已存在
+  case resourceAlreadyExists // = 301
+
+  /// 资源已过期
+  case resourceExpired // = 302
+
+  /// 资源耗尽
+  case resourceExhausted // = 303
+
+  /// 资源忙碌
+  case resourceBusy // = 304
+
+  /// 资源已锁定
+  case resourceLocked // = 305
+
+  /// 资源不可用
+  case resourceUnavailable // = 306
+
+  /// 资源配额超限
+  case resourceQuotaExceeded // = 307
+
+  /// 资源已损坏
+  case resourceCorrupted // = 308
+
+  /// 用户相关错误 (400-499)
+  case userNotFound // = 400
+
+  /// 用户已存在
+  case userAlreadyExists // = 401
+
+  /// 用户未激活
+  case userNotActive // = 402
+
+  /// 用户已封禁
+  case userBlocked // = 403
+
+  /// 用户资料不完整
+  case userProfileIncomplete // = 404
+
+  /// 用户操作被拒绝
+  case userOperationDenied // = 405
+
+  /// 用户配额超限
+  case userQuotaExceeded // = 406
+
+  /// 用户状态错误
+  case userStatusError // = 407
+
+  /// 用户验证失败
+  case userVerificationFailed // = 408
+
+  /// 用户角色无效
+  case userRoleInvalid // = 409
+
+  /// 组织相关错误 (500-599)
+  case groupNotFound // = 500
+
+  /// 组织已存在
+  case groupAlreadyExists // = 501
+
+  /// 非组织成员
+  case notGroupMember // = 502
+
+  /// 组织权限不足
+  case groupPermissionDenied // = 503
+
+  /// 组织人数已满
+  case groupFull // = 504
+
+  /// 组织已关闭
+  case groupClosed // = 505
+
+  /// 组织操作被拒绝
+  case groupOperationDenied // = 506
+
+  /// 组织状态错误
+  case groupStatusError // = 507
+
+  /// 组织类型无效
+  case groupTypeInvalid // = 508
+
+  /// 组织配额超限
+  case groupQuotaExceeded // = 509
+
+  /// 项目相关错误 (600-699)
+  case projectNotFound // = 600
+
+  /// 项目已存在
+  case projectAlreadyExists // = 601
+
+  /// 项目权限不足
+  case projectPermissionDenied // = 602
+
+  /// 项目已关闭
+  case projectClosed // = 603
+
+  /// 项目已归档
+  case projectArchived // = 604
+
+  /// 项目已满
+  case projectFull // = 605
+
+  /// 项目状态错误
+  case projectStatusError // = 606
+
+  /// 项目类型无效
+  case projectTypeInvalid // = 607
+
+  /// 项目操作被拒绝
+  case projectOperationDenied // = 608
+
+  /// 项目配额超限
+  case projectQuotaExceeded // = 609
+
+  /// 故事相关错误 (700-799)
+  case storyNotFound // = 700
+
+  /// 故事已存在
+  case storyAlreadyExists // = 701
+
+  /// 故事权限不足
+  case storyPermissionDenied // = 702
+
+  /// 故事已锁定
+  case storyLocked // = 703
+
+  /// 故事已归档
+  case storyArchived // = 704
+
+  /// 故事状态错误
+  case storyStatusError // = 705
+
+  /// 故事版本错误
+  case storyVersionError // = 706
+
+  /// 故事内容错误
+  case storyContentError // = 707
+
+  /// 故事操作被拒绝
+  case storyOperationDenied // = 708
+
+  /// 故事生成失败
+  case storyGenerationFailed // = 709
+
+  /// 故事板相关错误 (800-899)
+  case storyboardNotFound // = 800
+
+  /// 故事板已存在
+  case storyboardAlreadyExists // = 801
+
+  /// 故事板权限不足
+  case storyboardPermissionDenied // = 802
+
+  /// 故事板渲染错误
+  case storyboardRenderError // = 803
+
+  /// 故事板已锁定
+  case storyboardLocked // = 804
+
+  /// 故事板状态错误
+  case storyboardStatusError // = 805
+
+  /// 故事板版本错误
+  case storyboardVersionError // = 806
+
+  /// 故���板场景错误
+  case storyboardSceneError // = 807
+
+  /// 故事板生成失败
+  case storyboardGenerationFailed // = 808
+
+  /// 故事板操作被拒绝
+  case storyboardOperationDenied // = 809
+
+  /// 角色相关错误 (900-999)
+  case roleNotFound // = 900
+
+  /// 角色已存在
+  case roleAlreadyExists // = 901
+
+  /// 角色权限不足
+  case rolePermissionDenied // = 902
+
+  /// 角色渲染错误
+  case roleRenderError // = 903
+
+  /// 角色已锁定
+  case roleLocked // = 904
+
+  /// 角色状态错误
+  case roleStatusError // = 905
+
+  /// 角色类型无效
+  case roleTypeInvalid // = 906
+
+  /// 角色配额超限
+  case roleQuotaExceeded // = 907
+
+  /// 角色生成失败
+  case roleGenerationFailed // = 908
+
+  /// 角色操作被拒绝
+  case roleOperationDenied // = 909
+
+  /// 内容相关错误 (1000-1099)
+  case contentNotFound // = 1000
+
+  /// 内容已存在
+  case contentAlreadyExists // = 1001
+
+  /// 内容权限不足
+  case contentPermissionDenied // = 1002
+
+  /// 内容类型无效
+  case contentTypeInvalid // = 1003
+
+  /// 内容大小超限
+  case contentSizeExceeded // = 1004
+
+  /// 内容格式错误
+  case contentFormatError // = 1005
+
+  /// 内容已锁定
+  case contentLocked // = 1006
+
+  /// 内容已过期
+  case contentExpired // = 1007
+
+  /// 内容已损坏
+  case contentCorrupted // = 1008
+
+  /// 内容操作被拒绝
+  case contentOperationDenied // = 1009
+
+  /// 操作相关错误 (1100-1199)
+  case operationFailed // = 1100
+
+  /// 操作超时
+  case operationTimeout // = 1101
+
+  /// 操作已取消
+  case operationCancelled // = 1102
+
+  /// 操作不支持
+  case operationNotSupported // = 1103
+
+  /// 操作进行中
+  case operationInProgress // = 1104
+
+  /// 操作已中止
+  case operationAborted // = 1105
+
+  /// 操作被拒绝
+  case operationRejected // = 1106
+
+  /// 操作无效
+  case operationInvalid // = 1107
+
+  /// 操作冲突
+  case operationConflict // = 1108
+
+  /// 操作过于频繁
+  case operationTooFrequent // = 1109
+
+  /// 限制相关错误 (1200-1299)
+  case rateLimitExceeded // = 1200
+
+  /// 配额超限
+  case quotaExceeded // = 1201
+
+  /// 大小限制超限
+  case sizeLimitExceeded // = 1202
+
+  /// 时间限制超限
+  case timeLimitExceeded // = 1203
+
+  /// 频率限制超限
+  case frequencyLimitExceeded // = 1204
+
+  /// 并发限制超限
+  case concurrentLimitExceeded // = 1205
+
+  /// 存储限制超限
+  case storageLimitExceeded // = 1206
+
+  /// 带宽限制超限
+  case bandwidthLimitExceeded // = 1207
+
+  /// 请求限制超限
+  case requestLimitExceeded // = 1208
+
+  /// 用户限制超限
+  case userLimitExceeded // = 1209
+
+  /// AI生成相关错误 (1300-1399)
+  case aiGenerationFailed // = 1300
+
+  /// AI服务不可用
+  case aiServiceUnavailable // = 1301
+
+  /// AI配额超限
+  case aiQuotaExceeded // = 1302
+
+  /// AI模型错误
+  case aiModelError // = 1303
+
+  /// AI参数错误
+  case aiParameterError // = 1304
+
+  /// AI内容错误
+  case aiContentError // = 1305
+
+  /// AI处理超时
+  case aiTimeout // = 1306
+
+  /// AI速率受限
+  case aiRateLimited // = 1307
+
+  /// AI上下文错误
+  case aiContextError // = 1308
+
+  /// AI响应错误
+  case aiResponseError // = 1309
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .success
+    self = .ok
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .success
-    case 1: self = .invalidParams
-    case 2: self = .notFound
-    case 3: self = .forbidden
-    case 4: self = .unauthorized
-    case 5: self = .error
-    case 6: self = .unknown
-    case 7: self = .expired
-    case 8: self = .duplicate
-    case 9: self = .alreadyExists
-    case 10: self = .notSupported
-    case 11: self = .notImplemented
-    case 12: self = .timeout
+    case 0: self = .ok
+    case 1: self = .systemError
+    case 2: self = .internalError
+    case 3: self = .databaseError
+    case 4: self = .cacheError
+    case 5: self = .networkError
+    case 6: self = .timeoutError
+    case 7: self = .serviceUnavailable
+    case 8: self = .tooManyRequests
+    case 9: self = .configurationError
+    case 10: self = .initializationError
+    case 100: self = .unauthorized
+    case 101: self = .tokenExpired
+    case 102: self = .tokenInvalid
+    case 103: self = .permissionDenied
+    case 104: self = .accountNotFound
+    case 105: self = .wrongPassword
+    case 106: self = .accountDisabled
+    case 107: self = .loginRequired
+    case 108: self = .tokenMissing
+    case 109: self = .sessionExpired
+    case 110: self = .invalidCredentials
+    case 111: self = .accountLocked
+    case 112: self = .accountExpired
+    case 113: self = .invalidLoginType
+    case 200: self = .invalidParameter
+    case 201: self = .missingParameter
+    case 202: self = .invalidFormat
+    case 203: self = .invalidLength
+    case 204: self = .invalidValue
+    case 205: self = .invalidType
+    case 206: self = .invalidSyntax
+    case 207: self = .invalidEncoding
+    case 208: self = .invalidOperation
+    case 209: self = .validationFailed
+    case 300: self = .resourceNotFound
+    case 301: self = .resourceAlreadyExists
+    case 302: self = .resourceExpired
+    case 303: self = .resourceExhausted
+    case 304: self = .resourceBusy
+    case 305: self = .resourceLocked
+    case 306: self = .resourceUnavailable
+    case 307: self = .resourceQuotaExceeded
+    case 308: self = .resourceCorrupted
+    case 400: self = .userNotFound
+    case 401: self = .userAlreadyExists
+    case 402: self = .userNotActive
+    case 403: self = .userBlocked
+    case 404: self = .userProfileIncomplete
+    case 405: self = .userOperationDenied
+    case 406: self = .userQuotaExceeded
+    case 407: self = .userStatusError
+    case 408: self = .userVerificationFailed
+    case 409: self = .userRoleInvalid
+    case 500: self = .groupNotFound
+    case 501: self = .groupAlreadyExists
+    case 502: self = .notGroupMember
+    case 503: self = .groupPermissionDenied
+    case 504: self = .groupFull
+    case 505: self = .groupClosed
+    case 506: self = .groupOperationDenied
+    case 507: self = .groupStatusError
+    case 508: self = .groupTypeInvalid
+    case 509: self = .groupQuotaExceeded
+    case 600: self = .projectNotFound
+    case 601: self = .projectAlreadyExists
+    case 602: self = .projectPermissionDenied
+    case 603: self = .projectClosed
+    case 604: self = .projectArchived
+    case 605: self = .projectFull
+    case 606: self = .projectStatusError
+    case 607: self = .projectTypeInvalid
+    case 608: self = .projectOperationDenied
+    case 609: self = .projectQuotaExceeded
+    case 700: self = .storyNotFound
+    case 701: self = .storyAlreadyExists
+    case 702: self = .storyPermissionDenied
+    case 703: self = .storyLocked
+    case 704: self = .storyArchived
+    case 705: self = .storyStatusError
+    case 706: self = .storyVersionError
+    case 707: self = .storyContentError
+    case 708: self = .storyOperationDenied
+    case 709: self = .storyGenerationFailed
+    case 800: self = .storyboardNotFound
+    case 801: self = .storyboardAlreadyExists
+    case 802: self = .storyboardPermissionDenied
+    case 803: self = .storyboardRenderError
+    case 804: self = .storyboardLocked
+    case 805: self = .storyboardStatusError
+    case 806: self = .storyboardVersionError
+    case 807: self = .storyboardSceneError
+    case 808: self = .storyboardGenerationFailed
+    case 809: self = .storyboardOperationDenied
+    case 900: self = .roleNotFound
+    case 901: self = .roleAlreadyExists
+    case 902: self = .rolePermissionDenied
+    case 903: self = .roleRenderError
+    case 904: self = .roleLocked
+    case 905: self = .roleStatusError
+    case 906: self = .roleTypeInvalid
+    case 907: self = .roleQuotaExceeded
+    case 908: self = .roleGenerationFailed
+    case 909: self = .roleOperationDenied
+    case 1000: self = .contentNotFound
+    case 1001: self = .contentAlreadyExists
+    case 1002: self = .contentPermissionDenied
+    case 1003: self = .contentTypeInvalid
+    case 1004: self = .contentSizeExceeded
+    case 1005: self = .contentFormatError
+    case 1006: self = .contentLocked
+    case 1007: self = .contentExpired
+    case 1008: self = .contentCorrupted
+    case 1009: self = .contentOperationDenied
+    case 1100: self = .operationFailed
+    case 1101: self = .operationTimeout
+    case 1102: self = .operationCancelled
+    case 1103: self = .operationNotSupported
+    case 1104: self = .operationInProgress
+    case 1105: self = .operationAborted
+    case 1106: self = .operationRejected
+    case 1107: self = .operationInvalid
+    case 1108: self = .operationConflict
+    case 1109: self = .operationTooFrequent
+    case 1200: self = .rateLimitExceeded
+    case 1201: self = .quotaExceeded
+    case 1202: self = .sizeLimitExceeded
+    case 1203: self = .timeLimitExceeded
+    case 1204: self = .frequencyLimitExceeded
+    case 1205: self = .concurrentLimitExceeded
+    case 1206: self = .storageLimitExceeded
+    case 1207: self = .bandwidthLimitExceeded
+    case 1208: self = .requestLimitExceeded
+    case 1209: self = .userLimitExceeded
+    case 1300: self = .aiGenerationFailed
+    case 1301: self = .aiServiceUnavailable
+    case 1302: self = .aiQuotaExceeded
+    case 1303: self = .aiModelError
+    case 1304: self = .aiParameterError
+    case 1305: self = .aiContentError
+    case 1306: self = .aiTimeout
+    case 1307: self = .aiRateLimited
+    case 1308: self = .aiContextError
+    case 1309: self = .aiResponseError
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .success: return 0
-    case .invalidParams: return 1
-    case .notFound: return 2
-    case .forbidden: return 3
-    case .unauthorized: return 4
-    case .error: return 5
-    case .unknown: return 6
-    case .expired: return 7
-    case .duplicate: return 8
-    case .alreadyExists: return 9
-    case .notSupported: return 10
-    case .notImplemented: return 11
-    case .timeout: return 12
+    case .ok: return 0
+    case .systemError: return 1
+    case .internalError: return 2
+    case .databaseError: return 3
+    case .cacheError: return 4
+    case .networkError: return 5
+    case .timeoutError: return 6
+    case .serviceUnavailable: return 7
+    case .tooManyRequests: return 8
+    case .configurationError: return 9
+    case .initializationError: return 10
+    case .unauthorized: return 100
+    case .tokenExpired: return 101
+    case .tokenInvalid: return 102
+    case .permissionDenied: return 103
+    case .accountNotFound: return 104
+    case .wrongPassword: return 105
+    case .accountDisabled: return 106
+    case .loginRequired: return 107
+    case .tokenMissing: return 108
+    case .sessionExpired: return 109
+    case .invalidCredentials: return 110
+    case .accountLocked: return 111
+    case .accountExpired: return 112
+    case .invalidLoginType: return 113
+    case .invalidParameter: return 200
+    case .missingParameter: return 201
+    case .invalidFormat: return 202
+    case .invalidLength: return 203
+    case .invalidValue: return 204
+    case .invalidType: return 205
+    case .invalidSyntax: return 206
+    case .invalidEncoding: return 207
+    case .invalidOperation: return 208
+    case .validationFailed: return 209
+    case .resourceNotFound: return 300
+    case .resourceAlreadyExists: return 301
+    case .resourceExpired: return 302
+    case .resourceExhausted: return 303
+    case .resourceBusy: return 304
+    case .resourceLocked: return 305
+    case .resourceUnavailable: return 306
+    case .resourceQuotaExceeded: return 307
+    case .resourceCorrupted: return 308
+    case .userNotFound: return 400
+    case .userAlreadyExists: return 401
+    case .userNotActive: return 402
+    case .userBlocked: return 403
+    case .userProfileIncomplete: return 404
+    case .userOperationDenied: return 405
+    case .userQuotaExceeded: return 406
+    case .userStatusError: return 407
+    case .userVerificationFailed: return 408
+    case .userRoleInvalid: return 409
+    case .groupNotFound: return 500
+    case .groupAlreadyExists: return 501
+    case .notGroupMember: return 502
+    case .groupPermissionDenied: return 503
+    case .groupFull: return 504
+    case .groupClosed: return 505
+    case .groupOperationDenied: return 506
+    case .groupStatusError: return 507
+    case .groupTypeInvalid: return 508
+    case .groupQuotaExceeded: return 509
+    case .projectNotFound: return 600
+    case .projectAlreadyExists: return 601
+    case .projectPermissionDenied: return 602
+    case .projectClosed: return 603
+    case .projectArchived: return 604
+    case .projectFull: return 605
+    case .projectStatusError: return 606
+    case .projectTypeInvalid: return 607
+    case .projectOperationDenied: return 608
+    case .projectQuotaExceeded: return 609
+    case .storyNotFound: return 700
+    case .storyAlreadyExists: return 701
+    case .storyPermissionDenied: return 702
+    case .storyLocked: return 703
+    case .storyArchived: return 704
+    case .storyStatusError: return 705
+    case .storyVersionError: return 706
+    case .storyContentError: return 707
+    case .storyOperationDenied: return 708
+    case .storyGenerationFailed: return 709
+    case .storyboardNotFound: return 800
+    case .storyboardAlreadyExists: return 801
+    case .storyboardPermissionDenied: return 802
+    case .storyboardRenderError: return 803
+    case .storyboardLocked: return 804
+    case .storyboardStatusError: return 805
+    case .storyboardVersionError: return 806
+    case .storyboardSceneError: return 807
+    case .storyboardGenerationFailed: return 808
+    case .storyboardOperationDenied: return 809
+    case .roleNotFound: return 900
+    case .roleAlreadyExists: return 901
+    case .rolePermissionDenied: return 902
+    case .roleRenderError: return 903
+    case .roleLocked: return 904
+    case .roleStatusError: return 905
+    case .roleTypeInvalid: return 906
+    case .roleQuotaExceeded: return 907
+    case .roleGenerationFailed: return 908
+    case .roleOperationDenied: return 909
+    case .contentNotFound: return 1000
+    case .contentAlreadyExists: return 1001
+    case .contentPermissionDenied: return 1002
+    case .contentTypeInvalid: return 1003
+    case .contentSizeExceeded: return 1004
+    case .contentFormatError: return 1005
+    case .contentLocked: return 1006
+    case .contentExpired: return 1007
+    case .contentCorrupted: return 1008
+    case .contentOperationDenied: return 1009
+    case .operationFailed: return 1100
+    case .operationTimeout: return 1101
+    case .operationCancelled: return 1102
+    case .operationNotSupported: return 1103
+    case .operationInProgress: return 1104
+    case .operationAborted: return 1105
+    case .operationRejected: return 1106
+    case .operationInvalid: return 1107
+    case .operationConflict: return 1108
+    case .operationTooFrequent: return 1109
+    case .rateLimitExceeded: return 1200
+    case .quotaExceeded: return 1201
+    case .sizeLimitExceeded: return 1202
+    case .timeLimitExceeded: return 1203
+    case .frequencyLimitExceeded: return 1204
+    case .concurrentLimitExceeded: return 1205
+    case .storageLimitExceeded: return 1206
+    case .bandwidthLimitExceeded: return 1207
+    case .requestLimitExceeded: return 1208
+    case .userLimitExceeded: return 1209
+    case .aiGenerationFailed: return 1300
+    case .aiServiceUnavailable: return 1301
+    case .aiQuotaExceeded: return 1302
+    case .aiModelError: return 1303
+    case .aiParameterError: return 1304
+    case .aiContentError: return 1305
+    case .aiTimeout: return 1306
+    case .aiRateLimited: return 1307
+    case .aiContextError: return 1308
+    case .aiResponseError: return 1309
     case .UNRECOGNIZED(let i): return i
     }
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ErrorCode] = [
-    .success,
-    .invalidParams,
-    .notFound,
-    .forbidden,
+  public static let allCases: [Common_ResponseCode] = [
+    .ok,
+    .systemError,
+    .internalError,
+    .databaseError,
+    .cacheError,
+    .networkError,
+    .timeoutError,
+    .serviceUnavailable,
+    .tooManyRequests,
+    .configurationError,
+    .initializationError,
     .unauthorized,
-    .error,
-    .unknown,
-    .expired,
-    .duplicate,
-    .alreadyExists,
-    .notSupported,
-    .notImplemented,
-    .timeout,
+    .tokenExpired,
+    .tokenInvalid,
+    .permissionDenied,
+    .accountNotFound,
+    .wrongPassword,
+    .accountDisabled,
+    .loginRequired,
+    .tokenMissing,
+    .sessionExpired,
+    .invalidCredentials,
+    .accountLocked,
+    .accountExpired,
+    .invalidLoginType,
+    .invalidParameter,
+    .missingParameter,
+    .invalidFormat,
+    .invalidLength,
+    .invalidValue,
+    .invalidType,
+    .invalidSyntax,
+    .invalidEncoding,
+    .invalidOperation,
+    .validationFailed,
+    .resourceNotFound,
+    .resourceAlreadyExists,
+    .resourceExpired,
+    .resourceExhausted,
+    .resourceBusy,
+    .resourceLocked,
+    .resourceUnavailable,
+    .resourceQuotaExceeded,
+    .resourceCorrupted,
+    .userNotFound,
+    .userAlreadyExists,
+    .userNotActive,
+    .userBlocked,
+    .userProfileIncomplete,
+    .userOperationDenied,
+    .userQuotaExceeded,
+    .userStatusError,
+    .userVerificationFailed,
+    .userRoleInvalid,
+    .groupNotFound,
+    .groupAlreadyExists,
+    .notGroupMember,
+    .groupPermissionDenied,
+    .groupFull,
+    .groupClosed,
+    .groupOperationDenied,
+    .groupStatusError,
+    .groupTypeInvalid,
+    .groupQuotaExceeded,
+    .projectNotFound,
+    .projectAlreadyExists,
+    .projectPermissionDenied,
+    .projectClosed,
+    .projectArchived,
+    .projectFull,
+    .projectStatusError,
+    .projectTypeInvalid,
+    .projectOperationDenied,
+    .projectQuotaExceeded,
+    .storyNotFound,
+    .storyAlreadyExists,
+    .storyPermissionDenied,
+    .storyLocked,
+    .storyArchived,
+    .storyStatusError,
+    .storyVersionError,
+    .storyContentError,
+    .storyOperationDenied,
+    .storyGenerationFailed,
+    .storyboardNotFound,
+    .storyboardAlreadyExists,
+    .storyboardPermissionDenied,
+    .storyboardRenderError,
+    .storyboardLocked,
+    .storyboardStatusError,
+    .storyboardVersionError,
+    .storyboardSceneError,
+    .storyboardGenerationFailed,
+    .storyboardOperationDenied,
+    .roleNotFound,
+    .roleAlreadyExists,
+    .rolePermissionDenied,
+    .roleRenderError,
+    .roleLocked,
+    .roleStatusError,
+    .roleTypeInvalid,
+    .roleQuotaExceeded,
+    .roleGenerationFailed,
+    .roleOperationDenied,
+    .contentNotFound,
+    .contentAlreadyExists,
+    .contentPermissionDenied,
+    .contentTypeInvalid,
+    .contentSizeExceeded,
+    .contentFormatError,
+    .contentLocked,
+    .contentExpired,
+    .contentCorrupted,
+    .contentOperationDenied,
+    .operationFailed,
+    .operationTimeout,
+    .operationCancelled,
+    .operationNotSupported,
+    .operationInProgress,
+    .operationAborted,
+    .operationRejected,
+    .operationInvalid,
+    .operationConflict,
+    .operationTooFrequent,
+    .rateLimitExceeded,
+    .quotaExceeded,
+    .sizeLimitExceeded,
+    .timeLimitExceeded,
+    .frequencyLimitExceeded,
+    .concurrentLimitExceeded,
+    .storageLimitExceeded,
+    .bandwidthLimitExceeded,
+    .requestLimitExceeded,
+    .userLimitExceeded,
+    .aiGenerationFailed,
+    .aiServiceUnavailable,
+    .aiQuotaExceeded,
+    .aiModelError,
+    .aiParameterError,
+    .aiContentError,
+    .aiTimeout,
+    .aiRateLimited,
+    .aiContextError,
+    .aiResponseError,
   ]
 
-}
-
-public enum Common_ErrorType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case `internal` // = 0
-  case client // = 1
-  case server // = 2
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .internal
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .internal
-    case 1: self = .client
-    case 2: self = .server
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .internal: return 0
-    case .client: return 1
-    case .server: return 2
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ErrorType] = [
-    .internal,
-    .client,
-    .server,
-  ]
-
-}
-
-public enum Common_AuthError: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case none // = 0
-  case invalidToken // = 1
-  case expiredToken // = 2
-  case invalidSignature // = 3
-  case invalidApp // = 4
-  case invalidUser // = 5
-  case invalidPassword // = 6
-  case invalidAccount // = 7
-  case invalidRole // = 8
-  case invalidPermission // = 9
-  case invalidGroup // = 10
-  case invalidProject // = 11
-  case invalidItem // = 12
-  case invalidVersion // = 13
-  case invalidAgent // = 14
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .none
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .none
-    case 1: self = .invalidToken
-    case 2: self = .expiredToken
-    case 3: self = .invalidSignature
-    case 4: self = .invalidApp
-    case 5: self = .invalidUser
-    case 6: self = .invalidPassword
-    case 7: self = .invalidAccount
-    case 8: self = .invalidRole
-    case 9: self = .invalidPermission
-    case 10: self = .invalidGroup
-    case 11: self = .invalidProject
-    case 12: self = .invalidItem
-    case 13: self = .invalidVersion
-    case 14: self = .invalidAgent
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .none: return 0
-    case .invalidToken: return 1
-    case .expiredToken: return 2
-    case .invalidSignature: return 3
-    case .invalidApp: return 4
-    case .invalidUser: return 5
-    case .invalidPassword: return 6
-    case .invalidAccount: return 7
-    case .invalidRole: return 8
-    case .invalidPermission: return 9
-    case .invalidGroup: return 10
-    case .invalidProject: return 11
-    case .invalidItem: return 12
-    case .invalidVersion: return 13
-    case .invalidAgent: return 14
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_AuthError] = [
-    .none,
-    .invalidToken,
-    .expiredToken,
-    .invalidSignature,
-    .invalidApp,
-    .invalidUser,
-    .invalidPassword,
-    .invalidAccount,
-    .invalidRole,
-    .invalidPermission,
-    .invalidGroup,
-    .invalidProject,
-    .invalidItem,
-    .invalidVersion,
-    .invalidAgent,
-  ]
-
-}
-
-public struct Common_Error: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Int32 = 0
-
-  public var message: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
-
-extension Common_ErrorCode: SwiftProtobuf._ProtoNameProviding {
+extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SUCCESS"),
-    1: .same(proto: "INVALID_PARAMS"),
-    2: .same(proto: "NOT_FOUND"),
-    3: .same(proto: "FORBIDDEN"),
-    4: .same(proto: "UNAUTHORIZED"),
-    5: .same(proto: "ERROR"),
-    6: .same(proto: "UNKNOWN"),
-    7: .same(proto: "EXPIRED"),
-    8: .same(proto: "DUPLICATE"),
-    9: .same(proto: "ALREADY_EXISTS"),
-    10: .same(proto: "NOT_SUPPORTED"),
-    11: .same(proto: "NOT_IMPLEMENTED"),
-    12: .same(proto: "TIMEOUT"),
+    0: .same(proto: "OK"),
+    1: .same(proto: "SYSTEM_ERROR"),
+    2: .same(proto: "INTERNAL_ERROR"),
+    3: .same(proto: "DATABASE_ERROR"),
+    4: .same(proto: "CACHE_ERROR"),
+    5: .same(proto: "NETWORK_ERROR"),
+    6: .same(proto: "TIMEOUT_ERROR"),
+    7: .same(proto: "SERVICE_UNAVAILABLE"),
+    8: .same(proto: "TOO_MANY_REQUESTS"),
+    9: .same(proto: "CONFIGURATION_ERROR"),
+    10: .same(proto: "INITIALIZATION_ERROR"),
+    100: .same(proto: "UNAUTHORIZED"),
+    101: .same(proto: "TOKEN_EXPIRED"),
+    102: .same(proto: "TOKEN_INVALID"),
+    103: .same(proto: "PERMISSION_DENIED"),
+    104: .same(proto: "ACCOUNT_NOT_FOUND"),
+    105: .same(proto: "WRONG_PASSWORD"),
+    106: .same(proto: "ACCOUNT_DISABLED"),
+    107: .same(proto: "LOGIN_REQUIRED"),
+    108: .same(proto: "TOKEN_MISSING"),
+    109: .same(proto: "SESSION_EXPIRED"),
+    110: .same(proto: "INVALID_CREDENTIALS"),
+    111: .same(proto: "ACCOUNT_LOCKED"),
+    112: .same(proto: "ACCOUNT_EXPIRED"),
+    113: .same(proto: "INVALID_LOGIN_TYPE"),
+    200: .same(proto: "INVALID_PARAMETER"),
+    201: .same(proto: "MISSING_PARAMETER"),
+    202: .same(proto: "INVALID_FORMAT"),
+    203: .same(proto: "INVALID_LENGTH"),
+    204: .same(proto: "INVALID_VALUE"),
+    205: .same(proto: "INVALID_TYPE"),
+    206: .same(proto: "INVALID_SYNTAX"),
+    207: .same(proto: "INVALID_ENCODING"),
+    208: .same(proto: "INVALID_OPERATION"),
+    209: .same(proto: "VALIDATION_FAILED"),
+    300: .same(proto: "RESOURCE_NOT_FOUND"),
+    301: .same(proto: "RESOURCE_ALREADY_EXISTS"),
+    302: .same(proto: "RESOURCE_EXPIRED"),
+    303: .same(proto: "RESOURCE_EXHAUSTED"),
+    304: .same(proto: "RESOURCE_BUSY"),
+    305: .same(proto: "RESOURCE_LOCKED"),
+    306: .same(proto: "RESOURCE_UNAVAILABLE"),
+    307: .same(proto: "RESOURCE_QUOTA_EXCEEDED"),
+    308: .same(proto: "RESOURCE_CORRUPTED"),
+    400: .same(proto: "USER_NOT_FOUND"),
+    401: .same(proto: "USER_ALREADY_EXISTS"),
+    402: .same(proto: "USER_NOT_ACTIVE"),
+    403: .same(proto: "USER_BLOCKED"),
+    404: .same(proto: "USER_PROFILE_INCOMPLETE"),
+    405: .same(proto: "USER_OPERATION_DENIED"),
+    406: .same(proto: "USER_QUOTA_EXCEEDED"),
+    407: .same(proto: "USER_STATUS_ERROR"),
+    408: .same(proto: "USER_VERIFICATION_FAILED"),
+    409: .same(proto: "USER_ROLE_INVALID"),
+    500: .same(proto: "GROUP_NOT_FOUND"),
+    501: .same(proto: "GROUP_ALREADY_EXISTS"),
+    502: .same(proto: "NOT_GROUP_MEMBER"),
+    503: .same(proto: "GROUP_PERMISSION_DENIED"),
+    504: .same(proto: "GROUP_FULL"),
+    505: .same(proto: "GROUP_CLOSED"),
+    506: .same(proto: "GROUP_OPERATION_DENIED"),
+    507: .same(proto: "GROUP_STATUS_ERROR"),
+    508: .same(proto: "GROUP_TYPE_INVALID"),
+    509: .same(proto: "GROUP_QUOTA_EXCEEDED"),
+    600: .same(proto: "PROJECT_NOT_FOUND"),
+    601: .same(proto: "PROJECT_ALREADY_EXISTS"),
+    602: .same(proto: "PROJECT_PERMISSION_DENIED"),
+    603: .same(proto: "PROJECT_CLOSED"),
+    604: .same(proto: "PROJECT_ARCHIVED"),
+    605: .same(proto: "PROJECT_FULL"),
+    606: .same(proto: "PROJECT_STATUS_ERROR"),
+    607: .same(proto: "PROJECT_TYPE_INVALID"),
+    608: .same(proto: "PROJECT_OPERATION_DENIED"),
+    609: .same(proto: "PROJECT_QUOTA_EXCEEDED"),
+    700: .same(proto: "STORY_NOT_FOUND"),
+    701: .same(proto: "STORY_ALREADY_EXISTS"),
+    702: .same(proto: "STORY_PERMISSION_DENIED"),
+    703: .same(proto: "STORY_LOCKED"),
+    704: .same(proto: "STORY_ARCHIVED"),
+    705: .same(proto: "STORY_STATUS_ERROR"),
+    706: .same(proto: "STORY_VERSION_ERROR"),
+    707: .same(proto: "STORY_CONTENT_ERROR"),
+    708: .same(proto: "STORY_OPERATION_DENIED"),
+    709: .same(proto: "STORY_GENERATION_FAILED"),
+    800: .same(proto: "STORYBOARD_NOT_FOUND"),
+    801: .same(proto: "STORYBOARD_ALREADY_EXISTS"),
+    802: .same(proto: "STORYBOARD_PERMISSION_DENIED"),
+    803: .same(proto: "STORYBOARD_RENDER_ERROR"),
+    804: .same(proto: "STORYBOARD_LOCKED"),
+    805: .same(proto: "STORYBOARD_STATUS_ERROR"),
+    806: .same(proto: "STORYBOARD_VERSION_ERROR"),
+    807: .same(proto: "STORYBOARD_SCENE_ERROR"),
+    808: .same(proto: "STORYBOARD_GENERATION_FAILED"),
+    809: .same(proto: "STORYBOARD_OPERATION_DENIED"),
+    900: .same(proto: "ROLE_NOT_FOUND"),
+    901: .same(proto: "ROLE_ALREADY_EXISTS"),
+    902: .same(proto: "ROLE_PERMISSION_DENIED"),
+    903: .same(proto: "ROLE_RENDER_ERROR"),
+    904: .same(proto: "ROLE_LOCKED"),
+    905: .same(proto: "ROLE_STATUS_ERROR"),
+    906: .same(proto: "ROLE_TYPE_INVALID"),
+    907: .same(proto: "ROLE_QUOTA_EXCEEDED"),
+    908: .same(proto: "ROLE_GENERATION_FAILED"),
+    909: .same(proto: "ROLE_OPERATION_DENIED"),
+    1000: .same(proto: "CONTENT_NOT_FOUND"),
+    1001: .same(proto: "CONTENT_ALREADY_EXISTS"),
+    1002: .same(proto: "CONTENT_PERMISSION_DENIED"),
+    1003: .same(proto: "CONTENT_TYPE_INVALID"),
+    1004: .same(proto: "CONTENT_SIZE_EXCEEDED"),
+    1005: .same(proto: "CONTENT_FORMAT_ERROR"),
+    1006: .same(proto: "CONTENT_LOCKED"),
+    1007: .same(proto: "CONTENT_EXPIRED"),
+    1008: .same(proto: "CONTENT_CORRUPTED"),
+    1009: .same(proto: "CONTENT_OPERATION_DENIED"),
+    1100: .same(proto: "OPERATION_FAILED"),
+    1101: .same(proto: "OPERATION_TIMEOUT"),
+    1102: .same(proto: "OPERATION_CANCELLED"),
+    1103: .same(proto: "OPERATION_NOT_SUPPORTED"),
+    1104: .same(proto: "OPERATION_IN_PROGRESS"),
+    1105: .same(proto: "OPERATION_ABORTED"),
+    1106: .same(proto: "OPERATION_REJECTED"),
+    1107: .same(proto: "OPERATION_INVALID"),
+    1108: .same(proto: "OPERATION_CONFLICT"),
+    1109: .same(proto: "OPERATION_TOO_FREQUENT"),
+    1200: .same(proto: "RATE_LIMIT_EXCEEDED"),
+    1201: .same(proto: "QUOTA_EXCEEDED"),
+    1202: .same(proto: "SIZE_LIMIT_EXCEEDED"),
+    1203: .same(proto: "TIME_LIMIT_EXCEEDED"),
+    1204: .same(proto: "FREQUENCY_LIMIT_EXCEEDED"),
+    1205: .same(proto: "CONCURRENT_LIMIT_EXCEEDED"),
+    1206: .same(proto: "STORAGE_LIMIT_EXCEEDED"),
+    1207: .same(proto: "BANDWIDTH_LIMIT_EXCEEDED"),
+    1208: .same(proto: "REQUEST_LIMIT_EXCEEDED"),
+    1209: .same(proto: "USER_LIMIT_EXCEEDED"),
+    1300: .same(proto: "AI_GENERATION_FAILED"),
+    1301: .same(proto: "AI_SERVICE_UNAVAILABLE"),
+    1302: .same(proto: "AI_QUOTA_EXCEEDED"),
+    1303: .same(proto: "AI_MODEL_ERROR"),
+    1304: .same(proto: "AI_PARAMETER_ERROR"),
+    1305: .same(proto: "AI_CONTENT_ERROR"),
+    1306: .same(proto: "AI_TIMEOUT"),
+    1307: .same(proto: "AI_RATE_LIMITED"),
+    1308: .same(proto: "AI_CONTEXT_ERROR"),
+    1309: .same(proto: "AI_RESPONSE_ERROR"),
   ]
-}
-
-extension Common_ErrorType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Internal"),
-    1: .same(proto: "Client"),
-    2: .same(proto: "Server"),
-  ]
-}
-
-extension Common_AuthError: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE"),
-    1: .same(proto: "INVALID_TOKEN"),
-    2: .same(proto: "EXPIRED_TOKEN"),
-    3: .same(proto: "INVALID_SIGNATURE"),
-    4: .same(proto: "INVALID_APP"),
-    5: .same(proto: "INVALID_USER"),
-    6: .same(proto: "INVALID_PASSWORD"),
-    7: .same(proto: "INVALID_ACCOUNT"),
-    8: .same(proto: "INVALID_ROLE"),
-    9: .same(proto: "INVALID_PERMISSION"),
-    10: .same(proto: "INVALID_GROUP"),
-    11: .same(proto: "INVALID_PROJECT"),
-    12: .same(proto: "INVALID_ITEM"),
-    13: .same(proto: "INVALID_VERSION"),
-    14: .same(proto: "INVALID_AGENT"),
-  ]
-}
-
-extension Common_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Error"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.code != 0 {
-      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_Error, rhs: Common_Error) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
