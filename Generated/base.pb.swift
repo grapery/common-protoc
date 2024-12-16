@@ -232,6 +232,57 @@ public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum Common_ActiveFlowType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 所有
+  case allFlowType // = 0
+
+  /// 故事
+  case storyFlowType // = 1
+
+  /// 角色
+  case roleFlowType // = 2
+
+  /// 小组织
+  case groupFlowType // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .allFlowType
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .allFlowType
+    case 1: self = .storyFlowType
+    case 2: self = .roleFlowType
+    case 3: self = .groupFlowType
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .allFlowType: return 0
+    case .storyFlowType: return 1
+    case .roleFlowType: return 2
+    case .groupFlowType: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_ActiveFlowType] = [
+    .allFlowType,
+    .storyFlowType,
+    .roleFlowType,
+    .groupFlowType,
+  ]
+
+}
+
+/// 不公开互动
 public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
@@ -826,6 +877,15 @@ extension Common_GroupStatus: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "Normal"),
     3: .same(proto: "ViewOnly"),
     4: .same(proto: "Abandon"),
+  ]
+}
+
+extension Common_ActiveFlowType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "AllFlowType"),
+    1: .same(proto: "StoryFlowType"),
+    2: .same(proto: "RoleFlowType"),
+    3: .same(proto: "GroupFlowType"),
   ]
 }
 

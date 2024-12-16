@@ -15,17 +15,19 @@ import "comment.proto";
 import "story.proto";
 import "error.proto";
 
+
 message ActiveInfo {
   UserInfo user = 1;
   ActiveType active_type = 2;
-  GroupInfo group_info = 5;
-  Story story_info = 6;
-  StoryRole role_info = 7;
-  StoryBoard board_info = 8;
-  int32 status = 9;
-  int64 Ctime = 19;
-  int64 Mtime = 20;
+  GroupInfo group_info = 3;
+  Story story_info = 4;
+  StoryRole role_info = 5;
+  StoryBoard board_info = 6;
+  string content = 7;
+  int64 Ctime = 8;
+  int64 Mtime = 9;
 }
+
 
 message LoginRequest {
   string account = 1;
@@ -206,7 +208,7 @@ message UserUpdateResponse {
 
 message FetchActivesRequest {
   int64 user_id = 1;
-  ActiveType atype = 2;
+  ActiveFlowType atype = 2;
   int64 timestamp = 3;
   int64 offset = 4;
   int64 page_size = 5;

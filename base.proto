@@ -49,6 +49,17 @@ enum GroupStatus {
   Abandon = 4;
 }
 
+enum ActiveFlowType {
+  // 所有
+  AllFlowType = 0;
+  // 故事
+  StoryFlowType = 1;
+  // 角色
+  RoleFlowType = 2;
+  // 小组织
+  GroupFlowType = 3;
+}
+  // 不公开互动
 enum ActiveType {
   // 不公开互动
   NoneActive = 0;

@@ -6,6 +6,7 @@
 - [base.proto](#base-proto)
     - [Tags](#common-Tags)
   
+    - [ActiveFlowType](#common-ActiveFlowType)
     - [ActiveType](#common-ActiveType)
     - [AuthType](#common-AuthType)
     - [GenderType](#common-GenderType)
@@ -437,10 +438,24 @@
  
 
 
+<a name="common-ActiveFlowType"></a>
+
+### ActiveFlowType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| AllFlowType | 0 | 所有 |
+| StoryFlowType | 1 | 故事 |
+| RoleFlowType | 2 | 角色 |
+| GroupFlowType | 3 | 小组织 |
+
+
+
 <a name="common-ActiveType"></a>
 
 ### ActiveType
-
+不公开互动
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -3302,7 +3317,7 @@ AI生成失败 |
 | story_info | [Story](#common-Story) |  |  |
 | role_info | [StoryRole](#common-StoryRole) |  |  |
 | board_info | [StoryBoard](#common-StoryBoard) |  |  |
-| status | [int32](#int32) |  |  |
+| content | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3988,7 +4003,7 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| atype | [ActiveType](#common-ActiveType) |  |  |
+| atype | [ActiveFlowType](#common-ActiveFlowType) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |

@@ -196,9 +196,9 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   /// Clears the value of `boardInfo`. Subsequent reads from it will return its default value.
   public mutating func clearBoardInfo() {_uniqueStorage()._boardInfo = nil}
 
-  public var status: Int32 {
-    get {return _storage._status}
-    set {_uniqueStorage()._status = newValue}
+  public var content: String {
+    get {return _storage._content}
+    set {_uniqueStorage()._content = newValue}
   }
 
   public var ctime: Int64 {
@@ -796,7 +796,7 @@ public struct Common_FetchActivesRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var atype: Common_ActiveType = .noneActive
+  public var atype: Common_ActiveFlowType = .allFlowType
 
   public var timestamp: Int64 = 0
 
@@ -4766,13 +4766,13 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "user"),
     2: .standard(proto: "active_type"),
-    5: .standard(proto: "group_info"),
-    6: .standard(proto: "story_info"),
-    7: .standard(proto: "role_info"),
-    8: .standard(proto: "board_info"),
-    9: .same(proto: "status"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
+    3: .standard(proto: "group_info"),
+    4: .standard(proto: "story_info"),
+    5: .standard(proto: "role_info"),
+    6: .standard(proto: "board_info"),
+    7: .same(proto: "content"),
+    8: .same(proto: "Ctime"),
+    9: .same(proto: "Mtime"),
   ]
 
   fileprivate class _StorageClass {
@@ -4782,7 +4782,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     var _storyInfo: Common_Story? = nil
     var _roleInfo: Common_StoryRole? = nil
     var _boardInfo: Common_StoryBoard? = nil
-    var _status: Int32 = 0
+    var _content: String = String()
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -4805,7 +4805,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       _storyInfo = source._storyInfo
       _roleInfo = source._roleInfo
       _boardInfo = source._boardInfo
-      _status = source._status
+      _content = source._content
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -4828,13 +4828,13 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._user) }()
         case 2: try { try decoder.decodeSingularEnumField(value: &_storage._activeType) }()
-        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._groupInfo) }()
-        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._storyInfo) }()
-        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._roleInfo) }()
-        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._boardInfo) }()
-        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
-        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._groupInfo) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._storyInfo) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._roleInfo) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._boardInfo) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._content) }()
+        case 8: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 9: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
         }
       }
@@ -4854,25 +4854,25 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         try visitor.visitSingularEnumField(value: _storage._activeType, fieldNumber: 2)
       }
       try { if let v = _storage._groupInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       } }()
       try { if let v = _storage._storyInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       } }()
       try { if let v = _storage._roleInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       } }()
       try { if let v = _storage._boardInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
       } }()
-      if _storage._status != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 9)
+      if !_storage._content.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._content, fieldNumber: 7)
       }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 8)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 9)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4889,7 +4889,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         if _storage._storyInfo != rhs_storage._storyInfo {return false}
         if _storage._roleInfo != rhs_storage._roleInfo {return false}
         if _storage._boardInfo != rhs_storage._boardInfo {return false}
-        if _storage._status != rhs_storage._status {return false}
+        if _storage._content != rhs_storage._content {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true
@@ -6324,7 +6324,7 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
-    if self.atype != .noneActive {
+    if self.atype != .allFlowType {
       try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 2)
     }
     if self.timestamp != 0 {

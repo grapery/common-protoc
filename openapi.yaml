@@ -2893,9 +2893,8 @@ components:
                     $ref: '#/components/schemas/StoryRole'
                 boardInfo:
                     $ref: '#/components/schemas/StoryBoard'
-                status:
-                    type: integer
-                    format: int32
+                content:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
