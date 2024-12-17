@@ -470,6 +470,9 @@
 | LikeStory | 8 | 点赞故事 |
 | FollowGroup | 9 | 关注群组 |
 | LikeGroup | 10 | 点赞群组 |
+| NewStoryBoard | 11 | 新的故事板 |
+| LikeStoryBoard | 12 | 点赞故事板 |
+| ForkStory | 13 | 分叉故事 |
 
 
 

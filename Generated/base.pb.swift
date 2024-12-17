@@ -318,6 +318,15 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 点赞群组
   case likeGroup // = 10
+
+  /// 新的故事板
+  case newStoryBoard // = 11
+
+  /// 点赞故事板
+  case likeStoryBoard // = 12
+
+  /// 分叉故事
+  case forkStory // = 13
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -337,6 +346,9 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 8: self = .likeStory
     case 9: self = .followGroup
     case 10: self = .likeGroup
+    case 11: self = .newStoryBoard
+    case 12: self = .likeStoryBoard
+    case 13: self = .forkStory
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -354,6 +366,9 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .likeStory: return 8
     case .followGroup: return 9
     case .likeGroup: return 10
+    case .newStoryBoard: return 11
+    case .likeStoryBoard: return 12
+    case .forkStory: return 13
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -371,6 +386,9 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
     .likeStory,
     .followGroup,
     .likeGroup,
+    .newStoryBoard,
+    .likeStoryBoard,
+    .forkStory,
   ]
 
 }
@@ -902,6 +920,9 @@ extension Common_ActiveType: SwiftProtobuf._ProtoNameProviding {
     8: .same(proto: "LikeStory"),
     9: .same(proto: "FollowGroup"),
     10: .same(proto: "LikeGroup"),
+    11: .same(proto: "NewStoryBoard"),
+    12: .same(proto: "LikeStoryBoard"),
+    13: .same(proto: "ForkStory"),
   ]
 }
 
