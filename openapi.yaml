@@ -2880,6 +2880,8 @@ components:
         ActiveInfo:
             type: object
             properties:
+                activeId:
+                    type: string
                 user:
                     $ref: '#/components/schemas/UserInfo'
                 activeType:

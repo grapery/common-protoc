@@ -146,6 +146,11 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var activeID: Int64 {
+    get {return _storage._activeID}
+    set {_uniqueStorage()._activeID = newValue}
+  }
+
   public var user: Common_UserInfo {
     get {return _storage._user ?? Common_UserInfo()}
     set {_uniqueStorage()._user = newValue}
@@ -4764,18 +4769,20 @@ extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
 extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ActiveInfo"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "user"),
-    2: .standard(proto: "active_type"),
-    3: .standard(proto: "group_info"),
-    4: .standard(proto: "story_info"),
-    5: .standard(proto: "role_info"),
-    6: .standard(proto: "board_info"),
-    7: .same(proto: "content"),
-    8: .same(proto: "Ctime"),
-    9: .same(proto: "Mtime"),
+    1: .standard(proto: "active_id"),
+    2: .same(proto: "user"),
+    3: .standard(proto: "active_type"),
+    4: .standard(proto: "group_info"),
+    5: .standard(proto: "story_info"),
+    6: .standard(proto: "role_info"),
+    7: .standard(proto: "board_info"),
+    8: .same(proto: "content"),
+    9: .same(proto: "Ctime"),
+    10: .same(proto: "Mtime"),
   ]
 
   fileprivate class _StorageClass {
+    var _activeID: Int64 = 0
     var _user: Common_UserInfo? = nil
     var _activeType: Common_ActiveType = .noneActive
     var _groupInfo: Common_GroupInfo? = nil
@@ -4799,6 +4806,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     private init() {}
 
     init(copying source: _StorageClass) {
+      _activeID = source._activeID
       _user = source._user
       _activeType = source._activeType
       _groupInfo = source._groupInfo
@@ -4826,15 +4834,16 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._user) }()
-        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._activeType) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._groupInfo) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._storyInfo) }()
-        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._roleInfo) }()
-        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._boardInfo) }()
-        case 7: try { try decoder.decodeSingularStringField(value: &_storage._content) }()
-        case 8: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 9: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._activeID) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._user) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._activeType) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._groupInfo) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._storyInfo) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._roleInfo) }()
+        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._boardInfo) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._content) }()
+        case 9: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 10: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
         }
       }
@@ -4847,32 +4856,35 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       // allocates stack space for every if/case branch local when no optimizations
       // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
       // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._activeID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._activeID, fieldNumber: 1)
+      }
       try { if let v = _storage._user {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       } }()
       if _storage._activeType != .noneActive {
-        try visitor.visitSingularEnumField(value: _storage._activeType, fieldNumber: 2)
+        try visitor.visitSingularEnumField(value: _storage._activeType, fieldNumber: 3)
       }
       try { if let v = _storage._groupInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._storyInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       } }()
-      try { if let v = _storage._roleInfo {
+      try { if let v = _storage._storyInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       } }()
-      try { if let v = _storage._boardInfo {
+      try { if let v = _storage._roleInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
       } }()
+      try { if let v = _storage._boardInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      } }()
       if !_storage._content.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._content, fieldNumber: 7)
+        try visitor.visitSingularStringField(value: _storage._content, fieldNumber: 8)
       }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 8)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 9)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 9)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 10)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4883,6 +4895,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
         let rhs_storage = _args.1
+        if _storage._activeID != rhs_storage._activeID {return false}
         if _storage._user != rhs_storage._user {return false}
         if _storage._activeType != rhs_storage._activeType {return false}
         if _storage._groupInfo != rhs_storage._groupInfo {return false}

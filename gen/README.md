@@ -3314,6 +3314,7 @@ AI生成失败 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| active_id | [int64](#int64) |  |  |
 | user | [UserInfo](#common-UserInfo) |  |  |
 | active_type | [ActiveType](#common-ActiveType) |  |  |
 | group_info | [GroupInfo](#common-GroupInfo) |  |  |
