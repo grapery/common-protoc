@@ -2226,9 +2226,26 @@ message RenderStoryRoleRequest {
   int64 user_id = 4;
 }
 
+/*
+  "性格": "xxxxxxx",
+  "穿着": "xxxxx",
+  "行为准则": "xxxxxx",
+  "目标": "xxxxx"
+*/
+message RenderStoryRoleDetail {
+  int64 role_id = 1;
+  int64 gen_id = 2;
+  bool is_finished = 3;
+  string role_description = 4;
+  string role_character = 5;
+  string role_behavior = 6;
+  string role_goal = 7;
+}
+
 message RenderStoryRoleResponse {
   ResponseCode code = 1;
   string message = 2;
+  RenderStoryRoleDetail detail = 3;
 }
 
 message LikeStoryRequest {

@@ -5201,6 +5201,28 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryDetail'
+        RenderStoryRoleDetail:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                genId:
+                    type: string
+                isFinished:
+                    type: boolean
+                roleDescription:
+                    type: string
+                roleCharacter:
+                    type: string
+                roleBehavior:
+                    type: string
+                roleGoal:
+                    type: string
+            description: |-
+                "性格": "xxxxxxx",
+                "穿着": "xxxxx",
+                "行为准则": "xxxxxx",
+                "目标": "xxxxx"
         RenderStoryRoleDetailRequest:
             type: object
             properties:
@@ -5245,6 +5267,8 @@ components:
                     format: enum
                 message:
                     type: string
+                detail:
+                    $ref: '#/components/schemas/RenderStoryRoleDetail'
         RenderStoryRolesRequest:
             type: object
             properties:

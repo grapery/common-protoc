@@ -312,6 +312,7 @@
     - [RefreshTokenResponse](#common-RefreshTokenResponse)
     - [RegisterRequest](#common-RegisterRequest)
     - [RegisterResponse](#common-RegisterResponse)
+    - [RenderStoryRoleDetail](#common-RenderStoryRoleDetail)
     - [RenderStoryRoleRequest](#common-RenderStoryRoleRequest)
     - [RenderStoryRoleResponse](#common-RenderStoryRoleResponse)
     - [ResetPasswordRequest](#common-ResetPasswordRequest)
@@ -5782,6 +5783,30 @@ AI生成失败 |
 
 
 
+<a name="common-RenderStoryRoleDetail"></a>
+
+### RenderStoryRoleDetail
+&#34;性格&#34;: &#34;xxxxxxx&#34;,
+&#34;穿着&#34;: &#34;xxxxx&#34;,
+&#34;行为准则&#34;: &#34;xxxxxx&#34;,
+&#34;目标&#34;: &#34;xxxxx&#34;
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| gen_id | [int64](#int64) |  |  |
+| is_finished | [bool](#bool) |  |  |
+| role_description | [string](#string) |  |  |
+| role_character | [string](#string) |  |  |
+| role_behavior | [string](#string) |  |  |
+| role_goal | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-RenderStoryRoleRequest"></a>
 
 ### RenderStoryRoleRequest
@@ -5810,6 +5835,7 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
 
 
 
