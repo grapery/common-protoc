@@ -7,7 +7,6 @@
 package gen
 
 import (
-	_ "github.com/grapery/common-protoc/gen/google/api"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/emptypb"
@@ -11483,10 +11482,6 @@ func (x *RenderStoryRoleRequest) GetUserId() int64 {
 	return 0
 }
 
-// "性格": "xxxxxxx",
-// "穿着": "xxxxx",
-// "行为准则": "xxxxxx",
-// "目标": "xxxxx"
 type RenderStoryRoleDetail struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

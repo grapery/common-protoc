@@ -4670,11 +4670,6 @@ public struct Common_RenderStoryRoleRequest: Sendable {
   public init() {}
 }
 
-///
-///"性格": "xxxxxxx",
-///"穿着": "xxxxx",
-///"行为准则": "xxxxxx",
-///"目标": "xxxxx"
 public struct Common_RenderStoryRoleDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

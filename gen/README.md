@@ -5786,10 +5786,7 @@ AI生成失败 |
 <a name="common-RenderStoryRoleDetail"></a>
 
 ### RenderStoryRoleDetail
-&#34;性格&#34;: &#34;xxxxxxx&#34;,
-&#34;穿着&#34;: &#34;xxxxx&#34;,
-&#34;行为准则&#34;: &#34;xxxxxx&#34;,
-&#34;目标&#34;: &#34;xxxxx&#34;
+
 
 
 | Field | Type | Label | Description |
