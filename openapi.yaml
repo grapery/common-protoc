@@ -1819,6 +1819,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/RenderStoryRoleContinuously:
+        post:
+            tags:
+                - TeamsAPI
+            description: 持续渲染故事角色
+            operationId: TeamsAPI_RenderStoryRoleContinuously
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RenderStoryRoleContinuouslyRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RenderStoryRoleContinuouslyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/RenderStoryRoleDetail:
         post:
             tags:
@@ -5201,6 +5226,29 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryDetail'
+        RenderStoryRoleContinuouslyRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                prompt:
+                    type: string
+                referenceImage:
+                    type: string
+        RenderStoryRoleContinuouslyResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                detail:
+                    $ref: '#/components/schemas/RenderStoryRoleDetail'
         RenderStoryRoleDetail:
             type: object
             properties:
@@ -5217,6 +5265,10 @@ components:
                 roleBehavior:
                     type: string
                 roleGoal:
+                    type: string
+                backgroundImage:
+                    type: string
+                avatarImage:
                     type: string
         RenderStoryRoleDetailRequest:
             type: object

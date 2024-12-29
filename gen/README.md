@@ -312,6 +312,8 @@
     - [RefreshTokenResponse](#common-RefreshTokenResponse)
     - [RegisterRequest](#common-RegisterRequest)
     - [RegisterResponse](#common-RegisterResponse)
+    - [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest)
+    - [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse)
     - [RenderStoryRoleDetail](#common-RenderStoryRoleDetail)
     - [RenderStoryRoleRequest](#common-RenderStoryRoleRequest)
     - [RenderStoryRoleResponse](#common-RenderStoryRoleResponse)
@@ -5783,6 +5785,42 @@ AI生成失败 |
 
 
 
+<a name="common-RenderStoryRoleContinuouslyRequest"></a>
+
+### RenderStoryRoleContinuouslyRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| reference_image | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-RenderStoryRoleContinuouslyResponse"></a>
+
+### RenderStoryRoleContinuouslyResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
+
+
+
+
+
+
 <a name="common-RenderStoryRoleDetail"></a>
 
 ### RenderStoryRoleDetail
@@ -5798,6 +5836,8 @@ AI生成失败 |
 | role_character | [string](#string) |  |  |
 | role_behavior | [string](#string) |  |  |
 | role_goal | [string](#string) |  |  |
+| background_image | [string](#string) |  |  |
+| avatar_image | [string](#string) |  |  |
 
 
 
@@ -7366,6 +7406,7 @@ user ,group .project.item
 | GetUserChatMessages | [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest) | [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse) | 获取用户的消息 |
 | FetchActives | [FetchActivesRequest](#common-FetchActivesRequest) | [FetchActivesResponse](#common-FetchActivesResponse) | 活动信息 |
 | GetNextStoryboard | [GetNextStoryboardRequest](#common-GetNextStoryboardRequest) | [GetNextStoryboardResponse](#common-GetNextStoryboardResponse) | 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位 |
+| RenderStoryRoleContinuously | [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest) | [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse) | 持续渲染故事角色 |
 
  
 

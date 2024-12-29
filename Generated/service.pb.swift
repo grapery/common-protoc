@@ -3615,6 +3615,51 @@ public struct Common_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
+public struct Common_RenderStoryRoleContinuouslyRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var roleID: Int64 = 0
+
+  public var userID: Int64 = 0
+
+  public var storyID: Int64 = 0
+
+  public var prompt: String = String()
+
+  public var referenceImage: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_RenderStoryRoleContinuouslyResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var detail: Common_RenderStoryRoleDetail {
+    get {return _detail ?? Common_RenderStoryRoleDetail()}
+    set {_detail = newValue}
+  }
+  /// Returns true if `detail` has been explicitly set.
+  public var hasDetail: Bool {return self._detail != nil}
+  /// Clears the value of `detail`. Subsequent reads from it will return its default value.
+  public mutating func clearDetail() {self._detail = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _detail: Common_RenderStoryRoleDetail? = nil
+}
+
 public struct Common_GetNextStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4688,6 +4733,10 @@ public struct Common_RenderStoryRoleDetail: Sendable {
   public var roleBehavior: String = String()
 
   public var roleGoal: String = String()
+
+  public var backgroundImage: String = String()
+
+  public var avatarImage: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -12672,6 +12721,110 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
+extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "role_id"),
+    2: .standard(proto: "user_id"),
+    3: .standard(proto: "story_id"),
+    4: .same(proto: "prompt"),
+    5: .standard(proto: "reference_image"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.referenceImage) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 3)
+    }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 4)
+    }
+    if !self.referenceImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.referenceImage, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryRoleContinuouslyRequest, rhs: Common_RenderStoryRoleContinuouslyRequest) -> Bool {
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.referenceImage != rhs.referenceImage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "detail"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._detail) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try { if let v = self._detail {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RenderStoryRoleContinuouslyResponse, rhs: Common_RenderStoryRoleContinuouslyResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs._detail != rhs._detail {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetNextStoryboardRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -15372,6 +15525,8 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     5: .standard(proto: "role_character"),
     6: .standard(proto: "role_behavior"),
     7: .standard(proto: "role_goal"),
+    8: .standard(proto: "background_image"),
+    9: .standard(proto: "avatar_image"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15387,6 +15542,8 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 5: try { try decoder.decodeSingularStringField(value: &self.roleCharacter) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self.roleBehavior) }()
       case 7: try { try decoder.decodeSingularStringField(value: &self.roleGoal) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.backgroundImage) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.avatarImage) }()
       default: break
       }
     }
@@ -15414,6 +15571,12 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.roleGoal.isEmpty {
       try visitor.visitSingularStringField(value: self.roleGoal, fieldNumber: 7)
     }
+    if !self.backgroundImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.backgroundImage, fieldNumber: 8)
+    }
+    if !self.avatarImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.avatarImage, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -15425,6 +15588,8 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.roleCharacter != rhs.roleCharacter {return false}
     if lhs.roleBehavior != rhs.roleBehavior {return false}
     if lhs.roleGoal != rhs.roleGoal {return false}
+    if lhs.backgroundImage != rhs.backgroundImage {return false}
+    if lhs.avatarImage != rhs.avatarImage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

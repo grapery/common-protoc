@@ -928,6 +928,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
     @available(iOS 13, *)
     func `getNextStoryboard`(request: Common_GetNextStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetNextStoryboardResponse>
+
+    /// 持续渲染故事角色
+    @discardableResult
+    func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable
+
+    /// 持续渲染故事角色
+    @available(iOS 13, *)
+    func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2088,6 +2096,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetNextStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRoleContinuouslyResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2205,6 +2223,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getUserChatMessages = Connect.MethodSpec(name: "GetUserChatMessages", service: "common.TeamsAPI", type: .unary)
             public static let fetchActives = Connect.MethodSpec(name: "FetchActives", service: "common.TeamsAPI", type: .unary)
             public static let getNextStoryboard = Connect.MethodSpec(name: "GetNextStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let renderStoryRoleContinuously = Connect.MethodSpec(name: "RenderStoryRoleContinuously", service: "common.TeamsAPI", type: .unary)
         }
     }
 }
