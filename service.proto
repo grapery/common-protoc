@@ -1874,6 +1874,41 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 发布故事板
+  rpc PublishStoryboard(PublishStoryboardRequest) returns (PublishStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/PublishStoryboard"
+      body : "*"
+    };
+  }
+  // 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+  rpc CancelStoryboard(CancelStoryboardRequest) returns (CancelStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CancelStoryboard"
+      body : "*"
+    };
+  }
+}
+
+message PublishStoryboardRequest {
+  int64 storyboard_id = 1;
+  int64 user_id = 2;
+}
+
+message PublishStoryboardResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message CancelStoryboardRequest {
+  int64 storyboard_id = 1;
+  int64 user_id = 2;
+}
+
+message CancelStoryboardResponse {
+  ResponseCode code = 1;
+  string message = 2;
 }
 
 message RenderStoryRoleContinuouslyRequest {

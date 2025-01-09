@@ -25,6 +25,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CancelStoryboard:
+        post:
+            tags:
+                - TeamsAPI
+            description: 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+            operationId: TeamsAPI_CancelStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CancelStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CancelStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/ChatWithStoryRole:
         post:
             tags:
@@ -1669,6 +1694,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/PublishStoryboard:
+        post:
+            tags:
+                - TeamsAPI
+            description: 发布故事板
+            operationId: TeamsAPI_PublishStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/PublishStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PublishStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/RefreshToken:
         post:
             tags:
@@ -2925,6 +2975,21 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        CancelStoryboardRequest:
+            type: object
+            properties:
+                storyboardId:
+                    type: string
+                userId:
+                    type: string
+        CancelStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
                     type: string
         ChatContext:
             type: object
@@ -5094,6 +5159,21 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        PublishStoryboardRequest:
+            type: object
+            properties:
+                storyboardId:
+                    type: string
+                userId:
+                    type: string
+        PublishStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
                     type: string
         RefreshTokenRequest:
             type: object

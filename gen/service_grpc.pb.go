@@ -135,6 +135,8 @@ const (
 	TeamsAPI_FetchActives_FullMethodName                = "/common.TeamsAPI/FetchActives"
 	TeamsAPI_GetNextStoryboard_FullMethodName           = "/common.TeamsAPI/GetNextStoryboard"
 	TeamsAPI_RenderStoryRoleContinuously_FullMethodName = "/common.TeamsAPI/RenderStoryRoleContinuously"
+	TeamsAPI_PublishStoryboard_FullMethodName           = "/common.TeamsAPI/PublishStoryboard"
+	TeamsAPI_CancelStoryboard_FullMethodName            = "/common.TeamsAPI/CancelStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -373,6 +375,10 @@ type TeamsAPIClient interface {
 	GetNextStoryboard(ctx context.Context, in *GetNextStoryboardRequest, opts ...grpc.CallOption) (*GetNextStoryboardResponse, error)
 	// 持续渲染故事角色
 	RenderStoryRoleContinuously(ctx context.Context, in *RenderStoryRoleContinuouslyRequest, opts ...grpc.CallOption) (*RenderStoryRoleContinuouslyResponse, error)
+	// 发布故事板
+	PublishStoryboard(ctx context.Context, in *PublishStoryboardRequest, opts ...grpc.CallOption) (*PublishStoryboardResponse, error)
+	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	CancelStoryboard(ctx context.Context, in *CancelStoryboardRequest, opts ...grpc.CallOption) (*CancelStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1427,6 +1433,24 @@ func (c *teamsAPIClient) RenderStoryRoleContinuously(ctx context.Context, in *Re
 	return out, nil
 }
 
+func (c *teamsAPIClient) PublishStoryboard(ctx context.Context, in *PublishStoryboardRequest, opts ...grpc.CallOption) (*PublishStoryboardResponse, error) {
+	out := new(PublishStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_PublishStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, in *CancelStoryboardRequest, opts ...grpc.CallOption) (*CancelStoryboardResponse, error) {
+	out := new(CancelStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_CancelStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1663,6 +1687,10 @@ type TeamsAPIServer interface {
 	GetNextStoryboard(context.Context, *GetNextStoryboardRequest) (*GetNextStoryboardResponse, error)
 	// 持续渲染故事角色
 	RenderStoryRoleContinuously(context.Context, *RenderStoryRoleContinuouslyRequest) (*RenderStoryRoleContinuouslyResponse, error)
+	// 发布故事板
+	PublishStoryboard(context.Context, *PublishStoryboardRequest) (*PublishStoryboardResponse, error)
+	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	CancelStoryboard(context.Context, *CancelStoryboardRequest) (*CancelStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2017,6 +2045,12 @@ func (UnimplementedTeamsAPIServer) GetNextStoryboard(context.Context, *GetNextSt
 }
 func (UnimplementedTeamsAPIServer) RenderStoryRoleContinuously(context.Context, *RenderStoryRoleContinuouslyRequest) (*RenderStoryRoleContinuouslyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RenderStoryRoleContinuously not implemented")
+}
+func (UnimplementedTeamsAPIServer) PublishStoryboard(context.Context, *PublishStoryboardRequest) (*PublishStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublishStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) CancelStoryboard(context.Context, *CancelStoryboardRequest) (*CancelStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4119,6 +4153,42 @@ func _TeamsAPI_RenderStoryRoleContinuously_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_PublishStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PublishStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).PublishStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_PublishStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).PublishStoryboard(ctx, req.(*PublishStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_CancelStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).CancelStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_CancelStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).CancelStoryboard(ctx, req.(*CancelStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4589,6 +4659,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RenderStoryRoleContinuously",
 			Handler:    _TeamsAPI_RenderStoryRoleContinuously_Handler,
+		},
+		{
+			MethodName: "PublishStoryboard",
+			Handler:    _TeamsAPI_PublishStoryboard_Handler,
+		},
+		{
+			MethodName: "CancelStoryboard",
+			Handler:    _TeamsAPI_CancelStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

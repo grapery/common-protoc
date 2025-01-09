@@ -936,6 +936,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 持续渲染故事角色
     @available(iOS 13, *)
     func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>
+
+    /// 发布故事板
+    @discardableResult
+    func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    /// 发布故事板
+    @available(iOS 13, *)
+    func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_PublishStoryboardResponse>
+
+    /// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+    @discardableResult
+    func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable
+
+    /// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+    @available(iOS 13, *)
+    func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CancelStoryboardResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2106,6 +2122,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_PublishStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CancelStoryboardResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2224,6 +2260,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let fetchActives = Connect.MethodSpec(name: "FetchActives", service: "common.TeamsAPI", type: .unary)
             public static let getNextStoryboard = Connect.MethodSpec(name: "GetNextStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let renderStoryRoleContinuously = Connect.MethodSpec(name: "RenderStoryRoleContinuously", service: "common.TeamsAPI", type: .unary)
+            public static let publishStoryboard = Connect.MethodSpec(name: "PublishStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let cancelStoryboard = Connect.MethodSpec(name: "CancelStoryboard", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

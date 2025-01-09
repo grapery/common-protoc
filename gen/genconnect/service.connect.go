@@ -323,6 +323,12 @@ const (
 	// TeamsAPIRenderStoryRoleContinuouslyProcedure is the fully-qualified name of the TeamsAPI's
 	// RenderStoryRoleContinuously RPC.
 	TeamsAPIRenderStoryRoleContinuouslyProcedure = "/common.TeamsAPI/RenderStoryRoleContinuously"
+	// TeamsAPIPublishStoryboardProcedure is the fully-qualified name of the TeamsAPI's
+	// PublishStoryboard RPC.
+	TeamsAPIPublishStoryboardProcedure = "/common.TeamsAPI/PublishStoryboard"
+	// TeamsAPICancelStoryboardProcedure is the fully-qualified name of the TeamsAPI's CancelStoryboard
+	// RPC.
+	TeamsAPICancelStoryboardProcedure = "/common.TeamsAPI/CancelStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -559,6 +565,10 @@ type TeamsAPIClient interface {
 	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 	// 持续渲染故事角色
 	RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error)
+	// 发布故事板
+	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
+	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1151,6 +1161,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIRenderStoryRoleContinuouslyProcedure,
 			opts...,
 		),
+		publishStoryboard: connect.NewClient[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIPublishStoryboardProcedure,
+			opts...,
+		),
+		cancelStoryboard: connect.NewClient[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPICancelStoryboardProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1272,6 +1292,8 @@ type teamsAPIClient struct {
 	fetchActives                *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
 	getNextStoryboard           *connect.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
 	renderStoryRoleContinuously *connect.Client[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse]
+	publishStoryboard           *connect.Client[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse]
+	cancelStoryboard            *connect.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1854,6 +1876,16 @@ func (c *teamsAPIClient) RenderStoryRoleContinuously(ctx context.Context, req *c
 	return c.renderStoryRoleContinuously.CallUnary(ctx, req)
 }
 
+// PublishStoryboard calls common.TeamsAPI.PublishStoryboard.
+func (c *teamsAPIClient) PublishStoryboard(ctx context.Context, req *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error) {
+	return c.publishStoryboard.CallUnary(ctx, req)
+}
+
+// CancelStoryboard calls common.TeamsAPI.CancelStoryboard.
+func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, req *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error) {
+	return c.cancelStoryboard.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2088,6 +2120,10 @@ type TeamsAPIHandler interface {
 	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 	// 持续渲染故事角色
 	RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error)
+	// 发布故事板
+	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
+	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2676,6 +2712,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.RenderStoryRoleContinuously,
 		opts...,
 	)
+	teamsAPIPublishStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIPublishStoryboardProcedure,
+		svc.PublishStoryboard,
+		opts...,
+	)
+	teamsAPICancelStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPICancelStoryboardProcedure,
+		svc.CancelStoryboard,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2910,6 +2956,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetNextStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIRenderStoryRoleContinuouslyProcedure:
 			teamsAPIRenderStoryRoleContinuouslyHandler.ServeHTTP(w, r)
+		case TeamsAPIPublishStoryboardProcedure:
+			teamsAPIPublishStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPICancelStoryboardProcedure:
+			teamsAPICancelStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3381,4 +3431,12 @@ func (UnimplementedTeamsAPIHandler) GetNextStoryboard(context.Context, *connect.
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRoleContinuously is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.PublishStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CancelStoryboard is not implemented"))
 }

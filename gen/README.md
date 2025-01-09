@@ -164,6 +164,8 @@
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
     - [ActiveInfo](#common-ActiveInfo)
+    - [CancelStoryboardRequest](#common-CancelStoryboardRequest)
+    - [CancelStoryboardResponse](#common-CancelStoryboardResponse)
     - [ChatContext](#common-ChatContext)
     - [ChatMessage](#common-ChatMessage)
     - [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest)
@@ -308,6 +310,8 @@
     - [LoginResponse.Data](#common-LoginResponse-Data)
     - [LogoutRequest](#common-LogoutRequest)
     - [LogoutResponse](#common-LogoutResponse)
+    - [PublishStoryboardRequest](#common-PublishStoryboardRequest)
+    - [PublishStoryboardResponse](#common-PublishStoryboardResponse)
     - [RefreshTokenRequest](#common-RefreshTokenRequest)
     - [RefreshTokenResponse](#common-RefreshTokenResponse)
     - [RegisterRequest](#common-RegisterRequest)
@@ -3333,6 +3337,38 @@ AI生成失败 |
 
 
 
+<a name="common-CancelStoryboardRequest"></a>
+
+### CancelStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-CancelStoryboardResponse"></a>
+
+### CancelStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-ChatContext"></a>
 
 ### ChatContext
@@ -5719,6 +5755,38 @@ AI生成失败 |
 
 
 
+<a name="common-PublishStoryboardRequest"></a>
+
+### PublishStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-PublishStoryboardResponse"></a>
+
+### PublishStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-RefreshTokenRequest"></a>
 
 ### RefreshTokenRequest
@@ -7407,6 +7475,8 @@ user ,group .project.item
 | FetchActives | [FetchActivesRequest](#common-FetchActivesRequest) | [FetchActivesResponse](#common-FetchActivesResponse) | 活动信息 |
 | GetNextStoryboard | [GetNextStoryboardRequest](#common-GetNextStoryboardRequest) | [GetNextStoryboardResponse](#common-GetNextStoryboardResponse) | 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位 |
 | RenderStoryRoleContinuously | [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest) | [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse) | 持续渲染故事角色 |
+| PublishStoryboard | [PublishStoryboardRequest](#common-PublishStoryboardRequest) | [PublishStoryboardResponse](#common-PublishStoryboardResponse) | 发布故事板 |
+| CancelStoryboard | [CancelStoryboardRequest](#common-CancelStoryboardRequest) | [CancelStoryboardResponse](#common-CancelStoryboardResponse) | 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。 |
 
  
 
