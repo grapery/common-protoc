@@ -1,0 +1,41 @@
+syntax = "proto3";
+package common;
+
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/api/annotations.proto";
+
+
+message SendMessageRequest {
+  string message = 1;
+}
+
+message SendMessageResponse {
+  string message = 1;
+}
+
+message ReceiveMessageRequest {
+  string message = 1;
+}
+
+message ReceiveMessageResponse {
+  string message = 1;
+} 
+
+// 使用 stream 发送、接收消息
+service StreamMessageService {
+  rpc SendMessage(SendMessageRequest) returns (stream SendMessageResponse) {
+    option (google.api.http) = {
+      post: "/v1/messages/send"
+      body: "*"
+    };
+  }
+  rpc ReceiveMessage(ReceiveMessageRequest) returns (stream ReceiveMessageResponse) {
+    option (google.api.http) = {
+      post: "/v1/messages/receive"
+      body: "*"
+    };
+  }
+}

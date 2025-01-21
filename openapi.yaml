@@ -3,7 +3,7 @@
 
 openapi: 3.0.3
 info:
-    title: TeamsAPI API
+    title: ""
     version: 0.0.1
 paths:
     /common.TeamsAPI/About:
@@ -2945,6 +2945,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /v1/messages/receive:
+        post:
+            tags:
+                - StreamMessageService
+            operationId: StreamMessageService_ReceiveMessage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ReceiveMessageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ReceiveMessageResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/messages/send:
+        post:
+            tags:
+                - StreamMessageService
+            operationId: StreamMessageService_SendMessage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SendMessageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SendMessageResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
 components:
     schemas:
         AboutResponse:
@@ -5175,6 +5223,16 @@ components:
                     format: enum
                 message:
                     type: string
+        ReceiveMessageRequest:
+            type: object
+            properties:
+                message:
+                    type: string
+        ReceiveMessageResponse:
+            type: object
+            properties:
+                message:
+                    type: string
         RefreshTokenRequest:
             type: object
             properties:
@@ -5746,6 +5804,16 @@ components:
                 offset:
                     type: string
                 pageSize:
+                    type: string
+        SendMessageRequest:
+            type: object
+            properties:
+                message:
+                    type: string
+        SendMessageResponse:
+            type: object
+            properties:
+                message:
                     type: string
         ShareDetail:
             type: object
@@ -6885,4 +6953,6 @@ components:
                 desc:
                     type: string
 tags:
+    - name: StreamMessageService
+      description: 使用 stream 发送、接收消息
     - name: TeamsAPI

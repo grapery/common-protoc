@@ -44,6 +44,14 @@
     - [VoiceDetail](#common-VoiceDetail)
     - [WordDetail](#common-WordDetail)
   
+- [message.proto](#message-proto)
+    - [ReceiveMessageRequest](#common-ReceiveMessageRequest)
+    - [ReceiveMessageResponse](#common-ReceiveMessageResponse)
+    - [SendMessageRequest](#common-SendMessageRequest)
+    - [SendMessageResponse](#common-SendMessageResponse)
+  
+    - [StreamMessageService](#common-StreamMessageService)
+  
 - [project.proto](#project-proto)
     - [ProjectInfo](#common-ProjectInfo)
     - [ProjectProfileInfo](#common-ProjectProfileInfo)
@@ -1217,6 +1225,93 @@ AI生成失败 |
  
 
  
+
+ 
+
+
+
+<a name="message-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## message.proto
+
+
+
+<a name="common-ReceiveMessageRequest"></a>
+
+### ReceiveMessageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ReceiveMessageResponse"></a>
+
+### ReceiveMessageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-SendMessageRequest"></a>
+
+### SendMessageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-SendMessageResponse"></a>
+
+### SendMessageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="common-StreamMessageService"></a>
+
+### StreamMessageService
+使用 stream 发送、接收消息
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| SendMessage | [SendMessageRequest](#common-SendMessageRequest) | [SendMessageResponse](#common-SendMessageResponse) stream |  |
+| ReceiveMessage | [ReceiveMessageRequest](#common-ReceiveMessageRequest) | [ReceiveMessageResponse](#common-ReceiveMessageResponse) stream |  |
 
  
 
