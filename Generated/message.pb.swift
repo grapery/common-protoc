@@ -102,6 +102,8 @@ public struct Common_StreamChatMessageRequest: Sendable {
 
   public var requestID: String = String()
 
+  public var token: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -121,6 +123,8 @@ public struct Common_StreamChatMessageResponse: Sendable {
   public var timestamp: Int64 = 0
 
   public var requestID: String = String()
+
+  public var token: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -197,6 +201,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
     1: .same(proto: "message"),
     2: .same(proto: "timestamp"),
     3: .standard(proto: "request_id"),
+    4: .same(proto: "token"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -208,6 +213,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
       case 1: try { try decoder.decodeSingularMessageField(value: &self._message) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.requestID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.token) }()
       default: break
       }
     }
@@ -227,6 +233,9 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.requestID.isEmpty {
       try visitor.visitSingularStringField(value: self.requestID, fieldNumber: 3)
     }
+    if !self.token.isEmpty {
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -234,6 +243,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs._message != rhs._message {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.requestID != rhs.requestID {return false}
+    if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -246,6 +256,7 @@ extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf
     2: .same(proto: "message"),
     3: .same(proto: "timestamp"),
     4: .standard(proto: "request_id"),
+    5: .same(proto: "token"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -258,6 +269,7 @@ extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.requestID) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.token) }()
       default: break
       }
     }
@@ -276,6 +288,9 @@ extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf
     if !self.requestID.isEmpty {
       try visitor.visitSingularStringField(value: self.requestID, fieldNumber: 4)
     }
+    if !self.token.isEmpty {
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -284,6 +299,7 @@ extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf
     if lhs.message != rhs.message {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.requestID != rhs.requestID {return false}
+    if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

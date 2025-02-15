@@ -6108,6 +6108,8 @@ components:
                     type: string
                 requestId:
                     type: string
+                token:
+                    type: string
         StreamChatMessageResponse:
             type: object
             properties:
@@ -6119,6 +6121,8 @@ components:
                 timestamp:
                     type: string
                 requestId:
+                    type: string
+                token:
                     type: string
         Tags:
             type: object

@@ -1267,6 +1267,7 @@ AI生成失败 |
 | message | [StreamChatMessage](#common-StreamChatMessage) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | request_id | [string](#string) |  |  |
+| token | [string](#string) |  |  |
 
 
 
@@ -1285,6 +1286,7 @@ AI生成失败 |
 | message | [string](#string) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | request_id | [string](#string) |  |  |
+| token | [string](#string) |  |  |
 
 
 
