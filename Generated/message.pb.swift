@@ -20,48 +20,107 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_SendMessageRequest: Sendable {
+public enum Common_MsgType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case text // = 0
+  case image // = 1
+  case video // = 2
+  case audio // = 3
+  case system // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .text
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .text
+    case 1: self = .image
+    case 2: self = .video
+    case 3: self = .audio
+    case 4: self = .system
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .text: return 0
+    case .image: return 1
+    case .video: return 2
+    case .audio: return 3
+    case .system: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_MsgType] = [
+    .text,
+    .image,
+    .video,
+    .audio,
+    .system,
+  ]
+
+}
+
+public struct Common_StreamChatMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var message: String = String()
+  public var content: String = String()
+
+  public var msgType: Common_MsgType = .text
+
+  public var syncNum: Int64 = 0
+
+  public var timestamp: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_SendMessageResponse: Sendable {
+public struct Common_StreamChatMessageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var message: String = String()
+  public var message: Common_StreamChatMessage {
+    get {return _message ?? Common_StreamChatMessage()}
+    set {_message = newValue}
+  }
+  /// Returns true if `message` has been explicitly set.
+  public var hasMessage: Bool {return self._message != nil}
+  /// Clears the value of `message`. Subsequent reads from it will return its default value.
+  public mutating func clearMessage() {self._message = nil}
+
+  public var timestamp: Int64 = 0
+
+  public var requestID: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _message: Common_StreamChatMessage? = nil
 }
 
-public struct Common_ReceiveMessageRequest: Sendable {
+public struct Common_StreamChatMessageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var message: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_ReceiveMessageResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+  public var code: Common_ResponseCode = .ok
 
   public var message: String = String()
+
+  public var timestamp: Int64 = 0
+
+  public var requestID: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -72,10 +131,23 @@ public struct Common_ReceiveMessageResponse: Sendable {
 
 fileprivate let _protobuf_package = "common"
 
-extension Common_SendMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SendMessageRequest"
+extension Common_MsgType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
+    0: .same(proto: "TEXT"),
+    1: .same(proto: "IMAGE"),
+    2: .same(proto: "VIDEO"),
+    3: .same(proto: "AUDIO"),
+    4: .same(proto: "SYSTEM"),
+  ]
+}
+
+extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StreamChatMessage"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "content"),
+    2: .standard(proto: "msg_type"),
+    3: .standard(proto: "sync_num"),
+    4: .same(proto: "timestamp"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -84,30 +156,47 @@ extension Common_SendMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.msgType) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.syncNum) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 1)
+    }
+    if self.msgType != .text {
+      try visitor.visitSingularEnumField(value: self.msgType, fieldNumber: 2)
+    }
+    if self.syncNum != 0 {
+      try visitor.visitSingularInt64Field(value: self.syncNum, fieldNumber: 3)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SendMessageRequest, rhs: Common_SendMessageRequest) -> Bool {
-    if lhs.message != rhs.message {return false}
+  public static func ==(lhs: Common_StreamChatMessage, rhs: Common_StreamChatMessage) -> Bool {
+    if lhs.content != rhs.content {return false}
+    if lhs.msgType != rhs.msgType {return false}
+    if lhs.syncNum != rhs.syncNum {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_SendMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SendMessageResponse"
+extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
+    2: .same(proto: "timestamp"),
+    3: .standard(proto: "request_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -116,30 +205,47 @@ extension Common_SendMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._message) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.requestID) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._message {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 2)
+    }
+    if !self.requestID.isEmpty {
+      try visitor.visitSingularStringField(value: self.requestID, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SendMessageResponse, rhs: Common_SendMessageResponse) -> Bool {
-    if lhs.message != rhs.message {return false}
+  public static func ==(lhs: Common_StreamChatMessageRequest, rhs: Common_StreamChatMessageRequest) -> Bool {
+    if lhs._message != rhs._message {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.requestID != rhs.requestID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_ReceiveMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ReceiveMessageRequest"
+extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "timestamp"),
+    4: .standard(proto: "request_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -148,53 +254,36 @@ extension Common_ReceiveMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.requestID) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
     if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+    }
+    if !self.requestID.isEmpty {
+      try visitor.visitSingularStringField(value: self.requestID, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ReceiveMessageRequest, rhs: Common_ReceiveMessageRequest) -> Bool {
+  public static func ==(lhs: Common_StreamChatMessageResponse, rhs: Common_StreamChatMessageResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_ReceiveMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ReceiveMessageResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_ReceiveMessageResponse, rhs: Common_ReceiveMessageResponse) -> Bool {
-    if lhs.message != rhs.message {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.requestID != rhs.requestID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

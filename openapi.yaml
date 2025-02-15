@@ -2945,16 +2945,16 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /v1/messages/receive:
+    /v1/chat/messages/stream:
         post:
             tags:
                 - StreamMessageService
-            operationId: StreamMessageService_ReceiveMessage
+            operationId: StreamMessageService_StreamChatMessage
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/ReceiveMessageRequest'
+                            $ref: '#/components/schemas/StreamChatMessageRequest'
                 required: true
             responses:
                 "200":
@@ -2962,31 +2962,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/ReceiveMessageResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /v1/messages/send:
-        post:
-            tags:
-                - StreamMessageService
-            operationId: StreamMessageService_SendMessage
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/SendMessageRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/SendMessageResponse'
+                                $ref: '#/components/schemas/StreamChatMessageResponse'
                 default:
                     description: Default error response
                     content:
@@ -5223,16 +5199,6 @@ components:
                     format: enum
                 message:
                     type: string
-        ReceiveMessageRequest:
-            type: object
-            properties:
-                message:
-                    type: string
-        ReceiveMessageResponse:
-            type: object
-            properties:
-                message:
-                    type: string
         RefreshTokenRequest:
             type: object
             properties:
@@ -5805,16 +5771,6 @@ components:
                     type: string
                 pageSize:
                     type: string
-        SendMessageRequest:
-            type: object
-            properties:
-                message:
-                    type: string
-        SendMessageResponse:
-            type: object
-            properties:
-                message:
-                    type: string
         ShareDetail:
             type: object
             properties:
@@ -6130,6 +6086,39 @@ components:
                 version:
                     type: string
                 userId:
+                    type: string
+        StreamChatMessage:
+            type: object
+            properties:
+                content:
+                    type: string
+                msgType:
+                    type: integer
+                    format: enum
+                syncNum:
+                    type: string
+                timestamp:
+                    type: string
+        StreamChatMessageRequest:
+            type: object
+            properties:
+                message:
+                    $ref: '#/components/schemas/StreamChatMessage'
+                timestamp:
+                    type: string
+                requestId:
+                    type: string
+        StreamChatMessageResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                timestamp:
+                    type: string
+                requestId:
                     type: string
         Tags:
             type: object

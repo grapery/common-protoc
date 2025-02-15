@@ -31,54 +31,47 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_StreamMessageService_SendMessage_0(ctx context.Context, marshaler runtime.Marshaler, client StreamMessageServiceClient, req *http.Request, pathParams map[string]string) (StreamMessageService_SendMessageClient, runtime.ServerMetadata, error) {
-	var protoReq SendMessageRequest
+func request_StreamMessageService_StreamChatMessage_0(ctx context.Context, marshaler runtime.Marshaler, client StreamMessageServiceClient, req *http.Request, pathParams map[string]string) (StreamMessageService_StreamChatMessageClient, runtime.ServerMetadata, error) {
 	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	stream, err := client.SendMessage(ctx, &protoReq)
+	stream, err := client.StreamChatMessage(ctx)
 	if err != nil {
+		grpclog.Infof("Failed to start streaming: %v", err)
 		return nil, metadata, err
 	}
+	dec := marshaler.NewDecoder(req.Body)
+	handleSend := func() error {
+		var protoReq StreamChatMessageRequest
+		err := dec.Decode(&protoReq)
+		if err == io.EOF {
+			return err
+		}
+		if err != nil {
+			grpclog.Infof("Failed to decode request: %v", err)
+			return err
+		}
+		if err := stream.Send(&protoReq); err != nil {
+			grpclog.Infof("Failed to send request: %v", err)
+			return err
+		}
+		return nil
+	}
+	go func() {
+		for {
+			if err := handleSend(); err != nil {
+				break
+			}
+		}
+		if err := stream.CloseSend(); err != nil {
+			grpclog.Infof("Failed to terminate client stream: %v", err)
+		}
+	}()
 	header, err := stream.Header()
 	if err != nil {
+		grpclog.Infof("Failed to get header from client: %v", err)
 		return nil, metadata, err
 	}
 	metadata.HeaderMD = header
 	return stream, metadata, nil
-
-}
-
-func request_StreamMessageService_ReceiveMessage_0(ctx context.Context, marshaler runtime.Marshaler, client StreamMessageServiceClient, req *http.Request, pathParams map[string]string) (StreamMessageService_ReceiveMessageClient, runtime.ServerMetadata, error) {
-	var protoReq ReceiveMessageRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	stream, err := client.ReceiveMessage(ctx, &protoReq)
-	if err != nil {
-		return nil, metadata, err
-	}
-	header, err := stream.Header()
-	if err != nil {
-		return nil, metadata, err
-	}
-	metadata.HeaderMD = header
-	return stream, metadata, nil
-
 }
 
 // RegisterStreamMessageServiceHandlerServer registers the http handlers for service StreamMessageService to "mux".
@@ -87,14 +80,7 @@ func request_StreamMessageService_ReceiveMessage_0(ctx context.Context, marshale
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterStreamMessageServiceHandlerFromEndpoint instead.
 func RegisterStreamMessageServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server StreamMessageServiceServer) error {
 
-	mux.Handle("POST", pattern_StreamMessageService_SendMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
-		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-		return
-	})
-
-	mux.Handle("POST", pattern_StreamMessageService_ReceiveMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_StreamMessageService_StreamChatMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -142,47 +128,25 @@ func RegisterStreamMessageServiceHandler(ctx context.Context, mux *runtime.Serve
 // "StreamMessageServiceClient" to call the correct interceptors.
 func RegisterStreamMessageServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client StreamMessageServiceClient) error {
 
-	mux.Handle("POST", pattern_StreamMessageService_SendMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_StreamMessageService_StreamChatMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.StreamMessageService/SendMessage", runtime.WithHTTPPathPattern("/v1/messages/send"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.StreamMessageService/StreamChatMessage", runtime.WithHTTPPathPattern("/v1/chat/messages/stream"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_StreamMessageService_SendMessage_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_StreamMessageService_StreamChatMessage_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_StreamMessageService_SendMessage_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_StreamMessageService_ReceiveMessage_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.StreamMessageService/ReceiveMessage", runtime.WithHTTPPathPattern("/v1/messages/receive"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_StreamMessageService_ReceiveMessage_0(annotatedContext, inboundMarshaler, client, req, pathParams)
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_StreamMessageService_ReceiveMessage_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_StreamMessageService_StreamChatMessage_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -190,13 +154,9 @@ func RegisterStreamMessageServiceHandlerClient(ctx context.Context, mux *runtime
 }
 
 var (
-	pattern_StreamMessageService_SendMessage_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "messages", "send"}, ""))
-
-	pattern_StreamMessageService_ReceiveMessage_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "messages", "receive"}, ""))
+	pattern_StreamMessageService_StreamChatMessage_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"v1", "chat", "messages", "stream"}, ""))
 )
 
 var (
-	forward_StreamMessageService_SendMessage_0 = runtime.ForwardResponseStream
-
-	forward_StreamMessageService_ReceiveMessage_0 = runtime.ForwardResponseStream
+	forward_StreamMessageService_StreamChatMessage_0 = runtime.ForwardResponseStream
 )

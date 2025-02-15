@@ -6,35 +6,41 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/api/annotations.proto";
+import "error.proto";
 
-
-message SendMessageRequest {
-  string message = 1;
+enum MsgType {
+  TEXT = 0;
+  IMAGE = 1;
+  VIDEO = 2;
+  AUDIO = 3;
+  SYSTEM = 4;
 }
 
-message SendMessageResponse {
-  string message = 1;
+message StreamChatMessage {
+  string content = 1;
+  MsgType msg_type = 2;
+  int64 sync_num = 3;
+  int64 timestamp = 4;
 }
 
-message ReceiveMessageRequest {
-  string message = 1;
+message StreamChatMessageRequest {
+  StreamChatMessage message = 1;
+  int64 timestamp = 2;
+  string request_id = 3;
 }
 
-message ReceiveMessageResponse {
-  string message = 1;
-} 
+message StreamChatMessageResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  int64 timestamp = 3;
+  string request_id = 4;
+}
 
 // 使用 stream 发送、接收消息
 service StreamMessageService {
-  rpc SendMessage(SendMessageRequest) returns (stream SendMessageResponse) {
+  rpc StreamChatMessage(stream StreamChatMessageRequest) returns (stream StreamChatMessageResponse) {
     option (google.api.http) = {
-      post: "/v1/messages/send"
-      body: "*"
-    };
-  }
-  rpc ReceiveMessage(ReceiveMessageRequest) returns (stream ReceiveMessageResponse) {
-    option (google.api.http) = {
-      post: "/v1/messages/receive"
+      post: "/v1/chat/messages/stream"
       body: "*"
     };
   }

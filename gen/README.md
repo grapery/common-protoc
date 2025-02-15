@@ -45,10 +45,11 @@
     - [WordDetail](#common-WordDetail)
   
 - [message.proto](#message-proto)
-    - [ReceiveMessageRequest](#common-ReceiveMessageRequest)
-    - [ReceiveMessageResponse](#common-ReceiveMessageResponse)
-    - [SendMessageRequest](#common-SendMessageRequest)
-    - [SendMessageResponse](#common-SendMessageResponse)
+    - [StreamChatMessage](#common-StreamChatMessage)
+    - [StreamChatMessageRequest](#common-StreamChatMessageRequest)
+    - [StreamChatMessageResponse](#common-StreamChatMessageResponse)
+  
+    - [MsgType](#common-MsgType)
   
     - [StreamMessageService](#common-StreamMessageService)
   
@@ -1237,66 +1238,74 @@ AI生成失败 |
 
 
 
-<a name="common-ReceiveMessageRequest"></a>
+<a name="common-StreamChatMessage"></a>
 
-### ReceiveMessageRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-ReceiveMessageResponse"></a>
-
-### ReceiveMessageResponse
+### StreamChatMessage
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
+| content | [string](#string) |  |  |
+| msg_type | [MsgType](#common-MsgType) |  |  |
+| sync_num | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
 
 
 
 
 
 
-<a name="common-SendMessageRequest"></a>
+<a name="common-StreamChatMessageRequest"></a>
 
-### SendMessageRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-SendMessageResponse"></a>
-
-### SendMessageResponse
+### StreamChatMessageRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| message | [StreamChatMessage](#common-StreamChatMessage) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StreamChatMessageResponse"></a>
+
+### StreamChatMessageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
 
 
 
 
 
  
+
+
+<a name="common-MsgType"></a>
+
+### MsgType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TEXT | 0 |  |
+| IMAGE | 1 |  |
+| VIDEO | 2 |  |
+| AUDIO | 3 |  |
+| SYSTEM | 4 |  |
+
 
  
 
@@ -1310,8 +1319,7 @@ AI生成失败 |
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| SendMessage | [SendMessageRequest](#common-SendMessageRequest) | [SendMessageResponse](#common-SendMessageResponse) stream |  |
-| ReceiveMessage | [ReceiveMessageRequest](#common-ReceiveMessageRequest) | [ReceiveMessageResponse](#common-ReceiveMessageResponse) stream |  |
+| StreamChatMessage | [StreamChatMessageRequest](#common-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#common-StreamChatMessageResponse) stream |  |
 
  
 

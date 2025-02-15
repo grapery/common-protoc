@@ -33,18 +33,14 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// StreamMessageServiceSendMessageProcedure is the fully-qualified name of the
-	// StreamMessageService's SendMessage RPC.
-	StreamMessageServiceSendMessageProcedure = "/common.StreamMessageService/SendMessage"
-	// StreamMessageServiceReceiveMessageProcedure is the fully-qualified name of the
-	// StreamMessageService's ReceiveMessage RPC.
-	StreamMessageServiceReceiveMessageProcedure = "/common.StreamMessageService/ReceiveMessage"
+	// StreamMessageServiceStreamChatMessageProcedure is the fully-qualified name of the
+	// StreamMessageService's StreamChatMessage RPC.
+	StreamMessageServiceStreamChatMessageProcedure = "/common.StreamMessageService/StreamChatMessage"
 )
 
 // StreamMessageServiceClient is a client for the common.StreamMessageService service.
 type StreamMessageServiceClient interface {
-	SendMessage(context.Context, *connect.Request[gen.SendMessageRequest]) (*connect.ServerStreamForClient[gen.SendMessageResponse], error)
-	ReceiveMessage(context.Context, *connect.Request[gen.ReceiveMessageRequest]) (*connect.ServerStreamForClient[gen.ReceiveMessageResponse], error)
+	StreamChatMessage(context.Context) *connect.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
 // NewStreamMessageServiceClient constructs a client for the common.StreamMessageService service. By
@@ -57,14 +53,9 @@ type StreamMessageServiceClient interface {
 func NewStreamMessageServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) StreamMessageServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &streamMessageServiceClient{
-		sendMessage: connect.NewClient[gen.SendMessageRequest, gen.SendMessageResponse](
+		streamChatMessage: connect.NewClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse](
 			httpClient,
-			baseURL+StreamMessageServiceSendMessageProcedure,
-			opts...,
-		),
-		receiveMessage: connect.NewClient[gen.ReceiveMessageRequest, gen.ReceiveMessageResponse](
-			httpClient,
-			baseURL+StreamMessageServiceReceiveMessageProcedure,
+			baseURL+StreamMessageServiceStreamChatMessageProcedure,
 			opts...,
 		),
 	}
@@ -72,24 +63,17 @@ func NewStreamMessageServiceClient(httpClient connect.HTTPClient, baseURL string
 
 // streamMessageServiceClient implements StreamMessageServiceClient.
 type streamMessageServiceClient struct {
-	sendMessage    *connect.Client[gen.SendMessageRequest, gen.SendMessageResponse]
-	receiveMessage *connect.Client[gen.ReceiveMessageRequest, gen.ReceiveMessageResponse]
+	streamChatMessage *connect.Client[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
-// SendMessage calls common.StreamMessageService.SendMessage.
-func (c *streamMessageServiceClient) SendMessage(ctx context.Context, req *connect.Request[gen.SendMessageRequest]) (*connect.ServerStreamForClient[gen.SendMessageResponse], error) {
-	return c.sendMessage.CallServerStream(ctx, req)
-}
-
-// ReceiveMessage calls common.StreamMessageService.ReceiveMessage.
-func (c *streamMessageServiceClient) ReceiveMessage(ctx context.Context, req *connect.Request[gen.ReceiveMessageRequest]) (*connect.ServerStreamForClient[gen.ReceiveMessageResponse], error) {
-	return c.receiveMessage.CallServerStream(ctx, req)
+// StreamChatMessage calls common.StreamMessageService.StreamChatMessage.
+func (c *streamMessageServiceClient) StreamChatMessage(ctx context.Context) *connect.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse] {
+	return c.streamChatMessage.CallBidiStream(ctx)
 }
 
 // StreamMessageServiceHandler is an implementation of the common.StreamMessageService service.
 type StreamMessageServiceHandler interface {
-	SendMessage(context.Context, *connect.Request[gen.SendMessageRequest], *connect.ServerStream[gen.SendMessageResponse]) error
-	ReceiveMessage(context.Context, *connect.Request[gen.ReceiveMessageRequest], *connect.ServerStream[gen.ReceiveMessageResponse]) error
+	StreamChatMessage(context.Context, *connect.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error
 }
 
 // NewStreamMessageServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -98,22 +82,15 @@ type StreamMessageServiceHandler interface {
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
 func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	streamMessageServiceSendMessageHandler := connect.NewServerStreamHandler(
-		StreamMessageServiceSendMessageProcedure,
-		svc.SendMessage,
-		opts...,
-	)
-	streamMessageServiceReceiveMessageHandler := connect.NewServerStreamHandler(
-		StreamMessageServiceReceiveMessageProcedure,
-		svc.ReceiveMessage,
+	streamMessageServiceStreamChatMessageHandler := connect.NewBidiStreamHandler(
+		StreamMessageServiceStreamChatMessageProcedure,
+		svc.StreamChatMessage,
 		opts...,
 	)
 	return "/common.StreamMessageService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case StreamMessageServiceSendMessageProcedure:
-			streamMessageServiceSendMessageHandler.ServeHTTP(w, r)
-		case StreamMessageServiceReceiveMessageProcedure:
-			streamMessageServiceReceiveMessageHandler.ServeHTTP(w, r)
+		case StreamMessageServiceStreamChatMessageProcedure:
+			streamMessageServiceStreamChatMessageHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -123,10 +100,6 @@ func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...con
 // UnimplementedStreamMessageServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedStreamMessageServiceHandler struct{}
 
-func (UnimplementedStreamMessageServiceHandler) SendMessage(context.Context, *connect.Request[gen.SendMessageRequest], *connect.ServerStream[gen.SendMessageResponse]) error {
-	return connect.NewError(connect.CodeUnimplemented, errors.New("common.StreamMessageService.SendMessage is not implemented"))
-}
-
-func (UnimplementedStreamMessageServiceHandler) ReceiveMessage(context.Context, *connect.Request[gen.ReceiveMessageRequest], *connect.ServerStream[gen.ReceiveMessageResponse]) error {
-	return connect.NewError(connect.CodeUnimplemented, errors.New("common.StreamMessageService.ReceiveMessage is not implemented"))
+func (UnimplementedStreamMessageServiceHandler) StreamChatMessage(context.Context, *connect.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error {
+	return connect.NewError(connect.CodeUnimplemented, errors.New("common.StreamMessageService.StreamChatMessage is not implemented"))
 }

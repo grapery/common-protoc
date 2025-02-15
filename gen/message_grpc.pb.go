@@ -19,16 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	StreamMessageService_SendMessage_FullMethodName    = "/common.StreamMessageService/SendMessage"
-	StreamMessageService_ReceiveMessage_FullMethodName = "/common.StreamMessageService/ReceiveMessage"
+	StreamMessageService_StreamChatMessage_FullMethodName = "/common.StreamMessageService/StreamChatMessage"
 )
 
 // StreamMessageServiceClient is the client API for StreamMessageService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StreamMessageServiceClient interface {
-	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (StreamMessageService_SendMessageClient, error)
-	ReceiveMessage(ctx context.Context, in *ReceiveMessageRequest, opts ...grpc.CallOption) (StreamMessageService_ReceiveMessageClient, error)
+	StreamChatMessage(ctx context.Context, opts ...grpc.CallOption) (StreamMessageService_StreamChatMessageClient, error)
 }
 
 type streamMessageServiceClient struct {
@@ -39,64 +37,31 @@ func NewStreamMessageServiceClient(cc grpc.ClientConnInterface) StreamMessageSer
 	return &streamMessageServiceClient{cc}
 }
 
-func (c *streamMessageServiceClient) SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (StreamMessageService_SendMessageClient, error) {
-	stream, err := c.cc.NewStream(ctx, &StreamMessageService_ServiceDesc.Streams[0], StreamMessageService_SendMessage_FullMethodName, opts...)
+func (c *streamMessageServiceClient) StreamChatMessage(ctx context.Context, opts ...grpc.CallOption) (StreamMessageService_StreamChatMessageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &StreamMessageService_ServiceDesc.Streams[0], StreamMessageService_StreamChatMessage_FullMethodName, opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &streamMessageServiceSendMessageClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
+	x := &streamMessageServiceStreamChatMessageClient{stream}
 	return x, nil
 }
 
-type StreamMessageService_SendMessageClient interface {
-	Recv() (*SendMessageResponse, error)
+type StreamMessageService_StreamChatMessageClient interface {
+	Send(*StreamChatMessageRequest) error
+	Recv() (*StreamChatMessageResponse, error)
 	grpc.ClientStream
 }
 
-type streamMessageServiceSendMessageClient struct {
+type streamMessageServiceStreamChatMessageClient struct {
 	grpc.ClientStream
 }
 
-func (x *streamMessageServiceSendMessageClient) Recv() (*SendMessageResponse, error) {
-	m := new(SendMessageResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
+func (x *streamMessageServiceStreamChatMessageClient) Send(m *StreamChatMessageRequest) error {
+	return x.ClientStream.SendMsg(m)
 }
 
-func (c *streamMessageServiceClient) ReceiveMessage(ctx context.Context, in *ReceiveMessageRequest, opts ...grpc.CallOption) (StreamMessageService_ReceiveMessageClient, error) {
-	stream, err := c.cc.NewStream(ctx, &StreamMessageService_ServiceDesc.Streams[1], StreamMessageService_ReceiveMessage_FullMethodName, opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &streamMessageServiceReceiveMessageClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type StreamMessageService_ReceiveMessageClient interface {
-	Recv() (*ReceiveMessageResponse, error)
-	grpc.ClientStream
-}
-
-type streamMessageServiceReceiveMessageClient struct {
-	grpc.ClientStream
-}
-
-func (x *streamMessageServiceReceiveMessageClient) Recv() (*ReceiveMessageResponse, error) {
-	m := new(ReceiveMessageResponse)
+func (x *streamMessageServiceStreamChatMessageClient) Recv() (*StreamChatMessageResponse, error) {
+	m := new(StreamChatMessageResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -107,8 +72,7 @@ func (x *streamMessageServiceReceiveMessageClient) Recv() (*ReceiveMessageRespon
 // All implementations must embed UnimplementedStreamMessageServiceServer
 // for forward compatibility
 type StreamMessageServiceServer interface {
-	SendMessage(*SendMessageRequest, StreamMessageService_SendMessageServer) error
-	ReceiveMessage(*ReceiveMessageRequest, StreamMessageService_ReceiveMessageServer) error
+	StreamChatMessage(StreamMessageService_StreamChatMessageServer) error
 	mustEmbedUnimplementedStreamMessageServiceServer()
 }
 
@@ -116,11 +80,8 @@ type StreamMessageServiceServer interface {
 type UnimplementedStreamMessageServiceServer struct {
 }
 
-func (UnimplementedStreamMessageServiceServer) SendMessage(*SendMessageRequest, StreamMessageService_SendMessageServer) error {
-	return status.Errorf(codes.Unimplemented, "method SendMessage not implemented")
-}
-func (UnimplementedStreamMessageServiceServer) ReceiveMessage(*ReceiveMessageRequest, StreamMessageService_ReceiveMessageServer) error {
-	return status.Errorf(codes.Unimplemented, "method ReceiveMessage not implemented")
+func (UnimplementedStreamMessageServiceServer) StreamChatMessage(StreamMessageService_StreamChatMessageServer) error {
+	return status.Errorf(codes.Unimplemented, "method StreamChatMessage not implemented")
 }
 func (UnimplementedStreamMessageServiceServer) mustEmbedUnimplementedStreamMessageServiceServer() {}
 
@@ -135,46 +96,30 @@ func RegisterStreamMessageServiceServer(s grpc.ServiceRegistrar, srv StreamMessa
 	s.RegisterService(&StreamMessageService_ServiceDesc, srv)
 }
 
-func _StreamMessageService_SendMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(SendMessageRequest)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(StreamMessageServiceServer).SendMessage(m, &streamMessageServiceSendMessageServer{stream})
+func _StreamMessageService_StreamChatMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(StreamMessageServiceServer).StreamChatMessage(&streamMessageServiceStreamChatMessageServer{stream})
 }
 
-type StreamMessageService_SendMessageServer interface {
-	Send(*SendMessageResponse) error
+type StreamMessageService_StreamChatMessageServer interface {
+	Send(*StreamChatMessageResponse) error
+	Recv() (*StreamChatMessageRequest, error)
 	grpc.ServerStream
 }
 
-type streamMessageServiceSendMessageServer struct {
+type streamMessageServiceStreamChatMessageServer struct {
 	grpc.ServerStream
 }
 
-func (x *streamMessageServiceSendMessageServer) Send(m *SendMessageResponse) error {
+func (x *streamMessageServiceStreamChatMessageServer) Send(m *StreamChatMessageResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _StreamMessageService_ReceiveMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(ReceiveMessageRequest)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
+func (x *streamMessageServiceStreamChatMessageServer) Recv() (*StreamChatMessageRequest, error) {
+	m := new(StreamChatMessageRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
 	}
-	return srv.(StreamMessageServiceServer).ReceiveMessage(m, &streamMessageServiceReceiveMessageServer{stream})
-}
-
-type StreamMessageService_ReceiveMessageServer interface {
-	Send(*ReceiveMessageResponse) error
-	grpc.ServerStream
-}
-
-type streamMessageServiceReceiveMessageServer struct {
-	grpc.ServerStream
-}
-
-func (x *streamMessageServiceReceiveMessageServer) Send(m *ReceiveMessageResponse) error {
-	return x.ServerStream.SendMsg(m)
+	return m, nil
 }
 
 // StreamMessageService_ServiceDesc is the grpc.ServiceDesc for StreamMessageService service.
@@ -186,14 +131,10 @@ var StreamMessageService_ServiceDesc = grpc.ServiceDesc{
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "SendMessage",
-			Handler:       _StreamMessageService_SendMessage_Handler,
+			StreamName:    "StreamChatMessage",
+			Handler:       _StreamMessageService_StreamChatMessage_Handler,
 			ServerStreams: true,
-		},
-		{
-			StreamName:    "ReceiveMessage",
-			Handler:       _StreamMessageService_ReceiveMessage_Handler,
-			ServerStreams: true,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "message.proto",

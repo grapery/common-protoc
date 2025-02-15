@@ -10,15 +10,10 @@ import SwiftProtobuf
 /// 使用 stream 发送、接收消息
 public protocol Common_StreamMessageServiceClientInterface: Sendable {
 
-    func `sendMessage`(headers: Connect.Headers, onResult: @escaping @Sendable (Connect.StreamResult<Common_SendMessageResponse>) -> Void) -> any Connect.ServerOnlyStreamInterface<Common_SendMessageRequest>
+    func `streamChatMessage`(headers: Connect.Headers, onResult: @escaping @Sendable (Connect.StreamResult<Common_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Common_StreamChatMessageRequest>
 
     @available(iOS 13, *)
-    func `sendMessage`(headers: Connect.Headers) -> any Connect.ServerOnlyAsyncStreamInterface<Common_SendMessageRequest, Common_SendMessageResponse>
-
-    func `receiveMessage`(headers: Connect.Headers, onResult: @escaping @Sendable (Connect.StreamResult<Common_ReceiveMessageResponse>) -> Void) -> any Connect.ServerOnlyStreamInterface<Common_ReceiveMessageRequest>
-
-    @available(iOS 13, *)
-    func `receiveMessage`(headers: Connect.Headers) -> any Connect.ServerOnlyAsyncStreamInterface<Common_ReceiveMessageRequest, Common_ReceiveMessageResponse>
+    func `streamChatMessage`(headers: Connect.Headers) -> any Connect.BidirectionalAsyncStreamInterface<Common_StreamChatMessageRequest, Common_StreamChatMessageResponse>
 }
 
 /// Concrete implementation of `Common_StreamMessageServiceClientInterface`.
@@ -29,28 +24,18 @@ public final class Common_StreamMessageServiceClient: Common_StreamMessageServic
         self.client = client
     }
 
-    public func `sendMessage`(headers: Connect.Headers = [:], onResult: @escaping @Sendable (Connect.StreamResult<Common_SendMessageResponse>) -> Void) -> any Connect.ServerOnlyStreamInterface<Common_SendMessageRequest> {
-        return self.client.serverOnlyStream(path: "/common.StreamMessageService/SendMessage", headers: headers, onResult: onResult)
+    public func `streamChatMessage`(headers: Connect.Headers = [:], onResult: @escaping @Sendable (Connect.StreamResult<Common_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Common_StreamChatMessageRequest> {
+        return self.client.bidirectionalStream(path: "/common.StreamMessageService/StreamChatMessage", headers: headers, onResult: onResult)
     }
 
     @available(iOS 13, *)
-    public func `sendMessage`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Common_SendMessageRequest, Common_SendMessageResponse> {
-        return self.client.serverOnlyStream(path: "/common.StreamMessageService/SendMessage", headers: headers)
-    }
-
-    public func `receiveMessage`(headers: Connect.Headers = [:], onResult: @escaping @Sendable (Connect.StreamResult<Common_ReceiveMessageResponse>) -> Void) -> any Connect.ServerOnlyStreamInterface<Common_ReceiveMessageRequest> {
-        return self.client.serverOnlyStream(path: "/common.StreamMessageService/ReceiveMessage", headers: headers, onResult: onResult)
-    }
-
-    @available(iOS 13, *)
-    public func `receiveMessage`(headers: Connect.Headers = [:]) -> any Connect.ServerOnlyAsyncStreamInterface<Common_ReceiveMessageRequest, Common_ReceiveMessageResponse> {
-        return self.client.serverOnlyStream(path: "/common.StreamMessageService/ReceiveMessage", headers: headers)
+    public func `streamChatMessage`(headers: Connect.Headers = [:]) -> any Connect.BidirectionalAsyncStreamInterface<Common_StreamChatMessageRequest, Common_StreamChatMessageResponse> {
+        return self.client.bidirectionalStream(path: "/common.StreamMessageService/StreamChatMessage", headers: headers)
     }
 
     public enum Metadata {
         public enum Methods {
-            public static let sendMessage = Connect.MethodSpec(name: "SendMessage", service: "common.StreamMessageService", type: .serverStream)
-            public static let receiveMessage = Connect.MethodSpec(name: "ReceiveMessage", service: "common.StreamMessageService", type: .serverStream)
+            public static let streamChatMessage = Connect.MethodSpec(name: "StreamChatMessage", service: "common.StreamMessageService", type: .bidirectionalStream)
         }
     }
 }
