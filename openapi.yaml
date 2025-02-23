@@ -5908,6 +5908,8 @@ components:
                     $ref: '#/components/schemas/StoryBoardParams'
                 sences:
                     $ref: '#/components/schemas/StoryBoardSences'
+                isMultiBranch:
+                    type: boolean
                 Ctime:
                     type: string
                 Mtime:
@@ -6090,15 +6092,14 @@ components:
         StreamChatMessage:
             type: object
             properties:
-                content:
+                roleId:
                     type: string
-                msgType:
-                    type: integer
-                    format: enum
-                syncNum:
+                userId:
                     type: string
-                timestamp:
-                    type: string
+                messages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChatMessage'
         StreamChatMessageRequest:
             type: object
             properties:
@@ -6122,8 +6123,10 @@ components:
                     type: string
                 requestId:
                     type: string
-                token:
-                    type: string
+                replyMessages:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StreamChatMessage'
         Tags:
             type: object
             properties:

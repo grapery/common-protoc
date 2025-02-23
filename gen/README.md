@@ -44,19 +44,6 @@
     - [VoiceDetail](#common-VoiceDetail)
     - [WordDetail](#common-WordDetail)
   
-- [message.proto](#message-proto)
-    - [StreamChatMessage](#common-StreamChatMessage)
-    - [StreamChatMessageRequest](#common-StreamChatMessageRequest)
-    - [StreamChatMessageResponse](#common-StreamChatMessageResponse)
-  
-    - [MsgType](#common-MsgType)
-  
-    - [StreamMessageService](#common-StreamMessageService)
-  
-- [project.proto](#project-proto)
-    - [ProjectInfo](#common-ProjectInfo)
-    - [ProjectProfileInfo](#common-ProjectProfileInfo)
-  
 - [user.proto](#user-proto)
     - [UserInfo](#common-UserInfo)
     - [UserInteractStatus](#common-UserInteractStatus)
@@ -169,6 +156,20 @@
     - [RenderType](#common-RenderType)
     - [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage)
   
+- [message.proto](#message-proto)
+    - [ChatMessage](#common-ChatMessage)
+    - [StreamChatMessage](#common-StreamChatMessage)
+    - [StreamChatMessageRequest](#common-StreamChatMessageRequest)
+    - [StreamChatMessageResponse](#common-StreamChatMessageResponse)
+  
+    - [MsgType](#common-MsgType)
+  
+    - [StreamMessageService](#common-StreamMessageService)
+  
+- [project.proto](#project-proto)
+    - [ProjectInfo](#common-ProjectInfo)
+    - [ProjectProfileInfo](#common-ProjectProfileInfo)
+  
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
@@ -176,7 +177,6 @@
     - [CancelStoryboardRequest](#common-CancelStoryboardRequest)
     - [CancelStoryboardResponse](#common-CancelStoryboardResponse)
     - [ChatContext](#common-ChatContext)
-    - [ChatMessage](#common-ChatMessage)
     - [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest)
     - [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse)
     - [ConfirmRequest](#common-ConfirmRequest)
@@ -1216,169 +1216,6 @@ AI生成失败 |
 | prompt | [string](#string) |  |  |
 | title | [string](#string) |  |  |
 | desc | [string](#string) |  |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="message-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## message.proto
-
-
-
-<a name="common-StreamChatMessage"></a>
-
-### StreamChatMessage
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| content | [string](#string) |  |  |
-| msg_type | [MsgType](#common-MsgType) |  |  |
-| sync_num | [int64](#int64) |  |  |
-| timestamp | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-StreamChatMessageRequest"></a>
-
-### StreamChatMessageRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [StreamChatMessage](#common-StreamChatMessage) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| request_id | [string](#string) |  |  |
-| token | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-StreamChatMessageResponse"></a>
-
-### StreamChatMessageResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| request_id | [string](#string) |  |  |
-| token | [string](#string) |  |  |
-
-
-
-
-
- 
-
-
-<a name="common-MsgType"></a>
-
-### MsgType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| TEXT | 0 |  |
-| IMAGE | 1 |  |
-| VIDEO | 2 |  |
-| AUDIO | 3 |  |
-| SYSTEM | 4 |  |
-
-
- 
-
- 
-
-
-<a name="common-StreamMessageService"></a>
-
-### StreamMessageService
-使用 stream 发送、接收消息
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| StreamChatMessage | [StreamChatMessageRequest](#common-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#common-StreamChatMessageResponse) stream |  |
-
- 
-
-
-
-<a name="project-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## project.proto
-
-
-
-<a name="common-ProjectInfo"></a>
-
-### ProjectInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| project_id | [uint64](#uint64) |  |  |
-| group_id | [uint32](#uint32) |  |  |
-| name | [string](#string) |  |  |
-| avatar | [string](#string) |  |  |
-| creator | [int64](#int64) |  |  |
-| owner | [int64](#int64) |  |  |
-| tags | [Tags](#common-Tags) | repeated |  |
-| visable | [ScopeType](#common-ScopeType) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-ProjectProfileInfo"></a>
-
-### ProjectProfileInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| project_id | [int64](#int64) |  |  |
-| group_id | [int32](#int32) |  |  |
-| description | [string](#string) |  |  |
-| watching_count | [int64](#int64) |  |  |
-| involved_count | [int64](#int64) |  |  |
-| avatar | [string](#string) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| scope_type | [ScopeType](#common-ScopeType) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
 
 
 
@@ -2951,6 +2788,7 @@ AI生成失败 |
 | backgroud | [string](#string) |  |  |
 | params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
 | sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
+| is_multi_branch | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3386,6 +3224,192 @@ AI生成失败 |
 
 
 
+<a name="message-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## message.proto
+
+
+
+<a name="common-ChatMessage"></a>
+
+### ChatMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| sender | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| chat_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| user | [UserInfo](#common-UserInfo) |  |  |
+| role | [StoryRole](#common-StoryRole) |  |  |
+| uuid | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StreamChatMessage"></a>
+
+### StreamChatMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+
+
+
+
+
+
+<a name="common-StreamChatMessageRequest"></a>
+
+### StreamChatMessageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [StreamChatMessage](#common-StreamChatMessage) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StreamChatMessageResponse"></a>
+
+### StreamChatMessageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
+| reply_messages | [StreamChatMessage](#common-StreamChatMessage) | repeated |  |
+
+
+
+
+
+ 
+
+
+<a name="common-MsgType"></a>
+
+### MsgType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TEXT | 0 |  |
+| IMAGE | 1 |  |
+| VIDEO | 2 |  |
+| AUDIO | 3 |  |
+| SYSTEM | 4 |  |
+
+
+ 
+
+ 
+
+
+<a name="common-StreamMessageService"></a>
+
+### StreamMessageService
+使用 stream 发送、接收消息
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| StreamChatMessage | [StreamChatMessageRequest](#common-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#common-StreamChatMessageResponse) stream |  |
+
+ 
+
+
+
+<a name="project-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## project.proto
+
+
+
+<a name="common-ProjectInfo"></a>
+
+### ProjectInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| project_id | [uint64](#uint64) |  |  |
+| group_id | [uint32](#uint32) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| creator | [int64](#int64) |  |  |
+| owner | [int64](#int64) |  |  |
+| tags | [Tags](#common-Tags) | repeated |  |
+| visable | [ScopeType](#common-ScopeType) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ProjectProfileInfo"></a>
+
+### ProjectProfileInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| project_id | [int64](#int64) |  |  |
+| group_id | [int32](#int32) |  |  |
+| description | [string](#string) |  |  |
+| watching_count | [int64](#int64) |  |  |
+| involved_count | [int64](#int64) |  |  |
+| avatar | [string](#string) |  |  |
+| is_achieve | [bool](#bool) |  |  |
+| is_close | [bool](#bool) |  |  |
+| scope_type | [ScopeType](#common-ScopeType) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -3492,30 +3516,6 @@ AI生成失败 |
 | last_message | [ChatMessage](#common-ChatMessage) |  |  |
 | user | [UserInfo](#common-UserInfo) |  |  |
 | role | [StoryRole](#common-StoryRole) |  |  |
-
-
-
-
-
-
-<a name="common-ChatMessage"></a>
-
-### ChatMessage
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [int64](#int64) |  |  |
-| role_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| sender | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
-| chat_id | [int64](#int64) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| user | [UserInfo](#common-UserInfo) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
-| uuid | [string](#string) |  |  |
 
 
 

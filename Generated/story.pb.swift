@@ -332,61 +332,104 @@ public struct Common_StoryParams: Sendable {
   public init() {}
 }
 
-public struct Common_StoryBoard: Sendable {
+public struct Common_StoryBoard: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var storyID: Int64 = 0
+  public var storyID: Int64 {
+    get {return _storage._storyID}
+    set {_uniqueStorage()._storyID = newValue}
+  }
 
-  public var num: Int64 = 0
+  public var num: Int64 {
+    get {return _storage._num}
+    set {_uniqueStorage()._num = newValue}
+  }
 
-  public var prevBoardID: Int64 = 0
+  public var prevBoardID: Int64 {
+    get {return _storage._prevBoardID}
+    set {_uniqueStorage()._prevBoardID = newValue}
+  }
 
-  public var nextBoardID: [Int64] = []
+  public var nextBoardID: [Int64] {
+    get {return _storage._nextBoardID}
+    set {_uniqueStorage()._nextBoardID = newValue}
+  }
 
-  public var creator: Int64 = 0
+  public var creator: Int64 {
+    get {return _storage._creator}
+    set {_uniqueStorage()._creator = newValue}
+  }
 
-  public var storyBoardID: Int64 = 0
+  public var storyBoardID: Int64 {
+    get {return _storage._storyBoardID}
+    set {_uniqueStorage()._storyBoardID = newValue}
+  }
 
-  public var title: String = String()
+  public var title: String {
+    get {return _storage._title}
+    set {_uniqueStorage()._title = newValue}
+  }
 
-  public var content: String = String()
+  public var content: String {
+    get {return _storage._content}
+    set {_uniqueStorage()._content = newValue}
+  }
 
-  public var isAiGen: Bool = false
+  public var isAiGen: Bool {
+    get {return _storage._isAiGen}
+    set {_uniqueStorage()._isAiGen = newValue}
+  }
 
-  public var roles: [Common_StoryRole] = []
+  public var roles: [Common_StoryRole] {
+    get {return _storage._roles}
+    set {_uniqueStorage()._roles = newValue}
+  }
 
-  public var backgroud: String = String()
+  public var backgroud: String {
+    get {return _storage._backgroud}
+    set {_uniqueStorage()._backgroud = newValue}
+  }
 
   public var params: Common_StoryBoardParams {
-    get {return _params ?? Common_StoryBoardParams()}
-    set {_params = newValue}
+    get {return _storage._params ?? Common_StoryBoardParams()}
+    set {_uniqueStorage()._params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  public var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return _storage._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  public mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {_uniqueStorage()._params = nil}
 
   public var sences: Common_StoryBoardSences {
-    get {return _sences ?? Common_StoryBoardSences()}
-    set {_sences = newValue}
+    get {return _storage._sences ?? Common_StoryBoardSences()}
+    set {_uniqueStorage()._sences = newValue}
   }
   /// Returns true if `sences` has been explicitly set.
-  public var hasSences: Bool {return self._sences != nil}
+  public var hasSences: Bool {return _storage._sences != nil}
   /// Clears the value of `sences`. Subsequent reads from it will return its default value.
-  public mutating func clearSences() {self._sences = nil}
+  public mutating func clearSences() {_uniqueStorage()._sences = nil}
 
-  public var ctime: Int64 = 0
+  public var isMultiBranch: Bool {
+    get {return _storage._isMultiBranch}
+    set {_uniqueStorage()._isMultiBranch = newValue}
+  }
 
-  public var mtime: Int64 = 0
+  public var ctime: Int64 {
+    get {return _storage._ctime}
+    set {_uniqueStorage()._ctime = newValue}
+  }
+
+  public var mtime: Int64 {
+    get {return _storage._mtime}
+    set {_uniqueStorage()._mtime = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _params: Common_StoryBoardParams? = nil
-  fileprivate var _sences: Common_StoryBoardSences? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_StoryBoardSences: Sendable {
@@ -1110,40 +1153,31 @@ public struct Common_DelStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ForkStoryboardRequest: @unchecked Sendable {
+public struct Common_ForkStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var prevBoardID: Int64 {
-    get {return _storage._prevBoardID}
-    set {_uniqueStorage()._prevBoardID = newValue}
-  }
+  public var prevBoardID: Int64 = 0
 
-  public var storyID: Int64 {
-    get {return _storage._storyID}
-    set {_uniqueStorage()._storyID = newValue}
-  }
+  public var storyID: Int64 = 0
 
-  public var userID: Int64 {
-    get {return _storage._userID}
-    set {_uniqueStorage()._userID = newValue}
-  }
+  public var userID: Int64 = 0
 
   public var board: Common_StoryBoard {
-    get {return _storage._board ?? Common_StoryBoard()}
-    set {_uniqueStorage()._board = newValue}
+    get {return _board ?? Common_StoryBoard()}
+    set {_board = newValue}
   }
   /// Returns true if `board` has been explicitly set.
-  public var hasBoard: Bool {return _storage._board != nil}
+  public var hasBoard: Bool {return self._board != nil}
   /// Clears the value of `board`. Subsequent reads from it will return its default value.
-  public mutating func clearBoard() {_uniqueStorage()._board = nil}
+  public mutating func clearBoard() {self._board = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _board: Common_StoryBoard? = nil
 }
 
 public struct Common_ForkStoryboardResponse: Sendable {
@@ -2934,105 +2968,181 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     13: .same(proto: "backgroud"),
     15: .same(proto: "params"),
     16: .same(proto: "sences"),
+    17: .standard(proto: "is_multi_branch"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
 
+  fileprivate class _StorageClass {
+    var _storyID: Int64 = 0
+    var _num: Int64 = 0
+    var _prevBoardID: Int64 = 0
+    var _nextBoardID: [Int64] = []
+    var _creator: Int64 = 0
+    var _storyBoardID: Int64 = 0
+    var _title: String = String()
+    var _content: String = String()
+    var _isAiGen: Bool = false
+    var _roles: [Common_StoryRole] = []
+    var _backgroud: String = String()
+    var _params: Common_StoryBoardParams? = nil
+    var _sences: Common_StoryBoardSences? = nil
+    var _isMultiBranch: Bool = false
+    var _ctime: Int64 = 0
+    var _mtime: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _storyID = source._storyID
+      _num = source._num
+      _prevBoardID = source._prevBoardID
+      _nextBoardID = source._nextBoardID
+      _creator = source._creator
+      _storyBoardID = source._storyBoardID
+      _title = source._title
+      _content = source._content
+      _isAiGen = source._isAiGen
+      _roles = source._roles
+      _backgroud = source._backgroud
+      _params = source._params
+      _sences = source._sences
+      _isMultiBranch = source._isMultiBranch
+      _ctime = source._ctime
+      _mtime = source._mtime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.num) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
-      case 4: try { try decoder.decodeRepeatedInt64Field(value: &self.nextBoardID) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.creator) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyBoardID) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.title) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.content) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.isAiGen) }()
-      case 12: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
-      case 13: try { try decoder.decodeSingularStringField(value: &self.backgroud) }()
-      case 15: try { try decoder.decodeSingularMessageField(value: &self._params) }()
-      case 16: try { try decoder.decodeSingularMessageField(value: &self._sences) }()
-      case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._num) }()
+        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._prevBoardID) }()
+        case 4: try { try decoder.decodeRepeatedInt64Field(value: &_storage._nextBoardID) }()
+        case 5: try { try decoder.decodeSingularInt64Field(value: &_storage._creator) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._storyBoardID) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._title) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._content) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._isAiGen) }()
+        case 12: try { try decoder.decodeRepeatedMessageField(value: &_storage._roles) }()
+        case 13: try { try decoder.decodeSingularStringField(value: &_storage._backgroud) }()
+        case 15: try { try decoder.decodeSingularMessageField(value: &_storage._params) }()
+        case 16: try { try decoder.decodeSingularMessageField(value: &_storage._sences) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._isMultiBranch) }()
+        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
-    }
-    if self.num != 0 {
-      try visitor.visitSingularInt64Field(value: self.num, fieldNumber: 2)
-    }
-    if self.prevBoardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.prevBoardID, fieldNumber: 3)
-    }
-    if !self.nextBoardID.isEmpty {
-      try visitor.visitPackedInt64Field(value: self.nextBoardID, fieldNumber: 4)
-    }
-    if self.creator != 0 {
-      try visitor.visitSingularInt64Field(value: self.creator, fieldNumber: 5)
-    }
-    if self.storyBoardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyBoardID, fieldNumber: 6)
-    }
-    if !self.title.isEmpty {
-      try visitor.visitSingularStringField(value: self.title, fieldNumber: 8)
-    }
-    if !self.content.isEmpty {
-      try visitor.visitSingularStringField(value: self.content, fieldNumber: 9)
-    }
-    if self.isAiGen != false {
-      try visitor.visitSingularBoolField(value: self.isAiGen, fieldNumber: 11)
-    }
-    if !self.roles.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.roles, fieldNumber: 12)
-    }
-    if !self.backgroud.isEmpty {
-      try visitor.visitSingularStringField(value: self.backgroud, fieldNumber: 13)
-    }
-    try { if let v = self._params {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-    } }()
-    try { if let v = self._sences {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-    } }()
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 20)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._storyID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 1)
+      }
+      if _storage._num != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._num, fieldNumber: 2)
+      }
+      if _storage._prevBoardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._prevBoardID, fieldNumber: 3)
+      }
+      if !_storage._nextBoardID.isEmpty {
+        try visitor.visitPackedInt64Field(value: _storage._nextBoardID, fieldNumber: 4)
+      }
+      if _storage._creator != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._creator, fieldNumber: 5)
+      }
+      if _storage._storyBoardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyBoardID, fieldNumber: 6)
+      }
+      if !_storage._title.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._title, fieldNumber: 8)
+      }
+      if !_storage._content.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._content, fieldNumber: 9)
+      }
+      if _storage._isAiGen != false {
+        try visitor.visitSingularBoolField(value: _storage._isAiGen, fieldNumber: 11)
+      }
+      if !_storage._roles.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._roles, fieldNumber: 12)
+      }
+      if !_storage._backgroud.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._backgroud, fieldNumber: 13)
+      }
+      try { if let v = _storage._params {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      } }()
+      try { if let v = _storage._sences {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+      } }()
+      if _storage._isMultiBranch != false {
+        try visitor.visitSingularBoolField(value: _storage._isMultiBranch, fieldNumber: 17)
+      }
+      if _storage._ctime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+      }
+      if _storage._mtime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_StoryBoard, rhs: Common_StoryBoard) -> Bool {
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.num != rhs.num {return false}
-    if lhs.prevBoardID != rhs.prevBoardID {return false}
-    if lhs.nextBoardID != rhs.nextBoardID {return false}
-    if lhs.creator != rhs.creator {return false}
-    if lhs.storyBoardID != rhs.storyBoardID {return false}
-    if lhs.title != rhs.title {return false}
-    if lhs.content != rhs.content {return false}
-    if lhs.isAiGen != rhs.isAiGen {return false}
-    if lhs.roles != rhs.roles {return false}
-    if lhs.backgroud != rhs.backgroud {return false}
-    if lhs._params != rhs._params {return false}
-    if lhs._sences != rhs._sences {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._storyID != rhs_storage._storyID {return false}
+        if _storage._num != rhs_storage._num {return false}
+        if _storage._prevBoardID != rhs_storage._prevBoardID {return false}
+        if _storage._nextBoardID != rhs_storage._nextBoardID {return false}
+        if _storage._creator != rhs_storage._creator {return false}
+        if _storage._storyBoardID != rhs_storage._storyBoardID {return false}
+        if _storage._title != rhs_storage._title {return false}
+        if _storage._content != rhs_storage._content {return false}
+        if _storage._isAiGen != rhs_storage._isAiGen {return false}
+        if _storage._roles != rhs_storage._roles {return false}
+        if _storage._backgroud != rhs_storage._backgroud {return false}
+        if _storage._params != rhs_storage._params {return false}
+        if _storage._sences != rhs_storage._sences {return false}
+        if _storage._isMultiBranch != rhs_storage._isMultiBranch {return false}
+        if _storage._ctime != rhs_storage._ctime {return false}
+        if _storage._mtime != rhs_storage._mtime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4651,92 +4761,46 @@ extension Common_ForkStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     4: .same(proto: "board"),
   ]
 
-  fileprivate class _StorageClass {
-    var _prevBoardID: Int64 = 0
-    var _storyID: Int64 = 0
-    var _userID: Int64 = 0
-    var _board: Common_StoryBoard? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _prevBoardID = source._prevBoardID
-      _storyID = source._storyID
-      _userID = source._userID
-      _board = source._board
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._prevBoardID) }()
-        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
-        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._board) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.prevBoardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._board) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if _storage._prevBoardID != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._prevBoardID, fieldNumber: 1)
-      }
-      if _storage._storyID != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 2)
-      }
-      if _storage._userID != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 3)
-      }
-      try { if let v = _storage._board {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.prevBoardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.prevBoardID, fieldNumber: 1)
     }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
+    try { if let v = self._board {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ForkStoryboardRequest, rhs: Common_ForkStoryboardRequest) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._prevBoardID != rhs_storage._prevBoardID {return false}
-        if _storage._storyID != rhs_storage._storyID {return false}
-        if _storage._userID != rhs_storage._userID {return false}
-        if _storage._board != rhs_storage._board {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.prevBoardID != rhs.prevBoardID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs._board != rhs._board {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

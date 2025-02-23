@@ -6,6 +6,8 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/api/annotations.proto";
+import "user.proto";
+import "story.proto";
 import "error.proto";
 
 enum MsgType {
@@ -16,11 +18,23 @@ enum MsgType {
   SYSTEM = 4;
 }
 
+message ChatMessage {
+  int64 id = 1;
+  int64 role_id = 2;
+  int64 user_id = 3;
+  int32 sender = 4; 
+  string message = 5;
+  int64 chat_id = 6;
+  int64 timestamp = 7;
+  UserInfo user = 8;
+  StoryRole role = 9;
+  string uuid = 10;
+}
+
 message StreamChatMessage {
-  string content = 1;
-  MsgType msg_type = 2;
-  int64 sync_num = 3;
-  int64 timestamp = 4;
+  int64 role_id = 1;
+  int64 user_id = 2;
+  repeated ChatMessage messages = 3;
 }
 
 message StreamChatMessageRequest {
@@ -35,7 +49,7 @@ message StreamChatMessageResponse {
   string message = 2;
   int64 timestamp = 3;
   string request_id = 4;
-  string token = 5;
+  repeated StreamChatMessage reply_messages = 5;
 }
 
 // 使用 stream 发送、接收消息

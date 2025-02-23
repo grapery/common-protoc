@@ -53,6 +53,7 @@ message StoryBoard{
     string backgroud = 13;
     StoryBoardParams params = 15;
     StoryBoardSences sences = 16;
+    bool is_multi_branch = 17;  
     int64 Ctime = 19;
     int64 Mtime = 20;
 }
