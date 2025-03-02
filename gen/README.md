@@ -6569,6 +6569,7 @@ AI生成失败 |
 | total_fork_count | [int64](#int64) |  |  |
 | users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
 | roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
+| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
 | mtime | [int64](#int64) |  |  |
 
 

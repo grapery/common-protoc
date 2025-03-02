@@ -6106,6 +6106,8 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardActiveRole'
+                creator:
+                    $ref: '#/components/schemas/StoryBoardActiveUser'
                 mtime:
                     type: string
         StoryBoardActiveRole:
