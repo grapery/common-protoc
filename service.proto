@@ -1950,7 +1950,8 @@ message StoryBoardActive {
   repeated StoryBoardActiveUser users = 7;
   repeated StoryBoardActiveRole roles = 8;
   StoryBoardActiveUser creator = 9;
-  int64 mtime = 10;
+  bool isliked = 10; 
+  int64 mtime = 11;
 }
 
 message GetUserWatchRoleActiveStoryBoardsRequest {

@@ -291,6 +291,16 @@ public struct Common_Story: @unchecked Sendable {
     set {_uniqueStorage()._totalBoards = newValue}
   }
 
+  public var isliked: Bool {
+    get {return _storage._isliked}
+    set {_uniqueStorage()._isliked = newValue}
+  }
+
+  public var iswatched: Bool {
+    get {return _storage._iswatched}
+    set {_uniqueStorage()._iswatched = newValue}
+  }
+
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
@@ -524,6 +534,16 @@ public struct Common_StoryRole: @unchecked Sendable {
   public var version: Int64 {
     get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
+  }
+
+  public var isliked: Bool {
+    get {return _storage._isliked}
+    set {_uniqueStorage()._isliked = newValue}
+  }
+
+  public var isfolllowed: Bool {
+    get {return _storage._isfolllowed}
+    set {_uniqueStorage()._isfolllowed = newValue}
   }
 
   public var ctime: Int64 {
@@ -2677,8 +2697,10 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     16: .same(proto: "status"),
     17: .same(proto: "title"),
     18: .standard(proto: "total_boards"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
+    19: .same(proto: "isliked"),
+    20: .same(proto: "iswatched"),
+    21: .same(proto: "Ctime"),
+    22: .same(proto: "Mtime"),
   ]
 
   fileprivate class _StorageClass {
@@ -2700,6 +2722,8 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     var _status: Int32 = 0
     var _title: String = String()
     var _totalBoards: Int64 = 0
+    var _isliked: Bool = false
+    var _iswatched: Bool = false
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -2734,6 +2758,8 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       _status = source._status
       _title = source._title
       _totalBoards = source._totalBoards
+      _isliked = source._isliked
+      _iswatched = source._iswatched
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -2772,8 +2798,10 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         case 16: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
         case 17: try { try decoder.decodeSingularStringField(value: &_storage._title) }()
         case 18: try { try decoder.decodeSingularInt64Field(value: &_storage._totalBoards) }()
-        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 19: try { try decoder.decodeSingularBoolField(value: &_storage._isliked) }()
+        case 20: try { try decoder.decodeSingularBoolField(value: &_storage._iswatched) }()
+        case 21: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 22: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
         }
       }
@@ -2840,11 +2868,17 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       if _storage._totalBoards != 0 {
         try visitor.visitSingularInt64Field(value: _storage._totalBoards, fieldNumber: 18)
       }
+      if _storage._isliked != false {
+        try visitor.visitSingularBoolField(value: _storage._isliked, fieldNumber: 19)
+      }
+      if _storage._iswatched != false {
+        try visitor.visitSingularBoolField(value: _storage._iswatched, fieldNumber: 20)
+      }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 21)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 22)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2873,6 +2907,8 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         if _storage._status != rhs_storage._status {return false}
         if _storage._title != rhs_storage._title {return false}
         if _storage._totalBoards != rhs_storage._totalBoards {return false}
+        if _storage._isliked != rhs_storage._isliked {return false}
+        if _storage._iswatched != rhs_storage._iswatched {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true
@@ -3204,8 +3240,10 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     15: .standard(proto: "follow_count"),
     16: .standard(proto: "storyboard_num"),
     17: .same(proto: "version"),
-    18: .same(proto: "Ctime"),
-    19: .same(proto: "Mtime"),
+    18: .same(proto: "isliked"),
+    19: .same(proto: "isfolllowed"),
+    20: .same(proto: "Ctime"),
+    21: .same(proto: "Mtime"),
   ]
 
   fileprivate class _StorageClass {
@@ -3224,6 +3262,8 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _followCount: Int64 = 0
     var _storyboardNum: Int64 = 0
     var _version: Int64 = 0
+    var _isliked: Bool = false
+    var _isfolllowed: Bool = false
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -3255,6 +3295,8 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       _followCount = source._followCount
       _storyboardNum = source._storyboardNum
       _version = source._version
+      _isliked = source._isliked
+      _isfolllowed = source._isfolllowed
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -3290,8 +3332,10 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         case 15: try { try decoder.decodeSingularInt64Field(value: &_storage._followCount) }()
         case 16: try { try decoder.decodeSingularInt64Field(value: &_storage._storyboardNum) }()
         case 17: try { try decoder.decodeSingularInt64Field(value: &_storage._version) }()
-        case 18: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 18: try { try decoder.decodeSingularBoolField(value: &_storage._isliked) }()
+        case 19: try { try decoder.decodeSingularBoolField(value: &_storage._isfolllowed) }()
+        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 21: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
         }
       }
@@ -3345,11 +3389,17 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       if _storage._version != 0 {
         try visitor.visitSingularInt64Field(value: _storage._version, fieldNumber: 17)
       }
+      if _storage._isliked != false {
+        try visitor.visitSingularBoolField(value: _storage._isliked, fieldNumber: 18)
+      }
+      if _storage._isfolllowed != false {
+        try visitor.visitSingularBoolField(value: _storage._isfolllowed, fieldNumber: 19)
+      }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 18)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 20)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 19)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 21)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -3375,6 +3425,8 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if _storage._followCount != rhs_storage._followCount {return false}
         if _storage._storyboardNum != rhs_storage._storyboardNum {return false}
         if _storage._version != rhs_storage._version {return false}
+        if _storage._isliked != rhs_storage._isliked {return false}
+        if _storage._isfolllowed != rhs_storage._isfolllowed {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true

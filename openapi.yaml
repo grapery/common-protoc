@@ -6040,6 +6040,10 @@ components:
                     type: string
                 totalBoards:
                     type: string
+                isliked:
+                    type: boolean
+                iswatched:
+                    type: boolean
                 Ctime:
                     type: string
                 Mtime:
@@ -6108,6 +6112,8 @@ components:
                         $ref: '#/components/schemas/StoryBoardActiveRole'
                 creator:
                     $ref: '#/components/schemas/StoryBoardActiveUser'
+                isliked:
+                    type: boolean
                 mtime:
                     type: string
         StoryBoardActiveRole:
@@ -6283,6 +6289,10 @@ components:
                     type: string
                 version:
                     type: string
+                isliked:
+                    type: boolean
+                isfolllowed:
+                    type: boolean
                 Ctime:
                     type: string
                 Mtime:

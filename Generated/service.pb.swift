@@ -3723,6 +3723,8 @@ public struct Common_StoryBoardActive: Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {self._creator = nil}
 
+  public var isliked: Bool = false
+
   public var mtime: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -13062,7 +13064,8 @@ extension Common_StoryBoardActive: SwiftProtobuf.Message, SwiftProtobuf._Message
     7: .same(proto: "users"),
     8: .same(proto: "roles"),
     9: .same(proto: "creator"),
-    10: .same(proto: "mtime"),
+    10: .same(proto: "isliked"),
+    11: .same(proto: "mtime"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13080,7 +13083,8 @@ extension Common_StoryBoardActive: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 7: try { try decoder.decodeRepeatedMessageField(value: &self.users) }()
       case 8: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       case 9: try { try decoder.decodeSingularMessageField(value: &self._creator) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      case 10: try { try decoder.decodeSingularBoolField(value: &self.isliked) }()
+      case 11: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
       }
     }
@@ -13118,8 +13122,11 @@ extension Common_StoryBoardActive: SwiftProtobuf.Message, SwiftProtobuf._Message
     try { if let v = self._creator {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
     } }()
+    if self.isliked != false {
+      try visitor.visitSingularBoolField(value: self.isliked, fieldNumber: 10)
+    }
     if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 10)
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 11)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13134,6 +13141,7 @@ extension Common_StoryBoardActive: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.users != rhs.users {return false}
     if lhs.roles != rhs.roles {return false}
     if lhs._creator != rhs._creator {return false}
+    if lhs.isliked != rhs.isliked {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

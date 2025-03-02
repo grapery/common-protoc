@@ -25,8 +25,10 @@ message Story{
   int32 status = 16;
   string title = 17;
   int64 total_boards = 18;
-  int64 Ctime = 19;
-  int64 Mtime = 20;
+  bool isliked = 19;
+  bool iswatched = 20;
+  int64 Ctime = 21;
+  int64 Mtime = 22;
 }
 
 message StoryParams{
@@ -79,8 +81,10 @@ message StoryRole{
     int64 follow_count = 15;
     int64 storyboard_num = 16;
     int64 version = 17;
-    int64 Ctime = 18;
-    int64 Mtime = 19;  
+    bool isliked = 18;
+    bool isfolllowed = 19;
+    int64 Ctime = 20;
+    int64 Mtime = 21;  
 }
 
 message StoryBoardParams{

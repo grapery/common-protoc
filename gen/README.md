@@ -2785,6 +2785,8 @@ AI生成失败 |
 | status | [int32](#int32) |  |  |
 | title | [string](#string) |  |  |
 | total_boards | [int64](#int64) |  |  |
+| isliked | [bool](#bool) |  |  |
+| iswatched | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2942,6 +2944,8 @@ AI生成失败 |
 | follow_count | [int64](#int64) |  |  |
 | storyboard_num | [int64](#int64) |  |  |
 | version | [int64](#int64) |  |  |
+| isliked | [bool](#bool) |  |  |
+| isfolllowed | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -6570,6 +6574,7 @@ AI生成失败 |
 | users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
 | roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
 | creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
+| isliked | [bool](#bool) |  |  |
 | mtime | [int64](#int64) |  |  |
 
 
