@@ -1319,6 +1319,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUnPublishStoryboard:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetUnPublishStoryboard
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUnPublishStoryboardRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUnPublishStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetUserChatMessages:
         post:
             tags:
@@ -4645,6 +4669,33 @@ components:
                         $ref: '#/components/schemas/UserInteractStatus'
                 isMultiBranch:
                     type: boolean
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUnPublishStoryboardRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUnPublishStoryboardResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                storyboards:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoard'
                 total:
                     type: string
                 offset:

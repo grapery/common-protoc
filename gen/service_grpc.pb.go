@@ -139,6 +139,7 @@ const (
 	TeamsAPI_CancelStoryboard_FullMethodName                   = "/common.TeamsAPI/CancelStoryboard"
 	TeamsAPI_GetUserWatchStoryActiveStoryBoards_FullMethodName = "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
 	TeamsAPI_GetUserWatchRoleActiveStoryBoards_FullMethodName  = "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
+	TeamsAPI_GetUnPublishStoryboard_FullMethodName             = "/common.TeamsAPI/GetUnPublishStoryboard"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -383,6 +384,7 @@ type TeamsAPIClient interface {
 	CancelStoryboard(ctx context.Context, in *CancelStoryboardRequest, opts ...grpc.CallOption) (*CancelStoryboardResponse, error)
 	GetUserWatchStoryActiveStoryBoards(ctx context.Context, in *GetUserWatchStoryActiveStoryBoardsRequest, opts ...grpc.CallOption) (*GetUserWatchStoryActiveStoryBoardsResponse, error)
 	GetUserWatchRoleActiveStoryBoards(ctx context.Context, in *GetUserWatchRoleActiveStoryBoardsRequest, opts ...grpc.CallOption) (*GetUserWatchRoleActiveStoryBoardsResponse, error)
+	GetUnPublishStoryboard(ctx context.Context, in *GetUnPublishStoryboardRequest, opts ...grpc.CallOption) (*GetUnPublishStoryboardResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1473,6 +1475,15 @@ func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, 
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, in *GetUnPublishStoryboardRequest, opts ...grpc.CallOption) (*GetUnPublishStoryboardResponse, error) {
+	out := new(GetUnPublishStoryboardResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetUnPublishStoryboard_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1715,6 +1726,7 @@ type TeamsAPIServer interface {
 	CancelStoryboard(context.Context, *CancelStoryboardRequest) (*CancelStoryboardResponse, error)
 	GetUserWatchStoryActiveStoryBoards(context.Context, *GetUserWatchStoryActiveStoryBoardsRequest) (*GetUserWatchStoryActiveStoryBoardsResponse, error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *GetUserWatchRoleActiveStoryBoardsRequest) (*GetUserWatchRoleActiveStoryBoardsResponse, error)
+	GetUnPublishStoryboard(context.Context, *GetUnPublishStoryboardRequest) (*GetUnPublishStoryboardResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2081,6 +2093,9 @@ func (UnimplementedTeamsAPIServer) GetUserWatchStoryActiveStoryBoards(context.Co
 }
 func (UnimplementedTeamsAPIServer) GetUserWatchRoleActiveStoryBoards(context.Context, *GetUserWatchRoleActiveStoryBoardsRequest) (*GetUserWatchRoleActiveStoryBoardsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserWatchRoleActiveStoryBoards not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetUnPublishStoryboard(context.Context, *GetUnPublishStoryboardRequest) (*GetUnPublishStoryboardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUnPublishStoryboard not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4255,6 +4270,24 @@ func _TeamsAPI_GetUserWatchRoleActiveStoryBoards_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetUnPublishStoryboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUnPublishStoryboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetUnPublishStoryboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetUnPublishStoryboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetUnPublishStoryboard(ctx, req.(*GetUnPublishStoryboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4741,6 +4774,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserWatchRoleActiveStoryBoards",
 			Handler:    _TeamsAPI_GetUserWatchRoleActiveStoryBoards_Handler,
+		},
+		{
+			MethodName: "GetUnPublishStoryboard",
+			Handler:    _TeamsAPI_GetUnPublishStoryboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

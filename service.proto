@@ -1904,6 +1904,28 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc GetUnPublishStoryboard(GetUnPublishStoryboardRequest) returns (GetUnPublishStoryboardResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetUnPublishStoryboard"
+      body : "*"
+    };
+  }
+}
+
+message GetUnPublishStoryboardRequest {
+  int64 user_id = 1;
+  int64 offset = 2;
+  int64 page_size = 3;
+}
+
+message GetUnPublishStoryboardResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryBoard storyboards = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
 }
 
 message StoryBoardActiveRole {

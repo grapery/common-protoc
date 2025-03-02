@@ -335,6 +335,9 @@ const (
 	// TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserWatchRoleActiveStoryBoards RPC.
 	TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure = "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
+	// TeamsAPIGetUnPublishStoryboardProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUnPublishStoryboard RPC.
+	TeamsAPIGetUnPublishStoryboardProcedure = "/common.TeamsAPI/GetUnPublishStoryboard"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -577,6 +580,7 @@ type TeamsAPIClient interface {
 	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1189,6 +1193,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure,
 			opts...,
 		),
+		getUnPublishStoryboard: connect.NewClient[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUnPublishStoryboardProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1314,6 +1323,7 @@ type teamsAPIClient struct {
 	cancelStoryboard                   *connect.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
 	getUserWatchStoryActiveStoryBoards *connect.Client[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse]
 	getUserWatchRoleActiveStoryBoards  *connect.Client[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse]
+	getUnPublishStoryboard             *connect.Client[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1916,6 +1926,11 @@ func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, 
 	return c.getUserWatchRoleActiveStoryBoards.CallUnary(ctx, req)
 }
 
+// GetUnPublishStoryboard calls common.TeamsAPI.GetUnPublishStoryboard.
+func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, req *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error) {
+	return c.getUnPublishStoryboard.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2156,6 +2171,7 @@ type TeamsAPIHandler interface {
 	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2764,6 +2780,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetUserWatchRoleActiveStoryBoards,
 		opts...,
 	)
+	teamsAPIGetUnPublishStoryboardHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUnPublishStoryboardProcedure,
+		svc.GetUnPublishStoryboard,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3006,6 +3027,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetUserWatchStoryActiveStoryBoardsHandler.ServeHTTP(w, r)
 		case TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure:
 			teamsAPIGetUserWatchRoleActiveStoryBoardsHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUnPublishStoryboardProcedure:
+			teamsAPIGetUnPublishStoryboardHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3493,4 +3516,8 @@ func (UnimplementedTeamsAPIHandler) GetUserWatchStoryActiveStoryBoards(context.C
 
 func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUnPublishStoryboard is not implemented"))
 }

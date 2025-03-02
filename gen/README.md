@@ -281,6 +281,8 @@
     - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
     - [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse)
+    - [GetUnPublishStoryboardRequest](#common-GetUnPublishStoryboardRequest)
+    - [GetUnPublishStoryboardResponse](#common-GetUnPublishStoryboardResponse)
     - [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest)
     - [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse)
     - [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest)
@@ -5247,6 +5249,43 @@ AI生成失败 |
 
 
 
+<a name="common-GetUnPublishStoryboardRequest"></a>
+
+### GetUnPublishStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUnPublishStoryboardResponse"></a>
+
+### GetUnPublishStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserChatMessagesRequest"></a>
 
 ### GetUserChatMessagesRequest
@@ -7743,6 +7782,7 @@ user ,group .project.item
 | CancelStoryboard | [CancelStoryboardRequest](#common-CancelStoryboardRequest) | [CancelStoryboardResponse](#common-CancelStoryboardResponse) | 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。 |
 | GetUserWatchStoryActiveStoryBoards | [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest) | [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse) |  |
 | GetUserWatchRoleActiveStoryBoards | [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest) | [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse) |  |
+| GetUnPublishStoryboard | [GetUnPublishStoryboardRequest](#common-GetUnPublishStoryboardRequest) | [GetUnPublishStoryboardResponse](#common-GetUnPublishStoryboardResponse) |  |
 
  
 
