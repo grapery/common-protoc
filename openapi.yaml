@@ -1469,6 +1469,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserWatchRoleActiveStoryBoards:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetUserWatchRoleActiveStoryBoards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserWatchRoleActiveStoryBoardsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserWatchRoleActiveStoryBoardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetUserWatchStoryActiveStoryBoards:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetUserWatchStoryActiveStoryBoards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetUserWatchStoryActiveStoryBoardsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetUserWatchStoryActiveStoryBoardsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetUserWithRoleChatList:
         post:
             tags:
@@ -4764,6 +4812,68 @@ components:
                     type: string
                 info:
                     $ref: '#/components/schemas/UserProfileInfo'
+        GetUserWatchRoleActiveStoryBoardsRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                roleId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+                filter:
+                    type: string
+        GetUserWatchRoleActiveStoryBoardsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                storyboards:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardActive'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetUserWatchStoryActiveStoryBoardsRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+                filter:
+                    type: string
+        GetUserWatchStoryActiveStoryBoardsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                storyboards:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardActive'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetUserWithRoleChatListRequest:
             type: object
             properties:
@@ -4815,9 +4925,26 @@ components:
                 status:
                     type: integer
                     format: int32
+                profile:
+                    $ref: '#/components/schemas/GroupProfileInfo'
+                members:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GroupMemberInfo'
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        GroupMemberInfo:
+            type: object
+            properties:
+                userId:
+                    type: string
+                name:
+                    type: string
+                avatar:
+                    type: string
+                desc:
                     type: string
         GroupProfileInfo:
             type: object
@@ -4827,23 +4954,14 @@ components:
                 groupMemberNum:
                     type: integer
                     format: int32
-                groupProjectNum:
-                    type: integer
-                    format: int32
-                defaultProjectList:
-                    type: integer
-                    format: int32
-                publicEmail:
-                    type: string
-                publicWebsite:
-                    type: string
-                isVerified:
-                    type: boolean
-                description:
-                    type: string
                 groupFollowerNum:
                     type: integer
                     format: int32
+                groupStoryNum:
+                    type: integer
+                    format: int32
+                description:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -5913,6 +6031,49 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        StoryBoardActive:
+            type: object
+            properties:
+                storyboard:
+                    $ref: '#/components/schemas/StoryBoard'
+                totalLikeCount:
+                    type: string
+                totalCommentCount:
+                    type: string
+                totalShareCount:
+                    type: string
+                totalRenderCount:
+                    type: string
+                totalForkCount:
+                    type: string
+                users:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardActiveUser'
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardActiveRole'
+                mtime:
+                    type: string
+        StoryBoardActiveRole:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                roleName:
+                    type: string
+                roleAvatar:
+                    type: string
+        StoryBoardActiveUser:
+            type: object
+            properties:
+                userId:
+                    type: string
+                userName:
+                    type: string
+                userAvatar:
                     type: string
         StoryBoardParams:
             type: object

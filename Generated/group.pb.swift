@@ -20,32 +20,99 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_GroupInfo: Sendable {
+public struct Common_GroupInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var groupID: Int64 = 0
+  public var groupID: Int64 {
+    get {return _storage._groupID}
+    set {_uniqueStorage()._groupID = newValue}
+  }
+
+  public var name: String {
+    get {return _storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
+
+  public var avatar: String {
+    get {return _storage._avatar}
+    set {_uniqueStorage()._avatar = newValue}
+  }
+
+  public var desc: String {
+    get {return _storage._desc}
+    set {_uniqueStorage()._desc = newValue}
+  }
+
+  public var creator: Int64 {
+    get {return _storage._creator}
+    set {_uniqueStorage()._creator = newValue}
+  }
+
+  public var owner: Int64 {
+    get {return _storage._owner}
+    set {_uniqueStorage()._owner = newValue}
+  }
+
+  public var tags: [Common_Tags] {
+    get {return _storage._tags}
+    set {_uniqueStorage()._tags = newValue}
+  }
+
+  public var location: String {
+    get {return _storage._location}
+    set {_uniqueStorage()._location = newValue}
+  }
+
+  public var status: Int32 {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
+
+  public var profile: Common_GroupProfileInfo {
+    get {return _storage._profile ?? Common_GroupProfileInfo()}
+    set {_uniqueStorage()._profile = newValue}
+  }
+  /// Returns true if `profile` has been explicitly set.
+  public var hasProfile: Bool {return _storage._profile != nil}
+  /// Clears the value of `profile`. Subsequent reads from it will return its default value.
+  public mutating func clearProfile() {_uniqueStorage()._profile = nil}
+
+  public var members: [Common_GroupMemberInfo] {
+    get {return _storage._members}
+    set {_uniqueStorage()._members = newValue}
+  }
+
+  public var ctime: Int64 {
+    get {return _storage._ctime}
+    set {_uniqueStorage()._ctime = newValue}
+  }
+
+  public var mtime: Int64 {
+    get {return _storage._mtime}
+    set {_uniqueStorage()._mtime = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct Common_GroupMemberInfo: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
 
   public var name: String = String()
 
   public var avatar: String = String()
 
   public var desc: String = String()
-
-  public var creator: Int64 = 0
-
-  public var owner: Int64 = 0
-
-  public var tags: [Common_Tags] = []
-
-  public var location: String = String()
-
-  public var status: Int32 = 0
-
-  public var ctime: Int64 = 0
-
-  public var mtime: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -61,19 +128,11 @@ public struct Common_GroupProfileInfo: Sendable {
 
   public var groupMemberNum: Int32 = 0
 
-  public var groupProjectNum: Int32 = 0
+  public var groupFollowerNum: Int32 = 0
 
-  public var defaultProjectList: Int32 = 0
-
-  public var publicEmail: String = String()
-
-  public var publicWebsite: String = String()
-
-  public var isVerified: Bool = false
+  public var groupStoryNum: Int32 = 0
 
   public var description_p: String = String()
-
-  public var groupFollowerNum: Int32 = 0
 
   public var ctime: Int64 = 0
 
@@ -100,8 +159,173 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     7: .same(proto: "tags"),
     8: .same(proto: "location"),
     9: .same(proto: "status"),
+    10: .same(proto: "profile"),
+    11: .same(proto: "members"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _groupID: Int64 = 0
+    var _name: String = String()
+    var _avatar: String = String()
+    var _desc: String = String()
+    var _creator: Int64 = 0
+    var _owner: Int64 = 0
+    var _tags: [Common_Tags] = []
+    var _location: String = String()
+    var _status: Int32 = 0
+    var _profile: Common_GroupProfileInfo? = nil
+    var _members: [Common_GroupMemberInfo] = []
+    var _ctime: Int64 = 0
+    var _mtime: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _groupID = source._groupID
+      _name = source._name
+      _avatar = source._avatar
+      _desc = source._desc
+      _creator = source._creator
+      _owner = source._owner
+      _tags = source._tags
+      _location = source._location
+      _status = source._status
+      _profile = source._profile
+      _members = source._members
+      _ctime = source._ctime
+      _mtime = source._mtime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._groupID) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._avatar) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._desc) }()
+        case 5: try { try decoder.decodeSingularInt64Field(value: &_storage._creator) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._owner) }()
+        case 7: try { try decoder.decodeRepeatedMessageField(value: &_storage._tags) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._location) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
+        case 10: try { try decoder.decodeSingularMessageField(value: &_storage._profile) }()
+        case 11: try { try decoder.decodeRepeatedMessageField(value: &_storage._members) }()
+        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._groupID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._groupID, fieldNumber: 1)
+      }
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 2)
+      }
+      if !_storage._avatar.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._avatar, fieldNumber: 3)
+      }
+      if !_storage._desc.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._desc, fieldNumber: 4)
+      }
+      if _storage._creator != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._creator, fieldNumber: 5)
+      }
+      if _storage._owner != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._owner, fieldNumber: 6)
+      }
+      if !_storage._tags.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._tags, fieldNumber: 7)
+      }
+      if !_storage._location.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._location, fieldNumber: 8)
+      }
+      if _storage._status != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 9)
+      }
+      try { if let v = _storage._profile {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+      } }()
+      if !_storage._members.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._members, fieldNumber: 11)
+      }
+      if _storage._ctime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+      }
+      if _storage._mtime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GroupInfo, rhs: Common_GroupInfo) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._groupID != rhs_storage._groupID {return false}
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._avatar != rhs_storage._avatar {return false}
+        if _storage._desc != rhs_storage._desc {return false}
+        if _storage._creator != rhs_storage._creator {return false}
+        if _storage._owner != rhs_storage._owner {return false}
+        if _storage._tags != rhs_storage._tags {return false}
+        if _storage._location != rhs_storage._location {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._profile != rhs_storage._profile {return false}
+        if _storage._members != rhs_storage._members {return false}
+        if _storage._ctime != rhs_storage._ctime {return false}
+        if _storage._mtime != rhs_storage._mtime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GroupMemberInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "avatar"),
+    4: .same(proto: "desc"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -110,25 +334,18 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.desc) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.creator) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.owner) }()
-      case 7: try { try decoder.decodeRepeatedMessageField(value: &self.tags) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.location) }()
-      case 9: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
-      case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
@@ -139,42 +356,14 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if !self.desc.isEmpty {
       try visitor.visitSingularStringField(value: self.desc, fieldNumber: 4)
     }
-    if self.creator != 0 {
-      try visitor.visitSingularInt64Field(value: self.creator, fieldNumber: 5)
-    }
-    if self.owner != 0 {
-      try visitor.visitSingularInt64Field(value: self.owner, fieldNumber: 6)
-    }
-    if !self.tags.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.tags, fieldNumber: 7)
-    }
-    if !self.location.isEmpty {
-      try visitor.visitSingularStringField(value: self.location, fieldNumber: 8)
-    }
-    if self.status != 0 {
-      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 9)
-    }
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 20)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GroupInfo, rhs: Common_GroupInfo) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
+  public static func ==(lhs: Common_GroupMemberInfo, rhs: Common_GroupMemberInfo) -> Bool {
+    if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.avatar != rhs.avatar {return false}
     if lhs.desc != rhs.desc {return false}
-    if lhs.creator != rhs.creator {return false}
-    if lhs.owner != rhs.owner {return false}
-    if lhs.tags != rhs.tags {return false}
-    if lhs.location != rhs.location {return false}
-    if lhs.status != rhs.status {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -185,13 +374,9 @@ extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "group_member_num"),
-    3: .standard(proto: "group_project_num"),
-    4: .standard(proto: "default_project_list"),
-    5: .standard(proto: "public_email"),
-    6: .standard(proto: "public_website"),
-    7: .standard(proto: "is_verified"),
+    3: .standard(proto: "group_follower_num"),
+    4: .standard(proto: "group_story_num"),
     8: .same(proto: "description"),
-    9: .standard(proto: "group_follower_num"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -204,13 +389,9 @@ extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.groupMemberNum) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.groupProjectNum) }()
-      case 4: try { try decoder.decodeSingularInt32Field(value: &self.defaultProjectList) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.publicEmail) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.publicWebsite) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.isVerified) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.groupFollowerNum) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.groupStoryNum) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
-      case 9: try { try decoder.decodeSingularInt32Field(value: &self.groupFollowerNum) }()
       case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
       case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
@@ -225,26 +406,14 @@ extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.groupMemberNum != 0 {
       try visitor.visitSingularInt32Field(value: self.groupMemberNum, fieldNumber: 2)
     }
-    if self.groupProjectNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.groupProjectNum, fieldNumber: 3)
+    if self.groupFollowerNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.groupFollowerNum, fieldNumber: 3)
     }
-    if self.defaultProjectList != 0 {
-      try visitor.visitSingularInt32Field(value: self.defaultProjectList, fieldNumber: 4)
-    }
-    if !self.publicEmail.isEmpty {
-      try visitor.visitSingularStringField(value: self.publicEmail, fieldNumber: 5)
-    }
-    if !self.publicWebsite.isEmpty {
-      try visitor.visitSingularStringField(value: self.publicWebsite, fieldNumber: 6)
-    }
-    if self.isVerified != false {
-      try visitor.visitSingularBoolField(value: self.isVerified, fieldNumber: 7)
+    if self.groupStoryNum != 0 {
+      try visitor.visitSingularInt32Field(value: self.groupStoryNum, fieldNumber: 4)
     }
     if !self.description_p.isEmpty {
       try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 8)
-    }
-    if self.groupFollowerNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.groupFollowerNum, fieldNumber: 9)
     }
     if self.ctime != 0 {
       try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
@@ -258,13 +427,9 @@ extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static func ==(lhs: Common_GroupProfileInfo, rhs: Common_GroupProfileInfo) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.groupMemberNum != rhs.groupMemberNum {return false}
-    if lhs.groupProjectNum != rhs.groupProjectNum {return false}
-    if lhs.defaultProjectList != rhs.defaultProjectList {return false}
-    if lhs.publicEmail != rhs.publicEmail {return false}
-    if lhs.publicWebsite != rhs.publicWebsite {return false}
-    if lhs.isVerified != rhs.isVerified {return false}
-    if lhs.description_p != rhs.description_p {return false}
     if lhs.groupFollowerNum != rhs.groupFollowerNum {return false}
+    if lhs.groupStoryNum != rhs.groupStoryNum {return false}
+    if lhs.description_p != rhs.description_p {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

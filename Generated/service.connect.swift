@@ -952,6 +952,18 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
     @available(iOS 13, *)
     func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CancelStoryboardResponse>
+
+    @discardableResult
+    func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>
+
+    @discardableResult
+    func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2142,6 +2154,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2262,6 +2294,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let renderStoryRoleContinuously = Connect.MethodSpec(name: "RenderStoryRoleContinuously", service: "common.TeamsAPI", type: .unary)
             public static let publishStoryboard = Connect.MethodSpec(name: "PublishStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let cancelStoryboard = Connect.MethodSpec(name: "CancelStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let getUserWatchStoryActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchStoryActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
+            public static let getUserWatchRoleActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchRoleActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

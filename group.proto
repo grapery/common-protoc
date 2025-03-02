@@ -14,21 +14,25 @@ message GroupInfo {
     repeated Tags tags = 7;
     string location = 8;
     int32 status = 9;
-    
+    GroupProfileInfo profile = 10;
+    repeated GroupMemberInfo members = 11;
     int64 Ctime = 19;
     int64 Mtime = 20;
+  }
+
+  message GroupMemberInfo {
+    int64 user_id = 1;
+    string name = 2;
+    string avatar = 3;
+    string desc = 4;
   }
   
   message GroupProfileInfo {
     int64 group_id = 1;
     int32 group_member_num = 2;
-    int32 group_project_num = 3;
-    int32 default_project_list = 4;
-    string public_email = 5;
-    string public_website = 6;
-    bool is_verified = 7;
+    int32 group_follower_num = 3;
+    int32 group_story_num = 4;
     string description = 8; 
-    int32 group_follower_num = 9;
     
     int64 Ctime = 19;
     int64 Mtime = 20;

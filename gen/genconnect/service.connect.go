@@ -329,6 +329,12 @@ const (
 	// TeamsAPICancelStoryboardProcedure is the fully-qualified name of the TeamsAPI's CancelStoryboard
 	// RPC.
 	TeamsAPICancelStoryboardProcedure = "/common.TeamsAPI/CancelStoryboard"
+	// TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserWatchStoryActiveStoryBoards RPC.
+	TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure = "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
+	// TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetUserWatchRoleActiveStoryBoards RPC.
+	TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure = "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -569,6 +575,8 @@ type TeamsAPIClient interface {
 	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
 	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
 	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
+	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1171,129 +1179,141 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPICancelStoryboardProcedure,
 			opts...,
 		),
+		getUserWatchStoryActiveStoryBoards: connect.NewClient[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure,
+			opts...,
+		),
+		getUserWatchRoleActiveStoryBoards: connect.NewClient[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure,
+			opts...,
+		),
 	}
 }
 
 // teamsAPIClient implements TeamsAPIClient.
 type teamsAPIClient struct {
-	explore                     *connect.Client[gen.ExploreRequest, gen.ExploreResponse]
-	trending                    *connect.Client[gen.TrendingRequest, gen.TrendingResponse]
-	version                     *connect.Client[gen.VersionRequest, gen.VersionResponse]
-	about                       *connect.Client[gen.AboutRequest, gen.AboutResponse]
-	login                       *connect.Client[gen.LoginRequest, gen.LoginResponse]
-	logout                      *connect.Client[gen.LogoutRequest, gen.LogoutResponse]
-	refreshToken                *connect.Client[gen.RefreshTokenRequest, gen.RefreshTokenResponse]
-	register                    *connect.Client[gen.RegisterRequest, gen.RegisterResponse]
-	resetPwd                    *connect.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
-	userInit                    *connect.Client[gen.UserInitRequest, gen.UserInitResponse]
-	userInfo                    *connect.Client[gen.UserInfoRequest, gen.UserInfoResponse]
-	updateUserAvator            *connect.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
-	userWatching                *connect.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
-	userGroup                   *connect.Client[gen.UserGroupRequest, gen.UserGroupResponse]
-	userFollowingGroup          *connect.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
-	userUpdate                  *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
-	searchUser                  *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
-	createGroup                 *connect.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
-	getGroup                    *connect.Client[gen.GetGroupRequest, gen.GetGroupResponse]
-	getGroupActives             *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
-	updateGroupInfo             *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
-	getGroupProfile             *connect.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
-	updateGroupProfile          *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
-	deleteGroup                 *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
-	fetchGroupMembers           *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
-	fetchGroupProjects          *connect.Client[gen.FetchGroupProjectsRequest, gen.FetchGroupProjectsResponse]
-	joinGroup                   *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
-	leaveGroup                  *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
-	getProjectInfo              *connect.Client[gen.GetProjectRequest, gen.GetProjectResponse]
-	getProjectList              *connect.Client[gen.GetProjectListRequest, gen.GetProjectListResponse]
-	createProject               *connect.Client[gen.CreateProjectRequest, gen.CreateProjectResponse]
-	getProjectMembers           *connect.Client[gen.GetProjectMembersRequest, gen.GetProjectMembersResponse]
-	updateProject               *connect.Client[gen.UpdateProjectRequest, gen.UpdateProjectResponse]
-	deleteProject               *connect.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
-	getProjectProfile           *connect.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
-	updateProjectProfile        *connect.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
-	watchProject                *connect.Client[gen.WatchProjectRequest, gen.WatchProjectResponse]
-	unWatchProject              *connect.Client[gen.UnWatchProjectRequest, gen.UnWatchProjectResponse]
-	getProjectWatcher           *connect.Client[gen.GetProjectWatcherRequest, gen.GetProjectWatcherResponse]
-	searchGroupProject          *connect.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
-	searchProject               *connect.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
-	exploreProject              *connect.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
-	getProjectItems             *connect.Client[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse]
-	getGroupItems               *connect.Client[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse]
-	getUserItems                *connect.Client[gen.GetUserItemsRequest, gen.GetUserItemsResponse]
-	getItem                     *connect.Client[gen.GetItemRequest, gen.GetItemResponse]
-	createItem                  *connect.Client[gen.CreateItemRequest, gen.CreateItemResponse]
-	updateItem                  *connect.Client[gen.UpdateItemRequest, gen.UpdateItemResponse]
-	deleteItem                  *connect.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
-	likeItem                    *connect.Client[gen.LikeItemRequest, gen.LikeItemResponse]
-	createComment               *connect.Client[gen.CreateCommentReq, gen.CreateCommentResp]
-	getItemComment              *connect.Client[gen.GetItemsCommentReq, gen.GetItemsCommentResp]
-	createStory                 *connect.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
-	getStoryInfo                *connect.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
-	renderStory                 *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
-	updateStory                 *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
-	watchStory                  *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
-	createStoryboard            *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
-	getStoryboard               *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
-	renderStoryboard            *connect.Client[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse]
-	genStoryboardText           *connect.Client[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse]
-	genStoryboardImages         *connect.Client[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse]
-	getStoryboards              *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
-	delStoryboard               *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
-	forkStoryboard              *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
-	updateStoryboard            *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
-	likeStoryboard              *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
-	unLikeStoryboard            *connect.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
-	shareStoryboard             *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
-	fetchGroupStorys            *connect.Client[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse]
-	uploadImageFile             *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
-	getStoryRender              *connect.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
-	getStoryBoardRender         *connect.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
-	getStoryContributors        *connect.Client[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse]
-	continueRenderStory         *connect.Client[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse]
-	renderStoryRoles            *connect.Client[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse]
-	updateStoryRole             *connect.Client[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse]
-	renderStoryRoleDetail       *connect.Client[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse]
-	getStoryRoles               *connect.Client[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse]
-	getStoryBoardRoles          *connect.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
-	getUserProfile              *connect.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
-	updateUserProfile           *connect.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
-	createStoryRole             *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
-	getStoryRoleDetail          *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
-	renderStoryRole             *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
-	likeStory                   *connect.Client[gen.LikeStoryRequest, gen.LikeStoryResponse]
-	unLikeStory                 *connect.Client[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse]
-	getStoryBoardSences         *connect.Client[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse]
-	createStoryBoardSence       *connect.Client[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse]
-	updateStoryBoardSence       *connect.Client[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse]
-	deleteStoryBoardSence       *connect.Client[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse]
-	renderStoryBoardSence       *connect.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
-	renderStoryBoardSences      *connect.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
-	getStoryBoardSenceGenerate  *connect.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
-	getStoryBoardGenerate       *connect.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
-	likeStoryRole               *connect.Client[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse]
-	unLikeStoryRole             *connect.Client[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse]
-	followStoryRole             *connect.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
-	unFollowStoryRole           *connect.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
-	searchStories               *connect.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
-	searchGroup                 *connect.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
-	searchRoles                 *connect.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
-	restoreStoryboard           *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
-	getUserCreatedStoryboards   *connect.Client[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse]
-	getUserCreatedRoles         *connect.Client[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse]
-	getStoryRoleStoryboards     *connect.Client[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse]
-	getStoryRoleStories         *connect.Client[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse]
-	createStoryRoleChat         *connect.Client[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse]
-	chatWithStoryRole           *connect.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
-	updateStoryRoleDetail       *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
-	getUserWithRoleChatList     *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
-	getUserChatWithRole         *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
-	getUserChatMessages         *connect.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
-	fetchActives                *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
-	getNextStoryboard           *connect.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
-	renderStoryRoleContinuously *connect.Client[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse]
-	publishStoryboard           *connect.Client[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse]
-	cancelStoryboard            *connect.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
+	explore                            *connect.Client[gen.ExploreRequest, gen.ExploreResponse]
+	trending                           *connect.Client[gen.TrendingRequest, gen.TrendingResponse]
+	version                            *connect.Client[gen.VersionRequest, gen.VersionResponse]
+	about                              *connect.Client[gen.AboutRequest, gen.AboutResponse]
+	login                              *connect.Client[gen.LoginRequest, gen.LoginResponse]
+	logout                             *connect.Client[gen.LogoutRequest, gen.LogoutResponse]
+	refreshToken                       *connect.Client[gen.RefreshTokenRequest, gen.RefreshTokenResponse]
+	register                           *connect.Client[gen.RegisterRequest, gen.RegisterResponse]
+	resetPwd                           *connect.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
+	userInit                           *connect.Client[gen.UserInitRequest, gen.UserInitResponse]
+	userInfo                           *connect.Client[gen.UserInfoRequest, gen.UserInfoResponse]
+	updateUserAvator                   *connect.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
+	userWatching                       *connect.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
+	userGroup                          *connect.Client[gen.UserGroupRequest, gen.UserGroupResponse]
+	userFollowingGroup                 *connect.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
+	userUpdate                         *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
+	searchUser                         *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
+	createGroup                        *connect.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
+	getGroup                           *connect.Client[gen.GetGroupRequest, gen.GetGroupResponse]
+	getGroupActives                    *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
+	updateGroupInfo                    *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
+	getGroupProfile                    *connect.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
+	updateGroupProfile                 *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
+	deleteGroup                        *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
+	fetchGroupMembers                  *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
+	fetchGroupProjects                 *connect.Client[gen.FetchGroupProjectsRequest, gen.FetchGroupProjectsResponse]
+	joinGroup                          *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
+	leaveGroup                         *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
+	getProjectInfo                     *connect.Client[gen.GetProjectRequest, gen.GetProjectResponse]
+	getProjectList                     *connect.Client[gen.GetProjectListRequest, gen.GetProjectListResponse]
+	createProject                      *connect.Client[gen.CreateProjectRequest, gen.CreateProjectResponse]
+	getProjectMembers                  *connect.Client[gen.GetProjectMembersRequest, gen.GetProjectMembersResponse]
+	updateProject                      *connect.Client[gen.UpdateProjectRequest, gen.UpdateProjectResponse]
+	deleteProject                      *connect.Client[gen.DeleteProjectRequest, gen.DeleteProjectResponse]
+	getProjectProfile                  *connect.Client[gen.GetProjectProfileRequest, gen.GetProjectProfileResponse]
+	updateProjectProfile               *connect.Client[gen.UpdateProjectProfileRequest, gen.UpdateProjectProfileResponse]
+	watchProject                       *connect.Client[gen.WatchProjectRequest, gen.WatchProjectResponse]
+	unWatchProject                     *connect.Client[gen.UnWatchProjectRequest, gen.UnWatchProjectResponse]
+	getProjectWatcher                  *connect.Client[gen.GetProjectWatcherRequest, gen.GetProjectWatcherResponse]
+	searchGroupProject                 *connect.Client[gen.SearchProjectRequest, gen.SearchProjectResponse]
+	searchProject                      *connect.Client[gen.SearchAllProjectRequest, gen.SearchAllProjectResponse]
+	exploreProject                     *connect.Client[gen.ExploreProjectsRequest, gen.ExploreProjectsResponse]
+	getProjectItems                    *connect.Client[gen.GetProjectItemsRequest, gen.GetProjectItemsResponse]
+	getGroupItems                      *connect.Client[gen.GetGroupItemsRequest, gen.GetGroupItemsResponse]
+	getUserItems                       *connect.Client[gen.GetUserItemsRequest, gen.GetUserItemsResponse]
+	getItem                            *connect.Client[gen.GetItemRequest, gen.GetItemResponse]
+	createItem                         *connect.Client[gen.CreateItemRequest, gen.CreateItemResponse]
+	updateItem                         *connect.Client[gen.UpdateItemRequest, gen.UpdateItemResponse]
+	deleteItem                         *connect.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
+	likeItem                           *connect.Client[gen.LikeItemRequest, gen.LikeItemResponse]
+	createComment                      *connect.Client[gen.CreateCommentReq, gen.CreateCommentResp]
+	getItemComment                     *connect.Client[gen.GetItemsCommentReq, gen.GetItemsCommentResp]
+	createStory                        *connect.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
+	getStoryInfo                       *connect.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
+	renderStory                        *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
+	updateStory                        *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
+	watchStory                         *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
+	createStoryboard                   *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
+	getStoryboard                      *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
+	renderStoryboard                   *connect.Client[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse]
+	genStoryboardText                  *connect.Client[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse]
+	genStoryboardImages                *connect.Client[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse]
+	getStoryboards                     *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
+	delStoryboard                      *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
+	forkStoryboard                     *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
+	updateStoryboard                   *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
+	likeStoryboard                     *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
+	unLikeStoryboard                   *connect.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
+	shareStoryboard                    *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
+	fetchGroupStorys                   *connect.Client[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse]
+	uploadImageFile                    *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
+	getStoryRender                     *connect.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
+	getStoryBoardRender                *connect.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
+	getStoryContributors               *connect.Client[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse]
+	continueRenderStory                *connect.Client[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse]
+	renderStoryRoles                   *connect.Client[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse]
+	updateStoryRole                    *connect.Client[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse]
+	renderStoryRoleDetail              *connect.Client[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse]
+	getStoryRoles                      *connect.Client[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse]
+	getStoryBoardRoles                 *connect.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
+	getUserProfile                     *connect.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
+	updateUserProfile                  *connect.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
+	createStoryRole                    *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
+	getStoryRoleDetail                 *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
+	renderStoryRole                    *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
+	likeStory                          *connect.Client[gen.LikeStoryRequest, gen.LikeStoryResponse]
+	unLikeStory                        *connect.Client[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse]
+	getStoryBoardSences                *connect.Client[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse]
+	createStoryBoardSence              *connect.Client[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse]
+	updateStoryBoardSence              *connect.Client[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse]
+	deleteStoryBoardSence              *connect.Client[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse]
+	renderStoryBoardSence              *connect.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
+	renderStoryBoardSences             *connect.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
+	getStoryBoardSenceGenerate         *connect.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
+	getStoryBoardGenerate              *connect.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
+	likeStoryRole                      *connect.Client[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse]
+	unLikeStoryRole                    *connect.Client[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse]
+	followStoryRole                    *connect.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
+	unFollowStoryRole                  *connect.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
+	searchStories                      *connect.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
+	searchGroup                        *connect.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
+	searchRoles                        *connect.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
+	restoreStoryboard                  *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
+	getUserCreatedStoryboards          *connect.Client[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse]
+	getUserCreatedRoles                *connect.Client[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse]
+	getStoryRoleStoryboards            *connect.Client[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse]
+	getStoryRoleStories                *connect.Client[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse]
+	createStoryRoleChat                *connect.Client[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse]
+	chatWithStoryRole                  *connect.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
+	updateStoryRoleDetail              *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
+	getUserWithRoleChatList            *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
+	getUserChatWithRole                *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
+	getUserChatMessages                *connect.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
+	fetchActives                       *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
+	getNextStoryboard                  *connect.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
+	renderStoryRoleContinuously        *connect.Client[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse]
+	publishStoryboard                  *connect.Client[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse]
+	cancelStoryboard                   *connect.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
+	getUserWatchStoryActiveStoryBoards *connect.Client[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse]
+	getUserWatchRoleActiveStoryBoards  *connect.Client[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1886,6 +1906,16 @@ func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, req *connect.Requ
 	return c.cancelStoryboard.CallUnary(ctx, req)
 }
 
+// GetUserWatchStoryActiveStoryBoards calls common.TeamsAPI.GetUserWatchStoryActiveStoryBoards.
+func (c *teamsAPIClient) GetUserWatchStoryActiveStoryBoards(ctx context.Context, req *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
+	return c.getUserWatchStoryActiveStoryBoards.CallUnary(ctx, req)
+}
+
+// GetUserWatchRoleActiveStoryBoards calls common.TeamsAPI.GetUserWatchRoleActiveStoryBoards.
+func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, req *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
+	return c.getUserWatchRoleActiveStoryBoards.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2124,6 +2154,8 @@ type TeamsAPIHandler interface {
 	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
 	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
 	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
+	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2722,6 +2754,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.CancelStoryboard,
 		opts...,
 	)
+	teamsAPIGetUserWatchStoryActiveStoryBoardsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure,
+		svc.GetUserWatchStoryActiveStoryBoards,
+		opts...,
+	)
+	teamsAPIGetUserWatchRoleActiveStoryBoardsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure,
+		svc.GetUserWatchRoleActiveStoryBoards,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -2960,6 +3002,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIPublishStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPICancelStoryboardProcedure:
 			teamsAPICancelStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure:
+			teamsAPIGetUserWatchStoryActiveStoryBoardsHandler.ServeHTTP(w, r)
+		case TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure:
+			teamsAPIGetUserWatchRoleActiveStoryBoardsHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3439,4 +3485,12 @@ func (UnimplementedTeamsAPIHandler) PublishStoryboard(context.Context, *connect.
 
 func (UnimplementedTeamsAPIHandler) CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CancelStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWatchStoryActiveStoryBoards is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
 }

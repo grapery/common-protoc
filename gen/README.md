@@ -28,6 +28,7 @@
   
 - [group.proto](#group-proto)
     - [GroupInfo](#common-GroupInfo)
+    - [GroupMemberInfo](#common-GroupMemberInfo)
     - [GroupProfileInfo](#common-GroupProfileInfo)
   
 - [item.proto](#item-proto)
@@ -296,6 +297,10 @@
     - [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data)
     - [GetUserProfileRequest](#common-GetUserProfileRequest)
     - [GetUserProfileResponse](#common-GetUserProfileResponse)
+    - [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest)
+    - [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse)
+    - [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest)
+    - [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse)
     - [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest)
     - [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse)
     - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
@@ -350,6 +355,9 @@
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
+    - [StoryBoardActive](#common-StoryBoardActive)
+    - [StoryBoardActiveRole](#common-StoryBoardActiveRole)
+    - [StoryBoardActiveUser](#common-StoryBoardActiveUser)
     - [StoryContributor](#common-StoryContributor)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
@@ -933,8 +941,28 @@ AI生成失败 |
 | tags | [Tags](#common-Tags) | repeated |  |
 | location | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
+| profile | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
+| members | [GroupMemberInfo](#common-GroupMemberInfo) | repeated |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GroupMemberInfo"></a>
+
+### GroupMemberInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
 
 
 
@@ -951,13 +979,9 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
 | group_member_num | [int32](#int32) |  |  |
-| group_project_num | [int32](#int32) |  |  |
-| default_project_list | [int32](#int32) |  |  |
-| public_email | [string](#string) |  |  |
-| public_website | [string](#string) |  |  |
-| is_verified | [bool](#bool) |  |  |
-| description | [string](#string) |  |  |
 | group_follower_num | [int32](#int32) |  |  |
+| group_story_num | [int32](#int32) |  |  |
+| description | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -5493,6 +5517,84 @@ AI生成失败 |
 
 
 
+<a name="common-GetUserWatchRoleActiveStoryBoardsRequest"></a>
+
+### GetUserWatchRoleActiveStoryBoardsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+| filter | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserWatchRoleActiveStoryBoardsResponse"></a>
+
+### GetUserWatchRoleActiveStoryBoardsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserWatchStoryActiveStoryBoardsRequest"></a>
+
+### GetUserWatchStoryActiveStoryBoardsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+| filter | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GetUserWatchStoryActiveStoryBoardsResponse"></a>
+
+### GetUserWatchStoryActiveStoryBoardsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetUserWithRoleChatListRequest"></a>
 
 ### GetUserWithRoleChatListRequest
@@ -6406,6 +6508,63 @@ AI生成失败 |
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardActive"></a>
+
+### StoryBoardActive
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
+| total_like_count | [int64](#int64) |  |  |
+| total_comment_count | [int64](#int64) |  |  |
+| total_share_count | [int64](#int64) |  |  |
+| total_render_count | [int64](#int64) |  |  |
+| total_fork_count | [int64](#int64) |  |  |
+| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
+| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
+| mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardActiveRole"></a>
+
+### StoryBoardActiveRole
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| role_name | [string](#string) |  |  |
+| role_avatar | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardActiveUser"></a>
+
+### StoryBoardActiveUser
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| user_name | [string](#string) |  |  |
+| user_avatar | [string](#string) |  |  |
 
 
 
@@ -7582,6 +7741,8 @@ user ,group .project.item
 | RenderStoryRoleContinuously | [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest) | [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse) | 持续渲染故事角色 |
 | PublishStoryboard | [PublishStoryboardRequest](#common-PublishStoryboardRequest) | [PublishStoryboardResponse](#common-PublishStoryboardResponse) | 发布故事板 |
 | CancelStoryboard | [CancelStoryboardRequest](#common-CancelStoryboardRequest) | [CancelStoryboardResponse](#common-CancelStoryboardResponse) | 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。 |
+| GetUserWatchStoryActiveStoryBoards | [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest) | [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse) |  |
+| GetUserWatchRoleActiveStoryBoards | [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest) | [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse) |  |
 
  
 
