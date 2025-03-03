@@ -718,14 +718,16 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | comment_id | [int64](#int64) |  |  |
+| prev_comment_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
+| user_name | [string](#string) |  |  |
+| avatar_url | [string](#string) |  |  |
 | story_id | [int64](#int64) |  |  |
 | board_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 | content | [string](#string) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
+| ctime | [int64](#int64) |  |  |
+| mtime | [int64](#int64) |  |  |
 
 
 

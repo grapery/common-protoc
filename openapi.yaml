@@ -3162,9 +3162,13 @@ components:
             properties:
                 commentId:
                     type: string
+                prevCommentId:
+                    type: string
                 userId:
                     type: string
-                projectId:
+                userName:
+                    type: string
+                avatarUrl:
                     type: string
                 storyId:
                     type: string
@@ -3174,9 +3178,9 @@ components:
                     type: string
                 content:
                     type: string
-                Ctime:
+                ctime:
                     type: string
-                Mtime:
+                mtime:
                     type: string
         ContinueRenderStoryRequest:
             type: object
