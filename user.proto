@@ -43,21 +43,3 @@ message UserProfileInfo {
   int64 Ctime = 19;
   int64 Mtime = 20;
 }
-
-message UserInteractStatus {
-  int64 user_id = 1;
-  int64 story_id = 2;
-  int64 role_id = 3;
-  int64 group_id = 4;
-  int64 board_id = 5;
-  int64 timeline_id = 6;
-
-  bool is_like = 7;
-  bool is_follow = 8;
-  bool is_watch = 9;
-  bool is_contribute = 10;
-  bool is_comment = 11;
-  bool is_share = 12; 
-  bool is_star = 13;
-  bool is_creator = 14;
-}

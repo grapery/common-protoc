@@ -855,6 +855,28 @@ public struct Common_Tags: Sendable {
   public init() {}
 }
 
+public struct Common_WhatCurrentUserStatus: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var isFollowed: Bool = false
+
+  public var isWatched: Bool = false
+
+  public var isLiked: Bool = false
+
+  public var isJoined: Bool = false
+
+  public var isViewed: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
@@ -1078,6 +1100,68 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     if lhs.expiredTime != rhs.expiredTime {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_WhatCurrentUserStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".WhatCurrentUserStatus"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .standard(proto: "is_followed"),
+    3: .standard(proto: "is_watched"),
+    4: .standard(proto: "is_liked"),
+    5: .standard(proto: "is_joined"),
+    6: .standard(proto: "is_viewed"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.isFollowed) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.isWatched) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.isLiked) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.isJoined) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.isViewed) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if self.isFollowed != false {
+      try visitor.visitSingularBoolField(value: self.isFollowed, fieldNumber: 2)
+    }
+    if self.isWatched != false {
+      try visitor.visitSingularBoolField(value: self.isWatched, fieldNumber: 3)
+    }
+    if self.isLiked != false {
+      try visitor.visitSingularBoolField(value: self.isLiked, fieldNumber: 4)
+    }
+    if self.isJoined != false {
+      try visitor.visitSingularBoolField(value: self.isJoined, fieldNumber: 5)
+    }
+    if self.isViewed != false {
+      try visitor.visitSingularBoolField(value: self.isViewed, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_WhatCurrentUserStatus, rhs: Common_WhatCurrentUserStatus) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.isFollowed != rhs.isFollowed {return false}
+    if lhs.isWatched != rhs.isWatched {return false}
+    if lhs.isLiked != rhs.isLiked {return false}
+    if lhs.isJoined != rhs.isJoined {return false}
+    if lhs.isViewed != rhs.isViewed {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

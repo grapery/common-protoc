@@ -27,8 +27,9 @@ message Story{
   int64 total_boards = 18;
   bool isliked = 19;
   bool iswatched = 20;
-  int64 Ctime = 21;
-  int64 Mtime = 22;
+  WhatCurrentUserStatus current_user_status = 21;
+  int64 Ctime = 25;
+  int64 Mtime = 26;
 }
 
 message StoryParams{
@@ -58,6 +59,7 @@ message StoryBoard{
     bool is_multi_branch = 17;  
     int64 Ctime = 19;
     int64 Mtime = 20;
+    WhatCurrentUserStatus current_user_status = 21;
 }
 
 message StoryBoardSences{
@@ -85,6 +87,7 @@ message StoryRole{
     bool isfolllowed = 19;
     int64 Ctime = 20;
     int64 Mtime = 21;  
+    WhatCurrentUserStatus current_user_status = 22;
 }
 
 message StoryBoardParams{
@@ -162,7 +165,6 @@ message CreateStoryRequest {
     message Data {
       Story info = 1;
       UserInfo creator = 2;
-      UserInteractStatus interact = 3;
     }Data data = 4;
   }
   
@@ -189,7 +191,6 @@ message CreateStoryRequest {
     message Data {
       StoryBoard info = 1;
       UserInfo creator = 2;
-      UserInteractStatus interact = 3;
     }Data data = 3;
   }
   
@@ -211,7 +212,6 @@ message CreateStoryRequest {
     message Data {
       repeated StoryBoard list = 1;
       repeated UserInfo creator = 2;
-      repeated UserInteractStatus interact = 3;
       bool is_multi_branch = 4;
       int64 total = 5;
       int64 offset = 6;
@@ -453,7 +453,6 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated Story list = 1;
-      repeated UserInteractStatus interact = 2;
       repeated UserInfo creator = 3;
     }Data data = 3;
   }
@@ -554,7 +553,6 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryRole list = 1;
-      repeated UserInteractStatus interact = 2;
       repeated UserInfo creator = 3;
     }Data data = 3;
   }
@@ -569,7 +567,6 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryRole list = 1;
-      repeated UserInteractStatus interact = 2;
       repeated UserInfo creator = 3;
     }Data data = 3;
   }
@@ -601,7 +598,6 @@ message CreateStoryRequest {
     string message = 2;
     message Data {
       repeated StoryBoardSence list = 1;
-      repeated UserInteractStatus interact = 2;
     }Data data = 3;
   }
 

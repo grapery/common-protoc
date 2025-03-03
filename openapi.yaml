@@ -3725,10 +3725,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/Story'
-                interact:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInteractStatus'
                 creator:
                     type: array
                     items:
@@ -4349,10 +4345,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
-                interact:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInteractStatus'
                 creator:
                     type: array
                     items:
@@ -4401,10 +4393,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardSence'
-                interact:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInteractStatus'
         GetStoryContributorsRequest:
             type: object
             properties:
@@ -4449,8 +4437,6 @@ components:
                     $ref: '#/components/schemas/Story'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
-                interact:
-                    $ref: '#/components/schemas/UserInteractStatus'
         GetStoryRenderRequest:
             type: object
             properties:
@@ -4584,10 +4570,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
-                interact:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInteractStatus'
                 creator:
                     type: array
                     items:
@@ -4616,8 +4598,6 @@ components:
                     $ref: '#/components/schemas/StoryBoard'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
-                interact:
-                    $ref: '#/components/schemas/UserInteractStatus'
         GetStoryboardsRequest:
             type: object
             properties:
@@ -4663,10 +4643,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
-                interact:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInteractStatus'
                 isMultiBranch:
                     type: boolean
                 total:
@@ -4982,6 +4958,8 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/GroupMemberInfo'
+                currentUserStatus:
+                    $ref: '#/components/schemas/WhatCurrentUserStatus'
                 Ctime:
                     type: string
                 Mtime:
@@ -6049,6 +6027,8 @@ components:
                     type: boolean
                 iswatched:
                     type: boolean
+                currentUserStatus:
+                    $ref: '#/components/schemas/WhatCurrentUserStatus'
                 Ctime:
                     type: string
                 Mtime:
@@ -6092,6 +6072,8 @@ components:
                     type: string
                 Mtime:
                     type: string
+                currentUserStatus:
+                    $ref: '#/components/schemas/WhatCurrentUserStatus'
         StoryBoardActive:
             type: object
             properties:
@@ -6302,6 +6284,8 @@ components:
                     type: string
                 Mtime:
                     type: string
+                currentUserStatus:
+                    $ref: '#/components/schemas/WhatCurrentUserStatus'
         StoryboardStageStore:
             type: object
             properties:
@@ -6919,37 +6903,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/GroupInfo'
-        UserInteractStatus:
-            type: object
-            properties:
-                userId:
-                    type: string
-                storyId:
-                    type: string
-                roleId:
-                    type: string
-                groupId:
-                    type: string
-                boardId:
-                    type: string
-                timelineId:
-                    type: string
-                isLike:
-                    type: boolean
-                isFollow:
-                    type: boolean
-                isWatch:
-                    type: boolean
-                isContribute:
-                    type: boolean
-                isComment:
-                    type: boolean
-                isShare:
-                    type: boolean
-                isStar:
-                    type: boolean
-                isCreator:
-                    type: boolean
         UserProfileInfo:
             type: object
             properties:
@@ -7164,6 +7117,21 @@ components:
             properties:
                 storyId:
                     type: string
+        WhatCurrentUserStatus:
+            type: object
+            properties:
+                userId:
+                    type: string
+                isFollowed:
+                    type: boolean
+                isWatched:
+                    type: boolean
+                isLiked:
+                    type: boolean
+                isJoined:
+                    type: boolean
+                isViewed:
+                    type: boolean
         WordDetail:
             type: object
             properties:

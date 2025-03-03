@@ -208,3 +208,12 @@ enum MultiBranchOrderBy {
   // 关注的角色参与数
   MultiBranchOrderByFollowRole = 6;
 }
+
+message WhatCurrentUserStatus{
+  int64 user_id = 1;
+  bool is_followed = 2;
+  bool is_watched = 3;
+  bool is_liked = 4;
+  bool is_joined = 5;
+  bool is_viewed = 6;
+}

@@ -5,6 +5,7 @@
 
 - [base.proto](#base-proto)
     - [Tags](#common-Tags)
+    - [WhatCurrentUserStatus](#common-WhatCurrentUserStatus)
   
     - [ActiveFlowType](#common-ActiveFlowType)
     - [ActiveType](#common-ActiveType)
@@ -49,7 +50,6 @@
   
 - [user.proto](#user-proto)
     - [UserInfo](#common-UserInfo)
-    - [UserInteractStatus](#common-UserInteractStatus)
     - [UserPrivate](#common-UserPrivate)
     - [UserProfileInfo](#common-UserProfileInfo)
   
@@ -458,6 +458,26 @@
 | expired_time | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-WhatCurrentUserStatus"></a>
+
+### WhatCurrentUserStatus
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| is_followed | [bool](#bool) |  |  |
+| is_watched | [bool](#bool) |  |  |
+| is_liked | [bool](#bool) |  |  |
+| is_joined | [bool](#bool) |  |  |
+| is_viewed | [bool](#bool) |  |  |
 
 
 
@@ -947,6 +967,7 @@ AI生成失败 |
 | status | [int32](#int32) |  |  |
 | profile | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
 | members | [GroupMemberInfo](#common-GroupMemberInfo) | repeated |  |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -1296,34 +1317,6 @@ AI生成失败 |
 | desc | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-UserInteractStatus"></a>
-
-### UserInteractStatus
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| story_id | [int64](#int64) |  |  |
-| role_id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| board_id | [int64](#int64) |  |  |
-| timeline_id | [int64](#int64) |  |  |
-| is_like | [bool](#bool) |  |  |
-| is_follow | [bool](#bool) |  |  |
-| is_watch | [bool](#bool) |  |  |
-| is_contribute | [bool](#bool) |  |  |
-| is_comment | [bool](#bool) |  |  |
-| is_share | [bool](#bool) |  |  |
-| is_star | [bool](#bool) |  |  |
-| is_creator | [bool](#bool) |  |  |
 
 
 
@@ -1697,7 +1690,6 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [Story](#common-Story) | repeated |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 | creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
@@ -1961,7 +1953,6 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryRole](#common-StoryRole) | repeated |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 | creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
@@ -2045,7 +2036,6 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 
 
 
@@ -2094,7 +2084,6 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | info | [Story](#common-Story) |  |  |
 | creator | [UserInfo](#common-UserInfo) |  |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) |  |  |
 
 
 
@@ -2193,7 +2182,6 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryRole](#common-StoryRole) | repeated |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 | creator | [UserInfo](#common-UserInfo) | repeated |  |
 
 
@@ -2244,7 +2232,6 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | info | [StoryBoard](#common-StoryBoard) |  |  |
 | creator | [UserInfo](#common-UserInfo) |  |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) |  |  |
 
 
 
@@ -2301,7 +2288,6 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryBoard](#common-StoryBoard) | repeated |  |
 | creator | [UserInfo](#common-UserInfo) | repeated |  |
-| interact | [UserInteractStatus](#common-UserInteractStatus) | repeated |  |
 | is_multi_branch | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -2803,6 +2789,7 @@ AI生成失败 |
 | total_boards | [int64](#int64) |  |  |
 | isliked | [bool](#bool) |  |  |
 | iswatched | [bool](#bool) |  |  |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2835,6 +2822,7 @@ AI生成失败 |
 | is_multi_branch | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
 
 
 
@@ -2964,6 +2952,7 @@ AI生成失败 |
 | isfolllowed | [bool](#bool) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
 
 
 
