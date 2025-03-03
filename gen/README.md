@@ -31,6 +31,8 @@
     - [GroupMemberInfo](#common-GroupMemberInfo)
     - [GroupProfileInfo](#common-GroupProfileInfo)
   
+    - [GroupMemberType](#common-GroupMemberType)
+  
 - [item.proto](#item-proto)
     - [ItemDetail](#common-ItemDetail)
     - [ItemInfo](#common-ItemInfo)
@@ -965,6 +967,7 @@ AI生成失败 |
 | name | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | desc | [string](#string) |  |  |
+| member_type | [GroupMemberType](#common-GroupMemberType) |  |  |
 
 
 
@@ -984,6 +987,7 @@ AI生成失败 |
 | group_follower_num | [int32](#int32) |  |  |
 | group_story_num | [int32](#int32) |  |  |
 | description | [string](#string) |  |  |
+| backgroud_url | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -992,6 +996,18 @@ AI生成失败 |
 
 
  
+
+
+<a name="common-GroupMemberType"></a>
+
+### GroupMemberType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED | 0 |  |
+| GROUP_MEMBER_TYPE_MAINTAINER | 1 |  |
+
 
  
 

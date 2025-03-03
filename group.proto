@@ -5,35 +5,42 @@ package common;
 import "base.proto";
 
 message GroupInfo {
-    int64 group_id = 1;
-    string name = 2;
-    string avatar = 3;
-    string desc = 4;
-    int64 creator = 5;
-    int64 owner = 6;
-    repeated Tags tags = 7;
-    string location = 8;
-    int32 status = 9;
-    GroupProfileInfo profile = 10;
-    repeated GroupMemberInfo members = 11;
-    int64 Ctime = 19;
-    int64 Mtime = 20;
-  }
+  int64 group_id = 1;
+  string name = 2;
+  string avatar = 3;
+  string desc = 4;
+  int64 creator = 5;
+  int64 owner = 6;
+  repeated Tags tags = 7;
+  string location = 8;
+  int32 status = 9;
+  GroupProfileInfo profile = 10;
+  repeated GroupMemberInfo members = 11;
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
 
-  message GroupMemberInfo {
-    int64 user_id = 1;
-    string name = 2;
-    string avatar = 3;
-    string desc = 4;
-  }
+enum GroupMemberType{
+  GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED = 0;
+  GROUP_MEMBER_TYPE_MAINTAINER = 1;
+}
+
+message GroupMemberInfo {
+  int64 user_id = 1;
+  string name = 2;
+  string avatar = 3;
+  string desc = 4;
+  GroupMemberType member_type = 5;
+}
+
+message GroupProfileInfo {
+  int64 group_id = 1;
+  int32 group_member_num = 2;
+  int32 group_follower_num = 3;
+  int32 group_story_num = 4;
+  string description = 8; 
+  string backgroud_url = 9;
   
-  message GroupProfileInfo {
-    int64 group_id = 1;
-    int32 group_member_num = 2;
-    int32 group_follower_num = 3;
-    int32 group_story_num = 4;
-    string description = 8; 
-    
-    int64 Ctime = 19;
-    int64 Mtime = 20;
-  }
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}

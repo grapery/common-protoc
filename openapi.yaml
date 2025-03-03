@@ -4997,6 +4997,9 @@ components:
                     type: string
                 desc:
                     type: string
+                memberType:
+                    type: integer
+                    format: enum
         GroupProfileInfo:
             type: object
             properties:
@@ -5012,6 +5015,8 @@ components:
                     type: integer
                     format: int32
                 description:
+                    type: string
+                backgroudUrl:
                     type: string
                 Ctime:
                     type: string
