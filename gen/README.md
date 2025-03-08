@@ -42,7 +42,6 @@
     - [PictureDetail](#common-PictureDetail)
     - [PictureInfo](#common-PictureInfo)
     - [ShareDetail](#common-ShareDetail)
-    - [TimeLine](#common-TimeLine)
     - [VideoDetail](#common-VideoDetail)
     - [VideoInfo](#common-VideoInfo)
     - [VoiceDetail](#common-VoiceDetail)
@@ -140,6 +139,7 @@
     - [StoryBoardSences](#common-StoryBoardSences)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
+    - [TimeLine](#common-TimeLine)
     - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
     - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
     - [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest)
@@ -1181,28 +1181,6 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | resource_url | [string](#string) |  |  |
 | source | [int64](#int64) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-TimeLine"></a>
-
-### TimeLine
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| root_id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| creator_id | [int64](#int64) |  |  |
-| title | [string](#string) |  |  |
-| item_id | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2955,6 +2933,28 @@ AI生成失败 |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+
+
+
+
+
+
+<a name="common-TimeLine"></a>
+
+### TimeLine
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| root_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
+| project_id | [int64](#int64) |  |  |
+| creator_id | [int64](#int64) |  |  |
+| title | [string](#string) |  |  |
+| item_id | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
 
 
 

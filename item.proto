@@ -103,14 +103,5 @@ message ItemInfo {
   int64 Mtime = 10;
 }
 
-message TimeLine {
-  int64 root_id = 1;
-  int64 group_id = 2;
-  int64 project_id = 3;
-  int64 creator_id = 4;
-  string title = 5;
-  int64 item_id = 6;
-  int64 Ctime = 9;
-  int64 Mtime = 10;
-}
+
 
