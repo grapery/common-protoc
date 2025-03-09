@@ -140,6 +140,10 @@ const (
 	TeamsAPI_GetUserWatchStoryActiveStoryBoards_FullMethodName = "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
 	TeamsAPI_GetUserWatchRoleActiveStoryBoards_FullMethodName  = "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
 	TeamsAPI_GetUnPublishStoryboard_FullMethodName             = "/common.TeamsAPI/GetUnPublishStoryboard"
+	TeamsAPI_GenerateRoleDescription_FullMethodName            = "/common.TeamsAPI/GenerateRoleDescription"
+	TeamsAPI_UpdateRoleDescription_FullMethodName              = "/common.TeamsAPI/UpdateRoleDescription"
+	TeamsAPI_GenerateRolePrompt_FullMethodName                 = "/common.TeamsAPI/GenerateRolePrompt"
+	TeamsAPI_UpdateRolePrompt_FullMethodName                   = "/common.TeamsAPI/UpdateRolePrompt"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -385,6 +389,10 @@ type TeamsAPIClient interface {
 	GetUserWatchStoryActiveStoryBoards(ctx context.Context, in *GetUserWatchStoryActiveStoryBoardsRequest, opts ...grpc.CallOption) (*GetUserWatchStoryActiveStoryBoardsResponse, error)
 	GetUserWatchRoleActiveStoryBoards(ctx context.Context, in *GetUserWatchRoleActiveStoryBoardsRequest, opts ...grpc.CallOption) (*GetUserWatchRoleActiveStoryBoardsResponse, error)
 	GetUnPublishStoryboard(ctx context.Context, in *GetUnPublishStoryboardRequest, opts ...grpc.CallOption) (*GetUnPublishStoryboardResponse, error)
+	GenerateRoleDescription(ctx context.Context, in *GenerateRoleDescriptionRequest, opts ...grpc.CallOption) (*GenerateRoleDescriptionResponse, error)
+	UpdateRoleDescription(ctx context.Context, in *UpdateRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateRoleDescriptionResponse, error)
+	GenerateRolePrompt(ctx context.Context, in *GenerateRolePromptRequest, opts ...grpc.CallOption) (*GenerateRolePromptResponse, error)
+	UpdateRolePrompt(ctx context.Context, in *UpdateRolePromptRequest, opts ...grpc.CallOption) (*UpdateRolePromptResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1484,6 +1492,42 @@ func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, in *GetUnPu
 	return out, nil
 }
 
+func (c *teamsAPIClient) GenerateRoleDescription(ctx context.Context, in *GenerateRoleDescriptionRequest, opts ...grpc.CallOption) (*GenerateRoleDescriptionResponse, error) {
+	out := new(GenerateRoleDescriptionResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenerateRoleDescription_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateRoleDescription(ctx context.Context, in *UpdateRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateRoleDescriptionResponse, error) {
+	out := new(UpdateRoleDescriptionResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateRoleDescription_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GenerateRolePrompt(ctx context.Context, in *GenerateRolePromptRequest, opts ...grpc.CallOption) (*GenerateRolePromptResponse, error) {
+	out := new(GenerateRolePromptResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenerateRolePrompt_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, in *UpdateRolePromptRequest, opts ...grpc.CallOption) (*UpdateRolePromptResponse, error) {
+	out := new(UpdateRolePromptResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateRolePrompt_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1727,6 +1771,10 @@ type TeamsAPIServer interface {
 	GetUserWatchStoryActiveStoryBoards(context.Context, *GetUserWatchStoryActiveStoryBoardsRequest) (*GetUserWatchStoryActiveStoryBoardsResponse, error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *GetUserWatchRoleActiveStoryBoardsRequest) (*GetUserWatchRoleActiveStoryBoardsResponse, error)
 	GetUnPublishStoryboard(context.Context, *GetUnPublishStoryboardRequest) (*GetUnPublishStoryboardResponse, error)
+	GenerateRoleDescription(context.Context, *GenerateRoleDescriptionRequest) (*GenerateRoleDescriptionResponse, error)
+	UpdateRoleDescription(context.Context, *UpdateRoleDescriptionRequest) (*UpdateRoleDescriptionResponse, error)
+	GenerateRolePrompt(context.Context, *GenerateRolePromptRequest) (*GenerateRolePromptResponse, error)
+	UpdateRolePrompt(context.Context, *UpdateRolePromptRequest) (*UpdateRolePromptResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2096,6 +2144,18 @@ func (UnimplementedTeamsAPIServer) GetUserWatchRoleActiveStoryBoards(context.Con
 }
 func (UnimplementedTeamsAPIServer) GetUnPublishStoryboard(context.Context, *GetUnPublishStoryboardRequest) (*GetUnPublishStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUnPublishStoryboard not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenerateRoleDescription(context.Context, *GenerateRoleDescriptionRequest) (*GenerateRoleDescriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateRoleDescription not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateRoleDescription(context.Context, *UpdateRoleDescriptionRequest) (*UpdateRoleDescriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRoleDescription not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenerateRolePrompt(context.Context, *GenerateRolePromptRequest) (*GenerateRolePromptResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateRolePrompt not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateRolePrompt(context.Context, *UpdateRolePromptRequest) (*UpdateRolePromptResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRolePrompt not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4288,6 +4348,78 @@ func _TeamsAPI_GetUnPublishStoryboard_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GenerateRoleDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateRoleDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenerateRoleDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenerateRoleDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenerateRoleDescription(ctx, req.(*GenerateRoleDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateRoleDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRoleDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateRoleDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateRoleDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateRoleDescription(ctx, req.(*UpdateRoleDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GenerateRolePrompt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateRolePromptRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenerateRolePrompt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenerateRolePrompt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenerateRolePrompt(ctx, req.(*GenerateRolePromptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateRolePrompt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRolePromptRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateRolePrompt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateRolePrompt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateRolePrompt(ctx, req.(*UpdateRolePromptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4778,6 +4910,22 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUnPublishStoryboard",
 			Handler:    _TeamsAPI_GetUnPublishStoryboard_Handler,
+		},
+		{
+			MethodName: "GenerateRoleDescription",
+			Handler:    _TeamsAPI_GenerateRoleDescription_Handler,
+		},
+		{
+			MethodName: "UpdateRoleDescription",
+			Handler:    _TeamsAPI_UpdateRoleDescription_Handler,
+		},
+		{
+			MethodName: "GenerateRolePrompt",
+			Handler:    _TeamsAPI_GenerateRolePrompt_Handler,
+		},
+		{
+			MethodName: "UpdateRolePrompt",
+			Handler:    _TeamsAPI_UpdateRolePrompt_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -694,6 +694,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateRoleDescription:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GenerateRoleDescription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateRoleDescriptionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateRoleDescriptionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateRolePrompt:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GenerateRolePrompt
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateRolePromptRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateRolePromptResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetGroup:
         post:
             tags:
@@ -2598,6 +2646,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateRoleDescription:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateRoleDescription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateRoleDescriptionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateRoleDescriptionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateRolePrompt:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateRolePrompt
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateRolePromptRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateRolePromptResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStory:
         post:
             tags:
@@ -3844,6 +3940,48 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryboardDetail'
+        GenerateRoleDescriptionRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                roleId:
+                    type: string
+                description:
+                    type: string
+        GenerateRoleDescriptionResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                description:
+                    type: string
+        GenerateRolePromptRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                roleId:
+                    type: string
+                prompt:
+                    type: string
+        GenerateRolePromptResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                prompt:
+                    type: string
         GetGroupActivesRequest:
             type: object
             properties:
@@ -6103,6 +6241,8 @@ components:
                         $ref: '#/components/schemas/StoryBoardActiveRole'
                 creator:
                     $ref: '#/components/schemas/StoryBoardActiveUser'
+                summary:
+                    $ref: '#/components/schemas/StorySummaryInfo'
                 isliked:
                     type: boolean
                 mtime:
@@ -6290,6 +6430,21 @@ components:
                     type: string
                 currentUserStatus:
                     $ref: '#/components/schemas/WhatCurrentUserStatus'
+        StorySummaryInfo:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                storyTitle:
+                    type: string
+                storyAvatar:
+                    type: string
+                storyDescription:
+                    type: string
+                storyCover:
+                    type: string
+                storyTags:
+                    type: string
         StoryboardStageStore:
             type: object
             properties:
@@ -6582,6 +6737,40 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
+        UpdateRoleDescriptionRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                roleId:
+                    type: string
+                description:
+                    type: string
+        UpdateRoleDescriptionResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        UpdateRolePromptRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                roleId:
+                    type: string
+                prompt:
+                    type: string
+        UpdateRolePromptResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         UpdateStoryBoardSenceRequest:
             type: object
             properties:

@@ -970,6 +970,30 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `getUnPublishStoryboard`(request: Common_GetUnPublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUnPublishStoryboardResponse>
+
+    @discardableResult
+    func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRoleDescriptionResponse>
+
+    @discardableResult
+    func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateRoleDescriptionResponse>
+
+    @discardableResult
+    func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRolePromptResponse>
+
+    @discardableResult
+    func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateRolePromptResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2190,6 +2214,46 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetUnPublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRoleDescriptionResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateRoleDescriptionResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRolePromptResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateRolePromptResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2313,6 +2377,10 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getUserWatchStoryActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchStoryActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
             public static let getUserWatchRoleActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchRoleActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
             public static let getUnPublishStoryboard = Connect.MethodSpec(name: "GetUnPublishStoryboard", service: "common.TeamsAPI", type: .unary)
+            public static let generateRoleDescription = Connect.MethodSpec(name: "GenerateRoleDescription", service: "common.TeamsAPI", type: .unary)
+            public static let updateRoleDescription = Connect.MethodSpec(name: "UpdateRoleDescription", service: "common.TeamsAPI", type: .unary)
+            public static let generateRolePrompt = Connect.MethodSpec(name: "GenerateRolePrompt", service: "common.TeamsAPI", type: .unary)
+            public static let updateRolePrompt = Connect.MethodSpec(name: "UpdateRolePrompt", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

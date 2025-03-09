@@ -338,6 +338,18 @@ const (
 	// TeamsAPIGetUnPublishStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUnPublishStoryboard RPC.
 	TeamsAPIGetUnPublishStoryboardProcedure = "/common.TeamsAPI/GetUnPublishStoryboard"
+	// TeamsAPIGenerateRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
+	// GenerateRoleDescription RPC.
+	TeamsAPIGenerateRoleDescriptionProcedure = "/common.TeamsAPI/GenerateRoleDescription"
+	// TeamsAPIUpdateRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateRoleDescription RPC.
+	TeamsAPIUpdateRoleDescriptionProcedure = "/common.TeamsAPI/UpdateRoleDescription"
+	// TeamsAPIGenerateRolePromptProcedure is the fully-qualified name of the TeamsAPI's
+	// GenerateRolePrompt RPC.
+	TeamsAPIGenerateRolePromptProcedure = "/common.TeamsAPI/GenerateRolePrompt"
+	// TeamsAPIUpdateRolePromptProcedure is the fully-qualified name of the TeamsAPI's UpdateRolePrompt
+	// RPC.
+	TeamsAPIUpdateRolePromptProcedure = "/common.TeamsAPI/UpdateRolePrompt"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -581,6 +593,10 @@ type TeamsAPIClient interface {
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
+	GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error)
+	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
+	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
+	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1198,6 +1214,26 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetUnPublishStoryboardProcedure,
 			opts...,
 		),
+		generateRoleDescription: connect.NewClient[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse](
+			httpClient,
+			baseURL+TeamsAPIGenerateRoleDescriptionProcedure,
+			opts...,
+		),
+		updateRoleDescription: connect.NewClient[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateRoleDescriptionProcedure,
+			opts...,
+		),
+		generateRolePrompt: connect.NewClient[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse](
+			httpClient,
+			baseURL+TeamsAPIGenerateRolePromptProcedure,
+			opts...,
+		),
+		updateRolePrompt: connect.NewClient[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateRolePromptProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1324,6 +1360,10 @@ type teamsAPIClient struct {
 	getUserWatchStoryActiveStoryBoards *connect.Client[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse]
 	getUserWatchRoleActiveStoryBoards  *connect.Client[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse]
 	getUnPublishStoryboard             *connect.Client[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse]
+	generateRoleDescription            *connect.Client[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse]
+	updateRoleDescription              *connect.Client[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse]
+	generateRolePrompt                 *connect.Client[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse]
+	updateRolePrompt                   *connect.Client[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -1931,6 +1971,26 @@ func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, req *connec
 	return c.getUnPublishStoryboard.CallUnary(ctx, req)
 }
 
+// GenerateRoleDescription calls common.TeamsAPI.GenerateRoleDescription.
+func (c *teamsAPIClient) GenerateRoleDescription(ctx context.Context, req *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error) {
+	return c.generateRoleDescription.CallUnary(ctx, req)
+}
+
+// UpdateRoleDescription calls common.TeamsAPI.UpdateRoleDescription.
+func (c *teamsAPIClient) UpdateRoleDescription(ctx context.Context, req *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error) {
+	return c.updateRoleDescription.CallUnary(ctx, req)
+}
+
+// GenerateRolePrompt calls common.TeamsAPI.GenerateRolePrompt.
+func (c *teamsAPIClient) GenerateRolePrompt(ctx context.Context, req *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error) {
+	return c.generateRolePrompt.CallUnary(ctx, req)
+}
+
+// UpdateRolePrompt calls common.TeamsAPI.UpdateRolePrompt.
+func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, req *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error) {
+	return c.updateRolePrompt.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2172,6 +2232,10 @@ type TeamsAPIHandler interface {
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
+	GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error)
+	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
+	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
+	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2785,6 +2849,26 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetUnPublishStoryboard,
 		opts...,
 	)
+	teamsAPIGenerateRoleDescriptionHandler := connect.NewUnaryHandler(
+		TeamsAPIGenerateRoleDescriptionProcedure,
+		svc.GenerateRoleDescription,
+		opts...,
+	)
+	teamsAPIUpdateRoleDescriptionHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateRoleDescriptionProcedure,
+		svc.UpdateRoleDescription,
+		opts...,
+	)
+	teamsAPIGenerateRolePromptHandler := connect.NewUnaryHandler(
+		TeamsAPIGenerateRolePromptProcedure,
+		svc.GenerateRolePrompt,
+		opts...,
+	)
+	teamsAPIUpdateRolePromptHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateRolePromptProcedure,
+		svc.UpdateRolePrompt,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3029,6 +3113,14 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetUserWatchRoleActiveStoryBoardsHandler.ServeHTTP(w, r)
 		case TeamsAPIGetUnPublishStoryboardProcedure:
 			teamsAPIGetUnPublishStoryboardHandler.ServeHTTP(w, r)
+		case TeamsAPIGenerateRoleDescriptionProcedure:
+			teamsAPIGenerateRoleDescriptionHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateRoleDescriptionProcedure:
+			teamsAPIUpdateRoleDescriptionHandler.ServeHTTP(w, r)
+		case TeamsAPIGenerateRolePromptProcedure:
+			teamsAPIGenerateRolePromptHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateRolePromptProcedure:
+			teamsAPIUpdateRolePromptHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3520,4 +3612,20 @@ func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Co
 
 func (UnimplementedTeamsAPIHandler) GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetUnPublishStoryboard is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRoleDescription is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateRoleDescription is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRolePrompt is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateRolePrompt is not implemented"))
 }

@@ -231,6 +231,10 @@
     - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
+    - [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest)
+    - [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse)
+    - [GenerateRolePromptRequest](#common-GenerateRolePromptRequest)
+    - [GenerateRolePromptResponse](#common-GenerateRolePromptResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
@@ -363,6 +367,7 @@
     - [StoryBoardActiveRole](#common-StoryBoardActiveRole)
     - [StoryBoardActiveUser](#common-StoryBoardActiveUser)
     - [StoryContributor](#common-StoryContributor)
+    - [StorySummaryInfo](#common-StorySummaryInfo)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
@@ -389,6 +394,10 @@
     - [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data)
     - [UpdateProjectRequest](#common-UpdateProjectRequest)
     - [UpdateProjectResponse](#common-UpdateProjectResponse)
+    - [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest)
+    - [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse)
+    - [UpdateRolePromptRequest](#common-UpdateRolePromptRequest)
+    - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
     - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
@@ -4368,6 +4377,76 @@ AI生成失败 |
 
 
 
+<a name="common-GenerateRoleDescriptionRequest"></a>
+
+### GenerateRoleDescriptionRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| description | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateRoleDescriptionResponse"></a>
+
+### GenerateRoleDescriptionResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateRolePromptRequest"></a>
+
+### GenerateRolePromptRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateRolePromptResponse"></a>
+
+### GenerateRolePromptResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-GetDisscusReq"></a>
 
 ### GetDisscusReq
@@ -6581,6 +6660,7 @@ AI生成失败 |
 | users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
 | roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
 | creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
+| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  |  |
 | isliked | [bool](#bool) |  |  |
 | mtime | [int64](#int64) |  |  |
 
@@ -6635,6 +6715,26 @@ AI生成失败 |
 | username | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | viplevel | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StorySummaryInfo"></a>
+
+### StorySummaryInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| story_title | [string](#string) |  |  |
+| story_avatar | [string](#string) |  |  |
+| story_description | [string](#string) |  |  |
+| story_cover | [string](#string) |  |  |
+| story_tags | [string](#string) |  |  |
 
 
 
@@ -7056,6 +7156,72 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [ProjectInfo](#common-ProjectInfo) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateRoleDescriptionRequest"></a>
+
+### UpdateRoleDescriptionRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| description | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateRoleDescriptionResponse"></a>
+
+### UpdateRoleDescriptionResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateRolePromptRequest"></a>
+
+### UpdateRolePromptRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateRolePromptResponse"></a>
+
+### UpdateRolePromptResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -7796,6 +7962,10 @@ user ,group .project.item
 | GetUserWatchStoryActiveStoryBoards | [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest) | [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse) |  |
 | GetUserWatchRoleActiveStoryBoards | [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest) | [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse) |  |
 | GetUnPublishStoryboard | [GetUnPublishStoryboardRequest](#common-GetUnPublishStoryboardRequest) | [GetUnPublishStoryboardResponse](#common-GetUnPublishStoryboardResponse) |  |
+| GenerateRoleDescription | [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest) | [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse) |  |
+| UpdateRoleDescription | [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest) | [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse) |  |
+| GenerateRolePrompt | [GenerateRolePromptRequest](#common-GenerateRolePromptRequest) | [GenerateRolePromptResponse](#common-GenerateRolePromptResponse) |  |
+| UpdateRolePrompt | [UpdateRolePromptRequest](#common-UpdateRolePromptRequest) | [UpdateRolePromptResponse](#common-UpdateRolePromptResponse) |  |
 
  
 
