@@ -1590,6 +1590,13 @@ service TeamsAPI {
     };
   }
 
+  // 更新用户的背景图片
+  rpc UpdateUserBackgroundImage(UpdateUserBackgroundImageRequest) returns (UpdateUserBackgroundImageResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateUserBackgroundImage"
+      body : "*"
+    };
+  }
   // 创建新的故事角色
   rpc CreateStoryRole(CreateStoryRoleRequest) returns (CreateStoryRoleResponse) {
     option (google.api.http) = {
@@ -1816,6 +1823,14 @@ service TeamsAPI {
   rpc ChatWithStoryRole(ChatWithStoryRoleRequest) returns (ChatWithStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ChatWithStoryRole"
+      body : "*"
+    };
+  }
+
+  // 更新角色头像
+  rpc UpdateStoryRoleAvator(UpdateStoryRoleAvatorRequest) returns (UpdateStoryRoleAvatorResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryRoleAvator"
       body : "*"
     };
   }
@@ -2245,12 +2260,25 @@ message UpdateStoryRoleDetailRequest {
   StoryRole role = 2;
   int64 user_id = 3;
   bool need_regen = 4;
+  string background_image = 5;
 }
 
 message UpdateStoryRoleDetailResponse {
   ResponseCode code = 1;
   string message = 2;
 }
+
+message UpdateStoryRoleAvatorRequest {
+  int64 role_id = 1;
+  string avator = 2;
+  int64 user_id = 3;
+}
+
+message UpdateStoryRoleAvatorResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
 
 message GetUserWithRoleChatListRequest {
   int64 user_id = 1;
@@ -2396,29 +2424,6 @@ message StoryboardStageStore{
   int64 user_id = 6;
 }
 
-enum StoryboardStage{
-  // 未指定
-  STORYBOARD_STAGE_UNSPECIFIED = 0;
-  // 创建
-  STORYBOARD_STAGE_CREATED = 1;
-  // 渲染完成
-  STORYBOARD_STAGE_RENDERED = 2;
-  // 生成���片
-  STORYBOARD_STAGE_GEN_IMAGE = 3;
-  // 生成视频
-  STORYBOARD_STAGE_GEN_VIDEO = 4;
-  // 生成音频
-  STORYBOARD_STAGE_GEN_AUDIO = 5;
-  // 生成文本
-  STORYBOARD_STAGE_GEN_TEXT = 6;
-  // 完成
-  STORYBOARD_STAGE_FINISHED = 7;
-  // 失败
-  STORYBOARD_STAGE_FAILED = 8;
-  // 发布
-  STORYBOARD_STAGE_PUBLISHED = 9;
-}
-
 message GetUserProfileRequest {
   int64 user_id = 1;
 }
@@ -2431,10 +2436,25 @@ message GetUserProfileResponse {
 
 message UpdateUserProfileRequest {
   int64 user_id = 1;
-  UserProfileInfo info = 2;
+  string background_image = 2;
+  string avatar = 3;
+  string name = 4;
+  string description = 5;
+  string location = 6;
+  string email = 7;
 }
 
 message UpdateUserProfileResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message UpdateUserBackgroundImageRequest {
+  int64 user_id = 1;
+  string background_image = 2;
+}
+
+message UpdateUserBackgroundImageResponse {
   ResponseCode code = 1;
   string message = 2;
 }

@@ -2769,6 +2769,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRoleAvator:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新角色头像
+            operationId: TeamsAPI_UpdateStoryRoleAvator
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRoleAvatorRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRoleAvatorResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryRoleDetail:
         post:
             tags:
@@ -2838,6 +2863,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateUserAvatorResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateUserBackgroundImage:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新用户的背景图片
+            operationId: TeamsAPI_UpdateUserBackgroundImage
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateUserBackgroundImageRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateUserBackgroundImageResponse'
                 default:
                     description: Default error response
                     content:
@@ -6826,6 +6876,23 @@ components:
                 storyId:
                     type: integer
                     format: int32
+        UpdateStoryRoleAvatorRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                avator:
+                    type: string
+                userId:
+                    type: string
+        UpdateStoryRoleAvatorResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         UpdateStoryRoleDetailRequest:
             type: object
             properties:
@@ -6837,6 +6904,8 @@ components:
                     type: string
                 needRegen:
                     type: boolean
+                backgroundImage:
+                    type: string
         UpdateStoryRoleDetailResponse:
             type: object
             properties:
@@ -6913,13 +6982,38 @@ components:
                 status:
                     type: integer
                     format: int32
+        UpdateUserBackgroundImageRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                backgroundImage:
+                    type: string
+        UpdateUserBackgroundImageResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         UpdateUserProfileRequest:
             type: object
             properties:
                 userId:
                     type: string
-                info:
-                    $ref: '#/components/schemas/UserProfileInfo'
+                backgroundImage:
+                    type: string
+                avatar:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                location:
+                    type: string
+                email:
+                    type: string
         UpdateUserProfileResponse:
             type: object
             properties:
@@ -7139,6 +7233,8 @@ components:
                 contributRoleNum:
                     type: integer
                     format: int32
+                backgroundImage:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:

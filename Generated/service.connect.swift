@@ -665,6 +665,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserProfileResponse>
 
+    /// 更新用户的背景图片
+    @discardableResult
+    func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新用户的背景图片
+    @available(iOS 13, *)
+    func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserBackgroundImageResponse>
+
     /// 创建新的故事角色
     @discardableResult
     func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable
@@ -880,6 +888,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 与角色聊天
     @available(iOS 13, *)
     func `chatWithStoryRole`(request: Common_ChatWithStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ChatWithStoryRoleResponse>
+
+    /// 更新角色头像
+    @discardableResult
+    func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新角色头像
+    @available(iOS 13, *)
+    func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleAvatorResponse>
 
     /// 更新角色详情
     @discardableResult
@@ -1825,6 +1841,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateUserBackgroundImageResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -2095,6 +2121,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleAvatorResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `updateStoryRoleDetail`(request: Common_UpdateStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -2338,6 +2374,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryBoardRoles = Connect.MethodSpec(name: "GetStoryBoardRoles", service: "common.TeamsAPI", type: .unary)
             public static let getUserProfile = Connect.MethodSpec(name: "GetUserProfile", service: "common.TeamsAPI", type: .unary)
             public static let updateUserProfile = Connect.MethodSpec(name: "UpdateUserProfile", service: "common.TeamsAPI", type: .unary)
+            public static let updateUserBackgroundImage = Connect.MethodSpec(name: "UpdateUserBackgroundImage", service: "common.TeamsAPI", type: .unary)
             public static let createStoryRole = Connect.MethodSpec(name: "CreateStoryRole", service: "common.TeamsAPI", type: .unary)
             public static let getStoryRoleDetail = Connect.MethodSpec(name: "GetStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
             public static let renderStoryRole = Connect.MethodSpec(name: "RenderStoryRole", service: "common.TeamsAPI", type: .unary)
@@ -2365,6 +2402,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryRoleStories = Connect.MethodSpec(name: "GetStoryRoleStories", service: "common.TeamsAPI", type: .unary)
             public static let createStoryRoleChat = Connect.MethodSpec(name: "CreateStoryRoleChat", service: "common.TeamsAPI", type: .unary)
             public static let chatWithStoryRole = Connect.MethodSpec(name: "ChatWithStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryRoleAvator = Connect.MethodSpec(name: "UpdateStoryRoleAvator", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryRoleDetail = Connect.MethodSpec(name: "UpdateStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
             public static let getUserWithRoleChatList = Connect.MethodSpec(name: "GetUserWithRoleChatList", service: "common.TeamsAPI", type: .unary)
             public static let getUserChatWithRole = Connect.MethodSpec(name: "GetUserChatWithRole", service: "common.TeamsAPI", type: .unary)

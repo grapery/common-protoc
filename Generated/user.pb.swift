@@ -63,46 +63,101 @@ public struct Common_UserInfo: Sendable {
 }
 
 /// 用户的 profile
-public struct Common_UserProfileInfo: Sendable {
+public struct Common_UserProfileInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var userID: Int64 = 0
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
 
-  public var numGroup: Int32 = 0
+  public var numGroup: Int32 {
+    get {return _storage._numGroup}
+    set {_uniqueStorage()._numGroup = newValue}
+  }
 
-  public var defaultGroupID: Int64 = 0
+  public var defaultGroupID: Int64 {
+    get {return _storage._defaultGroupID}
+    set {_uniqueStorage()._defaultGroupID = newValue}
+  }
 
-  public var minSameGroup: Int32 = 0
+  public var minSameGroup: Int32 {
+    get {return _storage._minSameGroup}
+    set {_uniqueStorage()._minSameGroup = newValue}
+  }
 
-  public var limit: Int32 = 0
+  public var limit: Int32 {
+    get {return _storage._limit}
+    set {_uniqueStorage()._limit = newValue}
+  }
 
-  public var usedTokens: Int32 = 0
+  public var usedTokens: Int32 {
+    get {return _storage._usedTokens}
+    set {_uniqueStorage()._usedTokens = newValue}
+  }
 
-  public var status: Int32 = 0
+  public var status: Int32 {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
 
-  public var createdGroupNum: Int32 = 0
+  public var createdGroupNum: Int32 {
+    get {return _storage._createdGroupNum}
+    set {_uniqueStorage()._createdGroupNum = newValue}
+  }
 
-  public var createdStoryNum: Int32 = 0
+  public var createdStoryNum: Int32 {
+    get {return _storage._createdStoryNum}
+    set {_uniqueStorage()._createdStoryNum = newValue}
+  }
 
-  public var createdRoleNum: Int32 = 0
+  public var createdRoleNum: Int32 {
+    get {return _storage._createdRoleNum}
+    set {_uniqueStorage()._createdRoleNum = newValue}
+  }
 
-  public var watchingStoryNum: Int32 = 0
+  public var watchingStoryNum: Int32 {
+    get {return _storage._watchingStoryNum}
+    set {_uniqueStorage()._watchingStoryNum = newValue}
+  }
 
-  public var watchingGroupNum: Int32 = 0
+  public var watchingGroupNum: Int32 {
+    get {return _storage._watchingGroupNum}
+    set {_uniqueStorage()._watchingGroupNum = newValue}
+  }
 
-  public var contributStoryNum: Int32 = 0
+  public var contributStoryNum: Int32 {
+    get {return _storage._contributStoryNum}
+    set {_uniqueStorage()._contributStoryNum = newValue}
+  }
 
-  public var contributRoleNum: Int32 = 0
+  public var contributRoleNum: Int32 {
+    get {return _storage._contributRoleNum}
+    set {_uniqueStorage()._contributRoleNum = newValue}
+  }
 
-  public var ctime: Int64 = 0
+  public var backgroundImage: String {
+    get {return _storage._backgroundImage}
+    set {_uniqueStorage()._backgroundImage = newValue}
+  }
 
-  public var mtime: Int64 = 0
+  public var ctime: Int64 {
+    get {return _storage._ctime}
+    set {_uniqueStorage()._ctime = newValue}
+  }
+
+  public var mtime: Int64 {
+    get {return _storage._mtime}
+    set {_uniqueStorage()._mtime = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -244,106 +299,184 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     12: .standard(proto: "watching_group_num"),
     13: .standard(proto: "contribut_story_num"),
     14: .standard(proto: "contribut_role_num"),
+    15: .standard(proto: "background_image"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
 
+  fileprivate class _StorageClass {
+    var _userID: Int64 = 0
+    var _numGroup: Int32 = 0
+    var _defaultGroupID: Int64 = 0
+    var _minSameGroup: Int32 = 0
+    var _limit: Int32 = 0
+    var _usedTokens: Int32 = 0
+    var _status: Int32 = 0
+    var _createdGroupNum: Int32 = 0
+    var _createdStoryNum: Int32 = 0
+    var _createdRoleNum: Int32 = 0
+    var _watchingStoryNum: Int32 = 0
+    var _watchingGroupNum: Int32 = 0
+    var _contributStoryNum: Int32 = 0
+    var _contributRoleNum: Int32 = 0
+    var _backgroundImage: String = String()
+    var _ctime: Int64 = 0
+    var _mtime: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _userID = source._userID
+      _numGroup = source._numGroup
+      _defaultGroupID = source._defaultGroupID
+      _minSameGroup = source._minSameGroup
+      _limit = source._limit
+      _usedTokens = source._usedTokens
+      _status = source._status
+      _createdGroupNum = source._createdGroupNum
+      _createdStoryNum = source._createdStoryNum
+      _createdRoleNum = source._createdRoleNum
+      _watchingStoryNum = source._watchingStoryNum
+      _watchingGroupNum = source._watchingGroupNum
+      _contributStoryNum = source._contributStoryNum
+      _contributRoleNum = source._contributRoleNum
+      _backgroundImage = source._backgroundImage
+      _ctime = source._ctime
+      _mtime = source._mtime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.numGroup) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.defaultGroupID) }()
-      case 4: try { try decoder.decodeSingularInt32Field(value: &self.minSameGroup) }()
-      case 5: try { try decoder.decodeSingularInt32Field(value: &self.limit) }()
-      case 6: try { try decoder.decodeSingularInt32Field(value: &self.usedTokens) }()
-      case 7: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
-      case 8: try { try decoder.decodeSingularInt32Field(value: &self.createdGroupNum) }()
-      case 9: try { try decoder.decodeSingularInt32Field(value: &self.createdStoryNum) }()
-      case 10: try { try decoder.decodeSingularInt32Field(value: &self.createdRoleNum) }()
-      case 11: try { try decoder.decodeSingularInt32Field(value: &self.watchingStoryNum) }()
-      case 12: try { try decoder.decodeSingularInt32Field(value: &self.watchingGroupNum) }()
-      case 13: try { try decoder.decodeSingularInt32Field(value: &self.contributStoryNum) }()
-      case 14: try { try decoder.decodeSingularInt32Field(value: &self.contributRoleNum) }()
-      case 19: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 20: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._numGroup) }()
+        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._defaultGroupID) }()
+        case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._minSameGroup) }()
+        case 5: try { try decoder.decodeSingularInt32Field(value: &_storage._limit) }()
+        case 6: try { try decoder.decodeSingularInt32Field(value: &_storage._usedTokens) }()
+        case 7: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
+        case 8: try { try decoder.decodeSingularInt32Field(value: &_storage._createdGroupNum) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._createdStoryNum) }()
+        case 10: try { try decoder.decodeSingularInt32Field(value: &_storage._createdRoleNum) }()
+        case 11: try { try decoder.decodeSingularInt32Field(value: &_storage._watchingStoryNum) }()
+        case 12: try { try decoder.decodeSingularInt32Field(value: &_storage._watchingGroupNum) }()
+        case 13: try { try decoder.decodeSingularInt32Field(value: &_storage._contributStoryNum) }()
+        case 14: try { try decoder.decodeSingularInt32Field(value: &_storage._contributRoleNum) }()
+        case 15: try { try decoder.decodeSingularStringField(value: &_storage._backgroundImage) }()
+        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if self.numGroup != 0 {
-      try visitor.visitSingularInt32Field(value: self.numGroup, fieldNumber: 2)
-    }
-    if self.defaultGroupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.defaultGroupID, fieldNumber: 3)
-    }
-    if self.minSameGroup != 0 {
-      try visitor.visitSingularInt32Field(value: self.minSameGroup, fieldNumber: 4)
-    }
-    if self.limit != 0 {
-      try visitor.visitSingularInt32Field(value: self.limit, fieldNumber: 5)
-    }
-    if self.usedTokens != 0 {
-      try visitor.visitSingularInt32Field(value: self.usedTokens, fieldNumber: 6)
-    }
-    if self.status != 0 {
-      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 7)
-    }
-    if self.createdGroupNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.createdGroupNum, fieldNumber: 8)
-    }
-    if self.createdStoryNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.createdStoryNum, fieldNumber: 9)
-    }
-    if self.createdRoleNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.createdRoleNum, fieldNumber: 10)
-    }
-    if self.watchingStoryNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.watchingStoryNum, fieldNumber: 11)
-    }
-    if self.watchingGroupNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.watchingGroupNum, fieldNumber: 12)
-    }
-    if self.contributStoryNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.contributStoryNum, fieldNumber: 13)
-    }
-    if self.contributRoleNum != 0 {
-      try visitor.visitSingularInt32Field(value: self.contributRoleNum, fieldNumber: 14)
-    }
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 19)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 20)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 1)
+      }
+      if _storage._numGroup != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._numGroup, fieldNumber: 2)
+      }
+      if _storage._defaultGroupID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._defaultGroupID, fieldNumber: 3)
+      }
+      if _storage._minSameGroup != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._minSameGroup, fieldNumber: 4)
+      }
+      if _storage._limit != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._limit, fieldNumber: 5)
+      }
+      if _storage._usedTokens != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._usedTokens, fieldNumber: 6)
+      }
+      if _storage._status != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 7)
+      }
+      if _storage._createdGroupNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._createdGroupNum, fieldNumber: 8)
+      }
+      if _storage._createdStoryNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._createdStoryNum, fieldNumber: 9)
+      }
+      if _storage._createdRoleNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._createdRoleNum, fieldNumber: 10)
+      }
+      if _storage._watchingStoryNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._watchingStoryNum, fieldNumber: 11)
+      }
+      if _storage._watchingGroupNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._watchingGroupNum, fieldNumber: 12)
+      }
+      if _storage._contributStoryNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._contributStoryNum, fieldNumber: 13)
+      }
+      if _storage._contributRoleNum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._contributRoleNum, fieldNumber: 14)
+      }
+      if !_storage._backgroundImage.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._backgroundImage, fieldNumber: 15)
+      }
+      if _storage._ctime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+      }
+      if _storage._mtime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserProfileInfo, rhs: Common_UserProfileInfo) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.numGroup != rhs.numGroup {return false}
-    if lhs.defaultGroupID != rhs.defaultGroupID {return false}
-    if lhs.minSameGroup != rhs.minSameGroup {return false}
-    if lhs.limit != rhs.limit {return false}
-    if lhs.usedTokens != rhs.usedTokens {return false}
-    if lhs.status != rhs.status {return false}
-    if lhs.createdGroupNum != rhs.createdGroupNum {return false}
-    if lhs.createdStoryNum != rhs.createdStoryNum {return false}
-    if lhs.createdRoleNum != rhs.createdRoleNum {return false}
-    if lhs.watchingStoryNum != rhs.watchingStoryNum {return false}
-    if lhs.watchingGroupNum != rhs.watchingGroupNum {return false}
-    if lhs.contributStoryNum != rhs.contributStoryNum {return false}
-    if lhs.contributRoleNum != rhs.contributRoleNum {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._userID != rhs_storage._userID {return false}
+        if _storage._numGroup != rhs_storage._numGroup {return false}
+        if _storage._defaultGroupID != rhs_storage._defaultGroupID {return false}
+        if _storage._minSameGroup != rhs_storage._minSameGroup {return false}
+        if _storage._limit != rhs_storage._limit {return false}
+        if _storage._usedTokens != rhs_storage._usedTokens {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._createdGroupNum != rhs_storage._createdGroupNum {return false}
+        if _storage._createdStoryNum != rhs_storage._createdStoryNum {return false}
+        if _storage._createdRoleNum != rhs_storage._createdRoleNum {return false}
+        if _storage._watchingStoryNum != rhs_storage._watchingStoryNum {return false}
+        if _storage._watchingGroupNum != rhs_storage._watchingGroupNum {return false}
+        if _storage._contributStoryNum != rhs_storage._contributStoryNum {return false}
+        if _storage._contributRoleNum != rhs_storage._contributRoleNum {return false}
+        if _storage._backgroundImage != rhs_storage._backgroundImage {return false}
+        if _storage._ctime != rhs_storage._ctime {return false}
+        if _storage._mtime != rhs_storage._mtime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

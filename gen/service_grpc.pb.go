@@ -101,6 +101,7 @@ const (
 	TeamsAPI_GetStoryBoardRoles_FullMethodName                 = "/common.TeamsAPI/GetStoryBoardRoles"
 	TeamsAPI_GetUserProfile_FullMethodName                     = "/common.TeamsAPI/GetUserProfile"
 	TeamsAPI_UpdateUserProfile_FullMethodName                  = "/common.TeamsAPI/UpdateUserProfile"
+	TeamsAPI_UpdateUserBackgroundImage_FullMethodName          = "/common.TeamsAPI/UpdateUserBackgroundImage"
 	TeamsAPI_CreateStoryRole_FullMethodName                    = "/common.TeamsAPI/CreateStoryRole"
 	TeamsAPI_GetStoryRoleDetail_FullMethodName                 = "/common.TeamsAPI/GetStoryRoleDetail"
 	TeamsAPI_RenderStoryRole_FullMethodName                    = "/common.TeamsAPI/RenderStoryRole"
@@ -128,6 +129,7 @@ const (
 	TeamsAPI_GetStoryRoleStories_FullMethodName                = "/common.TeamsAPI/GetStoryRoleStories"
 	TeamsAPI_CreateStoryRoleChat_FullMethodName                = "/common.TeamsAPI/CreateStoryRoleChat"
 	TeamsAPI_ChatWithStoryRole_FullMethodName                  = "/common.TeamsAPI/ChatWithStoryRole"
+	TeamsAPI_UpdateStoryRoleAvator_FullMethodName              = "/common.TeamsAPI/UpdateStoryRoleAvator"
 	TeamsAPI_UpdateStoryRoleDetail_FullMethodName              = "/common.TeamsAPI/UpdateStoryRoleDetail"
 	TeamsAPI_GetUserWithRoleChatList_FullMethodName            = "/common.TeamsAPI/GetUserWithRoleChatList"
 	TeamsAPI_GetUserChatWithRole_FullMethodName                = "/common.TeamsAPI/GetUserChatWithRole"
@@ -314,6 +316,8 @@ type TeamsAPIClient interface {
 	GetUserProfile(ctx context.Context, in *GetUserProfileRequest, opts ...grpc.CallOption) (*GetUserProfileResponse, error)
 	// 更新用户的 profile
 	UpdateUserProfile(ctx context.Context, in *UpdateUserProfileRequest, opts ...grpc.CallOption) (*UpdateUserProfileResponse, error)
+	// 更新用户的背景图片
+	UpdateUserBackgroundImage(ctx context.Context, in *UpdateUserBackgroundImageRequest, opts ...grpc.CallOption) (*UpdateUserBackgroundImageResponse, error)
 	// 创建新的故事角色
 	CreateStoryRole(ctx context.Context, in *CreateStoryRoleRequest, opts ...grpc.CallOption) (*CreateStoryRoleResponse, error)
 	// 获取角色详情
@@ -368,6 +372,8 @@ type TeamsAPIClient interface {
 	CreateStoryRoleChat(ctx context.Context, in *CreateStoryRoleChatRequest, opts ...grpc.CallOption) (*CreateStoryRoleChatResponse, error)
 	// 与角色聊天
 	ChatWithStoryRole(ctx context.Context, in *ChatWithStoryRoleRequest, opts ...grpc.CallOption) (*ChatWithStoryRoleResponse, error)
+	// 更新角色头像
+	UpdateStoryRoleAvator(ctx context.Context, in *UpdateStoryRoleAvatorRequest, opts ...grpc.CallOption) (*UpdateStoryRoleAvatorResponse, error)
 	// 更新角色详情
 	UpdateStoryRoleDetail(ctx context.Context, in *UpdateStoryRoleDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDetailResponse, error)
 	// 获取用户的对话列表
@@ -1141,6 +1147,15 @@ func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, in *UpdateUserPr
 	return out, nil
 }
 
+func (c *teamsAPIClient) UpdateUserBackgroundImage(ctx context.Context, in *UpdateUserBackgroundImageRequest, opts ...grpc.CallOption) (*UpdateUserBackgroundImageResponse, error) {
+	out := new(UpdateUserBackgroundImageResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateUserBackgroundImage_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, in *CreateStoryRoleRequest, opts ...grpc.CallOption) (*CreateStoryRoleResponse, error) {
 	out := new(CreateStoryRoleResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryRole_FullMethodName, in, out, opts...)
@@ -1378,6 +1393,15 @@ func (c *teamsAPIClient) CreateStoryRoleChat(ctx context.Context, in *CreateStor
 func (c *teamsAPIClient) ChatWithStoryRole(ctx context.Context, in *ChatWithStoryRoleRequest, opts ...grpc.CallOption) (*ChatWithStoryRoleResponse, error) {
 	out := new(ChatWithStoryRoleResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_ChatWithStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryRoleAvator(ctx context.Context, in *UpdateStoryRoleAvatorRequest, opts ...grpc.CallOption) (*UpdateStoryRoleAvatorResponse, error) {
+	out := new(UpdateStoryRoleAvatorResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRoleAvator_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1696,6 +1720,8 @@ type TeamsAPIServer interface {
 	GetUserProfile(context.Context, *GetUserProfileRequest) (*GetUserProfileResponse, error)
 	// 更新用户的 profile
 	UpdateUserProfile(context.Context, *UpdateUserProfileRequest) (*UpdateUserProfileResponse, error)
+	// 更新用户的背景图片
+	UpdateUserBackgroundImage(context.Context, *UpdateUserBackgroundImageRequest) (*UpdateUserBackgroundImageResponse, error)
 	// 创建新的故事角色
 	CreateStoryRole(context.Context, *CreateStoryRoleRequest) (*CreateStoryRoleResponse, error)
 	// 获取角色详情
@@ -1750,6 +1776,8 @@ type TeamsAPIServer interface {
 	CreateStoryRoleChat(context.Context, *CreateStoryRoleChatRequest) (*CreateStoryRoleChatResponse, error)
 	// 与角色聊天
 	ChatWithStoryRole(context.Context, *ChatWithStoryRoleRequest) (*ChatWithStoryRoleResponse, error)
+	// 更新角色头像
+	UpdateStoryRoleAvator(context.Context, *UpdateStoryRoleAvatorRequest) (*UpdateStoryRoleAvatorResponse, error)
 	// 更新角色详情
 	UpdateStoryRoleDetail(context.Context, *UpdateStoryRoleDetailRequest) (*UpdateStoryRoleDetailResponse, error)
 	// 获取用户的对话列表
@@ -2028,6 +2056,9 @@ func (UnimplementedTeamsAPIServer) GetUserProfile(context.Context, *GetUserProfi
 func (UnimplementedTeamsAPIServer) UpdateUserProfile(context.Context, *UpdateUserProfileRequest) (*UpdateUserProfileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserProfile not implemented")
 }
+func (UnimplementedTeamsAPIServer) UpdateUserBackgroundImage(context.Context, *UpdateUserBackgroundImageRequest) (*UpdateUserBackgroundImageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserBackgroundImage not implemented")
+}
 func (UnimplementedTeamsAPIServer) CreateStoryRole(context.Context, *CreateStoryRoleRequest) (*CreateStoryRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryRole not implemented")
 }
@@ -2108,6 +2139,9 @@ func (UnimplementedTeamsAPIServer) CreateStoryRoleChat(context.Context, *CreateS
 }
 func (UnimplementedTeamsAPIServer) ChatWithStoryRole(context.Context, *ChatWithStoryRoleRequest) (*ChatWithStoryRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChatWithStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryRoleAvator(context.Context, *UpdateStoryRoleAvatorRequest) (*UpdateStoryRoleAvatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleAvator not implemented")
 }
 func (UnimplementedTeamsAPIServer) UpdateStoryRoleDetail(context.Context, *UpdateStoryRoleDetailRequest) (*UpdateStoryRoleDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleDetail not implemented")
@@ -3646,6 +3680,24 @@ func _TeamsAPI_UpdateUserProfile_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UpdateUserBackgroundImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserBackgroundImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateUserBackgroundImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateUserBackgroundImage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateUserBackgroundImage(ctx, req.(*UpdateUserBackgroundImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TeamsAPI_CreateStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateStoryRoleRequest)
 	if err := dec(in); err != nil {
@@ -4128,6 +4180,24 @@ func _TeamsAPI_ChatWithStoryRole_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).ChatWithStoryRole(ctx, req.(*ChatWithStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryRoleAvator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRoleAvatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryRoleAvator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryRoleAvator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryRoleAvator(ctx, req.(*UpdateStoryRoleAvatorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4756,6 +4826,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_UpdateUserProfile_Handler,
 		},
 		{
+			MethodName: "UpdateUserBackgroundImage",
+			Handler:    _TeamsAPI_UpdateUserBackgroundImage_Handler,
+		},
+		{
 			MethodName: "CreateStoryRole",
 			Handler:    _TeamsAPI_CreateStoryRole_Handler,
 		},
@@ -4862,6 +4936,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ChatWithStoryRole",
 			Handler:    _TeamsAPI_ChatWithStoryRole_Handler,
+		},
+		{
+			MethodName: "UpdateStoryRoleAvator",
+			Handler:    _TeamsAPI_UpdateStoryRoleAvator_Handler,
 		},
 		{
 			MethodName: "UpdateStoryRoleDetail",

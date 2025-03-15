@@ -55,92 +55,6 @@ public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-
-  /// 未指定
-  case unspecified // = 0
-
-  /// 创建
-  case created // = 1
-
-  /// 渲染完成
-  case rendered // = 2
-
-  /// 生成���片
-  case genImage // = 3
-
-  /// 生成视频
-  case genVideo // = 4
-
-  /// 生成音频
-  case genAudio // = 5
-
-  /// 生成文本
-  case genText // = 6
-
-  /// 完成
-  case finished // = 7
-
-  /// 失败
-  case failed // = 8
-
-  /// 发布
-  case published // = 9
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .unspecified
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unspecified
-    case 1: self = .created
-    case 2: self = .rendered
-    case 3: self = .genImage
-    case 4: self = .genVideo
-    case 5: self = .genAudio
-    case 6: self = .genText
-    case 7: self = .finished
-    case 8: self = .failed
-    case 9: self = .published
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .unspecified: return 0
-    case .created: return 1
-    case .rendered: return 2
-    case .genImage: return 3
-    case .genVideo: return 4
-    case .genAudio: return 5
-    case .genText: return 6
-    case .finished: return 7
-    case .failed: return 8
-    case .published: return 9
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_StoryboardStage] = [
-    .unspecified,
-    .created,
-    .rendered,
-    .genImage,
-    .genVideo,
-    .genAudio,
-    .genText,
-    .finished,
-    .failed,
-    .published,
-  ]
-
-}
-
 public struct Common_ActiveInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -465,34 +379,35 @@ public struct Common_UserInfoResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct DataMessage: @unchecked Sendable {
+  public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     public var info: Common_UserInfo {
-      get {return _storage._info ?? Common_UserInfo()}
-      set {_uniqueStorage()._info = newValue}
+      get {return _info ?? Common_UserInfo()}
+      set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return _storage._info != nil}
+    public var hasInfo: Bool {return self._info != nil}
     /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {_uniqueStorage()._info = nil}
+    public mutating func clearInfo() {self._info = nil}
 
     public var profile: Common_UserProfileInfo {
-      get {return _storage._profile ?? Common_UserProfileInfo()}
-      set {_uniqueStorage()._profile = newValue}
+      get {return _profile ?? Common_UserProfileInfo()}
+      set {_profile = newValue}
     }
     /// Returns true if `profile` has been explicitly set.
-    public var hasProfile: Bool {return _storage._profile != nil}
+    public var hasProfile: Bool {return self._profile != nil}
     /// Clears the value of `profile`. Subsequent reads from it will return its default value.
-    public mutating func clearProfile() {_uniqueStorage()._profile = nil}
+    public mutating func clearProfile() {self._profile = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _info: Common_UserInfo? = nil
+    fileprivate var _profile: Common_UserProfileInfo? = nil
   }
 
   public init() {}
@@ -4485,6 +4400,8 @@ public struct Common_UpdateStoryRoleDetailRequest: Sendable {
 
   public var needRegen: Bool = false
 
+  public var backgroundImage: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -4493,6 +4410,36 @@ public struct Common_UpdateStoryRoleDetailRequest: Sendable {
 }
 
 public struct Common_UpdateStoryRoleDetailResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStoryRoleAvatorRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var roleID: Int64 = 0
+
+  public var avator: String = String()
+
+  public var userID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStoryRoleAvatorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4916,64 +4863,84 @@ public struct Common_GetUserProfileRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserProfileResponse: @unchecked Sendable {
+public struct Common_GetUserProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode {
-    get {return _storage._code}
-    set {_uniqueStorage()._code = newValue}
-  }
+  public var code: Common_ResponseCode = .ok
 
-  public var message: String {
-    get {return _storage._message}
-    set {_uniqueStorage()._message = newValue}
-  }
+  public var message: String = String()
 
   public var info: Common_UserProfileInfo {
-    get {return _storage._info ?? Common_UserProfileInfo()}
-    set {_uniqueStorage()._info = newValue}
+    get {return _info ?? Common_UserProfileInfo()}
+    set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return _storage._info != nil}
+  public var hasInfo: Bool {return self._info != nil}
   /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {_uniqueStorage()._info = nil}
+  public mutating func clearInfo() {self._info = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _info: Common_UserProfileInfo? = nil
 }
 
-public struct Common_UpdateUserProfileRequest: @unchecked Sendable {
+public struct Common_UpdateUserProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var userID: Int64 {
-    get {return _storage._userID}
-    set {_uniqueStorage()._userID = newValue}
-  }
+  public var userID: Int64 = 0
 
-  public var info: Common_UserProfileInfo {
-    get {return _storage._info ?? Common_UserProfileInfo()}
-    set {_uniqueStorage()._info = newValue}
-  }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return _storage._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {_uniqueStorage()._info = nil}
+  public var backgroundImage: String = String()
+
+  public var avatar: String = String()
+
+  public var name: String = String()
+
+  public var description_p: String = String()
+
+  public var location: String = String()
+
+  public var email: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_UpdateUserProfileResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateUserBackgroundImageRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var backgroundImage: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateUserBackgroundImageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5196,21 +5163,6 @@ extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "PUBLIC"),
     1: .same(proto: "PRIVATE"),
-  ]
-}
-
-extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "STORYBOARD_STAGE_UNSPECIFIED"),
-    1: .same(proto: "STORYBOARD_STAGE_CREATED"),
-    2: .same(proto: "STORYBOARD_STAGE_RENDERED"),
-    3: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
-    4: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
-    5: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
-    6: .same(proto: "STORYBOARD_STAGE_GEN_TEXT"),
-    7: .same(proto: "STORYBOARD_STAGE_FINISHED"),
-    8: .same(proto: "STORYBOARD_STAGE_FAILED"),
-    9: .same(proto: "STORYBOARD_STAGE_PUBLISHED"),
   ]
 }
 
@@ -6001,78 +5953,36 @@ extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     2: .same(proto: "profile"),
   ]
 
-  fileprivate class _StorageClass {
-    var _info: Common_UserInfo? = nil
-    var _profile: Common_UserProfileInfo? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _info = source._info
-      _profile = source._profile
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._info) }()
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._profile) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._profile) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._info {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._profile {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-    }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._profile {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserInfoResponse.DataMessage, rhs: Common_UserInfoResponse.DataMessage) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._info != rhs_storage._info {return false}
-        if _storage._profile != rhs_storage._profile {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._info != rhs._info {return false}
+    if lhs._profile != rhs._profile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15218,6 +15128,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     2: .same(proto: "role"),
     3: .standard(proto: "user_id"),
     4: .standard(proto: "need_regen"),
+    5: .standard(proto: "background_image"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15230,6 +15141,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
       case 2: try { try decoder.decodeSingularMessageField(value: &self._role) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularBoolField(value: &self.needRegen) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.backgroundImage) }()
       default: break
       }
     }
@@ -15252,6 +15164,9 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     if self.needRegen != false {
       try visitor.visitSingularBoolField(value: self.needRegen, fieldNumber: 4)
     }
+    if !self.backgroundImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.backgroundImage, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -15260,6 +15175,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     if lhs._role != rhs._role {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.needRegen != rhs.needRegen {return false}
+    if lhs.backgroundImage != rhs.backgroundImage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15296,6 +15212,88 @@ extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProt
   }
 
   public static func ==(lhs: Common_UpdateStoryRoleDetailResponse, rhs: Common_UpdateStoryRoleDetailResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "role_id"),
+    2: .same(proto: "avator"),
+    3: .standard(proto: "user_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.avator) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 1)
+    }
+    if !self.avator.isEmpty {
+      try visitor.visitSingularStringField(value: self.avator, fieldNumber: 2)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryRoleAvatorRequest, rhs: Common_UpdateStoryRoleAvatorRequest) -> Bool {
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.avator != rhs.avator {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryRoleAvatorResponse, rhs: Common_UpdateStoryRoleAvatorResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16383,85 +16381,41 @@ extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     3: .same(proto: "info"),
   ]
 
-  fileprivate class _StorageClass {
-    var _code: Common_ResponseCode = .ok
-    var _message: String = String()
-    var _info: Common_UserProfileInfo? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _code = source._code
-      _message = source._message
-      _info = source._info
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._code) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._info) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if _storage._code != .ok {
-        try visitor.visitSingularEnumField(value: _storage._code, fieldNumber: 1)
-      }
-      if !_storage._message.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 2)
-      }
-      try { if let v = _storage._info {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
     }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try { if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetUserProfileResponse, rhs: Common_GetUserProfileResponse) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._code != rhs_storage._code {return false}
-        if _storage._message != rhs_storage._message {return false}
-        if _storage._info != rhs_storage._info {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -16471,81 +16425,65 @@ extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf.
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserProfileRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
-    2: .same(proto: "info"),
+    2: .standard(proto: "background_image"),
+    3: .same(proto: "avatar"),
+    4: .same(proto: "name"),
+    5: .same(proto: "description"),
+    6: .same(proto: "location"),
+    7: .same(proto: "email"),
   ]
 
-  fileprivate class _StorageClass {
-    var _userID: Int64 = 0
-    var _info: Common_UserProfileInfo? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _userID = source._userID
-      _info = source._info
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._info) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.backgroundImage) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.avatar) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.location) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.email) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if _storage._userID != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 1)
-      }
-      try { if let v = _storage._info {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if !self.backgroundImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.backgroundImage, fieldNumber: 2)
+    }
+    if !self.avatar.isEmpty {
+      try visitor.visitSingularStringField(value: self.avatar, fieldNumber: 3)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 5)
+    }
+    if !self.location.isEmpty {
+      try visitor.visitSingularStringField(value: self.location, fieldNumber: 6)
+    }
+    if !self.email.isEmpty {
+      try visitor.visitSingularStringField(value: self.email, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateUserProfileRequest, rhs: Common_UpdateUserProfileRequest) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._userID != rhs_storage._userID {return false}
-        if _storage._info != rhs_storage._info {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.userID != rhs.userID {return false}
+    if lhs.backgroundImage != rhs.backgroundImage {return false}
+    if lhs.avatar != rhs.avatar {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.location != rhs.location {return false}
+    if lhs.email != rhs.email {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -16582,6 +16520,82 @@ extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   public static func ==(lhs: Common_UpdateUserProfileResponse, rhs: Common_UpdateUserProfileResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    2: .standard(proto: "background_image"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.backgroundImage) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if !self.backgroundImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.backgroundImage, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateUserBackgroundImageRequest, rhs: Common_UpdateUserBackgroundImageRequest) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.backgroundImage != rhs.backgroundImage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateUserBackgroundImageResponse, rhs: Common_UpdateUserBackgroundImageResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

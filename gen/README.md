@@ -158,6 +158,7 @@
   
     - [RenderType](#common-RenderType)
     - [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage)
+    - [StoryboardStage](#common-StoryboardStage)
   
 - [message.proto](#message-proto)
     - [ChatMessage](#common-ChatMessage)
@@ -398,11 +399,15 @@
     - [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse)
     - [UpdateRolePromptRequest](#common-UpdateRolePromptRequest)
     - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
+    - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
+    - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
     - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
+    - [UpdateUserBackgroundImageRequest](#common-UpdateUserBackgroundImageRequest)
+    - [UpdateUserBackgroundImageResponse](#common-UpdateUserBackgroundImageResponse)
     - [UpdateUserProfileRequest](#common-UpdateUserProfileRequest)
     - [UpdateUserProfileResponse](#common-UpdateUserProfileResponse)
     - [UploadImageRequest](#common-UploadImageRequest)
@@ -435,7 +440,6 @@
     - [WatchProjectResponse.Data](#common-WatchProjectResponse-Data)
   
     - [GroupType](#common-GroupType)
-    - [StoryboardStage](#common-StoryboardStage)
   
     - [TeamsAPI](#common-TeamsAPI)
   
@@ -1351,6 +1355,7 @@ AI生成失败 |
 | watching_group_num | [int32](#int32) |  |  |
 | contribut_story_num | [int32](#int32) |  |  |
 | contribut_role_num | [int32](#int32) |  |  |
+| background_image | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3260,6 +3265,26 @@ AI生成失败 |
 | STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO | 401 | 10: 生成视频 |
 | STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED | 402 | 11: 视频生成完成 |
 | STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED | 403 | 12: 视频生成失败 |
+
+
+
+<a name="common-StoryboardStage"></a>
+
+### StoryboardStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
+| STORYBOARD_STAGE_CREATED | 1 | 创建 |
+| STORYBOARD_STAGE_RENDERED | 2 | 渲染完成 |
+| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成���片 |
+| STORYBOARD_STAGE_GEN_VIDEO | 4 | 生成视频 |
+| STORYBOARD_STAGE_GEN_AUDIO | 5 | 生成音频 |
+| STORYBOARD_STAGE_GEN_TEXT | 6 | 生成文本 |
+| STORYBOARD_STAGE_FINISHED | 7 | 完成 |
+| STORYBOARD_STAGE_FAILED | 8 | 失败 |
+| STORYBOARD_STAGE_PUBLISHED | 9 | 发布 |
 
 
  
@@ -7228,6 +7253,39 @@ AI生成失败 |
 
 
 
+<a name="common-UpdateStoryRoleAvatorRequest"></a>
+
+### UpdateStoryRoleAvatorRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| avator | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRoleAvatorResponse"></a>
+
+### UpdateStoryRoleAvatorResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateStoryRoleDetailRequest"></a>
 
 ### UpdateStoryRoleDetailRequest
@@ -7240,6 +7298,7 @@ AI生成失败 |
 | role | [StoryRole](#common-StoryRole) |  |  |
 | user_id | [int64](#int64) |  |  |
 | need_regen | [bool](#bool) |  |  |
+| background_image | [string](#string) |  |  |
 
 
 
@@ -7311,6 +7370,38 @@ AI生成失败 |
 
 
 
+<a name="common-UpdateUserBackgroundImageRequest"></a>
+
+### UpdateUserBackgroundImageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| background_image | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateUserBackgroundImageResponse"></a>
+
+### UpdateUserBackgroundImageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateUserProfileRequest"></a>
 
 ### UpdateUserProfileRequest
@@ -7320,7 +7411,12 @@ AI生成失败 |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
+| background_image | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| location | [string](#string) |  |  |
+| email | [string](#string) |  |  |
 
 
 
@@ -7809,26 +7905,6 @@ user ,group .project.item
 | PRIVATE | 1 |  |
 
 
-
-<a name="common-StoryboardStage"></a>
-
-### StoryboardStage
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
-| STORYBOARD_STAGE_CREATED | 1 | 创建 |
-| STORYBOARD_STAGE_RENDERED | 2 | 渲染完成 |
-| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成���片 |
-| STORYBOARD_STAGE_GEN_VIDEO | 4 | 生成视频 |
-| STORYBOARD_STAGE_GEN_AUDIO | 5 | 生成音频 |
-| STORYBOARD_STAGE_GEN_TEXT | 6 | 生成文本 |
-| STORYBOARD_STAGE_FINISHED | 7 | 完成 |
-| STORYBOARD_STAGE_FAILED | 8 | 失败 |
-| STORYBOARD_STAGE_PUBLISHED | 9 | 发布 |
-
-
  
 
  
@@ -7923,6 +7999,7 @@ user ,group .project.item
 | GetStoryBoardRoles | [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
 | GetUserProfile | [GetUserProfileRequest](#common-GetUserProfileRequest) | [GetUserProfileResponse](#common-GetUserProfileResponse) | 获取用户的 profile |
 | UpdateUserProfile | [UpdateUserProfileRequest](#common-UpdateUserProfileRequest) | [UpdateUserProfileResponse](#common-UpdateUserProfileResponse) | 更新用户的 profile |
+| UpdateUserBackgroundImage | [UpdateUserBackgroundImageRequest](#common-UpdateUserBackgroundImageRequest) | [UpdateUserBackgroundImageResponse](#common-UpdateUserBackgroundImageResponse) | 更新用户的背景图片 |
 | CreateStoryRole | [CreateStoryRoleRequest](#common-CreateStoryRoleRequest) | [CreateStoryRoleResponse](#common-CreateStoryRoleResponse) | 创建新的故事角色 |
 | GetStoryRoleDetail | [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest) | [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse) | 获取角色详情 |
 | RenderStoryRole | [RenderStoryRoleRequest](#common-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#common-RenderStoryRoleResponse) | 生成角色的图片 |
@@ -7950,6 +8027,7 @@ user ,group .project.item
 | GetStoryRoleStories | [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest) | [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse) | 获取角色参与的故事 |
 | CreateStoryRoleChat | [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest) | [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse) | 创建与角色的对话 |
 | ChatWithStoryRole | [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest) | [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse) | 与角色聊天 |
+| UpdateStoryRoleAvator | [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest) | [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse) | 更新角色头像 |
 | UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse) | 更新角色详情 |
 | GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
 | GetUserChatWithRole | [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |

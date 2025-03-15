@@ -39,6 +39,7 @@ message UserProfileInfo {
   int32 watching_group_num = 12;
   int32 contribut_story_num = 13;
   int32 contribut_role_num = 14;
+  string background_image = 15;
 
   int64 Ctime = 19;
   int64 Mtime = 20;

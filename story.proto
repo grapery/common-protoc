@@ -6,6 +6,29 @@ import "base.proto";
 import "user.proto";
 
 
+enum StoryboardStage{
+  // 未指定
+  STORYBOARD_STAGE_UNSPECIFIED = 0;
+  // 创建
+  STORYBOARD_STAGE_CREATED = 1;
+  // 渲染完成
+  STORYBOARD_STAGE_RENDERED = 2;
+  // 生成���片
+  STORYBOARD_STAGE_GEN_IMAGE = 3;
+  // 生成视频
+  STORYBOARD_STAGE_GEN_VIDEO = 4;
+  // 生成音频
+  STORYBOARD_STAGE_GEN_AUDIO = 5;
+  // 生成文本
+  STORYBOARD_STAGE_GEN_TEXT = 6;
+  // 完成
+  STORYBOARD_STAGE_FINISHED = 7;
+  // 失败
+  STORYBOARD_STAGE_FAILED = 8;
+  // 发布
+  STORYBOARD_STAGE_PUBLISHED = 9;
+}
+
 message Story{
   int64 id = 1;
   int64 group_id = 2;

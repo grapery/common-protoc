@@ -20,6 +20,92 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 未指定
+  case unspecified // = 0
+
+  /// 创建
+  case created // = 1
+
+  /// 渲染完成
+  case rendered // = 2
+
+  /// 生成���片
+  case genImage // = 3
+
+  /// 生成视频
+  case genVideo // = 4
+
+  /// 生成音频
+  case genAudio // = 5
+
+  /// 生成文本
+  case genText // = 6
+
+  /// 完成
+  case finished // = 7
+
+  /// 失败
+  case failed // = 8
+
+  /// 发布
+  case published // = 9
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .created
+    case 2: self = .rendered
+    case 3: self = .genImage
+    case 4: self = .genVideo
+    case 5: self = .genAudio
+    case 6: self = .genText
+    case 7: self = .finished
+    case 8: self = .failed
+    case 9: self = .published
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .created: return 1
+    case .rendered: return 2
+    case .genImage: return 3
+    case .genVideo: return 4
+    case .genAudio: return 5
+    case .genText: return 6
+    case .finished: return 7
+    case .failed: return 8
+    case .published: return 9
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_StoryboardStage] = [
+    .unspecified,
+    .created,
+    .rendered,
+    .genImage,
+    .genVideo,
+    .genAudio,
+    .genText,
+    .finished,
+    .failed,
+    .published,
+  ]
+
+}
+
 public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
@@ -2672,6 +2758,21 @@ public struct Common_GetStoryBoardGenerateResponse: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
+
+extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STORYBOARD_STAGE_UNSPECIFIED"),
+    1: .same(proto: "STORYBOARD_STAGE_CREATED"),
+    2: .same(proto: "STORYBOARD_STAGE_RENDERED"),
+    3: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
+    4: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
+    5: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
+    6: .same(proto: "STORYBOARD_STAGE_GEN_TEXT"),
+    7: .same(proto: "STORYBOARD_STAGE_FINISHED"),
+    8: .same(proto: "STORYBOARD_STAGE_FAILED"),
+    9: .same(proto: "STORYBOARD_STAGE_PUBLISHED"),
+  ]
+}
 
 extension Common_RenderType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

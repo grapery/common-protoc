@@ -228,6 +228,9 @@ const (
 	// TeamsAPIUpdateUserProfileProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateUserProfile RPC.
 	TeamsAPIUpdateUserProfileProcedure = "/common.TeamsAPI/UpdateUserProfile"
+	// TeamsAPIUpdateUserBackgroundImageProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateUserBackgroundImage RPC.
+	TeamsAPIUpdateUserBackgroundImageProcedure = "/common.TeamsAPI/UpdateUserBackgroundImage"
 	// TeamsAPICreateStoryRoleProcedure is the fully-qualified name of the TeamsAPI's CreateStoryRole
 	// RPC.
 	TeamsAPICreateStoryRoleProcedure = "/common.TeamsAPI/CreateStoryRole"
@@ -303,6 +306,9 @@ const (
 	// TeamsAPIChatWithStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// ChatWithStoryRole RPC.
 	TeamsAPIChatWithStoryRoleProcedure = "/common.TeamsAPI/ChatWithStoryRole"
+	// TeamsAPIUpdateStoryRoleAvatorProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRoleAvator RPC.
+	TeamsAPIUpdateStoryRoleAvatorProcedure = "/common.TeamsAPI/UpdateStoryRoleAvator"
 	// TeamsAPIUpdateStoryRoleDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRoleDetail RPC.
 	TeamsAPIUpdateStoryRoleDetailProcedure = "/common.TeamsAPI/UpdateStoryRoleDetail"
@@ -518,6 +524,8 @@ type TeamsAPIClient interface {
 	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
 	// 更新用户的 profile
 	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
+	// 更新用户的背景图片
+	UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error)
 	// 创建新的故事角色
 	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
 	// 获取角色详情
@@ -572,6 +580,8 @@ type TeamsAPIClient interface {
 	CreateStoryRoleChat(context.Context, *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error)
 	// 与角色聊天
 	ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error)
+	// 更新角色头像
+	UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error)
 	// 更新角色详情
 	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// 获取用户的对话列表
@@ -1019,6 +1029,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUpdateUserProfileProcedure,
 			opts...,
 		),
+		updateUserBackgroundImage: connect.NewClient[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateUserBackgroundImageProcedure,
+			opts...,
+		),
 		createStoryRole: connect.NewClient[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryRoleProcedure,
@@ -1152,6 +1167,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		chatWithStoryRole: connect.NewClient[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIChatWithStoryRoleProcedure,
+			opts...,
+		),
+		updateStoryRoleAvator: connect.NewClient[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryRoleAvatorProcedure,
 			opts...,
 		),
 		updateStoryRoleDetail: connect.NewClient[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse](
@@ -1321,6 +1341,7 @@ type teamsAPIClient struct {
 	getStoryBoardRoles                 *connect.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
 	getUserProfile                     *connect.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
 	updateUserProfile                  *connect.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
+	updateUserBackgroundImage          *connect.Client[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse]
 	createStoryRole                    *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
 	getStoryRoleDetail                 *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
 	renderStoryRole                    *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
@@ -1348,6 +1369,7 @@ type teamsAPIClient struct {
 	getStoryRoleStories                *connect.Client[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse]
 	createStoryRoleChat                *connect.Client[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse]
 	chatWithStoryRole                  *connect.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
+	updateStoryRoleAvator              *connect.Client[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse]
 	updateStoryRoleDetail              *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
 	getUserWithRoleChatList            *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
 	getUserChatWithRole                *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
@@ -1776,6 +1798,11 @@ func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, req *connect.Req
 	return c.updateUserProfile.CallUnary(ctx, req)
 }
 
+// UpdateUserBackgroundImage calls common.TeamsAPI.UpdateUserBackgroundImage.
+func (c *teamsAPIClient) UpdateUserBackgroundImage(ctx context.Context, req *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error) {
+	return c.updateUserBackgroundImage.CallUnary(ctx, req)
+}
+
 // CreateStoryRole calls common.TeamsAPI.CreateStoryRole.
 func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, req *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
 	return c.createStoryRole.CallUnary(ctx, req)
@@ -1909,6 +1936,11 @@ func (c *teamsAPIClient) CreateStoryRoleChat(ctx context.Context, req *connect.R
 // ChatWithStoryRole calls common.TeamsAPI.ChatWithStoryRole.
 func (c *teamsAPIClient) ChatWithStoryRole(ctx context.Context, req *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error) {
 	return c.chatWithStoryRole.CallUnary(ctx, req)
+}
+
+// UpdateStoryRoleAvator calls common.TeamsAPI.UpdateStoryRoleAvator.
+func (c *teamsAPIClient) UpdateStoryRoleAvator(ctx context.Context, req *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error) {
+	return c.updateStoryRoleAvator.CallUnary(ctx, req)
 }
 
 // UpdateStoryRoleDetail calls common.TeamsAPI.UpdateStoryRoleDetail.
@@ -2157,6 +2189,8 @@ type TeamsAPIHandler interface {
 	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
 	// 更新用户的 profile
 	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
+	// 更新用户的背景图片
+	UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error)
 	// 创建新的故事角色
 	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
 	// 获取角色详情
@@ -2211,6 +2245,8 @@ type TeamsAPIHandler interface {
 	CreateStoryRoleChat(context.Context, *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error)
 	// 与角色聊天
 	ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error)
+	// 更新角色头像
+	UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error)
 	// 更新角色详情
 	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// 获取用户的对话列表
@@ -2654,6 +2690,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.UpdateUserProfile,
 		opts...,
 	)
+	teamsAPIUpdateUserBackgroundImageHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateUserBackgroundImageProcedure,
+		svc.UpdateUserBackgroundImage,
+		opts...,
+	)
 	teamsAPICreateStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryRoleProcedure,
 		svc.CreateStoryRole,
@@ -2787,6 +2828,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIChatWithStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIChatWithStoryRoleProcedure,
 		svc.ChatWithStoryRole,
+		opts...,
+	)
+	teamsAPIUpdateStoryRoleAvatorHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateStoryRoleAvatorProcedure,
+		svc.UpdateStoryRoleAvator,
 		opts...,
 	)
 	teamsAPIUpdateStoryRoleDetailHandler := connect.NewUnaryHandler(
@@ -3035,6 +3081,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetUserProfileHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateUserProfileProcedure:
 			teamsAPIUpdateUserProfileHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateUserBackgroundImageProcedure:
+			teamsAPIUpdateUserBackgroundImageHandler.ServeHTTP(w, r)
 		case TeamsAPICreateStoryRoleProcedure:
 			teamsAPICreateStoryRoleHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryRoleDetailProcedure:
@@ -3089,6 +3137,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPICreateStoryRoleChatHandler.ServeHTTP(w, r)
 		case TeamsAPIChatWithStoryRoleProcedure:
 			teamsAPIChatWithStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRoleAvatorProcedure:
+			teamsAPIUpdateStoryRoleAvatorHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRoleDetailProcedure:
 			teamsAPIUpdateStoryRoleDetailHandler.ServeHTTP(w, r)
 		case TeamsAPIGetUserWithRoleChatListProcedure:
@@ -3458,6 +3508,10 @@ func (UnimplementedTeamsAPIHandler) UpdateUserProfile(context.Context, *connect.
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserProfile is not implemented"))
 }
 
+func (UnimplementedTeamsAPIHandler) UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserBackgroundImage is not implemented"))
+}
+
 func (UnimplementedTeamsAPIHandler) CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryRole is not implemented"))
 }
@@ -3564,6 +3618,10 @@ func (UnimplementedTeamsAPIHandler) CreateStoryRoleChat(context.Context, *connec
 
 func (UnimplementedTeamsAPIHandler) ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ChatWithStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleAvator is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error) {
