@@ -3684,7 +3684,7 @@ public struct Common_GetUnPublishStoryboardResponse: Sendable {
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoard] = []
+  public var storyboardactives: [Common_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -3829,6 +3829,22 @@ public struct Common_StorySummaryInfo: Sendable {
   public var storyCover: String = String()
 
   public var storyTags: String = String()
+
+  public var createTime: Int64 = 0
+
+  public var createUserID: Int64 = 0
+
+  public var totalLikeCount: Int64 = 0
+
+  public var totalCommentCount: Int64 = 0
+
+  public var totalShareCount: Int64 = 0
+
+  public var totalRenderCount: Int64 = 0
+
+  public var totalForkCount: Int64 = 0
+
+  public var totalViewCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4180,7 +4196,7 @@ public struct Common_GetStoryRoleStoryboardsResponse: Sendable {
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoard] = []
+  public var storyboardactives: [Common_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -13354,7 +13370,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
+    3: .same(proto: "storyboardactives"),
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
@@ -13368,7 +13384,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.storyboards) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.storyboardactives) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
@@ -13384,8 +13400,8 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
-    if !self.storyboards.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.storyboards, fieldNumber: 3)
+    if !self.storyboardactives.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.storyboardactives, fieldNumber: 3)
     }
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
@@ -13402,7 +13418,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
   public static func ==(lhs: Common_GetUnPublishStoryboardResponse, rhs: Common_GetUnPublishStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
-    if lhs.storyboards != rhs.storyboards {return false}
+    if lhs.storyboardactives != rhs.storyboardactives {return false}
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -13672,6 +13688,14 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     4: .standard(proto: "story_description"),
     5: .standard(proto: "story_cover"),
     6: .standard(proto: "story_tags"),
+    7: .standard(proto: "create_time"),
+    8: .standard(proto: "create_user_id"),
+    9: .standard(proto: "total_like_count"),
+    10: .standard(proto: "total_comment_count"),
+    11: .standard(proto: "total_share_count"),
+    12: .standard(proto: "total_render_count"),
+    13: .standard(proto: "total_fork_count"),
+    14: .standard(proto: "total_view_count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13686,6 +13710,14 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 4: try { try decoder.decodeSingularStringField(value: &self.storyDescription) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.storyCover) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self.storyTags) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.createTime) }()
+      case 8: try { try decoder.decodeSingularInt64Field(value: &self.createUserID) }()
+      case 9: try { try decoder.decodeSingularInt64Field(value: &self.totalLikeCount) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.totalCommentCount) }()
+      case 11: try { try decoder.decodeSingularInt64Field(value: &self.totalShareCount) }()
+      case 12: try { try decoder.decodeSingularInt64Field(value: &self.totalRenderCount) }()
+      case 13: try { try decoder.decodeSingularInt64Field(value: &self.totalForkCount) }()
+      case 14: try { try decoder.decodeSingularInt64Field(value: &self.totalViewCount) }()
       default: break
       }
     }
@@ -13710,6 +13742,30 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     if !self.storyTags.isEmpty {
       try visitor.visitSingularStringField(value: self.storyTags, fieldNumber: 6)
     }
+    if self.createTime != 0 {
+      try visitor.visitSingularInt64Field(value: self.createTime, fieldNumber: 7)
+    }
+    if self.createUserID != 0 {
+      try visitor.visitSingularInt64Field(value: self.createUserID, fieldNumber: 8)
+    }
+    if self.totalLikeCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalLikeCount, fieldNumber: 9)
+    }
+    if self.totalCommentCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalCommentCount, fieldNumber: 10)
+    }
+    if self.totalShareCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalShareCount, fieldNumber: 11)
+    }
+    if self.totalRenderCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalRenderCount, fieldNumber: 12)
+    }
+    if self.totalForkCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalForkCount, fieldNumber: 13)
+    }
+    if self.totalViewCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalViewCount, fieldNumber: 14)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -13720,6 +13776,14 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.storyDescription != rhs.storyDescription {return false}
     if lhs.storyCover != rhs.storyCover {return false}
     if lhs.storyTags != rhs.storyTags {return false}
+    if lhs.createTime != rhs.createTime {return false}
+    if lhs.createUserID != rhs.createUserID {return false}
+    if lhs.totalLikeCount != rhs.totalLikeCount {return false}
+    if lhs.totalCommentCount != rhs.totalCommentCount {return false}
+    if lhs.totalShareCount != rhs.totalShareCount {return false}
+    if lhs.totalRenderCount != rhs.totalRenderCount {return false}
+    if lhs.totalForkCount != rhs.totalForkCount {return false}
+    if lhs.totalViewCount != rhs.totalViewCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14624,7 +14688,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
+    3: .same(proto: "storyboardactives"),
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
@@ -14638,7 +14702,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.storyboards) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.storyboardactives) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
@@ -14654,8 +14718,8 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
-    if !self.storyboards.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.storyboards, fieldNumber: 3)
+    if !self.storyboardactives.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.storyboardactives, fieldNumber: 3)
     }
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
@@ -14672,7 +14736,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
   public static func ==(lhs: Common_GetStoryRoleStoryboardsResponse, rhs: Common_GetStoryRoleStoryboardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
-    if lhs.storyboards != rhs.storyboards {return false}
+    if lhs.storyboardactives != rhs.storyboardactives {return false}
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}

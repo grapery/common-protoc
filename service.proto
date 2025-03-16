@@ -2013,7 +2013,7 @@ message GetUnPublishStoryboardRequest {
 message GetUnPublishStoryboardResponse {
   ResponseCode code = 1;
   string message = 2;
-  repeated StoryBoard storyboards = 3;
+  repeated StoryBoardActive storyboardactives = 3;
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
@@ -2053,6 +2053,14 @@ message StorySummaryInfo{
   string story_description = 4;
   string story_cover = 5;
   string story_tags = 6;
+  int64 create_time = 7;
+  int64 create_user_id = 8;
+  int64 total_like_count = 9;
+  int64 total_comment_count = 10;
+  int64 total_share_count = 11;
+  int64 total_render_count = 12;
+  int64 total_fork_count = 13;
+  int64 total_view_count = 14;
 }
 
 message GetUserWatchRoleActiveStoryBoardsRequest {
@@ -2183,7 +2191,7 @@ message GetStoryRoleStoryboardsRequest {
 message GetStoryRoleStoryboardsResponse {
   ResponseCode code = 1;
   string message = 2;
-  repeated StoryBoard storyboards = 3;
+  repeated StoryBoardActive storyboardactives = 3;
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;

@@ -5354,7 +5354,7 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| storyboardactives | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -5391,7 +5391,7 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| storyboardactives | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -6760,6 +6760,14 @@ AI生成失败 |
 | story_description | [string](#string) |  |  |
 | story_cover | [string](#string) |  |  |
 | story_tags | [string](#string) |  |  |
+| create_time | [int64](#int64) |  |  |
+| create_user_id | [int64](#int64) |  |  |
+| total_like_count | [int64](#int64) |  |  |
+| total_comment_count | [int64](#int64) |  |  |
+| total_share_count | [int64](#int64) |  |  |
+| total_render_count | [int64](#int64) |  |  |
+| total_fork_count | [int64](#int64) |  |  |
+| total_view_count | [int64](#int64) |  |  |
 
 
 

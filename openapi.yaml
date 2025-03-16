@@ -4728,10 +4728,10 @@ components:
                     format: enum
                 message:
                     type: string
-                storyboards:
+                storyboardactives:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryBoard'
+                        $ref: '#/components/schemas/StoryBoardActive'
                 total:
                     type: string
                 offset:
@@ -4860,10 +4860,10 @@ components:
                     format: enum
                 message:
                     type: string
-                storyboards:
+                storyboardactives:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryBoard'
+                        $ref: '#/components/schemas/StoryBoardActive'
                 total:
                     type: string
                 offset:
@@ -6494,6 +6494,22 @@ components:
                 storyCover:
                     type: string
                 storyTags:
+                    type: string
+                createTime:
+                    type: string
+                createUserId:
+                    type: string
+                totalLikeCount:
+                    type: string
+                totalCommentCount:
+                    type: string
+                totalShareCount:
+                    type: string
+                totalRenderCount:
+                    type: string
+                totalForkCount:
+                    type: string
+                totalViewCount:
                     type: string
         StoryboardStageStore:
             type: object
