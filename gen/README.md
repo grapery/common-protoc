@@ -2873,6 +2873,9 @@ AI生成失败 |
 | video_prompts | [string](#string) |  |  |
 | is_generating | [int32](#int32) |  |  |
 | gen_result | [string](#string) |  |  |
+| images | [string](#string) | repeated |  |
+| audio_url | [string](#string) |  |  |
+| video_url | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |

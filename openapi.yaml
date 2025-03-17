@@ -6390,6 +6390,14 @@ components:
                     format: int32
                 genResult:
                     type: string
+                images:
+                    type: array
+                    items:
+                        type: string
+                audioUrl:
+                    type: string
+                videoUrl:
+                    type: string
                 status:
                     type: integer
                     format: int32

@@ -617,9 +617,14 @@ message CreateStoryRequest {
     string video_prompts = 9;
     int32 is_generating = 10;
     string gen_result = 11;
-    int32 status = 12;
-    int64 Ctime = 13;
-    int64 Mtime = 14;
+
+    repeated string images = 12;
+    string audio_url = 13;
+    string video_url = 14;
+    
+    int32 status = 15;
+    int64 Ctime = 16;
+    int64 Mtime = 17;
   }
 
   message GetStoryBoardSencesRequest{

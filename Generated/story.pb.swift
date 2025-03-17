@@ -2375,42 +2375,101 @@ public struct Common_GetStoryBoardRolesResponse: Sendable {
   fileprivate var _data: Common_GetStoryBoardRolesResponse.DataMessage? = nil
 }
 
-public struct Common_StoryBoardSence: Sendable {
+public struct Common_StoryBoardSence: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var senceID: Int64 = 0
+  public var senceID: Int64 {
+    get {return _storage._senceID}
+    set {_uniqueStorage()._senceID = newValue}
+  }
 
-  public var content: String = String()
+  public var content: String {
+    get {return _storage._content}
+    set {_uniqueStorage()._content = newValue}
+  }
 
-  public var characterIds: [String] = []
+  public var characterIds: [String] {
+    get {return _storage._characterIds}
+    set {_uniqueStorage()._characterIds = newValue}
+  }
 
-  public var creatorID: Int64 = 0
+  public var creatorID: Int64 {
+    get {return _storage._creatorID}
+    set {_uniqueStorage()._creatorID = newValue}
+  }
 
-  public var storyID: Int64 = 0
+  public var storyID: Int64 {
+    get {return _storage._storyID}
+    set {_uniqueStorage()._storyID = newValue}
+  }
 
-  public var boardID: Int64 = 0
+  public var boardID: Int64 {
+    get {return _storage._boardID}
+    set {_uniqueStorage()._boardID = newValue}
+  }
 
-  public var imagePrompts: String = String()
+  public var imagePrompts: String {
+    get {return _storage._imagePrompts}
+    set {_uniqueStorage()._imagePrompts = newValue}
+  }
 
-  public var audioPrompts: String = String()
+  public var audioPrompts: String {
+    get {return _storage._audioPrompts}
+    set {_uniqueStorage()._audioPrompts = newValue}
+  }
 
-  public var videoPrompts: String = String()
+  public var videoPrompts: String {
+    get {return _storage._videoPrompts}
+    set {_uniqueStorage()._videoPrompts = newValue}
+  }
 
-  public var isGenerating: Int32 = 0
+  public var isGenerating: Int32 {
+    get {return _storage._isGenerating}
+    set {_uniqueStorage()._isGenerating = newValue}
+  }
 
-  public var genResult: String = String()
+  public var genResult: String {
+    get {return _storage._genResult}
+    set {_uniqueStorage()._genResult = newValue}
+  }
 
-  public var status: Int32 = 0
+  public var images: [String] {
+    get {return _storage._images}
+    set {_uniqueStorage()._images = newValue}
+  }
 
-  public var ctime: Int64 = 0
+  public var audioURL: String {
+    get {return _storage._audioURL}
+    set {_uniqueStorage()._audioURL = newValue}
+  }
 
-  public var mtime: Int64 = 0
+  public var videoURL: String {
+    get {return _storage._videoURL}
+    set {_uniqueStorage()._videoURL = newValue}
+  }
+
+  public var status: Int32 {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
+
+  public var ctime: Int64 {
+    get {return _storage._ctime}
+    set {_uniqueStorage()._ctime = newValue}
+  }
+
+  public var mtime: Int64 {
+    get {return _storage._mtime}
+    set {_uniqueStorage()._mtime = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_GetStoryBoardSencesRequest: Sendable {
@@ -2605,40 +2664,31 @@ public struct Common_RenderStoryBoardSenceRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryBoardSenceResponse: @unchecked Sendable {
+public struct Common_RenderStoryBoardSenceResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Int32 {
-    get {return _storage._code}
-    set {_uniqueStorage()._code = newValue}
-  }
+  public var code: Int32 = 0
 
-  public var message: String {
-    get {return _storage._message}
-    set {_uniqueStorage()._message = newValue}
-  }
+  public var message: String = String()
 
-  public var generatingStage: Int32 {
-    get {return _storage._generatingStage}
-    set {_uniqueStorage()._generatingStage = newValue}
-  }
+  public var generatingStage: Int32 = 0
 
   public var data: Common_StoryBoardSence {
-    get {return _storage._data ?? Common_StoryBoardSence()}
-    set {_uniqueStorage()._data = newValue}
+    get {return _data ?? Common_StoryBoardSence()}
+    set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return _storage._data != nil}
+  public var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {_uniqueStorage()._data = nil}
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _data: Common_StoryBoardSence? = nil
 }
 
 public struct Common_RenderStoryBoardSencesRequest: Sendable {
@@ -2687,40 +2737,31 @@ public struct Common_GetStoryBoardSenceGenerateRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardSenceGenerateResponse: @unchecked Sendable {
+public struct Common_GetStoryBoardSenceGenerateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Int32 {
-    get {return _storage._code}
-    set {_uniqueStorage()._code = newValue}
-  }
+  public var code: Int32 = 0
 
-  public var message: String {
-    get {return _storage._message}
-    set {_uniqueStorage()._message = newValue}
-  }
+  public var message: String = String()
 
-  public var generatingStage: Int32 {
-    get {return _storage._generatingStage}
-    set {_uniqueStorage()._generatingStage = newValue}
-  }
+  public var generatingStage: Int32 = 0
 
   public var data: Common_StoryBoardSence {
-    get {return _storage._data ?? Common_StoryBoardSence()}
-    set {_uniqueStorage()._data = newValue}
+    get {return _data ?? Common_StoryBoardSence()}
+    set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return _storage._data != nil}
+  public var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {_uniqueStorage()._data = nil}
+  public mutating func clearData() {self._data = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _data: Common_StoryBoardSence? = nil
 }
 
 public struct Common_GetStoryBoardGenerateRequest: Sendable {
@@ -7488,97 +7529,187 @@ extension Common_StoryBoardSence: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     9: .standard(proto: "video_prompts"),
     10: .standard(proto: "is_generating"),
     11: .standard(proto: "gen_result"),
-    12: .same(proto: "status"),
-    13: .same(proto: "Ctime"),
-    14: .same(proto: "Mtime"),
+    12: .same(proto: "images"),
+    13: .standard(proto: "audio_url"),
+    14: .standard(proto: "video_url"),
+    15: .same(proto: "status"),
+    16: .same(proto: "Ctime"),
+    17: .same(proto: "Mtime"),
   ]
 
+  fileprivate class _StorageClass {
+    var _senceID: Int64 = 0
+    var _content: String = String()
+    var _characterIds: [String] = []
+    var _creatorID: Int64 = 0
+    var _storyID: Int64 = 0
+    var _boardID: Int64 = 0
+    var _imagePrompts: String = String()
+    var _audioPrompts: String = String()
+    var _videoPrompts: String = String()
+    var _isGenerating: Int32 = 0
+    var _genResult: String = String()
+    var _images: [String] = []
+    var _audioURL: String = String()
+    var _videoURL: String = String()
+    var _status: Int32 = 0
+    var _ctime: Int64 = 0
+    var _mtime: Int64 = 0
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _senceID = source._senceID
+      _content = source._content
+      _characterIds = source._characterIds
+      _creatorID = source._creatorID
+      _storyID = source._storyID
+      _boardID = source._boardID
+      _imagePrompts = source._imagePrompts
+      _audioPrompts = source._audioPrompts
+      _videoPrompts = source._videoPrompts
+      _isGenerating = source._isGenerating
+      _genResult = source._genResult
+      _images = source._images
+      _audioURL = source._audioURL
+      _videoURL = source._videoURL
+      _status = source._status
+      _ctime = source._ctime
+      _mtime = source._mtime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
-      case 3: try { try decoder.decodeRepeatedStringField(value: &self.characterIds) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
-      case 7: try { try decoder.decodeSingularStringField(value: &self.imagePrompts) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.audioPrompts) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.videoPrompts) }()
-      case 10: try { try decoder.decodeSingularInt32Field(value: &self.isGenerating) }()
-      case 11: try { try decoder.decodeSingularStringField(value: &self.genResult) }()
-      case 12: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
-      case 13: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 14: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._senceID) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._content) }()
+        case 3: try { try decoder.decodeRepeatedStringField(value: &_storage._characterIds) }()
+        case 4: try { try decoder.decodeSingularInt64Field(value: &_storage._creatorID) }()
+        case 5: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._boardID) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._imagePrompts) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._audioPrompts) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._videoPrompts) }()
+        case 10: try { try decoder.decodeSingularInt32Field(value: &_storage._isGenerating) }()
+        case 11: try { try decoder.decodeSingularStringField(value: &_storage._genResult) }()
+        case 12: try { try decoder.decodeRepeatedStringField(value: &_storage._images) }()
+        case 13: try { try decoder.decodeSingularStringField(value: &_storage._audioURL) }()
+        case 14: try { try decoder.decodeSingularStringField(value: &_storage._videoURL) }()
+        case 15: try { try decoder.decodeSingularInt32Field(value: &_storage._status) }()
+        case 16: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 17: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.senceID != 0 {
-      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 1)
-    }
-    if !self.content.isEmpty {
-      try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
-    }
-    if !self.characterIds.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.characterIds, fieldNumber: 3)
-    }
-    if self.creatorID != 0 {
-      try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 4)
-    }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 5)
-    }
-    if self.boardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 6)
-    }
-    if !self.imagePrompts.isEmpty {
-      try visitor.visitSingularStringField(value: self.imagePrompts, fieldNumber: 7)
-    }
-    if !self.audioPrompts.isEmpty {
-      try visitor.visitSingularStringField(value: self.audioPrompts, fieldNumber: 8)
-    }
-    if !self.videoPrompts.isEmpty {
-      try visitor.visitSingularStringField(value: self.videoPrompts, fieldNumber: 9)
-    }
-    if self.isGenerating != 0 {
-      try visitor.visitSingularInt32Field(value: self.isGenerating, fieldNumber: 10)
-    }
-    if !self.genResult.isEmpty {
-      try visitor.visitSingularStringField(value: self.genResult, fieldNumber: 11)
-    }
-    if self.status != 0 {
-      try visitor.visitSingularInt32Field(value: self.status, fieldNumber: 12)
-    }
-    if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 13)
-    }
-    if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 14)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._senceID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._senceID, fieldNumber: 1)
+      }
+      if !_storage._content.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._content, fieldNumber: 2)
+      }
+      if !_storage._characterIds.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._characterIds, fieldNumber: 3)
+      }
+      if _storage._creatorID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._creatorID, fieldNumber: 4)
+      }
+      if _storage._storyID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 5)
+      }
+      if _storage._boardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._boardID, fieldNumber: 6)
+      }
+      if !_storage._imagePrompts.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._imagePrompts, fieldNumber: 7)
+      }
+      if !_storage._audioPrompts.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._audioPrompts, fieldNumber: 8)
+      }
+      if !_storage._videoPrompts.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._videoPrompts, fieldNumber: 9)
+      }
+      if _storage._isGenerating != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._isGenerating, fieldNumber: 10)
+      }
+      if !_storage._genResult.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._genResult, fieldNumber: 11)
+      }
+      if !_storage._images.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._images, fieldNumber: 12)
+      }
+      if !_storage._audioURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._audioURL, fieldNumber: 13)
+      }
+      if !_storage._videoURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._videoURL, fieldNumber: 14)
+      }
+      if _storage._status != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._status, fieldNumber: 15)
+      }
+      if _storage._ctime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 16)
+      }
+      if _storage._mtime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_StoryBoardSence, rhs: Common_StoryBoardSence) -> Bool {
-    if lhs.senceID != rhs.senceID {return false}
-    if lhs.content != rhs.content {return false}
-    if lhs.characterIds != rhs.characterIds {return false}
-    if lhs.creatorID != rhs.creatorID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.boardID != rhs.boardID {return false}
-    if lhs.imagePrompts != rhs.imagePrompts {return false}
-    if lhs.audioPrompts != rhs.audioPrompts {return false}
-    if lhs.videoPrompts != rhs.videoPrompts {return false}
-    if lhs.isGenerating != rhs.isGenerating {return false}
-    if lhs.genResult != rhs.genResult {return false}
-    if lhs.status != rhs.status {return false}
-    if lhs.ctime != rhs.ctime {return false}
-    if lhs.mtime != rhs.mtime {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._senceID != rhs_storage._senceID {return false}
+        if _storage._content != rhs_storage._content {return false}
+        if _storage._characterIds != rhs_storage._characterIds {return false}
+        if _storage._creatorID != rhs_storage._creatorID {return false}
+        if _storage._storyID != rhs_storage._storyID {return false}
+        if _storage._boardID != rhs_storage._boardID {return false}
+        if _storage._imagePrompts != rhs_storage._imagePrompts {return false}
+        if _storage._audioPrompts != rhs_storage._audioPrompts {return false}
+        if _storage._videoPrompts != rhs_storage._videoPrompts {return false}
+        if _storage._isGenerating != rhs_storage._isGenerating {return false}
+        if _storage._genResult != rhs_storage._genResult {return false}
+        if _storage._images != rhs_storage._images {return false}
+        if _storage._audioURL != rhs_storage._audioURL {return false}
+        if _storage._videoURL != rhs_storage._videoURL {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._ctime != rhs_storage._ctime {return false}
+        if _storage._mtime != rhs_storage._mtime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -8033,92 +8164,46 @@ extension Common_RenderStoryBoardSenceResponse: SwiftProtobuf.Message, SwiftProt
     4: .same(proto: "data"),
   ]
 
-  fileprivate class _StorageClass {
-    var _code: Int32 = 0
-    var _message: String = String()
-    var _generatingStage: Int32 = 0
-    var _data: Common_StoryBoardSence? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _code = source._code
-      _message = source._message
-      _generatingStage = source._generatingStage
-      _data = source._data
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._code) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
-        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._generatingStage) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._data) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.generatingStage) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if _storage._code != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._code, fieldNumber: 1)
-      }
-      if !_storage._message.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 2)
-      }
-      if _storage._generatingStage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._generatingStage, fieldNumber: 3)
-      }
-      try { if let v = _storage._data {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if self.generatingStage != 0 {
+      try visitor.visitSingularInt32Field(value: self.generatingStage, fieldNumber: 3)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_RenderStoryBoardSenceResponse, rhs: Common_RenderStoryBoardSenceResponse) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._code != rhs_storage._code {return false}
-        if _storage._message != rhs_storage._message {return false}
-        if _storage._generatingStage != rhs_storage._generatingStage {return false}
-        if _storage._data != rhs_storage._data {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.generatingStage != rhs.generatingStage {return false}
+    if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -8259,92 +8344,46 @@ extension Common_GetStoryBoardSenceGenerateResponse: SwiftProtobuf.Message, Swif
     4: .same(proto: "data"),
   ]
 
-  fileprivate class _StorageClass {
-    var _code: Int32 = 0
-    var _message: String = String()
-    var _generatingStage: Int32 = 0
-    var _data: Common_StoryBoardSence? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _code = source._code
-      _message = source._message
-      _generatingStage = source._generatingStage
-      _data = source._data
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._code) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._message) }()
-        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._generatingStage) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._data) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.generatingStage) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if _storage._code != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._code, fieldNumber: 1)
-      }
-      if !_storage._message.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._message, fieldNumber: 2)
-      }
-      if _storage._generatingStage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._generatingStage, fieldNumber: 3)
-      }
-      try { if let v = _storage._data {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
     }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if self.generatingStage != 0 {
+      try visitor.visitSingularInt32Field(value: self.generatingStage, fieldNumber: 3)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryBoardSenceGenerateResponse, rhs: Common_GetStoryBoardSenceGenerateResponse) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._code != rhs_storage._code {return false}
-        if _storage._message != rhs_storage._message {return false}
-        if _storage._generatingStage != rhs_storage._generatingStage {return false}
-        if _storage._data != rhs_storage._data {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.generatingStage != rhs.generatingStage {return false}
+    if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
