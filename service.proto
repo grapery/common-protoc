@@ -2019,49 +2019,7 @@ message GetUnPublishStoryboardResponse {
   int64 page_size = 6;
 }
 
-message StoryBoardActiveRole {
-  int64 role_id = 1;
-  string role_name = 2;
-  string role_avatar = 3;
-}
 
-message StoryBoardActiveUser {
-  int64 user_id = 1;
-  string user_name = 2;
-  string user_avatar = 3;
-}
-
-message StoryBoardActive {
-  StoryBoard storyboard = 1;
-  int64 total_like_count = 2;
-  int64 total_comment_count = 3;
-  int64 total_share_count = 4;
-  int64 total_render_count = 5;
-  int64 total_fork_count = 6;
-  repeated StoryBoardActiveUser users = 7;
-  repeated StoryBoardActiveRole roles = 8;
-  StoryBoardActiveUser creator = 9;
-  StorySummaryInfo summary = 10;
-  bool isliked = 11; 
-  int64 mtime = 12;
-}
-
-message StorySummaryInfo{
-  int64 story_id = 1;
-  string story_title = 2;
-  string story_avatar = 3;
-  string story_description = 4;
-  string story_cover = 5;
-  string story_tags = 6;
-  int64 create_time = 7;
-  int64 create_user_id = 8;
-  int64 total_like_count = 9;
-  int64 total_comment_count = 10;
-  int64 total_share_count = 11;
-  int64 total_render_count = 12;
-  int64 total_fork_count = 13;
-  int64 total_view_count = 14;
-}
 
 message GetUserWatchRoleActiveStoryBoardsRequest {
   int64 user_id = 1;

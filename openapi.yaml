@@ -4830,11 +4830,7 @@ components:
                 list:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryBoard'
-                creator:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInfo'
+                        $ref: '#/components/schemas/StoryBoardActive'
                 isMultiBranch:
                     type: boolean
                 total:

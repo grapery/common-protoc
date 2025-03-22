@@ -239,517 +239,562 @@ message CreateStoryRequest {
     int32 page_size = 9;
     MultiBranchOrderBy order_by = 10;
   }
-  
-  message GetStoryboardsResponse {
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated StoryBoard list = 1;
-      repeated UserInfo creator = 2;
-      bool is_multi_branch = 4;
-      int64 total = 5;
-      int64 offset = 6;
-      int64 page_size = 7;
-    }Data data = 3;
-  }
-  
-  message DelStoryboardRequest {
+
+
+message StoryBoardActiveRole {
+  int64 role_id = 1;
+  string role_name = 2;
+  string role_avatar = 3;
+}
+
+message StoryBoardActiveUser {
+  int64 user_id = 1;
+  string user_name = 2;
+  string user_avatar = 3;
+}
+
+
+message StoryBoardActive {
+  StoryBoard storyboard = 1;
+  int64 total_like_count = 2;
+  int64 total_comment_count = 3;
+  int64 total_share_count = 4;
+  int64 total_render_count = 5;
+  int64 total_fork_count = 6;
+  repeated StoryBoardActiveUser users = 7;
+  repeated StoryBoardActiveRole roles = 8;
+  StoryBoardActiveUser creator = 9;
+  StorySummaryInfo summary = 10;
+  bool isliked = 11; 
+  int64 mtime = 12;
+}
+
+message StorySummaryInfo{
+  int64 story_id = 1;
+  string story_title = 2;
+  string story_avatar = 3;
+  string story_description = 4;
+  string story_cover = 5;
+  string story_tags = 6;
+  int64 create_time = 7;
+  int64 create_user_id = 8;
+  int64 total_like_count = 9;
+  int64 total_comment_count = 10;
+  int64 total_share_count = 11;
+  int64 total_render_count = 12;
+  int64 total_fork_count = 13;
+  int64 total_view_count = 14;
+}
+
+message GetStoryboardsResponse {
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryBoardActive list = 1;
+    bool is_multi_branch = 4;
+    int64 total = 5;
+    int64 offset = 6;
+    int64 page_size = 7;
+  }Data data = 3;
+}
+
+message DelStoryboardRequest {
+  int64 board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+}
+
+message DelStoryboardResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ForkStoryboardRequest{
+  int64 prev_board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+  StoryBoard board = 4;
+}
+
+message ForkStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 board_id = 1;
     int64 story_id = 2;
-    int64 user_id = 3;
-  }
-  
-  message DelStoryboardResponse {
-    int32 code = 1;
-    string message = 2;
-  }
-  
-  message ForkStoryboardRequest{
-    int64 prev_board_id = 1;
-    int64 story_id = 2;
-    int64 user_id = 3;
-    StoryBoard board = 4;
-  }
-  
-  message ForkStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 board_id = 1;
-      int64 story_id = 2;
-      int64 timeline_id = 3;
-      int64 prev_board_id = 4;
-    }Data data = 3;
-  }
+    int64 timeline_id = 3;
+    int64 prev_board_id = 4;
+  }Data data = 3;
+}
 
-  message UpdateStoryboardRequest {
-    int64 board_id = 1;
-    int64 story_id = 2;
-    int64 user_id = 3;
-    StoryBoardParams params = 4;
-  }
-  
-  message UpdateStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 story_id = 1;
-      int64 board_id = 2;
-    }Data data = 3;
-  }
+message UpdateStoryboardRequest {
+  int64 board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+  StoryBoardParams params = 4;
+}
 
-  message WatchStoryRequest{
+message UpdateStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 story_id = 1;
-    int64 user_id = 2;
-  }
+    int64 board_id = 2;
+  }Data data = 3;
+}
 
-  message WatchStoryResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 story_id = 1;
-    }Data data = 3;
-  }
+message WatchStoryRequest{
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
 
-  message LikeStoryboardRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-    int64 story_id = 3;
-  }
-
-  message LikeStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 story_id = 1;
-      int64 board_id = 2;
-      int64 user_id = 3;
-      int64 like_num = 4;
-    }Data data = 3;
-  }
-
-  message UnLikeStoryboardRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-    int64 story_id = 3;
-  }
-
-  message UnLikeStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-  }
-
-  message ShareStoryboardRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-    int64 story_id = 3;
-  }
-
-  message ShareStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 story_id = 1;
-      int64 board_id = 2;
-      int64 user_id = 3;
-      int64 share_num = 4;
-    }Data data = 3;
-  }
-
-  enum RenderType{
-    // 0: 原创
-    RENDER_TYPE_TEXT_UNSPECIFIED = 0;
-    // 1: 故事板
-    RENDER_TYPE_STORYBOARD = 1;
-    // 2: 故事场景
-    RENDER_TYPE_STORYSENCE = 2;
-    // 3: 故事角色
-    RENDER_TYPE_STORYCHARACTERS = 3;
-    // 4: 故事动作
-    RENDER_TYPE_STORYACTION = 4;
-    // 5: 故事设置
-    RENDER_TYPE_STORYSETTING = 5;
-    // 6: 故事结局
-    RENDER_TYPE_STORYENDING = 6;
-  }
-
-  message RenderStoryRequest{
+message WatchStoryResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 story_id = 1;
-    int64 user_id = 2;
-    bool is_regenerate = 4;
-    int64 board_id = 7;
-    RenderType render_type = 9;
-  }
+  }Data data = 3;
+}
 
-  message RenderStoryStructureValue{
-    string text = 1;
-    repeated string urls = 2;
-    int32 value = 3;
-    int32 nums = 4;
-    map<string,string> extra = 5;
-  }
+message LikeStoryboardRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
 
-  message RenderStoryStructure {
-    // 原始内容
-    string text = 1;
-    // 解析结果
-    map<string,RenderStoryStructureValue> data = 2;
-  }
-
-  message RenderStoryDetail {
-    string text = 1;
-    int32 status = 2;
-    repeated string urls = 3;
-    int64 story_id = 4;
-    int64 board_id = 5;
-    int64 user_id = 6;
-    RenderType render_type = 7;
-    map<string,RenderStoryStructure> result = 8;
-    int32 timecost = 9;
-  }
-
-  message RenderStoryResponse{
-    int32 code = 1;
-    string message = 2;
-    RenderStoryDetail data = 3;
-  }
-
-  message RenderStoryboardRequest{
-    int64 board_id = 1;
-    int64 story_id = 2;
-    int64 user_id = 3;
-    bool is_regenerate = 4;
-    RenderType render_type = 6;
-  }
-
-
-  message RenderStoryboardDetail {  
-    string text = 1;
-    int32 status = 2;
-    repeated string urls = 3;
-    int64 story_id = 4;
-    int64 board_id = 5;
-    int64 user_id = 6;
-    RenderType render_type = 7;
-    map<string,RenderStoryStructure> result = 8;
-    int32 timecost = 9;
-  }
-
-  message RenderStoryboardResponse{
-    int32 code = 1;
-    string message = 2;
-    RenderStoryboardDetail data = 3;
-  }
-
-  message GenStoryboardTextRequest{
-    int64 board_id = 1;
-    int64 story_id = 2;
-    int64 user_id = 3;
-    RenderType render_type = 6;
-    string prompt = 9;
-    string title = 10;
-    string description = 11;
-    int32 sence_num = 13;
-  }
-
-  message GenStoryboardTextResponse{
-    int32 code = 1;
-    string message = 2;
-    RenderStoryboardDetail data = 3;
-  }
-
-  message GenStoryboardImagesRequest{
-    int64 board_id = 1;
-    int64 story_id = 2;
-    int64 user_id = 3;
-    bool is_regenerate = 4;
-    RenderType render_type = 6;
-    int32 sence_id = 7;
-    string sence_name_key = 8;  
-    string prompt = 9;
-  }
-
-  message GenStoryboardImagesResponse{
-    int32 code = 1;
-    string message = 2;
-    RenderStoryboardDetail data = 3;
-  }
-
-  message FetchGroupStorysRequest{  
-    int64 group_id = 1;
-    int64 user_id = 2;
-    int32 page = 3;
-    int32 page_size = 4;
-  }
-
-  message FetchGroupStorysResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated Story list = 1;
-      repeated UserInfo creator = 3;
-    }Data data = 3;
-  }
-
-  message GetStoryRenderRequest{
-    int64 story_id = 1;
-    int32 render_status = 2;
-    int32 render_type = 3;
-    int64 user_id = 4;
-  }
-
-  message GetStoryRenderResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated RenderStoryDetail list = 1;
-    }Data data = 3;
-  }
-
-  message GetStoryBoardRenderRequest{
-    int64 board_id = 1;
-    int32 render_status = 2;
-    int32 render_type = 3;
-  }
-
-  message GetStoryBoardRenderResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated RenderStoryboardDetail list = 1;
-    }Data data = 3;
-  }
-
-  message ContinueRenderStoryRequest{
-    int64 story_id = 1;
-    int64 prev_board_id = 2;
-    int64 user_id = 3;
-    RenderType render_type = 4;
-    string prompt = 5;
-    string title = 6;
-    string description = 7;
-    string background = 8;
-    repeated StoryRole roles = 9;
-  }
-
-  message ContinueRenderStoryResponse{
-    int32 code = 1;
-    string message = 2;
-    RenderStoryDetail data = 3;
-  }
-
-  message RenderStoryRolesRequest{
+message LikeStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 story_id = 1;
     int64 board_id = 2;
     int64 user_id = 3;
-    string prompt = 4;
-    string background = 5;
-    StoryRole params = 6;
-  }
+    int64 like_num = 4;
+  }Data data = 3;
+}
 
-  message RenderStoryRolesResponse{
-    int32 code = 1;
-    string message = 2;
-    repeated StoryRole list = 3;
-  }
+message UnLikeStoryboardRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
 
-  message RenderStoryRoleDetailRequest{
-    int64 role_id = 1;
-    StoryRole role = 2;
-    string prompt = 3;
-    string background = 4;
-    int64 user_id = 5;
-  }
+message UnLikeStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+}
 
-  message RenderStoryRoleDetailResponse{
-    int32 code = 1;
-    string message = 2;
-    StoryRole role = 3;
-  }
+message ShareStoryboardRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+  int64 story_id = 3;
+}
 
-  message UpdateStoryRoleRequest{
-    StoryRole role = 1;
-    int64 user_id = 2;
-  }
-
-  message UpdateStoryRoleResponse{
-    int32 code = 1;
-    string message = 2;
-  }
-
-  message GetStoryRolesRequest{
+message ShareStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 story_id = 1;
-    int64 user_id = 2;
-  }
+    int64 board_id = 2;
+    int64 user_id = 3;
+    int64 share_num = 4;
+  }Data data = 3;
+}
 
-  message GetStoryRolesResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated StoryRole list = 1;
-      repeated UserInfo creator = 3;
-    }Data data = 3;
-  }
+enum RenderType{
+  // 0: 原创
+  RENDER_TYPE_TEXT_UNSPECIFIED = 0;
+  // 1: 故事板
+  RENDER_TYPE_STORYBOARD = 1;
+  // 2: 故事场景
+  RENDER_TYPE_STORYSENCE = 2;
+  // 3: 故事角色
+  RENDER_TYPE_STORYCHARACTERS = 3;
+  // 4: 故事动作
+  RENDER_TYPE_STORYACTION = 4;
+  // 5: 故事设置
+  RENDER_TYPE_STORYSETTING = 5;
+  // 6: 故事结局
+  RENDER_TYPE_STORYENDING = 6;
+}
 
-  message GetStoryBoardRolesRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-  }
+message RenderStoryRequest{
+  int64 story_id = 1;
+  int64 user_id = 2;
+  bool is_regenerate = 4;
+  int64 board_id = 7;
+  RenderType render_type = 9;
+}
 
-  message GetStoryBoardRolesResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated StoryRole list = 1;
-      repeated UserInfo creator = 3;
-    }Data data = 3;
-  }
+message RenderStoryStructureValue{
+  string text = 1;
+  repeated string urls = 2;
+  int32 value = 3;
+  int32 nums = 4;
+  map<string,string> extra = 5;
+}
 
-  message StoryBoardSence{
+message RenderStoryStructure {
+  // 原始内容
+  string text = 1;
+  // 解析结果
+  map<string,RenderStoryStructureValue> data = 2;
+}
+
+message RenderStoryDetail {
+  string text = 1;
+  int32 status = 2;
+  repeated string urls = 3;
+  int64 story_id = 4;
+  int64 board_id = 5;
+  int64 user_id = 6;
+  RenderType render_type = 7;
+  map<string,RenderStoryStructure> result = 8;
+  int32 timecost = 9;
+}
+
+message RenderStoryResponse{
+  int32 code = 1;
+  string message = 2;
+  RenderStoryDetail data = 3;
+}
+
+message RenderStoryboardRequest{
+  int64 board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+  bool is_regenerate = 4;
+  RenderType render_type = 6;
+}
+
+
+message RenderStoryboardDetail {  
+  string text = 1;
+  int32 status = 2;
+  repeated string urls = 3;
+  int64 story_id = 4;
+  int64 board_id = 5;
+  int64 user_id = 6;
+  RenderType render_type = 7;
+  map<string,RenderStoryStructure> result = 8;
+  int32 timecost = 9;
+}
+
+message RenderStoryboardResponse{
+  int32 code = 1;
+  string message = 2;
+  RenderStoryboardDetail data = 3;
+}
+
+message GenStoryboardTextRequest{
+  int64 board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+  RenderType render_type = 6;
+  string prompt = 9;
+  string title = 10;
+  string description = 11;
+  int32 sence_num = 13;
+}
+
+message GenStoryboardTextResponse{
+  int32 code = 1;
+  string message = 2;
+  RenderStoryboardDetail data = 3;
+}
+
+message GenStoryboardImagesRequest{
+  int64 board_id = 1;
+  int64 story_id = 2;
+  int64 user_id = 3;
+  bool is_regenerate = 4;
+  RenderType render_type = 6;
+  int32 sence_id = 7;
+  string sence_name_key = 8;  
+  string prompt = 9;
+}
+
+message GenStoryboardImagesResponse{
+  int32 code = 1;
+  string message = 2;
+  RenderStoryboardDetail data = 3;
+}
+
+message FetchGroupStorysRequest{  
+  int64 group_id = 1;
+  int64 user_id = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+}
+
+message FetchGroupStorysResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated Story list = 1;
+    repeated UserInfo creator = 3;
+  }Data data = 3;
+}
+
+message GetStoryRenderRequest{
+  int64 story_id = 1;
+  int32 render_status = 2;
+  int32 render_type = 3;
+  int64 user_id = 4;
+}
+
+message GetStoryRenderResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated RenderStoryDetail list = 1;
+  }Data data = 3;
+}
+
+message GetStoryBoardRenderRequest{
+  int64 board_id = 1;
+  int32 render_status = 2;
+  int32 render_type = 3;
+}
+
+message GetStoryBoardRenderResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated RenderStoryboardDetail list = 1;
+  }Data data = 3;
+}
+
+message ContinueRenderStoryRequest{
+  int64 story_id = 1;
+  int64 prev_board_id = 2;
+  int64 user_id = 3;
+  RenderType render_type = 4;
+  string prompt = 5;
+  string title = 6;
+  string description = 7;
+  string background = 8;
+  repeated StoryRole roles = 9;
+}
+
+message ContinueRenderStoryResponse{
+  int32 code = 1;
+  string message = 2;
+  RenderStoryDetail data = 3;
+}
+
+message RenderStoryRolesRequest{
+  int64 story_id = 1;
+  int64 board_id = 2;
+  int64 user_id = 3;
+  string prompt = 4;
+  string background = 5;
+  StoryRole params = 6;
+}
+
+message RenderStoryRolesResponse{
+  int32 code = 1;
+  string message = 2;
+  repeated StoryRole list = 3;
+}
+
+message RenderStoryRoleDetailRequest{
+  int64 role_id = 1;
+  StoryRole role = 2;
+  string prompt = 3;
+  string background = 4;
+  int64 user_id = 5;
+}
+
+message RenderStoryRoleDetailResponse{
+  int32 code = 1;
+  string message = 2;
+  StoryRole role = 3;
+}
+
+message UpdateStoryRoleRequest{
+  StoryRole role = 1;
+  int64 user_id = 2;
+}
+
+message UpdateStoryRoleResponse{
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetStoryRolesRequest{
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
+
+message GetStoryRolesResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryRole list = 1;
+    repeated UserInfo creator = 3;
+  }Data data = 3;
+}
+
+message GetStoryBoardRolesRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+}
+
+message GetStoryBoardRolesResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryRole list = 1;
+    repeated UserInfo creator = 3;
+  }Data data = 3;
+}
+
+message StoryBoardSence{
+  int64 sence_id = 1;
+  string content = 2;
+  repeated string character_ids = 3;
+  int64 creator_id = 4;
+  int64 story_id = 5;
+  int64 board_id = 6;
+  string image_prompts = 7;
+  string audio_prompts = 8;
+  string video_prompts = 9;
+  int32 is_generating = 10;
+  string gen_result = 11;
+
+  repeated string images = 12;
+  string audio_url = 13;
+  string video_url = 14;
+  
+  int32 status = 15;
+  int64 Ctime = 16;
+  int64 Mtime = 17;
+}
+
+message GetStoryBoardSencesRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+}
+
+message GetStoryBoardSencesResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryBoardSence list = 1;
+  }Data data = 3;
+}
+
+message CreateStoryBoardSenceRequest{
+  StoryBoardSence sence = 1;
+  int64 user_id = 2;
+}
+
+message CreateStoryBoardSenceResponse{
+  int32 code = 1;
+  string message = 2;
+  message Data {
     int64 sence_id = 1;
-    string content = 2;
-    repeated string character_ids = 3;
-    int64 creator_id = 4;
-    int64 story_id = 5;
-    int64 board_id = 6;
-    string image_prompts = 7;
-    string audio_prompts = 8;
-    string video_prompts = 9;
-    int32 is_generating = 10;
-    string gen_result = 11;
+  }Data data = 3;
+}
 
-    repeated string images = 12;
-    string audio_url = 13;
-    string video_url = 14;
-    
-    int32 status = 15;
-    int64 Ctime = 16;
-    int64 Mtime = 17;
-  }
+message UpdateStoryBoardSenceRequest{
+  StoryBoardSence sence = 1;
+  int64 user_id = 2;
+}
 
-  message GetStoryBoardSencesRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-  }
+message UpdateStoryBoardSenceResponse{
+  int32 code = 1;
+  string message = 2;
+}
 
-  message GetStoryBoardSencesResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      repeated StoryBoardSence list = 1;
-    }Data data = 3;
-  }
+message DeleteStoryBoardSenceRequest{
+  int64 sence_id = 1;
+  int64 user_id = 2;
+}
 
-  message CreateStoryBoardSenceRequest{
-    StoryBoardSence sence = 1;
-    int64 user_id = 2;
-  }
+message DeleteStoryBoardSenceResponse{
+  int32 code = 1;
+  string message = 2;
+}
 
-  message CreateStoryBoardSenceResponse{
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 sence_id = 1;
-    }Data data = 3;
-  }
+message RenderStoryBoardSenceRequest{
+  int64 sence_id = 1;
+  int64 user_id = 2;
+  int32 board_id = 3;
+}
 
-  message UpdateStoryBoardSenceRequest{
-    StoryBoardSence sence = 1;
-    int64 user_id = 2;
-  }
+message RenderStoryBoardSenceResponse{
+  int32 code = 1;
+  string message = 2;
+  int32 generating_stage = 3;
+  StoryBoardSence data = 4;
+}
 
-  message UpdateStoryBoardSenceResponse{
-    int32 code = 1;
-    string message = 2;
-  }
+message RenderStoryBoardSencesRequest{
+  int64 user_id = 1;
+  int32 board_id = 2;
+}
 
-  message DeleteStoryBoardSenceRequest{
-    int64 sence_id = 1;
-    int64 user_id = 2;
-  }
+message RenderStoryBoardSencesResponse{
+  int32 code = 1;
+  string message = 2;
+  int32 generating_stage = 3;
+  repeated StoryBoardSence list = 4;
+}
 
-  message DeleteStoryBoardSenceResponse{
-    int32 code = 1;
-    string message = 2;
-  }
+message GetStoryBoardSenceGenerateRequest{
+  int64 sence_id = 1;
+  int64 user_id = 2;
+}
 
-  message RenderStoryBoardSenceRequest{
-    int64 sence_id = 1;
-    int64 user_id = 2;
-    int32 board_id = 3;
-  }
+message GetStoryBoardSenceGenerateResponse{
+  int32 code = 1;
+  string message = 2;
+  int32 generating_stage = 3;
+  StoryBoardSence data = 4;
+}
 
-  message RenderStoryBoardSenceResponse{
-    int32 code = 1;
-    string message = 2;
-    int32 generating_stage = 3;
-    StoryBoardSence data = 4;
-  }
+message GetStoryBoardGenerateRequest{
+  int64 board_id = 1;
+  int64 user_id = 2;
+}
 
-  message RenderStoryBoardSencesRequest{
-    int64 user_id = 1;
-    int32 board_id = 2;
-  }
+message GetStoryBoardGenerateResponse{
+  int32 code = 1;
+  string message = 2;
+  int32 generating_stage = 3;
+  repeated StoryBoardSence list = 4;
+}
 
-  message RenderStoryBoardSencesResponse{
-    int32 code = 1;
-    string message = 2;
-    int32 generating_stage = 3;
-    repeated StoryBoardSence list = 4;
-  }
-
-  message GetStoryBoardSenceGenerateRequest{
-    int64 sence_id = 1;
-    int64 user_id = 2;
-  }
-
-  message GetStoryBoardSenceGenerateResponse{
-    int32 code = 1;
-    string message = 2;
-    int32 generating_stage = 3;
-    StoryBoardSence data = 4;
-  }
-
-  message GetStoryBoardGenerateRequest{
-    int64 board_id = 1;
-    int64 user_id = 2;
-  }
-
-  message GetStoryBoardGenerateResponse{
-    int32 code = 1;
-    string message = 2;
-    int32 generating_stage = 3;
-    repeated StoryBoardSence list = 4;
-  }
-
-  enum StoryBoardGeneratingStage{
-    // 0: 未开始
-    STORY_BOARD_GENERATING_STAGE_UNSPECIFIED = 0;
-    // 1: 生成中
-    STORY_BOARD_GENERATING_STAGE_GENERATING = 101;
-    // 2: 生成完成
-    STORY_BOARD_GENERATING_STAGE_COMPLETED = 102;
-    // 3: 生成失败
-    STORY_BOARD_GENERATING_STAGE_FAILED = 103;
-    // 4: 生成图片
-    STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES = 201;
-    // 5: 图片生成完成
-    STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED = 202;
-    // 6: 图片生成失败
-    STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED = 203;
-    // 7: 生成音频
-    STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO = 301;
-    // 8: 音频生成完成
-    STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED = 302;
-    // 9: 音频生成失败
-    STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED = 303;
-    // 10: 生成视频
-    STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO = 401;
-    // 11: 视频生成完成
-    STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED = 402;
-    // 12: 视频生成失败
-    STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED = 403;
-  }
+enum StoryBoardGeneratingStage{
+  // 0: 未开始
+  STORY_BOARD_GENERATING_STAGE_UNSPECIFIED = 0;
+  // 1: 生成中
+  STORY_BOARD_GENERATING_STAGE_GENERATING = 101;
+  // 2: 生成完成
+  STORY_BOARD_GENERATING_STAGE_COMPLETED = 102;
+  // 3: 生成失败
+  STORY_BOARD_GENERATING_STAGE_FAILED = 103;
+  // 4: 生成图片
+  STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES = 201;
+  // 5: 图片生成完成
+  STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED = 202;
+  // 6: 图片生成失败
+  STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED = 203;
+  // 7: 生成音频
+  STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO = 301;
+  // 8: 音频生成完成
+  STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED = 302;
+  // 9: 音频生成失败
+  STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED = 303;
+  // 10: 生成视频
+  STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO = 401;
+  // 11: 视频生成完成
+  STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED = 402;
+  // 12: 视频生成失败
+  STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED = 403;
+}
 
 
   

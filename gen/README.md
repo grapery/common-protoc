@@ -134,11 +134,15 @@
     - [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data)
     - [Story](#common-Story)
     - [StoryBoard](#common-StoryBoard)
+    - [StoryBoardActive](#common-StoryBoardActive)
+    - [StoryBoardActiveRole](#common-StoryBoardActiveRole)
+    - [StoryBoardActiveUser](#common-StoryBoardActiveUser)
     - [StoryBoardParams](#common-StoryBoardParams)
     - [StoryBoardSence](#common-StoryBoardSence)
     - [StoryBoardSences](#common-StoryBoardSences)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
+    - [StorySummaryInfo](#common-StorySummaryInfo)
     - [TimeLine](#common-TimeLine)
     - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
     - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
@@ -364,11 +368,7 @@
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
-    - [StoryBoardActive](#common-StoryBoardActive)
-    - [StoryBoardActiveRole](#common-StoryBoardActiveRole)
-    - [StoryBoardActiveUser](#common-StoryBoardActiveUser)
     - [StoryContributor](#common-StoryContributor)
-    - [StorySummaryInfo](#common-StorySummaryInfo)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
     - [TrendingResponse](#common-TrendingResponse)
@@ -2280,8 +2280,7 @@ AI生成失败 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryBoard](#common-StoryBoard) | repeated |  |
-| creator | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | is_multi_branch | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -2823,6 +2822,66 @@ AI生成失败 |
 
 
 
+<a name="common-StoryBoardActive"></a>
+
+### StoryBoardActive
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
+| total_like_count | [int64](#int64) |  |  |
+| total_comment_count | [int64](#int64) |  |  |
+| total_share_count | [int64](#int64) |  |  |
+| total_render_count | [int64](#int64) |  |  |
+| total_fork_count | [int64](#int64) |  |  |
+| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
+| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
+| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
+| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  |  |
+| isliked | [bool](#bool) |  |  |
+| mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardActiveRole"></a>
+
+### StoryBoardActiveRole
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| role_name | [string](#string) |  |  |
+| role_avatar | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-StoryBoardActiveUser"></a>
+
+### StoryBoardActiveUser
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| user_name | [string](#string) |  |  |
+| user_avatar | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-StoryBoardParams"></a>
 
 ### StoryBoardParams
@@ -2950,6 +3009,34 @@ AI生成失败 |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+
+
+
+
+
+
+<a name="common-StorySummaryInfo"></a>
+
+### StorySummaryInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| story_title | [string](#string) |  |  |
+| story_avatar | [string](#string) |  |  |
+| story_description | [string](#string) |  |  |
+| story_cover | [string](#string) |  |  |
+| story_tags | [string](#string) |  |  |
+| create_time | [int64](#int64) |  |  |
+| create_user_id | [int64](#int64) |  |  |
+| total_like_count | [int64](#int64) |  |  |
+| total_comment_count | [int64](#int64) |  |  |
+| total_share_count | [int64](#int64) |  |  |
+| total_render_count | [int64](#int64) |  |  |
+| total_fork_count | [int64](#int64) |  |  |
+| total_view_count | [int64](#int64) |  |  |
 
 
 
@@ -6671,66 +6758,6 @@ AI生成失败 |
 
 
 
-<a name="common-StoryBoardActive"></a>
-
-### StoryBoardActive
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
-| total_like_count | [int64](#int64) |  |  |
-| total_comment_count | [int64](#int64) |  |  |
-| total_share_count | [int64](#int64) |  |  |
-| total_render_count | [int64](#int64) |  |  |
-| total_fork_count | [int64](#int64) |  |  |
-| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
-| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
-| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
-| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  |  |
-| isliked | [bool](#bool) |  |  |
-| mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-StoryBoardActiveRole"></a>
-
-### StoryBoardActiveRole
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| role_id | [int64](#int64) |  |  |
-| role_name | [string](#string) |  |  |
-| role_avatar | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-StoryBoardActiveUser"></a>
-
-### StoryBoardActiveUser
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| user_name | [string](#string) |  |  |
-| user_avatar | [string](#string) |  |  |
-
-
-
-
-
-
 <a name="common-StoryContributor"></a>
 
 ### StoryContributor
@@ -6743,34 +6770,6 @@ AI生成失败 |
 | username | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | viplevel | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-StorySummaryInfo"></a>
-
-### StorySummaryInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  |  |
-| story_title | [string](#string) |  |  |
-| story_avatar | [string](#string) |  |  |
-| story_description | [string](#string) |  |  |
-| story_cover | [string](#string) |  |  |
-| story_tags | [string](#string) |  |  |
-| create_time | [int64](#int64) |  |  |
-| create_user_id | [int64](#int64) |  |  |
-| total_like_count | [int64](#int64) |  |  |
-| total_comment_count | [int64](#int64) |  |  |
-| total_share_count | [int64](#int64) |  |  |
-| total_render_count | [int64](#int64) |  |  |
-| total_fork_count | [int64](#int64) |  |  |
-| total_view_count | [int64](#int64) |  |  |
 
 
 
