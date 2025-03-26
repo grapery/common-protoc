@@ -4945,7 +4945,7 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | is_multi_branch | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -5667,7 +5667,7 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoard](#common-StoryBoard) | repeated |  |
+| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |

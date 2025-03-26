@@ -3917,7 +3917,7 @@ public struct Common_GetNextStoryboardResponse: Sendable {
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoard] = []
+  public var storyboards: [Common_StoryBoardActive] = []
 
   public var isMultiBranch: Bool = false
 
@@ -4374,7 +4374,7 @@ public struct Common_GetUserCreatedStoryboardsResponse: Sendable {
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoard] = []
+  public var storyboards: [Common_StoryBoardActive] = []
 
   public var total: Int64 = 0
 

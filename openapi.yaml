@@ -4265,7 +4265,7 @@ components:
                 storyboards:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryBoard'
+                        $ref: '#/components/schemas/StoryBoardActive'
                 isMultiBranch:
                     type: boolean
                 total:
@@ -4973,7 +4973,7 @@ components:
                 storyboards:
                     type: array
                     items:
-                        $ref: '#/components/schemas/StoryBoard'
+                        $ref: '#/components/schemas/StoryBoardActive'
                 total:
                     type: string
                 offset:

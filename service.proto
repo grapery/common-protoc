@@ -2103,7 +2103,7 @@ message GetNextStoryboardRequest {
 message GetNextStoryboardResponse {
   ResponseCode code = 1;
   string message = 2;
-  repeated StoryBoard storyboards = 3;
+  repeated StoryBoardActive storyboards = 3;
   bool is_multi_branch = 4;
   int64 total = 5;
   int64 offset = 6;
@@ -2268,7 +2268,7 @@ message GetUserCreatedStoryboardsRequest {
 message GetUserCreatedStoryboardsResponse {
   ResponseCode code = 1;
   string message = 2;
-  repeated StoryBoard storyboards = 3;
+  repeated StoryBoardActive storyboards = 3;
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
