@@ -356,6 +356,40 @@ const (
 	// TeamsAPIUpdateRolePromptProcedure is the fully-qualified name of the TeamsAPI's UpdateRolePrompt
 	// RPC.
 	TeamsAPIUpdateRolePromptProcedure = "/common.TeamsAPI/UpdateRolePrompt"
+	// TeamsAPICreateStoryCommentProcedure is the fully-qualified name of the TeamsAPI's
+	// CreateStoryComment RPC.
+	TeamsAPICreateStoryCommentProcedure = "/common.TeamsAPI/CreateStoryComment"
+	// TeamsAPIGetStoryCommentsProcedure is the fully-qualified name of the TeamsAPI's GetStoryComments
+	// RPC.
+	TeamsAPIGetStoryCommentsProcedure = "/common.TeamsAPI/GetStoryComments"
+	// TeamsAPIDeleteStoryCommentProcedure is the fully-qualified name of the TeamsAPI's
+	// DeleteStoryComment RPC.
+	TeamsAPIDeleteStoryCommentProcedure = "/common.TeamsAPI/DeleteStoryComment"
+	// TeamsAPIGetStoryCommentRepliesProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryCommentReplies RPC.
+	TeamsAPIGetStoryCommentRepliesProcedure = "/common.TeamsAPI/GetStoryCommentReplies"
+	// TeamsAPICreateStoryCommentReplyProcedure is the fully-qualified name of the TeamsAPI's
+	// CreateStoryCommentReply RPC.
+	TeamsAPICreateStoryCommentReplyProcedure = "/common.TeamsAPI/CreateStoryCommentReply"
+	// TeamsAPIDeleteStoryCommentReplyProcedure is the fully-qualified name of the TeamsAPI's
+	// DeleteStoryCommentReply RPC.
+	TeamsAPIDeleteStoryCommentReplyProcedure = "/common.TeamsAPI/DeleteStoryCommentReply"
+	// TeamsAPIGetStoryBoardCommentsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryBoardComments RPC.
+	TeamsAPIGetStoryBoardCommentsProcedure = "/common.TeamsAPI/GetStoryBoardComments"
+	// TeamsAPICreateStoryBoardCommentProcedure is the fully-qualified name of the TeamsAPI's
+	// CreateStoryBoardComment RPC.
+	TeamsAPICreateStoryBoardCommentProcedure = "/common.TeamsAPI/CreateStoryBoardComment"
+	// TeamsAPIDeleteStoryBoardCommentProcedure is the fully-qualified name of the TeamsAPI's
+	// DeleteStoryBoardComment RPC.
+	TeamsAPIDeleteStoryBoardCommentProcedure = "/common.TeamsAPI/DeleteStoryBoardComment"
+	// TeamsAPIGetStoryBoardCommentRepliesProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryBoardCommentReplies RPC.
+	TeamsAPIGetStoryBoardCommentRepliesProcedure = "/common.TeamsAPI/GetStoryBoardCommentReplies"
+	// TeamsAPILikeCommentProcedure is the fully-qualified name of the TeamsAPI's LikeComment RPC.
+	TeamsAPILikeCommentProcedure = "/common.TeamsAPI/LikeComment"
+	// TeamsAPIDislikeCommentProcedure is the fully-qualified name of the TeamsAPI's DislikeComment RPC.
+	TeamsAPIDislikeCommentProcedure = "/common.TeamsAPI/DislikeComment"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -607,6 +641,30 @@ type TeamsAPIClient interface {
 	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
 	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
 	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
+	// 创建故事评论
+	CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error)
+	// 获取故事评论
+	GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error)
+	// 删除故事评论
+	DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error)
+	// 获取故事评论回复
+	GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error)
+	// 创建故事评论回复
+	CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error)
+	// 删除故事评论回复
+	DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error)
+	// 获取故事板评论
+	GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error)
+	// 创建故事板评论
+	CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error)
+	// 删除故事板评论
+	DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error)
+	// 获取故事板评论回复
+	GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error)
+	// 点赞故事评论
+	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
+	// 取消点赞故事评论
+	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1254,6 +1312,66 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUpdateRolePromptProcedure,
 			opts...,
 		),
+		createStoryComment: connect.NewClient[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse](
+			httpClient,
+			baseURL+TeamsAPICreateStoryCommentProcedure,
+			opts...,
+		),
+		getStoryComments: connect.NewClient[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryCommentsProcedure,
+			opts...,
+		),
+		deleteStoryComment: connect.NewClient[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse](
+			httpClient,
+			baseURL+TeamsAPIDeleteStoryCommentProcedure,
+			opts...,
+		),
+		getStoryCommentReplies: connect.NewClient[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryCommentRepliesProcedure,
+			opts...,
+		),
+		createStoryCommentReply: connect.NewClient[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse](
+			httpClient,
+			baseURL+TeamsAPICreateStoryCommentReplyProcedure,
+			opts...,
+		),
+		deleteStoryCommentReply: connect.NewClient[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse](
+			httpClient,
+			baseURL+TeamsAPIDeleteStoryCommentReplyProcedure,
+			opts...,
+		),
+		getStoryBoardComments: connect.NewClient[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryBoardCommentsProcedure,
+			opts...,
+		),
+		createStoryBoardComment: connect.NewClient[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse](
+			httpClient,
+			baseURL+TeamsAPICreateStoryBoardCommentProcedure,
+			opts...,
+		),
+		deleteStoryBoardComment: connect.NewClient[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse](
+			httpClient,
+			baseURL+TeamsAPIDeleteStoryBoardCommentProcedure,
+			opts...,
+		),
+		getStoryBoardCommentReplies: connect.NewClient[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryBoardCommentRepliesProcedure,
+			opts...,
+		),
+		likeComment: connect.NewClient[gen.LikeCommentRequest, gen.LikeCommentResponse](
+			httpClient,
+			baseURL+TeamsAPILikeCommentProcedure,
+			opts...,
+		),
+		dislikeComment: connect.NewClient[gen.DislikeCommentRequest, gen.DislikeCommentResponse](
+			httpClient,
+			baseURL+TeamsAPIDislikeCommentProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1386,6 +1504,18 @@ type teamsAPIClient struct {
 	updateRoleDescription              *connect.Client[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse]
 	generateRolePrompt                 *connect.Client[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse]
 	updateRolePrompt                   *connect.Client[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse]
+	createStoryComment                 *connect.Client[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse]
+	getStoryComments                   *connect.Client[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse]
+	deleteStoryComment                 *connect.Client[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse]
+	getStoryCommentReplies             *connect.Client[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse]
+	createStoryCommentReply            *connect.Client[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse]
+	deleteStoryCommentReply            *connect.Client[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse]
+	getStoryBoardComments              *connect.Client[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse]
+	createStoryBoardComment            *connect.Client[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse]
+	deleteStoryBoardComment            *connect.Client[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse]
+	getStoryBoardCommentReplies        *connect.Client[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse]
+	likeComment                        *connect.Client[gen.LikeCommentRequest, gen.LikeCommentResponse]
+	dislikeComment                     *connect.Client[gen.DislikeCommentRequest, gen.DislikeCommentResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2023,6 +2153,66 @@ func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, req *connect.Requ
 	return c.updateRolePrompt.CallUnary(ctx, req)
 }
 
+// CreateStoryComment calls common.TeamsAPI.CreateStoryComment.
+func (c *teamsAPIClient) CreateStoryComment(ctx context.Context, req *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error) {
+	return c.createStoryComment.CallUnary(ctx, req)
+}
+
+// GetStoryComments calls common.TeamsAPI.GetStoryComments.
+func (c *teamsAPIClient) GetStoryComments(ctx context.Context, req *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error) {
+	return c.getStoryComments.CallUnary(ctx, req)
+}
+
+// DeleteStoryComment calls common.TeamsAPI.DeleteStoryComment.
+func (c *teamsAPIClient) DeleteStoryComment(ctx context.Context, req *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error) {
+	return c.deleteStoryComment.CallUnary(ctx, req)
+}
+
+// GetStoryCommentReplies calls common.TeamsAPI.GetStoryCommentReplies.
+func (c *teamsAPIClient) GetStoryCommentReplies(ctx context.Context, req *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error) {
+	return c.getStoryCommentReplies.CallUnary(ctx, req)
+}
+
+// CreateStoryCommentReply calls common.TeamsAPI.CreateStoryCommentReply.
+func (c *teamsAPIClient) CreateStoryCommentReply(ctx context.Context, req *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error) {
+	return c.createStoryCommentReply.CallUnary(ctx, req)
+}
+
+// DeleteStoryCommentReply calls common.TeamsAPI.DeleteStoryCommentReply.
+func (c *teamsAPIClient) DeleteStoryCommentReply(ctx context.Context, req *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error) {
+	return c.deleteStoryCommentReply.CallUnary(ctx, req)
+}
+
+// GetStoryBoardComments calls common.TeamsAPI.GetStoryBoardComments.
+func (c *teamsAPIClient) GetStoryBoardComments(ctx context.Context, req *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error) {
+	return c.getStoryBoardComments.CallUnary(ctx, req)
+}
+
+// CreateStoryBoardComment calls common.TeamsAPI.CreateStoryBoardComment.
+func (c *teamsAPIClient) CreateStoryBoardComment(ctx context.Context, req *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error) {
+	return c.createStoryBoardComment.CallUnary(ctx, req)
+}
+
+// DeleteStoryBoardComment calls common.TeamsAPI.DeleteStoryBoardComment.
+func (c *teamsAPIClient) DeleteStoryBoardComment(ctx context.Context, req *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error) {
+	return c.deleteStoryBoardComment.CallUnary(ctx, req)
+}
+
+// GetStoryBoardCommentReplies calls common.TeamsAPI.GetStoryBoardCommentReplies.
+func (c *teamsAPIClient) GetStoryBoardCommentReplies(ctx context.Context, req *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
+	return c.getStoryBoardCommentReplies.CallUnary(ctx, req)
+}
+
+// LikeComment calls common.TeamsAPI.LikeComment.
+func (c *teamsAPIClient) LikeComment(ctx context.Context, req *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error) {
+	return c.likeComment.CallUnary(ctx, req)
+}
+
+// DislikeComment calls common.TeamsAPI.DislikeComment.
+func (c *teamsAPIClient) DislikeComment(ctx context.Context, req *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error) {
+	return c.dislikeComment.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2272,6 +2462,30 @@ type TeamsAPIHandler interface {
 	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
 	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
 	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
+	// 创建故事评论
+	CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error)
+	// 获取故事评论
+	GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error)
+	// 删除故事评论
+	DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error)
+	// 获取故事评论回复
+	GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error)
+	// 创建故事评论回复
+	CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error)
+	// 删除故事评论回复
+	DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error)
+	// 获取故事板评论
+	GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error)
+	// 创建故事板评论
+	CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error)
+	// 删除故事板评论
+	DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error)
+	// 获取故事板评论回复
+	GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error)
+	// 点赞故事评论
+	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
+	// 取消点赞故事评论
+	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2915,6 +3129,66 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.UpdateRolePrompt,
 		opts...,
 	)
+	teamsAPICreateStoryCommentHandler := connect.NewUnaryHandler(
+		TeamsAPICreateStoryCommentProcedure,
+		svc.CreateStoryComment,
+		opts...,
+	)
+	teamsAPIGetStoryCommentsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryCommentsProcedure,
+		svc.GetStoryComments,
+		opts...,
+	)
+	teamsAPIDeleteStoryCommentHandler := connect.NewUnaryHandler(
+		TeamsAPIDeleteStoryCommentProcedure,
+		svc.DeleteStoryComment,
+		opts...,
+	)
+	teamsAPIGetStoryCommentRepliesHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryCommentRepliesProcedure,
+		svc.GetStoryCommentReplies,
+		opts...,
+	)
+	teamsAPICreateStoryCommentReplyHandler := connect.NewUnaryHandler(
+		TeamsAPICreateStoryCommentReplyProcedure,
+		svc.CreateStoryCommentReply,
+		opts...,
+	)
+	teamsAPIDeleteStoryCommentReplyHandler := connect.NewUnaryHandler(
+		TeamsAPIDeleteStoryCommentReplyProcedure,
+		svc.DeleteStoryCommentReply,
+		opts...,
+	)
+	teamsAPIGetStoryBoardCommentsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryBoardCommentsProcedure,
+		svc.GetStoryBoardComments,
+		opts...,
+	)
+	teamsAPICreateStoryBoardCommentHandler := connect.NewUnaryHandler(
+		TeamsAPICreateStoryBoardCommentProcedure,
+		svc.CreateStoryBoardComment,
+		opts...,
+	)
+	teamsAPIDeleteStoryBoardCommentHandler := connect.NewUnaryHandler(
+		TeamsAPIDeleteStoryBoardCommentProcedure,
+		svc.DeleteStoryBoardComment,
+		opts...,
+	)
+	teamsAPIGetStoryBoardCommentRepliesHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryBoardCommentRepliesProcedure,
+		svc.GetStoryBoardCommentReplies,
+		opts...,
+	)
+	teamsAPILikeCommentHandler := connect.NewUnaryHandler(
+		TeamsAPILikeCommentProcedure,
+		svc.LikeComment,
+		opts...,
+	)
+	teamsAPIDislikeCommentHandler := connect.NewUnaryHandler(
+		TeamsAPIDislikeCommentProcedure,
+		svc.DislikeComment,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3171,6 +3445,30 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGenerateRolePromptHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateRolePromptProcedure:
 			teamsAPIUpdateRolePromptHandler.ServeHTTP(w, r)
+		case TeamsAPICreateStoryCommentProcedure:
+			teamsAPICreateStoryCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryCommentsProcedure:
+			teamsAPIGetStoryCommentsHandler.ServeHTTP(w, r)
+		case TeamsAPIDeleteStoryCommentProcedure:
+			teamsAPIDeleteStoryCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryCommentRepliesProcedure:
+			teamsAPIGetStoryCommentRepliesHandler.ServeHTTP(w, r)
+		case TeamsAPICreateStoryCommentReplyProcedure:
+			teamsAPICreateStoryCommentReplyHandler.ServeHTTP(w, r)
+		case TeamsAPIDeleteStoryCommentReplyProcedure:
+			teamsAPIDeleteStoryCommentReplyHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryBoardCommentsProcedure:
+			teamsAPIGetStoryBoardCommentsHandler.ServeHTTP(w, r)
+		case TeamsAPICreateStoryBoardCommentProcedure:
+			teamsAPICreateStoryBoardCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIDeleteStoryBoardCommentProcedure:
+			teamsAPIDeleteStoryBoardCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryBoardCommentRepliesProcedure:
+			teamsAPIGetStoryBoardCommentRepliesHandler.ServeHTTP(w, r)
+		case TeamsAPILikeCommentProcedure:
+			teamsAPILikeCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIDislikeCommentProcedure:
+			teamsAPIDislikeCommentHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3686,4 +3984,52 @@ func (UnimplementedTeamsAPIHandler) GenerateRolePrompt(context.Context, *connect
 
 func (UnimplementedTeamsAPIHandler) UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateRolePrompt is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryComments is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryCommentReplies is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryCommentReply is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryCommentReply is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardComments is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryBoardComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryBoardComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardCommentReplies is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DislikeComment is not implemented"))
 }

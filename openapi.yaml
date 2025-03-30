@@ -225,6 +225,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CreateStoryBoardComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 创建故事板评论
+            operationId: TeamsAPI_CreateStoryBoardComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryBoardCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryBoardCommentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CreateStoryBoardSence:
         post:
             tags:
@@ -244,6 +269,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/CreateStoryBoardSenceResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CreateStoryComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 创建故事评论
+            operationId: TeamsAPI_CreateStoryComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryCommentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/CreateStoryCommentReply:
+        post:
+            tags:
+                - TeamsAPI
+            description: 创建故事评论回复
+            operationId: TeamsAPI_CreateStoryCommentReply
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateStoryCommentReplyRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateStoryCommentReplyResponse'
                 default:
                     description: Default error response
                     content:
@@ -425,6 +500,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/DeleteStoryBoardComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 删除故事板评论
+            operationId: TeamsAPI_DeleteStoryBoardComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteStoryBoardCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteStoryBoardCommentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/DeleteStoryBoardSence:
         post:
             tags:
@@ -444,6 +544,81 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/DeleteStoryBoardSenceResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/DeleteStoryComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 删除故事评论
+            operationId: TeamsAPI_DeleteStoryComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteStoryCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteStoryCommentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/DeleteStoryCommentReply:
+        post:
+            tags:
+                - TeamsAPI
+            description: 删除故事评论回复
+            operationId: TeamsAPI_DeleteStoryCommentReply
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteStoryCommentReplyRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteStoryCommentReplyResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/DislikeComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消点赞故事评论
+            operationId: TeamsAPI_DislikeComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DislikeCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DislikeCommentResponse'
                 default:
                     description: Default error response
                     content:
@@ -1067,6 +1242,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryBoardCommentReplies:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事板评论回复
+            operationId: TeamsAPI_GetStoryBoardCommentReplies
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryBoardCommentRepliesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryBoardCommentRepliesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryBoardComments:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事板评论
+            operationId: TeamsAPI_GetStoryBoardComments
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryBoardCommentsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryBoardCommentsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryBoardGenerate:
         post:
             tags:
@@ -1161,6 +1386,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryBoardSencesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryCommentReplies:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事评论回复
+            operationId: TeamsAPI_GetStoryCommentReplies
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryCommentRepliesRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryCommentRepliesResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryComments:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事评论
+            operationId: TeamsAPI_GetStoryComments
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryCommentsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryCommentsResponse'
                 default:
                     description: Default error response
                     content:
@@ -1658,6 +1933,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/LeaveGroupResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/LikeComment:
+        post:
+            tags:
+                - TeamsAPI
+            description: 点赞故事评论
+            operationId: TeamsAPI_LikeComment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LikeCommentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LikeCommentResponse'
                 default:
                     description: Default error response
                     content:
@@ -3478,6 +3778,23 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ProjectInfo'
+        CreateStoryBoardCommentRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                content:
+                    type: string
+        CreateStoryBoardCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         CreateStoryBoardSenceRequest:
             type: object
             properties:
@@ -3499,6 +3816,40 @@ components:
             type: object
             properties:
                 senceId:
+                    type: string
+        CreateStoryCommentReplyRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+                content:
+                    type: string
+        CreateStoryCommentReplyResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        CreateStoryCommentRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                content:
+                    type: string
+        CreateStoryCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
                     type: string
         CreateStoryRequest:
             type: object
@@ -3686,6 +4037,23 @@ components:
         DeleteProjectResponse_Data:
             type: object
             properties: {}
+        DeleteStoryBoardCommentRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                commentId:
+                    type: string
+                userId:
+                    type: string
+        DeleteStoryBoardCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         DeleteStoryBoardSenceRequest:
             type: object
             properties:
@@ -3699,6 +4067,51 @@ components:
                 code:
                     type: integer
                     format: int32
+                message:
+                    type: string
+        DeleteStoryCommentReplyRequest:
+            type: object
+            properties:
+                replyId:
+                    type: string
+                userId:
+                    type: string
+        DeleteStoryCommentReplyResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        DeleteStoryCommentRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+        DeleteStoryCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        DislikeCommentRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+        DislikeCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
                 message:
                     type: string
         ExploreProjectsRequest:
@@ -4463,6 +4876,64 @@ components:
                     type: object
                     additionalProperties:
                         type: string
+        GetStoryBoardCommentRepliesRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryBoardCommentRepliesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                replies:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryComment'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryBoardCommentsRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryBoardCommentsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                comments:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryComment'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetStoryBoardGenerateRequest:
             type: object
             properties:
@@ -4585,6 +5056,64 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardSence'
+        GetStoryCommentRepliesRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryCommentRepliesResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                replies:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryComment'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryCommentsRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryCommentsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                comments:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryComment'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetStoryContributorsRequest:
             type: object
             properties:
@@ -5277,6 +5806,21 @@ components:
         LeaveGroupResponse_Data:
             type: object
             properties: {}
+        LikeCommentRequest:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                userId:
+                    type: string
+        LikeCommentResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         LikeItemRequest:
             type: object
             properties:
@@ -6410,6 +6954,37 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardSence'
+        StoryComment:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                roleId:
+                    type: string
+                prevId:
+                    type: string
+                rootCommentId:
+                    type: string
+                userId:
+                    type: string
+                content:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+                likeCount:
+                    type: string
+                replyCount:
+                    type: string
+                isLike:
+                    type: string
+                creator:
+                    $ref: '#/components/schemas/UserInfo'
         StoryContributor:
             type: object
             properties:

@@ -205,6 +205,12 @@
     - [CreateProjectRequest](#common-CreateProjectRequest)
     - [CreateProjectResponse](#common-CreateProjectResponse)
     - [CreateProjectResponse.Data](#common-CreateProjectResponse-Data)
+    - [CreateStoryBoardCommentRequest](#common-CreateStoryBoardCommentRequest)
+    - [CreateStoryBoardCommentResponse](#common-CreateStoryBoardCommentResponse)
+    - [CreateStoryCommentReplyRequest](#common-CreateStoryCommentReplyRequest)
+    - [CreateStoryCommentReplyResponse](#common-CreateStoryCommentReplyResponse)
+    - [CreateStoryCommentRequest](#common-CreateStoryCommentRequest)
+    - [CreateStoryCommentResponse](#common-CreateStoryCommentResponse)
     - [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest)
     - [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse)
     - [CreateStoryRoleRequest](#common-CreateStoryRoleRequest)
@@ -218,6 +224,14 @@
     - [DeleteProjectRequest](#common-DeleteProjectRequest)
     - [DeleteProjectResponse](#common-DeleteProjectResponse)
     - [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data)
+    - [DeleteStoryBoardCommentRequest](#common-DeleteStoryBoardCommentRequest)
+    - [DeleteStoryBoardCommentResponse](#common-DeleteStoryBoardCommentResponse)
+    - [DeleteStoryCommentReplyRequest](#common-DeleteStoryCommentReplyRequest)
+    - [DeleteStoryCommentReplyResponse](#common-DeleteStoryCommentReplyResponse)
+    - [DeleteStoryCommentRequest](#common-DeleteStoryCommentRequest)
+    - [DeleteStoryCommentResponse](#common-DeleteStoryCommentResponse)
+    - [DislikeCommentRequest](#common-DislikeCommentRequest)
+    - [DislikeCommentResponse](#common-DislikeCommentResponse)
     - [DisscussParams](#common-DisscussParams)
     - [ExploreProjectsRequest](#common-ExploreProjectsRequest)
     - [ExploreProjectsResponse](#common-ExploreProjectsResponse)
@@ -283,6 +297,14 @@
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
     - [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry)
+    - [GetStoryBoardCommentRepliesRequest](#common-GetStoryBoardCommentRepliesRequest)
+    - [GetStoryBoardCommentRepliesResponse](#common-GetStoryBoardCommentRepliesResponse)
+    - [GetStoryBoardCommentsRequest](#common-GetStoryBoardCommentsRequest)
+    - [GetStoryBoardCommentsResponse](#common-GetStoryBoardCommentsResponse)
+    - [GetStoryCommentRepliesRequest](#common-GetStoryCommentRepliesRequest)
+    - [GetStoryCommentRepliesResponse](#common-GetStoryCommentRepliesResponse)
+    - [GetStoryCommentsRequest](#common-GetStoryCommentsRequest)
+    - [GetStoryCommentsResponse](#common-GetStoryCommentsResponse)
     - [GetStoryContributorsRequest](#common-GetStoryContributorsRequest)
     - [GetStoryContributorsResponse](#common-GetStoryContributorsResponse)
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
@@ -325,6 +347,8 @@
     - [LeaveGroupRequest](#common-LeaveGroupRequest)
     - [LeaveGroupResponse](#common-LeaveGroupResponse)
     - [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data)
+    - [LikeCommentRequest](#common-LikeCommentRequest)
+    - [LikeCommentResponse](#common-LikeCommentResponse)
     - [LikeItemRequest](#common-LikeItemRequest)
     - [LikeItemResponse](#common-LikeItemResponse)
     - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
@@ -368,6 +392,7 @@
     - [SearchUserRequest](#common-SearchUserRequest)
     - [SearchUserResponse](#common-SearchUserResponse)
     - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
+    - [StoryComment](#common-StoryComment)
     - [StoryContributor](#common-StoryContributor)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingRequest](#common-TrendingRequest)
@@ -4006,6 +4031,105 @@ AI生成失败 |
 
 
 
+<a name="common-CreateStoryBoardCommentRequest"></a>
+
+### CreateStoryBoardCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryBoardCommentResponse"></a>
+
+### CreateStoryBoardCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryCommentReplyRequest"></a>
+
+### CreateStoryCommentReplyRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryCommentReplyResponse"></a>
+
+### CreateStoryCommentReplyResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryCommentRequest"></a>
+
+### CreateStoryCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-CreateStoryCommentResponse"></a>
+
+### CreateStoryCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-CreateStoryRoleChatRequest"></a>
 
 ### CreateStoryRoleChatRequest
@@ -4197,6 +4321,135 @@ AI生成失败 |
 
 ### DeleteProjectResponse.Data
 
+
+
+
+
+
+
+<a name="common-DeleteStoryBoardCommentRequest"></a>
+
+### DeleteStoryBoardCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryBoardCommentResponse"></a>
+
+### DeleteStoryBoardCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryCommentReplyRequest"></a>
+
+### DeleteStoryCommentReplyRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| reply_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryCommentReplyResponse"></a>
+
+### DeleteStoryCommentReplyResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryCommentRequest"></a>
+
+### DeleteStoryCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DeleteStoryCommentResponse"></a>
+
+### DeleteStoryCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-DislikeCommentRequest"></a>
+
+### DislikeCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-DislikeCommentResponse"></a>
+
+### DislikeCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -5296,6 +5549,158 @@ AI生成失败 |
 
 
 
+<a name="common-GetStoryBoardCommentRepliesRequest"></a>
+
+### GetStoryBoardCommentRepliesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardCommentRepliesResponse"></a>
+
+### GetStoryBoardCommentRepliesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| replies | [StoryComment](#common-StoryComment) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardCommentsRequest"></a>
+
+### GetStoryBoardCommentsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryBoardCommentsResponse"></a>
+
+### GetStoryBoardCommentsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| comments | [StoryComment](#common-StoryComment) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryCommentRepliesRequest"></a>
+
+### GetStoryCommentRepliesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryCommentRepliesResponse"></a>
+
+### GetStoryCommentRepliesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| replies | [StoryComment](#common-StoryComment) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryCommentsRequest"></a>
+
+### GetStoryCommentsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryCommentsResponse"></a>
+
+### GetStoryCommentsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| comments | [StoryComment](#common-StoryComment) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-GetStoryContributorsRequest"></a>
 
 ### GetStoryContributorsRequest
@@ -6004,6 +6409,38 @@ AI生成失败 |
 
 ### LeaveGroupResponse.Data
 
+
+
+
+
+
+
+<a name="common-LikeCommentRequest"></a>
+
+### LikeCommentRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-LikeCommentResponse"></a>
+
+### LikeCommentResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -6752,6 +7189,34 @@ AI生成失败 |
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryComment"></a>
+
+### StoryComment
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| prev_id | [int64](#int64) |  |  |
+| root_comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+| created_at | [int64](#int64) |  |  |
+| updated_at | [int64](#int64) |  |  |
+| like_count | [int64](#int64) |  |  |
+| reply_count | [int64](#int64) |  |  |
+| is_like | [int64](#int64) |  |  |
+| creator | [UserInfo](#common-UserInfo) |  |  |
 
 
 
@@ -8054,6 +8519,18 @@ user ,group .project.item
 | UpdateRoleDescription | [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest) | [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse) |  |
 | GenerateRolePrompt | [GenerateRolePromptRequest](#common-GenerateRolePromptRequest) | [GenerateRolePromptResponse](#common-GenerateRolePromptResponse) |  |
 | UpdateRolePrompt | [UpdateRolePromptRequest](#common-UpdateRolePromptRequest) | [UpdateRolePromptResponse](#common-UpdateRolePromptResponse) |  |
+| CreateStoryComment | [CreateStoryCommentRequest](#common-CreateStoryCommentRequest) | [CreateStoryCommentResponse](#common-CreateStoryCommentResponse) | 创建故事评论 |
+| GetStoryComments | [GetStoryCommentsRequest](#common-GetStoryCommentsRequest) | [GetStoryCommentsResponse](#common-GetStoryCommentsResponse) | 获取故事评论 |
+| DeleteStoryComment | [DeleteStoryCommentRequest](#common-DeleteStoryCommentRequest) | [DeleteStoryCommentResponse](#common-DeleteStoryCommentResponse) | 删除故事评论 |
+| GetStoryCommentReplies | [GetStoryCommentRepliesRequest](#common-GetStoryCommentRepliesRequest) | [GetStoryCommentRepliesResponse](#common-GetStoryCommentRepliesResponse) | 获取故事评论回复 |
+| CreateStoryCommentReply | [CreateStoryCommentReplyRequest](#common-CreateStoryCommentReplyRequest) | [CreateStoryCommentReplyResponse](#common-CreateStoryCommentReplyResponse) | 创建故事评论回复 |
+| DeleteStoryCommentReply | [DeleteStoryCommentReplyRequest](#common-DeleteStoryCommentReplyRequest) | [DeleteStoryCommentReplyResponse](#common-DeleteStoryCommentReplyResponse) | 删除故事评论回复 |
+| GetStoryBoardComments | [GetStoryBoardCommentsRequest](#common-GetStoryBoardCommentsRequest) | [GetStoryBoardCommentsResponse](#common-GetStoryBoardCommentsResponse) | 获取故事板评论 |
+| CreateStoryBoardComment | [CreateStoryBoardCommentRequest](#common-CreateStoryBoardCommentRequest) | [CreateStoryBoardCommentResponse](#common-CreateStoryBoardCommentResponse) | 创建故事板评论 |
+| DeleteStoryBoardComment | [DeleteStoryBoardCommentRequest](#common-DeleteStoryBoardCommentRequest) | [DeleteStoryBoardCommentResponse](#common-DeleteStoryBoardCommentResponse) | 删除故事板评论 |
+| GetStoryBoardCommentReplies | [GetStoryBoardCommentRepliesRequest](#common-GetStoryBoardCommentRepliesRequest) | [GetStoryBoardCommentRepliesResponse](#common-GetStoryBoardCommentRepliesResponse) | 获取故事板评论回复 |
+| LikeComment | [LikeCommentRequest](#common-LikeCommentRequest) | [LikeCommentResponse](#common-LikeCommentResponse) | 点赞故事评论 |
+| DislikeComment | [DislikeCommentRequest](#common-DislikeCommentRequest) | [DislikeCommentResponse](#common-DislikeCommentResponse) | 取消点赞故事评论 |
 
  
 

@@ -146,6 +146,18 @@ const (
 	TeamsAPI_UpdateRoleDescription_FullMethodName              = "/common.TeamsAPI/UpdateRoleDescription"
 	TeamsAPI_GenerateRolePrompt_FullMethodName                 = "/common.TeamsAPI/GenerateRolePrompt"
 	TeamsAPI_UpdateRolePrompt_FullMethodName                   = "/common.TeamsAPI/UpdateRolePrompt"
+	TeamsAPI_CreateStoryComment_FullMethodName                 = "/common.TeamsAPI/CreateStoryComment"
+	TeamsAPI_GetStoryComments_FullMethodName                   = "/common.TeamsAPI/GetStoryComments"
+	TeamsAPI_DeleteStoryComment_FullMethodName                 = "/common.TeamsAPI/DeleteStoryComment"
+	TeamsAPI_GetStoryCommentReplies_FullMethodName             = "/common.TeamsAPI/GetStoryCommentReplies"
+	TeamsAPI_CreateStoryCommentReply_FullMethodName            = "/common.TeamsAPI/CreateStoryCommentReply"
+	TeamsAPI_DeleteStoryCommentReply_FullMethodName            = "/common.TeamsAPI/DeleteStoryCommentReply"
+	TeamsAPI_GetStoryBoardComments_FullMethodName              = "/common.TeamsAPI/GetStoryBoardComments"
+	TeamsAPI_CreateStoryBoardComment_FullMethodName            = "/common.TeamsAPI/CreateStoryBoardComment"
+	TeamsAPI_DeleteStoryBoardComment_FullMethodName            = "/common.TeamsAPI/DeleteStoryBoardComment"
+	TeamsAPI_GetStoryBoardCommentReplies_FullMethodName        = "/common.TeamsAPI/GetStoryBoardCommentReplies"
+	TeamsAPI_LikeComment_FullMethodName                        = "/common.TeamsAPI/LikeComment"
+	TeamsAPI_DislikeComment_FullMethodName                     = "/common.TeamsAPI/DislikeComment"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -399,6 +411,30 @@ type TeamsAPIClient interface {
 	UpdateRoleDescription(ctx context.Context, in *UpdateRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateRoleDescriptionResponse, error)
 	GenerateRolePrompt(ctx context.Context, in *GenerateRolePromptRequest, opts ...grpc.CallOption) (*GenerateRolePromptResponse, error)
 	UpdateRolePrompt(ctx context.Context, in *UpdateRolePromptRequest, opts ...grpc.CallOption) (*UpdateRolePromptResponse, error)
+	// 创建故事评论
+	CreateStoryComment(ctx context.Context, in *CreateStoryCommentRequest, opts ...grpc.CallOption) (*CreateStoryCommentResponse, error)
+	// 获取故事评论
+	GetStoryComments(ctx context.Context, in *GetStoryCommentsRequest, opts ...grpc.CallOption) (*GetStoryCommentsResponse, error)
+	// 删除故事评论
+	DeleteStoryComment(ctx context.Context, in *DeleteStoryCommentRequest, opts ...grpc.CallOption) (*DeleteStoryCommentResponse, error)
+	// 获取故事评论回复
+	GetStoryCommentReplies(ctx context.Context, in *GetStoryCommentRepliesRequest, opts ...grpc.CallOption) (*GetStoryCommentRepliesResponse, error)
+	// 创建故事评论回复
+	CreateStoryCommentReply(ctx context.Context, in *CreateStoryCommentReplyRequest, opts ...grpc.CallOption) (*CreateStoryCommentReplyResponse, error)
+	// 删除故事评论回复
+	DeleteStoryCommentReply(ctx context.Context, in *DeleteStoryCommentReplyRequest, opts ...grpc.CallOption) (*DeleteStoryCommentReplyResponse, error)
+	// 获取故事板评论
+	GetStoryBoardComments(ctx context.Context, in *GetStoryBoardCommentsRequest, opts ...grpc.CallOption) (*GetStoryBoardCommentsResponse, error)
+	// 创建故事板评论
+	CreateStoryBoardComment(ctx context.Context, in *CreateStoryBoardCommentRequest, opts ...grpc.CallOption) (*CreateStoryBoardCommentResponse, error)
+	// 删除故事板评论
+	DeleteStoryBoardComment(ctx context.Context, in *DeleteStoryBoardCommentRequest, opts ...grpc.CallOption) (*DeleteStoryBoardCommentResponse, error)
+	// 获取故事板评论回复
+	GetStoryBoardCommentReplies(ctx context.Context, in *GetStoryBoardCommentRepliesRequest, opts ...grpc.CallOption) (*GetStoryBoardCommentRepliesResponse, error)
+	// 点赞故事评论
+	LikeComment(ctx context.Context, in *LikeCommentRequest, opts ...grpc.CallOption) (*LikeCommentResponse, error)
+	// 取消点赞故事评论
+	DislikeComment(ctx context.Context, in *DislikeCommentRequest, opts ...grpc.CallOption) (*DislikeCommentResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1552,6 +1588,114 @@ func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, in *UpdateRolePro
 	return out, nil
 }
 
+func (c *teamsAPIClient) CreateStoryComment(ctx context.Context, in *CreateStoryCommentRequest, opts ...grpc.CallOption) (*CreateStoryCommentResponse, error) {
+	out := new(CreateStoryCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryComments(ctx context.Context, in *GetStoryCommentsRequest, opts ...grpc.CallOption) (*GetStoryCommentsResponse, error) {
+	out := new(GetStoryCommentsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryComments_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) DeleteStoryComment(ctx context.Context, in *DeleteStoryCommentRequest, opts ...grpc.CallOption) (*DeleteStoryCommentResponse, error) {
+	out := new(DeleteStoryCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_DeleteStoryComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryCommentReplies(ctx context.Context, in *GetStoryCommentRepliesRequest, opts ...grpc.CallOption) (*GetStoryCommentRepliesResponse, error) {
+	out := new(GetStoryCommentRepliesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryCommentReplies_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) CreateStoryCommentReply(ctx context.Context, in *CreateStoryCommentReplyRequest, opts ...grpc.CallOption) (*CreateStoryCommentReplyResponse, error) {
+	out := new(CreateStoryCommentReplyResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryCommentReply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) DeleteStoryCommentReply(ctx context.Context, in *DeleteStoryCommentReplyRequest, opts ...grpc.CallOption) (*DeleteStoryCommentReplyResponse, error) {
+	out := new(DeleteStoryCommentReplyResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_DeleteStoryCommentReply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryBoardComments(ctx context.Context, in *GetStoryBoardCommentsRequest, opts ...grpc.CallOption) (*GetStoryBoardCommentsResponse, error) {
+	out := new(GetStoryBoardCommentsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryBoardComments_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) CreateStoryBoardComment(ctx context.Context, in *CreateStoryBoardCommentRequest, opts ...grpc.CallOption) (*CreateStoryBoardCommentResponse, error) {
+	out := new(CreateStoryBoardCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_CreateStoryBoardComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) DeleteStoryBoardComment(ctx context.Context, in *DeleteStoryBoardCommentRequest, opts ...grpc.CallOption) (*DeleteStoryBoardCommentResponse, error) {
+	out := new(DeleteStoryBoardCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_DeleteStoryBoardComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryBoardCommentReplies(ctx context.Context, in *GetStoryBoardCommentRepliesRequest, opts ...grpc.CallOption) (*GetStoryBoardCommentRepliesResponse, error) {
+	out := new(GetStoryBoardCommentRepliesResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryBoardCommentReplies_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) LikeComment(ctx context.Context, in *LikeCommentRequest, opts ...grpc.CallOption) (*LikeCommentResponse, error) {
+	out := new(LikeCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_LikeComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) DislikeComment(ctx context.Context, in *DislikeCommentRequest, opts ...grpc.CallOption) (*DislikeCommentResponse, error) {
+	out := new(DislikeCommentResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_DislikeComment_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1803,6 +1947,30 @@ type TeamsAPIServer interface {
 	UpdateRoleDescription(context.Context, *UpdateRoleDescriptionRequest) (*UpdateRoleDescriptionResponse, error)
 	GenerateRolePrompt(context.Context, *GenerateRolePromptRequest) (*GenerateRolePromptResponse, error)
 	UpdateRolePrompt(context.Context, *UpdateRolePromptRequest) (*UpdateRolePromptResponse, error)
+	// 创建故事评论
+	CreateStoryComment(context.Context, *CreateStoryCommentRequest) (*CreateStoryCommentResponse, error)
+	// 获取故事评论
+	GetStoryComments(context.Context, *GetStoryCommentsRequest) (*GetStoryCommentsResponse, error)
+	// 删除故事评论
+	DeleteStoryComment(context.Context, *DeleteStoryCommentRequest) (*DeleteStoryCommentResponse, error)
+	// 获取故事评论回复
+	GetStoryCommentReplies(context.Context, *GetStoryCommentRepliesRequest) (*GetStoryCommentRepliesResponse, error)
+	// 创建故事评论回复
+	CreateStoryCommentReply(context.Context, *CreateStoryCommentReplyRequest) (*CreateStoryCommentReplyResponse, error)
+	// 删除故事评论回复
+	DeleteStoryCommentReply(context.Context, *DeleteStoryCommentReplyRequest) (*DeleteStoryCommentReplyResponse, error)
+	// 获取故事板评论
+	GetStoryBoardComments(context.Context, *GetStoryBoardCommentsRequest) (*GetStoryBoardCommentsResponse, error)
+	// 创建故事板评论
+	CreateStoryBoardComment(context.Context, *CreateStoryBoardCommentRequest) (*CreateStoryBoardCommentResponse, error)
+	// 删除故事板评论
+	DeleteStoryBoardComment(context.Context, *DeleteStoryBoardCommentRequest) (*DeleteStoryBoardCommentResponse, error)
+	// 获取故事板评论回复
+	GetStoryBoardCommentReplies(context.Context, *GetStoryBoardCommentRepliesRequest) (*GetStoryBoardCommentRepliesResponse, error)
+	// 点赞故事评论
+	LikeComment(context.Context, *LikeCommentRequest) (*LikeCommentResponse, error)
+	// 取消点赞故事评论
+	DislikeComment(context.Context, *DislikeCommentRequest) (*DislikeCommentResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2190,6 +2358,42 @@ func (UnimplementedTeamsAPIServer) GenerateRolePrompt(context.Context, *Generate
 }
 func (UnimplementedTeamsAPIServer) UpdateRolePrompt(context.Context, *UpdateRolePromptRequest) (*UpdateRolePromptResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRolePrompt not implemented")
+}
+func (UnimplementedTeamsAPIServer) CreateStoryComment(context.Context, *CreateStoryCommentRequest) (*CreateStoryCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryComments(context.Context, *GetStoryCommentsRequest) (*GetStoryCommentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryComments not implemented")
+}
+func (UnimplementedTeamsAPIServer) DeleteStoryComment(context.Context, *DeleteStoryCommentRequest) (*DeleteStoryCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStoryComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryCommentReplies(context.Context, *GetStoryCommentRepliesRequest) (*GetStoryCommentRepliesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryCommentReplies not implemented")
+}
+func (UnimplementedTeamsAPIServer) CreateStoryCommentReply(context.Context, *CreateStoryCommentReplyRequest) (*CreateStoryCommentReplyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryCommentReply not implemented")
+}
+func (UnimplementedTeamsAPIServer) DeleteStoryCommentReply(context.Context, *DeleteStoryCommentReplyRequest) (*DeleteStoryCommentReplyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStoryCommentReply not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryBoardComments(context.Context, *GetStoryBoardCommentsRequest) (*GetStoryBoardCommentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardComments not implemented")
+}
+func (UnimplementedTeamsAPIServer) CreateStoryBoardComment(context.Context, *CreateStoryBoardCommentRequest) (*CreateStoryBoardCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryBoardComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) DeleteStoryBoardComment(context.Context, *DeleteStoryBoardCommentRequest) (*DeleteStoryBoardCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteStoryBoardComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryBoardCommentReplies(context.Context, *GetStoryBoardCommentRepliesRequest) (*GetStoryBoardCommentRepliesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryBoardCommentReplies not implemented")
+}
+func (UnimplementedTeamsAPIServer) LikeComment(context.Context, *LikeCommentRequest) (*LikeCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) DislikeComment(context.Context, *DislikeCommentRequest) (*DislikeCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DislikeComment not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4490,6 +4694,222 @@ func _TeamsAPI_UpdateRolePrompt_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_CreateStoryComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStoryCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).CreateStoryComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_CreateStoryComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).CreateStoryComment(ctx, req.(*CreateStoryCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryComments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryCommentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryComments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryComments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryComments(ctx, req.(*GetStoryCommentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_DeleteStoryComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStoryCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).DeleteStoryComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_DeleteStoryComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).DeleteStoryComment(ctx, req.(*DeleteStoryCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryCommentReplies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryCommentRepliesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryCommentReplies(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryCommentReplies_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryCommentReplies(ctx, req.(*GetStoryCommentRepliesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_CreateStoryCommentReply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStoryCommentReplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).CreateStoryCommentReply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_CreateStoryCommentReply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).CreateStoryCommentReply(ctx, req.(*CreateStoryCommentReplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_DeleteStoryCommentReply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStoryCommentReplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).DeleteStoryCommentReply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_DeleteStoryCommentReply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).DeleteStoryCommentReply(ctx, req.(*DeleteStoryCommentReplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryBoardComments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryBoardCommentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryBoardComments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryBoardComments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryBoardComments(ctx, req.(*GetStoryBoardCommentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_CreateStoryBoardComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStoryBoardCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).CreateStoryBoardComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_CreateStoryBoardComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).CreateStoryBoardComment(ctx, req.(*CreateStoryBoardCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_DeleteStoryBoardComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteStoryBoardCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).DeleteStoryBoardComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_DeleteStoryBoardComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).DeleteStoryBoardComment(ctx, req.(*DeleteStoryBoardCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetStoryBoardCommentReplies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryBoardCommentRepliesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryBoardCommentReplies(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryBoardCommentReplies_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryBoardCommentReplies(ctx, req.(*GetStoryBoardCommentRepliesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_LikeComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LikeCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).LikeComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_LikeComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).LikeComment(ctx, req.(*LikeCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_DislikeComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DislikeCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).DislikeComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_DislikeComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).DislikeComment(ctx, req.(*DislikeCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5004,6 +5424,54 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateRolePrompt",
 			Handler:    _TeamsAPI_UpdateRolePrompt_Handler,
+		},
+		{
+			MethodName: "CreateStoryComment",
+			Handler:    _TeamsAPI_CreateStoryComment_Handler,
+		},
+		{
+			MethodName: "GetStoryComments",
+			Handler:    _TeamsAPI_GetStoryComments_Handler,
+		},
+		{
+			MethodName: "DeleteStoryComment",
+			Handler:    _TeamsAPI_DeleteStoryComment_Handler,
+		},
+		{
+			MethodName: "GetStoryCommentReplies",
+			Handler:    _TeamsAPI_GetStoryCommentReplies_Handler,
+		},
+		{
+			MethodName: "CreateStoryCommentReply",
+			Handler:    _TeamsAPI_CreateStoryCommentReply_Handler,
+		},
+		{
+			MethodName: "DeleteStoryCommentReply",
+			Handler:    _TeamsAPI_DeleteStoryCommentReply_Handler,
+		},
+		{
+			MethodName: "GetStoryBoardComments",
+			Handler:    _TeamsAPI_GetStoryBoardComments_Handler,
+		},
+		{
+			MethodName: "CreateStoryBoardComment",
+			Handler:    _TeamsAPI_CreateStoryBoardComment_Handler,
+		},
+		{
+			MethodName: "DeleteStoryBoardComment",
+			Handler:    _TeamsAPI_DeleteStoryBoardComment_Handler,
+		},
+		{
+			MethodName: "GetStoryBoardCommentReplies",
+			Handler:    _TeamsAPI_GetStoryBoardCommentReplies_Handler,
+		},
+		{
+			MethodName: "LikeComment",
+			Handler:    _TeamsAPI_LikeComment_Handler,
+		},
+		{
+			MethodName: "DislikeComment",
+			Handler:    _TeamsAPI_DislikeComment_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -1954,7 +1954,270 @@ service TeamsAPI {
       body : "*"
     };
   }
+  // 创建故事评论
+  rpc CreateStoryComment(CreateStoryCommentRequest) returns (CreateStoryCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryComment"
+      body : "*"
+    };
+  }
+
+  // 获取故事评论
+  rpc GetStoryComments(GetStoryCommentsRequest) returns (GetStoryCommentsResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryComments"
+      body : "*"
+    };
+  }
+
+  // 删除故事评论
+  rpc DeleteStoryComment(DeleteStoryCommentRequest) returns (DeleteStoryCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DeleteStoryComment"
+      body : "*"
+    };
+  }
+
+  // 获取故事评论回复
+  rpc GetStoryCommentReplies(GetStoryCommentRepliesRequest) returns (GetStoryCommentRepliesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryCommentReplies"
+      body : "*"
+    };
+  }
+
+  // 创建故事评论回复
+  rpc CreateStoryCommentReply(CreateStoryCommentReplyRequest) returns (CreateStoryCommentReplyResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryCommentReply"
+      body : "*"
+    };
+  }
+
+  // 删除故事评论回复
+  rpc DeleteStoryCommentReply(DeleteStoryCommentReplyRequest) returns (DeleteStoryCommentReplyResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DeleteStoryCommentReply"
+      body : "*"
+    };
+  }
+
+  // 获取故事板评论
+  rpc GetStoryBoardComments(GetStoryBoardCommentsRequest) returns (GetStoryBoardCommentsResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardComments"
+      body : "*"
+    };
+  }
+
+  // 创建故事板评论
+  rpc CreateStoryBoardComment(CreateStoryBoardCommentRequest) returns (CreateStoryBoardCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/CreateStoryBoardComment"
+      body : "*"
+    };
+  }
+
+  // 删除故事板评论
+  rpc DeleteStoryBoardComment(DeleteStoryBoardCommentRequest) returns (DeleteStoryBoardCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DeleteStoryBoardComment"
+      body : "*"
+    };
+  }
+
+  // 获取故事板评论回复
+  rpc GetStoryBoardCommentReplies(GetStoryBoardCommentRepliesRequest) returns (GetStoryBoardCommentRepliesResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryBoardCommentReplies"
+      body : "*"
+    };
+  }
+
+  // 点赞故事评论
+  rpc LikeComment(LikeCommentRequest) returns (LikeCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/LikeComment"
+      body : "*"
+    };
+  }
+
+  // 取消点赞故事评论
+  rpc DislikeComment(DislikeCommentRequest) returns (DislikeCommentResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DislikeComment"
+      body : "*"
+    };
+  }
 }
+
+message CreateStoryCommentRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+  string content = 3;
+}
+
+message CreateStoryCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message GetStoryCommentsRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
+}
+
+message StoryComment {
+  int64 comment_id = 1;
+  int64 story_id = 2;
+  int64 board_id = 3;
+  int64 role_id = 4;
+  int64 prev_id = 5;
+  int64 root_comment_id = 6;
+  int64 user_id = 7;
+
+  string content = 8;
+  int64 created_at = 9;
+  int64 updated_at = 10;
+  int64 like_count = 11;
+  int64 reply_count = 12;
+  int64 is_like = 13;
+  UserInfo creator = 14;
+}
+
+message GetStoryCommentsResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryComment comments = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message DeleteStoryCommentRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+}
+
+message DeleteStoryCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message GetStoryCommentRepliesRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
+}
+
+message GetStoryCommentRepliesResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryComment replies = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message CreateStoryCommentReplyRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+  string content = 3;
+}
+
+
+message CreateStoryCommentReplyResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message DeleteStoryCommentReplyRequest {
+  int64 reply_id = 1;
+  int64 user_id = 2;
+}
+
+message DeleteStoryCommentReplyResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message GetStoryBoardCommentsRequest {
+  int64 board_id = 1;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
+}
+
+message GetStoryBoardCommentsResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryComment comments = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message CreateStoryBoardCommentRequest {
+  int64 board_id = 1;
+  int64 user_id = 2;
+  string content = 3;
+}
+
+message CreateStoryBoardCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message DeleteStoryBoardCommentRequest {
+  int64 board_id = 1;
+  int64 comment_id = 2;
+  int64 user_id = 3;
+}
+
+message DeleteStoryBoardCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message GetStoryBoardCommentRepliesRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
+}
+
+message GetStoryBoardCommentRepliesResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryComment replies = 3;
+  int64 total = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message LikeCommentRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+}
+
+message LikeCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message DislikeCommentRequest {
+  int64 comment_id = 1;
+  int64 user_id = 2;
+}
+
+message DislikeCommentResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
 
 message UpdateRolePromptRequest{
   int64 user_id = 1;
