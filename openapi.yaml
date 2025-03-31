@@ -100,31 +100,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/CreateComment:
-        post:
-            tags:
-                - TeamsAPI
-            description: 创建评论
-            operationId: TeamsAPI_CreateComment
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateCommentReq'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateCommentResp'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CreateGroup:
         post:
             tags:
@@ -1036,31 +1011,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetItemResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetItemComment:
-        post:
-            tags:
-                - TeamsAPI
-            description: 获取内容评论
-            operationId: TeamsAPI_GetItemComment
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetItemsCommentReq'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetItemsCommentResp'
                 default:
                     description: Default error response
                     content:
@@ -3603,31 +3553,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ChatMessage'
-        CommentInfo:
-            type: object
-            properties:
-                commentId:
-                    type: string
-                prevCommentId:
-                    type: string
-                userId:
-                    type: string
-                userName:
-                    type: string
-                avatarUrl:
-                    type: string
-                storyId:
-                    type: string
-                boardId:
-                    type: string
-                groupId:
-                    type: string
-                content:
-                    type: string
-                ctime:
-                    type: string
-                mtime:
-                    type: string
         ContinueRenderStoryRequest:
             type: object
             properties:
@@ -3662,45 +3587,6 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryDetail'
-        CreateCommentReq:
-            type: object
-            properties:
-                groupId:
-                    type: integer
-                    format: int32
-                itemId:
-                    type: integer
-                    format: int32
-                content:
-                    type: string
-                userId:
-                    type: string
-        CreateCommentResp:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/CreateCommentResp_Data'
-        CreateCommentResp_Data:
-            type: object
-            properties:
-                groupId:
-                    type: integer
-                    format: int32
-                itemId:
-                    type: integer
-                    format: int32
-                commentId:
-                    type: integer
-                    format: int32
-                userId:
-                    type: string
-                timestamp:
-                    type: string
         CreateGroupRequest:
             type: object
             properties:
@@ -4590,63 +4476,6 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/ItemInfo'
-        GetItemsCommentReq:
-            type: object
-            properties:
-                groupId:
-                    type: integer
-                    format: int32
-                itemId:
-                    type: integer
-                    format: int32
-                offset:
-                    type: integer
-                    format: int32
-                pageSize:
-                    type: integer
-                    format: int32
-                timestamp:
-                    type: string
-                userId:
-                    type: string
-                filter:
-                    type: array
-                    items:
-                        type: string
-                order:
-                    type: integer
-                    format: int32
-        GetItemsCommentResp:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetItemsCommentResp_Data'
-        GetItemsCommentResp_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/CommentInfo'
-                groupId:
-                    type: integer
-                    format: int32
-                itemId:
-                    type: integer
-                    format: int32
-                offset:
-                    type: integer
-                    format: int32
-                pageSize:
-                    type: integer
-                    format: int32
-                timestamp:
-                    type: string
         GetNextStoryboardRequest:
             type: object
             properties:

@@ -147,10 +147,6 @@ const (
 	TeamsAPIDeleteItemProcedure = "/common.TeamsAPI/DeleteItem"
 	// TeamsAPILikeItemProcedure is the fully-qualified name of the TeamsAPI's LikeItem RPC.
 	TeamsAPILikeItemProcedure = "/common.TeamsAPI/LikeItem"
-	// TeamsAPICreateCommentProcedure is the fully-qualified name of the TeamsAPI's CreateComment RPC.
-	TeamsAPICreateCommentProcedure = "/common.TeamsAPI/CreateComment"
-	// TeamsAPIGetItemCommentProcedure is the fully-qualified name of the TeamsAPI's GetItemComment RPC.
-	TeamsAPIGetItemCommentProcedure = "/common.TeamsAPI/GetItemComment"
 	// TeamsAPICreateStoryProcedure is the fully-qualified name of the TeamsAPI's CreateStory RPC.
 	TeamsAPICreateStoryProcedure = "/common.TeamsAPI/CreateStory"
 	// TeamsAPIGetStoryInfoProcedure is the fully-qualified name of the TeamsAPI's GetStoryInfo RPC.
@@ -494,10 +490,6 @@ type TeamsAPIClient interface {
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
 	// 喜欢内容
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
-	// 创建评论
-	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
-	// 获取内容评论
-	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
 	// 创建故事
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	// 获取故事信息
@@ -925,16 +917,6 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		likeItem: connect.NewClient[gen.LikeItemRequest, gen.LikeItemResponse](
 			httpClient,
 			baseURL+TeamsAPILikeItemProcedure,
-			opts...,
-		),
-		createComment: connect.NewClient[gen.CreateCommentReq, gen.CreateCommentResp](
-			httpClient,
-			baseURL+TeamsAPICreateCommentProcedure,
-			opts...,
-		),
-		getItemComment: connect.NewClient[gen.GetItemsCommentReq, gen.GetItemsCommentResp](
-			httpClient,
-			baseURL+TeamsAPIGetItemCommentProcedure,
 			opts...,
 		),
 		createStory: connect.NewClient[gen.CreateStoryRequest, gen.CreateStoryResponse](
@@ -1427,8 +1409,6 @@ type teamsAPIClient struct {
 	updateItem                         *connect.Client[gen.UpdateItemRequest, gen.UpdateItemResponse]
 	deleteItem                         *connect.Client[gen.DeleteItemRequest, gen.DeleteItemResponse]
 	likeItem                           *connect.Client[gen.LikeItemRequest, gen.LikeItemResponse]
-	createComment                      *connect.Client[gen.CreateCommentReq, gen.CreateCommentResp]
-	getItemComment                     *connect.Client[gen.GetItemsCommentReq, gen.GetItemsCommentResp]
 	createStory                        *connect.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
 	getStoryInfo                       *connect.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
 	renderStory                        *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
@@ -1766,16 +1746,6 @@ func (c *teamsAPIClient) DeleteItem(ctx context.Context, req *connect.Request[ge
 // LikeItem calls common.TeamsAPI.LikeItem.
 func (c *teamsAPIClient) LikeItem(ctx context.Context, req *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error) {
 	return c.likeItem.CallUnary(ctx, req)
-}
-
-// CreateComment calls common.TeamsAPI.CreateComment.
-func (c *teamsAPIClient) CreateComment(ctx context.Context, req *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error) {
-	return c.createComment.CallUnary(ctx, req)
-}
-
-// GetItemComment calls common.TeamsAPI.GetItemComment.
-func (c *teamsAPIClient) GetItemComment(ctx context.Context, req *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error) {
-	return c.getItemComment.CallUnary(ctx, req)
 }
 
 // CreateStory calls common.TeamsAPI.CreateStory.
@@ -2315,10 +2285,6 @@ type TeamsAPIHandler interface {
 	DeleteItem(context.Context, *connect.Request[gen.DeleteItemRequest]) (*connect.Response[gen.DeleteItemResponse], error)
 	// 喜欢内容
 	LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error)
-	// 创建评论
-	CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error)
-	// 获取内容评论
-	GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error)
 	// 创建故事
 	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	// 获取故事信息
@@ -2742,16 +2708,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPILikeItemHandler := connect.NewUnaryHandler(
 		TeamsAPILikeItemProcedure,
 		svc.LikeItem,
-		opts...,
-	)
-	teamsAPICreateCommentHandler := connect.NewUnaryHandler(
-		TeamsAPICreateCommentProcedure,
-		svc.CreateComment,
-		opts...,
-	)
-	teamsAPIGetItemCommentHandler := connect.NewUnaryHandler(
-		TeamsAPIGetItemCommentProcedure,
-		svc.GetItemComment,
 		opts...,
 	)
 	teamsAPICreateStoryHandler := connect.NewUnaryHandler(
@@ -3291,10 +3247,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIDeleteItemHandler.ServeHTTP(w, r)
 		case TeamsAPILikeItemProcedure:
 			teamsAPILikeItemHandler.ServeHTTP(w, r)
-		case TeamsAPICreateCommentProcedure:
-			teamsAPICreateCommentHandler.ServeHTTP(w, r)
-		case TeamsAPIGetItemCommentProcedure:
-			teamsAPIGetItemCommentHandler.ServeHTTP(w, r)
 		case TeamsAPICreateStoryProcedure:
 			teamsAPICreateStoryHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryInfoProcedure:
@@ -3676,14 +3628,6 @@ func (UnimplementedTeamsAPIHandler) DeleteItem(context.Context, *connect.Request
 
 func (UnimplementedTeamsAPIHandler) LikeItem(context.Context, *connect.Request[gen.LikeItemRequest]) (*connect.Response[gen.LikeItemResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.LikeItem is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) CreateComment(context.Context, *connect.Request[gen.CreateCommentReq]) (*connect.Response[gen.CreateCommentResp], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.CreateComment is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) GetItemComment(context.Context, *connect.Request[gen.GetItemsCommentReq]) (*connect.Response[gen.GetItemsCommentResp], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetItemComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error) {

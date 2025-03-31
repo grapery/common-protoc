@@ -69,8 +69,6 @@ const (
 	TeamsAPI_UpdateItem_FullMethodName                         = "/common.TeamsAPI/UpdateItem"
 	TeamsAPI_DeleteItem_FullMethodName                         = "/common.TeamsAPI/DeleteItem"
 	TeamsAPI_LikeItem_FullMethodName                           = "/common.TeamsAPI/LikeItem"
-	TeamsAPI_CreateComment_FullMethodName                      = "/common.TeamsAPI/CreateComment"
-	TeamsAPI_GetItemComment_FullMethodName                     = "/common.TeamsAPI/GetItemComment"
 	TeamsAPI_CreateStory_FullMethodName                        = "/common.TeamsAPI/CreateStory"
 	TeamsAPI_GetStoryInfo_FullMethodName                       = "/common.TeamsAPI/GetStoryInfo"
 	TeamsAPI_RenderStory_FullMethodName                        = "/common.TeamsAPI/RenderStory"
@@ -264,10 +262,6 @@ type TeamsAPIClient interface {
 	DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error)
 	// 喜欢内容
 	LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error)
-	// 创建评论
-	CreateComment(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*CreateCommentResp, error)
-	// 获取内容评论
-	GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error)
 	// 创建故事
 	CreateStory(ctx context.Context, in *CreateStoryRequest, opts ...grpc.CallOption) (*CreateStoryResponse, error)
 	// 获取故事信息
@@ -889,24 +883,6 @@ func (c *teamsAPIClient) DeleteItem(ctx context.Context, in *DeleteItemRequest, 
 func (c *teamsAPIClient) LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error) {
 	out := new(LikeItemResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_LikeItem_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) CreateComment(ctx context.Context, in *CreateCommentReq, opts ...grpc.CallOption) (*CreateCommentResp, error) {
-	out := new(CreateCommentResp)
-	err := c.cc.Invoke(ctx, TeamsAPI_CreateComment_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetItemComment(ctx context.Context, in *GetItemsCommentReq, opts ...grpc.CallOption) (*GetItemsCommentResp, error) {
-	out := new(GetItemsCommentResp)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetItemComment_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1800,10 +1776,6 @@ type TeamsAPIServer interface {
 	DeleteItem(context.Context, *DeleteItemRequest) (*DeleteItemResponse, error)
 	// 喜欢内容
 	LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error)
-	// 创建评论
-	CreateComment(context.Context, *CreateCommentReq) (*CreateCommentResp, error)
-	// 获取内容评论
-	GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error)
 	// 创建故事
 	CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error)
 	// 获取故事信息
@@ -2127,12 +2099,6 @@ func (UnimplementedTeamsAPIServer) DeleteItem(context.Context, *DeleteItemReques
 }
 func (UnimplementedTeamsAPIServer) LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LikeItem not implemented")
-}
-func (UnimplementedTeamsAPIServer) CreateComment(context.Context, *CreateCommentReq) (*CreateCommentResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateComment not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetItemComment(context.Context, *GetItemsCommentReq) (*GetItemsCommentResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetItemComment not implemented")
 }
 func (UnimplementedTeamsAPIServer) CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStory not implemented")
@@ -3304,42 +3270,6 @@ func _TeamsAPI_LikeItem_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).LikeItem(ctx, req.(*LikeItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_CreateComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCommentReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).CreateComment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_CreateComment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).CreateComment(ctx, req.(*CreateCommentReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetItemComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetItemsCommentReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetItemComment(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetItemComment_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetItemComment(ctx, req.(*GetItemsCommentReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5116,14 +5046,6 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LikeItem",
 			Handler:    _TeamsAPI_LikeItem_Handler,
-		},
-		{
-			MethodName: "CreateComment",
-			Handler:    _TeamsAPI_CreateComment_Handler,
-		},
-		{
-			MethodName: "GetItemComment",
-			Handler:    _TeamsAPI_GetItemComment_Handler,
 		},
 		{
 			MethodName: "CreateStory",

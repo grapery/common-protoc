@@ -758,63 +758,6 @@ message GetDisscusResp {
   } Data data = 3;
 }
 
-message Content {
-  int32 Ctype = 1;
-  int32 Length = 2;
-  string Version = 3;
-  string data = 4;
-}
-
-message CreateCommentReq {
-  int32 group_id = 1;
-  int32 item_id = 2;
-  string content = 3;
-  int64 user_id = 4;
-}
-message CreateCommentResp {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    int32 group_id = 1;
-    int32 item_id = 2;
-    int32 comment_id = 3;
-    int64 user_id = 4;
-    int64 timestamp = 5;
-  } Data data = 3;
-}
-
-message GetItemsCommentReq {
-  int32 group_id = 1;
-  int32 item_id = 2;
-  int32 offset = 3;
-  int32 page_size = 4;
-  int64 timestamp = 5;
-  int64 user_id = 6;
-  repeated string filter = 7;
-  int32 order = 8;
-}
-message GetItemsCommentResp {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    repeated CommentInfo list = 1;
-    int32 group_id = 2;
-    int32 item_id = 3;
-    int32 offset = 4;
-    int32 page_size = 5;
-    int64 timestamp = 6;
-  } Data data = 3;
-}
-
-
-message GetUserCommentReq {}
-message GetUserCommentResp {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-  } Data data = 3;
-}
-
 message VersionRequest {}
 
 message VersionResponse { 
@@ -1331,23 +1274,6 @@ service TeamsAPI {
       body : "*"
     };
   }
-
-  // 创建评论
-  rpc CreateComment(CreateCommentReq) returns (CreateCommentResp) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/CreateComment"
-      body : "*"
-    };
-  }
-
-  // 获取内容评论
-  rpc GetItemComment(GetItemsCommentReq) returns (GetItemsCommentResp) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetItemComment"
-      body : "*"
-    };
-  }
-
 
   // 创建故事
   rpc CreateStory(CreateStoryRequest) returns (CreateStoryResponse) {

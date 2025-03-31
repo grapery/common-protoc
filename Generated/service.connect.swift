@@ -409,22 +409,6 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `likeItem`(request: Common_LikeItemRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeItemResponse>
 
-    /// 创建评论
-    @discardableResult
-    func `createComment`(request: Common_CreateCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateCommentResp>) -> Void) -> Connect.Cancelable
-
-    /// 创建评论
-    @available(iOS 13, *)
-    func `createComment`(request: Common_CreateCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_CreateCommentResp>
-
-    /// 获取内容评论
-    @discardableResult
-    func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetItemsCommentResp>) -> Void) -> Connect.Cancelable
-
-    /// 获取内容评论
-    @available(iOS 13, *)
-    func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers) async -> ResponseMessage<Common_GetItemsCommentResp>
-
     /// 创建故事
     @discardableResult
     func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable
@@ -1617,26 +1601,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `createComment`(request: Common_CreateCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateCommentResp>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
-    }
-
-    @available(iOS 13, *)
-    public func `createComment`(request: Common_CreateCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateCommentResp> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateComment", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @discardableResult
-    public func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetItemsCommentResp>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetItemComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
-    }
-
-    @available(iOS 13, *)
-    public func `getItemComment`(request: Common_GetItemsCommentReq, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetItemsCommentResp> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetItemComment", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @discardableResult
     public func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -2558,8 +2522,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateItem = Connect.MethodSpec(name: "UpdateItem", service: "common.TeamsAPI", type: .unary)
             public static let deleteItem = Connect.MethodSpec(name: "DeleteItem", service: "common.TeamsAPI", type: .unary)
             public static let likeItem = Connect.MethodSpec(name: "LikeItem", service: "common.TeamsAPI", type: .unary)
-            public static let createComment = Connect.MethodSpec(name: "CreateComment", service: "common.TeamsAPI", type: .unary)
-            public static let getItemComment = Connect.MethodSpec(name: "GetItemComment", service: "common.TeamsAPI", type: .unary)
             public static let createStory = Connect.MethodSpec(name: "CreateStory", service: "common.TeamsAPI", type: .unary)
             public static let getStoryInfo = Connect.MethodSpec(name: "GetStoryInfo", service: "common.TeamsAPI", type: .unary)
             public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "common.TeamsAPI", type: .unary)

@@ -189,10 +189,6 @@
     - [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse)
     - [ConfirmRequest](#common-ConfirmRequest)
     - [ConfirmResponse](#common-ConfirmResponse)
-    - [Content](#common-Content)
-    - [CreateCommentReq](#common-CreateCommentReq)
-    - [CreateCommentResp](#common-CreateCommentResp)
-    - [CreateCommentResp.Data](#common-CreateCommentResp-Data)
     - [CreateDisscusResp](#common-CreateDisscusResp)
     - [CreateDisscusResp.Data](#common-CreateDisscusResp-Data)
     - [CreateDisscussReq](#common-CreateDisscussReq)
@@ -272,9 +268,6 @@
     - [GetItemRequest](#common-GetItemRequest)
     - [GetItemResponse](#common-GetItemResponse)
     - [GetItemResponse.Data](#common-GetItemResponse-Data)
-    - [GetItemsCommentReq](#common-GetItemsCommentReq)
-    - [GetItemsCommentResp](#common-GetItemsCommentResp)
-    - [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data)
     - [GetNextStoryboardRequest](#common-GetNextStoryboardRequest)
     - [GetNextStoryboardResponse](#common-GetNextStoryboardResponse)
     - [GetProjectItemsRequest](#common-GetProjectItemsRequest)
@@ -320,9 +313,6 @@
     - [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse)
     - [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest)
     - [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse)
-    - [GetUserCommentReq](#common-GetUserCommentReq)
-    - [GetUserCommentResp](#common-GetUserCommentResp)
-    - [GetUserCommentResp.Data](#common-GetUserCommentResp-Data)
     - [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest)
     - [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse)
     - [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest)
@@ -3773,78 +3763,6 @@ AI生成失败 |
 
 
 
-<a name="common-Content"></a>
-
-### Content
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| Ctype | [int32](#int32) |  |  |
-| Length | [int32](#int32) |  |  |
-| Version | [string](#string) |  |  |
-| data | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-CreateCommentReq"></a>
-
-### CreateCommentReq
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| item_id | [int32](#int32) |  |  |
-| content | [string](#string) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-CreateCommentResp"></a>
-
-### CreateCommentResp
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [CreateCommentResp.Data](#common-CreateCommentResp-Data) |  |  |
-
-
-
-
-
-
-<a name="common-CreateCommentResp-Data"></a>
-
-### CreateCommentResp.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| item_id | [int32](#int32) |  |  |
-| comment_id | [int32](#int32) |  |  |
-| user_id | [int64](#int64) |  |  |
-| timestamp | [int64](#int64) |  |  |
-
-
-
-
-
-
 <a name="common-CreateDisscusResp"></a>
 
 ### CreateDisscusResp
@@ -5107,65 +5025,6 @@ AI生成失败 |
 
 
 
-<a name="common-GetItemsCommentReq"></a>
-
-### GetItemsCommentReq
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| item_id | [int32](#int32) |  |  |
-| offset | [int32](#int32) |  |  |
-| page_size | [int32](#int32) |  |  |
-| timestamp | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| filter | [string](#string) | repeated |  |
-| order | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-GetItemsCommentResp"></a>
-
-### GetItemsCommentResp
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [GetItemsCommentResp.Data](#common-GetItemsCommentResp-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetItemsCommentResp-Data"></a>
-
-### GetItemsCommentResp.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| list | [CommentInfo](#common-CommentInfo) | repeated |  |
-| group_id | [int32](#int32) |  |  |
-| item_id | [int32](#int32) |  |  |
-| offset | [int32](#int32) |  |  |
-| page_size | [int32](#int32) |  |  |
-| timestamp | [int64](#int64) |  |  |
-
-
-
-
-
-
 <a name="common-GetNextStoryboardRequest"></a>
 
 ### GetNextStoryboardRequest
@@ -5961,43 +5820,6 @@ AI生成失败 |
 | message | [string](#string) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | chat_context | [ChatContext](#common-ChatContext) |  |  |
-
-
-
-
-
-
-<a name="common-GetUserCommentReq"></a>
-
-### GetUserCommentReq
-
-
-
-
-
-
-
-<a name="common-GetUserCommentResp"></a>
-
-### GetUserCommentResp
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [GetUserCommentResp.Data](#common-GetUserCommentResp-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetUserCommentResp-Data"></a>
-
-### GetUserCommentResp.Data
-
 
 
 
@@ -8442,8 +8264,6 @@ user ,group .project.item
 | UpdateItem | [UpdateItemRequest](#common-UpdateItemRequest) | [UpdateItemResponse](#common-UpdateItemResponse) | 更新内容 |
 | DeleteItem | [DeleteItemRequest](#common-DeleteItemRequest) | [DeleteItemResponse](#common-DeleteItemResponse) | 删除内容 |
 | LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) | 喜欢内容 |
-| CreateComment | [CreateCommentReq](#common-CreateCommentReq) | [CreateCommentResp](#common-CreateCommentResp) | 创建评论 |
-| GetItemComment | [GetItemsCommentReq](#common-GetItemsCommentReq) | [GetItemsCommentResp](#common-GetItemsCommentResp) | 获取内容评论 |
 | CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) | 创建故事 |
 | GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) | 获取故事信息 |
 | RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) | 渲染故事 |
