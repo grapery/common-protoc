@@ -3046,6 +3046,7 @@ AI生成失败 |
 | story_tags | [string](#string) |  |  |
 | create_time | [int64](#int64) |  |  |
 | create_user_id | [int64](#int64) |  |  |
+| total_board_count | [int64](#int64) |  |  |
 | total_like_count | [int64](#int64) |  |  |
 | total_comment_count | [int64](#int64) |  |  |
 | total_share_count | [int64](#int64) |  |  |

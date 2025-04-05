@@ -1354,6 +1354,8 @@ public struct Common_StorySummaryInfo: Sendable {
 
   public var createUserID: Int64 = 0
 
+  public var totalBoardCount: Int64 = 0
+
   public var totalLikeCount: Int64 = 0
 
   public var totalCommentCount: Int64 = 0
@@ -5192,12 +5194,13 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     6: .standard(proto: "story_tags"),
     7: .standard(proto: "create_time"),
     8: .standard(proto: "create_user_id"),
-    9: .standard(proto: "total_like_count"),
-    10: .standard(proto: "total_comment_count"),
-    11: .standard(proto: "total_share_count"),
-    12: .standard(proto: "total_render_count"),
-    13: .standard(proto: "total_fork_count"),
-    14: .standard(proto: "total_view_count"),
+    9: .standard(proto: "total_board_count"),
+    10: .standard(proto: "total_like_count"),
+    11: .standard(proto: "total_comment_count"),
+    12: .standard(proto: "total_share_count"),
+    13: .standard(proto: "total_render_count"),
+    14: .standard(proto: "total_fork_count"),
+    15: .standard(proto: "total_view_count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5214,12 +5217,13 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 6: try { try decoder.decodeSingularStringField(value: &self.storyTags) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self.createTime) }()
       case 8: try { try decoder.decodeSingularInt64Field(value: &self.createUserID) }()
-      case 9: try { try decoder.decodeSingularInt64Field(value: &self.totalLikeCount) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.totalCommentCount) }()
-      case 11: try { try decoder.decodeSingularInt64Field(value: &self.totalShareCount) }()
-      case 12: try { try decoder.decodeSingularInt64Field(value: &self.totalRenderCount) }()
-      case 13: try { try decoder.decodeSingularInt64Field(value: &self.totalForkCount) }()
-      case 14: try { try decoder.decodeSingularInt64Field(value: &self.totalViewCount) }()
+      case 9: try { try decoder.decodeSingularInt64Field(value: &self.totalBoardCount) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.totalLikeCount) }()
+      case 11: try { try decoder.decodeSingularInt64Field(value: &self.totalCommentCount) }()
+      case 12: try { try decoder.decodeSingularInt64Field(value: &self.totalShareCount) }()
+      case 13: try { try decoder.decodeSingularInt64Field(value: &self.totalRenderCount) }()
+      case 14: try { try decoder.decodeSingularInt64Field(value: &self.totalForkCount) }()
+      case 15: try { try decoder.decodeSingularInt64Field(value: &self.totalViewCount) }()
       default: break
       }
     }
@@ -5250,23 +5254,26 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.createUserID != 0 {
       try visitor.visitSingularInt64Field(value: self.createUserID, fieldNumber: 8)
     }
+    if self.totalBoardCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.totalBoardCount, fieldNumber: 9)
+    }
     if self.totalLikeCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalLikeCount, fieldNumber: 9)
+      try visitor.visitSingularInt64Field(value: self.totalLikeCount, fieldNumber: 10)
     }
     if self.totalCommentCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalCommentCount, fieldNumber: 10)
+      try visitor.visitSingularInt64Field(value: self.totalCommentCount, fieldNumber: 11)
     }
     if self.totalShareCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalShareCount, fieldNumber: 11)
+      try visitor.visitSingularInt64Field(value: self.totalShareCount, fieldNumber: 12)
     }
     if self.totalRenderCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalRenderCount, fieldNumber: 12)
+      try visitor.visitSingularInt64Field(value: self.totalRenderCount, fieldNumber: 13)
     }
     if self.totalForkCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalForkCount, fieldNumber: 13)
+      try visitor.visitSingularInt64Field(value: self.totalForkCount, fieldNumber: 14)
     }
     if self.totalViewCount != 0 {
-      try visitor.visitSingularInt64Field(value: self.totalViewCount, fieldNumber: 14)
+      try visitor.visitSingularInt64Field(value: self.totalViewCount, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -5280,6 +5287,7 @@ extension Common_StorySummaryInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.storyTags != rhs.storyTags {return false}
     if lhs.createTime != rhs.createTime {return false}
     if lhs.createUserID != rhs.createUserID {return false}
+    if lhs.totalBoardCount != rhs.totalBoardCount {return false}
     if lhs.totalLikeCount != rhs.totalLikeCount {return false}
     if lhs.totalCommentCount != rhs.totalCommentCount {return false}
     if lhs.totalShareCount != rhs.totalShareCount {return false}

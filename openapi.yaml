@@ -6909,6 +6909,8 @@ components:
                     type: string
                 createUserId:
                     type: string
+                totalBoardCount:
+                    type: string
                 totalLikeCount:
                     type: string
                 totalCommentCount:
