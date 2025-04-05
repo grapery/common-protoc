@@ -3445,9 +3445,9 @@ public struct Common_StoryComment: @unchecked Sendable {
     set {_uniqueStorage()._replyCount = newValue}
   }
 
-  public var isLike: Int64 {
-    get {return _storage._isLike}
-    set {_uniqueStorage()._isLike = newValue}
+  public var isLiked: Int64 {
+    get {return _storage._isLiked}
+    set {_uniqueStorage()._isLiked = newValue}
   }
 
   public var creator: Common_UserInfo {
@@ -3458,6 +3458,11 @@ public struct Common_StoryComment: @unchecked Sendable {
   public var hasCreator: Bool {return _storage._creator != nil}
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
+
+  public var createdAtTimestamp: Int64 {
+    get {return _storage._createdAtTimestamp}
+    set {_uniqueStorage()._createdAtTimestamp = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -12767,8 +12772,9 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     10: .standard(proto: "updated_at"),
     11: .standard(proto: "like_count"),
     12: .standard(proto: "reply_count"),
-    13: .standard(proto: "is_like"),
+    13: .standard(proto: "is_liked"),
     14: .same(proto: "creator"),
+    15: .standard(proto: "created_at_timestamp"),
   ]
 
   fileprivate class _StorageClass {
@@ -12784,8 +12790,9 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     var _updatedAt: Int64 = 0
     var _likeCount: Int64 = 0
     var _replyCount: Int64 = 0
-    var _isLike: Int64 = 0
+    var _isLiked: Int64 = 0
     var _creator: Common_UserInfo? = nil
+    var _createdAtTimestamp: Int64 = 0
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -12812,8 +12819,9 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
       _updatedAt = source._updatedAt
       _likeCount = source._likeCount
       _replyCount = source._replyCount
-      _isLike = source._isLike
+      _isLiked = source._isLiked
       _creator = source._creator
+      _createdAtTimestamp = source._createdAtTimestamp
     }
   }
 
@@ -12844,8 +12852,9 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
         case 10: try { try decoder.decodeSingularInt64Field(value: &_storage._updatedAt) }()
         case 11: try { try decoder.decodeSingularInt64Field(value: &_storage._likeCount) }()
         case 12: try { try decoder.decodeSingularInt64Field(value: &_storage._replyCount) }()
-        case 13: try { try decoder.decodeSingularInt64Field(value: &_storage._isLike) }()
+        case 13: try { try decoder.decodeSingularInt64Field(value: &_storage._isLiked) }()
         case 14: try { try decoder.decodeSingularMessageField(value: &_storage._creator) }()
+        case 15: try { try decoder.decodeSingularInt64Field(value: &_storage._createdAtTimestamp) }()
         default: break
         }
       }
@@ -12894,12 +12903,15 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
       if _storage._replyCount != 0 {
         try visitor.visitSingularInt64Field(value: _storage._replyCount, fieldNumber: 12)
       }
-      if _storage._isLike != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._isLike, fieldNumber: 13)
+      if _storage._isLiked != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._isLiked, fieldNumber: 13)
       }
       try { if let v = _storage._creator {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
       } }()
+      if _storage._createdAtTimestamp != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._createdAtTimestamp, fieldNumber: 15)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12921,8 +12933,9 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
         if _storage._updatedAt != rhs_storage._updatedAt {return false}
         if _storage._likeCount != rhs_storage._likeCount {return false}
         if _storage._replyCount != rhs_storage._replyCount {return false}
-        if _storage._isLike != rhs_storage._isLike {return false}
+        if _storage._isLiked != rhs_storage._isLiked {return false}
         if _storage._creator != rhs_storage._creator {return false}
+        if _storage._createdAtTimestamp != rhs_storage._createdAtTimestamp {return false}
         return true
       }
       if !storagesAreEqual {return false}

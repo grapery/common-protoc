@@ -6810,10 +6810,12 @@ components:
                     type: string
                 replyCount:
                     type: string
-                isLike:
+                isLiked:
                     type: string
                 creator:
                     $ref: '#/components/schemas/UserInfo'
+                createdAtTimestamp:
+                    type: string
         StoryContributor:
             type: object
             properties:

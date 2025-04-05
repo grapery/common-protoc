@@ -7037,8 +7037,9 @@ AI生成失败 |
 | updated_at | [int64](#int64) |  |  |
 | like_count | [int64](#int64) |  |  |
 | reply_count | [int64](#int64) |  |  |
-| is_like | [int64](#int64) |  |  |
+| is_liked | [int64](#int64) |  |  |
 | creator | [UserInfo](#common-UserInfo) |  |  |
+| created_at_timestamp | [int64](#int64) |  |  |
 
 
 
