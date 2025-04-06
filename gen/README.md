@@ -6939,7 +6939,6 @@ AI生成失败 |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | scope | [ScopeType](#common-ScopeType) |  |  |
-| story_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 
 

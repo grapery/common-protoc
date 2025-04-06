@@ -6432,8 +6432,6 @@ components:
                 scope:
                     type: integer
                     format: enum
-                storyId:
-                    type: string
                 groupId:
                     type: string
         SearchStoriesResponse:

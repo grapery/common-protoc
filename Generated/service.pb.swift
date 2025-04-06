@@ -4848,8 +4848,6 @@ public struct Common_SearchStoriesRequest: Sendable {
 
   public var scope: Common_ScopeType = .allPublic
 
-  public var storyID: Int64 = 0
-
   public var groupID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -16581,7 +16579,6 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
     5: .same(proto: "scope"),
-    6: .standard(proto: "story_id"),
     7: .standard(proto: "group_id"),
   ]
 
@@ -16596,7 +16593,6 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.scope) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       default: break
       }
@@ -16619,9 +16615,6 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.scope != .allPublic {
       try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
     }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 6)
-    }
     if self.groupID != 0 {
       try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 7)
     }
@@ -16634,7 +16627,6 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.scope != rhs.scope {return false}
-    if lhs.storyID != rhs.storyID {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

@@ -2531,7 +2531,6 @@ message SearchStoriesRequest{
   int64 offset = 3;
   int64 page_size = 4;
   ScopeType scope = 5;
-  int64 story_id = 6;
   int64 group_id = 7;
 }
 
