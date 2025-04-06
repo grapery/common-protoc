@@ -1158,14 +1158,14 @@ public struct Common_GetStoryboardResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_StoryBoardActive {
-      get {return _info ?? Common_StoryBoardActive()}
-      set {_info = newValue}
+    public var boardInfo: Common_StoryBoardActive {
+      get {return _boardInfo ?? Common_StoryBoardActive()}
+      set {_boardInfo = newValue}
     }
-    /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return self._info != nil}
-    /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {self._info = nil}
+    /// Returns true if `boardInfo` has been explicitly set.
+    public var hasBoardInfo: Bool {return self._boardInfo != nil}
+    /// Clears the value of `boardInfo`. Subsequent reads from it will return its default value.
+    public mutating func clearBoardInfo() {self._boardInfo = nil}
 
     public var creator: Common_UserInfo {
       get {return _creator ?? Common_UserInfo()}
@@ -1180,7 +1180,7 @@ public struct Common_GetStoryboardResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_StoryBoardActive? = nil
+    fileprivate var _boardInfo: Common_StoryBoardActive? = nil
     fileprivate var _creator: Common_UserInfo? = nil
   }
 
@@ -4812,7 +4812,7 @@ extension Common_GetStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 extension Common_GetStoryboardResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetStoryboardResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
+    1: .standard(proto: "board_info"),
     2: .same(proto: "creator"),
   ]
 
@@ -4822,7 +4822,7 @@ extension Common_GetStoryboardResponse.DataMessage: SwiftProtobuf.Message, Swift
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._boardInfo) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._creator) }()
       default: break
       }
@@ -4834,7 +4834,7 @@ extension Common_GetStoryboardResponse.DataMessage: SwiftProtobuf.Message, Swift
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._info {
+    try { if let v = self._boardInfo {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
     try { if let v = self._creator {
@@ -4844,7 +4844,7 @@ extension Common_GetStoryboardResponse.DataMessage: SwiftProtobuf.Message, Swift
   }
 
   public static func ==(lhs: Common_GetStoryboardResponse.DataMessage, rhs: Common_GetStoryboardResponse.DataMessage) -> Bool {
-    if lhs._info != rhs._info {return false}
+    if lhs._boardInfo != rhs._boardInfo {return false}
     if lhs._creator != rhs._creator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

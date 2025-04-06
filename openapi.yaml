@@ -5144,7 +5144,7 @@ components:
         GetStoryboardResponse_Data:
             type: object
             properties:
-                info:
+                boardInfo:
                     $ref: '#/components/schemas/StoryBoardActive'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
