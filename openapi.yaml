@@ -5145,7 +5145,7 @@ components:
             type: object
             properties:
                 info:
-                    $ref: '#/components/schemas/StoryBoard'
+                    $ref: '#/components/schemas/StoryBoardActive'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
         GetStoryboardsRequest:

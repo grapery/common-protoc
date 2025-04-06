@@ -2239,7 +2239,7 @@ AI生成失败 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [StoryBoard](#common-StoryBoard) |  |  |
+| info | [StoryBoardActive](#common-StoryBoardActive) |  |  |
 | creator | [UserInfo](#common-UserInfo) |  |  |
 
 

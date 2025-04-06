@@ -223,7 +223,7 @@ message CreateStoryRequest {
     int32 code = 1;
     string message = 2;
     message Data {
-      StoryBoard info = 1;
+      StoryBoardActive info = 1;
       UserInfo creator = 2;
     }Data data = 3;
   }

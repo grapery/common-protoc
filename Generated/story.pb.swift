@@ -1158,8 +1158,8 @@ public struct Common_GetStoryboardResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_StoryBoard {
-      get {return _info ?? Common_StoryBoard()}
+    public var info: Common_StoryBoardActive {
+      get {return _info ?? Common_StoryBoardActive()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1180,7 +1180,7 @@ public struct Common_GetStoryboardResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_StoryBoard? = nil
+    fileprivate var _info: Common_StoryBoardActive? = nil
     fileprivate var _creator: Common_UserInfo? = nil
   }
 
