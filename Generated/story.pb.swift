@@ -1823,16 +1823,107 @@ public struct Common_RenderStoryStructureValue: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryStructure: Sendable {
+public struct Common_StoryChapter: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 原始内容
-  public var text: String = String()
+  /// 章节情节简述
+  public var chapterSummary: Common_ChapterSummary {
+    get {return _chapterSummary ?? Common_ChapterSummary()}
+    set {_chapterSummary = newValue}
+  }
+  /// Returns true if `chapterSummary` has been explicitly set.
+  public var hasChapterSummary: Bool {return self._chapterSummary != nil}
+  /// Clears the value of `chapterSummary`. Subsequent reads from it will return its default value.
+  public mutating func clearChapterSummary() {self._chapterSummary = nil}
 
-  /// 解析结果
-  public var data: Dictionary<String,Common_RenderStoryStructureValue> = [:]
+  /// 章节详细情节
+  public var chapterDetailInfo: Common_ChapterDetailInformation {
+    get {return _chapterDetailInfo ?? Common_ChapterDetailInformation()}
+    set {_chapterDetailInfo = newValue}
+  }
+  /// Returns true if `chapterDetailInfo` has been explicitly set.
+  public var hasChapterDetailInfo: Bool {return self._chapterDetailInfo != nil}
+  /// Clears the value of `chapterDetailInfo`. Subsequent reads from it will return its default value.
+  public mutating func clearChapterDetailInfo() {self._chapterDetailInfo = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _chapterSummary: Common_ChapterSummary? = nil
+  fileprivate var _chapterDetailInfo: Common_ChapterDetailInformation? = nil
+}
+
+/// ChapterSummary 表示章节的基本信息
+public struct Common_ChapterSummary: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 章节题目
+  public var title: String = String()
+
+  /// 章节内容
+  public var content: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// ChapterDetailInformation 包含多个详细情节
+public struct Common_ChapterDetailInformation: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 详细情节列表
+  public var details: [Common_DetailScene] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// DetailScene 表示具体的场景信息
+public struct Common_DetailScene: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 情节id
+  public var id: String = String()
+
+  /// 情节内容
+  public var content: String = String()
+
+  /// 参与人物
+  public var characters: [Common_Character] = []
+
+  /// 图片提示词
+  public var imagePrompt: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Character 表示角色信息
+public struct Common_Character: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 角色id
+  public var id: String = String()
+
+  /// 角色姓名
+  public var name: String = String()
+
+  /// 角色描述
+  public var description_p: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1858,13 +1949,22 @@ public struct Common_RenderStoryDetail: Sendable {
 
   public var renderType: Common_RenderType = .textUnspecified
 
-  public var result: Dictionary<String,Common_RenderStoryStructure> = [:]
+  public var result: Common_StoryChapter {
+    get {return _result ?? Common_StoryChapter()}
+    set {_result = newValue}
+  }
+  /// Returns true if `result` has been explicitly set.
+  public var hasResult: Bool {return self._result != nil}
+  /// Clears the value of `result`. Subsequent reads from it will return its default value.
+  public mutating func clearResult() {self._result = nil}
 
   public var timecost: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _result: Common_StoryChapter? = nil
 }
 
 public struct Common_RenderStoryResponse: Sendable {
@@ -1931,13 +2031,22 @@ public struct Common_RenderStoryboardDetail: Sendable {
 
   public var renderType: Common_RenderType = .textUnspecified
 
-  public var result: Dictionary<String,Common_RenderStoryStructure> = [:]
+  public var result: Common_StoryChapter {
+    get {return _result ?? Common_StoryChapter()}
+    set {_result = newValue}
+  }
+  /// Returns true if `result` has been explicitly set.
+  public var hasResult: Bool {return self._result != nil}
+  /// Clears the value of `result`. Subsequent reads from it will return its default value.
+  public mutating func clearResult() {self._result = nil}
 
   public var timecost: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _result: Common_StoryChapter? = nil
 }
 
 public struct Common_RenderStoryboardResponse: Sendable {
@@ -6373,11 +6482,11 @@ extension Common_RenderStoryStructureValue: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_RenderStoryStructure: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RenderStoryStructure"
+extension Common_StoryChapter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryChapter"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "text"),
-    2: .same(proto: "data"),
+    1: .standard(proto: "chapter_summary"),
+    2: .standard(proto: "chapter_detail_info"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6386,26 +6495,194 @@ extension Common_RenderStoryStructure: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.text) }()
-      case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructureValue>.self, value: &self.data) }()
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._chapterSummary) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._chapterDetailInfo) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.text.isEmpty {
-      try visitor.visitSingularStringField(value: self.text, fieldNumber: 1)
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._chapterSummary {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._chapterDetailInfo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryChapter, rhs: Common_StoryChapter) -> Bool {
+    if lhs._chapterSummary != rhs._chapterSummary {return false}
+    if lhs._chapterDetailInfo != rhs._chapterDetailInfo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ChapterSummary: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ChapterSummary"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "content"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      default: break
+      }
     }
-    if !self.data.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructureValue>.self, value: self.data, fieldNumber: 2)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryStructure, rhs: Common_RenderStoryStructure) -> Bool {
-    if lhs.text != rhs.text {return false}
-    if lhs.data != rhs.data {return false}
+  public static func ==(lhs: Common_ChapterSummary, rhs: Common_ChapterSummary) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ChapterDetailInformation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ChapterDetailInformation"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "details"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.details) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.details.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.details, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ChapterDetailInformation, rhs: Common_ChapterDetailInformation) -> Bool {
+    if lhs.details != rhs.details {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_DetailScene: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DetailScene"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "content"),
+    3: .same(proto: "characters"),
+    4: .standard(proto: "image_prompt"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.characters) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.imagePrompt) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.id.isEmpty {
+      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
+    }
+    if !self.characters.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.characters, fieldNumber: 3)
+    }
+    if !self.imagePrompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.imagePrompt, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_DetailScene, rhs: Common_DetailScene) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.content != rhs.content {return false}
+    if lhs.characters != rhs.characters {return false}
+    if lhs.imagePrompt != rhs.imagePrompt {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_Character: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Character"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "name"),
+    3: .same(proto: "description"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.id.isEmpty {
+      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
+    }
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_Character, rhs: Common_Character) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6438,7 +6715,7 @@ extension Common_RenderStoryDetail: SwiftProtobuf.Message, SwiftProtobuf._Messag
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
-      case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructure>.self, value: &self.result) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._result) }()
       case 9: try { try decoder.decodeSingularInt32Field(value: &self.timecost) }()
       default: break
       }
@@ -6446,6 +6723,10 @@ extension Common_RenderStoryDetail: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.text.isEmpty {
       try visitor.visitSingularStringField(value: self.text, fieldNumber: 1)
     }
@@ -6467,9 +6748,9 @@ extension Common_RenderStoryDetail: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if self.renderType != .textUnspecified {
       try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 7)
     }
-    if !self.result.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructure>.self, value: self.result, fieldNumber: 8)
-    }
+    try { if let v = self._result {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     if self.timecost != 0 {
       try visitor.visitSingularInt32Field(value: self.timecost, fieldNumber: 9)
     }
@@ -6484,7 +6765,7 @@ extension Common_RenderStoryDetail: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if lhs.boardID != rhs.boardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.renderType != rhs.renderType {return false}
-    if lhs.result != rhs.result {return false}
+    if lhs._result != rhs._result {return false}
     if lhs.timecost != rhs.timecost {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -6622,7 +6903,7 @@ extension Common_RenderStoryboardDetail: SwiftProtobuf.Message, SwiftProtobuf._M
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
-      case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructure>.self, value: &self.result) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._result) }()
       case 9: try { try decoder.decodeSingularInt32Field(value: &self.timecost) }()
       default: break
       }
@@ -6630,6 +6911,10 @@ extension Common_RenderStoryboardDetail: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.text.isEmpty {
       try visitor.visitSingularStringField(value: self.text, fieldNumber: 1)
     }
@@ -6651,9 +6936,9 @@ extension Common_RenderStoryboardDetail: SwiftProtobuf.Message, SwiftProtobuf._M
     if self.renderType != .textUnspecified {
       try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 7)
     }
-    if !self.result.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Common_RenderStoryStructure>.self, value: self.result, fieldNumber: 8)
-    }
+    try { if let v = self._result {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     if self.timecost != 0 {
       try visitor.visitSingularInt32Field(value: self.timecost, fieldNumber: 9)
     }
@@ -6668,7 +6953,7 @@ extension Common_RenderStoryboardDetail: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs.boardID != rhs.boardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.renderType != rhs.renderType {return false}
-    if lhs.result != rhs.result {return false}
+    if lhs._result != rhs._result {return false}
     if lhs.timecost != rhs.timecost {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

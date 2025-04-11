@@ -435,11 +435,47 @@ message RenderStoryStructureValue{
   map<string,string> extra = 5;
 }
 
-message RenderStoryStructure {
-  // 原始内容
-  string text = 1;
-  // 解析结果
-  map<string,RenderStoryStructureValue> data = 2;
+message StoryChapter {
+  // 章节情节简述
+  ChapterSummary chapter_summary = 1;
+  // 章节详细情节
+  ChapterDetailInformation chapter_detail_info = 2;
+}
+
+// ChapterSummary 表示章节的基本信息
+message ChapterSummary {
+  // 章节题目
+  string title = 1;
+  // 章节内容
+  string content = 2;
+}
+
+// ChapterDetailInformation 包含多个详细情节
+message ChapterDetailInformation {
+  // 详细情节列表
+  repeated DetailScene details = 1;
+}
+
+// DetailScene 表示具体的场景信息
+message DetailScene {
+  // 情节id
+  string id = 1;
+  // 情节内容
+  string content = 2;
+  // 参与人物
+  repeated Character characters = 3;
+  // 图片提示词
+  string image_prompt = 4;
+}
+
+// Character 表示角色信息
+message Character {
+  // 角色id
+  string id = 1;
+  // 角色姓名
+  string name = 2;
+  // 角色描述
+  string description = 3;
 }
 
 message RenderStoryDetail {
@@ -450,7 +486,7 @@ message RenderStoryDetail {
   int64 board_id = 5;
   int64 user_id = 6;
   RenderType render_type = 7;
-  map<string,RenderStoryStructure> result = 8;
+  StoryChapter result = 8;
   int32 timecost = 9;
 }
 
@@ -477,7 +513,7 @@ message RenderStoryboardDetail {
   int64 board_id = 5;
   int64 user_id = 6;
   RenderType render_type = 7;
-  map<string,RenderStoryStructure> result = 8;
+  StoryChapter result = 8;
   int32 timecost = 9;
 }
 

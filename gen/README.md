@@ -53,6 +53,9 @@
     - [UserProfileInfo](#common-UserProfileInfo)
   
 - [story.proto](#story-proto)
+    - [ChapterDetailInformation](#common-ChapterDetailInformation)
+    - [ChapterSummary](#common-ChapterSummary)
+    - [Character](#common-Character)
     - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
     - [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse)
     - [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest)
@@ -68,6 +71,7 @@
     - [DelStoryboardResponse](#common-DelStoryboardResponse)
     - [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest)
     - [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse)
+    - [DetailScene](#common-DetailScene)
     - [FetchGroupStorysRequest](#common-FetchGroupStorysRequest)
     - [FetchGroupStorysResponse](#common-FetchGroupStorysResponse)
     - [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data)
@@ -114,19 +118,15 @@
     - [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest)
     - [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse)
     - [RenderStoryDetail](#common-RenderStoryDetail)
-    - [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry)
     - [RenderStoryRequest](#common-RenderStoryRequest)
     - [RenderStoryResponse](#common-RenderStoryResponse)
     - [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest)
     - [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse)
     - [RenderStoryRolesRequest](#common-RenderStoryRolesRequest)
     - [RenderStoryRolesResponse](#common-RenderStoryRolesResponse)
-    - [RenderStoryStructure](#common-RenderStoryStructure)
-    - [RenderStoryStructure.DataEntry](#common-RenderStoryStructure-DataEntry)
     - [RenderStoryStructureValue](#common-RenderStoryStructureValue)
     - [RenderStoryStructureValue.ExtraEntry](#common-RenderStoryStructureValue-ExtraEntry)
     - [RenderStoryboardDetail](#common-RenderStoryboardDetail)
-    - [RenderStoryboardDetail.ResultEntry](#common-RenderStoryboardDetail-ResultEntry)
     - [RenderStoryboardRequest](#common-RenderStoryboardRequest)
     - [RenderStoryboardResponse](#common-RenderStoryboardResponse)
     - [ShareStoryboardRequest](#common-ShareStoryboardRequest)
@@ -140,6 +140,7 @@
     - [StoryBoardParams](#common-StoryBoardParams)
     - [StoryBoardSence](#common-StoryBoardSence)
     - [StoryBoardSences](#common-StoryBoardSences)
+    - [StoryChapter](#common-StoryChapter)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
     - [StorySummaryInfo](#common-StorySummaryInfo)
@@ -1395,6 +1396,54 @@ AI生成失败 |
 
 
 
+<a name="common-ChapterDetailInformation"></a>
+
+### ChapterDetailInformation
+ChapterDetailInformation 包含多个详细情节
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| details | [DetailScene](#common-DetailScene) | repeated | 详细情节列表 |
+
+
+
+
+
+
+<a name="common-ChapterSummary"></a>
+
+### ChapterSummary
+ChapterSummary 表示章节的基本信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| title | [string](#string) |  | 章节题目 |
+| content | [string](#string) |  | 章节内容 |
+
+
+
+
+
+
+<a name="common-Character"></a>
+
+### Character
+Character 表示角色信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 角色id |
+| name | [string](#string) |  | 角色姓名 |
+| description | [string](#string) |  | 角色描述 |
+
+
+
+
+
+
 <a name="common-ContinueRenderStoryRequest"></a>
 
 ### ContinueRenderStoryRequest
@@ -1649,6 +1698,24 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-DetailScene"></a>
+
+### DetailScene
+DetailScene 表示具体的场景信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 情节id |
+| content | [string](#string) |  | 情节内容 |
+| characters | [Character](#common-Character) | repeated | 参与人物 |
+| image_prompt | [string](#string) |  | 图片提示词 |
 
 
 
@@ -2442,24 +2509,8 @@ AI生成失败 |
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
-| result | [RenderStoryDetail.ResultEntry](#common-RenderStoryDetail-ResultEntry) | repeated |  |
+| result | [StoryChapter](#common-StoryChapter) |  |  |
 | timecost | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-RenderStoryDetail-ResultEntry"></a>
-
-### RenderStoryDetail.ResultEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
 
 
 
@@ -2575,38 +2626,6 @@ AI生成失败 |
 
 
 
-<a name="common-RenderStoryStructure"></a>
-
-### RenderStoryStructure
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  | 原始内容 |
-| data | [RenderStoryStructure.DataEntry](#common-RenderStoryStructure-DataEntry) | repeated | 解析结果 |
-
-
-
-
-
-
-<a name="common-RenderStoryStructure-DataEntry"></a>
-
-### RenderStoryStructure.DataEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [RenderStoryStructureValue](#common-RenderStoryStructureValue) |  |  |
-
-
-
-
-
-
 <a name="common-RenderStoryStructureValue"></a>
 
 ### RenderStoryStructureValue
@@ -2657,24 +2676,8 @@ AI生成失败 |
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
-| result | [RenderStoryboardDetail.ResultEntry](#common-RenderStoryboardDetail-ResultEntry) | repeated |  |
+| result | [StoryChapter](#common-StoryChapter) |  |  |
 | timecost | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="common-RenderStoryboardDetail-ResultEntry"></a>
-
-### RenderStoryboardDetail.ResultEntry
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [RenderStoryStructure](#common-RenderStoryStructure) |  |  |
 
 
 
@@ -2969,6 +2972,22 @@ AI生成失败 |
 | ----- | ---- | ----- | ----------- |
 | total | [int64](#int64) |  |  |
 | list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
+<a name="common-StoryChapter"></a>
+
+### StoryChapter
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| chapter_summary | [ChapterSummary](#common-ChapterSummary) |  | 章节情节简述 |
+| chapter_detail_info | [ChapterDetailInformation](#common-ChapterDetailInformation) |  | 章节详细情节 |
 
 
 

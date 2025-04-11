@@ -3483,6 +3483,38 @@ components:
                     format: enum
                 message:
                     type: string
+        ChapterDetailInformation:
+            type: object
+            properties:
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/DetailScene'
+                    description: 详细情节列表
+            description: ChapterDetailInformation 包含多个详细情节
+        ChapterSummary:
+            type: object
+            properties:
+                title:
+                    type: string
+                    description: 章节题目
+                content:
+                    type: string
+                    description: 章节内容
+            description: ChapterSummary 表示章节的基本信息
+        Character:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: 角色id
+                name:
+                    type: string
+                    description: 角色姓名
+                description:
+                    type: string
+                    description: 角色描述
+            description: Character 表示角色信息
         ChatContext:
             type: object
             properties:
@@ -3985,6 +4017,24 @@ components:
                     format: enum
                 message:
                     type: string
+        DetailScene:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: 情节id
+                content:
+                    type: string
+                    description: 情节内容
+                characters:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Character'
+                    description: 参与人物
+                imagePrompt:
+                    type: string
+                    description: 图片提示词
+            description: DetailScene 表示具体的场景信息
         DislikeCommentRequest:
             type: object
             properties:
@@ -6013,9 +6063,7 @@ components:
                     type: integer
                     format: enum
                 result:
-                    type: object
-                    additionalProperties:
-                        $ref: '#/components/schemas/RenderStoryStructure'
+                    $ref: '#/components/schemas/StoryChapter'
                 timecost:
                     type: integer
                     format: int32
@@ -6160,36 +6208,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
-        RenderStoryStructure:
-            type: object
-            properties:
-                text:
-                    type: string
-                    description: 原始内容
-                data:
-                    type: object
-                    additionalProperties:
-                        $ref: '#/components/schemas/RenderStoryStructureValue'
-                    description: 解析结果
-        RenderStoryStructureValue:
-            type: object
-            properties:
-                text:
-                    type: string
-                urls:
-                    type: array
-                    items:
-                        type: string
-                value:
-                    type: integer
-                    format: int32
-                nums:
-                    type: integer
-                    format: int32
-                extra:
-                    type: object
-                    additionalProperties:
-                        type: string
         RenderStoryboardDetail:
             type: object
             properties:
@@ -6212,9 +6230,7 @@ components:
                     type: integer
                     format: enum
                 result:
-                    type: object
-                    additionalProperties:
-                        $ref: '#/components/schemas/RenderStoryStructure'
+                    $ref: '#/components/schemas/StoryChapter'
                 timecost:
                     type: integer
                     format: int32
@@ -6781,6 +6797,17 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardSence'
+        StoryChapter:
+            type: object
+            properties:
+                chapterSummary:
+                    allOf:
+                        - $ref: '#/components/schemas/ChapterSummary'
+                    description: 章节情节简述
+                chapterDetailInfo:
+                    allOf:
+                        - $ref: '#/components/schemas/ChapterDetailInformation'
+                    description: 章节详细情节
         StoryComment:
             type: object
             properties:
