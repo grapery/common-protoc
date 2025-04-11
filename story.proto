@@ -637,7 +637,7 @@ message ContinueRenderStoryRequest{
 message ContinueRenderStoryResponse{
   int32 code = 1;
   string message = 2;
-  RenderStoryDetail data = 3;
+  RenderStoryboardDetail data = 3;
 }
 
 message RenderStoryRolesRequest{

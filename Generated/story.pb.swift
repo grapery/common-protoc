@@ -2435,8 +2435,8 @@ public struct Common_ContinueRenderStoryResponse: Sendable {
 
   public var message: String = String()
 
-  public var data: Common_RenderStoryDetail {
-    get {return _data ?? Common_RenderStoryDetail()}
+  public var data: Common_RenderStoryboardDetail {
+    get {return _data ?? Common_RenderStoryboardDetail()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2448,7 +2448,7 @@ public struct Common_ContinueRenderStoryResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_RenderStoryDetail? = nil
+  fileprivate var _data: Common_RenderStoryboardDetail? = nil
 }
 
 public struct Common_RenderStoryRolesRequest: Sendable {

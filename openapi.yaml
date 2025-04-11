@@ -3668,7 +3668,7 @@ components:
                 message:
                     type: string
                 data:
-                    $ref: '#/components/schemas/RenderStoryDetail'
+                    $ref: '#/components/schemas/RenderStoryboardDetail'
         CreateGroupRequest:
             type: object
             properties:

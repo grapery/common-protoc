@@ -1499,7 +1499,7 @@ Character 表示角色信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
+| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
 
 
 
