@@ -1930,6 +1930,63 @@ public struct Common_Character: Sendable {
   public init() {}
 }
 
+public struct Common_StoryInfo: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyNameAndTheme: Common_StoryNameAndTheme {
+    get {return _storyNameAndTheme ?? Common_StoryNameAndTheme()}
+    set {_storyNameAndTheme = newValue}
+  }
+  /// Returns true if `storyNameAndTheme` has been explicitly set.
+  public var hasStoryNameAndTheme: Bool {return self._storyNameAndTheme != nil}
+  /// Clears the value of `storyNameAndTheme`. Subsequent reads from it will return its default value.
+  public mutating func clearStoryNameAndTheme() {self._storyNameAndTheme = nil}
+
+  public var storyChapters: [Common_ChapterInfo] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storyNameAndTheme: Common_StoryNameAndTheme? = nil
+}
+
+/// StoryNameAndTheme 表示故事的名称和主题信息
+public struct Common_StoryNameAndTheme: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var name: String = String()
+
+  public var theme: String = String()
+
+  public var description_p: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// ChapterInfo 表示单个章节的信息
+public struct Common_ChapterInfo: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var id: String = String()
+
+  public var title: String = String()
+
+  public var content: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct Common_RenderStoryDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1949,8 +2006,8 @@ public struct Common_RenderStoryDetail: Sendable {
 
   public var renderType: Common_RenderType = .textUnspecified
 
-  public var result: Common_StoryChapter {
-    get {return _result ?? Common_StoryChapter()}
+  public var result: Common_StoryInfo {
+    get {return _result ?? Common_StoryInfo()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
@@ -1964,7 +2021,7 @@ public struct Common_RenderStoryDetail: Sendable {
 
   public init() {}
 
-  fileprivate var _result: Common_StoryChapter? = nil
+  fileprivate var _result: Common_StoryInfo? = nil
 }
 
 public struct Common_RenderStoryResponse: Sendable {
@@ -6683,6 +6740,136 @@ extension Common_Character: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
     if lhs.description_p != rhs.description_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "story_name_and_theme", json: "故事名称和主题"),
+    2: .unique(proto: "story_chapters", json: "故事章节"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._storyNameAndTheme) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.storyChapters) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._storyNameAndTheme {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    if !self.storyChapters.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.storyChapters, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryInfo, rhs: Common_StoryInfo) -> Bool {
+    if lhs._storyNameAndTheme != rhs._storyNameAndTheme {return false}
+    if lhs.storyChapters != rhs.storyChapters {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryNameAndTheme: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryNameAndTheme"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "name", json: "故事名称"),
+    2: .unique(proto: "theme", json: "故事主题"),
+    3: .unique(proto: "description", json: "故事简介"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.theme) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.theme.isEmpty {
+      try visitor.visitSingularStringField(value: self.theme, fieldNumber: 2)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryNameAndTheme, rhs: Common_StoryNameAndTheme) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.theme != rhs.theme {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ChapterInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ChapterInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "id", json: "章节ID"),
+    2: .unique(proto: "title", json: "章节题目"),
+    3: .unique(proto: "content", json: "章节内容"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.id.isEmpty {
+      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
+    }
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 2)
+    }
+    if !self.content.isEmpty {
+      try visitor.visitSingularStringField(value: self.content, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ChapterInfo, rhs: Common_ChapterInfo) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.title != rhs.title {return false}
+    if lhs.content != rhs.content {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

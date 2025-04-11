@@ -54,6 +54,7 @@
   
 - [story.proto](#story-proto)
     - [ChapterDetailInformation](#common-ChapterDetailInformation)
+    - [ChapterInfo](#common-ChapterInfo)
     - [ChapterSummary](#common-ChapterSummary)
     - [Character](#common-Character)
     - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
@@ -141,6 +142,8 @@
     - [StoryBoardSence](#common-StoryBoardSence)
     - [StoryBoardSences](#common-StoryBoardSences)
     - [StoryChapter](#common-StoryChapter)
+    - [StoryInfo](#common-StoryInfo)
+    - [StoryNameAndTheme](#common-StoryNameAndTheme)
     - [StoryParams](#common-StoryParams)
     - [StoryRole](#common-StoryRole)
     - [StorySummaryInfo](#common-StorySummaryInfo)
@@ -1411,6 +1414,23 @@ ChapterDetailInformation 包含多个详细情节
 
 
 
+<a name="common-ChapterInfo"></a>
+
+### ChapterInfo
+ChapterInfo 表示单个章节的信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-ChapterSummary"></a>
 
 ### ChapterSummary
@@ -2509,7 +2529,7 @@ DetailScene 表示具体的场景信息
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | render_type | [RenderType](#common-RenderType) |  |  |
-| result | [StoryChapter](#common-StoryChapter) |  |  |
+| result | [StoryInfo](#common-StoryInfo) |  |  |
 | timecost | [int32](#int32) |  |  |
 
 
@@ -2988,6 +3008,39 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | chapter_summary | [ChapterSummary](#common-ChapterSummary) |  | 章节情节简述 |
 | chapter_detail_info | [ChapterDetailInformation](#common-ChapterDetailInformation) |  | 章节详细情节 |
+
+
+
+
+
+
+<a name="common-StoryInfo"></a>
+
+### StoryInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_name_and_theme | [StoryNameAndTheme](#common-StoryNameAndTheme) |  |  |
+| story_chapters | [ChapterInfo](#common-ChapterInfo) | repeated |  |
+
+
+
+
+
+
+<a name="common-StoryNameAndTheme"></a>
+
+### StoryNameAndTheme
+StoryNameAndTheme 表示故事的名称和主题信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| theme | [string](#string) |  |  |
+| description | [string](#string) |  |  |
 
 
 

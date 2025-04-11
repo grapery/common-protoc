@@ -478,6 +478,26 @@ message Character {
   string description = 3;
 }
 
+
+message StoryInfo {
+  StoryNameAndTheme story_name_and_theme = 1 [json_name = "故事名称和主题"];
+  repeated ChapterInfo story_chapters = 2 [json_name = "故事章节"];
+}
+
+// StoryNameAndTheme 表示故事的名称和主题信息
+message StoryNameAndTheme {
+  string name = 1 [json_name = "故事名称"];
+  string theme = 2 [json_name = "故事主题"];
+  string description = 3 [json_name = "故事简介"];
+}
+
+// ChapterInfo 表示单个章节的信息
+message ChapterInfo {
+  string id = 1 [json_name = "章节ID"];
+  string title = 2 [json_name = "章节题目"];
+  string content = 3 [json_name = "章节内容"];
+}
+
 message RenderStoryDetail {
   string text = 1;
   int32 status = 2;
@@ -486,7 +506,7 @@ message RenderStoryDetail {
   int64 board_id = 5;
   int64 user_id = 6;
   RenderType render_type = 7;
-  StoryChapter result = 8;
+  StoryInfo result = 8;
   int32 timecost = 9;
 }
 

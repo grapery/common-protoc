@@ -3492,6 +3492,16 @@ components:
                         $ref: '#/components/schemas/DetailScene'
                     description: 详细情节列表
             description: ChapterDetailInformation 包含多个详细情节
+        ChapterInfo:
+            type: object
+            properties:
+                章节ID:
+                    type: string
+                章节题目:
+                    type: string
+                章节内容:
+                    type: string
+            description: ChapterInfo 表示单个章节的信息
         ChapterSummary:
             type: object
             properties:
@@ -6063,7 +6073,7 @@ components:
                     type: integer
                     format: enum
                 result:
-                    $ref: '#/components/schemas/StoryChapter'
+                    $ref: '#/components/schemas/StoryInfo'
                 timecost:
                     type: integer
                     format: int32
@@ -6852,6 +6862,25 @@ components:
                     type: string
                 viplevel:
                     type: string
+        StoryInfo:
+            type: object
+            properties:
+                故事名称和主题:
+                    $ref: '#/components/schemas/StoryNameAndTheme'
+                故事章节:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChapterInfo'
+        StoryNameAndTheme:
+            type: object
+            properties:
+                故事名称:
+                    type: string
+                故事主题:
+                    type: string
+                故事简介:
+                    type: string
+            description: StoryNameAndTheme 表示故事的名称和主题信息
         StoryParams:
             type: object
             properties:
