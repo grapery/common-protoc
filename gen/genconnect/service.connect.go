@@ -157,6 +157,8 @@ const (
 	TeamsAPIUpdateStoryProcedure = "/common.TeamsAPI/UpdateStory"
 	// TeamsAPIWatchStoryProcedure is the fully-qualified name of the TeamsAPI's WatchStory RPC.
 	TeamsAPIWatchStoryProcedure = "/common.TeamsAPI/WatchStory"
+	// TeamsAPIArchiveStoryProcedure is the fully-qualified name of the TeamsAPI's ArchiveStory RPC.
+	TeamsAPIArchiveStoryProcedure = "/common.TeamsAPI/ArchiveStory"
 	// TeamsAPICreateStoryboardProcedure is the fully-qualified name of the TeamsAPI's CreateStoryboard
 	// RPC.
 	TeamsAPICreateStoryboardProcedure = "/common.TeamsAPI/CreateStoryboard"
@@ -500,6 +502,8 @@ type TeamsAPIClient interface {
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
 	// 关注故事
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	// 收藏故事
+	ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error)
 	// 创建故事板
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	// 获取故事板
@@ -942,6 +946,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		watchStory: connect.NewClient[gen.WatchStoryRequest, gen.WatchStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIWatchStoryProcedure,
+			opts...,
+		),
+		archiveStory: connect.NewClient[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse](
+			httpClient,
+			baseURL+TeamsAPIArchiveStoryProcedure,
 			opts...,
 		),
 		createStoryboard: connect.NewClient[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse](
@@ -1414,6 +1423,7 @@ type teamsAPIClient struct {
 	renderStory                        *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
 	updateStory                        *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
 	watchStory                         *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
+	archiveStory                       *connect.Client[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse]
 	createStoryboard                   *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
 	getStoryboard                      *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
 	renderStoryboard                   *connect.Client[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse]
@@ -1771,6 +1781,11 @@ func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect.Request[g
 // WatchStory calls common.TeamsAPI.WatchStory.
 func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
 	return c.watchStory.CallUnary(ctx, req)
+}
+
+// ArchiveStory calls common.TeamsAPI.ArchiveStory.
+func (c *teamsAPIClient) ArchiveStory(ctx context.Context, req *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error) {
+	return c.archiveStory.CallUnary(ctx, req)
 }
 
 // CreateStoryboard calls common.TeamsAPI.CreateStoryboard.
@@ -2295,6 +2310,8 @@ type TeamsAPIHandler interface {
 	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
 	// 关注故事
 	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
+	// 收藏故事
+	ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error)
 	// 创建故事板
 	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	// 获取故事板
@@ -2733,6 +2750,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIWatchStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIWatchStoryProcedure,
 		svc.WatchStory,
+		opts...,
+	)
+	teamsAPIArchiveStoryHandler := connect.NewUnaryHandler(
+		TeamsAPIArchiveStoryProcedure,
+		svc.ArchiveStory,
 		opts...,
 	)
 	teamsAPICreateStoryboardHandler := connect.NewUnaryHandler(
@@ -3257,6 +3279,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryHandler.ServeHTTP(w, r)
 		case TeamsAPIWatchStoryProcedure:
 			teamsAPIWatchStoryHandler.ServeHTTP(w, r)
+		case TeamsAPIArchiveStoryProcedure:
+			teamsAPIArchiveStoryHandler.ServeHTTP(w, r)
 		case TeamsAPICreateStoryboardProcedure:
 			teamsAPICreateStoryboardHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryboardProcedure:
@@ -3648,6 +3672,10 @@ func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect.Reques
 
 func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.WatchStory is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.ArchiveStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error) {

@@ -1317,6 +1317,14 @@ service TeamsAPI {
     };
   }
 
+  // 收藏故事
+  rpc ArchiveStory(ArchiveStoryRequest) returns (ArchiveStoryResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/ArchiveStory"
+      body : "*"
+    };
+  }
+
 
   // 创建故事板
   rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
@@ -1976,6 +1984,18 @@ service TeamsAPI {
     };
   }
 }
+
+
+message ArchiveStoryRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+}
+
+message ArchiveStoryResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
 
 message CreateStoryCommentRequest {
   int64 story_id = 1;

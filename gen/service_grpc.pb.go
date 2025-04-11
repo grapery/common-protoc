@@ -74,6 +74,7 @@ const (
 	TeamsAPI_RenderStory_FullMethodName                        = "/common.TeamsAPI/RenderStory"
 	TeamsAPI_UpdateStory_FullMethodName                        = "/common.TeamsAPI/UpdateStory"
 	TeamsAPI_WatchStory_FullMethodName                         = "/common.TeamsAPI/WatchStory"
+	TeamsAPI_ArchiveStory_FullMethodName                       = "/common.TeamsAPI/ArchiveStory"
 	TeamsAPI_CreateStoryboard_FullMethodName                   = "/common.TeamsAPI/CreateStoryboard"
 	TeamsAPI_GetStoryboard_FullMethodName                      = "/common.TeamsAPI/GetStoryboard"
 	TeamsAPI_RenderStoryboard_FullMethodName                   = "/common.TeamsAPI/RenderStoryboard"
@@ -272,6 +273,8 @@ type TeamsAPIClient interface {
 	UpdateStory(ctx context.Context, in *UpdateStoryRequest, opts ...grpc.CallOption) (*UpdateStoryResponse, error)
 	// 关注故事
 	WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error)
+	// 收藏故事
+	ArchiveStory(ctx context.Context, in *ArchiveStoryRequest, opts ...grpc.CallOption) (*ArchiveStoryResponse, error)
 	// 创建故事板
 	CreateStoryboard(ctx context.Context, in *CreateStoryboardRequest, opts ...grpc.CallOption) (*CreateStoryboardResponse, error)
 	// 获取故事板
@@ -928,6 +931,15 @@ func (c *teamsAPIClient) UpdateStory(ctx context.Context, in *UpdateStoryRequest
 func (c *teamsAPIClient) WatchStory(ctx context.Context, in *WatchStoryRequest, opts ...grpc.CallOption) (*WatchStoryResponse, error) {
 	out := new(WatchStoryResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_WatchStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) ArchiveStory(ctx context.Context, in *ArchiveStoryRequest, opts ...grpc.CallOption) (*ArchiveStoryResponse, error) {
+	out := new(ArchiveStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_ArchiveStory_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1786,6 +1798,8 @@ type TeamsAPIServer interface {
 	UpdateStory(context.Context, *UpdateStoryRequest) (*UpdateStoryResponse, error)
 	// 关注故事
 	WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error)
+	// 收藏故事
+	ArchiveStory(context.Context, *ArchiveStoryRequest) (*ArchiveStoryResponse, error)
 	// 创建故事板
 	CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error)
 	// 获取故事板
@@ -2114,6 +2128,9 @@ func (UnimplementedTeamsAPIServer) UpdateStory(context.Context, *UpdateStoryRequ
 }
 func (UnimplementedTeamsAPIServer) WatchStory(context.Context, *WatchStoryRequest) (*WatchStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WatchStory not implemented")
+}
+func (UnimplementedTeamsAPIServer) ArchiveStory(context.Context, *ArchiveStoryRequest) (*ArchiveStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ArchiveStory not implemented")
 }
 func (UnimplementedTeamsAPIServer) CreateStoryboard(context.Context, *CreateStoryboardRequest) (*CreateStoryboardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStoryboard not implemented")
@@ -3360,6 +3377,24 @@ func _TeamsAPI_WatchStory_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).WatchStory(ctx, req.(*WatchStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_ArchiveStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ArchiveStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).ArchiveStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_ArchiveStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).ArchiveStory(ctx, req.(*ArchiveStoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5066,6 +5101,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WatchStory",
 			Handler:    _TeamsAPI_WatchStory_Handler,
+		},
+		{
+			MethodName: "ArchiveStory",
+			Handler:    _TeamsAPI_ArchiveStory_Handler,
 		},
 		{
 			MethodName: "CreateStoryboard",

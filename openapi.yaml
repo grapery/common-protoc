@@ -25,6 +25,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/ArchiveStory:
+        post:
+            tags:
+                - TeamsAPI
+            description: 收藏故事
+            operationId: TeamsAPI_ArchiveStory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ArchiveStoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ArchiveStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CancelStoryboard:
         post:
             tags:
@@ -3467,6 +3492,21 @@ components:
                 Ctime:
                     type: string
                 Mtime:
+                    type: string
+        ArchiveStoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+        ArchiveStoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
                     type: string
         CancelStoryboardRequest:
             type: object

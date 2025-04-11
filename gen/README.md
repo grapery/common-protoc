@@ -186,6 +186,8 @@
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
     - [ActiveInfo](#common-ActiveInfo)
+    - [ArchiveStoryRequest](#common-ArchiveStoryRequest)
+    - [ArchiveStoryResponse](#common-ArchiveStoryResponse)
     - [CancelStoryboardRequest](#common-CancelStoryboardRequest)
     - [CancelStoryboardResponse](#common-CancelStoryboardResponse)
     - [ChatContext](#common-ChatContext)
@@ -3709,6 +3711,38 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | content | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ArchiveStoryRequest"></a>
+
+### ArchiveStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-ArchiveStoryResponse"></a>
+
+### ArchiveStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
 
 
 
@@ -8342,6 +8376,7 @@ user ,group .project.item
 | RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) | 渲染故事 |
 | UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) | 更新故事 |
 | WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) | 关注故事 |
+| ArchiveStory | [ArchiveStoryRequest](#common-ArchiveStoryRequest) | [ArchiveStoryResponse](#common-ArchiveStoryResponse) | 收藏故事 |
 | CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) | 创建故事板 |
 | GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) | 获取故事板 |
 | RenderStoryboard | [RenderStoryboardRequest](#common-RenderStoryboardRequest) | [RenderStoryboardResponse](#common-RenderStoryboardResponse) | 渲染故事板 |

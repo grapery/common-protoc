@@ -449,6 +449,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `watchStory`(request: Common_WatchStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_WatchStoryResponse>
 
+    /// 收藏故事
+    @discardableResult
+    func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable
+
+    /// 收藏故事
+    @available(iOS 13, *)
+    func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ArchiveStoryResponse>
+
     /// 创建故事板
     @discardableResult
     func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable
@@ -1651,6 +1659,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
+    public func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ArchiveStoryResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
     public func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable {
         return self.client.unary(path: "/common.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
@@ -2527,6 +2545,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "common.TeamsAPI", type: .unary)
             public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "common.TeamsAPI", type: .unary)
             public static let watchStory = Connect.MethodSpec(name: "WatchStory", service: "common.TeamsAPI", type: .unary)
+            public static let archiveStory = Connect.MethodSpec(name: "ArchiveStory", service: "common.TeamsAPI", type: .unary)
             public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "common.TeamsAPI", type: .unary)
             public static let renderStoryboard = Connect.MethodSpec(name: "RenderStoryboard", service: "common.TeamsAPI", type: .unary)
