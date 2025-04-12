@@ -1443,6 +1443,7 @@ ChapterSummary 表示章节的基本信息
 | ----- | ---- | ----- | ----------- |
 | title | [string](#string) |  | 章节题目 |
 | content | [string](#string) |  | 章节内容 |
+| characters | [Character](#common-Character) | repeated | 参与人物 |
 
 
 

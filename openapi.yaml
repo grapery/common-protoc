@@ -3551,6 +3551,11 @@ components:
                 content:
                     type: string
                     description: 章节内容
+                characters:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Character'
+                    description: 参与人物
             description: ChapterSummary 表示章节的基本信息
         Character:
             type: object

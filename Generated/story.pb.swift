@@ -1868,6 +1868,9 @@ public struct Common_ChapterSummary: Sendable {
   /// 章节内容
   public var content: String = String()
 
+  /// 参与人物
+  public var characters: [Common_Character] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -6586,6 +6589,7 @@ extension Common_ChapterSummary: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "content"),
+    3: .same(proto: "characters"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6596,6 +6600,7 @@ extension Common_ChapterSummary: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.content) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.characters) }()
       default: break
       }
     }
@@ -6608,12 +6613,16 @@ extension Common_ChapterSummary: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     if !self.content.isEmpty {
       try visitor.visitSingularStringField(value: self.content, fieldNumber: 2)
     }
+    if !self.characters.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.characters, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_ChapterSummary, rhs: Common_ChapterSummary) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.content != rhs.content {return false}
+    if lhs.characters != rhs.characters {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

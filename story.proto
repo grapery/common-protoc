@@ -448,6 +448,8 @@ message ChapterSummary {
   string title = 1;
   // 章节内容
   string content = 2;
+  // 参与人物
+  repeated Character characters = 3;
 }
 
 // ChapterDetailInformation 包含多个详细情节
