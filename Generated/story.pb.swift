@@ -26,32 +26,35 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 未指定
   case unspecified // = 0
 
+  /// 草稿
+  case draft // = 1
+
   /// 创建
-  case created // = 1
+  case created // = 2
 
   /// 渲染完成
-  case rendered // = 2
+  case rendered // = 3
 
   /// 生成���片
-  case genImage // = 3
+  case genImage // = 4
 
   /// 生成视频
-  case genVideo // = 4
+  case genVideo // = 5
 
   /// 生成音频
-  case genAudio // = 5
+  case genAudio // = 6
 
   /// 生成文本
-  case genText // = 6
+  case genText // = 7
 
   /// 完成
-  case finished // = 7
+  case finished // = 8
 
   /// 失败
-  case failed // = 8
+  case failed // = 9
 
   /// 发布
-  case published // = 9
+  case published // = 10
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -61,15 +64,16 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
-    case 1: self = .created
-    case 2: self = .rendered
-    case 3: self = .genImage
-    case 4: self = .genVideo
-    case 5: self = .genAudio
-    case 6: self = .genText
-    case 7: self = .finished
-    case 8: self = .failed
-    case 9: self = .published
+    case 1: self = .draft
+    case 2: self = .created
+    case 3: self = .rendered
+    case 4: self = .genImage
+    case 5: self = .genVideo
+    case 6: self = .genAudio
+    case 7: self = .genText
+    case 8: self = .finished
+    case 9: self = .failed
+    case 10: self = .published
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -77,15 +81,16 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public var rawValue: Int {
     switch self {
     case .unspecified: return 0
-    case .created: return 1
-    case .rendered: return 2
-    case .genImage: return 3
-    case .genVideo: return 4
-    case .genAudio: return 5
-    case .genText: return 6
-    case .finished: return 7
-    case .failed: return 8
-    case .published: return 9
+    case .draft: return 1
+    case .created: return 2
+    case .rendered: return 3
+    case .genImage: return 4
+    case .genVideo: return 5
+    case .genAudio: return 6
+    case .genText: return 7
+    case .finished: return 8
+    case .failed: return 9
+    case .published: return 10
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -93,6 +98,7 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_StoryboardStage] = [
     .unspecified,
+    .draft,
     .created,
     .rendered,
     .genImage,
@@ -112,23 +118,26 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 0: 原创
   case textUnspecified // = 0
 
-  /// 1: 故事板
-  case storyboard // = 1
+  /// 1: 故事板文本
+  case storyboardText // = 1
 
-  /// 2: 故事场景
-  case storysence // = 2
+  /// 2: 故事板
+  case storyboard // = 2
 
-  /// 3: 故事角色
-  case storycharacters // = 3
+  /// 3: 故事场景
+  case storysence // = 3
 
-  /// 4: 故事动作
-  case storyaction // = 4
+  /// 4: 故事角色
+  case storycharacters // = 4
 
-  /// 5: 故事设置
-  case storysetting // = 5
+  /// 5: 故事动作
+  case storyaction // = 5
 
-  /// 6: 故事结局
-  case storyending // = 6
+  /// 6: 故事设置
+  case storysetting // = 6
+
+  /// 7: 故事结局
+  case storyending // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -138,12 +147,13 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .textUnspecified
-    case 1: self = .storyboard
-    case 2: self = .storysence
-    case 3: self = .storycharacters
-    case 4: self = .storyaction
-    case 5: self = .storysetting
-    case 6: self = .storyending
+    case 1: self = .storyboardText
+    case 2: self = .storyboard
+    case 3: self = .storysence
+    case 4: self = .storycharacters
+    case 5: self = .storyaction
+    case 6: self = .storysetting
+    case 7: self = .storyending
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -151,12 +161,13 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public var rawValue: Int {
     switch self {
     case .textUnspecified: return 0
-    case .storyboard: return 1
-    case .storysence: return 2
-    case .storycharacters: return 3
-    case .storyaction: return 4
-    case .storysetting: return 5
-    case .storyending: return 6
+    case .storyboardText: return 1
+    case .storyboard: return 2
+    case .storysence: return 3
+    case .storycharacters: return 4
+    case .storyaction: return 5
+    case .storysetting: return 6
+    case .storyending: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -164,6 +175,7 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_RenderType] = [
     .textUnspecified,
+    .storyboardText,
     .storyboard,
     .storysence,
     .storycharacters,
@@ -3126,27 +3138,29 @@ fileprivate let _protobuf_package = "common"
 extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "STORYBOARD_STAGE_UNSPECIFIED"),
-    1: .same(proto: "STORYBOARD_STAGE_CREATED"),
-    2: .same(proto: "STORYBOARD_STAGE_RENDERED"),
-    3: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
-    4: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
-    5: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
-    6: .same(proto: "STORYBOARD_STAGE_GEN_TEXT"),
-    7: .same(proto: "STORYBOARD_STAGE_FINISHED"),
-    8: .same(proto: "STORYBOARD_STAGE_FAILED"),
-    9: .same(proto: "STORYBOARD_STAGE_PUBLISHED"),
+    1: .same(proto: "STORYBOARD_STAGE_DRAFT"),
+    2: .same(proto: "STORYBOARD_STAGE_CREATED"),
+    3: .same(proto: "STORYBOARD_STAGE_RENDERED"),
+    4: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
+    5: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
+    6: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
+    7: .same(proto: "STORYBOARD_STAGE_GEN_TEXT"),
+    8: .same(proto: "STORYBOARD_STAGE_FINISHED"),
+    9: .same(proto: "STORYBOARD_STAGE_FAILED"),
+    10: .same(proto: "STORYBOARD_STAGE_PUBLISHED"),
   ]
 }
 
 extension Common_RenderType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RENDER_TYPE_TEXT_UNSPECIFIED"),
-    1: .same(proto: "RENDER_TYPE_STORYBOARD"),
-    2: .same(proto: "RENDER_TYPE_STORYSENCE"),
-    3: .same(proto: "RENDER_TYPE_STORYCHARACTERS"),
-    4: .same(proto: "RENDER_TYPE_STORYACTION"),
-    5: .same(proto: "RENDER_TYPE_STORYSETTING"),
-    6: .same(proto: "RENDER_TYPE_STORYENDING"),
+    1: .same(proto: "RENDER_TYPE_STORYBOARD_TEXT"),
+    2: .same(proto: "RENDER_TYPE_STORYBOARD"),
+    3: .same(proto: "RENDER_TYPE_STORYSENCE"),
+    4: .same(proto: "RENDER_TYPE_STORYCHARACTERS"),
+    5: .same(proto: "RENDER_TYPE_STORYACTION"),
+    6: .same(proto: "RENDER_TYPE_STORYSETTING"),
+    7: .same(proto: "RENDER_TYPE_STORYENDING"),
   ]
 }
 

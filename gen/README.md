@@ -3417,12 +3417,13 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | RENDER_TYPE_TEXT_UNSPECIFIED | 0 | 0: 原创 |
-| RENDER_TYPE_STORYBOARD | 1 | 1: 故事板 |
-| RENDER_TYPE_STORYSENCE | 2 | 2: 故事场景 |
-| RENDER_TYPE_STORYCHARACTERS | 3 | 3: 故事角色 |
-| RENDER_TYPE_STORYACTION | 4 | 4: 故事动作 |
-| RENDER_TYPE_STORYSETTING | 5 | 5: 故事设置 |
-| RENDER_TYPE_STORYENDING | 6 | 6: 故事结局 |
+| RENDER_TYPE_STORYBOARD_TEXT | 1 | 1: 故事板文本 |
+| RENDER_TYPE_STORYBOARD | 2 | 2: 故事板 |
+| RENDER_TYPE_STORYSENCE | 3 | 3: 故事场景 |
+| RENDER_TYPE_STORYCHARACTERS | 4 | 4: 故事角色 |
+| RENDER_TYPE_STORYACTION | 5 | 5: 故事动作 |
+| RENDER_TYPE_STORYSETTING | 6 | 6: 故事设置 |
+| RENDER_TYPE_STORYENDING | 7 | 7: 故事结局 |
 
 
 
@@ -3457,15 +3458,16 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
-| STORYBOARD_STAGE_CREATED | 1 | 创建 |
-| STORYBOARD_STAGE_RENDERED | 2 | 渲染完成 |
-| STORYBOARD_STAGE_GEN_IMAGE | 3 | 生成���片 |
-| STORYBOARD_STAGE_GEN_VIDEO | 4 | 生成视频 |
-| STORYBOARD_STAGE_GEN_AUDIO | 5 | 生成音频 |
-| STORYBOARD_STAGE_GEN_TEXT | 6 | 生成文本 |
-| STORYBOARD_STAGE_FINISHED | 7 | 完成 |
-| STORYBOARD_STAGE_FAILED | 8 | 失败 |
-| STORYBOARD_STAGE_PUBLISHED | 9 | 发布 |
+| STORYBOARD_STAGE_DRAFT | 1 | 草稿 |
+| STORYBOARD_STAGE_CREATED | 2 | 创建 |
+| STORYBOARD_STAGE_RENDERED | 3 | 渲染完成 |
+| STORYBOARD_STAGE_GEN_IMAGE | 4 | 生成���片 |
+| STORYBOARD_STAGE_GEN_VIDEO | 5 | 生成视频 |
+| STORYBOARD_STAGE_GEN_AUDIO | 6 | 生成音频 |
+| STORYBOARD_STAGE_GEN_TEXT | 7 | 生成文本 |
+| STORYBOARD_STAGE_FINISHED | 8 | 完成 |
+| STORYBOARD_STAGE_FAILED | 9 | 失败 |
+| STORYBOARD_STAGE_PUBLISHED | 10 | 发布 |
 
 
  
