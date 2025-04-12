@@ -57,6 +57,7 @@
     - [ChapterInfo](#common-ChapterInfo)
     - [ChapterSummary](#common-ChapterSummary)
     - [Character](#common-Character)
+    - [CharacterDetail](#common-CharacterDetail)
     - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
     - [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse)
     - [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest)
@@ -1461,6 +1462,25 @@ Character 表示角色信息
 | id | [string](#string) |  | 角色id |
 | name | [string](#string) |  | 角色姓名 |
 | description | [string](#string) |  | 角色描述 |
+
+
+
+
+
+
+<a name="common-CharacterDetail"></a>
+
+### CharacterDetail
+CharacterDetail represents detailed information about a character
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| description | [string](#string) |  | Description of the character |
+| short_term_goal | [string](#string) |  | Character&#39;s short-term goals |
+| long_term_goal | [string](#string) |  | Character&#39;s long-term goals |
+| personality | [string](#string) |  | Character&#39;s personality traits |
+| background | [string](#string) |  | Character&#39;s background story |
 
 
 
@@ -3087,6 +3107,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | character_id | [string](#string) |  |  |
 | character_type | [string](#string) |  |  |
 | character_prompt | [string](#string) |  |  |
+| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
 | character_ref_images | [string](#string) | repeated |  |
 | creator_id | [int64](#int64) |  |  |
 | status | [int32](#int32) |  |  |

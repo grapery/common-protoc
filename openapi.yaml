@@ -3570,6 +3570,25 @@ components:
                     type: string
                     description: 角色描述
             description: Character 表示角色信息
+        CharacterDetail:
+            type: object
+            properties:
+                description:
+                    type: string
+                    description: Description of the character
+                shortTermGoal:
+                    type: string
+                    description: Character's short-term goals
+                longTermGoal:
+                    type: string
+                    description: Character's long-term goals
+                personality:
+                    type: string
+                    description: Character's personality traits
+                background:
+                    type: string
+                    description: Character's background story
+            description: CharacterDetail represents detailed information about a character
         ChatContext:
             type: object
             properties:
@@ -6962,6 +6981,8 @@ components:
                     type: string
                 characterPrompt:
                     type: string
+                characterDetail:
+                    $ref: '#/components/schemas/CharacterDetail'
                 characterRefImages:
                     type: array
                     items:

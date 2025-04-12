@@ -140,6 +140,20 @@ message StoryBoardSences{
     repeated StoryBoardSence list = 2;
 }
 
+// CharacterDetail represents detailed information about a character
+message CharacterDetail {
+  // Description of the character
+  string description = 1;
+  // Character's short-term goals
+  string short_term_goal = 2;
+  // Character's long-term goals
+  string long_term_goal = 3;
+  // Character's personality traits
+  string personality = 4;
+  // Character's background story
+  string background = 5;
+} 
+
 message StoryRole{
     int64 role_id = 1;
     int64 story_id = 2;
@@ -149,18 +163,19 @@ message StoryRole{
     string character_id = 8;
     string character_type = 9;
     string character_prompt = 10;
-    repeated string character_ref_images = 11;
-    int64 creator_id = 12;
-    int32 status = 13;
-    int64 like_count = 14;
-    int64 follow_count = 15;
-    int64 storyboard_num = 16;
-    int64 version = 17;
-    bool isliked = 18;
-    bool isfolllowed = 19;
-    int64 Ctime = 20;
-    int64 Mtime = 21;  
-    WhatCurrentUserStatus current_user_status = 22;
+    CharacterDetail character_detail = 11;
+    repeated string character_ref_images = 12;
+    int64 creator_id = 13;
+    int32 status = 14;
+    int64 like_count = 15;
+    int64 follow_count = 16;
+    int64 storyboard_num = 17;
+    int64 version = 18;
+    bool isliked = 19;
+    bool isfolllowed = 20;
+    int64 Ctime = 21;
+    int64 Mtime = 22;  
+    WhatCurrentUserStatus current_user_status = 23;
 }
 
 message StoryBoardParams{
