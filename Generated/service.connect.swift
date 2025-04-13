@@ -1098,6 +1098,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 取消点赞故事评论
     @available(iOS 13, *)
     func `dislikeComment`(request: Common_DislikeCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DislikeCommentResponse>
+
+    /// 获取故事角色列表
+    @discardableResult
+    func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取故事角色列表
+    @available(iOS 13, *)
+    func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleListResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2488,6 +2496,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/DislikeComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleListResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2628,6 +2646,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryBoardCommentReplies = Connect.MethodSpec(name: "GetStoryBoardCommentReplies", service: "common.TeamsAPI", type: .unary)
             public static let likeComment = Connect.MethodSpec(name: "LikeComment", service: "common.TeamsAPI", type: .unary)
             public static let dislikeComment = Connect.MethodSpec(name: "DislikeComment", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryRoleList = Connect.MethodSpec(name: "GetStoryRoleList", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

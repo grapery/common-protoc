@@ -310,6 +310,8 @@
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
     - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
     - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
+    - [GetStoryRoleListRequest](#common-GetStoryRoleListRequest)
+    - [GetStoryRoleListResponse](#common-GetStoryRoleListResponse)
     - [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest)
     - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
@@ -5770,6 +5772,43 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
+<a name="common-GetStoryRoleListRequest"></a>
+
+### GetStoryRoleListRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| search_key | [string](#string) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRoleListResponse"></a>
+
+### GetStoryRoleListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| roles | [StoryRole](#common-StoryRole) | repeated |  |
+
+
+
+
+
+
 <a name="common-GetStoryRoleStoriesRequest"></a>
 
 ### GetStoryRoleStoriesRequest
@@ -8483,6 +8522,7 @@ user ,group .project.item
 | GetStoryBoardCommentReplies | [GetStoryBoardCommentRepliesRequest](#common-GetStoryBoardCommentRepliesRequest) | [GetStoryBoardCommentRepliesResponse](#common-GetStoryBoardCommentRepliesResponse) | 获取故事板评论回复 |
 | LikeComment | [LikeCommentRequest](#common-LikeCommentRequest) | [LikeCommentResponse](#common-LikeCommentResponse) | 点赞故事评论 |
 | DislikeComment | [DislikeCommentRequest](#common-DislikeCommentRequest) | [DislikeCommentResponse](#common-DislikeCommentResponse) | 取消点赞故事评论 |
+| GetStoryRoleList | [GetStoryRoleListRequest](#common-GetStoryRoleListRequest) | [GetStoryRoleListResponse](#common-GetStoryRoleListResponse) | 获取故事角色列表 |
 
  
 

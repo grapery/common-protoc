@@ -1492,6 +1492,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryRoleList:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事角色列表
+            operationId: TeamsAPI_GetStoryRoleList
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryRoleListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryRoleListResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryRoleStories:
         post:
             tags:
@@ -5156,6 +5181,33 @@ components:
                     type: string
                 info:
                     $ref: '#/components/schemas/StoryRole'
+        GetStoryRoleListRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                boardId:
+                    type: string
+                searchKey:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryRoleListResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
         GetStoryRoleStoriesRequest:
             type: object
             properties:

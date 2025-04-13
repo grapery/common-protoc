@@ -157,6 +157,7 @@ const (
 	TeamsAPI_GetStoryBoardCommentReplies_FullMethodName        = "/common.TeamsAPI/GetStoryBoardCommentReplies"
 	TeamsAPI_LikeComment_FullMethodName                        = "/common.TeamsAPI/LikeComment"
 	TeamsAPI_DislikeComment_FullMethodName                     = "/common.TeamsAPI/DislikeComment"
+	TeamsAPI_GetStoryRoleList_FullMethodName                   = "/common.TeamsAPI/GetStoryRoleList"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -432,6 +433,8 @@ type TeamsAPIClient interface {
 	LikeComment(ctx context.Context, in *LikeCommentRequest, opts ...grpc.CallOption) (*LikeCommentResponse, error)
 	// 取消点赞故事评论
 	DislikeComment(ctx context.Context, in *DislikeCommentRequest, opts ...grpc.CallOption) (*DislikeCommentResponse, error)
+	// 获取故事角色列表
+	GetStoryRoleList(ctx context.Context, in *GetStoryRoleListRequest, opts ...grpc.CallOption) (*GetStoryRoleListResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1684,6 +1687,15 @@ func (c *teamsAPIClient) DislikeComment(ctx context.Context, in *DislikeCommentR
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, in *GetStoryRoleListRequest, opts ...grpc.CallOption) (*GetStoryRoleListResponse, error) {
+	out := new(GetStoryRoleListResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryRoleList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1957,6 +1969,8 @@ type TeamsAPIServer interface {
 	LikeComment(context.Context, *LikeCommentRequest) (*LikeCommentResponse, error)
 	// 取消点赞故事评论
 	DislikeComment(context.Context, *DislikeCommentRequest) (*DislikeCommentResponse, error)
+	// 获取故事角色列表
+	GetStoryRoleList(context.Context, *GetStoryRoleListRequest) (*GetStoryRoleListResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2377,6 +2391,9 @@ func (UnimplementedTeamsAPIServer) LikeComment(context.Context, *LikeCommentRequ
 }
 func (UnimplementedTeamsAPIServer) DislikeComment(context.Context, *DislikeCommentRequest) (*DislikeCommentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DislikeComment not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryRoleList(context.Context, *GetStoryRoleListRequest) (*GetStoryRoleListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryRoleList not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4875,6 +4892,24 @@ func _TeamsAPI_DislikeComment_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetStoryRoleList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryRoleListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryRoleList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryRoleList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryRoleList(ctx, req.(*GetStoryRoleListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5433,6 +5468,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DislikeComment",
 			Handler:    _TeamsAPI_DislikeComment_Handler,
+		},
+		{
+			MethodName: "GetStoryRoleList",
+			Handler:    _TeamsAPI_GetStoryRoleList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

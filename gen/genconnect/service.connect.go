@@ -388,6 +388,9 @@ const (
 	TeamsAPILikeCommentProcedure = "/common.TeamsAPI/LikeComment"
 	// TeamsAPIDislikeCommentProcedure is the fully-qualified name of the TeamsAPI's DislikeComment RPC.
 	TeamsAPIDislikeCommentProcedure = "/common.TeamsAPI/DislikeComment"
+	// TeamsAPIGetStoryRoleListProcedure is the fully-qualified name of the TeamsAPI's GetStoryRoleList
+	// RPC.
+	TeamsAPIGetStoryRoleListProcedure = "/common.TeamsAPI/GetStoryRoleList"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -661,6 +664,8 @@ type TeamsAPIClient interface {
 	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
 	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
+	// 获取故事角色列表
+	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1363,6 +1368,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIDislikeCommentProcedure,
 			opts...,
 		),
+		getStoryRoleList: connect.NewClient[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryRoleListProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1506,6 +1516,7 @@ type teamsAPIClient struct {
 	getStoryBoardCommentReplies        *connect.Client[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse]
 	likeComment                        *connect.Client[gen.LikeCommentRequest, gen.LikeCommentResponse]
 	dislikeComment                     *connect.Client[gen.DislikeCommentRequest, gen.DislikeCommentResponse]
+	getStoryRoleList                   *connect.Client[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2198,6 +2209,11 @@ func (c *teamsAPIClient) DislikeComment(ctx context.Context, req *connect.Reques
 	return c.dislikeComment.CallUnary(ctx, req)
 }
 
+// GetStoryRoleList calls common.TeamsAPI.GetStoryRoleList.
+func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, req *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error) {
+	return c.getStoryRoleList.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2469,6 +2485,8 @@ type TeamsAPIHandler interface {
 	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
 	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
+	// 获取故事角色列表
+	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3167,6 +3185,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.DislikeComment,
 		opts...,
 	)
+	teamsAPIGetStoryRoleListHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryRoleListProcedure,
+		svc.GetStoryRoleList,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3445,6 +3468,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPILikeCommentHandler.ServeHTTP(w, r)
 		case TeamsAPIDislikeCommentProcedure:
 			teamsAPIDislikeCommentHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryRoleListProcedure:
+			teamsAPIGetStoryRoleListHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4004,4 +4029,8 @@ func (UnimplementedTeamsAPIHandler) LikeComment(context.Context, *connect.Reques
 
 func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.DislikeComment is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleList is not implemented"))
 }

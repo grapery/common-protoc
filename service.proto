@@ -1983,8 +1983,30 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取故事角色列表
+  rpc GetStoryRoleList(GetStoryRoleListRequest) returns (GetStoryRoleListResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryRoleList"
+      body : "*"
+    };
+  }
 }
 
+message GetStoryRoleListRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+  int64 board_id = 3;
+  string search_key = 4;
+  int64 offset = 5;
+  int64 page_size = 6;
+}
+
+message GetStoryRoleListResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryRole roles = 3;
+}
 
 message ArchiveStoryRequest {
   int64 story_id = 1;
