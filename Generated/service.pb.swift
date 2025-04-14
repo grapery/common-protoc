@@ -2258,21 +2258,11 @@ public struct Common_GetGroupResponse: Sendable {
     /// Clears the value of `info`. Subsequent reads from it will return its default value.
     public mutating func clearInfo() {self._info = nil}
 
-    public var profile: Common_GroupProfileInfo {
-      get {return _profile ?? Common_GroupProfileInfo()}
-      set {_profile = newValue}
-    }
-    /// Returns true if `profile` has been explicitly set.
-    public var hasProfile: Bool {return self._profile != nil}
-    /// Clears the value of `profile`. Subsequent reads from it will return its default value.
-    public mutating func clearProfile() {self._profile = nil}
-
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
 
     fileprivate var _info: Common_GroupInfo? = nil
-    fileprivate var _profile: Common_GroupProfileInfo? = nil
   }
 
   public init() {}
@@ -10325,7 +10315,6 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   public static let protoMessageName: String = Common_GetGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "info"),
-    2: .same(proto: "profile"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10335,7 +10324,6 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._profile) }()
       default: break
       }
     }
@@ -10349,15 +10337,11 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     try { if let v = self._info {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    try { if let v = self._profile {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetGroupResponse.DataMessage, rhs: Common_GetGroupResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
-    if lhs._profile != rhs._profile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

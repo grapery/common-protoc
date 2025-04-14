@@ -622,7 +622,6 @@ message GetGroupResponse {
   string message = 2;
   message Data {
     GroupInfo info = 1; 
-    GroupProfileInfo profile = 2;
   } Data data = 3;
 }
 

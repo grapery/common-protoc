@@ -176,5 +176,48 @@ enum ResponseCode {
   AI_RATE_LIMITED = 1307;     // AI速率受限
   AI_CONTEXT_ERROR = 1308;    // AI上下文错误
   AI_RESPONSE_ERROR = 1309;   // AI响应错误
+
+  // 评论相关错误 (1400-1499)
+  COMMENT_NOT_FOUND = 1400;   // 评论不存在
+  COMMENT_ALREADY_EXISTS = 1401; // 评论已存在
+  COMMENT_PERMISSION_DENIED = 1402; // 评论权限不足
+  COMMENT_LOCKED = 1403;     // 评论已锁定
+  COMMENT_STATUS_ERROR = 1404; // 评论状态错误
+
+  // 点赞相关错误 (1500-1599)
+  LIKE_NOT_FOUND = 1500;       // 点赞不存在
+  LIKE_ALREADY_EXISTS = 1501;  // 点赞已存在
+  LIKE_PERMISSION_DENIED = 1502; // 点赞权限不足
+  LIKE_LOCKED = 1503;          // 点赞已锁定
+  LIKE_STATUS_ERROR = 1504;    // 点赞状态错误
+
+  //VIP\充值相关错误 (1600-1699)
+  VIP_NOT_FOUND = 1600;        // VIP不存在
+  VIP_ALREADY_EXISTS = 1601;   // VIP已存在
+  VIP_PERMISSION_DENIED = 1602; // VIP权限不足
+  VIP_LOCKED = 1603;           // VIP已锁定
+  VIP_STATUS_ERROR = 1604;     // VIP状态错误
+  
+  // 支付相关错误 (1700-1799)
+  PAYMENT_NOT_FOUND = 1700;    // 支付不存在
+  PAYMENT_ALREADY_EXISTS = 1701; // 支付已存在
+  PAYMENT_PERMISSION_DENIED = 1702; // 支付权限不足
+  PAYMENT_LOCKED = 1703;        // 支付已锁定
+  PAYMENT_STATUS_ERROR = 1704;  // 支付状态错误
+  
+  // 订单相关错误 (1800-1899)
+  ORDER_NOT_FOUND = 1800;       // 订单不存在
+  ORDER_ALREADY_EXISTS = 1801;  // 订单已存在
+  ORDER_PERMISSION_DENIED = 1802; // 订单权限不足
+  ORDER_LOCKED = 1803;          // 订单已锁定
+  ORDER_STATUS_ERROR = 1804;    // 订单状态错误
+
+  // 消息相关错误 (1900-1999)
+  MESSAGE_NOT_FOUND = 1900;     // 消息不存在
+  MESSAGE_ALREADY_EXISTS = 1901; // 消息已存在
+  MESSAGE_PERMISSION_DENIED = 1902; // 消息权限不足
+  MESSAGE_LOCKED = 1903;        // 消息已锁定
+  MESSAGE_STATUS_ERROR = 1904;  // 消息状态错误
+
 }
 

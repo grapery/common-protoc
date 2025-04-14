@@ -2842,10 +2842,16 @@ DetailScene 表示具体的场景信息
 | params | [StoryParams](#common-StoryParams) |  |  |
 | status | [int32](#int32) |  |  |
 | title | [string](#string) |  |  |
-| total_boards | [int64](#int64) |  |  |
 | isliked | [bool](#bool) |  |  |
 | iswatched | [bool](#bool) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+| like_count | [int64](#int64) |  |  |
+| comment_count | [int64](#int64) |  |  |
+| share_count | [int64](#int64) |  |  |
+| follow_count | [int64](#int64) |  |  |
+| total_boards | [int64](#int64) |  |  |
+| total_roles | [int64](#int64) |  |  |
+| total_members | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3080,13 +3086,15 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| StoryDescription | [string](#string) |  |  |
-| RefImage | [string](#string) |  |  |
-| NegativePrompt | [string](#string) |  |  |
+| story_description | [string](#string) |  |  |
+| ref_image | [string](#string) |  |  |
+| negative_prompt | [string](#string) |  |  |
 | prompt | [string](#string) |  |  |
-| ComicLayoutStyle | [string](#string) |  |  |
-| ComicStyle | [string](#string) |  |  |
+| comic_layout_style | [string](#string) |  |  |
+| comic_style | [string](#string) |  |  |
 | background | [string](#string) |  |  |
+| style_ref_image | [string](#string) |  |  |
+| subject | [string](#string) |  |  |
 
 
 
@@ -5101,7 +5109,6 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | info | [GroupInfo](#common-GroupInfo) |  |  |
-| profile | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
 
 
 

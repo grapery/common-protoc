@@ -4597,8 +4597,6 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
-                profile:
-                    $ref: '#/components/schemas/GroupProfileInfo'
         GetItemRequest:
             type: object
             properties:
@@ -6722,14 +6720,26 @@ components:
                     format: int32
                 title:
                     type: string
-                totalBoards:
-                    type: string
                 isliked:
                     type: boolean
                 iswatched:
                     type: boolean
                 currentUserStatus:
                     $ref: '#/components/schemas/WhatCurrentUserStatus'
+                likeCount:
+                    type: string
+                commentCount:
+                    type: string
+                shareCount:
+                    type: string
+                followCount:
+                    type: string
+                totalBoards:
+                    type: string
+                totalRoles:
+                    type: string
+                totalMembers:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:
@@ -7000,19 +7010,23 @@ components:
         StoryParams:
             type: object
             properties:
-                StoryDescription:
+                storyDescription:
                     type: string
-                RefImage:
+                refImage:
                     type: string
-                NegativePrompt:
+                negativePrompt:
                     type: string
                 prompt:
                     type: string
-                ComicLayoutStyle:
+                comicLayoutStyle:
                     type: string
-                ComicStyle:
+                comicStyle:
                     type: string
                 background:
+                    type: string
+                styleRefImage:
+                    type: string
+                subject:
                     type: string
         StoryRole:
             type: object
