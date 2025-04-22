@@ -17,14 +17,6 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `explore`(request: Common_ExploreRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ExploreResponse>
 
-    /// 趋势
-    @discardableResult
-    func `trending`(request: Common_TrendingRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_TrendingResponse>) -> Void) -> Connect.Cancelable
-
-    /// 趋势
-    @available(iOS 13, *)
-    func `trending`(request: Common_TrendingRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingResponse>
-
     /// 版本
     @discardableResult
     func `version`(request: Common_VersionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_VersionResponse>) -> Void) -> Connect.Cancelable
@@ -1106,6 +1098,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取故事角色列表
     @available(iOS 13, *)
     func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleListResponse>
+
+    /// 热门故事
+    @discardableResult
+    func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryResponse>) -> Void) -> Connect.Cancelable
+
+    /// 热门故事
+    @available(iOS 13, *)
+    func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingStoryResponse>
+
+    ///热门角色
+    @discardableResult
+    func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable
+
+    ///热门角色
+    @available(iOS 13, *)
+    func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingStoryRoleResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -1124,16 +1132,6 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     @available(iOS 13, *)
     public func `explore`(request: Common_ExploreRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ExploreResponse> {
         return await self.client.unary(path: "/common.TeamsAPI/Explore", idempotencyLevel: .unknown, request: request, headers: headers)
-    }
-
-    @discardableResult
-    public func `trending`(request: Common_TrendingRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_TrendingResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Trending", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
-    }
-
-    @available(iOS 13, *)
-    public func `trending`(request: Common_TrendingRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_TrendingResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Trending", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
@@ -2506,10 +2504,29 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_TrendingStoryResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_TrendingStoryRoleResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
-            public static let trending = Connect.MethodSpec(name: "Trending", service: "common.TeamsAPI", type: .unary)
             public static let version = Connect.MethodSpec(name: "Version", service: "common.TeamsAPI", type: .unary)
             public static let about = Connect.MethodSpec(name: "About", service: "common.TeamsAPI", type: .unary)
             public static let login = Connect.MethodSpec(name: "Login", service: "common.TeamsAPI", type: .unary)
@@ -2647,6 +2664,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let likeComment = Connect.MethodSpec(name: "LikeComment", service: "common.TeamsAPI", type: .unary)
             public static let dislikeComment = Connect.MethodSpec(name: "DislikeComment", service: "common.TeamsAPI", type: .unary)
             public static let getStoryRoleList = Connect.MethodSpec(name: "GetStoryRoleList", service: "common.TeamsAPI", type: .unary)
+            public static let trendingStory = Connect.MethodSpec(name: "TrendingStory", service: "common.TeamsAPI", type: .unary)
+            public static let trendingStoryRole = Connect.MethodSpec(name: "TrendingStoryRole", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

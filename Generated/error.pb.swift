@@ -455,6 +455,96 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// AI响应错误
   case aiResponseError // = 1309
+
+  /// 评论相关错误 (1400-1499)
+  case commentNotFound // = 1400
+
+  /// 评论已存在
+  case commentAlreadyExists // = 1401
+
+  /// 评论权限不足
+  case commentPermissionDenied // = 1402
+
+  /// 评论已锁定
+  case commentLocked // = 1403
+
+  /// 评论状态错误
+  case commentStatusError // = 1404
+
+  /// 点赞相关错误 (1500-1599)
+  case likeNotFound // = 1500
+
+  /// 点赞已存在
+  case likeAlreadyExists // = 1501
+
+  /// 点赞权限不足
+  case likePermissionDenied // = 1502
+
+  /// 点赞已锁定
+  case likeLocked // = 1503
+
+  /// 点赞状态错误
+  case likeStatusError // = 1504
+
+  ///VIP\充值相关错误 (1600-1699)
+  case vipNotFound // = 1600
+
+  /// VIP已存在
+  case vipAlreadyExists // = 1601
+
+  /// VIP权限不足
+  case vipPermissionDenied // = 1602
+
+  /// VIP已锁定
+  case vipLocked // = 1603
+
+  /// VIP状态错误
+  case vipStatusError // = 1604
+
+  /// 支付相关错误 (1700-1799)
+  case paymentNotFound // = 1700
+
+  /// 支付已存在
+  case paymentAlreadyExists // = 1701
+
+  /// 支付权限不足
+  case paymentPermissionDenied // = 1702
+
+  /// 支付已锁定
+  case paymentLocked // = 1703
+
+  /// 支付状态错误
+  case paymentStatusError // = 1704
+
+  /// 订单相关错误 (1800-1899)
+  case orderNotFound // = 1800
+
+  /// 订单已存在
+  case orderAlreadyExists // = 1801
+
+  /// 订单权限不足
+  case orderPermissionDenied // = 1802
+
+  /// 订单已锁定
+  case orderLocked // = 1803
+
+  /// 订单状态错误
+  case orderStatusError // = 1804
+
+  /// 消息相关错误 (1900-1999)
+  case messageNotFound // = 1900
+
+  /// 消息已存在
+  case messageAlreadyExists // = 1901
+
+  /// 消息权限不足
+  case messagePermissionDenied // = 1902
+
+  /// 消息已锁定
+  case messageLocked // = 1903
+
+  /// 消息状态错误
+  case messageStatusError // = 1904
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -607,6 +697,36 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1307: self = .aiRateLimited
     case 1308: self = .aiContextError
     case 1309: self = .aiResponseError
+    case 1400: self = .commentNotFound
+    case 1401: self = .commentAlreadyExists
+    case 1402: self = .commentPermissionDenied
+    case 1403: self = .commentLocked
+    case 1404: self = .commentStatusError
+    case 1500: self = .likeNotFound
+    case 1501: self = .likeAlreadyExists
+    case 1502: self = .likePermissionDenied
+    case 1503: self = .likeLocked
+    case 1504: self = .likeStatusError
+    case 1600: self = .vipNotFound
+    case 1601: self = .vipAlreadyExists
+    case 1602: self = .vipPermissionDenied
+    case 1603: self = .vipLocked
+    case 1604: self = .vipStatusError
+    case 1700: self = .paymentNotFound
+    case 1701: self = .paymentAlreadyExists
+    case 1702: self = .paymentPermissionDenied
+    case 1703: self = .paymentLocked
+    case 1704: self = .paymentStatusError
+    case 1800: self = .orderNotFound
+    case 1801: self = .orderAlreadyExists
+    case 1802: self = .orderPermissionDenied
+    case 1803: self = .orderLocked
+    case 1804: self = .orderStatusError
+    case 1900: self = .messageNotFound
+    case 1901: self = .messageAlreadyExists
+    case 1902: self = .messagePermissionDenied
+    case 1903: self = .messageLocked
+    case 1904: self = .messageStatusError
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -757,6 +877,36 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .aiRateLimited: return 1307
     case .aiContextError: return 1308
     case .aiResponseError: return 1309
+    case .commentNotFound: return 1400
+    case .commentAlreadyExists: return 1401
+    case .commentPermissionDenied: return 1402
+    case .commentLocked: return 1403
+    case .commentStatusError: return 1404
+    case .likeNotFound: return 1500
+    case .likeAlreadyExists: return 1501
+    case .likePermissionDenied: return 1502
+    case .likeLocked: return 1503
+    case .likeStatusError: return 1504
+    case .vipNotFound: return 1600
+    case .vipAlreadyExists: return 1601
+    case .vipPermissionDenied: return 1602
+    case .vipLocked: return 1603
+    case .vipStatusError: return 1604
+    case .paymentNotFound: return 1700
+    case .paymentAlreadyExists: return 1701
+    case .paymentPermissionDenied: return 1702
+    case .paymentLocked: return 1703
+    case .paymentStatusError: return 1704
+    case .orderNotFound: return 1800
+    case .orderAlreadyExists: return 1801
+    case .orderPermissionDenied: return 1802
+    case .orderLocked: return 1803
+    case .orderStatusError: return 1804
+    case .messageNotFound: return 1900
+    case .messageAlreadyExists: return 1901
+    case .messagePermissionDenied: return 1902
+    case .messageLocked: return 1903
+    case .messageStatusError: return 1904
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -907,6 +1057,36 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     .aiRateLimited,
     .aiContextError,
     .aiResponseError,
+    .commentNotFound,
+    .commentAlreadyExists,
+    .commentPermissionDenied,
+    .commentLocked,
+    .commentStatusError,
+    .likeNotFound,
+    .likeAlreadyExists,
+    .likePermissionDenied,
+    .likeLocked,
+    .likeStatusError,
+    .vipNotFound,
+    .vipAlreadyExists,
+    .vipPermissionDenied,
+    .vipLocked,
+    .vipStatusError,
+    .paymentNotFound,
+    .paymentAlreadyExists,
+    .paymentPermissionDenied,
+    .paymentLocked,
+    .paymentStatusError,
+    .orderNotFound,
+    .orderAlreadyExists,
+    .orderPermissionDenied,
+    .orderLocked,
+    .orderStatusError,
+    .messageNotFound,
+    .messageAlreadyExists,
+    .messagePermissionDenied,
+    .messageLocked,
+    .messageStatusError,
   ]
 
 }
@@ -1059,5 +1239,35 @@ extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
     1307: .same(proto: "AI_RATE_LIMITED"),
     1308: .same(proto: "AI_CONTEXT_ERROR"),
     1309: .same(proto: "AI_RESPONSE_ERROR"),
+    1400: .same(proto: "COMMENT_NOT_FOUND"),
+    1401: .same(proto: "COMMENT_ALREADY_EXISTS"),
+    1402: .same(proto: "COMMENT_PERMISSION_DENIED"),
+    1403: .same(proto: "COMMENT_LOCKED"),
+    1404: .same(proto: "COMMENT_STATUS_ERROR"),
+    1500: .same(proto: "LIKE_NOT_FOUND"),
+    1501: .same(proto: "LIKE_ALREADY_EXISTS"),
+    1502: .same(proto: "LIKE_PERMISSION_DENIED"),
+    1503: .same(proto: "LIKE_LOCKED"),
+    1504: .same(proto: "LIKE_STATUS_ERROR"),
+    1600: .same(proto: "VIP_NOT_FOUND"),
+    1601: .same(proto: "VIP_ALREADY_EXISTS"),
+    1602: .same(proto: "VIP_PERMISSION_DENIED"),
+    1603: .same(proto: "VIP_LOCKED"),
+    1604: .same(proto: "VIP_STATUS_ERROR"),
+    1700: .same(proto: "PAYMENT_NOT_FOUND"),
+    1701: .same(proto: "PAYMENT_ALREADY_EXISTS"),
+    1702: .same(proto: "PAYMENT_PERMISSION_DENIED"),
+    1703: .same(proto: "PAYMENT_LOCKED"),
+    1704: .same(proto: "PAYMENT_STATUS_ERROR"),
+    1800: .same(proto: "ORDER_NOT_FOUND"),
+    1801: .same(proto: "ORDER_ALREADY_EXISTS"),
+    1802: .same(proto: "ORDER_PERMISSION_DENIED"),
+    1803: .same(proto: "ORDER_LOCKED"),
+    1804: .same(proto: "ORDER_STATUS_ERROR"),
+    1900: .same(proto: "MESSAGE_NOT_FOUND"),
+    1901: .same(proto: "MESSAGE_ALREADY_EXISTS"),
+    1902: .same(proto: "MESSAGE_PERMISSION_DENIED"),
+    1903: .same(proto: "MESSAGE_LOCKED"),
+    1904: .same(proto: "MESSAGE_STATUS_ERROR"),
   ]
 }

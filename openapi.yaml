@@ -2664,22 +2664,26 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/Trending:
+    /common.TeamsAPI/TrendingStory:
         get:
             tags:
                 - TeamsAPI
-            description: 趋势
-            operationId: TeamsAPI_Trending
+            description: 热门故事
+            operationId: TeamsAPI_TrendingStory
             parameters:
-                - name: area
-                  in: query
-                  schema:
-                    type: string
                 - name: start
                   in: query
                   schema:
                     type: string
                 - name: end
+                  in: query
+                  schema:
+                    type: string
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNumber
                   in: query
                   schema:
                     type: string
@@ -2689,7 +2693,43 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/TrendingResponse'
+                                $ref: '#/components/schemas/TrendingStoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/TrendingStoryRole:
+        get:
+            tags:
+                - TeamsAPI
+            description: 热门角色
+            operationId: TeamsAPI_TrendingStoryRole
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: string
+                - name: pageNumber
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TrendingStoryRoleResponse'
                 default:
                     description: Default error response
                     content:
@@ -7189,7 +7229,7 @@ components:
                     type: string
                 Mtime:
                     type: string
-        TrendingResponse:
+        TrendingStoryResponse:
             type: object
             properties:
                 code:
@@ -7198,14 +7238,39 @@ components:
                 message:
                     type: string
                 data:
-                    $ref: '#/components/schemas/TrendingResponse_Data'
-        TrendingResponse_Data:
+                    $ref: '#/components/schemas/TrendingStoryResponse_Data'
+        TrendingStoryResponse_Data:
             type: object
             properties:
                 list:
                     type: array
                     items:
-                        $ref: '#/components/schemas/ProjectInfo'
+                        $ref: '#/components/schemas/Story'
+                pageSize:
+                    type: string
+                pageNumber:
+                    type: string
+        TrendingStoryRoleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/TrendingStoryRoleResponse_Data'
+        TrendingStoryRoleResponse_Data:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+                pageSize:
+                    type: string
+                pageNumber:
+                    type: string
         UnFollowStoryRoleRequest:
             type: object
             properties:

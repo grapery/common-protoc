@@ -20,7 +20,6 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	TeamsAPI_Explore_FullMethodName                            = "/common.TeamsAPI/Explore"
-	TeamsAPI_Trending_FullMethodName                           = "/common.TeamsAPI/Trending"
 	TeamsAPI_Version_FullMethodName                            = "/common.TeamsAPI/Version"
 	TeamsAPI_About_FullMethodName                              = "/common.TeamsAPI/About"
 	TeamsAPI_Login_FullMethodName                              = "/common.TeamsAPI/Login"
@@ -158,6 +157,8 @@ const (
 	TeamsAPI_LikeComment_FullMethodName                        = "/common.TeamsAPI/LikeComment"
 	TeamsAPI_DislikeComment_FullMethodName                     = "/common.TeamsAPI/DislikeComment"
 	TeamsAPI_GetStoryRoleList_FullMethodName                   = "/common.TeamsAPI/GetStoryRoleList"
+	TeamsAPI_TrendingStory_FullMethodName                      = "/common.TeamsAPI/TrendingStory"
+	TeamsAPI_TrendingStoryRole_FullMethodName                  = "/common.TeamsAPI/TrendingStoryRole"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -166,8 +167,6 @@ const (
 type TeamsAPIClient interface {
 	// 探索
 	Explore(ctx context.Context, in *ExploreRequest, opts ...grpc.CallOption) (*ExploreResponse, error)
-	// 趋势
-	Trending(ctx context.Context, in *TrendingRequest, opts ...grpc.CallOption) (*TrendingResponse, error)
 	// 版本
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
 	// 关于
@@ -435,6 +434,10 @@ type TeamsAPIClient interface {
 	DislikeComment(ctx context.Context, in *DislikeCommentRequest, opts ...grpc.CallOption) (*DislikeCommentResponse, error)
 	// 获取故事角色列表
 	GetStoryRoleList(ctx context.Context, in *GetStoryRoleListRequest, opts ...grpc.CallOption) (*GetStoryRoleListResponse, error)
+	// 热门故事
+	TrendingStory(ctx context.Context, in *TrendingStoryRequest, opts ...grpc.CallOption) (*TrendingStoryResponse, error)
+	// 热门角色
+	TrendingStoryRole(ctx context.Context, in *TrendingStoryRoleRequest, opts ...grpc.CallOption) (*TrendingStoryRoleResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -448,15 +451,6 @@ func NewTeamsAPIClient(cc grpc.ClientConnInterface) TeamsAPIClient {
 func (c *teamsAPIClient) Explore(ctx context.Context, in *ExploreRequest, opts ...grpc.CallOption) (*ExploreResponse, error) {
 	out := new(ExploreResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_Explore_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) Trending(ctx context.Context, in *TrendingRequest, opts ...grpc.CallOption) (*TrendingResponse, error) {
-	out := new(TrendingResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_Trending_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1696,14 +1690,30 @@ func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, in *GetStoryRoleL
 	return out, nil
 }
 
+func (c *teamsAPIClient) TrendingStory(ctx context.Context, in *TrendingStoryRequest, opts ...grpc.CallOption) (*TrendingStoryResponse, error) {
+	out := new(TrendingStoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_TrendingStory_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, in *TrendingStoryRoleRequest, opts ...grpc.CallOption) (*TrendingStoryRoleResponse, error) {
+	out := new(TrendingStoryRoleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_TrendingStoryRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
 type TeamsAPIServer interface {
 	// 探索
 	Explore(context.Context, *ExploreRequest) (*ExploreResponse, error)
-	// 趋势
-	Trending(context.Context, *TrendingRequest) (*TrendingResponse, error)
 	// 版本
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
 	// 关于
@@ -1971,6 +1981,10 @@ type TeamsAPIServer interface {
 	DislikeComment(context.Context, *DislikeCommentRequest) (*DislikeCommentResponse, error)
 	// 获取故事角色列表
 	GetStoryRoleList(context.Context, *GetStoryRoleListRequest) (*GetStoryRoleListResponse, error)
+	// 热门故事
+	TrendingStory(context.Context, *TrendingStoryRequest) (*TrendingStoryResponse, error)
+	// 热门角色
+	TrendingStoryRole(context.Context, *TrendingStoryRoleRequest) (*TrendingStoryRoleResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -1980,9 +1994,6 @@ type UnimplementedTeamsAPIServer struct {
 
 func (UnimplementedTeamsAPIServer) Explore(context.Context, *ExploreRequest) (*ExploreResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Explore not implemented")
-}
-func (UnimplementedTeamsAPIServer) Trending(context.Context, *TrendingRequest) (*TrendingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Trending not implemented")
 }
 func (UnimplementedTeamsAPIServer) Version(context.Context, *VersionRequest) (*VersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
@@ -2395,6 +2406,12 @@ func (UnimplementedTeamsAPIServer) DislikeComment(context.Context, *DislikeComme
 func (UnimplementedTeamsAPIServer) GetStoryRoleList(context.Context, *GetStoryRoleListRequest) (*GetStoryRoleListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryRoleList not implemented")
 }
+func (UnimplementedTeamsAPIServer) TrendingStory(context.Context, *TrendingStoryRequest) (*TrendingStoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TrendingStory not implemented")
+}
+func (UnimplementedTeamsAPIServer) TrendingStoryRole(context.Context, *TrendingStoryRoleRequest) (*TrendingStoryRoleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TrendingStoryRole not implemented")
+}
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
 // UnsafeTeamsAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -2422,24 +2439,6 @@ func _TeamsAPI_Explore_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).Explore(ctx, req.(*ExploreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_Trending_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TrendingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).Trending(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_Trending_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).Trending(ctx, req.(*TrendingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4910,6 +4909,42 @@ func _TeamsAPI_GetStoryRoleList_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_TrendingStory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrendingStoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).TrendingStory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_TrendingStory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).TrendingStory(ctx, req.(*TrendingStoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_TrendingStoryRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrendingStoryRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).TrendingStoryRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_TrendingStoryRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).TrendingStoryRole(ctx, req.(*TrendingStoryRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -4920,10 +4955,6 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Explore",
 			Handler:    _TeamsAPI_Explore_Handler,
-		},
-		{
-			MethodName: "Trending",
-			Handler:    _TeamsAPI_Trending_Handler,
 		},
 		{
 			MethodName: "Version",
@@ -5472,6 +5503,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryRoleList",
 			Handler:    _TeamsAPI_GetStoryRoleList_Handler,
+		},
+		{
+			MethodName: "TrendingStory",
+			Handler:    _TeamsAPI_TrendingStory_Handler,
+		},
+		{
+			MethodName: "TrendingStoryRole",
+			Handler:    _TeamsAPI_TrendingStoryRole_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

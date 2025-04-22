@@ -394,9 +394,12 @@
     - [StoryComment](#common-StoryComment)
     - [StoryContributor](#common-StoryContributor)
     - [StoryboardStageStore](#common-StoryboardStageStore)
-    - [TrendingRequest](#common-TrendingRequest)
-    - [TrendingResponse](#common-TrendingResponse)
-    - [TrendingResponse.Data](#common-TrendingResponse-Data)
+    - [TrendingStoryRequest](#common-TrendingStoryRequest)
+    - [TrendingStoryResponse](#common-TrendingStoryResponse)
+    - [TrendingStoryResponse.Data](#common-TrendingStoryResponse-Data)
+    - [TrendingStoryRoleRequest](#common-TrendingStoryRoleRequest)
+    - [TrendingStoryRoleResponse](#common-TrendingStoryRoleResponse)
+    - [TrendingStoryRoleResponse.Data](#common-TrendingStoryRoleResponse-Data)
     - [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest)
     - [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse)
     - [UnLikeStoryRequest](#common-UnLikeStoryRequest)
@@ -970,6 +973,48 @@ AI生成失败 |
 | AI_RATE_LIMITED | 1307 | AI速率受限 |
 | AI_CONTEXT_ERROR | 1308 | AI上下文错误 |
 | AI_RESPONSE_ERROR | 1309 | AI响应错误 |
+| COMMENT_NOT_FOUND | 1400 | 评论相关错误 (1400-1499)
+
+评论不存在 |
+| COMMENT_ALREADY_EXISTS | 1401 | 评论已存在 |
+| COMMENT_PERMISSION_DENIED | 1402 | 评论权限不足 |
+| COMMENT_LOCKED | 1403 | 评论已锁定 |
+| COMMENT_STATUS_ERROR | 1404 | 评论状态错误 |
+| LIKE_NOT_FOUND | 1500 | 点赞相关错误 (1500-1599)
+
+点赞不存在 |
+| LIKE_ALREADY_EXISTS | 1501 | 点赞已存在 |
+| LIKE_PERMISSION_DENIED | 1502 | 点赞权限不足 |
+| LIKE_LOCKED | 1503 | 点赞已锁定 |
+| LIKE_STATUS_ERROR | 1504 | 点赞状态错误 |
+| VIP_NOT_FOUND | 1600 | VIP\充值相关错误 (1600-1699)
+
+VIP不存在 |
+| VIP_ALREADY_EXISTS | 1601 | VIP已存在 |
+| VIP_PERMISSION_DENIED | 1602 | VIP权限不足 |
+| VIP_LOCKED | 1603 | VIP已锁定 |
+| VIP_STATUS_ERROR | 1604 | VIP状态错误 |
+| PAYMENT_NOT_FOUND | 1700 | 支付相关错误 (1700-1799)
+
+支付不存在 |
+| PAYMENT_ALREADY_EXISTS | 1701 | 支付已存在 |
+| PAYMENT_PERMISSION_DENIED | 1702 | 支付权限不足 |
+| PAYMENT_LOCKED | 1703 | 支付已锁定 |
+| PAYMENT_STATUS_ERROR | 1704 | 支付状态错误 |
+| ORDER_NOT_FOUND | 1800 | 订单相关错误 (1800-1899)
+
+订单不存在 |
+| ORDER_ALREADY_EXISTS | 1801 | 订单已存在 |
+| ORDER_PERMISSION_DENIED | 1802 | 订单权限不足 |
+| ORDER_LOCKED | 1803 | 订单已锁定 |
+| ORDER_STATUS_ERROR | 1804 | 订单状态错误 |
+| MESSAGE_NOT_FOUND | 1900 | 消息相关错误 (1900-1999)
+
+消息不存在 |
+| MESSAGE_ALREADY_EXISTS | 1901 | 消息已存在 |
+| MESSAGE_PERMISSION_DENIED | 1902 | 消息权限不足 |
+| MESSAGE_LOCKED | 1903 | 消息已锁定 |
+| MESSAGE_STATUS_ERROR | 1904 | 消息状态错误 |
 
 
  
@@ -7260,26 +7305,27 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
-<a name="common-TrendingRequest"></a>
+<a name="common-TrendingStoryRequest"></a>
 
-### TrendingRequest
+### TrendingStoryRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| area | [string](#string) |  |  |
 | start | [int64](#int64) |  |  |
 | end | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+| page_number | [int64](#int64) |  |  |
 
 
 
 
 
 
-<a name="common-TrendingResponse"></a>
+<a name="common-TrendingStoryResponse"></a>
 
-### TrendingResponse
+### TrendingStoryResponse
 
 
 
@@ -7287,22 +7333,76 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [TrendingResponse.Data](#common-TrendingResponse-Data) |  |  |
+| data | [TrendingStoryResponse.Data](#common-TrendingStoryResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-TrendingResponse-Data"></a>
+<a name="common-TrendingStoryResponse-Data"></a>
 
-### TrendingResponse.Data
+### TrendingStoryResponse.Data
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
+| list | [Story](#common-Story) | repeated |  |
+| page_size | [int64](#int64) |  |  |
+| page_number | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-TrendingStoryRoleRequest"></a>
+
+### TrendingStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| start | [int64](#int64) |  |  |
+| end | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+| page_number | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-TrendingStoryRoleResponse"></a>
+
+### TrendingStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| data | [TrendingStoryRoleResponse.Data](#common-TrendingStoryRoleResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-TrendingStoryRoleResponse-Data"></a>
+
+### TrendingStoryRoleResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryRole](#common-StoryRole) | repeated |  |
+| page_size | [int64](#int64) |  |  |
+| page_number | [int64](#int64) |  |  |
 
 
 
@@ -8392,7 +8492,6 @@ user ,group .project.item
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) | 探索 |
-| Trending | [TrendingRequest](#common-TrendingRequest) | [TrendingResponse](#common-TrendingResponse) | 趋势 |
 | Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) | 版本 |
 | About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | 关于 |
 | Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | 登录 |
@@ -8530,6 +8629,8 @@ user ,group .project.item
 | LikeComment | [LikeCommentRequest](#common-LikeCommentRequest) | [LikeCommentResponse](#common-LikeCommentResponse) | 点赞故事评论 |
 | DislikeComment | [DislikeCommentRequest](#common-DislikeCommentRequest) | [DislikeCommentResponse](#common-DislikeCommentResponse) | 取消点赞故事评论 |
 | GetStoryRoleList | [GetStoryRoleListRequest](#common-GetStoryRoleListRequest) | [GetStoryRoleListResponse](#common-GetStoryRoleListResponse) | 获取故事角色列表 |
+| TrendingStory | [TrendingStoryRequest](#common-TrendingStoryRequest) | [TrendingStoryResponse](#common-TrendingStoryResponse) | 热门故事 |
+| TrendingStoryRole | [TrendingStoryRoleRequest](#common-TrendingStoryRoleRequest) | [TrendingStoryRoleResponse](#common-TrendingStoryRoleResponse) | 热门角色 |
 
  
 

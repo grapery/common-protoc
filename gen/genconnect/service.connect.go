@@ -35,8 +35,6 @@ const (
 const (
 	// TeamsAPIExploreProcedure is the fully-qualified name of the TeamsAPI's Explore RPC.
 	TeamsAPIExploreProcedure = "/common.TeamsAPI/Explore"
-	// TeamsAPITrendingProcedure is the fully-qualified name of the TeamsAPI's Trending RPC.
-	TeamsAPITrendingProcedure = "/common.TeamsAPI/Trending"
 	// TeamsAPIVersionProcedure is the fully-qualified name of the TeamsAPI's Version RPC.
 	TeamsAPIVersionProcedure = "/common.TeamsAPI/Version"
 	// TeamsAPIAboutProcedure is the fully-qualified name of the TeamsAPI's About RPC.
@@ -391,14 +389,17 @@ const (
 	// TeamsAPIGetStoryRoleListProcedure is the fully-qualified name of the TeamsAPI's GetStoryRoleList
 	// RPC.
 	TeamsAPIGetStoryRoleListProcedure = "/common.TeamsAPI/GetStoryRoleList"
+	// TeamsAPITrendingStoryProcedure is the fully-qualified name of the TeamsAPI's TrendingStory RPC.
+	TeamsAPITrendingStoryProcedure = "/common.TeamsAPI/TrendingStory"
+	// TeamsAPITrendingStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
+	// TrendingStoryRole RPC.
+	TeamsAPITrendingStoryRoleProcedure = "/common.TeamsAPI/TrendingStoryRole"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
 type TeamsAPIClient interface {
 	// 探索
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
-	// 趋势
-	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
 	// 版本
 	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
 	// 关于
@@ -666,6 +667,10 @@ type TeamsAPIClient interface {
 	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 	// 获取故事角色列表
 	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
+	// 热门故事
+	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
+	// 热门角色
+	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -681,11 +686,6 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 		explore: connect.NewClient[gen.ExploreRequest, gen.ExploreResponse](
 			httpClient,
 			baseURL+TeamsAPIExploreProcedure,
-			opts...,
-		),
-		trending: connect.NewClient[gen.TrendingRequest, gen.TrendingResponse](
-			httpClient,
-			baseURL+TeamsAPITrendingProcedure,
 			opts...,
 		),
 		version: connect.NewClient[gen.VersionRequest, gen.VersionResponse](
@@ -1373,13 +1373,22 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetStoryRoleListProcedure,
 			opts...,
 		),
+		trendingStory: connect.NewClient[gen.TrendingStoryRequest, gen.TrendingStoryResponse](
+			httpClient,
+			baseURL+TeamsAPITrendingStoryProcedure,
+			opts...,
+		),
+		trendingStoryRole: connect.NewClient[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse](
+			httpClient,
+			baseURL+TeamsAPITrendingStoryRoleProcedure,
+			opts...,
+		),
 	}
 }
 
 // teamsAPIClient implements TeamsAPIClient.
 type teamsAPIClient struct {
 	explore                            *connect.Client[gen.ExploreRequest, gen.ExploreResponse]
-	trending                           *connect.Client[gen.TrendingRequest, gen.TrendingResponse]
 	version                            *connect.Client[gen.VersionRequest, gen.VersionResponse]
 	about                              *connect.Client[gen.AboutRequest, gen.AboutResponse]
 	login                              *connect.Client[gen.LoginRequest, gen.LoginResponse]
@@ -1517,16 +1526,13 @@ type teamsAPIClient struct {
 	likeComment                        *connect.Client[gen.LikeCommentRequest, gen.LikeCommentResponse]
 	dislikeComment                     *connect.Client[gen.DislikeCommentRequest, gen.DislikeCommentResponse]
 	getStoryRoleList                   *connect.Client[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse]
+	trendingStory                      *connect.Client[gen.TrendingStoryRequest, gen.TrendingStoryResponse]
+	trendingStoryRole                  *connect.Client[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
 func (c *teamsAPIClient) Explore(ctx context.Context, req *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
 	return c.explore.CallUnary(ctx, req)
-}
-
-// Trending calls common.TeamsAPI.Trending.
-func (c *teamsAPIClient) Trending(ctx context.Context, req *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error) {
-	return c.trending.CallUnary(ctx, req)
 }
 
 // Version calls common.TeamsAPI.Version.
@@ -2214,12 +2220,20 @@ func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, req *connect.Requ
 	return c.getStoryRoleList.CallUnary(ctx, req)
 }
 
+// TrendingStory calls common.TeamsAPI.TrendingStory.
+func (c *teamsAPIClient) TrendingStory(ctx context.Context, req *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error) {
+	return c.trendingStory.CallUnary(ctx, req)
+}
+
+// TrendingStoryRole calls common.TeamsAPI.TrendingStoryRole.
+func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, req *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error) {
+	return c.trendingStoryRole.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
 	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
-	// 趋势
-	Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error)
 	// 版本
 	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
 	// 关于
@@ -2487,6 +2501,10 @@ type TeamsAPIHandler interface {
 	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 	// 获取故事角色列表
 	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
+	// 热门故事
+	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
+	// 热门角色
+	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2498,11 +2516,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 	teamsAPIExploreHandler := connect.NewUnaryHandler(
 		TeamsAPIExploreProcedure,
 		svc.Explore,
-		opts...,
-	)
-	teamsAPITrendingHandler := connect.NewUnaryHandler(
-		TeamsAPITrendingProcedure,
-		svc.Trending,
 		opts...,
 	)
 	teamsAPIVersionHandler := connect.NewUnaryHandler(
@@ -3190,12 +3203,20 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetStoryRoleList,
 		opts...,
 	)
+	teamsAPITrendingStoryHandler := connect.NewUnaryHandler(
+		TeamsAPITrendingStoryProcedure,
+		svc.TrendingStory,
+		opts...,
+	)
+	teamsAPITrendingStoryRoleHandler := connect.NewUnaryHandler(
+		TeamsAPITrendingStoryRoleProcedure,
+		svc.TrendingStoryRole,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
 			teamsAPIExploreHandler.ServeHTTP(w, r)
-		case TeamsAPITrendingProcedure:
-			teamsAPITrendingHandler.ServeHTTP(w, r)
 		case TeamsAPIVersionProcedure:
 			teamsAPIVersionHandler.ServeHTTP(w, r)
 		case TeamsAPIAboutProcedure:
@@ -3470,6 +3491,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIDislikeCommentHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryRoleListProcedure:
 			teamsAPIGetStoryRoleListHandler.ServeHTTP(w, r)
+		case TeamsAPITrendingStoryProcedure:
+			teamsAPITrendingStoryHandler.ServeHTTP(w, r)
+		case TeamsAPITrendingStoryRoleProcedure:
+			teamsAPITrendingStoryRoleHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3481,10 +3506,6 @@ type UnimplementedTeamsAPIHandler struct{}
 
 func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Explore is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) Trending(context.Context, *connect.Request[gen.TrendingRequest]) (*connect.Response[gen.TrendingResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.Trending is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error) {
@@ -4033,4 +4054,12 @@ func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect.Req
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleList is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.TrendingStory is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.TrendingStoryRole is not implemented"))
 }

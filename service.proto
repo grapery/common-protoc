@@ -781,18 +781,6 @@ message ExploreResponse {
   } Data data = 3;
 }
 
-message TrendingRequest {
-  string area = 1;
-  int64 start = 2;
-  int64 end = 3;
-}
-message TrendingResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    repeated ProjectInfo list = 1;
-  } Data data = 3;
-}
 
 message GetProjectMembersRequest{
   int32 projectId = 1;
@@ -886,12 +874,6 @@ service TeamsAPI {
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Explore"
-    };
-  }
-  // 趋势
-  rpc Trending(TrendingRequest) returns (TrendingResponse) {
-    option (google.api.http) = {
-      get : "/common.TeamsAPI/Trending"
     };
   }
 
@@ -1990,6 +1972,53 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 热门故事
+  rpc TrendingStory(TrendingStoryRequest) returns (TrendingStoryResponse) {
+    option (google.api.http) = {
+      get : "/common.TeamsAPI/TrendingStory"
+    };
+  }
+  //热门角色
+  rpc TrendingStoryRole(TrendingStoryRoleRequest) returns (TrendingStoryRoleResponse) {
+    option (google.api.http) = {
+      get : "/common.TeamsAPI/TrendingStoryRole"
+    };
+  }
+}
+
+message TrendingStoryRoleRequest {
+  int64 start = 1;
+  int64 end = 2;
+  int64 page_size = 3;
+  int64 page_number = 4;
+}
+
+message TrendingStoryRoleResponse{
+  ResponseCode code = 1;
+  string message = 2;
+  message Data {
+    repeated StoryRole list = 1;
+    int64 page_size = 2;
+    int64 page_number = 3;
+  } Data data = 3;
+}
+
+
+message TrendingStoryRequest {
+  int64 start = 1;
+  int64 end = 2;
+  int64 page_size = 3;
+  int64 page_number = 4;
+}
+message TrendingStoryResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  message Data {
+    repeated Story list = 1;
+    int64 page_size = 2;
+    int64 page_number = 3;
+  } Data data = 3;
 }
 
 message GetStoryRoleListRequest {
