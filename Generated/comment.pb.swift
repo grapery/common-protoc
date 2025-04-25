@@ -43,6 +43,12 @@ public struct Common_CommentInfo: Sendable {
 
   public var content: String = String()
 
+  public var likeCount: Int64 = 0
+
+  public var replyCount: Int64 = 0
+
+  public var replyID: Int64 = 0
+
   public var ctime: Int64 = 0
 
   public var mtime: Int64 = 0
@@ -68,8 +74,11 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     7: .standard(proto: "board_id"),
     8: .standard(proto: "group_id"),
     9: .same(proto: "content"),
-    10: .same(proto: "ctime"),
-    11: .same(proto: "mtime"),
+    10: .standard(proto: "like_count"),
+    11: .standard(proto: "reply_count"),
+    12: .standard(proto: "reply_id"),
+    13: .same(proto: "ctime"),
+    14: .same(proto: "mtime"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -87,8 +96,11 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       case 7: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
       case 8: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       case 9: try { try decoder.decodeSingularStringField(value: &self.content) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 11: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.likeCount) }()
+      case 11: try { try decoder.decodeSingularInt64Field(value: &self.replyCount) }()
+      case 12: try { try decoder.decodeSingularInt64Field(value: &self.replyID) }()
+      case 13: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 14: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
       default: break
       }
     }
@@ -122,11 +134,20 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if !self.content.isEmpty {
       try visitor.visitSingularStringField(value: self.content, fieldNumber: 9)
     }
+    if self.likeCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.likeCount, fieldNumber: 10)
+    }
+    if self.replyCount != 0 {
+      try visitor.visitSingularInt64Field(value: self.replyCount, fieldNumber: 11)
+    }
+    if self.replyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.replyID, fieldNumber: 12)
+    }
     if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 10)
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 13)
     }
     if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 11)
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 14)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -141,6 +162,9 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if lhs.boardID != rhs.boardID {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.content != rhs.content {return false}
+    if lhs.likeCount != rhs.likeCount {return false}
+    if lhs.replyCount != rhs.replyCount {return false}
+    if lhs.replyID != rhs.replyID {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

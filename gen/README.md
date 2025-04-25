@@ -766,6 +766,9 @@
 | board_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 | content | [string](#string) |  |  |
+| like_count | [int64](#int64) |  |  |
+| reply_count | [int64](#int64) |  |  |
+| reply_id | [int64](#int64) |  |  |
 | ctime | [int64](#int64) |  |  |
 | mtime | [int64](#int64) |  |  |
 
@@ -2927,6 +2930,7 @@ DetailScene 表示具体的场景信息
 | params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
 | sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
 | is_multi_branch | [bool](#bool) |  |  |
+| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
@@ -3537,10 +3541,10 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | STORYBOARD_STAGE_DRAFT | 1 | 草稿 |
 | STORYBOARD_STAGE_CREATED | 2 | 创建 |
 | STORYBOARD_STAGE_RENDERED | 3 | 渲染完成 |
-| STORYBOARD_STAGE_GEN_IMAGE | 4 | 生成���片 |
-| STORYBOARD_STAGE_GEN_VIDEO | 5 | 生成视频 |
-| STORYBOARD_STAGE_GEN_AUDIO | 6 | 生成音频 |
-| STORYBOARD_STAGE_GEN_TEXT | 7 | 生成文本 |
+| STORYBOARD_STAGE_RENDER_SCENE | 4 | 渲染场景 |
+| STORYBOARD_STAGE_GEN_IMAGE | 5 | 生成���片 |
+| STORYBOARD_STAGE_GEN_VIDEO | 6 | 生成视频 |
+| STORYBOARD_STAGE_GEN_AUDIO | 7 | 生成音频 |
 | STORYBOARD_STAGE_FINISHED | 8 | 完成 |
 | STORYBOARD_STAGE_FAILED | 9 | 失败 |
 | STORYBOARD_STAGE_PUBLISHED | 10 | 发布 |

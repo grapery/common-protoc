@@ -6819,6 +6819,9 @@ components:
                     $ref: '#/components/schemas/StoryBoardSences'
                 isMultiBranch:
                     type: boolean
+                stage:
+                    type: integer
+                    format: enum
                 Ctime:
                     type: string
                 Mtime:

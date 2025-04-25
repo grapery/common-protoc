@@ -35,17 +35,17 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 渲染完成
   case rendered // = 3
 
+  /// 渲染场景
+  case renderScene // = 4
+
   /// 生成���片
-  case genImage // = 4
+  case genImage // = 5
 
   /// 生成视频
-  case genVideo // = 5
+  case genVideo // = 6
 
   /// 生成音频
-  case genAudio // = 6
-
-  /// 生成文本
-  case genText // = 7
+  case genAudio // = 7
 
   /// 完成
   case finished // = 8
@@ -67,10 +67,10 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .draft
     case 2: self = .created
     case 3: self = .rendered
-    case 4: self = .genImage
-    case 5: self = .genVideo
-    case 6: self = .genAudio
-    case 7: self = .genText
+    case 4: self = .renderScene
+    case 5: self = .genImage
+    case 6: self = .genVideo
+    case 7: self = .genAudio
     case 8: self = .finished
     case 9: self = .failed
     case 10: self = .published
@@ -84,10 +84,10 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .draft: return 1
     case .created: return 2
     case .rendered: return 3
-    case .genImage: return 4
-    case .genVideo: return 5
-    case .genAudio: return 6
-    case .genText: return 7
+    case .renderScene: return 4
+    case .genImage: return 5
+    case .genVideo: return 6
+    case .genAudio: return 7
     case .finished: return 8
     case .failed: return 9
     case .published: return 10
@@ -101,10 +101,10 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
     .draft,
     .created,
     .rendered,
+    .renderScene,
     .genImage,
     .genVideo,
     .genAudio,
-    .genText,
     .finished,
     .failed,
     .published,
@@ -564,6 +564,11 @@ public struct Common_StoryBoard: @unchecked Sendable {
   public var isMultiBranch: Bool {
     get {return _storage._isMultiBranch}
     set {_uniqueStorage()._isMultiBranch = newValue}
+  }
+
+  public var stage: Common_StoryboardStage {
+    get {return _storage._stage}
+    set {_uniqueStorage()._stage = newValue}
   }
 
   public var ctime: Int64 {
@@ -3234,10 +3239,10 @@ extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "STORYBOARD_STAGE_DRAFT"),
     2: .same(proto: "STORYBOARD_STAGE_CREATED"),
     3: .same(proto: "STORYBOARD_STAGE_RENDERED"),
-    4: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
-    5: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
-    6: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
-    7: .same(proto: "STORYBOARD_STAGE_GEN_TEXT"),
+    4: .same(proto: "STORYBOARD_STAGE_RENDER_SCENE"),
+    5: .same(proto: "STORYBOARD_STAGE_GEN_IMAGE"),
+    6: .same(proto: "STORYBOARD_STAGE_GEN_VIDEO"),
+    7: .same(proto: "STORYBOARD_STAGE_GEN_AUDIO"),
     8: .same(proto: "STORYBOARD_STAGE_FINISHED"),
     9: .same(proto: "STORYBOARD_STAGE_FAILED"),
     10: .same(proto: "STORYBOARD_STAGE_PUBLISHED"),
@@ -3672,6 +3677,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     15: .same(proto: "params"),
     16: .same(proto: "sences"),
     17: .standard(proto: "is_multi_branch"),
+    18: .same(proto: "stage"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
     21: .standard(proto: "current_user_status"),
@@ -3692,6 +3698,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     var _params: Common_StoryBoardParams? = nil
     var _sences: Common_StoryBoardSences? = nil
     var _isMultiBranch: Bool = false
+    var _stage: Common_StoryboardStage = .unspecified
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
@@ -3723,6 +3730,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       _params = source._params
       _sences = source._sences
       _isMultiBranch = source._isMultiBranch
+      _stage = source._stage
       _ctime = source._ctime
       _mtime = source._mtime
       _currentUserStatus = source._currentUserStatus
@@ -3758,6 +3766,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         case 15: try { try decoder.decodeSingularMessageField(value: &_storage._params) }()
         case 16: try { try decoder.decodeSingularMessageField(value: &_storage._sences) }()
         case 17: try { try decoder.decodeSingularBoolField(value: &_storage._isMultiBranch) }()
+        case 18: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
         case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
         case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
@@ -3815,6 +3824,9 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       if _storage._isMultiBranch != false {
         try visitor.visitSingularBoolField(value: _storage._isMultiBranch, fieldNumber: 17)
       }
+      if _storage._stage != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._stage, fieldNumber: 18)
+      }
       if _storage._ctime != 0 {
         try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
       }
@@ -3847,6 +3859,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         if _storage._params != rhs_storage._params {return false}
         if _storage._sences != rhs_storage._sences {return false}
         if _storage._isMultiBranch != rhs_storage._isMultiBranch {return false}
+        if _storage._stage != rhs_storage._stage {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         if _storage._currentUserStatus != rhs_storage._currentUserStatus {return false}
