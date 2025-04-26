@@ -1976,13 +1976,15 @@ service TeamsAPI {
   // 热门故事
   rpc TrendingStory(TrendingStoryRequest) returns (TrendingStoryResponse) {
     option (google.api.http) = {
-      get : "/common.TeamsAPI/TrendingStory"
+      post : "/common.TeamsAPI/TrendingStory"
+      body : "*"
     };
   }
   //热门角色
   rpc TrendingStoryRole(TrendingStoryRoleRequest) returns (TrendingStoryRoleResponse) {
     option (google.api.http) = {
-      get : "/common.TeamsAPI/TrendingStoryRole"
+      post : "/common.TeamsAPI/TrendingStoryRole"
+      body : "*"
     };
   }
 }
