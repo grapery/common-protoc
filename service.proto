@@ -2723,6 +2723,10 @@ message RenderStoryRoleDetail {
   string role_goal = 7;
   string background_image = 8;
   string avatar_image = 9;
+  string background = 10; 
+  string appearance = 11;
+  string personality = 12;
+  string ability_features = 13;
 }
 
 message RenderStoryRoleResponse {

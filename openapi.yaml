@@ -6277,6 +6277,14 @@ components:
                     type: string
                 avatarImage:
                     type: string
+                background:
+                    type: string
+                appearance:
+                    type: string
+                personality:
+                    type: string
+                abilityFeatures:
+                    type: string
         RenderStoryRoleDetailRequest:
             type: object
             properties:

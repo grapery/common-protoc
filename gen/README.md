@@ -6842,6 +6842,10 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | role_goal | [string](#string) |  |  |
 | background_image | [string](#string) |  |  |
 | avatar_image | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| appearance | [string](#string) |  |  |
+| personality | [string](#string) |  |  |
+| ability_features | [string](#string) |  |  |
 
 
 

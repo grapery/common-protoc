@@ -5334,6 +5334,14 @@ public struct Common_RenderStoryRoleDetail: Sendable {
 
   public var avatarImage: String = String()
 
+  public var background: String = String()
+
+  public var appearance: String = String()
+
+  public var personality: String = String()
+
+  public var abilityFeatures: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -17900,6 +17908,10 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     7: .standard(proto: "role_goal"),
     8: .standard(proto: "background_image"),
     9: .standard(proto: "avatar_image"),
+    10: .same(proto: "background"),
+    11: .same(proto: "appearance"),
+    12: .same(proto: "personality"),
+    13: .standard(proto: "ability_features"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -17917,6 +17929,10 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 7: try { try decoder.decodeSingularStringField(value: &self.roleGoal) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.backgroundImage) }()
       case 9: try { try decoder.decodeSingularStringField(value: &self.avatarImage) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.background) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.appearance) }()
+      case 12: try { try decoder.decodeSingularStringField(value: &self.personality) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self.abilityFeatures) }()
       default: break
       }
     }
@@ -17950,6 +17966,18 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.avatarImage.isEmpty {
       try visitor.visitSingularStringField(value: self.avatarImage, fieldNumber: 9)
     }
+    if !self.background.isEmpty {
+      try visitor.visitSingularStringField(value: self.background, fieldNumber: 10)
+    }
+    if !self.appearance.isEmpty {
+      try visitor.visitSingularStringField(value: self.appearance, fieldNumber: 11)
+    }
+    if !self.personality.isEmpty {
+      try visitor.visitSingularStringField(value: self.personality, fieldNumber: 12)
+    }
+    if !self.abilityFeatures.isEmpty {
+      try visitor.visitSingularStringField(value: self.abilityFeatures, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -17963,6 +17991,10 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.roleGoal != rhs.roleGoal {return false}
     if lhs.backgroundImage != rhs.backgroundImage {return false}
     if lhs.avatarImage != rhs.avatarImage {return false}
+    if lhs.background != rhs.background {return false}
+    if lhs.appearance != rhs.appearance {return false}
+    if lhs.personality != rhs.personality {return false}
+    if lhs.abilityFeatures != rhs.abilityFeatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
