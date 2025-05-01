@@ -3702,6 +3702,39 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ChatMessage'
+        CommentInfo:
+            type: object
+            properties:
+                commentId:
+                    type: string
+                rootCommentId:
+                    type: string
+                prevCommentId:
+                    type: string
+                userId:
+                    type: string
+                userName:
+                    type: string
+                avatarUrl:
+                    type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                groupId:
+                    type: string
+                content:
+                    type: string
+                likeCount:
+                    type: string
+                replyCount:
+                    type: string
+                replyId:
+                    type: string
+                ctime:
+                    type: string
+                mtime:
+                    type: string
         ContinueRenderStoryRequest:
             type: object
             properties:
@@ -3830,6 +3863,8 @@ components:
                     format: enum
                 message:
                     type: string
+                comment:
+                    $ref: '#/components/schemas/CommentInfo'
         CreateStoryBoardSenceRequest:
             type: object
             properties:
@@ -3869,6 +3904,8 @@ components:
                     format: enum
                 message:
                     type: string
+                comment:
+                    $ref: '#/components/schemas/CommentInfo'
         CreateStoryCommentRequest:
             type: object
             properties:
@@ -3886,6 +3923,8 @@ components:
                     format: enum
                 message:
                     type: string
+                comment:
+                    $ref: '#/components/schemas/CommentInfo'
         CreateStoryRequest:
             type: object
             properties:

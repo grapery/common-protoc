@@ -7,19 +7,20 @@ import "base.proto";
 
 message CommentInfo {
     int64 comment_id = 1;
-    int64 prev_comment_id = 2;
-    int64 user_id = 3;
-    string user_name = 4;
-    string avatar_url = 5;
-    int64 story_id = 6;
-    int64 board_id = 7;
-    int64 group_id = 8;
-    
-    string content = 9;
-    int64 like_count = 10;
-    int64 reply_count = 11;
-    int64 reply_id = 12;
-    int64 ctime = 13;
-    int64 mtime = 14;
+    int64 root_comment_id = 2;
+    int64 prev_comment_id = 3;
+    int64 user_id = 4;
+    string user_name = 5;
+    string avatar_url = 6;
+    int64 story_id = 7;
+    int64 board_id = 8;
+    int64 group_id = 9;
+
+    string content = 11;
+    int64 like_count = 12;
+    int64 reply_count = 13;
+    int64 reply_id = 14;
+    int64 ctime = 15;
+    int64 mtime = 16;
 }
 

@@ -2058,6 +2058,7 @@ message CreateStoryCommentRequest {
 message CreateStoryCommentResponse {
   ResponseCode code = 1;
   string message = 2;
+  CommentInfo comment = 3;
 }
 
 message GetStoryCommentsRequest {
@@ -2131,6 +2132,7 @@ message CreateStoryCommentReplyRequest {
 message CreateStoryCommentReplyResponse {
   ResponseCode code = 1;
   string message = 2;
+  CommentInfo comment = 3;
 }
 
 message DeleteStoryCommentReplyRequest {
@@ -2168,6 +2170,7 @@ message CreateStoryBoardCommentRequest {
 message CreateStoryBoardCommentResponse {
   ResponseCode code = 1;
   string message = 2;
+  CommentInfo comment = 3;
 }
 
 message DeleteStoryBoardCommentRequest {

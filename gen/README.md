@@ -758,6 +758,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | comment_id | [int64](#int64) |  |  |
+| root_comment_id | [int64](#int64) |  |  |
 | prev_comment_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | user_name | [string](#string) |  |  |
@@ -4166,6 +4167,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| comment | [CommentInfo](#common-CommentInfo) |  |  |
 
 
 
@@ -4199,6 +4201,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| comment | [CommentInfo](#common-CommentInfo) |  |  |
 
 
 
@@ -4232,6 +4235,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| comment | [CommentInfo](#common-CommentInfo) |  |  |
 
 
 
