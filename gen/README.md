@@ -253,6 +253,8 @@
     - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
+    - [FollowUserRequest](#common-FollowUserRequest)
+    - [FollowUserResponse](#common-FollowUserResponse)
     - [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest)
     - [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse)
     - [GenerateRolePromptRequest](#common-GenerateRolePromptRequest)
@@ -260,6 +262,10 @@
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
+    - [GetFollowListRequest](#common-GetFollowListRequest)
+    - [GetFollowListResponse](#common-GetFollowListResponse)
+    - [GetFollowerListRequest](#common-GetFollowerListRequest)
+    - [GetFollowerListResponse](#common-GetFollowerListResponse)
     - [GetGroupActivesRequest](#common-GetGroupActivesRequest)
     - [GetGroupActivesResponse](#common-GetGroupActivesResponse)
     - [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data)
@@ -409,6 +415,8 @@
     - [UnWatchProjectRequest](#common-UnWatchProjectRequest)
     - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
     - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
+    - [UnfollowUserRequest](#common-UnfollowUserRequest)
+    - [UnfollowUserResponse](#common-UnfollowUserResponse)
     - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
     - [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse)
     - [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data)
@@ -4857,6 +4865,38 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
+<a name="common-FollowUserRequest"></a>
+
+### FollowUserRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| follower_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-FollowUserResponse"></a>
+
+### FollowUserResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-GenerateRoleDescriptionRequest"></a>
 
 ### GenerateRoleDescriptionRequest
@@ -4958,6 +4998,74 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 ### GetDisscusResp.Data
 
+
+
+
+
+
+
+<a name="common-GetFollowListRequest"></a>
+
+### GetFollowListRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetFollowListResponse"></a>
+
+### GetFollowListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| followers | [UserInfo](#common-UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="common-GetFollowerListRequest"></a>
+
+### GetFollowerListRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetFollowerListResponse"></a>
+
+### GetFollowerListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| followers | [UserInfo](#common-UserInfo) | repeated |  |
 
 
 
@@ -7563,6 +7671,38 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
+<a name="common-UnfollowUserRequest"></a>
+
+### UnfollowUserRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| follower_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnfollowUserResponse"></a>
+
+### UnfollowUserResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateGroupInfoRequest"></a>
 
 ### UpdateGroupInfoRequest
@@ -8643,6 +8783,10 @@ user ,group .project.item
 | GetStoryRoleList | [GetStoryRoleListRequest](#common-GetStoryRoleListRequest) | [GetStoryRoleListResponse](#common-GetStoryRoleListResponse) | 获取故事角色列表 |
 | TrendingStory | [TrendingStoryRequest](#common-TrendingStoryRequest) | [TrendingStoryResponse](#common-TrendingStoryResponse) | 热门故事 |
 | TrendingStoryRole | [TrendingStoryRoleRequest](#common-TrendingStoryRoleRequest) | [TrendingStoryRoleResponse](#common-TrendingStoryRoleResponse) | 热门角色 |
+| FollowUser | [FollowUserRequest](#common-FollowUserRequest) | [FollowUserResponse](#common-FollowUserResponse) | 关注另一个用户 |
+| UnfollowUser | [UnfollowUserRequest](#common-UnfollowUserRequest) | [UnfollowUserResponse](#common-UnfollowUserResponse) | 取消关注另一个用户 |
+| GetFollowList | [GetFollowListRequest](#common-GetFollowListRequest) | [GetFollowListResponse](#common-GetFollowListResponse) | 获取关注列表 |
+| GetFollowerList | [GetFollowerListRequest](#common-GetFollowerListRequest) | [GetFollowerListResponse](#common-GetFollowerListResponse) | 获取粉丝列表 |
 
  
 

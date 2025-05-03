@@ -159,6 +159,10 @@ const (
 	TeamsAPI_GetStoryRoleList_FullMethodName                   = "/common.TeamsAPI/GetStoryRoleList"
 	TeamsAPI_TrendingStory_FullMethodName                      = "/common.TeamsAPI/TrendingStory"
 	TeamsAPI_TrendingStoryRole_FullMethodName                  = "/common.TeamsAPI/TrendingStoryRole"
+	TeamsAPI_FollowUser_FullMethodName                         = "/common.TeamsAPI/FollowUser"
+	TeamsAPI_UnfollowUser_FullMethodName                       = "/common.TeamsAPI/UnfollowUser"
+	TeamsAPI_GetFollowList_FullMethodName                      = "/common.TeamsAPI/GetFollowList"
+	TeamsAPI_GetFollowerList_FullMethodName                    = "/common.TeamsAPI/GetFollowerList"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -438,6 +442,14 @@ type TeamsAPIClient interface {
 	TrendingStory(ctx context.Context, in *TrendingStoryRequest, opts ...grpc.CallOption) (*TrendingStoryResponse, error)
 	// 热门角色
 	TrendingStoryRole(ctx context.Context, in *TrendingStoryRoleRequest, opts ...grpc.CallOption) (*TrendingStoryRoleResponse, error)
+	// 关注另一个用户
+	FollowUser(ctx context.Context, in *FollowUserRequest, opts ...grpc.CallOption) (*FollowUserResponse, error)
+	// 取消关注另一个用户
+	UnfollowUser(ctx context.Context, in *UnfollowUserRequest, opts ...grpc.CallOption) (*UnfollowUserResponse, error)
+	// 获取关注列表
+	GetFollowList(ctx context.Context, in *GetFollowListRequest, opts ...grpc.CallOption) (*GetFollowListResponse, error)
+	// 获取粉丝列表
+	GetFollowerList(ctx context.Context, in *GetFollowerListRequest, opts ...grpc.CallOption) (*GetFollowerListResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1708,6 +1720,42 @@ func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, in *TrendingStor
 	return out, nil
 }
 
+func (c *teamsAPIClient) FollowUser(ctx context.Context, in *FollowUserRequest, opts ...grpc.CallOption) (*FollowUserResponse, error) {
+	out := new(FollowUserResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_FollowUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UnfollowUser(ctx context.Context, in *UnfollowUserRequest, opts ...grpc.CallOption) (*UnfollowUserResponse, error) {
+	out := new(UnfollowUserResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UnfollowUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetFollowList(ctx context.Context, in *GetFollowListRequest, opts ...grpc.CallOption) (*GetFollowListResponse, error) {
+	out := new(GetFollowListResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetFollowList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetFollowerList(ctx context.Context, in *GetFollowerListRequest, opts ...grpc.CallOption) (*GetFollowerListResponse, error) {
+	out := new(GetFollowerListResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetFollowerList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1985,6 +2033,14 @@ type TeamsAPIServer interface {
 	TrendingStory(context.Context, *TrendingStoryRequest) (*TrendingStoryResponse, error)
 	// 热门角色
 	TrendingStoryRole(context.Context, *TrendingStoryRoleRequest) (*TrendingStoryRoleResponse, error)
+	// 关注另一个用户
+	FollowUser(context.Context, *FollowUserRequest) (*FollowUserResponse, error)
+	// 取消关注另一个用户
+	UnfollowUser(context.Context, *UnfollowUserRequest) (*UnfollowUserResponse, error)
+	// 获取关注列表
+	GetFollowList(context.Context, *GetFollowListRequest) (*GetFollowListResponse, error)
+	// 获取粉丝列表
+	GetFollowerList(context.Context, *GetFollowerListRequest) (*GetFollowerListResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2411,6 +2467,18 @@ func (UnimplementedTeamsAPIServer) TrendingStory(context.Context, *TrendingStory
 }
 func (UnimplementedTeamsAPIServer) TrendingStoryRole(context.Context, *TrendingStoryRoleRequest) (*TrendingStoryRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TrendingStoryRole not implemented")
+}
+func (UnimplementedTeamsAPIServer) FollowUser(context.Context, *FollowUserRequest) (*FollowUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FollowUser not implemented")
+}
+func (UnimplementedTeamsAPIServer) UnfollowUser(context.Context, *UnfollowUserRequest) (*UnfollowUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnfollowUser not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetFollowList(context.Context, *GetFollowListRequest) (*GetFollowListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFollowList not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetFollowerList(context.Context, *GetFollowerListRequest) (*GetFollowerListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFollowerList not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4945,6 +5013,78 @@ func _TeamsAPI_TrendingStoryRole_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_FollowUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FollowUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).FollowUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_FollowUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).FollowUser(ctx, req.(*FollowUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UnfollowUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnfollowUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UnfollowUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UnfollowUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UnfollowUser(ctx, req.(*UnfollowUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetFollowList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFollowListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetFollowList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetFollowList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetFollowList(ctx, req.(*GetFollowListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GetFollowerList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFollowerListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetFollowerList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetFollowerList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetFollowerList(ctx, req.(*GetFollowerListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5511,6 +5651,22 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TrendingStoryRole",
 			Handler:    _TeamsAPI_TrendingStoryRole_Handler,
+		},
+		{
+			MethodName: "FollowUser",
+			Handler:    _TeamsAPI_FollowUser_Handler,
+		},
+		{
+			MethodName: "UnfollowUser",
+			Handler:    _TeamsAPI_UnfollowUser_Handler,
+		},
+		{
+			MethodName: "GetFollowList",
+			Handler:    _TeamsAPI_GetFollowList_Handler,
+		},
+		{
+			MethodName: "GetFollowerList",
+			Handler:    _TeamsAPI_GetFollowerList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

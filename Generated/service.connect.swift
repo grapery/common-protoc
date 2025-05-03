@@ -1114,6 +1114,38 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     ///热门角色
     @available(iOS 13, *)
     func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingStoryRoleResponse>
+
+    /// 关注另一个用户
+    @discardableResult
+    func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FollowUserResponse>) -> Void) -> Connect.Cancelable
+
+    /// 关注另一个用户
+    @available(iOS 13, *)
+    func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FollowUserResponse>
+
+    /// 取消关注另一个用户
+    @discardableResult
+    func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnfollowUserResponse>) -> Void) -> Connect.Cancelable
+
+    /// 取消关注另一个用户
+    @available(iOS 13, *)
+    func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnfollowUserResponse>
+
+    /// 获取关注列表
+    @discardableResult
+    func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetFollowListResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取关注列表
+    @available(iOS 13, *)
+    func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetFollowListResponse>
+
+    /// 获取粉丝列表
+    @discardableResult
+    func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetFollowerListResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取粉丝列表
+    @available(iOS 13, *)
+    func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetFollowerListResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2524,6 +2556,46 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FollowUserResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FollowUserResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnfollowUserResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnfollowUserResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetFollowListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetFollowListResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetFollowerListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetFollowerListResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2666,6 +2738,10 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryRoleList = Connect.MethodSpec(name: "GetStoryRoleList", service: "common.TeamsAPI", type: .unary)
             public static let trendingStory = Connect.MethodSpec(name: "TrendingStory", service: "common.TeamsAPI", type: .unary)
             public static let trendingStoryRole = Connect.MethodSpec(name: "TrendingStoryRole", service: "common.TeamsAPI", type: .unary)
+            public static let followUser = Connect.MethodSpec(name: "FollowUser", service: "common.TeamsAPI", type: .unary)
+            public static let unfollowUser = Connect.MethodSpec(name: "UnfollowUser", service: "common.TeamsAPI", type: .unary)
+            public static let getFollowList = Connect.MethodSpec(name: "GetFollowList", service: "common.TeamsAPI", type: .unary)
+            public static let getFollowerList = Connect.MethodSpec(name: "GetFollowerList", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

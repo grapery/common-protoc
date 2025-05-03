@@ -394,6 +394,15 @@ const (
 	// TeamsAPITrendingStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// TrendingStoryRole RPC.
 	TeamsAPITrendingStoryRoleProcedure = "/common.TeamsAPI/TrendingStoryRole"
+	// TeamsAPIFollowUserProcedure is the fully-qualified name of the TeamsAPI's FollowUser RPC.
+	TeamsAPIFollowUserProcedure = "/common.TeamsAPI/FollowUser"
+	// TeamsAPIUnfollowUserProcedure is the fully-qualified name of the TeamsAPI's UnfollowUser RPC.
+	TeamsAPIUnfollowUserProcedure = "/common.TeamsAPI/UnfollowUser"
+	// TeamsAPIGetFollowListProcedure is the fully-qualified name of the TeamsAPI's GetFollowList RPC.
+	TeamsAPIGetFollowListProcedure = "/common.TeamsAPI/GetFollowList"
+	// TeamsAPIGetFollowerListProcedure is the fully-qualified name of the TeamsAPI's GetFollowerList
+	// RPC.
+	TeamsAPIGetFollowerListProcedure = "/common.TeamsAPI/GetFollowerList"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -671,6 +680,14 @@ type TeamsAPIClient interface {
 	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
 	// 热门角色
 	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
+	// 关注另一个用户
+	FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error)
+	// 取消关注另一个用户
+	UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error)
+	// 获取关注列表
+	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
+	// 获取粉丝列表
+	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1383,6 +1400,26 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPITrendingStoryRoleProcedure,
 			opts...,
 		),
+		followUser: connect.NewClient[gen.FollowUserRequest, gen.FollowUserResponse](
+			httpClient,
+			baseURL+TeamsAPIFollowUserProcedure,
+			opts...,
+		),
+		unfollowUser: connect.NewClient[gen.UnfollowUserRequest, gen.UnfollowUserResponse](
+			httpClient,
+			baseURL+TeamsAPIUnfollowUserProcedure,
+			opts...,
+		),
+		getFollowList: connect.NewClient[gen.GetFollowListRequest, gen.GetFollowListResponse](
+			httpClient,
+			baseURL+TeamsAPIGetFollowListProcedure,
+			opts...,
+		),
+		getFollowerList: connect.NewClient[gen.GetFollowerListRequest, gen.GetFollowerListResponse](
+			httpClient,
+			baseURL+TeamsAPIGetFollowerListProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1528,6 +1565,10 @@ type teamsAPIClient struct {
 	getStoryRoleList                   *connect.Client[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse]
 	trendingStory                      *connect.Client[gen.TrendingStoryRequest, gen.TrendingStoryResponse]
 	trendingStoryRole                  *connect.Client[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse]
+	followUser                         *connect.Client[gen.FollowUserRequest, gen.FollowUserResponse]
+	unfollowUser                       *connect.Client[gen.UnfollowUserRequest, gen.UnfollowUserResponse]
+	getFollowList                      *connect.Client[gen.GetFollowListRequest, gen.GetFollowListResponse]
+	getFollowerList                    *connect.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2230,6 +2271,26 @@ func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, req *connect.Req
 	return c.trendingStoryRole.CallUnary(ctx, req)
 }
 
+// FollowUser calls common.TeamsAPI.FollowUser.
+func (c *teamsAPIClient) FollowUser(ctx context.Context, req *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error) {
+	return c.followUser.CallUnary(ctx, req)
+}
+
+// UnfollowUser calls common.TeamsAPI.UnfollowUser.
+func (c *teamsAPIClient) UnfollowUser(ctx context.Context, req *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error) {
+	return c.unfollowUser.CallUnary(ctx, req)
+}
+
+// GetFollowList calls common.TeamsAPI.GetFollowList.
+func (c *teamsAPIClient) GetFollowList(ctx context.Context, req *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error) {
+	return c.getFollowList.CallUnary(ctx, req)
+}
+
+// GetFollowerList calls common.TeamsAPI.GetFollowerList.
+func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error) {
+	return c.getFollowerList.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2505,6 +2566,14 @@ type TeamsAPIHandler interface {
 	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
 	// 热门角色
 	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
+	// 关注另一个用户
+	FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error)
+	// 取消关注另一个用户
+	UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error)
+	// 获取关注列表
+	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
+	// 获取粉丝列表
+	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3213,6 +3282,26 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.TrendingStoryRole,
 		opts...,
 	)
+	teamsAPIFollowUserHandler := connect.NewUnaryHandler(
+		TeamsAPIFollowUserProcedure,
+		svc.FollowUser,
+		opts...,
+	)
+	teamsAPIUnfollowUserHandler := connect.NewUnaryHandler(
+		TeamsAPIUnfollowUserProcedure,
+		svc.UnfollowUser,
+		opts...,
+	)
+	teamsAPIGetFollowListHandler := connect.NewUnaryHandler(
+		TeamsAPIGetFollowListProcedure,
+		svc.GetFollowList,
+		opts...,
+	)
+	teamsAPIGetFollowerListHandler := connect.NewUnaryHandler(
+		TeamsAPIGetFollowerListProcedure,
+		svc.GetFollowerList,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3495,6 +3584,14 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPITrendingStoryHandler.ServeHTTP(w, r)
 		case TeamsAPITrendingStoryRoleProcedure:
 			teamsAPITrendingStoryRoleHandler.ServeHTTP(w, r)
+		case TeamsAPIFollowUserProcedure:
+			teamsAPIFollowUserHandler.ServeHTTP(w, r)
+		case TeamsAPIUnfollowUserProcedure:
+			teamsAPIUnfollowUserHandler.ServeHTTP(w, r)
+		case TeamsAPIGetFollowListProcedure:
+			teamsAPIGetFollowListHandler.ServeHTTP(w, r)
+		case TeamsAPIGetFollowerListProcedure:
+			teamsAPIGetFollowerListHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4062,4 +4159,20 @@ func (UnimplementedTeamsAPIHandler) TrendingStory(context.Context, *connect.Requ
 
 func (UnimplementedTeamsAPIHandler) TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.TrendingStoryRole is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.FollowUser is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UnfollowUser is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowList is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowerList is not implemented"))
 }

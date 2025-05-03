@@ -794,6 +794,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/FollowUser:
+        post:
+            tags:
+                - TeamsAPI
+            description: 关注另一个用户
+            operationId: TeamsAPI_FollowUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FollowUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FollowUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/ForkStoryboard:
         post:
             tags:
@@ -911,6 +936,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GenerateRolePromptResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetFollowList:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取关注列表
+            operationId: TeamsAPI_GetFollowList
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetFollowListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetFollowListResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetFollowerList:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取粉丝列表
+            operationId: TeamsAPI_GetFollowerList
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetFollowerListRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetFollowerListResponse'
                 default:
                     description: Default error response
                     content:
@@ -2839,6 +2914,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UnfollowUser:
+        post:
+            tags:
+                - TeamsAPI
+            description: 取消关注另一个用户
+            operationId: TeamsAPI_UnfollowUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UnfollowUserRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UnfollowUserResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateGroupInfo:
         post:
             tags:
@@ -4401,6 +4501,21 @@ components:
                     format: enum
                 message:
                     type: string
+        FollowUserRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                followerId:
+                    type: string
+        FollowUserResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         ForkStoryboardRequest:
             type: object
             properties:
@@ -4537,6 +4652,48 @@ components:
                     type: string
                 prompt:
                     type: string
+        GetFollowListRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetFollowListResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                followers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+        GetFollowerListRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetFollowerListResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                followers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
         GetGroupActivesRequest:
             type: object
             properties:
@@ -7409,6 +7566,21 @@ components:
         UnWatchProjectResponse_Data:
             type: object
             properties: {}
+        UnfollowUserRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                followerId:
+                    type: string
+        UnfollowUserResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         UpdateGroupInfoRequest:
             type: object
             properties:
