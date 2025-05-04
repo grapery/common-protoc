@@ -1123,7 +1123,18 @@ VIP不存在 |
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED | 0 |  |
-| GROUP_MEMBER_TYPE_MAINTAINER | 1 |  |
+| GROUP_MEMBER_TYPE_CREATOR | 1 |  |
+| GROUP_MEMBER_TYPE_MAINTAINER | 2 |  |
+| GROUP_MEMBER_TYPE_CONTRIBUTOR | 3 |  |
+| GROUP_MEMBER_TYPE_MEMBER | 4 |  |
+| GROUP_MEMBER_TYPE_BANNED | 5 |  |
+| GROUP_MEMBER_TYPE_INVITED | 6 |  |
+| GROUP_MEMBER_TYPE_REJECTED | 7 |  |
+| GROUP_MEMBER_TYPE_PENDING | 8 |  |
+| GROUP_MEMBER_TYPE_LEAVE | 9 |  |
+| GROUP_MEMBER_TYPE_KICKED | 10 |  |
+| GROUP_MEMBER_TYPE_DELETED | 11 |  |
+| GROUP_MEMBER_TYPE_EXPIRED | 12 |  |
 
 
  
@@ -1437,6 +1448,8 @@ VIP不存在 |
 | contribut_story_num | [int32](#int32) |  |  |
 | contribut_role_num | [int32](#int32) |  |  |
 | background_image | [string](#string) |  |  |
+| num_followers | [int32](#int32) |  |  |
+| num_following | [int32](#int32) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -3188,6 +3201,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+| creator | [UserInfo](#common-UserInfo) |  |  |
 
 
 

@@ -187,6 +187,7 @@ message StoryRole{
     int64 Ctime = 21;
     int64 Mtime = 22;  
     WhatCurrentUserStatus current_user_status = 23;
+    UserInfo creator = 24;
 }
 
 message StoryBoardParams{

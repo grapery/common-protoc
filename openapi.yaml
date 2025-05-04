@@ -7301,6 +7301,8 @@ components:
                     type: string
                 currentUserStatus:
                     $ref: '#/components/schemas/WhatCurrentUserStatus'
+                creator:
+                    $ref: '#/components/schemas/UserInfo'
         StorySummaryInfo:
             type: object
             properties:
@@ -8136,6 +8138,12 @@ components:
                     format: int32
                 backgroundImage:
                     type: string
+                numFollowers:
+                    type: integer
+                    format: int32
+                numFollowing:
+                    type: integer
+                    format: int32
                 Ctime:
                     type: string
                 Mtime:

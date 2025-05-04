@@ -41,6 +41,9 @@ message UserProfileInfo {
   int32 contribut_role_num = 14;
   string background_image = 15;
 
+  int32 num_followers = 16;
+  int32 num_following = 17; 
+
   int64 Ctime = 19;
   int64 Mtime = 20;
 }

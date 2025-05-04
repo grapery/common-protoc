@@ -143,6 +143,16 @@ public struct Common_UserProfileInfo: @unchecked Sendable {
     set {_uniqueStorage()._backgroundImage = newValue}
   }
 
+  public var numFollowers: Int32 {
+    get {return _storage._numFollowers}
+    set {_uniqueStorage()._numFollowers = newValue}
+  }
+
+  public var numFollowing: Int32 {
+    get {return _storage._numFollowing}
+    set {_uniqueStorage()._numFollowing = newValue}
+  }
+
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
@@ -300,6 +310,8 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     13: .standard(proto: "contribut_story_num"),
     14: .standard(proto: "contribut_role_num"),
     15: .standard(proto: "background_image"),
+    16: .standard(proto: "num_followers"),
+    17: .standard(proto: "num_following"),
     19: .same(proto: "Ctime"),
     20: .same(proto: "Mtime"),
   ]
@@ -320,6 +332,8 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     var _contributStoryNum: Int32 = 0
     var _contributRoleNum: Int32 = 0
     var _backgroundImage: String = String()
+    var _numFollowers: Int32 = 0
+    var _numFollowing: Int32 = 0
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -351,6 +365,8 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       _contributStoryNum = source._contributStoryNum
       _contributRoleNum = source._contributRoleNum
       _backgroundImage = source._backgroundImage
+      _numFollowers = source._numFollowers
+      _numFollowing = source._numFollowing
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -386,6 +402,8 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         case 13: try { try decoder.decodeSingularInt32Field(value: &_storage._contributStoryNum) }()
         case 14: try { try decoder.decodeSingularInt32Field(value: &_storage._contributRoleNum) }()
         case 15: try { try decoder.decodeSingularStringField(value: &_storage._backgroundImage) }()
+        case 16: try { try decoder.decodeSingularInt32Field(value: &_storage._numFollowers) }()
+        case 17: try { try decoder.decodeSingularInt32Field(value: &_storage._numFollowing) }()
         case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
         case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
@@ -441,6 +459,12 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if !_storage._backgroundImage.isEmpty {
         try visitor.visitSingularStringField(value: _storage._backgroundImage, fieldNumber: 15)
       }
+      if _storage._numFollowers != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._numFollowers, fieldNumber: 16)
+      }
+      if _storage._numFollowing != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._numFollowing, fieldNumber: 17)
+      }
       if _storage._ctime != 0 {
         try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
       }
@@ -471,6 +495,8 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
         if _storage._contributStoryNum != rhs_storage._contributStoryNum {return false}
         if _storage._contributRoleNum != rhs_storage._contributRoleNum {return false}
         if _storage._backgroundImage != rhs_storage._backgroundImage {return false}
+        if _storage._numFollowers != rhs_storage._numFollowers {return false}
+        if _storage._numFollowing != rhs_storage._numFollowing {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true

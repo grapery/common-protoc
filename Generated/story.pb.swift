@@ -755,6 +755,15 @@ public struct Common_StoryRole: @unchecked Sendable {
   /// Clears the value of `currentUserStatus`. Subsequent reads from it will return its default value.
   public mutating func clearCurrentUserStatus() {_uniqueStorage()._currentUserStatus = nil}
 
+  public var creator: Common_UserInfo {
+    get {return _storage._creator ?? Common_UserInfo()}
+    set {_uniqueStorage()._creator = newValue}
+  }
+  /// Returns true if `creator` has been explicitly set.
+  public var hasCreator: Bool {return _storage._creator != nil}
+  /// Clears the value of `creator`. Subsequent reads from it will return its default value.
+  public mutating func clearCreator() {_uniqueStorage()._creator = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3990,6 +3999,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     21: .same(proto: "Ctime"),
     22: .same(proto: "Mtime"),
     23: .standard(proto: "current_user_status"),
+    24: .same(proto: "creator"),
   ]
 
   fileprivate class _StorageClass {
@@ -4014,6 +4024,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
+    var _creator: Common_UserInfo? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -4049,6 +4060,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       _ctime = source._ctime
       _mtime = source._mtime
       _currentUserStatus = source._currentUserStatus
+      _creator = source._creator
     }
   }
 
@@ -4088,6 +4100,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         case 21: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
         case 22: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         case 23: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
+        case 24: try { try decoder.decodeSingularMessageField(value: &_storage._creator) }()
         default: break
         }
       }
@@ -4163,6 +4176,9 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       try { if let v = _storage._currentUserStatus {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 23)
       } }()
+      try { if let v = _storage._creator {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 24)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4193,6 +4209,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         if _storage._currentUserStatus != rhs_storage._currentUserStatus {return false}
+        if _storage._creator != rhs_storage._creator {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -23,7 +23,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case normalUnspecified // = 0
-  case maintainer // = 1
+  case creator // = 1
+  case maintainer // = 2
+  case contributor // = 3
+  case member // = 4
+  case banned // = 5
+  case invited // = 6
+  case rejected // = 7
+  case pending // = 8
+  case leave // = 9
+  case kicked // = 10
+  case deleted // = 11
+  case expired // = 12
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -33,7 +44,18 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .normalUnspecified
-    case 1: self = .maintainer
+    case 1: self = .creator
+    case 2: self = .maintainer
+    case 3: self = .contributor
+    case 4: self = .member
+    case 5: self = .banned
+    case 6: self = .invited
+    case 7: self = .rejected
+    case 8: self = .pending
+    case 9: self = .leave
+    case 10: self = .kicked
+    case 11: self = .deleted
+    case 12: self = .expired
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -41,7 +63,18 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public var rawValue: Int {
     switch self {
     case .normalUnspecified: return 0
-    case .maintainer: return 1
+    case .creator: return 1
+    case .maintainer: return 2
+    case .contributor: return 3
+    case .member: return 4
+    case .banned: return 5
+    case .invited: return 6
+    case .rejected: return 7
+    case .pending: return 8
+    case .leave: return 9
+    case .kicked: return 10
+    case .deleted: return 11
+    case .expired: return 12
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -49,7 +82,18 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_GroupMemberType] = [
     .normalUnspecified,
+    .creator,
     .maintainer,
+    .contributor,
+    .member,
+    .banned,
+    .invited,
+    .rejected,
+    .pending,
+    .leave,
+    .kicked,
+    .deleted,
+    .expired,
   ]
 
 }
@@ -197,7 +241,18 @@ fileprivate let _protobuf_package = "common"
 extension Common_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED"),
-    1: .same(proto: "GROUP_MEMBER_TYPE_MAINTAINER"),
+    1: .same(proto: "GROUP_MEMBER_TYPE_CREATOR"),
+    2: .same(proto: "GROUP_MEMBER_TYPE_MAINTAINER"),
+    3: .same(proto: "GROUP_MEMBER_TYPE_CONTRIBUTOR"),
+    4: .same(proto: "GROUP_MEMBER_TYPE_MEMBER"),
+    5: .same(proto: "GROUP_MEMBER_TYPE_BANNED"),
+    6: .same(proto: "GROUP_MEMBER_TYPE_INVITED"),
+    7: .same(proto: "GROUP_MEMBER_TYPE_REJECTED"),
+    8: .same(proto: "GROUP_MEMBER_TYPE_PENDING"),
+    9: .same(proto: "GROUP_MEMBER_TYPE_LEAVE"),
+    10: .same(proto: "GROUP_MEMBER_TYPE_KICKED"),
+    11: .same(proto: "GROUP_MEMBER_TYPE_DELETED"),
+    12: .same(proto: "GROUP_MEMBER_TYPE_EXPIRED"),
   ]
 }
 
