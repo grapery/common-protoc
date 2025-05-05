@@ -4900,6 +4900,10 @@ public struct Common_GetUserWithRoleChatListRequest: Sendable {
 
   public var storyID: Int64 = 0
 
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -4915,6 +4919,12 @@ public struct Common_GetUserWithRoleChatListResponse: Sendable {
   public var message: String = String()
 
   public var chats: [Common_ChatContext] = []
+
+  public var total: Int64 = 0
+
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17056,6 +17066,8 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "user_id"),
     2: .standard(proto: "story_id"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -17066,6 +17078,8 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -17078,12 +17092,20 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
     if self.storyID != 0 {
       try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
     }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetUserWithRoleChatListRequest, rhs: Common_GetUserWithRoleChatListRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -17095,6 +17117,9 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     1: .same(proto: "code"),
     2: .same(proto: "message"),
     3: .same(proto: "chats"),
+    4: .same(proto: "total"),
+    5: .same(proto: "offset"),
+    6: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -17106,6 +17131,9 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.chats) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -17121,6 +17149,15 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     if !self.chats.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.chats, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 5)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -17128,6 +17165,9 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.chats != rhs.chats {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

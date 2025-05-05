@@ -6428,6 +6428,8 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -6445,6 +6447,9 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | chats | [ChatContext](#common-ChatContext) | repeated |  |
+| total | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 

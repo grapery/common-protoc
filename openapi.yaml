@@ -5842,6 +5842,10 @@ components:
                     type: string
                 storyId:
                     type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetUserWithRoleChatListResponse:
             type: object
             properties:
@@ -5854,6 +5858,12 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ChatContext'
+                total:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GoogleProtobufAny:
             type: object
             properties:
