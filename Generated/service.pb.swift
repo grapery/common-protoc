@@ -3300,7 +3300,7 @@ public struct Common_GenerateStoryRolePosterRequest: Sendable {
 
   public var roleID: Int64 = 0
 
-  public var userID: String = String()
+  public var userID: Int64 = 0
 
   public var params: Common_GenerateStoryRoleParams {
     get {return _params ?? Common_GenerateStoryRoleParams()}
@@ -3343,7 +3343,7 @@ public struct Common_UpdateStoryRolePosterRequest: Sendable {
 
   public var roleID: Int64 = 0
 
-  public var userID: String = String()
+  public var userID: Int64 = 0
 
   public var imageURL: String = String()
 
@@ -12979,7 +12979,7 @@ extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._params) }()
       default: break
       }
@@ -12997,8 +12997,8 @@ extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftPro
     if self.roleID != 0 {
       try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 2)
     }
-    if !self.userID.isEmpty {
-      try visitor.visitSingularStringField(value: self.userID, fieldNumber: 3)
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
     }
     try { if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
@@ -13077,7 +13077,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.imageURL) }()
       default: break
       }
@@ -13091,8 +13091,8 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
     if self.roleID != 0 {
       try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 2)
     }
-    if !self.userID.isEmpty {
-      try visitor.visitSingularStringField(value: self.userID, fieldNumber: 3)
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
     }
     if !self.imageURL.isEmpty {
       try visitor.visitSingularStringField(value: self.imageURL, fieldNumber: 4)

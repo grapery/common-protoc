@@ -5017,7 +5017,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
-| user_id | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
 | params | [GenerateStoryRoleParams](#common-GenerateStoryRoleParams) |  |  |
 
 
@@ -8137,7 +8137,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
-| user_id | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
 | image_url | [string](#string) |  |  |
 
 
