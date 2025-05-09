@@ -259,6 +259,9 @@
     - [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse)
     - [GenerateRolePromptRequest](#common-GenerateRolePromptRequest)
     - [GenerateRolePromptResponse](#common-GenerateRolePromptResponse)
+    - [GenerateStoryRoleParams](#common-GenerateStoryRoleParams)
+    - [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest)
+    - [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
@@ -438,6 +441,8 @@
     - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
     - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
+    - [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest)
+    - [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
@@ -3202,6 +3207,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | Mtime | [int64](#int64) |  |  |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
 | creator | [UserInfo](#common-UserInfo) |  |  |
+| poster_image_url | [string](#string) |  |  |
 
 
 
@@ -4975,6 +4981,61 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | prompt | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStoryRoleParams"></a>
+
+### GenerateStoryRoleParams
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| origin_image_url | [string](#string) |  |  |
+| text_prompt | [string](#string) |  |  |
+| negative_prompt | [string](#string) |  |  |
+| seed | [int64](#int64) |  |  |
+| steps | [int64](#int64) |  |  |
+| guidance_scale | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStoryRolePosterRequest"></a>
+
+### GenerateStoryRolePosterRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [string](#string) |  |  |
+| params | [GenerateStoryRoleParams](#common-GenerateStoryRoleParams) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStoryRolePosterResponse"></a>
+
+### GenerateStoryRolePosterResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| image_url | [string](#string) |  |  |
 
 
 
@@ -8066,6 +8127,40 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
+<a name="common-UpdateStoryRolePosterRequest"></a>
+
+### UpdateStoryRolePosterRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [string](#string) |  |  |
+| image_url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRolePosterResponse"></a>
+
+### UpdateStoryRolePosterResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateUserAvatorRequest"></a>
 
 ### UpdateUserAvatorRequest
@@ -8806,6 +8901,8 @@ user ,group .project.item
 | UnfollowUser | [UnfollowUserRequest](#common-UnfollowUserRequest) | [UnfollowUserResponse](#common-UnfollowUserResponse) | 取消关注另一个用户 |
 | GetFollowList | [GetFollowListRequest](#common-GetFollowListRequest) | [GetFollowListResponse](#common-GetFollowListResponse) | 获取关注列表 |
 | GetFollowerList | [GetFollowerListRequest](#common-GetFollowerListRequest) | [GetFollowerListResponse](#common-GetFollowerListResponse) | 获取粉丝列表 |
+| GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
+| UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
 
  
 

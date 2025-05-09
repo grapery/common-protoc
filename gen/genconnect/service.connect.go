@@ -403,6 +403,12 @@ const (
 	// TeamsAPIGetFollowerListProcedure is the fully-qualified name of the TeamsAPI's GetFollowerList
 	// RPC.
 	TeamsAPIGetFollowerListProcedure = "/common.TeamsAPI/GetFollowerList"
+	// TeamsAPIGenerateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// GenerateStoryRolePoster RPC.
+	TeamsAPIGenerateStoryRolePosterProcedure = "/common.TeamsAPI/GenerateStoryRolePoster"
+	// TeamsAPIUpdateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRolePoster RPC.
+	TeamsAPIUpdateStoryRolePosterProcedure = "/common.TeamsAPI/UpdateStoryRolePoster"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -688,6 +694,10 @@ type TeamsAPIClient interface {
 	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
 	// 获取粉丝列表
 	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1420,6 +1430,16 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIGetFollowerListProcedure,
 			opts...,
 		),
+		generateStoryRolePoster: connect.NewClient[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPIGenerateStoryRolePosterProcedure,
+			opts...,
+		),
+		updateStoryRolePoster: connect.NewClient[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryRolePosterProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1569,6 +1589,8 @@ type teamsAPIClient struct {
 	unfollowUser                       *connect.Client[gen.UnfollowUserRequest, gen.UnfollowUserResponse]
 	getFollowList                      *connect.Client[gen.GetFollowListRequest, gen.GetFollowListResponse]
 	getFollowerList                    *connect.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
+	generateStoryRolePoster            *connect.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
+	updateStoryRolePoster              *connect.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2291,6 +2313,16 @@ func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect.Reque
 	return c.getFollowerList.CallUnary(ctx, req)
 }
 
+// GenerateStoryRolePoster calls common.TeamsAPI.GenerateStoryRolePoster.
+func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error) {
+	return c.generateStoryRolePoster.CallUnary(ctx, req)
+}
+
+// UpdateStoryRolePoster calls common.TeamsAPI.UpdateStoryRolePoster.
+func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error) {
+	return c.updateStoryRolePoster.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// 探索
@@ -2574,6 +2606,10 @@ type TeamsAPIHandler interface {
 	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
 	// 获取粉丝列表
 	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3302,6 +3338,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.GetFollowerList,
 		opts...,
 	)
+	teamsAPIGenerateStoryRolePosterHandler := connect.NewUnaryHandler(
+		TeamsAPIGenerateStoryRolePosterProcedure,
+		svc.GenerateStoryRolePoster,
+		opts...,
+	)
+	teamsAPIUpdateStoryRolePosterHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateStoryRolePosterProcedure,
+		svc.UpdateStoryRolePoster,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3592,6 +3638,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIGetFollowListHandler.ServeHTTP(w, r)
 		case TeamsAPIGetFollowerListProcedure:
 			teamsAPIGetFollowerListHandler.ServeHTTP(w, r)
+		case TeamsAPIGenerateStoryRolePosterProcedure:
+			teamsAPIGenerateStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRolePosterProcedure:
+			teamsAPIUpdateStoryRolePosterHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4175,4 +4225,12 @@ func (UnimplementedTeamsAPIHandler) GetFollowList(context.Context, *connect.Requ
 
 func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowerList is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePoster is not implemented"))
 }

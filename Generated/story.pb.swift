@@ -764,6 +764,11 @@ public struct Common_StoryRole: @unchecked Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
 
+  public var posterImageURL: String {
+    get {return _storage._posterImageURL}
+    set {_uniqueStorage()._posterImageURL = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -4000,6 +4005,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     22: .same(proto: "Mtime"),
     23: .standard(proto: "current_user_status"),
     24: .same(proto: "creator"),
+    25: .standard(proto: "poster_image_url"),
   ]
 
   fileprivate class _StorageClass {
@@ -4025,6 +4031,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _mtime: Int64 = 0
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
     var _creator: Common_UserInfo? = nil
+    var _posterImageURL: String = String()
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -4061,6 +4068,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       _mtime = source._mtime
       _currentUserStatus = source._currentUserStatus
       _creator = source._creator
+      _posterImageURL = source._posterImageURL
     }
   }
 
@@ -4101,6 +4109,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         case 22: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         case 23: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
         case 24: try { try decoder.decodeSingularMessageField(value: &_storage._creator) }()
+        case 25: try { try decoder.decodeSingularStringField(value: &_storage._posterImageURL) }()
         default: break
         }
       }
@@ -4179,6 +4188,9 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       try { if let v = _storage._creator {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 24)
       } }()
+      if !_storage._posterImageURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._posterImageURL, fieldNumber: 25)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4210,6 +4222,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if _storage._mtime != rhs_storage._mtime {return false}
         if _storage._currentUserStatus != rhs_storage._currentUserStatus {return false}
         if _storage._creator != rhs_storage._creator {return false}
+        if _storage._posterImageURL != rhs_storage._posterImageURL {return false}
         return true
       }
       if !storagesAreEqual {return false}

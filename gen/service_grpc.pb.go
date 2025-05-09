@@ -163,6 +163,8 @@ const (
 	TeamsAPI_UnfollowUser_FullMethodName                       = "/common.TeamsAPI/UnfollowUser"
 	TeamsAPI_GetFollowList_FullMethodName                      = "/common.TeamsAPI/GetFollowList"
 	TeamsAPI_GetFollowerList_FullMethodName                    = "/common.TeamsAPI/GetFollowerList"
+	TeamsAPI_GenerateStoryRolePoster_FullMethodName            = "/common.TeamsAPI/GenerateStoryRolePoster"
+	TeamsAPI_UpdateStoryRolePoster_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePoster"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -450,6 +452,10 @@ type TeamsAPIClient interface {
 	GetFollowList(ctx context.Context, in *GetFollowListRequest, opts ...grpc.CallOption) (*GetFollowListResponse, error)
 	// 获取粉丝列表
 	GetFollowerList(ctx context.Context, in *GetFollowerListRequest, opts ...grpc.CallOption) (*GetFollowerListResponse, error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(ctx context.Context, in *GenerateStoryRolePosterRequest, opts ...grpc.CallOption) (*GenerateStoryRolePosterResponse, error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(ctx context.Context, in *UpdateStoryRolePosterRequest, opts ...grpc.CallOption) (*UpdateStoryRolePosterResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1756,6 +1762,24 @@ func (c *teamsAPIClient) GetFollowerList(ctx context.Context, in *GetFollowerLis
 	return out, nil
 }
 
+func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, in *GenerateStoryRolePosterRequest, opts ...grpc.CallOption) (*GenerateStoryRolePosterResponse, error) {
+	out := new(GenerateStoryRolePosterResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenerateStoryRolePoster_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, in *UpdateStoryRolePosterRequest, opts ...grpc.CallOption) (*UpdateStoryRolePosterResponse, error) {
+	out := new(UpdateStoryRolePosterResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRolePoster_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -2041,6 +2065,10 @@ type TeamsAPIServer interface {
 	GetFollowList(context.Context, *GetFollowListRequest) (*GetFollowListResponse, error)
 	// 获取粉丝列表
 	GetFollowerList(context.Context, *GetFollowerListRequest) (*GetFollowerListResponse, error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(context.Context, *GenerateStoryRolePosterRequest) (*GenerateStoryRolePosterResponse, error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(context.Context, *UpdateStoryRolePosterRequest) (*UpdateStoryRolePosterResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2479,6 +2507,12 @@ func (UnimplementedTeamsAPIServer) GetFollowList(context.Context, *GetFollowList
 }
 func (UnimplementedTeamsAPIServer) GetFollowerList(context.Context, *GetFollowerListRequest) (*GetFollowerListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFollowerList not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenerateStoryRolePoster(context.Context, *GenerateStoryRolePosterRequest) (*GenerateStoryRolePosterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateStoryRolePoster not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryRolePoster(context.Context, *UpdateStoryRolePosterRequest) (*UpdateStoryRolePosterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRolePoster not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -5085,6 +5119,42 @@ func _TeamsAPI_GetFollowerList_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GenerateStoryRolePoster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateStoryRolePosterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenerateStoryRolePoster(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenerateStoryRolePoster_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenerateStoryRolePoster(ctx, req.(*GenerateStoryRolePosterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryRolePoster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRolePosterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryRolePoster(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryRolePoster_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryRolePoster(ctx, req.(*UpdateStoryRolePosterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5667,6 +5737,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFollowerList",
 			Handler:    _TeamsAPI_GetFollowerList_Handler,
+		},
+		{
+			MethodName: "GenerateStoryRolePoster",
+			Handler:    _TeamsAPI_GenerateStoryRolePoster_Handler,
+		},
+		{
+			MethodName: "UpdateStoryRolePoster",
+			Handler:    _TeamsAPI_UpdateStoryRolePoster_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

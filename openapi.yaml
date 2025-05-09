@@ -942,6 +942,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateStoryRolePoster:
+        post:
+            tags:
+                - TeamsAPI
+            description: 生成角色的海报图片
+            operationId: TeamsAPI_GenerateStoryRolePoster
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateStoryRolePosterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateStoryRolePosterResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetFollowList:
         post:
             tags:
@@ -3237,6 +3262,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRolePoster:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新角色的海报图片
+            operationId: TeamsAPI_UpdateStoryRolePoster
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRolePosterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRolePosterResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryboard:
         post:
             tags:
@@ -4651,6 +4701,42 @@ components:
                 message:
                     type: string
                 prompt:
+                    type: string
+        GenerateStoryRoleParams:
+            type: object
+            properties:
+                originImageUrl:
+                    type: string
+                textPrompt:
+                    type: string
+                negativePrompt:
+                    type: string
+                seed:
+                    type: string
+                steps:
+                    type: string
+                guidanceScale:
+                    type: string
+        GenerateStoryRolePosterRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                params:
+                    $ref: '#/components/schemas/GenerateStoryRoleParams'
+        GenerateStoryRolePosterResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                imageUrl:
                     type: string
         GetFollowListRequest:
             type: object
@@ -7313,6 +7399,8 @@ components:
                     $ref: '#/components/schemas/WhatCurrentUserStatus'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
+                posterImageUrl:
+                    type: string
         StorySummaryInfo:
             type: object
             properties:
@@ -7820,6 +7908,25 @@ components:
                 backgroundImage:
                     type: string
         UpdateStoryRoleDetailResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        UpdateStoryRolePosterRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                imageUrl:
+                    type: string
+        UpdateStoryRolePosterResponse:
             type: object
             properties:
                 code:

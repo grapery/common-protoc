@@ -188,6 +188,7 @@ message StoryRole{
     int64 Mtime = 22;  
     WhatCurrentUserStatus current_user_status = 23;
     UserInfo creator = 24;
+    string poster_image_url = 25;
 }
 
 message StoryBoardParams{

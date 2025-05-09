@@ -1146,6 +1146,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取粉丝列表
     @available(iOS 13, *)
     func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetFollowerListResponse>
+
+    /// 生成角色的海报图片
+    @discardableResult
+    func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+
+    /// 生成角色的海报图片
+    @available(iOS 13, *)
+    func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStoryRolePosterResponse>
+
+    /// 更新角色的海报图片
+    @discardableResult
+    func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新角色的海报图片
+    @available(iOS 13, *)
+    func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRolePosterResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2596,6 +2612,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStoryRolePosterResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRolePosterResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2742,6 +2778,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let unfollowUser = Connect.MethodSpec(name: "UnfollowUser", service: "common.TeamsAPI", type: .unary)
             public static let getFollowList = Connect.MethodSpec(name: "GetFollowList", service: "common.TeamsAPI", type: .unary)
             public static let getFollowerList = Connect.MethodSpec(name: "GetFollowerList", service: "common.TeamsAPI", type: .unary)
+            public static let generateStoryRolePoster = Connect.MethodSpec(name: "GenerateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryRolePoster = Connect.MethodSpec(name: "UpdateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
         }
     }
 }
