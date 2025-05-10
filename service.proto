@@ -2392,7 +2392,7 @@ message GenerateRoleDescriptionRequest {
 message GenerateRoleDescriptionResponse {
   ResponseCode code = 1;
   string message = 2;
-  string description = 3;
+  CharacterDetail character_detail = 3;
 }
 
 message GetUnPublishStoryboardRequest {

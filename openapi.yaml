@@ -4694,8 +4694,8 @@ components:
                     format: enum
                 message:
                     type: string
-                description:
-                    type: string
+                characterDetail:
+                    $ref: '#/components/schemas/CharacterDetail'
         GenerateRolePromptRequest:
             type: object
             properties:

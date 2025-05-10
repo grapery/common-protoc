@@ -4950,7 +4950,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| description | [string](#string) |  |  |
+| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
 
 
 

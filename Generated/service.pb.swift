@@ -4325,11 +4325,20 @@ public struct Common_GenerateRoleDescriptionResponse: Sendable {
 
   public var message: String = String()
 
-  public var description_p: String = String()
+  public var characterDetail: Common_CharacterDetail {
+    get {return _characterDetail ?? Common_CharacterDetail()}
+    set {_characterDetail = newValue}
+  }
+  /// Returns true if `characterDetail` has been explicitly set.
+  public var hasCharacterDetail: Bool {return self._characterDetail != nil}
+  /// Clears the value of `characterDetail`. Subsequent reads from it will return its default value.
+  public mutating func clearCharacterDetail() {self._characterDetail = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _characterDetail: Common_CharacterDetail? = nil
 }
 
 public struct Common_GetUnPublishStoryboardRequest: Sendable {
@@ -15685,7 +15694,7 @@ extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftPr
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
-    3: .same(proto: "description"),
+    3: .standard(proto: "character_detail"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15696,29 +15705,33 @@ extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftPr
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._characterDetail) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.code != .ok {
       try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
     }
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
-    if !self.description_p.isEmpty {
-      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 3)
-    }
+    try { if let v = self._characterDetail {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GenerateRoleDescriptionResponse, rhs: Common_GenerateRoleDescriptionResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
-    if lhs.description_p != rhs.description_p {return false}
+    if lhs._characterDetail != rhs._characterDetail {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
