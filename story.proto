@@ -17,7 +17,7 @@ enum StoryboardStage{
   STORYBOARD_STAGE_RENDERED = 3;
   // 渲染场景
   STORYBOARD_STAGE_RENDER_SCENE = 4;
-  // 生成���片
+  // 生成片
   STORYBOARD_STAGE_GEN_IMAGE = 5;
   // 生成视频
   STORYBOARD_STAGE_GEN_VIDEO = 6;
@@ -153,17 +153,27 @@ message StoryBoardSences{
 
 // CharacterDetail represents detailed information about a character
 message CharacterDetail {
-  // Description of the character
+  // 角色描述
   string description = 1;
-  // Character's short-term goals
+  // 角色短期目标
   string short_term_goal = 2;
-  // Character's long-term goals
+  // 角色长期目标
   string long_term_goal = 3;
-  // Character's personality traits
+  // 角色性格
   string personality = 4;
-  // Character's background story
+  // 角色背景
   string background = 5;
-} 
+  // 处事风格
+  string handling_style = 6;
+  // 认知范围
+  string cognition_range = 7;
+  // 能力特点
+  string ability_features = 8;
+  // 外貌特征
+  string appearance = 9;
+  // 穿着喜好
+  string dress_preference = 10;
+}
 
 message StoryRole{
     int64 role_id = 1;

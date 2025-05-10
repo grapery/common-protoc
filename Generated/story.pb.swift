@@ -38,7 +38,7 @@ public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 渲染场景
   case renderScene // = 4
 
-  /// 生成���片
+  /// 生成片
   case genImage // = 5
 
   /// 生成视频
@@ -617,20 +617,35 @@ public struct Common_CharacterDetail: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Description of the character
+  /// 角色描述
   public var description_p: String = String()
 
-  /// Character's short-term goals
+  /// 角色短期目标
   public var shortTermGoal: String = String()
 
-  /// Character's long-term goals
+  /// 角色长期目标
   public var longTermGoal: String = String()
 
-  /// Character's personality traits
+  /// 角色性格
   public var personality: String = String()
 
-  /// Character's background story
+  /// 角色背景
   public var background: String = String()
+
+  /// 处事风格
+  public var handlingStyle: String = String()
+
+  /// 认知范围
+  public var cognitionRange: String = String()
+
+  /// 能力特点
+  public var abilityFeatures: String = String()
+
+  /// 外貌特征
+  public var appearance: String = String()
+
+  /// 穿着喜好
+  public var dressPreference: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3932,6 +3947,11 @@ extension Common_CharacterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     3: .standard(proto: "long_term_goal"),
     4: .same(proto: "personality"),
     5: .same(proto: "background"),
+    6: .standard(proto: "handling_style"),
+    7: .standard(proto: "cognition_range"),
+    8: .standard(proto: "ability_features"),
+    9: .same(proto: "appearance"),
+    10: .standard(proto: "dress_preference"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3945,6 +3965,11 @@ extension Common_CharacterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 3: try { try decoder.decodeSingularStringField(value: &self.longTermGoal) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.personality) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.background) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.handlingStyle) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.cognitionRange) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.abilityFeatures) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.appearance) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.dressPreference) }()
       default: break
       }
     }
@@ -3966,6 +3991,21 @@ extension Common_CharacterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.background.isEmpty {
       try visitor.visitSingularStringField(value: self.background, fieldNumber: 5)
     }
+    if !self.handlingStyle.isEmpty {
+      try visitor.visitSingularStringField(value: self.handlingStyle, fieldNumber: 6)
+    }
+    if !self.cognitionRange.isEmpty {
+      try visitor.visitSingularStringField(value: self.cognitionRange, fieldNumber: 7)
+    }
+    if !self.abilityFeatures.isEmpty {
+      try visitor.visitSingularStringField(value: self.abilityFeatures, fieldNumber: 8)
+    }
+    if !self.appearance.isEmpty {
+      try visitor.visitSingularStringField(value: self.appearance, fieldNumber: 9)
+    }
+    if !self.dressPreference.isEmpty {
+      try visitor.visitSingularStringField(value: self.dressPreference, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3975,6 +4015,11 @@ extension Common_CharacterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.longTermGoal != rhs.longTermGoal {return false}
     if lhs.personality != rhs.personality {return false}
     if lhs.background != rhs.background {return false}
+    if lhs.handlingStyle != rhs.handlingStyle {return false}
+    if lhs.cognitionRange != rhs.cognitionRange {return false}
+    if lhs.abilityFeatures != rhs.abilityFeatures {return false}
+    if lhs.appearance != rhs.appearance {return false}
+    if lhs.dressPreference != rhs.dressPreference {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

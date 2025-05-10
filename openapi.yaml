@@ -3768,19 +3768,34 @@ components:
             properties:
                 description:
                     type: string
-                    description: Description of the character
+                    description: 角色描述
                 shortTermGoal:
                     type: string
-                    description: Character's short-term goals
+                    description: 角色短期目标
                 longTermGoal:
                     type: string
-                    description: Character's long-term goals
+                    description: 角色长期目标
                 personality:
                     type: string
-                    description: Character's personality traits
+                    description: 角色性格
                 background:
                     type: string
-                    description: Character's background story
+                    description: 角色背景
+                handlingStyle:
+                    type: string
+                    description: 处事风格
+                cognitionRange:
+                    type: string
+                    description: 认知范围
+                abilityFeatures:
+                    type: string
+                    description: 能力特点
+                appearance:
+                    type: string
+                    description: 外貌特征
+                dressPreference:
+                    type: string
+                    description: 穿着喜好
             description: CharacterDetail represents detailed information about a character
         ChatContext:
             type: object

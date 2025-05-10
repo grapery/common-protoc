@@ -1553,11 +1553,16 @@ CharacterDetail represents detailed information about a character
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| description | [string](#string) |  | Description of the character |
-| short_term_goal | [string](#string) |  | Character&#39;s short-term goals |
-| long_term_goal | [string](#string) |  | Character&#39;s long-term goals |
-| personality | [string](#string) |  | Character&#39;s personality traits |
-| background | [string](#string) |  | Character&#39;s background story |
+| description | [string](#string) |  | 角色描述 |
+| short_term_goal | [string](#string) |  | 角色短期目标 |
+| long_term_goal | [string](#string) |  | 角色长期目标 |
+| personality | [string](#string) |  | 角色性格 |
+| background | [string](#string) |  | 角色背景 |
+| handling_style | [string](#string) |  | 处事风格 |
+| cognition_range | [string](#string) |  | 认知范围 |
+| ability_features | [string](#string) |  | 能力特点 |
+| appearance | [string](#string) |  | 外貌特征 |
+| dress_preference | [string](#string) |  | 穿着喜好 |
 
 
 
@@ -3571,7 +3576,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 | STORYBOARD_STAGE_CREATED | 2 | 创建 |
 | STORYBOARD_STAGE_RENDERED | 3 | 渲染完成 |
 | STORYBOARD_STAGE_RENDER_SCENE | 4 | 渲染场景 |
-| STORYBOARD_STAGE_GEN_IMAGE | 5 | 生成���片 |
+| STORYBOARD_STAGE_GEN_IMAGE | 5 | 生成片 |
 | STORYBOARD_STAGE_GEN_VIDEO | 6 | 生成视频 |
 | STORYBOARD_STAGE_GEN_AUDIO | 7 | 生成音频 |
 | STORYBOARD_STAGE_FINISHED | 8 | 完成 |
