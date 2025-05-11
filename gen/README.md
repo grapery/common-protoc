@@ -439,8 +439,8 @@
     - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
     - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
     - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
-    - [UpdateStoryRoleDescriptionRequest](#common-UpdateStoryRoleDescriptionRequest)
-    - [UpdateStoryRoleDescriptionResponse](#common-UpdateStoryRoleDescriptionResponse)
+    - [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest)
+    - [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse)
     - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest)
@@ -8101,9 +8101,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleDescriptionRequest"></a>
+<a name="common-UpdateStoryRoleDescriptionDetailRequest"></a>
 
-### UpdateStoryRoleDescriptionRequest
+### UpdateStoryRoleDescriptionDetailRequest
 
 
 
@@ -8119,9 +8119,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleDescriptionResponse"></a>
+<a name="common-UpdateStoryRoleDescriptionDetailResponse"></a>
 
-### UpdateStoryRoleDescriptionResponse
+### UpdateStoryRoleDescriptionDetailResponse
 
 
 
@@ -8981,7 +8981,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
 | UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
 | UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
-| UpdateStoryRoleDescription | [UpdateStoryRoleDescriptionRequest](#common-UpdateStoryRoleDescriptionRequest) | [UpdateStoryRoleDescriptionResponse](#common-UpdateStoryRoleDescriptionResponse) | 更新角色的描述 |
+| UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
 
  
 

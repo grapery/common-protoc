@@ -3237,17 +3237,17 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/UpdateStoryRoleDescription:
+    /common.TeamsAPI/UpdateStoryRoleDescriptionDetail:
         post:
             tags:
                 - TeamsAPI
             description: 更新角色的描述
-            operationId: TeamsAPI_UpdateStoryRoleDescription
+            operationId: TeamsAPI_UpdateStoryRoleDescriptionDetail
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/UpdateStoryRoleDescriptionRequest'
+                            $ref: '#/components/schemas/UpdateStoryRoleDescriptionDetailRequest'
                 required: true
             responses:
                 "200":
@@ -3255,7 +3255,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/UpdateStoryRoleDescriptionResponse'
+                                $ref: '#/components/schemas/UpdateStoryRoleDescriptionDetailResponse'
                 default:
                     description: Default error response
                     content:
@@ -7981,7 +7981,7 @@ components:
                     format: enum
                 message:
                     type: string
-        UpdateStoryRoleDescriptionRequest:
+        UpdateStoryRoleDescriptionDetailRequest:
             type: object
             properties:
                 storyId:
@@ -7992,7 +7992,7 @@ components:
                     type: string
                 characterDetail:
                     $ref: '#/components/schemas/CharacterDetail'
-        UpdateStoryRoleDescriptionResponse:
+        UpdateStoryRoleDescriptionDetailResponse:
             type: object
             properties:
                 code:

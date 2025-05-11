@@ -2046,9 +2046,9 @@ service TeamsAPI {
   }
 
   // 更新角色的描述
-  rpc UpdateStoryRoleDescription(UpdateStoryRoleDescriptionRequest) returns (UpdateStoryRoleDescriptionResponse) {
+  rpc UpdateStoryRoleDescriptionDetail(UpdateStoryRoleDescriptionDetailRequest) returns (UpdateStoryRoleDescriptionDetailResponse) {
     option (google.api.http) = {
-      post : "/common.TeamsAPI/UpdateStoryRoleDescription"
+      post : "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
       body : "*"
     };
   }
@@ -2067,14 +2067,14 @@ message UpdateStoryRolePromptResponse {
   string message = 2;
 }
 
-message UpdateStoryRoleDescriptionRequest {
+message UpdateStoryRoleDescriptionDetailRequest {
   int64 story_id = 1;
   int64 role_id = 2;
   int64 user_id = 3;
   CharacterDetail character_detail = 4;
 }
 
-message UpdateStoryRoleDescriptionResponse {
+message UpdateStoryRoleDescriptionDetailResponse {
   ResponseCode code = 1;
   string message = 2;
 }

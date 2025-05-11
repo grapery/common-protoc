@@ -166,7 +166,7 @@ const (
 	TeamsAPI_GenerateStoryRolePoster_FullMethodName            = "/common.TeamsAPI/GenerateStoryRolePoster"
 	TeamsAPI_UpdateStoryRolePoster_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePoster"
 	TeamsAPI_UpdateStoryRolePrompt_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePrompt"
-	TeamsAPI_UpdateStoryRoleDescription_FullMethodName         = "/common.TeamsAPI/UpdateStoryRoleDescription"
+	TeamsAPI_UpdateStoryRoleDescriptionDetail_FullMethodName   = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -461,7 +461,7 @@ type TeamsAPIClient interface {
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(ctx context.Context, in *UpdateStoryRolePromptRequest, opts ...grpc.CallOption) (*UpdateStoryRolePromptResponse, error)
 	// 更新角色的描述
-	UpdateStoryRoleDescription(ctx context.Context, in *UpdateStoryRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionResponse, error)
+	UpdateStoryRoleDescriptionDetail(ctx context.Context, in *UpdateStoryRoleDescriptionDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionDetailResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1795,9 +1795,9 @@ func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, in *UpdateSt
 	return out, nil
 }
 
-func (c *teamsAPIClient) UpdateStoryRoleDescription(ctx context.Context, in *UpdateStoryRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionResponse, error) {
-	out := new(UpdateStoryRoleDescriptionResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRoleDescription_FullMethodName, in, out, opts...)
+func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, in *UpdateStoryRoleDescriptionDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionDetailResponse, error) {
+	out := new(UpdateStoryRoleDescriptionDetailResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRoleDescriptionDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2096,7 +2096,7 @@ type TeamsAPIServer interface {
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(context.Context, *UpdateStoryRolePromptRequest) (*UpdateStoryRolePromptResponse, error)
 	// 更新角色的描述
-	UpdateStoryRoleDescription(context.Context, *UpdateStoryRoleDescriptionRequest) (*UpdateStoryRoleDescriptionResponse, error)
+	UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2545,8 +2545,8 @@ func (UnimplementedTeamsAPIServer) UpdateStoryRolePoster(context.Context, *Updat
 func (UnimplementedTeamsAPIServer) UpdateStoryRolePrompt(context.Context, *UpdateStoryRolePromptRequest) (*UpdateStoryRolePromptResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRolePrompt not implemented")
 }
-func (UnimplementedTeamsAPIServer) UpdateStoryRoleDescription(context.Context, *UpdateStoryRoleDescriptionRequest) (*UpdateStoryRoleDescriptionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleDescription not implemented")
+func (UnimplementedTeamsAPIServer) UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleDescriptionDetail not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -5207,20 +5207,20 @@ func _TeamsAPI_UpdateStoryRolePrompt_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TeamsAPI_UpdateStoryRoleDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateStoryRoleDescriptionRequest)
+func _TeamsAPI_UpdateStoryRoleDescriptionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRoleDescriptionDetailRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TeamsAPIServer).UpdateStoryRoleDescription(ctx, in)
+		return srv.(TeamsAPIServer).UpdateStoryRoleDescriptionDetail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TeamsAPI_UpdateStoryRoleDescription_FullMethodName,
+		FullMethod: TeamsAPI_UpdateStoryRoleDescriptionDetail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UpdateStoryRoleDescription(ctx, req.(*UpdateStoryRoleDescriptionRequest))
+		return srv.(TeamsAPIServer).UpdateStoryRoleDescriptionDetail(ctx, req.(*UpdateStoryRoleDescriptionDetailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5821,8 +5821,8 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_UpdateStoryRolePrompt_Handler,
 		},
 		{
-			MethodName: "UpdateStoryRoleDescription",
-			Handler:    _TeamsAPI_UpdateStoryRoleDescription_Handler,
+			MethodName: "UpdateStoryRoleDescriptionDetail",
+			Handler:    _TeamsAPI_UpdateStoryRoleDescriptionDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

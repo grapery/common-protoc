@@ -412,9 +412,9 @@ const (
 	// TeamsAPIUpdateStoryRolePromptProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRolePrompt RPC.
 	TeamsAPIUpdateStoryRolePromptProcedure = "/common.TeamsAPI/UpdateStoryRolePrompt"
-	// TeamsAPIUpdateStoryRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
-	// UpdateStoryRoleDescription RPC.
-	TeamsAPIUpdateStoryRoleDescriptionProcedure = "/common.TeamsAPI/UpdateStoryRoleDescription"
+	// TeamsAPIUpdateStoryRoleDescriptionDetailProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRoleDescriptionDetail RPC.
+	TeamsAPIUpdateStoryRoleDescriptionDetailProcedure = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -707,7 +707,7 @@ type TeamsAPIClient interface {
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
-	UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error)
+	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1455,9 +1455,9 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIUpdateStoryRolePromptProcedure,
 			opts...,
 		),
-		updateStoryRoleDescription: connect_go.NewClient[gen.UpdateStoryRoleDescriptionRequest, gen.UpdateStoryRoleDescriptionResponse](
+		updateStoryRoleDescriptionDetail: connect_go.NewClient[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse](
 			httpClient,
-			baseURL+TeamsAPIUpdateStoryRoleDescriptionProcedure,
+			baseURL+TeamsAPIUpdateStoryRoleDescriptionDetailProcedure,
 			opts...,
 		),
 	}
@@ -1612,7 +1612,7 @@ type teamsAPIClient struct {
 	generateStoryRolePoster            *connect_go.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
 	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
 	updateStoryRolePrompt              *connect_go.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
-	updateStoryRoleDescription         *connect_go.Client[gen.UpdateStoryRoleDescriptionRequest, gen.UpdateStoryRoleDescriptionResponse]
+	updateStoryRoleDescriptionDetail   *connect_go.Client[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2350,9 +2350,9 @@ func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect
 	return c.updateStoryRolePrompt.CallUnary(ctx, req)
 }
 
-// UpdateStoryRoleDescription calls common.TeamsAPI.UpdateStoryRoleDescription.
-func (c *teamsAPIClient) UpdateStoryRoleDescription(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error) {
-	return c.updateStoryRoleDescription.CallUnary(ctx, req)
+// UpdateStoryRoleDescriptionDetail calls common.TeamsAPI.UpdateStoryRoleDescriptionDetail.
+func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
+	return c.updateStoryRoleDescriptionDetail.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
@@ -2645,7 +2645,7 @@ type TeamsAPIHandler interface {
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
-	UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error)
+	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3389,9 +3389,9 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.UpdateStoryRolePrompt,
 		opts...,
 	)
-	teamsAPIUpdateStoryRoleDescriptionHandler := connect_go.NewUnaryHandler(
-		TeamsAPIUpdateStoryRoleDescriptionProcedure,
-		svc.UpdateStoryRoleDescription,
+	teamsAPIUpdateStoryRoleDescriptionDetailHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUpdateStoryRoleDescriptionDetailProcedure,
+		svc.UpdateStoryRoleDescriptionDetail,
 		opts...,
 	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -3690,8 +3690,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIUpdateStoryRolePosterHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRolePromptProcedure:
 			teamsAPIUpdateStoryRolePromptHandler.ServeHTTP(w, r)
-		case TeamsAPIUpdateStoryRoleDescriptionProcedure:
-			teamsAPIUpdateStoryRoleDescriptionHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRoleDescriptionDetailProcedure:
+			teamsAPIUpdateStoryRoleDescriptionDetailHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4289,6 +4289,6 @@ func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *conn
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDescription is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
 }

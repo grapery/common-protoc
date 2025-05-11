@@ -3301,7 +3301,7 @@ public struct Common_UpdateStoryRolePromptResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRoleDescriptionRequest: Sendable {
+public struct Common_UpdateStoryRoleDescriptionDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3328,7 +3328,7 @@ public struct Common_UpdateStoryRoleDescriptionRequest: Sendable {
   fileprivate var _characterDetail: Common_CharacterDetail? = nil
 }
 
-public struct Common_UpdateStoryRoleDescriptionResponse: Sendable {
+public struct Common_UpdateStoryRoleDescriptionDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -13070,8 +13070,8 @@ extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionRequest"
+extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "story_id"),
     2: .standard(proto: "role_id"),
@@ -13114,7 +13114,7 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDescriptionRequest, rhs: Common_UpdateStoryRoleDescriptionRequest) -> Bool {
+  public static func ==(lhs: Common_UpdateStoryRoleDescriptionDetailRequest, rhs: Common_UpdateStoryRoleDescriptionDetailRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -13124,8 +13124,8 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_UpdateStoryRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionResponse"
+extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "code"),
     2: .same(proto: "message"),
@@ -13154,7 +13154,7 @@ extension Common_UpdateStoryRoleDescriptionResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDescriptionResponse, rhs: Common_UpdateStoryRoleDescriptionResponse) -> Bool {
+  public static func ==(lhs: Common_UpdateStoryRoleDescriptionDetailResponse, rhs: Common_UpdateStoryRoleDescriptionDetailResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
