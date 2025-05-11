@@ -165,99 +165,101 @@ const (
 	TeamsAPI_GetFollowerList_FullMethodName                    = "/common.TeamsAPI/GetFollowerList"
 	TeamsAPI_GenerateStoryRolePoster_FullMethodName            = "/common.TeamsAPI/GenerateStoryRolePoster"
 	TeamsAPI_UpdateStoryRolePoster_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePoster"
+	TeamsAPI_UpdateStoryRolePrompt_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePrompt"
+	TeamsAPI_UpdateStoryRoleDescription_FullMethodName         = "/common.TeamsAPI/UpdateStoryRoleDescription"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TeamsAPIClient interface {
-	// 探索
+	// Explore returns trending and recommended content for users to discover
 	Explore(ctx context.Context, in *ExploreRequest, opts ...grpc.CallOption) (*ExploreResponse, error)
-	// 版本
+	// Version returns the current API version and build information
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
-	// 关于
+	// About returns information about the service
 	About(ctx context.Context, in *AboutRequest, opts ...grpc.CallOption) (*AboutResponse, error)
-	// 登录
+	// Login authenticates a user and returns a session token
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
-	// 登出
+	// Logout invalidates the user's current session token
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
-	// 刷新登录
+	// RefreshToken generates a new session token using the current valid token
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
-	// 注册
+	// Register creates a new user account
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
-	// 重置密码
+	// ResetPwd allows users to reset their password
 	ResetPwd(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error)
-	// 用户初始化
+	// UserInit performs initial setup for a new user
 	UserInit(ctx context.Context, in *UserInitRequest, opts ...grpc.CallOption) (*UserInitResponse, error)
-	// 用户信息
+	// UserInfo retrieves detailed information about a user
 	UserInfo(ctx context.Context, in *UserInfoRequest, opts ...grpc.CallOption) (*UserInfoResponse, error)
-	// 更新用户头像
+	// UpdateUserAvator updates the user's profile picture
 	UpdateUserAvator(ctx context.Context, in *UpdateUserAvatorRequest, opts ...grpc.CallOption) (*UpdateUserAvatorResponse, error)
-	// 用户关注
+	// UserWatching returns a list of projects the user is following
 	UserWatching(ctx context.Context, in *UserWatchingRequest, opts ...grpc.CallOption) (*UserWatchingResponse, error)
-	// 用户关注组织
+	// UserGroup returns a list of groups the user belongs to
 	UserGroup(ctx context.Context, in *UserGroupRequest, opts ...grpc.CallOption) (*UserGroupResponse, error)
-	// 用户关注组织
+	// UserFollowingGroup returns a list of groups the user is following
 	UserFollowingGroup(ctx context.Context, in *UserFollowingGroupRequest, opts ...grpc.CallOption) (*UserFollowingGroupResponse, error)
-	// 更新用户信息
+	// UserUpdate updates the user's profile information
 	UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
-	// 搜索用户
+	// SearchUser searches for users based on specified criteria
 	SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error)
-	// 创建组织
+	// CreateGroup creates a new group
 	CreateGroup(ctx context.Context, in *CreateGroupRequest, opts ...grpc.CallOption) (*CreateGroupResponse, error)
-	// 获取组织
+	// GetGroup retrieves information about a specific group
 	GetGroup(ctx context.Context, in *GetGroupRequest, opts ...grpc.CallOption) (*GetGroupResponse, error)
-	// 组织活跃
+	// GetGroupActives returns recent activities within a group
 	GetGroupActives(ctx context.Context, in *GetGroupActivesRequest, opts ...grpc.CallOption) (*GetGroupActivesResponse, error)
-	// 更新组织信息
+	// UpdateGroupInfo updates the group's information
 	UpdateGroupInfo(ctx context.Context, in *UpdateGroupInfoRequest, opts ...grpc.CallOption) (*UpdateGroupInfoResponse, error)
-	// 获取组织信息
+	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(ctx context.Context, in *GetGroupProfileRequest, opts ...grpc.CallOption) (*GetGroupProfileResponse, error)
-	// 更新组织信息
+	// UpdateGroupProfile updates the group's profile information
 	UpdateGroupProfile(ctx context.Context, in *UpdateGroupProfileRequest, opts ...grpc.CallOption) (*UpdateGroupProfileResponse, error)
-	// 删除组织
+	// DeleteGroup removes a group
 	DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error)
-	// 获取组织成员
+	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
-	// 获取组织项目
+	// FetchGroupProjects retrieves the list of projects in a group
 	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsRequest, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
-	// 加入组织
+	// JoinGroup adds a user to a group
 	JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error)
-	// 离开组织
+	// LeaveGroup removes a user from a group
 	LeaveGroup(ctx context.Context, in *LeaveGroupRequest, opts ...grpc.CallOption) (*LeaveGroupResponse, error)
-	// 获取项目信息
+	// GetProjectInfo retrieves information about a specific project
 	GetProjectInfo(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error)
-	// 获取项目列表
+	// GetProjectList retrieves a list of projects
 	GetProjectList(ctx context.Context, in *GetProjectListRequest, opts ...grpc.CallOption) (*GetProjectListResponse, error)
-	// 创建项目
+	// CreateProject creates a new project
 	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
-	// 获取项目成员
+	// GetProjectMembers retrieves the list of members in a project
 	GetProjectMembers(ctx context.Context, in *GetProjectMembersRequest, opts ...grpc.CallOption) (*GetProjectMembersResponse, error)
-	// 更新项目
+	// UpdateProject updates project information
 	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
-	// 删除项目
+	// DeleteProject removes a project
 	DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error)
-	// 获取项目信息
+	// GetProjectProfile retrieves the project's profile information
 	GetProjectProfile(ctx context.Context, in *GetProjectProfileRequest, opts ...grpc.CallOption) (*GetProjectProfileResponse, error)
-	// 更新项目信息
+	// UpdateProjectProfile updates the project's profile information
 	UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error)
-	// 关注项目
+	// WatchProject adds a user as a watcher to a project
 	WatchProject(ctx context.Context, in *WatchProjectRequest, opts ...grpc.CallOption) (*WatchProjectResponse, error)
-	// 取消关注项目
+	// UnWatchProject removes a user as a watcher from a project
 	UnWatchProject(ctx context.Context, in *UnWatchProjectRequest, opts ...grpc.CallOption) (*UnWatchProjectResponse, error)
-	// 获取项目关注者
+	// GetProjectWatcher retrieves the list of watchers for a project
 	GetProjectWatcher(ctx context.Context, in *GetProjectWatcherRequest, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error)
-	// 搜索组织项目
+	// SearchGroupProject searches for projects within a group
 	SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error)
-	// 搜索项目
+	// SearchProject searches for projects across all accessible groups
 	SearchProject(ctx context.Context, in *SearchAllProjectRequest, opts ...grpc.CallOption) (*SearchAllProjectResponse, error)
-	// 探索项目
+	// ExploreProject returns trending and recommended projects
 	ExploreProject(ctx context.Context, in *ExploreProjectsRequest, opts ...grpc.CallOption) (*ExploreProjectsResponse, error)
-	// 获取项目内容
+	// GetProjectItems retrieves items within a project
 	GetProjectItems(ctx context.Context, in *GetProjectItemsRequest, opts ...grpc.CallOption) (*GetProjectItemsResponse, error)
-	// 获取组织内容
+	// GetGroupItems retrieves items within a group
 	GetGroupItems(ctx context.Context, in *GetGroupItemsRequest, opts ...grpc.CallOption) (*GetGroupItemsResponse, error)
-	// 获取用户内容
+	// GetUserItems retrieves items created by a user
 	GetUserItems(ctx context.Context, in *GetUserItemsRequest, opts ...grpc.CallOption) (*GetUserItemsResponse, error)
 	// 获取内容
 	GetItem(ctx context.Context, in *GetItemRequest, opts ...grpc.CallOption) (*GetItemResponse, error)
@@ -456,6 +458,10 @@ type TeamsAPIClient interface {
 	GenerateStoryRolePoster(ctx context.Context, in *GenerateStoryRolePosterRequest, opts ...grpc.CallOption) (*GenerateStoryRolePosterResponse, error)
 	// 更新角色的海报图片
 	UpdateStoryRolePoster(ctx context.Context, in *UpdateStoryRolePosterRequest, opts ...grpc.CallOption) (*UpdateStoryRolePosterResponse, error)
+	// 更新角色的提示词
+	UpdateStoryRolePrompt(ctx context.Context, in *UpdateStoryRolePromptRequest, opts ...grpc.CallOption) (*UpdateStoryRolePromptResponse, error)
+	// 更新角色的描述
+	UpdateStoryRoleDescription(ctx context.Context, in *UpdateStoryRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1780,97 +1786,115 @@ func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, in *UpdateSt
 	return out, nil
 }
 
+func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, in *UpdateStoryRolePromptRequest, opts ...grpc.CallOption) (*UpdateStoryRolePromptResponse, error) {
+	out := new(UpdateStoryRolePromptResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRolePrompt_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryRoleDescription(ctx context.Context, in *UpdateStoryRoleDescriptionRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionResponse, error) {
+	out := new(UpdateStoryRoleDescriptionResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryRoleDescription_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
 type TeamsAPIServer interface {
-	// 探索
+	// Explore returns trending and recommended content for users to discover
 	Explore(context.Context, *ExploreRequest) (*ExploreResponse, error)
-	// 版本
+	// Version returns the current API version and build information
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
-	// 关于
+	// About returns information about the service
 	About(context.Context, *AboutRequest) (*AboutResponse, error)
-	// 登录
+	// Login authenticates a user and returns a session token
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
-	// 登出
+	// Logout invalidates the user's current session token
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
-	// 刷新登录
+	// RefreshToken generates a new session token using the current valid token
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
-	// 注册
+	// Register creates a new user account
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
-	// 重置密码
+	// ResetPwd allows users to reset their password
 	ResetPwd(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error)
-	// 用户初始化
+	// UserInit performs initial setup for a new user
 	UserInit(context.Context, *UserInitRequest) (*UserInitResponse, error)
-	// 用户信息
+	// UserInfo retrieves detailed information about a user
 	UserInfo(context.Context, *UserInfoRequest) (*UserInfoResponse, error)
-	// 更新用户头像
+	// UpdateUserAvator updates the user's profile picture
 	UpdateUserAvator(context.Context, *UpdateUserAvatorRequest) (*UpdateUserAvatorResponse, error)
-	// 用户关注
+	// UserWatching returns a list of projects the user is following
 	UserWatching(context.Context, *UserWatchingRequest) (*UserWatchingResponse, error)
-	// 用户关注组织
+	// UserGroup returns a list of groups the user belongs to
 	UserGroup(context.Context, *UserGroupRequest) (*UserGroupResponse, error)
-	// 用户关注组织
+	// UserFollowingGroup returns a list of groups the user is following
 	UserFollowingGroup(context.Context, *UserFollowingGroupRequest) (*UserFollowingGroupResponse, error)
-	// 更新用户信息
+	// UserUpdate updates the user's profile information
 	UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error)
-	// 搜索用户
+	// SearchUser searches for users based on specified criteria
 	SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error)
-	// 创建组织
+	// CreateGroup creates a new group
 	CreateGroup(context.Context, *CreateGroupRequest) (*CreateGroupResponse, error)
-	// 获取组织
+	// GetGroup retrieves information about a specific group
 	GetGroup(context.Context, *GetGroupRequest) (*GetGroupResponse, error)
-	// 组织活跃
+	// GetGroupActives returns recent activities within a group
 	GetGroupActives(context.Context, *GetGroupActivesRequest) (*GetGroupActivesResponse, error)
-	// 更新组织信息
+	// UpdateGroupInfo updates the group's information
 	UpdateGroupInfo(context.Context, *UpdateGroupInfoRequest) (*UpdateGroupInfoResponse, error)
-	// 获取组织信息
+	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(context.Context, *GetGroupProfileRequest) (*GetGroupProfileResponse, error)
-	// 更新组织信息
+	// UpdateGroupProfile updates the group's profile information
 	UpdateGroupProfile(context.Context, *UpdateGroupProfileRequest) (*UpdateGroupProfileResponse, error)
-	// 删除组织
+	// DeleteGroup removes a group
 	DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error)
-	// 获取组织成员
+	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
-	// 获取组织项目
+	// FetchGroupProjects retrieves the list of projects in a group
 	FetchGroupProjects(context.Context, *FetchGroupProjectsRequest) (*FetchGroupProjectsResponse, error)
-	// 加入组织
+	// JoinGroup adds a user to a group
 	JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error)
-	// 离开组织
+	// LeaveGroup removes a user from a group
 	LeaveGroup(context.Context, *LeaveGroupRequest) (*LeaveGroupResponse, error)
-	// 获取项目信息
+	// GetProjectInfo retrieves information about a specific project
 	GetProjectInfo(context.Context, *GetProjectRequest) (*GetProjectResponse, error)
-	// 获取项目列表
+	// GetProjectList retrieves a list of projects
 	GetProjectList(context.Context, *GetProjectListRequest) (*GetProjectListResponse, error)
-	// 创建项目
+	// CreateProject creates a new project
 	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
-	// 获取项目成员
+	// GetProjectMembers retrieves the list of members in a project
 	GetProjectMembers(context.Context, *GetProjectMembersRequest) (*GetProjectMembersResponse, error)
-	// 更新项目
+	// UpdateProject updates project information
 	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
-	// 删除项目
+	// DeleteProject removes a project
 	DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error)
-	// 获取项目信息
+	// GetProjectProfile retrieves the project's profile information
 	GetProjectProfile(context.Context, *GetProjectProfileRequest) (*GetProjectProfileResponse, error)
-	// 更新项目信息
+	// UpdateProjectProfile updates the project's profile information
 	UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error)
-	// 关注项目
+	// WatchProject adds a user as a watcher to a project
 	WatchProject(context.Context, *WatchProjectRequest) (*WatchProjectResponse, error)
-	// 取消关注项目
+	// UnWatchProject removes a user as a watcher from a project
 	UnWatchProject(context.Context, *UnWatchProjectRequest) (*UnWatchProjectResponse, error)
-	// 获取项目关注者
+	// GetProjectWatcher retrieves the list of watchers for a project
 	GetProjectWatcher(context.Context, *GetProjectWatcherRequest) (*GetProjectWatcherResponse, error)
-	// 搜索组织项目
+	// SearchGroupProject searches for projects within a group
 	SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error)
-	// 搜索项目
+	// SearchProject searches for projects across all accessible groups
 	SearchProject(context.Context, *SearchAllProjectRequest) (*SearchAllProjectResponse, error)
-	// 探索项目
+	// ExploreProject returns trending and recommended projects
 	ExploreProject(context.Context, *ExploreProjectsRequest) (*ExploreProjectsResponse, error)
-	// 获取项目内容
+	// GetProjectItems retrieves items within a project
 	GetProjectItems(context.Context, *GetProjectItemsRequest) (*GetProjectItemsResponse, error)
-	// 获取组织内容
+	// GetGroupItems retrieves items within a group
 	GetGroupItems(context.Context, *GetGroupItemsRequest) (*GetGroupItemsResponse, error)
-	// 获取用户内容
+	// GetUserItems retrieves items created by a user
 	GetUserItems(context.Context, *GetUserItemsRequest) (*GetUserItemsResponse, error)
 	// 获取内容
 	GetItem(context.Context, *GetItemRequest) (*GetItemResponse, error)
@@ -2069,6 +2093,10 @@ type TeamsAPIServer interface {
 	GenerateStoryRolePoster(context.Context, *GenerateStoryRolePosterRequest) (*GenerateStoryRolePosterResponse, error)
 	// 更新角色的海报图片
 	UpdateStoryRolePoster(context.Context, *UpdateStoryRolePosterRequest) (*UpdateStoryRolePosterResponse, error)
+	// 更新角色的提示词
+	UpdateStoryRolePrompt(context.Context, *UpdateStoryRolePromptRequest) (*UpdateStoryRolePromptResponse, error)
+	// 更新角色的描述
+	UpdateStoryRoleDescription(context.Context, *UpdateStoryRoleDescriptionRequest) (*UpdateStoryRoleDescriptionResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2513,6 +2541,12 @@ func (UnimplementedTeamsAPIServer) GenerateStoryRolePoster(context.Context, *Gen
 }
 func (UnimplementedTeamsAPIServer) UpdateStoryRolePoster(context.Context, *UpdateStoryRolePosterRequest) (*UpdateStoryRolePosterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRolePoster not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryRolePrompt(context.Context, *UpdateStoryRolePromptRequest) (*UpdateStoryRolePromptResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRolePrompt not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryRoleDescription(context.Context, *UpdateStoryRoleDescriptionRequest) (*UpdateStoryRoleDescriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleDescription not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -5155,6 +5189,42 @@ func _TeamsAPI_UpdateStoryRolePoster_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UpdateStoryRolePrompt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRolePromptRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryRolePrompt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryRolePrompt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryRolePrompt(ctx, req.(*UpdateStoryRolePromptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryRoleDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryRoleDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryRoleDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryRoleDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryRoleDescription(ctx, req.(*UpdateStoryRoleDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5745,6 +5815,14 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStoryRolePoster",
 			Handler:    _TeamsAPI_UpdateStoryRolePoster_Handler,
+		},
+		{
+			MethodName: "UpdateStoryRolePrompt",
+			Handler:    _TeamsAPI_UpdateStoryRolePrompt_Handler,
+		},
+		{
+			MethodName: "UpdateStoryRoleDescription",
+			Handler:    _TeamsAPI_UpdateStoryRoleDescription_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

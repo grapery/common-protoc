@@ -409,97 +409,103 @@ const (
 	// TeamsAPIUpdateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRolePoster RPC.
 	TeamsAPIUpdateStoryRolePosterProcedure = "/common.TeamsAPI/UpdateStoryRolePoster"
+	// TeamsAPIUpdateStoryRolePromptProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRolePrompt RPC.
+	TeamsAPIUpdateStoryRolePromptProcedure = "/common.TeamsAPI/UpdateStoryRolePrompt"
+	// TeamsAPIUpdateStoryRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRoleDescription RPC.
+	TeamsAPIUpdateStoryRoleDescriptionProcedure = "/common.TeamsAPI/UpdateStoryRoleDescription"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
 type TeamsAPIClient interface {
-	// 探索
+	// Explore returns trending and recommended content for users to discover
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	// 版本
+	// Version returns the current API version and build information
 	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	// 关于
+	// About returns information about the service
 	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	// 登录
+	// Login authenticates a user and returns a session token
 	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	// 登出
+	// Logout invalidates the user's current session token
 	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	// 刷新登录
+	// RefreshToken generates a new session token using the current valid token
 	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
-	// 注册
+	// Register creates a new user account
 	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	// 重置密码
+	// ResetPwd allows users to reset their password
 	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	// 用户初始化
+	// UserInit performs initial setup for a new user
 	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	// 用户信息
+	// UserInfo retrieves detailed information about a user
 	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	// 更新用户头像
+	// UpdateUserAvator updates the user's profile picture
 	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	// 用户关注
+	// UserWatching returns a list of projects the user is following
 	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	// 用户关注组织
+	// UserGroup returns a list of groups the user belongs to
 	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	// 用户关注组织
+	// UserFollowingGroup returns a list of groups the user is following
 	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	// 更新用户信息
+	// UserUpdate updates the user's profile information
 	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	// 搜索用户
+	// SearchUser searches for users based on specified criteria
 	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	// 创建组织
+	// CreateGroup creates a new group
 	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	// 获取组织
+	// GetGroup retrieves information about a specific group
 	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
-	// 组织活跃
+	// GetGroupActives returns recent activities within a group
 	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	// 更新组织信息
+	// UpdateGroupInfo updates the group's information
 	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
-	// 获取组织信息
+	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
-	// 更新组织信息
+	// UpdateGroupProfile updates the group's profile information
 	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
-	// 删除组织
+	// DeleteGroup removes a group
 	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	// 获取组织成员
+	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	// 获取组织项目
+	// FetchGroupProjects retrieves the list of projects in a group
 	FetchGroupProjects(context.Context, *connect_go.Request[gen.FetchGroupProjectsRequest]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error)
-	// 加入组织
+	// JoinGroup adds a user to a group
 	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	// 离开组织
+	// LeaveGroup removes a user from a group
 	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	// 获取项目信息
+	// GetProjectInfo retrieves information about a specific project
 	GetProjectInfo(context.Context, *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error)
-	// 获取项目列表
+	// GetProjectList retrieves a list of projects
 	GetProjectList(context.Context, *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error)
-	// 创建项目
+	// CreateProject creates a new project
 	CreateProject(context.Context, *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error)
-	// 获取项目成员
+	// GetProjectMembers retrieves the list of members in a project
 	GetProjectMembers(context.Context, *connect_go.Request[gen.GetProjectMembersRequest]) (*connect_go.Response[gen.GetProjectMembersResponse], error)
-	// 更新项目
+	// UpdateProject updates project information
 	UpdateProject(context.Context, *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error)
-	// 删除项目
+	// DeleteProject removes a project
 	DeleteProject(context.Context, *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error)
-	// 获取项目信息
+	// GetProjectProfile retrieves the project's profile information
 	GetProjectProfile(context.Context, *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error)
-	// 更新项目信息
+	// UpdateProjectProfile updates the project's profile information
 	UpdateProjectProfile(context.Context, *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error)
-	// 关注项目
+	// WatchProject adds a user as a watcher to a project
 	WatchProject(context.Context, *connect_go.Request[gen.WatchProjectRequest]) (*connect_go.Response[gen.WatchProjectResponse], error)
-	// 取消关注项目
+	// UnWatchProject removes a user as a watcher from a project
 	UnWatchProject(context.Context, *connect_go.Request[gen.UnWatchProjectRequest]) (*connect_go.Response[gen.UnWatchProjectResponse], error)
-	// 获取项目关注者
+	// GetProjectWatcher retrieves the list of watchers for a project
 	GetProjectWatcher(context.Context, *connect_go.Request[gen.GetProjectWatcherRequest]) (*connect_go.Response[gen.GetProjectWatcherResponse], error)
-	// 搜索组织项目
+	// SearchGroupProject searches for projects within a group
 	SearchGroupProject(context.Context, *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error)
-	// 搜索项目
+	// SearchProject searches for projects across all accessible groups
 	SearchProject(context.Context, *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error)
-	// 探索项目
+	// ExploreProject returns trending and recommended projects
 	ExploreProject(context.Context, *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error)
-	// 获取项目内容
+	// GetProjectItems retrieves items within a project
 	GetProjectItems(context.Context, *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error)
-	// 获取组织内容
+	// GetGroupItems retrieves items within a group
 	GetGroupItems(context.Context, *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error)
-	// 获取用户内容
+	// GetUserItems retrieves items created by a user
 	GetUserItems(context.Context, *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error)
 	// 获取内容
 	GetItem(context.Context, *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error)
@@ -698,6 +704,10 @@ type TeamsAPIClient interface {
 	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
 	// 更新角色的海报图片
 	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	// 更新角色的提示词
+	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
+	// 更新角色的描述
+	UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1440,6 +1450,16 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIUpdateStoryRolePosterProcedure,
 			opts...,
 		),
+		updateStoryRolePrompt: connect_go.NewClient[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryRolePromptProcedure,
+			opts...,
+		),
+		updateStoryRoleDescription: connect_go.NewClient[gen.UpdateStoryRoleDescriptionRequest, gen.UpdateStoryRoleDescriptionResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryRoleDescriptionProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1591,6 +1611,8 @@ type teamsAPIClient struct {
 	getFollowerList                    *connect_go.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
 	generateStoryRolePoster            *connect_go.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
 	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
+	updateStoryRolePrompt              *connect_go.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
+	updateStoryRoleDescription         *connect_go.Client[gen.UpdateStoryRoleDescriptionRequest, gen.UpdateStoryRoleDescriptionResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2323,95 +2345,105 @@ func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect
 	return c.updateStoryRolePoster.CallUnary(ctx, req)
 }
 
+// UpdateStoryRolePrompt calls common.TeamsAPI.UpdateStoryRolePrompt.
+func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
+	return c.updateStoryRolePrompt.CallUnary(ctx, req)
+}
+
+// UpdateStoryRoleDescription calls common.TeamsAPI.UpdateStoryRoleDescription.
+func (c *teamsAPIClient) UpdateStoryRoleDescription(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error) {
+	return c.updateStoryRoleDescription.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
-	// 探索
+	// Explore returns trending and recommended content for users to discover
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	// 版本
+	// Version returns the current API version and build information
 	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	// 关于
+	// About returns information about the service
 	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	// 登录
+	// Login authenticates a user and returns a session token
 	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	// 登出
+	// Logout invalidates the user's current session token
 	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	// 刷新登录
+	// RefreshToken generates a new session token using the current valid token
 	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
-	// 注册
+	// Register creates a new user account
 	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	// 重置密码
+	// ResetPwd allows users to reset their password
 	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	// 用户初始化
+	// UserInit performs initial setup for a new user
 	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	// 用户信息
+	// UserInfo retrieves detailed information about a user
 	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	// 更新用户头像
+	// UpdateUserAvator updates the user's profile picture
 	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	// 用户关注
+	// UserWatching returns a list of projects the user is following
 	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	// 用户关注组织
+	// UserGroup returns a list of groups the user belongs to
 	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	// 用户关注组织
+	// UserFollowingGroup returns a list of groups the user is following
 	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	// 更新用户信息
+	// UserUpdate updates the user's profile information
 	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	// 搜索用户
+	// SearchUser searches for users based on specified criteria
 	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	// 创建组织
+	// CreateGroup creates a new group
 	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	// 获取组织
+	// GetGroup retrieves information about a specific group
 	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
-	// 组织活跃
+	// GetGroupActives returns recent activities within a group
 	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	// 更新组织信息
+	// UpdateGroupInfo updates the group's information
 	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
-	// 获取组织信息
+	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
-	// 更新组织信息
+	// UpdateGroupProfile updates the group's profile information
 	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
-	// 删除组织
+	// DeleteGroup removes a group
 	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	// 获取组织成员
+	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	// 获取组织项目
+	// FetchGroupProjects retrieves the list of projects in a group
 	FetchGroupProjects(context.Context, *connect_go.Request[gen.FetchGroupProjectsRequest]) (*connect_go.Response[gen.FetchGroupProjectsResponse], error)
-	// 加入组织
+	// JoinGroup adds a user to a group
 	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	// 离开组织
+	// LeaveGroup removes a user from a group
 	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	// 获取项目信息
+	// GetProjectInfo retrieves information about a specific project
 	GetProjectInfo(context.Context, *connect_go.Request[gen.GetProjectRequest]) (*connect_go.Response[gen.GetProjectResponse], error)
-	// 获取项目列表
+	// GetProjectList retrieves a list of projects
 	GetProjectList(context.Context, *connect_go.Request[gen.GetProjectListRequest]) (*connect_go.Response[gen.GetProjectListResponse], error)
-	// 创建项目
+	// CreateProject creates a new project
 	CreateProject(context.Context, *connect_go.Request[gen.CreateProjectRequest]) (*connect_go.Response[gen.CreateProjectResponse], error)
-	// 获取项目成员
+	// GetProjectMembers retrieves the list of members in a project
 	GetProjectMembers(context.Context, *connect_go.Request[gen.GetProjectMembersRequest]) (*connect_go.Response[gen.GetProjectMembersResponse], error)
-	// 更新项目
+	// UpdateProject updates project information
 	UpdateProject(context.Context, *connect_go.Request[gen.UpdateProjectRequest]) (*connect_go.Response[gen.UpdateProjectResponse], error)
-	// 删除项目
+	// DeleteProject removes a project
 	DeleteProject(context.Context, *connect_go.Request[gen.DeleteProjectRequest]) (*connect_go.Response[gen.DeleteProjectResponse], error)
-	// 获取项目信息
+	// GetProjectProfile retrieves the project's profile information
 	GetProjectProfile(context.Context, *connect_go.Request[gen.GetProjectProfileRequest]) (*connect_go.Response[gen.GetProjectProfileResponse], error)
-	// 更新项目信息
+	// UpdateProjectProfile updates the project's profile information
 	UpdateProjectProfile(context.Context, *connect_go.Request[gen.UpdateProjectProfileRequest]) (*connect_go.Response[gen.UpdateProjectProfileResponse], error)
-	// 关注项目
+	// WatchProject adds a user as a watcher to a project
 	WatchProject(context.Context, *connect_go.Request[gen.WatchProjectRequest]) (*connect_go.Response[gen.WatchProjectResponse], error)
-	// 取消关注项目
+	// UnWatchProject removes a user as a watcher from a project
 	UnWatchProject(context.Context, *connect_go.Request[gen.UnWatchProjectRequest]) (*connect_go.Response[gen.UnWatchProjectResponse], error)
-	// 获取项目关注者
+	// GetProjectWatcher retrieves the list of watchers for a project
 	GetProjectWatcher(context.Context, *connect_go.Request[gen.GetProjectWatcherRequest]) (*connect_go.Response[gen.GetProjectWatcherResponse], error)
-	// 搜索组织项目
+	// SearchGroupProject searches for projects within a group
 	SearchGroupProject(context.Context, *connect_go.Request[gen.SearchProjectRequest]) (*connect_go.Response[gen.SearchProjectResponse], error)
-	// 搜索项目
+	// SearchProject searches for projects across all accessible groups
 	SearchProject(context.Context, *connect_go.Request[gen.SearchAllProjectRequest]) (*connect_go.Response[gen.SearchAllProjectResponse], error)
-	// 探索项目
+	// ExploreProject returns trending and recommended projects
 	ExploreProject(context.Context, *connect_go.Request[gen.ExploreProjectsRequest]) (*connect_go.Response[gen.ExploreProjectsResponse], error)
-	// 获取项目内容
+	// GetProjectItems retrieves items within a project
 	GetProjectItems(context.Context, *connect_go.Request[gen.GetProjectItemsRequest]) (*connect_go.Response[gen.GetProjectItemsResponse], error)
-	// 获取组织内容
+	// GetGroupItems retrieves items within a group
 	GetGroupItems(context.Context, *connect_go.Request[gen.GetGroupItemsRequest]) (*connect_go.Response[gen.GetGroupItemsResponse], error)
-	// 获取用户内容
+	// GetUserItems retrieves items created by a user
 	GetUserItems(context.Context, *connect_go.Request[gen.GetUserItemsRequest]) (*connect_go.Response[gen.GetUserItemsResponse], error)
 	// 获取内容
 	GetItem(context.Context, *connect_go.Request[gen.GetItemRequest]) (*connect_go.Response[gen.GetItemResponse], error)
@@ -2610,6 +2642,10 @@ type TeamsAPIHandler interface {
 	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
 	// 更新角色的海报图片
 	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	// 更新角色的提示词
+	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
+	// 更新角色的描述
+	UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3348,6 +3384,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.UpdateStoryRolePoster,
 		opts...,
 	)
+	teamsAPIUpdateStoryRolePromptHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUpdateStoryRolePromptProcedure,
+		svc.UpdateStoryRolePrompt,
+		opts...,
+	)
+	teamsAPIUpdateStoryRoleDescriptionHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUpdateStoryRoleDescriptionProcedure,
+		svc.UpdateStoryRoleDescription,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3642,6 +3688,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIGenerateStoryRolePosterHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRolePosterProcedure:
 			teamsAPIUpdateStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRolePromptProcedure:
+			teamsAPIUpdateStoryRolePromptHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRoleDescriptionProcedure:
+			teamsAPIUpdateStoryRoleDescriptionHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4233,4 +4283,12 @@ func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *co
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescription(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDescription is not implemented"))
 }

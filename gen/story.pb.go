@@ -268,40 +268,41 @@ func (StoryBoardGeneratingStage) EnumDescriptor() ([]byte, []int) {
 	return file_story_proto_rawDescGZIP(), []int{2}
 }
 
+// Story 表示一个完整的故事实体
 type Story struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	GroupId           int64                  `protobuf:"varint,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
-	Name              string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	Avatar            string                 `protobuf:"bytes,4,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	CreatorId         int64                  `protobuf:"varint,5,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
-	OwnerId           int64                  `protobuf:"varint,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
-	Tags              []*Tags                `protobuf:"bytes,7,rep,name=tags,proto3" json:"tags,omitempty"`
-	Visable           ScopeType              `protobuf:"varint,8,opt,name=visable,proto3,enum=common.ScopeType" json:"visable,omitempty"`
-	IsAchieve         bool                   `protobuf:"varint,9,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"`
-	IsClose           bool                   `protobuf:"varint,10,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`
-	IsAiGen           bool                   `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`
-	Origin            string                 `protobuf:"bytes,12,opt,name=origin,proto3" json:"origin,omitempty"`
-	RootBoardId       int64                  `protobuf:"varint,13,opt,name=root_board_id,json=rootBoardId,proto3" json:"root_board_id,omitempty"`
-	Desc              string                 `protobuf:"bytes,14,opt,name=desc,proto3" json:"desc,omitempty"`
-	Params            *StoryParams           `protobuf:"bytes,15,opt,name=params,proto3" json:"params,omitempty"`
-	Status            int32                  `protobuf:"varint,16,opt,name=status,proto3" json:"status,omitempty"`
-	Title             string                 `protobuf:"bytes,17,opt,name=title,proto3" json:"title,omitempty"`
-	Isliked           bool                   `protobuf:"varint,19,opt,name=isliked,proto3" json:"isliked,omitempty"`
-	Iswatched         bool                   `protobuf:"varint,20,opt,name=iswatched,proto3" json:"iswatched,omitempty"`
-	CurrentUserStatus *WhatCurrentUserStatus `protobuf:"bytes,21,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"`
-	LikeCount         int64                  `protobuf:"varint,22,opt,name=like_count,json=likeCount,proto3" json:"like_count,omitempty"`
-	CommentCount      int64                  `protobuf:"varint,23,opt,name=comment_count,json=commentCount,proto3" json:"comment_count,omitempty"`
-	ShareCount        int64                  `protobuf:"varint,24,opt,name=share_count,json=shareCount,proto3" json:"share_count,omitempty"`
-	FollowCount       int64                  `protobuf:"varint,25,opt,name=follow_count,json=followCount,proto3" json:"follow_count,omitempty"`
-	TotalBoards       int64                  `protobuf:"varint,26,opt,name=total_boards,json=totalBoards,proto3" json:"total_boards,omitempty"`
-	TotalRoles        int64                  `protobuf:"varint,27,opt,name=total_roles,json=totalRoles,proto3" json:"total_roles,omitempty"`
-	TotalMembers      int64                  `protobuf:"varint,28,opt,name=total_members,json=totalMembers,proto3" json:"total_members,omitempty"`
-	Ctime             int64                  `protobuf:"varint,29,opt,name=Ctime,proto3" json:"Ctime,omitempty"`
-	Mtime             int64                  `protobuf:"varint,30,opt,name=Mtime,proto3" json:"Mtime,omitempty"`
+	Id                int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`                                                          // 故事唯一标识符
+	GroupId           int64                  `protobuf:"varint,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`                                 // 所属组织ID
+	Name              string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`                                                       // 故事名称
+	Avatar            string                 `protobuf:"bytes,4,opt,name=avatar,proto3" json:"avatar,omitempty"`                                                   // 故事头像
+	CreatorId         int64                  `protobuf:"varint,5,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`                           // 创建者ID
+	OwnerId           int64                  `protobuf:"varint,6,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`                                 // 所有者ID
+	Tags              []*Tags                `protobuf:"bytes,7,rep,name=tags,proto3" json:"tags,omitempty"`                                                       // 故事标签列表
+	Visable           ScopeType              `protobuf:"varint,8,opt,name=visable,proto3,enum=common.ScopeType" json:"visable,omitempty"`                          // 可见范围
+	IsAchieve         bool                   `protobuf:"varint,9,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"`                           // 是否已归档
+	IsClose           bool                   `protobuf:"varint,10,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`                                // 是否已关闭
+	IsAiGen           bool                   `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`                              // 是否由AI生成
+	Origin            string                 `protobuf:"bytes,12,opt,name=origin,proto3" json:"origin,omitempty"`                                                  // 故事来源
+	RootBoardId       int64                  `protobuf:"varint,13,opt,name=root_board_id,json=rootBoardId,proto3" json:"root_board_id,omitempty"`                  // 根故事板ID
+	Desc              string                 `protobuf:"bytes,14,opt,name=desc,proto3" json:"desc,omitempty"`                                                      // 故事描述
+	Params            *StoryParams           `protobuf:"bytes,15,opt,name=params,proto3" json:"params,omitempty"`                                                  // 故事参数
+	Status            int32                  `protobuf:"varint,16,opt,name=status,proto3" json:"status,omitempty"`                                                 // 故事状态
+	Title             string                 `protobuf:"bytes,17,opt,name=title,proto3" json:"title,omitempty"`                                                    // 故事标题
+	Isliked           bool                   `protobuf:"varint,19,opt,name=isliked,proto3" json:"isliked,omitempty"`                                               // 当前用户是否点赞
+	Iswatched         bool                   `protobuf:"varint,20,opt,name=iswatched,proto3" json:"iswatched,omitempty"`                                           // 当前用户是否关注
+	CurrentUserStatus *WhatCurrentUserStatus `protobuf:"bytes,21,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"` // 当前用户状态
+	LikeCount         int64                  `protobuf:"varint,22,opt,name=like_count,json=likeCount,proto3" json:"like_count,omitempty"`                          // 点赞数
+	CommentCount      int64                  `protobuf:"varint,23,opt,name=comment_count,json=commentCount,proto3" json:"comment_count,omitempty"`                 // 评论数
+	ShareCount        int64                  `protobuf:"varint,24,opt,name=share_count,json=shareCount,proto3" json:"share_count,omitempty"`                       // 分享数
+	FollowCount       int64                  `protobuf:"varint,25,opt,name=follow_count,json=followCount,proto3" json:"follow_count,omitempty"`                    // 关注数
+	TotalBoards       int64                  `protobuf:"varint,26,opt,name=total_boards,json=totalBoards,proto3" json:"total_boards,omitempty"`                    // 故事板总数
+	TotalRoles        int64                  `protobuf:"varint,27,opt,name=total_roles,json=totalRoles,proto3" json:"total_roles,omitempty"`                       // 角色总数
+	TotalMembers      int64                  `protobuf:"varint,28,opt,name=total_members,json=totalMembers,proto3" json:"total_members,omitempty"`                 // 成员总数
+	Ctime             int64                  `protobuf:"varint,29,opt,name=Ctime,proto3" json:"Ctime,omitempty"`                                                   // 创建时间
+	Mtime             int64                  `protobuf:"varint,30,opt,name=Mtime,proto3" json:"Mtime,omitempty"`                                                   // 修改时间
 }
 
 func (x *Story) Reset() {
@@ -539,20 +540,21 @@ func (x *Story) GetMtime() int64 {
 	return 0
 }
 
+// StoryParams 包含故事生成和渲染的相关参数
 type StoryParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryDescription string `protobuf:"bytes,1,opt,name=story_description,json=storyDescription,proto3" json:"story_description,omitempty"`
-	RefImage         string `protobuf:"bytes,2,opt,name=ref_image,json=refImage,proto3" json:"ref_image,omitempty"`
-	NegativePrompt   string `protobuf:"bytes,3,opt,name=negative_prompt,json=negativePrompt,proto3" json:"negative_prompt,omitempty"`
-	Prompt           string `protobuf:"bytes,4,opt,name=prompt,proto3" json:"prompt,omitempty"`
-	ComicLayoutStyle string `protobuf:"bytes,5,opt,name=comic_layout_style,json=comicLayoutStyle,proto3" json:"comic_layout_style,omitempty"`
-	ComicStyle       string `protobuf:"bytes,6,opt,name=comic_style,json=comicStyle,proto3" json:"comic_style,omitempty"`
-	Background       string `protobuf:"bytes,7,opt,name=background,proto3" json:"background,omitempty"`
-	StyleRefImage    string `protobuf:"bytes,8,opt,name=style_ref_image,json=styleRefImage,proto3" json:"style_ref_image,omitempty"`
-	Subject          string `protobuf:"bytes,9,opt,name=subject,proto3" json:"subject,omitempty"`
+	StoryDescription string `protobuf:"bytes,1,opt,name=story_description,json=storyDescription,proto3" json:"story_description,omitempty"`   // 故事描述
+	RefImage         string `protobuf:"bytes,2,opt,name=ref_image,json=refImage,proto3" json:"ref_image,omitempty"`                           // 参考图片
+	NegativePrompt   string `protobuf:"bytes,3,opt,name=negative_prompt,json=negativePrompt,proto3" json:"negative_prompt,omitempty"`         // 负面提示词
+	Prompt           string `protobuf:"bytes,4,opt,name=prompt,proto3" json:"prompt,omitempty"`                                               // 提示词
+	ComicLayoutStyle string `protobuf:"bytes,5,opt,name=comic_layout_style,json=comicLayoutStyle,proto3" json:"comic_layout_style,omitempty"` // 漫画布局风格
+	ComicStyle       string `protobuf:"bytes,6,opt,name=comic_style,json=comicStyle,proto3" json:"comic_style,omitempty"`                     // 漫画风格
+	Background       string `protobuf:"bytes,7,opt,name=background,proto3" json:"background,omitempty"`                                       // 背景
+	StyleRefImage    string `protobuf:"bytes,8,opt,name=style_ref_image,json=styleRefImage,proto3" json:"style_ref_image,omitempty"`          // 风格参考图片
+	Subject          string `protobuf:"bytes,9,opt,name=subject,proto3" json:"subject,omitempty"`                                             // 主题
 }
 
 func (x *StoryParams) Reset() {
@@ -650,29 +652,30 @@ func (x *StoryParams) GetSubject() string {
 	return ""
 }
 
+// StoryBoard 表示故事中的一个场景或章节
 type StoryBoard struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId           int64                  `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	Num               int64                  `protobuf:"varint,2,opt,name=num,proto3" json:"num,omitempty"`
-	PrevBoardId       int64                  `protobuf:"varint,3,opt,name=prev_board_id,json=prevBoardId,proto3" json:"prev_board_id,omitempty"`
-	NextBoardId       []int64                `protobuf:"varint,4,rep,packed,name=next_board_id,json=nextBoardId,proto3" json:"next_board_id,omitempty"`
-	Creator           int64                  `protobuf:"varint,5,opt,name=creator,proto3" json:"creator,omitempty"`
-	StoryBoardId      int64                  `protobuf:"varint,6,opt,name=story_board_id,json=storyBoardId,proto3" json:"story_board_id,omitempty"`
-	Title             string                 `protobuf:"bytes,8,opt,name=title,proto3" json:"title,omitempty"`
-	Content           string                 `protobuf:"bytes,9,opt,name=content,proto3" json:"content,omitempty"`
-	IsAiGen           bool                   `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`
-	Roles             []*StoryRole           `protobuf:"bytes,12,rep,name=roles,proto3" json:"roles,omitempty"`
-	Backgroud         string                 `protobuf:"bytes,13,opt,name=backgroud,proto3" json:"backgroud,omitempty"`
-	Params            *StoryBoardParams      `protobuf:"bytes,15,opt,name=params,proto3" json:"params,omitempty"`
-	Sences            *StoryBoardSences      `protobuf:"bytes,16,opt,name=sences,proto3" json:"sences,omitempty"`
-	IsMultiBranch     bool                   `protobuf:"varint,17,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"`
-	Stage             StoryboardStage        `protobuf:"varint,18,opt,name=stage,proto3,enum=common.StoryboardStage" json:"stage,omitempty"`
-	Ctime             int64                  `protobuf:"varint,19,opt,name=Ctime,proto3" json:"Ctime,omitempty"`
-	Mtime             int64                  `protobuf:"varint,20,opt,name=Mtime,proto3" json:"Mtime,omitempty"`
-	CurrentUserStatus *WhatCurrentUserStatus `protobuf:"bytes,21,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"`
+	StoryId           int64                  `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`                                 // 所属故事ID
+	Num               int64                  `protobuf:"varint,2,opt,name=num,proto3" json:"num,omitempty"`                                                        // 序号
+	PrevBoardId       int64                  `protobuf:"varint,3,opt,name=prev_board_id,json=prevBoardId,proto3" json:"prev_board_id,omitempty"`                   // 前一个故事板ID
+	NextBoardId       []int64                `protobuf:"varint,4,rep,packed,name=next_board_id,json=nextBoardId,proto3" json:"next_board_id,omitempty"`            // 下一个故事板ID列表
+	Creator           int64                  `protobuf:"varint,5,opt,name=creator,proto3" json:"creator,omitempty"`                                                // 创建者ID
+	StoryBoardId      int64                  `protobuf:"varint,6,opt,name=story_board_id,json=storyBoardId,proto3" json:"story_board_id,omitempty"`                // 故事板ID
+	Title             string                 `protobuf:"bytes,8,opt,name=title,proto3" json:"title,omitempty"`                                                     // 标题
+	Content           string                 `protobuf:"bytes,9,opt,name=content,proto3" json:"content,omitempty"`                                                 // 内容
+	IsAiGen           bool                   `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`                              // 是否由AI生成
+	Roles             []*StoryRole           `protobuf:"bytes,12,rep,name=roles,proto3" json:"roles,omitempty"`                                                    // 相关角色列表
+	Backgroud         string                 `protobuf:"bytes,13,opt,name=backgroud,proto3" json:"backgroud,omitempty"`                                            // 背景
+	Params            *StoryBoardParams      `protobuf:"bytes,15,opt,name=params,proto3" json:"params,omitempty"`                                                  // 故事板参数
+	Sences            *StoryBoardSences      `protobuf:"bytes,16,opt,name=sences,proto3" json:"sences,omitempty"`                                                  // 场景列表
+	IsMultiBranch     bool                   `protobuf:"varint,17,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"`            // 是否多分支
+	Stage             StoryboardStage        `protobuf:"varint,18,opt,name=stage,proto3,enum=common.StoryboardStage" json:"stage,omitempty"`                       // 故事板阶段
+	Ctime             int64                  `protobuf:"varint,19,opt,name=Ctime,proto3" json:"Ctime,omitempty"`                                                   // 创建时间
+	Mtime             int64                  `protobuf:"varint,20,opt,name=Mtime,proto3" json:"Mtime,omitempty"`                                                   // 修改时间
+	CurrentUserStatus *WhatCurrentUserStatus `protobuf:"bytes,21,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"` // 当前用户状态
 }
 
 func (x *StoryBoard) Reset() {
@@ -833,13 +836,14 @@ func (x *StoryBoard) GetCurrentUserStatus() *WhatCurrentUserStatus {
 	return nil
 }
 
+// StoryBoardSences 包含故事板中的所有场景
 type StoryBoardSences struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Total int64              `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
-	List  []*StoryBoardSence `protobuf:"bytes,2,rep,name=list,proto3" json:"list,omitempty"`
+	Total int64              `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"` // 场景总数
+	List  []*StoryBoardSence `protobuf:"bytes,2,rep,name=list,proto3" json:"list,omitempty"`    // 场景列表
 }
 
 func (x *StoryBoardSences) Reset() {
@@ -888,31 +892,31 @@ func (x *StoryBoardSences) GetList() []*StoryBoardSence {
 	return nil
 }
 
-// CharacterDetail represents detailed information about a character
+// CharacterDetail represents detailed information about a character in a story
 type CharacterDetail struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// 角色描述
+	// Description of the character's overall appearance and basic traits
 	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
-	// 角色短期目标
+	// Character's immediate objectives and goals in the current story arc
 	ShortTermGoal string `protobuf:"bytes,2,opt,name=short_term_goal,json=shortTermGoal,proto3" json:"short_term_goal,omitempty"`
-	// 角色长期目标
+	// Character's overarching ambitions and long-term aspirations
 	LongTermGoal string `protobuf:"bytes,3,opt,name=long_term_goal,json=longTermGoal,proto3" json:"long_term_goal,omitempty"`
-	// 角色性格
+	// Character's personality traits, temperament, and behavioral patterns
 	Personality string `protobuf:"bytes,4,opt,name=personality,proto3" json:"personality,omitempty"`
-	// 角色背景
+	// Character's history, origin story, and formative experiences
 	Background string `protobuf:"bytes,5,opt,name=background,proto3" json:"background,omitempty"`
-	// 处事风格
+	// Character's approach to handling situations and solving problems
 	HandlingStyle string `protobuf:"bytes,6,opt,name=handling_style,json=handlingStyle,proto3" json:"handling_style,omitempty"`
-	// 认知范围
+	// Character's knowledge, understanding, and awareness of their world
 	CognitionRange string `protobuf:"bytes,7,opt,name=cognition_range,json=cognitionRange,proto3" json:"cognition_range,omitempty"`
-	// 能力特点
+	// Character's special skills, talents, and unique capabilities
 	AbilityFeatures string `protobuf:"bytes,8,opt,name=ability_features,json=abilityFeatures,proto3" json:"ability_features,omitempty"`
-	// 外貌特征
+	// Character's physical appearance and distinguishing features
 	Appearance string `protobuf:"bytes,9,opt,name=appearance,proto3" json:"appearance,omitempty"`
-	// 穿着喜好
+	// Character's clothing preferences and style choices
 	DressPreference string `protobuf:"bytes,10,opt,name=dress_preference,json=dressPreference,proto3" json:"dress_preference,omitempty"`
 }
 
@@ -1018,34 +1022,35 @@ func (x *CharacterDetail) GetDressPreference() string {
 	return ""
 }
 
+// StoryRole 表示故事中的角色
 type StoryRole struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	RoleId               int64                  `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	StoryId              int64                  `protobuf:"varint,2,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	CharacterDescription string                 `protobuf:"bytes,5,opt,name=character_description,json=characterDescription,proto3" json:"character_description,omitempty"`
-	CharacterName        string                 `protobuf:"bytes,6,opt,name=character_name,json=characterName,proto3" json:"character_name,omitempty"`
-	CharacterAvatar      string                 `protobuf:"bytes,7,opt,name=character_avatar,json=characterAvatar,proto3" json:"character_avatar,omitempty"`
-	CharacterId          string                 `protobuf:"bytes,8,opt,name=character_id,json=characterId,proto3" json:"character_id,omitempty"`
-	CharacterType        string                 `protobuf:"bytes,9,opt,name=character_type,json=characterType,proto3" json:"character_type,omitempty"`
-	CharacterPrompt      string                 `protobuf:"bytes,10,opt,name=character_prompt,json=characterPrompt,proto3" json:"character_prompt,omitempty"`
-	CharacterDetail      *CharacterDetail       `protobuf:"bytes,11,opt,name=character_detail,json=characterDetail,proto3" json:"character_detail,omitempty"`
-	CharacterRefImages   []string               `protobuf:"bytes,12,rep,name=character_ref_images,json=characterRefImages,proto3" json:"character_ref_images,omitempty"`
-	CreatorId            int64                  `protobuf:"varint,13,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
-	Status               int32                  `protobuf:"varint,14,opt,name=status,proto3" json:"status,omitempty"`
-	LikeCount            int64                  `protobuf:"varint,15,opt,name=like_count,json=likeCount,proto3" json:"like_count,omitempty"`
-	FollowCount          int64                  `protobuf:"varint,16,opt,name=follow_count,json=followCount,proto3" json:"follow_count,omitempty"`
-	StoryboardNum        int64                  `protobuf:"varint,17,opt,name=storyboard_num,json=storyboardNum,proto3" json:"storyboard_num,omitempty"`
-	Version              int64                  `protobuf:"varint,18,opt,name=version,proto3" json:"version,omitempty"`
-	Isliked              bool                   `protobuf:"varint,19,opt,name=isliked,proto3" json:"isliked,omitempty"`
-	Isfolllowed          bool                   `protobuf:"varint,20,opt,name=isfolllowed,proto3" json:"isfolllowed,omitempty"`
-	Ctime                int64                  `protobuf:"varint,21,opt,name=Ctime,proto3" json:"Ctime,omitempty"`
-	Mtime                int64                  `protobuf:"varint,22,opt,name=Mtime,proto3" json:"Mtime,omitempty"`
-	CurrentUserStatus    *WhatCurrentUserStatus `protobuf:"bytes,23,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"`
-	Creator              *UserInfo              `protobuf:"bytes,24,opt,name=creator,proto3" json:"creator,omitempty"`
-	PosterImageUrl       string                 `protobuf:"bytes,25,opt,name=poster_image_url,json=posterImageUrl,proto3" json:"poster_image_url,omitempty"`
+	RoleId               int64                  `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`                                          // 角色ID
+	StoryId              int64                  `protobuf:"varint,2,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`                                       // 所属故事ID
+	CharacterDescription string                 `protobuf:"bytes,5,opt,name=character_description,json=characterDescription,proto3" json:"character_description,omitempty"` // 角色描述
+	CharacterName        string                 `protobuf:"bytes,6,opt,name=character_name,json=characterName,proto3" json:"character_name,omitempty"`                      // 角色名称
+	CharacterAvatar      string                 `protobuf:"bytes,7,opt,name=character_avatar,json=characterAvatar,proto3" json:"character_avatar,omitempty"`                // 角色头像
+	CharacterId          string                 `protobuf:"bytes,8,opt,name=character_id,json=characterId,proto3" json:"character_id,omitempty"`                            // 角色标识符
+	CharacterType        string                 `protobuf:"bytes,9,opt,name=character_type,json=characterType,proto3" json:"character_type,omitempty"`                      // 角色类型
+	CharacterPrompt      string                 `protobuf:"bytes,10,opt,name=character_prompt,json=characterPrompt,proto3" json:"character_prompt,omitempty"`               // 角色提示词
+	CharacterDetail      *CharacterDetail       `protobuf:"bytes,11,opt,name=character_detail,json=characterDetail,proto3" json:"character_detail,omitempty"`               // 角色详细信息
+	CharacterRefImages   []string               `protobuf:"bytes,12,rep,name=character_ref_images,json=characterRefImages,proto3" json:"character_ref_images,omitempty"`    // 角色参考图片
+	CreatorId            int64                  `protobuf:"varint,13,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`                                // 创建者ID
+	Status               int32                  `protobuf:"varint,14,opt,name=status,proto3" json:"status,omitempty"`                                                       // 状态
+	LikeCount            int64                  `protobuf:"varint,15,opt,name=like_count,json=likeCount,proto3" json:"like_count,omitempty"`                                // 点赞数
+	FollowCount          int64                  `protobuf:"varint,16,opt,name=follow_count,json=followCount,proto3" json:"follow_count,omitempty"`                          // 关注数
+	StoryboardNum        int64                  `protobuf:"varint,17,opt,name=storyboard_num,json=storyboardNum,proto3" json:"storyboard_num,omitempty"`                    // 故事板数量
+	Version              int64                  `protobuf:"varint,18,opt,name=version,proto3" json:"version,omitempty"`                                                     // 版本号
+	Isliked              bool                   `protobuf:"varint,19,opt,name=isliked,proto3" json:"isliked,omitempty"`                                                     // 当前用户是否点赞
+	Isfolllowed          bool                   `protobuf:"varint,20,opt,name=isfolllowed,proto3" json:"isfolllowed,omitempty"`                                             // 当前用户是否关注
+	Ctime                int64                  `protobuf:"varint,21,opt,name=Ctime,proto3" json:"Ctime,omitempty"`                                                         // 创建时间
+	Mtime                int64                  `protobuf:"varint,22,opt,name=Mtime,proto3" json:"Mtime,omitempty"`                                                         // 修改时间
+	CurrentUserStatus    *WhatCurrentUserStatus `protobuf:"bytes,23,opt,name=current_user_status,json=currentUserStatus,proto3" json:"current_user_status,omitempty"`       // 当前用户状态
+	Creator              *UserInfo              `protobuf:"bytes,24,opt,name=creator,proto3" json:"creator,omitempty"`                                                      // 创建者信息
+	PosterImageUrl       string                 `protobuf:"bytes,25,opt,name=poster_image_url,json=posterImageUrl,proto3" json:"poster_image_url,omitempty"`                // 海报图片URL
 }
 
 func (x *StoryRole) Reset() {
@@ -1241,28 +1246,29 @@ func (x *StoryRole) GetPosterImageUrl() string {
 	return ""
 }
 
+// StoryBoardParams 包含故事板渲染的相关参数
 type StoryBoardParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	BoardId                int64   `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"`
-	StoryDescription       string  `protobuf:"bytes,2,opt,name=StoryDescription,proto3" json:"StoryDescription,omitempty"`
-	NumIds                 int32   `protobuf:"varint,3,opt,name=NumIds,proto3" json:"NumIds,omitempty"`
-	NumSteps               int32   `protobuf:"varint,4,opt,name=NumSteps,proto3" json:"NumSteps,omitempty"`
-	SdModel                string  `protobuf:"bytes,5,opt,name=SdModel,proto3" json:"SdModel,omitempty"`
-	RefImage               string  `protobuf:"bytes,6,opt,name=RefImage,proto3" json:"RefImage,omitempty"`
-	ComicLayoutStyle       string  `protobuf:"bytes,7,opt,name=ComicLayoutStyle,proto3" json:"ComicLayoutStyle,omitempty"`
-	ComicStyle             string  `protobuf:"bytes,8,opt,name=ComicStyle,proto3" json:"ComicStyle,omitempty"`
-	NegativePrompt         string  `protobuf:"bytes,9,opt,name=NegativePrompt,proto3" json:"NegativePrompt,omitempty"`
-	OutputQuality          int32   `protobuf:"varint,10,opt,name=OutputQuality,proto3" json:"OutputQuality,omitempty"`
-	GuidanceScale          float32 `protobuf:"fixed32,11,opt,name=GuidanceScale,proto3" json:"GuidanceScale,omitempty"`
-	OutputFormat           int32   `protobuf:"varint,13,opt,name=OutputFormat,proto3" json:"OutputFormat,omitempty"`
-	ImageWidth             int32   `protobuf:"varint,14,opt,name=ImageWidth,proto3" json:"ImageWidth,omitempty"`
-	ImageHeight            int32   `protobuf:"varint,15,opt,name=ImageHeight,proto3" json:"ImageHeight,omitempty"`
-	Self32AttentionLayers  int32   `protobuf:"varint,16,opt,name=Self32AttentionLayers,proto3" json:"Self32AttentionLayers,omitempty"`
-	Self64AttentionLayers  int32   `protobuf:"varint,17,opt,name=Self64AttentionLayers,proto3" json:"Self64AttentionLayers,omitempty"`
-	Self128AttentionLayers int32   `protobuf:"varint,18,opt,name=Self128AttentionLayers,proto3" json:"Self128AttentionLayers,omitempty"`
+	BoardId                int64   `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"`                 // 故事板ID
+	StoryDescription       string  `protobuf:"bytes,2,opt,name=StoryDescription,proto3" json:"StoryDescription,omitempty"`               // 故事描述
+	NumIds                 int32   `protobuf:"varint,3,opt,name=NumIds,proto3" json:"NumIds,omitempty"`                                  // ID数量
+	NumSteps               int32   `protobuf:"varint,4,opt,name=NumSteps,proto3" json:"NumSteps,omitempty"`                              // 步骤数
+	SdModel                string  `protobuf:"bytes,5,opt,name=SdModel,proto3" json:"SdModel,omitempty"`                                 // 模型名称
+	RefImage               string  `protobuf:"bytes,6,opt,name=RefImage,proto3" json:"RefImage,omitempty"`                               // 参考图片
+	ComicLayoutStyle       string  `protobuf:"bytes,7,opt,name=ComicLayoutStyle,proto3" json:"ComicLayoutStyle,omitempty"`               // 漫画布局风格
+	ComicStyle             string  `protobuf:"bytes,8,opt,name=ComicStyle,proto3" json:"ComicStyle,omitempty"`                           // 漫画风格
+	NegativePrompt         string  `protobuf:"bytes,9,opt,name=NegativePrompt,proto3" json:"NegativePrompt,omitempty"`                   // 负面提示词
+	OutputQuality          int32   `protobuf:"varint,10,opt,name=OutputQuality,proto3" json:"OutputQuality,omitempty"`                   // 输出质量
+	GuidanceScale          float32 `protobuf:"fixed32,11,opt,name=GuidanceScale,proto3" json:"GuidanceScale,omitempty"`                  // 引导比例
+	OutputFormat           int32   `protobuf:"varint,13,opt,name=OutputFormat,proto3" json:"OutputFormat,omitempty"`                     // 输出格式
+	ImageWidth             int32   `protobuf:"varint,14,opt,name=ImageWidth,proto3" json:"ImageWidth,omitempty"`                         // 图片宽度
+	ImageHeight            int32   `protobuf:"varint,15,opt,name=ImageHeight,proto3" json:"ImageHeight,omitempty"`                       // 图片高度
+	Self32AttentionLayers  int32   `protobuf:"varint,16,opt,name=Self32AttentionLayers,proto3" json:"Self32AttentionLayers,omitempty"`   // 32层自注意力
+	Self64AttentionLayers  int32   `protobuf:"varint,17,opt,name=Self64AttentionLayers,proto3" json:"Self64AttentionLayers,omitempty"`   // 64层自注意力
+	Self128AttentionLayers int32   `protobuf:"varint,18,opt,name=Self128AttentionLayers,proto3" json:"Self128AttentionLayers,omitempty"` // 128层自注意力
 }
 
 func (x *StoryBoardParams) Reset() {
@@ -1416,19 +1422,20 @@ func (x *StoryBoardParams) GetSelf128AttentionLayers() int32 {
 	return 0
 }
 
+// TimeLine 表示时间线信息
 type TimeLine struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	RootId    int64  `protobuf:"varint,1,opt,name=root_id,json=rootId,proto3" json:"root_id,omitempty"`
-	GroupId   int64  `protobuf:"varint,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
-	ProjectId int64  `protobuf:"varint,3,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty"`
-	CreatorId int64  `protobuf:"varint,4,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
-	Title     string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
-	ItemId    int64  `protobuf:"varint,6,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
-	Ctime     int64  `protobuf:"varint,9,opt,name=Ctime,proto3" json:"Ctime,omitempty"`
-	Mtime     int64  `protobuf:"varint,10,opt,name=Mtime,proto3" json:"Mtime,omitempty"`
+	RootId    int64  `protobuf:"varint,1,opt,name=root_id,json=rootId,proto3" json:"root_id,omitempty"`          // 根ID
+	GroupId   int64  `protobuf:"varint,2,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`       // 组织ID
+	ProjectId int64  `protobuf:"varint,3,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty"` // 项目ID
+	CreatorId int64  `protobuf:"varint,4,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"` // 创建者ID
+	Title     string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`                           // 标题
+	ItemId    int64  `protobuf:"varint,6,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`          // 项目ID
+	Ctime     int64  `protobuf:"varint,9,opt,name=Ctime,proto3" json:"Ctime,omitempty"`                          // 创建时间
+	Mtime     int64  `protobuf:"varint,10,opt,name=Mtime,proto3" json:"Mtime,omitempty"`                         // 修改时间
 }
 
 func (x *TimeLine) Reset() {
@@ -1519,24 +1526,25 @@ func (x *TimeLine) GetMtime() int64 {
 	return 0
 }
 
+// CreateStoryRequest 创建故事的请求参数
 type CreateStoryRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name      string       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Title     string       `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	ShortDesc string       `protobuf:"bytes,3,opt,name=short_desc,json=shortDesc,proto3" json:"short_desc,omitempty"`
-	CreatorId int64        `protobuf:"varint,4,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"`
-	OwnerId   int64        `protobuf:"varint,5,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
-	GroupId   int64        `protobuf:"varint,6,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
-	Origin    string       `protobuf:"bytes,7,opt,name=origin,proto3" json:"origin,omitempty"`
-	Status    int32        `protobuf:"varint,8,opt,name=status,proto3" json:"status,omitempty"`
-	IsAchieve bool         `protobuf:"varint,9,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"`
-	IsClose   bool         `protobuf:"varint,10,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`
-	IsAiGen   bool         `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`
-	Params    *StoryParams `protobuf:"bytes,12,opt,name=params,proto3" json:"params,omitempty"`
-	Roles     []*StoryRole `protobuf:"bytes,13,rep,name=roles,proto3" json:"roles,omitempty"`
+	Name      string       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`                             // 故事名称
+	Title     string       `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`                           // 故事标题
+	ShortDesc string       `protobuf:"bytes,3,opt,name=short_desc,json=shortDesc,proto3" json:"short_desc,omitempty"`  // 简短描述
+	CreatorId int64        `protobuf:"varint,4,opt,name=creator_id,json=creatorId,proto3" json:"creator_id,omitempty"` // 创建者ID
+	OwnerId   int64        `protobuf:"varint,5,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`       // 所有者ID
+	GroupId   int64        `protobuf:"varint,6,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`       // 组织ID
+	Origin    string       `protobuf:"bytes,7,opt,name=origin,proto3" json:"origin,omitempty"`                         // 来源
+	Status    int32        `protobuf:"varint,8,opt,name=status,proto3" json:"status,omitempty"`                        // 状态
+	IsAchieve bool         `protobuf:"varint,9,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"` // 是否归档
+	IsClose   bool         `protobuf:"varint,10,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`      // 是否关闭
+	IsAiGen   bool         `protobuf:"varint,11,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`    // 是否AI生成
+	Params    *StoryParams `protobuf:"bytes,12,opt,name=params,proto3" json:"params,omitempty"`                        // 故事参数
+	Roles     []*StoryRole `protobuf:"bytes,13,rep,name=roles,proto3" json:"roles,omitempty"`                          // 角色列表
 }
 
 func (x *CreateStoryRequest) Reset() {
@@ -1662,13 +1670,14 @@ func (x *CreateStoryRequest) GetRoles() []*StoryRole {
 	return nil
 }
 
+// CreateStoryResponse 创建故事的响应结果
 type CreateStoryResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                     `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                     `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *CreateStoryResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -1725,20 +1734,21 @@ func (x *CreateStoryResponse) GetData() *CreateStoryResponse_Data {
 	return nil
 }
 
+// UpdateStoryRequest 更新故事的请求参数
 type UpdateStoryRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ShortDesc string       `protobuf:"bytes,1,opt,name=short_desc,json=shortDesc,proto3" json:"short_desc,omitempty"`
-	Origin    string       `protobuf:"bytes,2,opt,name=origin,proto3" json:"origin,omitempty"`
-	Status    int32        `protobuf:"varint,3,opt,name=status,proto3" json:"status,omitempty"`
-	IsAchieve bool         `protobuf:"varint,4,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"`
-	IsClose   bool         `protobuf:"varint,5,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`
-	IsAiGen   bool         `protobuf:"varint,6,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`
-	Params    *StoryParams `protobuf:"bytes,7,opt,name=params,proto3" json:"params,omitempty"`
-	StoryId   int64        `protobuf:"varint,8,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	Roles     []*StoryRole `protobuf:"bytes,10,rep,name=roles,proto3" json:"roles,omitempty"`
+	ShortDesc string       `protobuf:"bytes,1,opt,name=short_desc,json=shortDesc,proto3" json:"short_desc,omitempty"`  // 简短描述
+	Origin    string       `protobuf:"bytes,2,opt,name=origin,proto3" json:"origin,omitempty"`                         // 来源
+	Status    int32        `protobuf:"varint,3,opt,name=status,proto3" json:"status,omitempty"`                        // 状态
+	IsAchieve bool         `protobuf:"varint,4,opt,name=is_achieve,json=isAchieve,proto3" json:"is_achieve,omitempty"` // 是否归档
+	IsClose   bool         `protobuf:"varint,5,opt,name=is_close,json=isClose,proto3" json:"is_close,omitempty"`       // 是否关闭
+	IsAiGen   bool         `protobuf:"varint,6,opt,name=is_ai_gen,json=isAiGen,proto3" json:"is_ai_gen,omitempty"`     // 是否AI生成
+	Params    *StoryParams `protobuf:"bytes,7,opt,name=params,proto3" json:"params,omitempty"`                         // 故事参数
+	StoryId   int64        `protobuf:"varint,8,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`       // 故事ID
+	Roles     []*StoryRole `protobuf:"bytes,10,rep,name=roles,proto3" json:"roles,omitempty"`                          // 角色列表
 }
 
 func (x *UpdateStoryRequest) Reset() {
@@ -1836,13 +1846,14 @@ func (x *UpdateStoryRequest) GetRoles() []*StoryRole {
 	return nil
 }
 
+// UpdateStoryResponse 更新故事的响应结果
 type UpdateStoryResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                     `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                     `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                    `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *UpdateStoryResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -1899,12 +1910,13 @@ func (x *UpdateStoryResponse) GetData() *UpdateStoryResponse_Data {
 	return nil
 }
 
+// GetStoryInfoRequest 获取故事信息的请求参数
 type GetStoryInfoRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId int64 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
+	StoryId int64 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"` // 故事ID
 }
 
 func (x *GetStoryInfoRequest) Reset() {
@@ -1946,13 +1958,14 @@ func (x *GetStoryInfoRequest) GetStoryId() int64 {
 	return 0
 }
 
+// GetStoryInfoResponse 获取故事信息的响应结果
 type GetStoryInfoResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                      `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                     `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                      `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                     `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *GetStoryInfoResponse_Data `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -2009,12 +2022,13 @@ func (x *GetStoryInfoResponse) GetData() *GetStoryInfoResponse_Data {
 	return nil
 }
 
+// CreateStoryboardRequest 创建故事板的请求参数
 type CreateStoryboardRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Board *StoryBoard `protobuf:"bytes,1,opt,name=board,proto3" json:"board,omitempty"`
+	Board *StoryBoard `protobuf:"bytes,1,opt,name=board,proto3" json:"board,omitempty"` // 故事板信息
 }
 
 func (x *CreateStoryboardRequest) Reset() {
@@ -2056,13 +2070,14 @@ func (x *CreateStoryboardRequest) GetBoard() *StoryBoard {
 	return nil
 }
 
+// CreateStoryboardResponse 创建故事板的响应结果
 type CreateStoryboardResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                          `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                          `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *CreateStoryboardResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -2119,13 +2134,14 @@ func (x *CreateStoryboardResponse) GetData() *CreateStoryboardResponse_Data {
 	return nil
 }
 
+// GetStoryboardRequest 获取故事板的请求参数
 type GetStoryboardRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	BoardId int64 `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"`
-	UserId  int64 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	BoardId int64 `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"` // 故事板ID
+	UserId  int64 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`    // 用户ID
 }
 
 func (x *GetStoryboardRequest) Reset() {
@@ -2174,13 +2190,14 @@ func (x *GetStoryboardRequest) GetUserId() int64 {
 	return 0
 }
 
+// GetStoryboardResponse 获取故事板的响应结果
 type GetStoryboardResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                       `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                      `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                       `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                      `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *GetStoryboardResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -2237,20 +2254,21 @@ func (x *GetStoryboardResponse) GetData() *GetStoryboardResponse_Data {
 	return nil
 }
 
+// GetStoryboardsRequest 获取故事板列表的请求参数
 type GetStoryboardsRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId       int64              `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	TimelineId    int64              `protobuf:"varint,2,opt,name=timeline_id,json=timelineId,proto3" json:"timeline_id,omitempty"`
-	StartTime     int64              `protobuf:"varint,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	EndTime       int64              `protobuf:"varint,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
-	UserId        int64              `protobuf:"varint,6,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	IsMultiBranch bool               `protobuf:"varint,7,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"`
-	Page          int32              `protobuf:"varint,8,opt,name=page,proto3" json:"page,omitempty"`
-	PageSize      int32              `protobuf:"varint,9,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
-	OrderBy       MultiBranchOrderBy `protobuf:"varint,10,opt,name=order_by,json=orderBy,proto3,enum=common.MultiBranchOrderBy" json:"order_by,omitempty"`
+	StoryId       int64              `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`                                 // 故事ID
+	TimelineId    int64              `protobuf:"varint,2,opt,name=timeline_id,json=timelineId,proto3" json:"timeline_id,omitempty"`                        // 时间线ID
+	StartTime     int64              `protobuf:"varint,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`                           // 开始时间
+	EndTime       int64              `protobuf:"varint,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`                                 // 结束时间
+	UserId        int64              `protobuf:"varint,6,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`                                    // 用户ID
+	IsMultiBranch bool               `protobuf:"varint,7,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"`             // 是否多分支
+	Page          int32              `protobuf:"varint,8,opt,name=page,proto3" json:"page,omitempty"`                                                      // 页码
+	PageSize      int32              `protobuf:"varint,9,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`                              // 每页大小
+	OrderBy       MultiBranchOrderBy `protobuf:"varint,10,opt,name=order_by,json=orderBy,proto3,enum=common.MultiBranchOrderBy" json:"order_by,omitempty"` // 排序方式
 }
 
 func (x *GetStoryboardsRequest) Reset() {
@@ -2348,14 +2366,15 @@ func (x *GetStoryboardsRequest) GetOrderBy() MultiBranchOrderBy {
 	return MultiBranchOrderBy_MultiBranchOrderByUnspecified
 }
 
+// StoryBoardActiveRole 故事板活动中的角色信息
 type StoryBoardActiveRole struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	RoleId     int64  `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
-	RoleName   string `protobuf:"bytes,2,opt,name=role_name,json=roleName,proto3" json:"role_name,omitempty"`
-	RoleAvatar string `protobuf:"bytes,3,opt,name=role_avatar,json=roleAvatar,proto3" json:"role_avatar,omitempty"`
+	RoleId     int64  `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`            // 角色ID
+	RoleName   string `protobuf:"bytes,2,opt,name=role_name,json=roleName,proto3" json:"role_name,omitempty"`       // 角色名称
+	RoleAvatar string `protobuf:"bytes,3,opt,name=role_avatar,json=roleAvatar,proto3" json:"role_avatar,omitempty"` // 角色头像
 }
 
 func (x *StoryBoardActiveRole) Reset() {
@@ -2411,14 +2430,15 @@ func (x *StoryBoardActiveRole) GetRoleAvatar() string {
 	return ""
 }
 
+// StoryBoardActiveUser 故事板活动中的用户信息
 type StoryBoardActiveUser struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId     int64  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	UserName   string `protobuf:"bytes,2,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
-	UserAvatar string `protobuf:"bytes,3,opt,name=user_avatar,json=userAvatar,proto3" json:"user_avatar,omitempty"`
+	UserId     int64  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`            // 用户ID
+	UserName   string `protobuf:"bytes,2,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`       // 用户名称
+	UserAvatar string `protobuf:"bytes,3,opt,name=user_avatar,json=userAvatar,proto3" json:"user_avatar,omitempty"` // 用户头像
 }
 
 func (x *StoryBoardActiveUser) Reset() {
@@ -2474,23 +2494,24 @@ func (x *StoryBoardActiveUser) GetUserAvatar() string {
 	return ""
 }
 
+// StoryBoardActive 故事板活动信息
 type StoryBoardActive struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Storyboard        *StoryBoard             `protobuf:"bytes,1,opt,name=storyboard,proto3" json:"storyboard,omitempty"`
-	TotalLikeCount    int64                   `protobuf:"varint,2,opt,name=total_like_count,json=totalLikeCount,proto3" json:"total_like_count,omitempty"`
-	TotalCommentCount int64                   `protobuf:"varint,3,opt,name=total_comment_count,json=totalCommentCount,proto3" json:"total_comment_count,omitempty"`
-	TotalShareCount   int64                   `protobuf:"varint,4,opt,name=total_share_count,json=totalShareCount,proto3" json:"total_share_count,omitempty"`
-	TotalRenderCount  int64                   `protobuf:"varint,5,opt,name=total_render_count,json=totalRenderCount,proto3" json:"total_render_count,omitempty"`
-	TotalForkCount    int64                   `protobuf:"varint,6,opt,name=total_fork_count,json=totalForkCount,proto3" json:"total_fork_count,omitempty"`
-	Users             []*StoryBoardActiveUser `protobuf:"bytes,7,rep,name=users,proto3" json:"users,omitempty"`
-	Roles             []*StoryBoardActiveRole `protobuf:"bytes,8,rep,name=roles,proto3" json:"roles,omitempty"`
-	Creator           *StoryBoardActiveUser   `protobuf:"bytes,9,opt,name=creator,proto3" json:"creator,omitempty"`
-	Summary           *StorySummaryInfo       `protobuf:"bytes,10,opt,name=summary,proto3" json:"summary,omitempty"`
-	Isliked           bool                    `protobuf:"varint,11,opt,name=isliked,proto3" json:"isliked,omitempty"`
-	Mtime             int64                   `protobuf:"varint,12,opt,name=mtime,proto3" json:"mtime,omitempty"`
+	Storyboard        *StoryBoard             `protobuf:"bytes,1,opt,name=storyboard,proto3" json:"storyboard,omitempty"`                                           // 故事板信息
+	TotalLikeCount    int64                   `protobuf:"varint,2,opt,name=total_like_count,json=totalLikeCount,proto3" json:"total_like_count,omitempty"`          // 总点赞数
+	TotalCommentCount int64                   `protobuf:"varint,3,opt,name=total_comment_count,json=totalCommentCount,proto3" json:"total_comment_count,omitempty"` // 总评论数
+	TotalShareCount   int64                   `protobuf:"varint,4,opt,name=total_share_count,json=totalShareCount,proto3" json:"total_share_count,omitempty"`       // 总分享数
+	TotalRenderCount  int64                   `protobuf:"varint,5,opt,name=total_render_count,json=totalRenderCount,proto3" json:"total_render_count,omitempty"`    // 总渲染数
+	TotalForkCount    int64                   `protobuf:"varint,6,opt,name=total_fork_count,json=totalForkCount,proto3" json:"total_fork_count,omitempty"`          // 总分叉数
+	Users             []*StoryBoardActiveUser `protobuf:"bytes,7,rep,name=users,proto3" json:"users,omitempty"`                                                     // 用户列表
+	Roles             []*StoryBoardActiveRole `protobuf:"bytes,8,rep,name=roles,proto3" json:"roles,omitempty"`                                                     // 角色列表
+	Creator           *StoryBoardActiveUser   `protobuf:"bytes,9,opt,name=creator,proto3" json:"creator,omitempty"`                                                 // 创建者信息
+	Summary           *StorySummaryInfo       `protobuf:"bytes,10,opt,name=summary,proto3" json:"summary,omitempty"`                                                // 摘要信息
+	Isliked           bool                    `protobuf:"varint,11,opt,name=isliked,proto3" json:"isliked,omitempty"`                                               // 是否点赞
+	Mtime             int64                   `protobuf:"varint,12,opt,name=mtime,proto3" json:"mtime,omitempty"`                                                   // 修改时间
 }
 
 func (x *StoryBoardActive) Reset() {
@@ -2609,26 +2630,27 @@ func (x *StoryBoardActive) GetMtime() int64 {
 	return 0
 }
 
+// StorySummaryInfo 故事摘要信息
 type StorySummaryInfo struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId           int64  `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	StoryTitle        string `protobuf:"bytes,2,opt,name=story_title,json=storyTitle,proto3" json:"story_title,omitempty"`
-	StoryAvatar       string `protobuf:"bytes,3,opt,name=story_avatar,json=storyAvatar,proto3" json:"story_avatar,omitempty"`
-	StoryDescription  string `protobuf:"bytes,4,opt,name=story_description,json=storyDescription,proto3" json:"story_description,omitempty"`
-	StoryCover        string `protobuf:"bytes,5,opt,name=story_cover,json=storyCover,proto3" json:"story_cover,omitempty"`
-	StoryTags         string `protobuf:"bytes,6,opt,name=story_tags,json=storyTags,proto3" json:"story_tags,omitempty"`
-	CreateTime        int64  `protobuf:"varint,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	CreateUserId      int64  `protobuf:"varint,8,opt,name=create_user_id,json=createUserId,proto3" json:"create_user_id,omitempty"`
-	TotalBoardCount   int64  `protobuf:"varint,9,opt,name=total_board_count,json=totalBoardCount,proto3" json:"total_board_count,omitempty"`
-	TotalLikeCount    int64  `protobuf:"varint,10,opt,name=total_like_count,json=totalLikeCount,proto3" json:"total_like_count,omitempty"`
-	TotalCommentCount int64  `protobuf:"varint,11,opt,name=total_comment_count,json=totalCommentCount,proto3" json:"total_comment_count,omitempty"`
-	TotalShareCount   int64  `protobuf:"varint,12,opt,name=total_share_count,json=totalShareCount,proto3" json:"total_share_count,omitempty"`
-	TotalRenderCount  int64  `protobuf:"varint,13,opt,name=total_render_count,json=totalRenderCount,proto3" json:"total_render_count,omitempty"`
-	TotalForkCount    int64  `protobuf:"varint,14,opt,name=total_fork_count,json=totalForkCount,proto3" json:"total_fork_count,omitempty"`
-	TotalViewCount    int64  `protobuf:"varint,15,opt,name=total_view_count,json=totalViewCount,proto3" json:"total_view_count,omitempty"`
+	StoryId           int64  `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`                                  // 故事ID
+	StoryTitle        string `protobuf:"bytes,2,opt,name=story_title,json=storyTitle,proto3" json:"story_title,omitempty"`                          // 故事标题
+	StoryAvatar       string `protobuf:"bytes,3,opt,name=story_avatar,json=storyAvatar,proto3" json:"story_avatar,omitempty"`                       // 故事头像
+	StoryDescription  string `protobuf:"bytes,4,opt,name=story_description,json=storyDescription,proto3" json:"story_description,omitempty"`        // 故事描述
+	StoryCover        string `protobuf:"bytes,5,opt,name=story_cover,json=storyCover,proto3" json:"story_cover,omitempty"`                          // 故事封面
+	StoryTags         string `protobuf:"bytes,6,opt,name=story_tags,json=storyTags,proto3" json:"story_tags,omitempty"`                             // 故事标签
+	CreateTime        int64  `protobuf:"varint,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`                         // 创建时间
+	CreateUserId      int64  `protobuf:"varint,8,opt,name=create_user_id,json=createUserId,proto3" json:"create_user_id,omitempty"`                 // 创建用户ID
+	TotalBoardCount   int64  `protobuf:"varint,9,opt,name=total_board_count,json=totalBoardCount,proto3" json:"total_board_count,omitempty"`        // 故事板总数
+	TotalLikeCount    int64  `protobuf:"varint,10,opt,name=total_like_count,json=totalLikeCount,proto3" json:"total_like_count,omitempty"`          // 点赞总数
+	TotalCommentCount int64  `protobuf:"varint,11,opt,name=total_comment_count,json=totalCommentCount,proto3" json:"total_comment_count,omitempty"` // 评论总数
+	TotalShareCount   int64  `protobuf:"varint,12,opt,name=total_share_count,json=totalShareCount,proto3" json:"total_share_count,omitempty"`       // 分享总数
+	TotalRenderCount  int64  `protobuf:"varint,13,opt,name=total_render_count,json=totalRenderCount,proto3" json:"total_render_count,omitempty"`    // 渲染总数
+	TotalForkCount    int64  `protobuf:"varint,14,opt,name=total_fork_count,json=totalForkCount,proto3" json:"total_fork_count,omitempty"`          // 分叉总数
+	TotalViewCount    int64  `protobuf:"varint,15,opt,name=total_view_count,json=totalViewCount,proto3" json:"total_view_count,omitempty"`          // 查看总数
 }
 
 func (x *StorySummaryInfo) Reset() {
@@ -2768,13 +2790,14 @@ func (x *StorySummaryInfo) GetTotalViewCount() int64 {
 	return 0
 }
 
+// GetStoryboardsResponse 获取故事板列表的响应结果
 type GetStoryboardsResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code    int32                        `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Message string                       `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Code    int32                        `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`      // 响应码
+	Message string                       `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"` // 响应消息
 	Data    *GetStoryboardsResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -7475,8 +7498,8 @@ type CreateStoryResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId int32 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
-	BoardId int32 `protobuf:"varint,2,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"`
+	StoryId int32 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"` // 故事ID
+	BoardId int32 `protobuf:"varint,2,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"` // 故事板ID
 }
 
 func (x *CreateStoryResponse_Data) Reset() {
@@ -7530,7 +7553,7 @@ type UpdateStoryResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	StoryId int32 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"`
+	StoryId int32 `protobuf:"varint,1,opt,name=story_id,json=storyId,proto3" json:"story_id,omitempty"` // 故事ID
 }
 
 func (x *UpdateStoryResponse_Data) Reset() {
@@ -7577,8 +7600,8 @@ type GetStoryInfoResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Info    *Story    `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`
-	Creator *UserInfo `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"`
+	Info    *Story    `protobuf:"bytes,1,opt,name=info,proto3" json:"info,omitempty"`       // 故事信息
+	Creator *UserInfo `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"` // 创建者信息
 }
 
 func (x *GetStoryInfoResponse_Data) Reset() {
@@ -7632,7 +7655,7 @@ type CreateStoryboardResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	BoardId int64 `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"`
+	BoardId int64 `protobuf:"varint,1,opt,name=board_id,json=boardId,proto3" json:"board_id,omitempty"` // 故事板ID
 }
 
 func (x *CreateStoryboardResponse_Data) Reset() {
@@ -7679,8 +7702,8 @@ type GetStoryboardResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	BoardInfo *StoryBoardActive `protobuf:"bytes,1,opt,name=board_info,json=boardInfo,proto3" json:"board_info,omitempty"`
-	Creator   *UserInfo         `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"`
+	BoardInfo *StoryBoardActive `protobuf:"bytes,1,opt,name=board_info,json=boardInfo,proto3" json:"board_info,omitempty"` // 故事板活动信息
+	Creator   *UserInfo         `protobuf:"bytes,2,opt,name=creator,proto3" json:"creator,omitempty"`                      // 创建者信息
 }
 
 func (x *GetStoryboardResponse_Data) Reset() {
@@ -7734,11 +7757,11 @@ type GetStoryboardsResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	List          []*StoryBoardActive `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
-	IsMultiBranch bool                `protobuf:"varint,4,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"`
-	Total         int64               `protobuf:"varint,5,opt,name=total,proto3" json:"total,omitempty"`
-	Offset        int64               `protobuf:"varint,6,opt,name=offset,proto3" json:"offset,omitempty"`
-	PageSize      int64               `protobuf:"varint,7,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	List          []*StoryBoardActive `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`                                           // 故事板活动列表
+	IsMultiBranch bool                `protobuf:"varint,4,opt,name=is_multi_branch,json=isMultiBranch,proto3" json:"is_multi_branch,omitempty"` // 是否多分支
+	Total         int64               `protobuf:"varint,5,opt,name=total,proto3" json:"total,omitempty"`                                        // 总数
+	Offset        int64               `protobuf:"varint,6,opt,name=offset,proto3" json:"offset,omitempty"`                                      // 偏移量
+	PageSize      int64               `protobuf:"varint,7,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`                  // 每页大小
 }
 
 func (x *GetStoryboardsResponse_Data) Reset() {

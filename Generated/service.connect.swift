@@ -7,357 +7,358 @@ import Connect
 import Foundation
 import SwiftProtobuf
 
+/// TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
 public protocol Common_TeamsApiClientInterface: Sendable {
 
-    /// 探索
+    /// Explore returns trending and recommended content for users to discover
     @discardableResult
     func `explore`(request: Common_ExploreRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ExploreResponse>) -> Void) -> Connect.Cancelable
 
-    /// 探索
+    /// Explore returns trending and recommended content for users to discover
     @available(iOS 13, *)
     func `explore`(request: Common_ExploreRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ExploreResponse>
 
-    /// 版本
+    /// Version returns the current API version and build information
     @discardableResult
     func `version`(request: Common_VersionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_VersionResponse>) -> Void) -> Connect.Cancelable
 
-    /// 版本
+    /// Version returns the current API version and build information
     @available(iOS 13, *)
     func `version`(request: Common_VersionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_VersionResponse>
 
-    /// 关于
+    /// About returns information about the service
     @discardableResult
     func `about`(request: Common_AboutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_AboutResponse>) -> Void) -> Connect.Cancelable
 
-    /// 关于
+    /// About returns information about the service
     @available(iOS 13, *)
     func `about`(request: Common_AboutRequest, headers: Connect.Headers) async -> ResponseMessage<Common_AboutResponse>
 
-    /// 登录
+    /// Login authenticates a user and returns a session token
     @discardableResult
     func `login`(request: Common_LoginRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LoginResponse>) -> Void) -> Connect.Cancelable
 
-    /// 登录
+    /// Login authenticates a user and returns a session token
     @available(iOS 13, *)
     func `login`(request: Common_LoginRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LoginResponse>
 
-    /// 登出
+    /// Logout invalidates the user's current session token
     @discardableResult
     func `logout`(request: Common_LogoutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LogoutResponse>) -> Void) -> Connect.Cancelable
 
-    /// 登出
+    /// Logout invalidates the user's current session token
     @available(iOS 13, *)
     func `logout`(request: Common_LogoutRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LogoutResponse>
 
-    /// 刷新登录
+    /// RefreshToken generates a new session token using the current valid token
     @discardableResult
     func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RefreshTokenResponse>) -> Void) -> Connect.Cancelable
 
-    /// 刷新登录
+    /// RefreshToken generates a new session token using the current valid token
     @available(iOS 13, *)
     func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RefreshTokenResponse>
 
-    /// 注册
+    /// Register creates a new user account
     @discardableResult
     func `register`(request: Common_RegisterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RegisterResponse>) -> Void) -> Connect.Cancelable
 
-    /// 注册
+    /// Register creates a new user account
     @available(iOS 13, *)
     func `register`(request: Common_RegisterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RegisterResponse>
 
-    /// 重置密码
+    /// ResetPwd allows users to reset their password
     @discardableResult
     func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ResetPasswordResponse>) -> Void) -> Connect.Cancelable
 
-    /// 重置密码
+    /// ResetPwd allows users to reset their password
     @available(iOS 13, *)
     func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ResetPasswordResponse>
 
-    /// 用户初始化
+    /// UserInit performs initial setup for a new user
     @discardableResult
     func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserInitResponse>) -> Void) -> Connect.Cancelable
 
-    /// 用户初始化
+    /// UserInit performs initial setup for a new user
     @available(iOS 13, *)
     func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserInitResponse>
 
-    /// 用户信息
+    /// UserInfo retrieves detailed information about a user
     @discardableResult
     func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserInfoResponse>) -> Void) -> Connect.Cancelable
 
-    /// 用户信息
+    /// UserInfo retrieves detailed information about a user
     @available(iOS 13, *)
     func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserInfoResponse>
 
-    /// 更新用户头像
+    /// UpdateUserAvator updates the user's profile picture
     @discardableResult
     func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserAvatorResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新用户头像
+    /// UpdateUserAvator updates the user's profile picture
     @available(iOS 13, *)
     func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserAvatorResponse>
 
-    /// 用户关注
+    /// UserWatching returns a list of projects the user is following
     @discardableResult
     func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserWatchingResponse>) -> Void) -> Connect.Cancelable
 
-    /// 用户关注
+    /// UserWatching returns a list of projects the user is following
     @available(iOS 13, *)
     func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserWatchingResponse>
 
-    /// 用户关注组织
+    /// UserGroup returns a list of groups the user belongs to
     @discardableResult
     func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 用户关注组织
+    /// UserGroup returns a list of groups the user belongs to
     @available(iOS 13, *)
     func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserGroupResponse>
 
-    /// 用户关注组织
+    /// UserFollowingGroup returns a list of groups the user is following
     @discardableResult
     func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserFollowingGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 用户关注组织
+    /// UserFollowingGroup returns a list of groups the user is following
     @available(iOS 13, *)
     func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserFollowingGroupResponse>
 
-    /// 更新用户信息
+    /// UserUpdate updates the user's profile information
     @discardableResult
     func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserUpdateResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新用户信息
+    /// UserUpdate updates the user's profile information
     @available(iOS 13, *)
     func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserUpdateResponse>
 
-    /// 搜索用户
+    /// SearchUser searches for users based on specified criteria
     @discardableResult
     func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchUserResponse>) -> Void) -> Connect.Cancelable
 
-    /// 搜索用户
+    /// SearchUser searches for users based on specified criteria
     @available(iOS 13, *)
     func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchUserResponse>
 
-    /// 创建组织
+    /// CreateGroup creates a new group
     @discardableResult
     func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 创建组织
+    /// CreateGroup creates a new group
     @available(iOS 13, *)
     func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateGroupResponse>
 
-    /// 获取组织
+    /// GetGroup retrieves information about a specific group
     @discardableResult
     func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取组织
+    /// GetGroup retrieves information about a specific group
     @available(iOS 13, *)
     func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupResponse>
 
-    /// 组织活跃
+    /// GetGroupActives returns recent activities within a group
     @discardableResult
     func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupActivesResponse>) -> Void) -> Connect.Cancelable
 
-    /// 组织活跃
+    /// GetGroupActives returns recent activities within a group
     @available(iOS 13, *)
     func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupActivesResponse>
 
-    /// 更新组织信息
+    /// UpdateGroupInfo updates the group's information
     @discardableResult
     func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupInfoResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新组织信息
+    /// UpdateGroupInfo updates the group's information
     @available(iOS 13, *)
     func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupInfoResponse>
 
-    /// 获取组织信息
+    /// GetGroupProfile retrieves the group's profile information
     @discardableResult
     func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取组织信息
+    /// GetGroupProfile retrieves the group's profile information
     @available(iOS 13, *)
     func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupProfileResponse>
 
-    /// 更新组织信息
+    /// UpdateGroupProfile updates the group's profile information
     @discardableResult
     func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新组织信息
+    /// UpdateGroupProfile updates the group's profile information
     @available(iOS 13, *)
     func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupProfileResponse>
 
-    /// 删除组织
+    /// DeleteGroup removes a group
     @discardableResult
     func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 删除组织
+    /// DeleteGroup removes a group
     @available(iOS 13, *)
     func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteGroupResponse>
 
-    /// 获取组织成员
+    /// FetchGroupMembers retrieves the list of members in a group
     @discardableResult
     func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupMembersResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取组织成员
+    /// FetchGroupMembers retrieves the list of members in a group
     @available(iOS 13, *)
     func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupMembersResponse>
 
-    /// 获取组织项目
+    /// FetchGroupProjects retrieves the list of projects in a group
     @discardableResult
     func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupProjectsResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取组织项目
+    /// FetchGroupProjects retrieves the list of projects in a group
     @available(iOS 13, *)
     func `fetchGroupProjects`(request: Common_FetchGroupProjectsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupProjectsResponse>
 
-    /// 加入组织
+    /// JoinGroup adds a user to a group
     @discardableResult
     func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_JoinGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 加入组织
+    /// JoinGroup adds a user to a group
     @available(iOS 13, *)
     func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_JoinGroupResponse>
 
-    /// 离开组织
+    /// LeaveGroup removes a user from a group
     @discardableResult
     func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LeaveGroupResponse>) -> Void) -> Connect.Cancelable
 
-    /// 离开组织
+    /// LeaveGroup removes a user from a group
     @available(iOS 13, *)
     func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LeaveGroupResponse>
 
-    /// 获取项目信息
+    /// GetProjectInfo retrieves information about a specific project
     @discardableResult
     func `getProjectInfo`(request: Common_GetProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目信息
+    /// GetProjectInfo retrieves information about a specific project
     @available(iOS 13, *)
     func `getProjectInfo`(request: Common_GetProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectResponse>
 
-    /// 获取项目列表
+    /// GetProjectList retrieves a list of projects
     @discardableResult
     func `getProjectList`(request: Common_GetProjectListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectListResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目列表
+    /// GetProjectList retrieves a list of projects
     @available(iOS 13, *)
     func `getProjectList`(request: Common_GetProjectListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectListResponse>
 
-    /// 创建项目
+    /// CreateProject creates a new project
     @discardableResult
     func `createProject`(request: Common_CreateProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 创建项目
+    /// CreateProject creates a new project
     @available(iOS 13, *)
     func `createProject`(request: Common_CreateProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateProjectResponse>
 
-    /// 获取项目成员
+    /// GetProjectMembers retrieves the list of members in a project
     @discardableResult
     func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectMembersResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目成员
+    /// GetProjectMembers retrieves the list of members in a project
     @available(iOS 13, *)
     func `getProjectMembers`(request: Common_GetProjectMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectMembersResponse>
 
-    /// 更新项目
+    /// UpdateProject updates project information
     @discardableResult
     func `updateProject`(request: Common_UpdateProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新项目
+    /// UpdateProject updates project information
     @available(iOS 13, *)
     func `updateProject`(request: Common_UpdateProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateProjectResponse>
 
-    /// 删除项目
+    /// DeleteProject removes a project
     @discardableResult
     func `deleteProject`(request: Common_DeleteProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 删除项目
+    /// DeleteProject removes a project
     @available(iOS 13, *)
     func `deleteProject`(request: Common_DeleteProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteProjectResponse>
 
-    /// 获取项目信息
+    /// GetProjectProfile retrieves the project's profile information
     @discardableResult
     func `getProjectProfile`(request: Common_GetProjectProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectProfileResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目信息
+    /// GetProjectProfile retrieves the project's profile information
     @available(iOS 13, *)
     func `getProjectProfile`(request: Common_GetProjectProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectProfileResponse>
 
-    /// 更新项目信息
+    /// UpdateProjectProfile updates the project's profile information
     @discardableResult
     func `updateProjectProfile`(request: Common_UpdateProjectProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateProjectProfileResponse>) -> Void) -> Connect.Cancelable
 
-    /// 更新项目信息
+    /// UpdateProjectProfile updates the project's profile information
     @available(iOS 13, *)
     func `updateProjectProfile`(request: Common_UpdateProjectProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateProjectProfileResponse>
 
-    /// 关注项目
+    /// WatchProject adds a user as a watcher to a project
     @discardableResult
     func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_WatchProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 关注项目
+    /// WatchProject adds a user as a watcher to a project
     @available(iOS 13, *)
     func `watchProject`(request: Common_WatchProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_WatchProjectResponse>
 
-    /// 取消关注项目
+    /// UnWatchProject removes a user as a watcher from a project
     @discardableResult
     func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnWatchProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 取消关注项目
+    /// UnWatchProject removes a user as a watcher from a project
     @available(iOS 13, *)
     func `unWatchProject`(request: Common_UnWatchProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnWatchProjectResponse>
 
-    /// 获取项目关注者
+    /// GetProjectWatcher retrieves the list of watchers for a project
     @discardableResult
     func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectWatcherResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目关注者
+    /// GetProjectWatcher retrieves the list of watchers for a project
     @available(iOS 13, *)
     func `getProjectWatcher`(request: Common_GetProjectWatcherRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectWatcherResponse>
 
-    /// 搜索组织项目
+    /// SearchGroupProject searches for projects within a group
     @discardableResult
     func `searchGroupProject`(request: Common_SearchProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 搜索组织项目
+    /// SearchGroupProject searches for projects within a group
     @available(iOS 13, *)
     func `searchGroupProject`(request: Common_SearchProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchProjectResponse>
 
-    /// 搜索项目
+    /// SearchProject searches for projects across all accessible groups
     @discardableResult
     func `searchProject`(request: Common_SearchAllProjectRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchAllProjectResponse>) -> Void) -> Connect.Cancelable
 
-    /// 搜索项目
+    /// SearchProject searches for projects across all accessible groups
     @available(iOS 13, *)
     func `searchProject`(request: Common_SearchAllProjectRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchAllProjectResponse>
 
-    /// 探索项目
+    /// ExploreProject returns trending and recommended projects
     @discardableResult
     func `exploreProject`(request: Common_ExploreProjectsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ExploreProjectsResponse>) -> Void) -> Connect.Cancelable
 
-    /// 探索项目
+    /// ExploreProject returns trending and recommended projects
     @available(iOS 13, *)
     func `exploreProject`(request: Common_ExploreProjectsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ExploreProjectsResponse>
 
-    /// 获取项目内容
+    /// GetProjectItems retrieves items within a project
     @discardableResult
     func `getProjectItems`(request: Common_GetProjectItemsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetProjectItemsResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取项目内容
+    /// GetProjectItems retrieves items within a project
     @available(iOS 13, *)
     func `getProjectItems`(request: Common_GetProjectItemsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetProjectItemsResponse>
 
-    /// 获取组织内容
+    /// GetGroupItems retrieves items within a group
     @discardableResult
     func `getGroupItems`(request: Common_GetGroupItemsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupItemsResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取组织内容
+    /// GetGroupItems retrieves items within a group
     @available(iOS 13, *)
     func `getGroupItems`(request: Common_GetGroupItemsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupItemsResponse>
 
-    /// 获取用户内容
+    /// GetUserItems retrieves items created by a user
     @discardableResult
     func `getUserItems`(request: Common_GetUserItemsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserItemsResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取用户内容
+    /// GetUserItems retrieves items created by a user
     @available(iOS 13, *)
     func `getUserItems`(request: Common_GetUserItemsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserItemsResponse>
 
@@ -1162,6 +1163,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 更新角色的海报图片
     @available(iOS 13, *)
     func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRolePosterResponse>
+
+    /// 更新角色的提示词
+    @discardableResult
+    func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新角色的提示词
+    @available(iOS 13, *)
+    func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRolePromptResponse>
+
+    /// 更新角色的描述
+    @discardableResult
+    func `updateStoryRoleDescription`(request: Common_UpdateStoryRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新角色的描述
+    @available(iOS 13, *)
+    func `updateStoryRoleDescription`(request: Common_UpdateStoryRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleDescriptionResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2632,6 +2649,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRolePromptResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateStoryRoleDescription`(request: Common_UpdateStoryRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryRoleDescription`(request: Common_UpdateStoryRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleDescriptionResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2780,6 +2817,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getFollowerList = Connect.MethodSpec(name: "GetFollowerList", service: "common.TeamsAPI", type: .unary)
             public static let generateStoryRolePoster = Connect.MethodSpec(name: "GenerateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryRolePoster = Connect.MethodSpec(name: "UpdateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryRolePrompt = Connect.MethodSpec(name: "UpdateStoryRolePrompt", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryRoleDescription = Connect.MethodSpec(name: "UpdateStoryRoleDescription", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

@@ -10,7 +10,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
-            description: 关于
+            description: About returns information about the service
             operationId: TeamsAPI_About
             responses:
                 "200":
@@ -129,7 +129,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 创建组织
+            description: CreateGroup creates a new group
             operationId: TeamsAPI_CreateGroup
             requestBody:
                 content:
@@ -179,7 +179,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 创建项目
+            description: CreateProject creates a new project
             operationId: TeamsAPI_CreateProject
             requestBody:
                 content:
@@ -429,7 +429,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 删除组织
+            description: DeleteGroup removes a group
             operationId: TeamsAPI_DeleteGroup
             requestBody:
                 content:
@@ -479,7 +479,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 删除项目
+            description: DeleteProject removes a project
             operationId: TeamsAPI_DeleteProject
             requestBody:
                 content:
@@ -629,7 +629,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
-            description: 探索
+            description: Explore returns trending and recommended content for users to discover
             operationId: TeamsAPI_Explore
             responses:
                 "200":
@@ -648,7 +648,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 探索项目
+            description: ExploreProject returns trending and recommended projects
             operationId: TeamsAPI_ExploreProject
             requestBody:
                 content:
@@ -698,7 +698,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取组织成员
+            description: FetchGroupMembers retrieves the list of members in a group
             operationId: TeamsAPI_FetchGroupMembers
             requestBody:
                 content:
@@ -723,7 +723,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取组织项目
+            description: FetchGroupProjects retrieves the list of projects in a group
             operationId: TeamsAPI_FetchGroupProjects
             requestBody:
                 content:
@@ -1021,7 +1021,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取组织
+            description: GetGroup retrieves information about a specific group
             operationId: TeamsAPI_GetGroup
             requestBody:
                 content:
@@ -1046,7 +1046,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 组织活跃
+            description: GetGroupActives returns recent activities within a group
             operationId: TeamsAPI_GetGroupActives
             requestBody:
                 content:
@@ -1071,7 +1071,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取组织内容
+            description: GetGroupItems retrieves items within a group
             operationId: TeamsAPI_GetGroupItems
             requestBody:
                 content:
@@ -1096,7 +1096,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取组织信息
+            description: GetGroupProfile retrieves the group's profile information
             operationId: TeamsAPI_GetGroupProfile
             requestBody:
                 content:
@@ -1171,7 +1171,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目信息
+            description: GetProjectInfo retrieves information about a specific project
             operationId: TeamsAPI_GetProjectInfo
             requestBody:
                 content:
@@ -1196,7 +1196,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目内容
+            description: GetProjectItems retrieves items within a project
             operationId: TeamsAPI_GetProjectItems
             requestBody:
                 content:
@@ -1221,7 +1221,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目列表
+            description: GetProjectList retrieves a list of projects
             operationId: TeamsAPI_GetProjectList
             requestBody:
                 content:
@@ -1246,7 +1246,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目成员
+            description: GetProjectMembers retrieves the list of members in a project
             operationId: TeamsAPI_GetProjectMembers
             requestBody:
                 content:
@@ -1271,7 +1271,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目信息
+            description: GetProjectProfile retrieves the project's profile information
             operationId: TeamsAPI_GetProjectProfile
             requestBody:
                 content:
@@ -1296,7 +1296,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取项目关注者
+            description: GetProjectWatcher retrieves the list of watchers for a project
             operationId: TeamsAPI_GetProjectWatcher
             requestBody:
                 content:
@@ -1870,7 +1870,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取用户内容
+            description: GetUserItems retrieves items created by a user
             operationId: TeamsAPI_GetUserItems
             requestBody:
                 content:
@@ -1993,7 +1993,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 加入组织
+            description: JoinGroup adds a user to a group
             operationId: TeamsAPI_JoinGroup
             requestBody:
                 content:
@@ -2018,7 +2018,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 离开组织
+            description: LeaveGroup removes a user from a group
             operationId: TeamsAPI_LeaveGroup
             requestBody:
                 content:
@@ -2168,7 +2168,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 登录
+            description: Login authenticates a user and returns a session token
             operationId: TeamsAPI_Login
             requestBody:
                 content:
@@ -2193,7 +2193,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 登出
+            description: Logout invalidates the user's current session token
             operationId: TeamsAPI_Logout
             requestBody:
                 content:
@@ -2243,7 +2243,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 刷新登录
+            description: RefreshToken generates a new session token using the current valid token
             operationId: TeamsAPI_RefreshToken
             requestBody:
                 content:
@@ -2268,7 +2268,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 注册
+            description: Register creates a new user account
             operationId: TeamsAPI_Register
             requestBody:
                 content:
@@ -2493,7 +2493,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 重置密码
+            description: ResetPwd allows users to reset their password
             operationId: TeamsAPI_ResetPwd
             requestBody:
                 content:
@@ -2568,7 +2568,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 搜索组织项目
+            description: SearchGroupProject searches for projects within a group
             operationId: TeamsAPI_SearchGroupProject
             requestBody:
                 content:
@@ -2593,7 +2593,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 搜索项目
+            description: SearchProject searches for projects across all accessible groups
             operationId: TeamsAPI_SearchProject
             requestBody:
                 content:
@@ -2668,7 +2668,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 搜索用户
+            description: SearchUser searches for users based on specified criteria
             operationId: TeamsAPI_SearchUser
             requestBody:
                 content:
@@ -2918,7 +2918,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 取消关注项目
+            description: UnWatchProject removes a user as a watcher from a project
             operationId: TeamsAPI_UnWatchProject
             requestBody:
                 content:
@@ -2968,7 +2968,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新组织信息
+            description: UpdateGroupInfo updates the group's information
             operationId: TeamsAPI_UpdateGroupInfo
             requestBody:
                 content:
@@ -2993,7 +2993,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新组织信息
+            description: UpdateGroupProfile updates the group's profile information
             operationId: TeamsAPI_UpdateGroupProfile
             requestBody:
                 content:
@@ -3043,7 +3043,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新项目
+            description: UpdateProject updates project information
             operationId: TeamsAPI_UpdateProject
             requestBody:
                 content:
@@ -3068,7 +3068,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新项目信息
+            description: UpdateProjectProfile updates the project's profile information
             operationId: TeamsAPI_UpdateProjectProfile
             requestBody:
                 content:
@@ -3237,6 +3237,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRoleDescription:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新角色的描述
+            operationId: TeamsAPI_UpdateStoryRoleDescription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRoleDescriptionRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRoleDescriptionResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryRoleDetail:
         post:
             tags:
@@ -3287,6 +3312,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryRolePrompt:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新角色的提示词
+            operationId: TeamsAPI_UpdateStoryRolePrompt
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryRolePromptRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryRolePromptResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryboard:
         post:
             tags:
@@ -3316,7 +3366,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新用户头像
+            description: UpdateUserAvator updates the user's profile picture
             operationId: TeamsAPI_UpdateUserAvator
             requestBody:
                 content:
@@ -3416,7 +3466,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 用户关注组织
+            description: UserFollowingGroup returns a list of groups the user is following
             operationId: TeamsAPI_UserFollowingGroup
             requestBody:
                 content:
@@ -3441,7 +3491,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 用户关注组织
+            description: UserGroup returns a list of groups the user belongs to
             operationId: TeamsAPI_UserGroup
             requestBody:
                 content:
@@ -3466,7 +3516,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 用户信息
+            description: UserInfo retrieves detailed information about a user
             operationId: TeamsAPI_UserInfo
             requestBody:
                 content:
@@ -3491,7 +3541,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 用户初始化
+            description: UserInit performs initial setup for a new user
             operationId: TeamsAPI_UserInit
             requestBody:
                 content:
@@ -3516,7 +3566,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 更新用户信息
+            description: UserUpdate updates the user's profile information
             operationId: TeamsAPI_UserUpdate
             requestBody:
                 content:
@@ -3541,7 +3591,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 用户关注
+            description: UserWatching returns a list of projects the user is following
             operationId: TeamsAPI_UserWatching
             requestBody:
                 content:
@@ -3566,7 +3616,7 @@ paths:
         get:
             tags:
                 - TeamsAPI
-            description: 版本
+            description: Version returns the current API version and build information
             operationId: TeamsAPI_Version
             responses:
                 "200":
@@ -3585,7 +3635,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 关注项目
+            description: WatchProject adds a user as a watcher to a project
             operationId: TeamsAPI_WatchProject
             requestBody:
                 content:
@@ -3768,35 +3818,35 @@ components:
             properties:
                 description:
                     type: string
-                    description: 角色描述
+                    description: Description of the character's overall appearance and basic traits
                 shortTermGoal:
                     type: string
-                    description: 角色短期目标
+                    description: Character's immediate objectives and goals in the current story arc
                 longTermGoal:
                     type: string
-                    description: 角色长期目标
+                    description: Character's overarching ambitions and long-term aspirations
                 personality:
                     type: string
-                    description: 角色性格
+                    description: Character's personality traits, temperament, and behavioral patterns
                 background:
                     type: string
-                    description: 角色背景
+                    description: Character's history, origin story, and formative experiences
                 handlingStyle:
                     type: string
-                    description: 处事风格
+                    description: Character's approach to handling situations and solving problems
                 cognitionRange:
                     type: string
-                    description: 认知范围
+                    description: Character's knowledge, understanding, and awareness of their world
                 abilityFeatures:
                     type: string
-                    description: 能力特点
+                    description: Character's special skills, talents, and unique capabilities
                 appearance:
                     type: string
-                    description: 外貌特征
+                    description: Character's physical appearance and distinguishing features
                 dressPreference:
                     type: string
-                    description: 穿着喜好
-            description: CharacterDetail represents detailed information about a character
+                    description: Character's clothing preferences and style choices
+            description: CharacterDetail represents detailed information about a character in a story
         ChatContext:
             type: object
             properties:
@@ -4122,6 +4172,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
+            description: CreateStoryRequest 创建故事的请求参数
         CreateStoryResponse:
             type: object
             properties:
@@ -4132,6 +4183,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/CreateStoryResponse_Data'
+            description: CreateStoryResponse 创建故事的响应结果
         CreateStoryResponse_Data:
             type: object
             properties:
@@ -4178,6 +4230,7 @@ components:
             properties:
                 board:
                     $ref: '#/components/schemas/StoryBoard'
+            description: CreateStoryboardRequest 创建故事板的请求参数
         CreateStoryboardResponse:
             type: object
             properties:
@@ -4188,6 +4241,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/CreateStoryboardResponse_Data'
+            description: CreateStoryboardResponse 创建故事板的响应结果
         CreateStoryboardResponse_Data:
             type: object
             properties:
@@ -5432,6 +5486,7 @@ components:
             properties:
                 storyId:
                     type: string
+            description: GetStoryInfoRequest 获取故事信息的请求参数
         GetStoryInfoResponse:
             type: object
             properties:
@@ -5442,6 +5497,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/GetStoryInfoResponse_Data'
+            description: GetStoryInfoResponse 获取故事信息的响应结果
         GetStoryInfoResponse_Data:
             type: object
             properties:
@@ -5620,6 +5676,7 @@ components:
                     type: string
                 userId:
                     type: string
+            description: GetStoryboardRequest 获取故事板的请求参数
         GetStoryboardResponse:
             type: object
             properties:
@@ -5630,6 +5687,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/GetStoryboardResponse_Data'
+            description: GetStoryboardResponse 获取故事板的响应结果
         GetStoryboardResponse_Data:
             type: object
             properties:
@@ -5661,6 +5719,7 @@ components:
                 orderBy:
                     type: integer
                     format: enum
+            description: GetStoryboardsRequest 获取故事板列表的请求参数
         GetStoryboardsResponse:
             type: object
             properties:
@@ -5671,6 +5730,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/GetStoryboardsResponse_Data'
+            description: GetStoryboardsResponse 获取故事板列表的响应结果
         GetStoryboardsResponse_Data:
             type: object
             properties:
@@ -7077,6 +7137,7 @@ components:
                     type: string
                 Mtime:
                     type: string
+            description: Story 表示一个完整的故事实体
         StoryBoard:
             type: object
             properties:
@@ -7121,6 +7182,7 @@ components:
                     type: string
                 currentUserStatus:
                     $ref: '#/components/schemas/WhatCurrentUserStatus'
+            description: StoryBoard 表示故事中的一个场景或章节
         StoryBoardActive:
             type: object
             properties:
@@ -7152,6 +7214,7 @@ components:
                     type: boolean
                 mtime:
                     type: string
+            description: StoryBoardActive 故事板活动信息
         StoryBoardActiveRole:
             type: object
             properties:
@@ -7161,6 +7224,7 @@ components:
                     type: string
                 roleAvatar:
                     type: string
+            description: StoryBoardActiveRole 故事板活动中的角色信息
         StoryBoardActiveUser:
             type: object
             properties:
@@ -7170,6 +7234,7 @@ components:
                     type: string
                 userAvatar:
                     type: string
+            description: StoryBoardActiveUser 故事板活动中的用户信息
         StoryBoardParams:
             type: object
             properties:
@@ -7217,6 +7282,7 @@ components:
                 Self128AttentionLayers:
                     type: integer
                     format: int32
+            description: StoryBoardParams 包含故事板渲染的相关参数
         StoryBoardSence:
             type: object
             properties:
@@ -7269,6 +7335,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryBoardSence'
+            description: StoryBoardSences 包含故事板中的所有场景
         StoryChapter:
             type: object
             properties:
@@ -7364,6 +7431,7 @@ components:
                     type: string
                 subject:
                     type: string
+            description: StoryParams 包含故事生成和渲染的相关参数
         StoryRole:
             type: object
             properties:
@@ -7416,6 +7484,7 @@ components:
                     $ref: '#/components/schemas/UserInfo'
                 posterImageUrl:
                     type: string
+            description: StoryRole 表示故事中的角色
         StorySummaryInfo:
             type: object
             properties:
@@ -7449,6 +7518,7 @@ components:
                     type: string
                 totalViewCount:
                     type: string
+            description: StorySummaryInfo 故事摘要信息
         StoryboardStageStore:
             type: object
             properties:
@@ -7876,6 +7946,7 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
+            description: UpdateStoryRequest 更新故事的请求参数
         UpdateStoryResponse:
             type: object
             properties:
@@ -7886,6 +7957,7 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/UpdateStoryResponse_Data'
+            description: UpdateStoryResponse 更新故事的响应结果
         UpdateStoryResponse_Data:
             type: object
             properties:
@@ -7902,6 +7974,23 @@ components:
                 userId:
                     type: string
         UpdateStoryRoleAvatorResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        UpdateStoryRoleDescriptionRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                roleId:
+                    type: string
+                characterDetail:
+                    $ref: '#/components/schemas/CharacterDetail'
+        UpdateStoryRoleDescriptionResponse:
             type: object
             properties:
                 code:
@@ -7942,6 +8031,23 @@ components:
                 imageUrl:
                     type: string
         UpdateStoryRolePosterResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+        UpdateStoryRolePromptRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                roleId:
+                    type: string
+                prompt:
+                    type: string
+        UpdateStoryRolePromptResponse:
             type: object
             properties:
                 code:
@@ -8479,3 +8585,4 @@ tags:
     - name: StreamMessageService
       description: 使用 stream 发送、接收消息
     - name: TeamsAPI
+      description: TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions

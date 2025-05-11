@@ -439,10 +439,14 @@
     - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
     - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
     - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
+    - [UpdateStoryRoleDescriptionRequest](#common-UpdateStoryRoleDescriptionRequest)
+    - [UpdateStoryRoleDescriptionResponse](#common-UpdateStoryRoleDescriptionResponse)
     - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
     - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
     - [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest)
     - [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse)
+    - [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest)
+    - [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
@@ -1548,21 +1552,21 @@ Character 表示角色信息
 <a name="common-CharacterDetail"></a>
 
 ### CharacterDetail
-CharacterDetail represents detailed information about a character
+CharacterDetail represents detailed information about a character in a story
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| description | [string](#string) |  | 角色描述 |
-| short_term_goal | [string](#string) |  | 角色短期目标 |
-| long_term_goal | [string](#string) |  | 角色长期目标 |
-| personality | [string](#string) |  | 角色性格 |
-| background | [string](#string) |  | 角色背景 |
-| handling_style | [string](#string) |  | 处事风格 |
-| cognition_range | [string](#string) |  | 认知范围 |
-| ability_features | [string](#string) |  | 能力特点 |
-| appearance | [string](#string) |  | 外貌特征 |
-| dress_preference | [string](#string) |  | 穿着喜好 |
+| description | [string](#string) |  | Description of the character&#39;s overall appearance and basic traits |
+| short_term_goal | [string](#string) |  | Character&#39;s immediate objectives and goals in the current story arc |
+| long_term_goal | [string](#string) |  | Character&#39;s overarching ambitions and long-term aspirations |
+| personality | [string](#string) |  | Character&#39;s personality traits, temperament, and behavioral patterns |
+| background | [string](#string) |  | Character&#39;s history, origin story, and formative experiences |
+| handling_style | [string](#string) |  | Character&#39;s approach to handling situations and solving problems |
+| cognition_range | [string](#string) |  | Character&#39;s knowledge, understanding, and awareness of their world |
+| ability_features | [string](#string) |  | Character&#39;s special skills, talents, and unique capabilities |
+| appearance | [string](#string) |  | Character&#39;s physical appearance and distinguishing features |
+| dress_preference | [string](#string) |  | Character&#39;s clothing preferences and style choices |
 
 
 
@@ -1660,24 +1664,24 @@ CharacterDetail represents detailed information about a character
 <a name="common-CreateStoryRequest"></a>
 
 ### CreateStoryRequest
-
+CreateStoryRequest 创建故事的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  |  |
-| title | [string](#string) |  |  |
-| short_desc | [string](#string) |  |  |
-| creator_id | [int64](#int64) |  |  |
-| owner_id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| origin | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| params | [StoryParams](#common-StoryParams) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| name | [string](#string) |  | 故事名称 |
+| title | [string](#string) |  | 故事标题 |
+| short_desc | [string](#string) |  | 简短描述 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| owner_id | [int64](#int64) |  | 所有者ID |
+| group_id | [int64](#int64) |  | 组织ID |
+| origin | [string](#string) |  | 来源 |
+| status | [int32](#int32) |  | 状态 |
+| is_achieve | [bool](#bool) |  | 是否归档 |
+| is_close | [bool](#bool) |  | 是否关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否AI生成 |
+| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
+| roles | [StoryRole](#common-StoryRole) | repeated | 角色列表 |
 
 
 
@@ -1687,13 +1691,13 @@ CharacterDetail represents detailed information about a character
 <a name="common-CreateStoryResponse"></a>
 
 ### CreateStoryResponse
-
+CreateStoryResponse 创建故事的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [CreateStoryResponse.Data](#common-CreateStoryResponse-Data) |  |  |
 
 
@@ -1709,8 +1713,8 @@ CharacterDetail represents detailed information about a character
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int32](#int32) |  |  |
-| board_id | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  | 故事ID |
+| board_id | [int32](#int32) |  | 故事板ID |
 
 
 
@@ -1720,12 +1724,12 @@ CharacterDetail represents detailed information about a character
 <a name="common-CreateStoryboardRequest"></a>
 
 ### CreateStoryboardRequest
-
+CreateStoryboardRequest 创建故事板的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board | [StoryBoard](#common-StoryBoard) |  |  |
+| board | [StoryBoard](#common-StoryBoard) |  | 故事板信息 |
 
 
 
@@ -1735,13 +1739,13 @@ CharacterDetail represents detailed information about a character
 <a name="common-CreateStoryboardResponse"></a>
 
 ### CreateStoryboardResponse
-
+CreateStoryboardResponse 创建故事板的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data) |  |  |
 
 
@@ -1757,7 +1761,7 @@ CharacterDetail represents detailed information about a character
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  | 故事板ID |
 
 
 
@@ -2246,12 +2250,12 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryInfoRequest"></a>
 
 ### GetStoryInfoRequest
-
+GetStoryInfoRequest 获取故事信息的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  | 故事ID |
 
 
 
@@ -2261,13 +2265,13 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryInfoResponse"></a>
 
 ### GetStoryInfoResponse
-
+GetStoryInfoResponse 获取故事信息的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data) |  |  |
 
 
@@ -2283,8 +2287,8 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [Story](#common-Story) |  |  |
-| creator | [UserInfo](#common-UserInfo) |  |  |
+| info | [Story](#common-Story) |  | 故事信息 |
+| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
 
 
 
@@ -2393,13 +2397,13 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryboardRequest"></a>
 
 ### GetStoryboardRequest
-
+GetStoryboardRequest 获取故事板的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  | 故事板ID |
+| user_id | [int64](#int64) |  | 用户ID |
 
 
 
@@ -2409,13 +2413,13 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryboardResponse"></a>
 
 ### GetStoryboardResponse
-
+GetStoryboardResponse 获取故事板的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data) |  |  |
 
 
@@ -2431,8 +2435,8 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_info | [StoryBoardActive](#common-StoryBoardActive) |  |  |
-| creator | [UserInfo](#common-UserInfo) |  |  |
+| board_info | [StoryBoardActive](#common-StoryBoardActive) |  | 故事板活动信息 |
+| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
 
 
 
@@ -2442,20 +2446,20 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryboardsRequest"></a>
 
 ### GetStoryboardsRequest
-
+GetStoryboardsRequest 获取故事板列表的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  |  |
-| timeline_id | [int64](#int64) |  |  |
-| start_time | [int64](#int64) |  |  |
-| end_time | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| is_multi_branch | [bool](#bool) |  |  |
-| page | [int32](#int32) |  |  |
-| page_size | [int32](#int32) |  |  |
-| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  |  |
+| story_id | [int64](#int64) |  | 故事ID |
+| timeline_id | [int64](#int64) |  | 时间线ID |
+| start_time | [int64](#int64) |  | 开始时间 |
+| end_time | [int64](#int64) |  | 结束时间 |
+| user_id | [int64](#int64) |  | 用户ID |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| page | [int32](#int32) |  | 页码 |
+| page_size | [int32](#int32) |  | 每页大小 |
+| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  | 排序方式 |
 
 
 
@@ -2465,13 +2469,13 @@ DetailScene 表示具体的场景信息
 <a name="common-GetStoryboardsResponse"></a>
 
 ### GetStoryboardsResponse
-
+GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data) |  |  |
 
 
@@ -2487,11 +2491,11 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
-| is_multi_branch | [bool](#bool) |  |  |
-| total | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
+| list | [StoryBoardActive](#common-StoryBoardActive) | repeated | 故事板活动列表 |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| total | [int64](#int64) |  | 总数 |
+| offset | [int64](#int64) |  | 偏移量 |
+| page_size | [int64](#int64) |  | 每页大小 |
 
 
 
@@ -2900,40 +2904,40 @@ DetailScene 表示具体的场景信息
 <a name="common-Story"></a>
 
 ### Story
-
+Story 表示一个完整的故事实体
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-| avatar | [string](#string) |  |  |
-| creator_id | [int64](#int64) |  |  |
-| owner_id | [int64](#int64) |  |  |
-| tags | [Tags](#common-Tags) | repeated |  |
-| visable | [ScopeType](#common-ScopeType) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| origin | [string](#string) |  |  |
-| root_board_id | [int64](#int64) |  |  |
-| desc | [string](#string) |  |  |
-| params | [StoryParams](#common-StoryParams) |  |  |
-| status | [int32](#int32) |  |  |
-| title | [string](#string) |  |  |
-| isliked | [bool](#bool) |  |  |
-| iswatched | [bool](#bool) |  |  |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
-| like_count | [int64](#int64) |  |  |
-| comment_count | [int64](#int64) |  |  |
-| share_count | [int64](#int64) |  |  |
-| follow_count | [int64](#int64) |  |  |
-| total_boards | [int64](#int64) |  |  |
-| total_roles | [int64](#int64) |  |  |
-| total_members | [int64](#int64) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
+| id | [int64](#int64) |  | 故事唯一标识符 |
+| group_id | [int64](#int64) |  | 所属组织ID |
+| name | [string](#string) |  | 故事名称 |
+| avatar | [string](#string) |  | 故事头像 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| owner_id | [int64](#int64) |  | 所有者ID |
+| tags | [Tags](#common-Tags) | repeated | 故事标签列表 |
+| visable | [ScopeType](#common-ScopeType) |  | 可见范围 |
+| is_achieve | [bool](#bool) |  | 是否已归档 |
+| is_close | [bool](#bool) |  | 是否已关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
+| origin | [string](#string) |  | 故事来源 |
+| root_board_id | [int64](#int64) |  | 根故事板ID |
+| desc | [string](#string) |  | 故事描述 |
+| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
+| status | [int32](#int32) |  | 故事状态 |
+| title | [string](#string) |  | 故事标题 |
+| isliked | [bool](#bool) |  | 当前用户是否点赞 |
+| iswatched | [bool](#bool) |  | 当前用户是否关注 |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
+| like_count | [int64](#int64) |  | 点赞数 |
+| comment_count | [int64](#int64) |  | 评论数 |
+| share_count | [int64](#int64) |  | 分享数 |
+| follow_count | [int64](#int64) |  | 关注数 |
+| total_boards | [int64](#int64) |  | 故事板总数 |
+| total_roles | [int64](#int64) |  | 角色总数 |
+| total_members | [int64](#int64) |  | 成员总数 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
 
 
 
@@ -2943,29 +2947,29 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoard"></a>
 
 ### StoryBoard
-
+StoryBoard 表示故事中的一个场景或章节
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  |  |
-| num | [int64](#int64) |  |  |
-| prev_board_id | [int64](#int64) |  |  |
-| next_board_id | [int64](#int64) | repeated |  |
-| creator | [int64](#int64) |  |  |
-| story_board_id | [int64](#int64) |  |  |
-| title | [string](#string) |  |  |
-| content | [string](#string) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
-| backgroud | [string](#string) |  |  |
-| params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
-| sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
-| is_multi_branch | [bool](#bool) |  |  |
-| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+| story_id | [int64](#int64) |  | 所属故事ID |
+| num | [int64](#int64) |  | 序号 |
+| prev_board_id | [int64](#int64) |  | 前一个故事板ID |
+| next_board_id | [int64](#int64) | repeated | 下一个故事板ID列表 |
+| creator | [int64](#int64) |  | 创建者ID |
+| story_board_id | [int64](#int64) |  | 故事板ID |
+| title | [string](#string) |  | 标题 |
+| content | [string](#string) |  | 内容 |
+| is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
+| roles | [StoryRole](#common-StoryRole) | repeated | 相关角色列表 |
+| backgroud | [string](#string) |  | 背景 |
+| params | [StoryBoardParams](#common-StoryBoardParams) |  | 故事板参数 |
+| sences | [StoryBoardSences](#common-StoryBoardSences) |  | 场景列表 |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| stage | [StoryboardStage](#common-StoryboardStage) |  | 故事板阶段 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
 
 
 
@@ -2975,23 +2979,23 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoardActive"></a>
 
 ### StoryBoardActive
-
+StoryBoardActive 故事板活动信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
-| total_like_count | [int64](#int64) |  |  |
-| total_comment_count | [int64](#int64) |  |  |
-| total_share_count | [int64](#int64) |  |  |
-| total_render_count | [int64](#int64) |  |  |
-| total_fork_count | [int64](#int64) |  |  |
-| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated |  |
-| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated |  |
-| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  |  |
-| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  |  |
-| isliked | [bool](#bool) |  |  |
-| mtime | [int64](#int64) |  |  |
+| storyboard | [StoryBoard](#common-StoryBoard) |  | 故事板信息 |
+| total_like_count | [int64](#int64) |  | 总点赞数 |
+| total_comment_count | [int64](#int64) |  | 总评论数 |
+| total_share_count | [int64](#int64) |  | 总分享数 |
+| total_render_count | [int64](#int64) |  | 总渲染数 |
+| total_fork_count | [int64](#int64) |  | 总分叉数 |
+| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated | 用户列表 |
+| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated | 角色列表 |
+| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  | 创建者信息 |
+| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  | 摘要信息 |
+| isliked | [bool](#bool) |  | 是否点赞 |
+| mtime | [int64](#int64) |  | 修改时间 |
 
 
 
@@ -3001,14 +3005,14 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoardActiveRole"></a>
 
 ### StoryBoardActiveRole
-
+StoryBoardActiveRole 故事板活动中的角色信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| role_id | [int64](#int64) |  |  |
-| role_name | [string](#string) |  |  |
-| role_avatar | [string](#string) |  |  |
+| role_id | [int64](#int64) |  | 角色ID |
+| role_name | [string](#string) |  | 角色名称 |
+| role_avatar | [string](#string) |  | 角色头像 |
 
 
 
@@ -3018,14 +3022,14 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoardActiveUser"></a>
 
 ### StoryBoardActiveUser
-
+StoryBoardActiveUser 故事板活动中的用户信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| user_name | [string](#string) |  |  |
-| user_avatar | [string](#string) |  |  |
+| user_id | [int64](#int64) |  | 用户ID |
+| user_name | [string](#string) |  | 用户名称 |
+| user_avatar | [string](#string) |  | 用户头像 |
 
 
 
@@ -3035,28 +3039,28 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoardParams"></a>
 
 ### StoryBoardParams
-
+StoryBoardParams 包含故事板渲染的相关参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_id | [int64](#int64) |  |  |
-| StoryDescription | [string](#string) |  |  |
-| NumIds | [int32](#int32) |  |  |
-| NumSteps | [int32](#int32) |  |  |
-| SdModel | [string](#string) |  |  |
-| RefImage | [string](#string) |  |  |
-| ComicLayoutStyle | [string](#string) |  |  |
-| ComicStyle | [string](#string) |  |  |
-| NegativePrompt | [string](#string) |  |  |
-| OutputQuality | [int32](#int32) |  |  |
-| GuidanceScale | [float](#float) |  |  |
-| OutputFormat | [int32](#int32) |  |  |
-| ImageWidth | [int32](#int32) |  |  |
-| ImageHeight | [int32](#int32) |  |  |
-| Self32AttentionLayers | [int32](#int32) |  |  |
-| Self64AttentionLayers | [int32](#int32) |  |  |
-| Self128AttentionLayers | [int32](#int32) |  |  |
+| board_id | [int64](#int64) |  | 故事板ID |
+| StoryDescription | [string](#string) |  | 故事描述 |
+| NumIds | [int32](#int32) |  | ID数量 |
+| NumSteps | [int32](#int32) |  | 步骤数 |
+| SdModel | [string](#string) |  | 模型名称 |
+| RefImage | [string](#string) |  | 参考图片 |
+| ComicLayoutStyle | [string](#string) |  | 漫画布局风格 |
+| ComicStyle | [string](#string) |  | 漫画风格 |
+| NegativePrompt | [string](#string) |  | 负面提示词 |
+| OutputQuality | [int32](#int32) |  | 输出质量 |
+| GuidanceScale | [float](#float) |  | 引导比例 |
+| OutputFormat | [int32](#int32) |  | 输出格式 |
+| ImageWidth | [int32](#int32) |  | 图片宽度 |
+| ImageHeight | [int32](#int32) |  | 图片高度 |
+| Self32AttentionLayers | [int32](#int32) |  | 32层自注意力 |
+| Self64AttentionLayers | [int32](#int32) |  | 64层自注意力 |
+| Self128AttentionLayers | [int32](#int32) |  | 128层自注意力 |
 
 
 
@@ -3097,13 +3101,13 @@ DetailScene 表示具体的场景信息
 <a name="common-StoryBoardSences"></a>
 
 ### StoryBoardSences
-
+StoryBoardSences 包含故事板中的所有场景
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| total | [int64](#int64) |  |  |
-| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| total | [int64](#int64) |  | 场景总数 |
+| list | [StoryBoardSence](#common-StoryBoardSence) | repeated | 场景列表 |
 
 
 
@@ -3162,20 +3166,20 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-StoryParams"></a>
 
 ### StoryParams
-
+StoryParams 包含故事生成和渲染的相关参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_description | [string](#string) |  |  |
-| ref_image | [string](#string) |  |  |
-| negative_prompt | [string](#string) |  |  |
-| prompt | [string](#string) |  |  |
-| comic_layout_style | [string](#string) |  |  |
-| comic_style | [string](#string) |  |  |
-| background | [string](#string) |  |  |
-| style_ref_image | [string](#string) |  |  |
-| subject | [string](#string) |  |  |
+| story_description | [string](#string) |  | 故事描述 |
+| ref_image | [string](#string) |  | 参考图片 |
+| negative_prompt | [string](#string) |  | 负面提示词 |
+| prompt | [string](#string) |  | 提示词 |
+| comic_layout_style | [string](#string) |  | 漫画布局风格 |
+| comic_style | [string](#string) |  | 漫画风格 |
+| background | [string](#string) |  | 背景 |
+| style_ref_image | [string](#string) |  | 风格参考图片 |
+| subject | [string](#string) |  | 主题 |
 
 
 
@@ -3185,34 +3189,34 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-StoryRole"></a>
 
 ### StoryRole
-
+StoryRole 表示故事中的角色
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| role_id | [int64](#int64) |  |  |
-| story_id | [int64](#int64) |  |  |
-| character_description | [string](#string) |  |  |
-| character_name | [string](#string) |  |  |
-| character_avatar | [string](#string) |  |  |
-| character_id | [string](#string) |  |  |
-| character_type | [string](#string) |  |  |
-| character_prompt | [string](#string) |  |  |
-| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
-| character_ref_images | [string](#string) | repeated |  |
-| creator_id | [int64](#int64) |  |  |
-| status | [int32](#int32) |  |  |
-| like_count | [int64](#int64) |  |  |
-| follow_count | [int64](#int64) |  |  |
-| storyboard_num | [int64](#int64) |  |  |
-| version | [int64](#int64) |  |  |
-| isliked | [bool](#bool) |  |  |
-| isfolllowed | [bool](#bool) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
-| creator | [UserInfo](#common-UserInfo) |  |  |
-| poster_image_url | [string](#string) |  |  |
+| role_id | [int64](#int64) |  | 角色ID |
+| story_id | [int64](#int64) |  | 所属故事ID |
+| character_description | [string](#string) |  | 角色描述 |
+| character_name | [string](#string) |  | 角色名称 |
+| character_avatar | [string](#string) |  | 角色头像 |
+| character_id | [string](#string) |  | 角色标识符 |
+| character_type | [string](#string) |  | 角色类型 |
+| character_prompt | [string](#string) |  | 角色提示词 |
+| character_detail | [CharacterDetail](#common-CharacterDetail) |  | 角色详细信息 |
+| character_ref_images | [string](#string) | repeated | 角色参考图片 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| status | [int32](#int32) |  | 状态 |
+| like_count | [int64](#int64) |  | 点赞数 |
+| follow_count | [int64](#int64) |  | 关注数 |
+| storyboard_num | [int64](#int64) |  | 故事板数量 |
+| version | [int64](#int64) |  | 版本号 |
+| isliked | [bool](#bool) |  | 当前用户是否点赞 |
+| isfolllowed | [bool](#bool) |  | 当前用户是否关注 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
+| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
+| poster_image_url | [string](#string) |  | 海报图片URL |
 
 
 
@@ -3222,26 +3226,26 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-StorySummaryInfo"></a>
 
 ### StorySummaryInfo
-
+StorySummaryInfo 故事摘要信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  |  |
-| story_title | [string](#string) |  |  |
-| story_avatar | [string](#string) |  |  |
-| story_description | [string](#string) |  |  |
-| story_cover | [string](#string) |  |  |
-| story_tags | [string](#string) |  |  |
-| create_time | [int64](#int64) |  |  |
-| create_user_id | [int64](#int64) |  |  |
-| total_board_count | [int64](#int64) |  |  |
-| total_like_count | [int64](#int64) |  |  |
-| total_comment_count | [int64](#int64) |  |  |
-| total_share_count | [int64](#int64) |  |  |
-| total_render_count | [int64](#int64) |  |  |
-| total_fork_count | [int64](#int64) |  |  |
-| total_view_count | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  | 故事ID |
+| story_title | [string](#string) |  | 故事标题 |
+| story_avatar | [string](#string) |  | 故事头像 |
+| story_description | [string](#string) |  | 故事描述 |
+| story_cover | [string](#string) |  | 故事封面 |
+| story_tags | [string](#string) |  | 故事标签 |
+| create_time | [int64](#int64) |  | 创建时间 |
+| create_user_id | [int64](#int64) |  | 创建用户ID |
+| total_board_count | [int64](#int64) |  | 故事板总数 |
+| total_like_count | [int64](#int64) |  | 点赞总数 |
+| total_comment_count | [int64](#int64) |  | 评论总数 |
+| total_share_count | [int64](#int64) |  | 分享总数 |
+| total_render_count | [int64](#int64) |  | 渲染总数 |
+| total_fork_count | [int64](#int64) |  | 分叉总数 |
+| total_view_count | [int64](#int64) |  | 查看总数 |
 
 
 
@@ -3251,19 +3255,19 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-TimeLine"></a>
 
 ### TimeLine
-
+TimeLine 表示时间线信息
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| root_id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| creator_id | [int64](#int64) |  |  |
-| title | [string](#string) |  |  |
-| item_id | [int64](#int64) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
+| root_id | [int64](#int64) |  | 根ID |
+| group_id | [int64](#int64) |  | 组织ID |
+| project_id | [int64](#int64) |  | 项目ID |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| title | [string](#string) |  | 标题 |
+| item_id | [int64](#int64) |  | 项目ID |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
 
 
 
@@ -3338,20 +3342,20 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-UpdateStoryRequest"></a>
 
 ### UpdateStoryRequest
-
+UpdateStoryRequest 更新故事的请求参数
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| short_desc | [string](#string) |  |  |
-| origin | [string](#string) |  |  |
-| status | [int32](#int32) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| is_ai_gen | [bool](#bool) |  |  |
-| params | [StoryParams](#common-StoryParams) |  |  |
-| story_id | [int64](#int64) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| short_desc | [string](#string) |  | 简短描述 |
+| origin | [string](#string) |  | 来源 |
+| status | [int32](#int32) |  | 状态 |
+| is_achieve | [bool](#bool) |  | 是否归档 |
+| is_close | [bool](#bool) |  | 是否关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否AI生成 |
+| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
+| story_id | [int64](#int64) |  | 故事ID |
+| roles | [StoryRole](#common-StoryRole) | repeated | 角色列表 |
 
 
 
@@ -3361,13 +3365,13 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-UpdateStoryResponse"></a>
 
 ### UpdateStoryResponse
-
+UpdateStoryResponse 更新故事的响应结果
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [int32](#int32) |  |  |
-| message | [string](#string) |  |  |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
 | data | [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data) |  |  |
 
 
@@ -3383,7 +3387,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_id | [int32](#int32) |  |  |
+| story_id | [int32](#int32) |  | 故事ID |
 
 
 
@@ -8097,6 +8101,39 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
+<a name="common-UpdateStoryRoleDescriptionRequest"></a>
+
+### UpdateStoryRoleDescriptionRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRoleDescriptionResponse"></a>
+
+### UpdateStoryRoleDescriptionResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-UpdateStoryRoleDetailRequest"></a>
 
 ### UpdateStoryRoleDetailRequest
@@ -8153,6 +8190,39 @@ StoryNameAndTheme 表示故事的名称和主题信息
 <a name="common-UpdateStoryRolePosterResponse"></a>
 
 ### UpdateStoryRolePosterResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRolePromptRequest"></a>
+
+### UpdateStoryRolePromptRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryRolePromptResponse"></a>
+
+### UpdateStoryRolePromptResponse
 
 
 
@@ -8758,54 +8828,54 @@ user ,group .project.item
 <a name="common-TeamsAPI"></a>
 
 ### TeamsAPI
-
+TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) | 探索 |
-| Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) | 版本 |
-| About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | 关于 |
-| Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | 登录 |
-| Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) | 登出 |
-| RefreshToken | [RefreshTokenRequest](#common-RefreshTokenRequest) | [RefreshTokenResponse](#common-RefreshTokenResponse) | 刷新登录 |
-| Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) | 注册 |
-| ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) | 重置密码 |
-| UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) | 用户初始化 |
-| UserInfo | [UserInfoRequest](#common-UserInfoRequest) | [UserInfoResponse](#common-UserInfoResponse) | 用户信息 |
-| UpdateUserAvator | [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse) | 更新用户头像 |
-| UserWatching | [UserWatchingRequest](#common-UserWatchingRequest) | [UserWatchingResponse](#common-UserWatchingResponse) | 用户关注 |
-| UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) | 用户关注组织 |
-| UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) | 用户关注组织 |
-| UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | 更新用户信息 |
-| SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | 搜索用户 |
-| CreateGroup | [CreateGroupRequest](#common-CreateGroupRequest) | [CreateGroupResponse](#common-CreateGroupResponse) | 创建组织 |
-| GetGroup | [GetGroupRequest](#common-GetGroupRequest) | [GetGroupResponse](#common-GetGroupResponse) | 获取组织 |
-| GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) | 组织活跃 |
-| UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) | 更新组织信息 |
-| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) | 获取组织信息 |
-| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | 更新组织信息 |
-| DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | 删除组织 |
-| FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | 获取组织成员 |
-| FetchGroupProjects | [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | 获取组织项目 |
-| JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | 加入组织 |
-| LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | 离开组织 |
-| GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) | 获取项目信息 |
-| GetProjectList | [GetProjectListRequest](#common-GetProjectListRequest) | [GetProjectListResponse](#common-GetProjectListResponse) | 获取项目列表 |
-| CreateProject | [CreateProjectRequest](#common-CreateProjectRequest) | [CreateProjectResponse](#common-CreateProjectResponse) | 创建项目 |
-| GetProjectMembers | [GetProjectMembersRequest](#common-GetProjectMembersRequest) | [GetProjectMembersResponse](#common-GetProjectMembersResponse) | 获取项目成员 |
-| UpdateProject | [UpdateProjectRequest](#common-UpdateProjectRequest) | [UpdateProjectResponse](#common-UpdateProjectResponse) | 更新项目 |
-| DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) | 删除项目 |
-| GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) | 获取项目信息 |
-| UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) | 更新项目信息 |
-| WatchProject | [WatchProjectRequest](#common-WatchProjectRequest) | [WatchProjectResponse](#common-WatchProjectResponse) | 关注项目 |
-| UnWatchProject | [UnWatchProjectRequest](#common-UnWatchProjectRequest) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | 取消关注项目 |
-| GetProjectWatcher | [GetProjectWatcherRequest](#common-GetProjectWatcherRequest) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | 获取项目关注者 |
-| SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) | 搜索组织项目 |
-| SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) | 搜索项目 |
-| ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) | 探索项目 |
-| GetProjectItems | [GetProjectItemsRequest](#common-GetProjectItemsRequest) | [GetProjectItemsResponse](#common-GetProjectItemsResponse) | 获取项目内容 |
-| GetGroupItems | [GetGroupItemsRequest](#common-GetGroupItemsRequest) | [GetGroupItemsResponse](#common-GetGroupItemsResponse) | 获取组织内容 |
-| GetUserItems | [GetUserItemsRequest](#common-GetUserItemsRequest) | [GetUserItemsResponse](#common-GetUserItemsResponse) | 获取用户内容 |
+| Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) | Explore returns trending and recommended content for users to discover |
+| Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) | Version returns the current API version and build information |
+| About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | About returns information about the service |
+| Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | Login authenticates a user and returns a session token |
+| Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) | Logout invalidates the user&#39;s current session token |
+| RefreshToken | [RefreshTokenRequest](#common-RefreshTokenRequest) | [RefreshTokenResponse](#common-RefreshTokenResponse) | RefreshToken generates a new session token using the current valid token |
+| Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) | Register creates a new user account |
+| ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) | ResetPwd allows users to reset their password |
+| UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) | UserInit performs initial setup for a new user |
+| UserInfo | [UserInfoRequest](#common-UserInfoRequest) | [UserInfoResponse](#common-UserInfoResponse) | UserInfo retrieves detailed information about a user |
+| UpdateUserAvator | [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse) | UpdateUserAvator updates the user&#39;s profile picture |
+| UserWatching | [UserWatchingRequest](#common-UserWatchingRequest) | [UserWatchingResponse](#common-UserWatchingResponse) | UserWatching returns a list of projects the user is following |
+| UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) | UserGroup returns a list of groups the user belongs to |
+| UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) | UserFollowingGroup returns a list of groups the user is following |
+| UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | UserUpdate updates the user&#39;s profile information |
+| SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | SearchUser searches for users based on specified criteria |
+| CreateGroup | [CreateGroupRequest](#common-CreateGroupRequest) | [CreateGroupResponse](#common-CreateGroupResponse) | CreateGroup creates a new group |
+| GetGroup | [GetGroupRequest](#common-GetGroupRequest) | [GetGroupResponse](#common-GetGroupResponse) | GetGroup retrieves information about a specific group |
+| GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) | GetGroupActives returns recent activities within a group |
+| UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) | UpdateGroupInfo updates the group&#39;s information |
+| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) | GetGroupProfile retrieves the group&#39;s profile information |
+| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | UpdateGroupProfile updates the group&#39;s profile information |
+| DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | DeleteGroup removes a group |
+| FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | FetchGroupMembers retrieves the list of members in a group |
+| FetchGroupProjects | [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | FetchGroupProjects retrieves the list of projects in a group |
+| JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | JoinGroup adds a user to a group |
+| LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | LeaveGroup removes a user from a group |
+| GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) | GetProjectInfo retrieves information about a specific project |
+| GetProjectList | [GetProjectListRequest](#common-GetProjectListRequest) | [GetProjectListResponse](#common-GetProjectListResponse) | GetProjectList retrieves a list of projects |
+| CreateProject | [CreateProjectRequest](#common-CreateProjectRequest) | [CreateProjectResponse](#common-CreateProjectResponse) | CreateProject creates a new project |
+| GetProjectMembers | [GetProjectMembersRequest](#common-GetProjectMembersRequest) | [GetProjectMembersResponse](#common-GetProjectMembersResponse) | GetProjectMembers retrieves the list of members in a project |
+| UpdateProject | [UpdateProjectRequest](#common-UpdateProjectRequest) | [UpdateProjectResponse](#common-UpdateProjectResponse) | UpdateProject updates project information |
+| DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) | DeleteProject removes a project |
+| GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) | GetProjectProfile retrieves the project&#39;s profile information |
+| UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) | UpdateProjectProfile updates the project&#39;s profile information |
+| WatchProject | [WatchProjectRequest](#common-WatchProjectRequest) | [WatchProjectResponse](#common-WatchProjectResponse) | WatchProject adds a user as a watcher to a project |
+| UnWatchProject | [UnWatchProjectRequest](#common-UnWatchProjectRequest) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | UnWatchProject removes a user as a watcher from a project |
+| GetProjectWatcher | [GetProjectWatcherRequest](#common-GetProjectWatcherRequest) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | GetProjectWatcher retrieves the list of watchers for a project |
+| SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) | SearchGroupProject searches for projects within a group |
+| SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) | SearchProject searches for projects across all accessible groups |
+| ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) | ExploreProject returns trending and recommended projects |
+| GetProjectItems | [GetProjectItemsRequest](#common-GetProjectItemsRequest) | [GetProjectItemsResponse](#common-GetProjectItemsResponse) | GetProjectItems retrieves items within a project |
+| GetGroupItems | [GetGroupItemsRequest](#common-GetGroupItemsRequest) | [GetGroupItemsResponse](#common-GetGroupItemsResponse) | GetGroupItems retrieves items within a group |
+| GetUserItems | [GetUserItemsRequest](#common-GetUserItemsRequest) | [GetUserItemsResponse](#common-GetUserItemsResponse) | GetUserItems retrieves items created by a user |
 | GetItem | [GetItemRequest](#common-GetItemRequest) | [GetItemResponse](#common-GetItemResponse) | 获取内容 |
 | CreateItem | [CreateItemRequest](#common-CreateItemRequest) | [CreateItemResponse](#common-CreateItemResponse) | 创建内容 |
 | UpdateItem | [UpdateItemRequest](#common-UpdateItemRequest) | [UpdateItemResponse](#common-UpdateItemResponse) | 更新内容 |
@@ -8908,6 +8978,8 @@ user ,group .project.item
 | GetFollowerList | [GetFollowerListRequest](#common-GetFollowerListRequest) | [GetFollowerListResponse](#common-GetFollowerListResponse) | 获取粉丝列表 |
 | GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
 | UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
+| UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
+| UpdateStoryRoleDescription | [UpdateStoryRoleDescriptionRequest](#common-UpdateStoryRoleDescriptionRequest) | [UpdateStoryRoleDescriptionResponse](#common-UpdateStoryRoleDescriptionResponse) | 更新角色的描述 |
 
  
 

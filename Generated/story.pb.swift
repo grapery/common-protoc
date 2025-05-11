@@ -290,81 +290,97 @@ public enum Common_StoryBoardGeneratingStage: SwiftProtobuf.Enum, Swift.CaseIter
 
 }
 
+/// Story 表示一个完整的故事实体
 public struct Common_Story: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事唯一标识符
   public var id: Int64 {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
+  /// 所属组织ID
   public var groupID: Int64 {
     get {return _storage._groupID}
     set {_uniqueStorage()._groupID = newValue}
   }
 
+  /// 故事名称
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
+  /// 故事头像
   public var avatar: String {
     get {return _storage._avatar}
     set {_uniqueStorage()._avatar = newValue}
   }
 
+  /// 创建者ID
   public var creatorID: Int64 {
     get {return _storage._creatorID}
     set {_uniqueStorage()._creatorID = newValue}
   }
 
+  /// 所有者ID
   public var ownerID: Int64 {
     get {return _storage._ownerID}
     set {_uniqueStorage()._ownerID = newValue}
   }
 
+  /// 故事标签列表
   public var tags: [Common_Tags] {
     get {return _storage._tags}
     set {_uniqueStorage()._tags = newValue}
   }
 
+  /// 可见范围
   public var visable: Common_ScopeType {
     get {return _storage._visable}
     set {_uniqueStorage()._visable = newValue}
   }
 
+  /// 是否已归档
   public var isAchieve: Bool {
     get {return _storage._isAchieve}
     set {_uniqueStorage()._isAchieve = newValue}
   }
 
+  /// 是否已关闭
   public var isClose: Bool {
     get {return _storage._isClose}
     set {_uniqueStorage()._isClose = newValue}
   }
 
+  /// 是否由AI生成
   public var isAiGen: Bool {
     get {return _storage._isAiGen}
     set {_uniqueStorage()._isAiGen = newValue}
   }
 
+  /// 故事来源
   public var origin: String {
     get {return _storage._origin}
     set {_uniqueStorage()._origin = newValue}
   }
 
+  /// 根故事板ID
   public var rootBoardID: Int64 {
     get {return _storage._rootBoardID}
     set {_uniqueStorage()._rootBoardID = newValue}
   }
 
+  /// 故事描述
   public var desc: String {
     get {return _storage._desc}
     set {_uniqueStorage()._desc = newValue}
   }
 
+  /// 故事参数
   public var params: Common_StoryParams {
     get {return _storage._params ?? Common_StoryParams()}
     set {_uniqueStorage()._params = newValue}
@@ -374,26 +390,31 @@ public struct Common_Story: @unchecked Sendable {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {_uniqueStorage()._params = nil}
 
+  /// 故事状态
   public var status: Int32 {
     get {return _storage._status}
     set {_uniqueStorage()._status = newValue}
   }
 
+  /// 故事标题
   public var title: String {
     get {return _storage._title}
     set {_uniqueStorage()._title = newValue}
   }
 
+  /// 当前用户是否点赞
   public var isliked: Bool {
     get {return _storage._isliked}
     set {_uniqueStorage()._isliked = newValue}
   }
 
+  /// 当前用户是否关注
   public var iswatched: Bool {
     get {return _storage._iswatched}
     set {_uniqueStorage()._iswatched = newValue}
   }
 
+  /// 当前用户状态
   public var currentUserStatus: Common_WhatCurrentUserStatus {
     get {return _storage._currentUserStatus ?? Common_WhatCurrentUserStatus()}
     set {_uniqueStorage()._currentUserStatus = newValue}
@@ -403,46 +424,55 @@ public struct Common_Story: @unchecked Sendable {
   /// Clears the value of `currentUserStatus`. Subsequent reads from it will return its default value.
   public mutating func clearCurrentUserStatus() {_uniqueStorage()._currentUserStatus = nil}
 
+  /// 点赞数
   public var likeCount: Int64 {
     get {return _storage._likeCount}
     set {_uniqueStorage()._likeCount = newValue}
   }
 
+  /// 评论数
   public var commentCount: Int64 {
     get {return _storage._commentCount}
     set {_uniqueStorage()._commentCount = newValue}
   }
 
+  /// 分享数
   public var shareCount: Int64 {
     get {return _storage._shareCount}
     set {_uniqueStorage()._shareCount = newValue}
   }
 
+  /// 关注数
   public var followCount: Int64 {
     get {return _storage._followCount}
     set {_uniqueStorage()._followCount = newValue}
   }
 
+  /// 故事板总数
   public var totalBoards: Int64 {
     get {return _storage._totalBoards}
     set {_uniqueStorage()._totalBoards = newValue}
   }
 
+  /// 角色总数
   public var totalRoles: Int64 {
     get {return _storage._totalRoles}
     set {_uniqueStorage()._totalRoles = newValue}
   }
 
+  /// 成员总数
   public var totalMembers: Int64 {
     get {return _storage._totalMembers}
     set {_uniqueStorage()._totalMembers = newValue}
   }
 
+  /// 创建时间
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
   }
 
+  /// 修改时间
   public var mtime: Int64 {
     get {return _storage._mtime}
     set {_uniqueStorage()._mtime = newValue}
@@ -455,27 +485,37 @@ public struct Common_Story: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// StoryParams 包含故事生成和渲染的相关参数
 public struct Common_StoryParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事描述
   public var storyDescription: String = String()
 
+  /// 参考图片
   public var refImage: String = String()
 
+  /// 负面提示词
   public var negativePrompt: String = String()
 
+  /// 提示词
   public var prompt: String = String()
 
+  /// 漫画布局风格
   public var comicLayoutStyle: String = String()
 
+  /// 漫画风格
   public var comicStyle: String = String()
 
+  /// 背景
   public var background: String = String()
 
+  /// 风格参考图片
   public var styleRefImage: String = String()
 
+  /// 主题
   public var subject: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -483,66 +523,79 @@ public struct Common_StoryParams: Sendable {
   public init() {}
 }
 
+/// StoryBoard 表示故事中的一个场景或章节
 public struct Common_StoryBoard: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 所属故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
+  /// 序号
   public var num: Int64 {
     get {return _storage._num}
     set {_uniqueStorage()._num = newValue}
   }
 
+  /// 前一个故事板ID
   public var prevBoardID: Int64 {
     get {return _storage._prevBoardID}
     set {_uniqueStorage()._prevBoardID = newValue}
   }
 
+  /// 下一个故事板ID列表
   public var nextBoardID: [Int64] {
     get {return _storage._nextBoardID}
     set {_uniqueStorage()._nextBoardID = newValue}
   }
 
+  /// 创建者ID
   public var creator: Int64 {
     get {return _storage._creator}
     set {_uniqueStorage()._creator = newValue}
   }
 
+  /// 故事板ID
   public var storyBoardID: Int64 {
     get {return _storage._storyBoardID}
     set {_uniqueStorage()._storyBoardID = newValue}
   }
 
+  /// 标题
   public var title: String {
     get {return _storage._title}
     set {_uniqueStorage()._title = newValue}
   }
 
+  /// 内容
   public var content: String {
     get {return _storage._content}
     set {_uniqueStorage()._content = newValue}
   }
 
+  /// 是否由AI生成
   public var isAiGen: Bool {
     get {return _storage._isAiGen}
     set {_uniqueStorage()._isAiGen = newValue}
   }
 
+  /// 相关角色列表
   public var roles: [Common_StoryRole] {
     get {return _storage._roles}
     set {_uniqueStorage()._roles = newValue}
   }
 
+  /// 背景
   public var backgroud: String {
     get {return _storage._backgroud}
     set {_uniqueStorage()._backgroud = newValue}
   }
 
+  /// 故事板参数
   public var params: Common_StoryBoardParams {
     get {return _storage._params ?? Common_StoryBoardParams()}
     set {_uniqueStorage()._params = newValue}
@@ -552,6 +605,7 @@ public struct Common_StoryBoard: @unchecked Sendable {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {_uniqueStorage()._params = nil}
 
+  /// 场景列表
   public var sences: Common_StoryBoardSences {
     get {return _storage._sences ?? Common_StoryBoardSences()}
     set {_uniqueStorage()._sences = newValue}
@@ -561,26 +615,31 @@ public struct Common_StoryBoard: @unchecked Sendable {
   /// Clears the value of `sences`. Subsequent reads from it will return its default value.
   public mutating func clearSences() {_uniqueStorage()._sences = nil}
 
+  /// 是否多分支
   public var isMultiBranch: Bool {
     get {return _storage._isMultiBranch}
     set {_uniqueStorage()._isMultiBranch = newValue}
   }
 
+  /// 故事板阶段
   public var stage: Common_StoryboardStage {
     get {return _storage._stage}
     set {_uniqueStorage()._stage = newValue}
   }
 
+  /// 创建时间
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
   }
 
+  /// 修改时间
   public var mtime: Int64 {
     get {return _storage._mtime}
     set {_uniqueStorage()._mtime = newValue}
   }
 
+  /// 当前用户状态
   public var currentUserStatus: Common_WhatCurrentUserStatus {
     get {return _storage._currentUserStatus ?? Common_WhatCurrentUserStatus()}
     set {_uniqueStorage()._currentUserStatus = newValue}
@@ -597,13 +656,16 @@ public struct Common_StoryBoard: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// StoryBoardSences 包含故事板中的所有场景
 public struct Common_StoryBoardSences: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 场景总数
   public var total: Int64 = 0
 
+  /// 场景列表
   public var list: [Common_StoryBoardSence] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -611,40 +673,40 @@ public struct Common_StoryBoardSences: Sendable {
   public init() {}
 }
 
-/// CharacterDetail represents detailed information about a character
+/// CharacterDetail represents detailed information about a character in a story
 public struct Common_CharacterDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 角色描述
+  /// Description of the character's overall appearance and basic traits
   public var description_p: String = String()
 
-  /// 角色短期目标
+  /// Character's immediate objectives and goals in the current story arc
   public var shortTermGoal: String = String()
 
-  /// 角色长期目标
+  /// Character's overarching ambitions and long-term aspirations
   public var longTermGoal: String = String()
 
-  /// 角色性格
+  /// Character's personality traits, temperament, and behavioral patterns
   public var personality: String = String()
 
-  /// 角色背景
+  /// Character's history, origin story, and formative experiences
   public var background: String = String()
 
-  /// 处事风格
+  /// Character's approach to handling situations and solving problems
   public var handlingStyle: String = String()
 
-  /// 认知范围
+  /// Character's knowledge, understanding, and awareness of their world
   public var cognitionRange: String = String()
 
-  /// 能力特点
+  /// Character's special skills, talents, and unique capabilities
   public var abilityFeatures: String = String()
 
-  /// 外貌特征
+  /// Character's physical appearance and distinguishing features
   public var appearance: String = String()
 
-  /// 穿着喜好
+  /// Character's clothing preferences and style choices
   public var dressPreference: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -652,51 +714,61 @@ public struct Common_CharacterDetail: Sendable {
   public init() {}
 }
 
+/// StoryRole 表示故事中的角色
 public struct Common_StoryRole: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 角色ID
   public var roleID: Int64 {
     get {return _storage._roleID}
     set {_uniqueStorage()._roleID = newValue}
   }
 
+  /// 所属故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
+  /// 角色描述
   public var characterDescription: String {
     get {return _storage._characterDescription}
     set {_uniqueStorage()._characterDescription = newValue}
   }
 
+  /// 角色名称
   public var characterName: String {
     get {return _storage._characterName}
     set {_uniqueStorage()._characterName = newValue}
   }
 
+  /// 角色头像
   public var characterAvatar: String {
     get {return _storage._characterAvatar}
     set {_uniqueStorage()._characterAvatar = newValue}
   }
 
+  /// 角色标识符
   public var characterID: String {
     get {return _storage._characterID}
     set {_uniqueStorage()._characterID = newValue}
   }
 
+  /// 角色类型
   public var characterType: String {
     get {return _storage._characterType}
     set {_uniqueStorage()._characterType = newValue}
   }
 
+  /// 角色提示词
   public var characterPrompt: String {
     get {return _storage._characterPrompt}
     set {_uniqueStorage()._characterPrompt = newValue}
   }
 
+  /// 角色详细信息
   public var characterDetail: Common_CharacterDetail {
     get {return _storage._characterDetail ?? Common_CharacterDetail()}
     set {_uniqueStorage()._characterDetail = newValue}
@@ -706,61 +778,73 @@ public struct Common_StoryRole: @unchecked Sendable {
   /// Clears the value of `characterDetail`. Subsequent reads from it will return its default value.
   public mutating func clearCharacterDetail() {_uniqueStorage()._characterDetail = nil}
 
+  /// 角色参考图片
   public var characterRefImages: [String] {
     get {return _storage._characterRefImages}
     set {_uniqueStorage()._characterRefImages = newValue}
   }
 
+  /// 创建者ID
   public var creatorID: Int64 {
     get {return _storage._creatorID}
     set {_uniqueStorage()._creatorID = newValue}
   }
 
+  /// 状态
   public var status: Int32 {
     get {return _storage._status}
     set {_uniqueStorage()._status = newValue}
   }
 
+  /// 点赞数
   public var likeCount: Int64 {
     get {return _storage._likeCount}
     set {_uniqueStorage()._likeCount = newValue}
   }
 
+  /// 关注数
   public var followCount: Int64 {
     get {return _storage._followCount}
     set {_uniqueStorage()._followCount = newValue}
   }
 
+  /// 故事板数量
   public var storyboardNum: Int64 {
     get {return _storage._storyboardNum}
     set {_uniqueStorage()._storyboardNum = newValue}
   }
 
+  /// 版本号
   public var version: Int64 {
     get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
   }
 
+  /// 当前用户是否点赞
   public var isliked: Bool {
     get {return _storage._isliked}
     set {_uniqueStorage()._isliked = newValue}
   }
 
+  /// 当前用户是否关注
   public var isfolllowed: Bool {
     get {return _storage._isfolllowed}
     set {_uniqueStorage()._isfolllowed = newValue}
   }
 
+  /// 创建时间
   public var ctime: Int64 {
     get {return _storage._ctime}
     set {_uniqueStorage()._ctime = newValue}
   }
 
+  /// 修改时间
   public var mtime: Int64 {
     get {return _storage._mtime}
     set {_uniqueStorage()._mtime = newValue}
   }
 
+  /// 当前用户状态
   public var currentUserStatus: Common_WhatCurrentUserStatus {
     get {return _storage._currentUserStatus ?? Common_WhatCurrentUserStatus()}
     set {_uniqueStorage()._currentUserStatus = newValue}
@@ -770,6 +854,7 @@ public struct Common_StoryRole: @unchecked Sendable {
   /// Clears the value of `currentUserStatus`. Subsequent reads from it will return its default value.
   public mutating func clearCurrentUserStatus() {_uniqueStorage()._currentUserStatus = nil}
 
+  /// 创建者信息
   public var creator: Common_UserInfo {
     get {return _storage._creator ?? Common_UserInfo()}
     set {_uniqueStorage()._creator = newValue}
@@ -779,6 +864,7 @@ public struct Common_StoryRole: @unchecked Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
 
+  /// 海报图片URL
   public var posterImageURL: String {
     get {return _storage._posterImageURL}
     set {_uniqueStorage()._posterImageURL = newValue}
@@ -791,91 +877,109 @@ public struct Common_StoryRole: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// StoryBoardParams 包含故事板渲染的相关参数
 public struct Common_StoryBoardParams: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事板ID
   public var boardID: Int64 {
     get {return _storage._boardID}
     set {_uniqueStorage()._boardID = newValue}
   }
 
+  /// 故事描述
   public var storyDescription: String {
     get {return _storage._storyDescription}
     set {_uniqueStorage()._storyDescription = newValue}
   }
 
+  /// ID数量
   public var numIds: Int32 {
     get {return _storage._numIds}
     set {_uniqueStorage()._numIds = newValue}
   }
 
+  /// 步骤数
   public var numSteps: Int32 {
     get {return _storage._numSteps}
     set {_uniqueStorage()._numSteps = newValue}
   }
 
+  /// 模型名称
   public var sdModel: String {
     get {return _storage._sdModel}
     set {_uniqueStorage()._sdModel = newValue}
   }
 
+  /// 参考图片
   public var refImage: String {
     get {return _storage._refImage}
     set {_uniqueStorage()._refImage = newValue}
   }
 
+  /// 漫画布局风格
   public var comicLayoutStyle: String {
     get {return _storage._comicLayoutStyle}
     set {_uniqueStorage()._comicLayoutStyle = newValue}
   }
 
+  /// 漫画风格
   public var comicStyle: String {
     get {return _storage._comicStyle}
     set {_uniqueStorage()._comicStyle = newValue}
   }
 
+  /// 负面提示词
   public var negativePrompt: String {
     get {return _storage._negativePrompt}
     set {_uniqueStorage()._negativePrompt = newValue}
   }
 
+  /// 输出质量
   public var outputQuality: Int32 {
     get {return _storage._outputQuality}
     set {_uniqueStorage()._outputQuality = newValue}
   }
 
+  /// 引导比例
   public var guidanceScale: Float {
     get {return _storage._guidanceScale}
     set {_uniqueStorage()._guidanceScale = newValue}
   }
 
+  /// 输出格式
   public var outputFormat: Int32 {
     get {return _storage._outputFormat}
     set {_uniqueStorage()._outputFormat = newValue}
   }
 
+  /// 图片宽度
   public var imageWidth: Int32 {
     get {return _storage._imageWidth}
     set {_uniqueStorage()._imageWidth = newValue}
   }
 
+  /// 图片高度
   public var imageHeight: Int32 {
     get {return _storage._imageHeight}
     set {_uniqueStorage()._imageHeight = newValue}
   }
 
+  /// 32层自注意力
   public var self32AttentionLayers: Int32 {
     get {return _storage._self32AttentionLayers}
     set {_uniqueStorage()._self32AttentionLayers = newValue}
   }
 
+  /// 64层自注意力
   public var self64AttentionLayers: Int32 {
     get {return _storage._self64AttentionLayers}
     set {_uniqueStorage()._self64AttentionLayers = newValue}
   }
 
+  /// 128层自注意力
   public var self128AttentionLayers: Int32 {
     get {return _storage._self128AttentionLayers}
     set {_uniqueStorage()._self128AttentionLayers = newValue}
@@ -888,25 +992,34 @@ public struct Common_StoryBoardParams: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// TimeLine 表示时间线信息
 public struct Common_TimeLine: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 根ID
   public var rootID: Int64 = 0
 
+  /// 组织ID
   public var groupID: Int64 = 0
 
+  /// 项目ID
   public var projectID: Int64 = 0
 
+  /// 创建者ID
   public var creatorID: Int64 = 0
 
+  /// 标题
   public var title: String = String()
 
+  /// 项目ID
   public var itemID: Int64 = 0
 
+  /// 创建时间
   public var ctime: Int64 = 0
 
+  /// 修改时间
   public var mtime: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -914,66 +1027,79 @@ public struct Common_TimeLine: Sendable {
   public init() {}
 }
 
+/// CreateStoryRequest 创建故事的请求参数
 public struct Common_CreateStoryRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事名称
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
+  /// 故事标题
   public var title: String {
     get {return _storage._title}
     set {_uniqueStorage()._title = newValue}
   }
 
+  /// 简短描述
   public var shortDesc: String {
     get {return _storage._shortDesc}
     set {_uniqueStorage()._shortDesc = newValue}
   }
 
+  /// 创建者ID
   public var creatorID: Int64 {
     get {return _storage._creatorID}
     set {_uniqueStorage()._creatorID = newValue}
   }
 
+  /// 所有者ID
   public var ownerID: Int64 {
     get {return _storage._ownerID}
     set {_uniqueStorage()._ownerID = newValue}
   }
 
+  /// 组织ID
   public var groupID: Int64 {
     get {return _storage._groupID}
     set {_uniqueStorage()._groupID = newValue}
   }
 
+  /// 来源
   public var origin: String {
     get {return _storage._origin}
     set {_uniqueStorage()._origin = newValue}
   }
 
+  /// 状态
   public var status: Int32 {
     get {return _storage._status}
     set {_uniqueStorage()._status = newValue}
   }
 
+  /// 是否归档
   public var isAchieve: Bool {
     get {return _storage._isAchieve}
     set {_uniqueStorage()._isAchieve = newValue}
   }
 
+  /// 是否关闭
   public var isClose: Bool {
     get {return _storage._isClose}
     set {_uniqueStorage()._isClose = newValue}
   }
 
+  /// 是否AI生成
   public var isAiGen: Bool {
     get {return _storage._isAiGen}
     set {_uniqueStorage()._isAiGen = newValue}
   }
 
+  /// 故事参数
   public var params: Common_StoryParams {
     get {return _storage._params ?? Common_StoryParams()}
     set {_uniqueStorage()._params = newValue}
@@ -983,6 +1109,7 @@ public struct Common_CreateStoryRequest: @unchecked Sendable {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {_uniqueStorage()._params = nil}
 
+  /// 角色列表
   public var roles: [Common_StoryRole] {
     get {return _storage._roles}
     set {_uniqueStorage()._roles = newValue}
@@ -995,13 +1122,16 @@ public struct Common_CreateStoryRequest: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// CreateStoryResponse 创建故事的响应结果
 public struct Common_CreateStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_CreateStoryResponse.DataMessage {
@@ -1020,8 +1150,10 @@ public struct Common_CreateStoryResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事ID
     public var storyID: Int32 = 0
 
+    /// 故事板ID
     public var boardID: Int32 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1034,41 +1166,49 @@ public struct Common_CreateStoryResponse: Sendable {
   fileprivate var _data: Common_CreateStoryResponse.DataMessage? = nil
 }
 
+/// UpdateStoryRequest 更新故事的请求参数
 public struct Common_UpdateStoryRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 简短描述
   public var shortDesc: String {
     get {return _storage._shortDesc}
     set {_uniqueStorage()._shortDesc = newValue}
   }
 
+  /// 来源
   public var origin: String {
     get {return _storage._origin}
     set {_uniqueStorage()._origin = newValue}
   }
 
+  /// 状态
   public var status: Int32 {
     get {return _storage._status}
     set {_uniqueStorage()._status = newValue}
   }
 
+  /// 是否归档
   public var isAchieve: Bool {
     get {return _storage._isAchieve}
     set {_uniqueStorage()._isAchieve = newValue}
   }
 
+  /// 是否关闭
   public var isClose: Bool {
     get {return _storage._isClose}
     set {_uniqueStorage()._isClose = newValue}
   }
 
+  /// 是否AI生成
   public var isAiGen: Bool {
     get {return _storage._isAiGen}
     set {_uniqueStorage()._isAiGen = newValue}
   }
 
+  /// 故事参数
   public var params: Common_StoryParams {
     get {return _storage._params ?? Common_StoryParams()}
     set {_uniqueStorage()._params = newValue}
@@ -1078,11 +1218,13 @@ public struct Common_UpdateStoryRequest: @unchecked Sendable {
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {_uniqueStorage()._params = nil}
 
+  /// 故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
+  /// 角色列表
   public var roles: [Common_StoryRole] {
     get {return _storage._roles}
     set {_uniqueStorage()._roles = newValue}
@@ -1095,13 +1237,16 @@ public struct Common_UpdateStoryRequest: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// UpdateStoryResponse 更新故事的响应结果
 public struct Common_UpdateStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_UpdateStoryResponse.DataMessage {
@@ -1120,6 +1265,7 @@ public struct Common_UpdateStoryResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事ID
     public var storyID: Int32 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1132,11 +1278,13 @@ public struct Common_UpdateStoryResponse: Sendable {
   fileprivate var _data: Common_UpdateStoryResponse.DataMessage? = nil
 }
 
+/// GetStoryInfoRequest 获取故事信息的请求参数
 public struct Common_GetStoryInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事ID
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1144,13 +1292,16 @@ public struct Common_GetStoryInfoRequest: Sendable {
   public init() {}
 }
 
+/// GetStoryInfoResponse 获取故事信息的响应结果
 public struct Common_GetStoryInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_GetStoryInfoResponse.DataMessage {
@@ -1169,6 +1320,7 @@ public struct Common_GetStoryInfoResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事信息
     public var info: Common_Story {
       get {return _info ?? Common_Story()}
       set {_info = newValue}
@@ -1178,6 +1330,7 @@ public struct Common_GetStoryInfoResponse: Sendable {
     /// Clears the value of `info`. Subsequent reads from it will return its default value.
     public mutating func clearInfo() {self._info = nil}
 
+    /// 创建者信息
     public var creator: Common_UserInfo {
       get {return _creator ?? Common_UserInfo()}
       set {_creator = newValue}
@@ -1200,11 +1353,13 @@ public struct Common_GetStoryInfoResponse: Sendable {
   fileprivate var _data: Common_GetStoryInfoResponse.DataMessage? = nil
 }
 
+/// CreateStoryboardRequest 创建故事板的请求参数
 public struct Common_CreateStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事板信息
   public var board: Common_StoryBoard {
     get {return _board ?? Common_StoryBoard()}
     set {_board = newValue}
@@ -1221,13 +1376,16 @@ public struct Common_CreateStoryboardRequest: Sendable {
   fileprivate var _board: Common_StoryBoard? = nil
 }
 
+/// CreateStoryboardResponse 创建故事板的响应结果
 public struct Common_CreateStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_CreateStoryboardResponse.DataMessage {
@@ -1246,6 +1404,7 @@ public struct Common_CreateStoryboardResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事板ID
     public var boardID: Int64 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1258,13 +1417,16 @@ public struct Common_CreateStoryboardResponse: Sendable {
   fileprivate var _data: Common_CreateStoryboardResponse.DataMessage? = nil
 }
 
+/// GetStoryboardRequest 获取故事板的请求参数
 public struct Common_GetStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事板ID
   public var boardID: Int64 = 0
 
+  /// 用户ID
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1272,13 +1434,16 @@ public struct Common_GetStoryboardRequest: Sendable {
   public init() {}
 }
 
+/// GetStoryboardResponse 获取故事板的响应结果
 public struct Common_GetStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_GetStoryboardResponse.DataMessage {
@@ -1297,6 +1462,7 @@ public struct Common_GetStoryboardResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事板活动信息
     public var boardInfo: Common_StoryBoardActive {
       get {return _boardInfo ?? Common_StoryBoardActive()}
       set {_boardInfo = newValue}
@@ -1306,6 +1472,7 @@ public struct Common_GetStoryboardResponse: Sendable {
     /// Clears the value of `boardInfo`. Subsequent reads from it will return its default value.
     public mutating func clearBoardInfo() {self._boardInfo = nil}
 
+    /// 创建者信息
     public var creator: Common_UserInfo {
       get {return _creator ?? Common_UserInfo()}
       set {_creator = newValue}
@@ -1328,27 +1495,37 @@ public struct Common_GetStoryboardResponse: Sendable {
   fileprivate var _data: Common_GetStoryboardResponse.DataMessage? = nil
 }
 
+/// GetStoryboardsRequest 获取故事板列表的请求参数
 public struct Common_GetStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事ID
   public var storyID: Int64 = 0
 
+  /// 时间线ID
   public var timelineID: Int64 = 0
 
+  /// 开始时间
   public var startTime: Int64 = 0
 
+  /// 结束时间
   public var endTime: Int64 = 0
 
+  /// 用户ID
   public var userID: Int64 = 0
 
+  /// 是否多分支
   public var isMultiBranch: Bool = false
 
+  /// 页码
   public var page: Int32 = 0
 
+  /// 每页大小
   public var pageSize: Int32 = 0
 
+  /// 排序方式
   public var orderBy: Common_MultiBranchOrderBy = .unspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1356,15 +1533,19 @@ public struct Common_GetStoryboardsRequest: Sendable {
   public init() {}
 }
 
+/// StoryBoardActiveRole 故事板活动中的角色信息
 public struct Common_StoryBoardActiveRole: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 角色ID
   public var roleID: Int64 = 0
 
+  /// 角色名称
   public var roleName: String = String()
 
+  /// 角色头像
   public var roleAvatar: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1372,15 +1553,19 @@ public struct Common_StoryBoardActiveRole: Sendable {
   public init() {}
 }
 
+/// StoryBoardActiveUser 故事板活动中的用户信息
 public struct Common_StoryBoardActiveUser: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 用户ID
   public var userID: Int64 = 0
 
+  /// 用户名称
   public var userName: String = String()
 
+  /// 用户头像
   public var userAvatar: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1388,11 +1573,13 @@ public struct Common_StoryBoardActiveUser: Sendable {
   public init() {}
 }
 
+/// StoryBoardActive 故事板活动信息
 public struct Common_StoryBoardActive: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事板信息
   public var storyboard: Common_StoryBoard {
     get {return _storage._storyboard ?? Common_StoryBoard()}
     set {_uniqueStorage()._storyboard = newValue}
@@ -1402,41 +1589,49 @@ public struct Common_StoryBoardActive: @unchecked Sendable {
   /// Clears the value of `storyboard`. Subsequent reads from it will return its default value.
   public mutating func clearStoryboard() {_uniqueStorage()._storyboard = nil}
 
+  /// 总点赞数
   public var totalLikeCount: Int64 {
     get {return _storage._totalLikeCount}
     set {_uniqueStorage()._totalLikeCount = newValue}
   }
 
+  /// 总评论数
   public var totalCommentCount: Int64 {
     get {return _storage._totalCommentCount}
     set {_uniqueStorage()._totalCommentCount = newValue}
   }
 
+  /// 总分享数
   public var totalShareCount: Int64 {
     get {return _storage._totalShareCount}
     set {_uniqueStorage()._totalShareCount = newValue}
   }
 
+  /// 总渲染数
   public var totalRenderCount: Int64 {
     get {return _storage._totalRenderCount}
     set {_uniqueStorage()._totalRenderCount = newValue}
   }
 
+  /// 总分叉数
   public var totalForkCount: Int64 {
     get {return _storage._totalForkCount}
     set {_uniqueStorage()._totalForkCount = newValue}
   }
 
+  /// 用户列表
   public var users: [Common_StoryBoardActiveUser] {
     get {return _storage._users}
     set {_uniqueStorage()._users = newValue}
   }
 
+  /// 角色列表
   public var roles: [Common_StoryBoardActiveRole] {
     get {return _storage._roles}
     set {_uniqueStorage()._roles = newValue}
   }
 
+  /// 创建者信息
   public var creator: Common_StoryBoardActiveUser {
     get {return _storage._creator ?? Common_StoryBoardActiveUser()}
     set {_uniqueStorage()._creator = newValue}
@@ -1446,6 +1641,7 @@ public struct Common_StoryBoardActive: @unchecked Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
 
+  /// 摘要信息
   public var summary: Common_StorySummaryInfo {
     get {return _storage._summary ?? Common_StorySummaryInfo()}
     set {_uniqueStorage()._summary = newValue}
@@ -1455,11 +1651,13 @@ public struct Common_StoryBoardActive: @unchecked Sendable {
   /// Clears the value of `summary`. Subsequent reads from it will return its default value.
   public mutating func clearSummary() {_uniqueStorage()._summary = nil}
 
+  /// 是否点赞
   public var isliked: Bool {
     get {return _storage._isliked}
     set {_uniqueStorage()._isliked = newValue}
   }
 
+  /// 修改时间
   public var mtime: Int64 {
     get {return _storage._mtime}
     set {_uniqueStorage()._mtime = newValue}
@@ -1472,39 +1670,55 @@ public struct Common_StoryBoardActive: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// StorySummaryInfo 故事摘要信息
 public struct Common_StorySummaryInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 故事ID
   public var storyID: Int64 = 0
 
+  /// 故事标题
   public var storyTitle: String = String()
 
+  /// 故事头像
   public var storyAvatar: String = String()
 
+  /// 故事描述
   public var storyDescription: String = String()
 
+  /// 故事封面
   public var storyCover: String = String()
 
+  /// 故事标签
   public var storyTags: String = String()
 
+  /// 创建时间
   public var createTime: Int64 = 0
 
+  /// 创建用户ID
   public var createUserID: Int64 = 0
 
+  /// 故事板总数
   public var totalBoardCount: Int64 = 0
 
+  /// 点赞总数
   public var totalLikeCount: Int64 = 0
 
+  /// 评论总数
   public var totalCommentCount: Int64 = 0
 
+  /// 分享总数
   public var totalShareCount: Int64 = 0
 
+  /// 渲染总数
   public var totalRenderCount: Int64 = 0
 
+  /// 分叉总数
   public var totalForkCount: Int64 = 0
 
+  /// 查看总数
   public var totalViewCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1512,13 +1726,16 @@ public struct Common_StorySummaryInfo: Sendable {
   public init() {}
 }
 
+/// GetStoryboardsResponse 获取故事板列表的响应结果
 public struct Common_GetStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// 响应码
   public var code: Int32 = 0
 
+  /// 响应消息
   public var message: String = String()
 
   public var data: Common_GetStoryboardsResponse.DataMessage {
@@ -1537,14 +1754,19 @@ public struct Common_GetStoryboardsResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// 故事板活动列表
     public var list: [Common_StoryBoardActive] = []
 
+    /// 是否多分支
     public var isMultiBranch: Bool = false
 
+    /// 总数
     public var total: Int64 = 0
 
+    /// 偏移量
     public var offset: Int64 = 0
 
+    /// 每页大小
     public var pageSize: Int64 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
