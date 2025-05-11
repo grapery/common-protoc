@@ -8111,6 +8111,7 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
 
 
@@ -8213,6 +8214,7 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
 | prompt | [string](#string) |  |  |
 
 

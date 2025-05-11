@@ -2058,7 +2058,8 @@ service TeamsAPI {
 message UpdateStoryRolePromptRequest {
   int64 story_id = 1;
   int64 role_id = 2;
-  string prompt = 3;
+  int64 user_id = 3;
+  string prompt = 4;
 }
 
 message UpdateStoryRolePromptResponse {
@@ -2069,7 +2070,8 @@ message UpdateStoryRolePromptResponse {
 message UpdateStoryRoleDescriptionRequest {
   int64 story_id = 1;
   int64 role_id = 2;
-  CharacterDetail character_detail = 3;
+  int64 user_id = 3;
+  CharacterDetail character_detail = 4;
 }
 
 message UpdateStoryRoleDescriptionResponse {

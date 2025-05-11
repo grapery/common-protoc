@@ -3278,6 +3278,8 @@ public struct Common_UpdateStoryRolePromptRequest: Sendable {
 
   public var roleID: Int64 = 0
 
+  public var userID: Int64 = 0
+
   public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3307,6 +3309,8 @@ public struct Common_UpdateStoryRoleDescriptionRequest: Sendable {
   public var storyID: Int64 = 0
 
   public var roleID: Int64 = 0
+
+  public var userID: Int64 = 0
 
   public var characterDetail: Common_CharacterDetail {
     get {return _characterDetail ?? Common_CharacterDetail()}
@@ -12983,7 +12987,8 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "story_id"),
     2: .standard(proto: "role_id"),
-    3: .same(proto: "prompt"),
+    3: .standard(proto: "user_id"),
+    4: .same(proto: "prompt"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12994,7 +12999,8 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
       default: break
       }
     }
@@ -13007,8 +13013,11 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
     if self.roleID != 0 {
       try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 2)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
     if !self.prompt.isEmpty {
-      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 3)
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13016,6 +13025,7 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
   public static func ==(lhs: Common_UpdateStoryRolePromptRequest, rhs: Common_UpdateStoryRolePromptRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs.prompt != rhs.prompt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -13065,7 +13075,8 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "story_id"),
     2: .standard(proto: "role_id"),
-    3: .standard(proto: "character_detail"),
+    3: .standard(proto: "user_id"),
+    4: .standard(proto: "character_detail"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13076,7 +13087,8 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._characterDetail) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._characterDetail) }()
       default: break
       }
     }
@@ -13093,8 +13105,11 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
     if self.roleID != 0 {
       try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 2)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
     try { if let v = self._characterDetail {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13102,6 +13117,7 @@ extension Common_UpdateStoryRoleDescriptionRequest: SwiftProtobuf.Message, Swift
   public static func ==(lhs: Common_UpdateStoryRoleDescriptionRequest, rhs: Common_UpdateStoryRoleDescriptionRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
+    if lhs.userID != rhs.userID {return false}
     if lhs._characterDetail != rhs._characterDetail {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
