@@ -869,56 +869,62 @@ message UpdateGroupProfileResponse{
   string message = 2;
 }
 
+// TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
 service TeamsAPI {
-  // 探索
+  // Explore returns trending and recommended content for users to discover
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Explore"
     };
   }
 
-  // 版本
+  // Version returns the current API version and build information
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Version"
     };
   }
-  // 关于
+
+  // About returns information about the service
   rpc About(AboutRequest) returns (AboutResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/About"
     };
   }
 
-  // 登录
+  // Login authenticates a user and returns a session token
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Login"
       body : "*"
     };
   }
-  // 登出
+
+  // Logout invalidates the user's current session token
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Logout"
       body : "*"
     };
   }
-  // 刷新登录
+
+  // RefreshToken generates a new session token using the current valid token
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RefreshToken"
       body : "*"
     };
   }
-  // 注册
+
+  // Register creates a new user account
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Register"
       body : "*"
     };
   }
-  // 重置密码
+
+  // ResetPwd allows users to reset their password
   rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ResetPwd"
@@ -926,7 +932,7 @@ service TeamsAPI {
     };
   }
 
-  // 用户初始化
+  // UserInit performs initial setup for a new user
   rpc UserInit(UserInitRequest) returns (UserInitResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInit"
@@ -934,7 +940,7 @@ service TeamsAPI {
     };
   }
 
-  // 用户信息
+  // UserInfo retrieves detailed information about a user
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInfo"
@@ -942,24 +948,23 @@ service TeamsAPI {
     };
   }
 
-  // 更新用户头像
-  rpc UpdateUserAvator(UpdateUserAvatorRequest)
-      returns (UpdateUserAvatorResponse) {
+  // UpdateUserAvator updates the user's profile picture
+  rpc UpdateUserAvator(UpdateUserAvatorRequest) returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateUserAvator"
       body : "*"
     };
   }
 
-  // 用户关注
+  // UserWatching returns a list of projects the user is following
   rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserWatching"
       body : "*"
     };
-  };
+  }
 
-  // 用户关注组织
+  // UserGroup returns a list of groups the user belongs to
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserGroup"
@@ -967,16 +972,15 @@ service TeamsAPI {
     };
   }
 
-  // 用户关注组织
-  rpc UserFollowingGroup(UserFollowingGroupRequest)
-      returns (UserFollowingGroupResponse) {
+  // UserFollowingGroup returns a list of groups the user is following
+  rpc UserFollowingGroup(UserFollowingGroupRequest) returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserFollowingGroup"
       body : "*"
     };
   }
 
-  // 更新用户信息
+  // UserUpdate updates the user's profile information
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserUpdate"
@@ -984,7 +988,7 @@ service TeamsAPI {
     };
   }
 
-  // 搜索用户
+  // SearchUser searches for users based on specified criteria
   rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchUser"
@@ -992,7 +996,7 @@ service TeamsAPI {
     };
   }
 
-  // 创建组织
+  // CreateGroup creates a new group
   rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateGroup"
@@ -1000,7 +1004,7 @@ service TeamsAPI {
     };
   }
 
-  // 获取组织
+  // GetGroup retrieves information about a specific group
   rpc GetGroup(GetGroupRequest) returns (GetGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroup"
@@ -1008,24 +1012,23 @@ service TeamsAPI {
     };
   }
 
-  // 组织活跃
-  rpc GetGroupActives(GetGroupActivesRequest)
-      returns (GetGroupActivesResponse) {
+  // GetGroupActives returns recent activities within a group
+  rpc GetGroupActives(GetGroupActivesRequest) returns (GetGroupActivesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupActives"
       body : "*"
     };
   }
-  // 更新组织信息
-  rpc UpdateGroupInfo(UpdateGroupInfoRequest)
-      returns (UpdateGroupInfoResponse) {
+
+  // UpdateGroupInfo updates the group's information
+  rpc UpdateGroupInfo(UpdateGroupInfoRequest) returns (UpdateGroupInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateGroupInfo"
       body : "*"
     };
   }
 
-  // 获取组织信息
+  // GetGroupProfile retrieves the group's profile information
   rpc GetGroupProfile(GetGroupProfileRequest) returns (GetGroupProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupProfile"
@@ -1033,16 +1036,15 @@ service TeamsAPI {
     };
   }
 
-  // 更新组织信息
+  // UpdateGroupProfile updates the group's profile information
   rpc UpdateGroupProfile(UpdateGroupProfileRequest) returns (UpdateGroupProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateGroupProfile"
       body : "*"
     };
   }
-  
 
-  // 删除组织
+  // DeleteGroup removes a group
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteGroup"
@@ -1050,25 +1052,23 @@ service TeamsAPI {
     };
   }
 
-  // 获取组织成员
-  rpc FetchGroupMembers(FetchGroupMembersRequest)
-      returns (FetchGroupMembersResponse) {
+  // FetchGroupMembers retrieves the list of members in a group
+  rpc FetchGroupMembers(FetchGroupMembersRequest) returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupMembers"
       body : "*"
     };
   }
 
-  // 获取组织项目
-  rpc FetchGroupProjects(FetchGroupProjectsRequest)
-      returns (FetchGroupProjectsResponse) {
+  // FetchGroupProjects retrieves the list of projects in a group
+  rpc FetchGroupProjects(FetchGroupProjectsRequest) returns (FetchGroupProjectsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupProjects"
       body : "*"
     };
   }
 
-  // 加入组织
+  // JoinGroup adds a user to a group
   rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/JoinGroup"
@@ -1076,7 +1076,7 @@ service TeamsAPI {
     };
   }
 
-  // 离开组织
+  // LeaveGroup removes a user from a group
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LeaveGroup"
@@ -1084,7 +1084,7 @@ service TeamsAPI {
     };
   }
 
-  // 获取项目信息
+  // GetProjectInfo retrieves information about a specific project
   rpc GetProjectInfo(GetProjectRequest) returns (GetProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectInfo"
@@ -1092,14 +1092,15 @@ service TeamsAPI {
     };
   }
 
-  // 获取项目列表
+  // GetProjectList retrieves a list of projects
   rpc GetProjectList(GetProjectListRequest) returns (GetProjectListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectList"
       body : "*"
     };
   }
-  // 创建项目
+
+  // CreateProject creates a new project
   rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateProject"
@@ -1107,7 +1108,7 @@ service TeamsAPI {
     };
   }
 
-  // 获取项目成员
+  // GetProjectMembers retrieves the list of members in a project
   rpc GetProjectMembers(GetProjectMembersRequest) returns (GetProjectMembersResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectMembers"
@@ -1115,38 +1116,39 @@ service TeamsAPI {
     };
   }
 
-  // 更新项目
+  // UpdateProject updates project information
   rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateProject"
       body : "*"
     };
   }
-  // 删除项目
+
+  // DeleteProject removes a project
   rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteProject"
       body : "*"
     };
   }
-  // 获取项目信息
-  rpc GetProjectProfile(GetProjectProfileRequest)
-      returns (GetProjectProfileResponse) {
+
+  // GetProjectProfile retrieves the project's profile information
+  rpc GetProjectProfile(GetProjectProfileRequest) returns (GetProjectProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectProfile"
       body : "*"
     };
   }
-  // 更新项目信息
-  rpc UpdateProjectProfile(UpdateProjectProfileRequest)
-      returns (UpdateProjectProfileResponse) {
+
+  // UpdateProjectProfile updates the project's profile information
+  rpc UpdateProjectProfile(UpdateProjectProfileRequest) returns (UpdateProjectProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateProjectProfile"
       body : "*"
     };
   }
 
-  // 关注项目
+  // WatchProject adds a user as a watcher to a project
   rpc WatchProject(WatchProjectRequest) returns (WatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/WatchProject"
@@ -1154,7 +1156,7 @@ service TeamsAPI {
     };
   }
 
-  // 取消关注项目
+  // UnWatchProject removes a user as a watcher from a project
   rpc UnWatchProject(UnWatchProjectRequest) returns (UnWatchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnWatchProject"
@@ -1162,7 +1164,7 @@ service TeamsAPI {
     };
   }
 
-  // 获取项目关注者
+  // GetProjectWatcher retrieves the list of watchers for a project
   rpc GetProjectWatcher(GetProjectWatcherRequest) returns (GetProjectWatcherResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectWatcher"
@@ -1170,7 +1172,7 @@ service TeamsAPI {
     };
   }
 
-  // 搜索组织项目
+  // SearchGroupProject searches for projects within a group
   rpc SearchGroupProject(SearchProjectRequest) returns (SearchProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroupProject"
@@ -1178,16 +1180,15 @@ service TeamsAPI {
     };
   }
 
-  // 搜索项目
-  rpc SearchProject(SearchAllProjectRequest)
-      returns (SearchAllProjectResponse) {
+  // SearchProject searches for projects across all accessible groups
+  rpc SearchProject(SearchAllProjectRequest) returns (SearchAllProjectResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchProject"
       body : "*"
     };
   }
 
-  // 探索项目
+  // ExploreProject returns trending and recommended projects
   rpc ExploreProject(ExploreProjectsRequest) returns (ExploreProjectsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ExploreProject"
@@ -1195,15 +1196,15 @@ service TeamsAPI {
     };
   }
 
-  // 获取项目内容
-  rpc GetProjectItems(GetProjectItemsRequest)
-      returns (GetProjectItemsResponse) {
+  // GetProjectItems retrieves items within a project
+  rpc GetProjectItems(GetProjectItemsRequest) returns (GetProjectItemsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetProjectItems"
       body : "*"
     };
   }
-  // 获取组织内容
+
+  // GetGroupItems retrieves items within a group
   rpc GetGroupItems(GetGroupItemsRequest) returns (GetGroupItemsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupItems"
@@ -1211,7 +1212,7 @@ service TeamsAPI {
     };
   }
 
-  // 获取用户内容
+  // GetUserItems retrieves items created by a user
   rpc GetUserItems(GetUserItemsRequest) returns (GetUserItemsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserItems"
@@ -2035,7 +2036,47 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 更新角色的提示词
+  rpc UpdateStoryRolePrompt(UpdateStoryRolePromptRequest) returns (UpdateStoryRolePromptResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryRolePrompt"
+      body : "*"
+    };
+  }
+
+  // 更新角色的描述
+  rpc UpdateStoryRoleDescription(UpdateStoryRoleDescriptionRequest) returns (UpdateStoryRoleDescriptionResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryRoleDescription"
+      body : "*"
+    };
+  }
 }
+
+
+message UpdateStoryRolePromptRequest {
+  int64 story_id = 1;
+  int64 role_id = 2;
+  string prompt = 3;
+}
+
+message UpdateStoryRolePromptResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message UpdateStoryRoleDescriptionRequest {
+  int64 story_id = 1;
+  int64 role_id = 2;
+  CharacterDetail character_detail = 3;
+}
+
+message UpdateStoryRoleDescriptionResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
 
 message GenerateStoryRoleParams{
   string origin_image_url = 1;

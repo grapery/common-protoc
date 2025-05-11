@@ -79,312 +79,342 @@ enum StoryBoardGeneratingStage{
   STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED = 403;
 }
 
+// Story 表示一个完整的故事实体
 message Story{
-  int64 id = 1;
-  int64 group_id = 2;
-  string name = 3;
-  string avatar = 4;
-  int64 creator_id = 5;
-  int64 owner_id = 6;
-  repeated Tags tags = 7;
-  ScopeType visable = 8;
-  bool is_achieve = 9;
-  bool is_close = 10;
-  bool is_ai_gen = 11;
-  string origin = 12;
-  int64 root_board_id = 13;
-  string desc = 14;
-  StoryParams params = 15;
-  int32 status = 16;
-  string title = 17;
-  bool isliked = 19;
-  bool iswatched = 20;
-  WhatCurrentUserStatus current_user_status = 21;
+  int64 id = 1;                    // 故事唯一标识符
+  int64 group_id = 2;              // 所属组织ID
+  string name = 3;                 // 故事名称
+  string avatar = 4;               // 故事头像
+  int64 creator_id = 5;            // 创建者ID
+  int64 owner_id = 6;              // 所有者ID
+  repeated Tags tags = 7;          // 故事标签列表
+  ScopeType visable = 8;           // 可见范围
+  bool is_achieve = 9;             // 是否已归档
+  bool is_close = 10;              // 是否已关闭
+  bool is_ai_gen = 11;             // 是否由AI生成
+  string origin = 12;              // 故事来源
+  int64 root_board_id = 13;        // 根故事板ID
+  string desc = 14;                // 故事描述
+  StoryParams params = 15;         // 故事参数
+  int32 status = 16;               // 故事状态
+  string title = 17;               // 故事标题
+  bool isliked = 19;               // 当前用户是否点赞
+  bool iswatched = 20;             // 当前用户是否关注
+  WhatCurrentUserStatus current_user_status = 21;  // 当前用户状态
 
-  int64 like_count = 22;
-  int64 comment_count = 23;
-  int64 share_count = 24;
-  int64 follow_count = 25;
-  int64 total_boards = 26;
-  int64 total_roles = 27;
-  int64 total_members = 28;
+  int64 like_count = 22;           // 点赞数
+  int64 comment_count = 23;        // 评论数
+  int64 share_count = 24;          // 分享数
+  int64 follow_count = 25;         // 关注数
+  int64 total_boards = 26;         // 故事板总数
+  int64 total_roles = 27;          // 角色总数
+  int64 total_members = 28;        // 成员总数
   
-  int64 Ctime = 29;
-  int64 Mtime = 30;
+  int64 Ctime = 29;                // 创建时间
+  int64 Mtime = 30;                // 修改时间
 }
 
+// StoryParams 包含故事生成和渲染的相关参数
 message StoryParams{
-    string story_description = 1;
-    string ref_image = 2;
-    string negative_prompt = 3;
-    string prompt = 4;
-    string comic_layout_style = 5;
-    string comic_style = 6;
-    string background = 7;
-    string style_ref_image = 8;
-    string subject = 9;
+    string story_description = 1;   // 故事描述
+    string ref_image = 2;          // 参考图片
+    string negative_prompt = 3;     // 负面提示词
+    string prompt = 4;             // 提示词
+    string comic_layout_style = 5;  // 漫画布局风格
+    string comic_style = 6;        // 漫画风格
+    string background = 7;         // 背景
+    string style_ref_image = 8;    // 风格参考图片
+    string subject = 9;            // 主题
 }
 
+// StoryBoard 表示故事中的一个场景或章节
 message StoryBoard{
-    int64 story_id = 1;
-    int64 num = 2;
-    int64 prev_board_id = 3;
-    repeated int64 next_board_id = 4;
-    int64 creator = 5;
-    int64 story_board_id = 6;
-    string title = 8;
-    string content = 9;
-    bool is_ai_gen = 11;
-    repeated StoryRole roles = 12;
-    string backgroud = 13;
-    StoryBoardParams params = 15;
-    StoryBoardSences sences = 16;
-    bool is_multi_branch = 17;  
-    StoryboardStage stage = 18;
-    int64 Ctime = 19;
-    int64 Mtime = 20;
-    WhatCurrentUserStatus current_user_status = 21;
+    int64 story_id = 1;            // 所属故事ID
+    int64 num = 2;                 // 序号
+    int64 prev_board_id = 3;       // 前一个故事板ID
+    repeated int64 next_board_id = 4;  // 下一个故事板ID列表
+    int64 creator = 5;             // 创建者ID
+    int64 story_board_id = 6;      // 故事板ID
+    string title = 8;              // 标题
+    string content = 9;            // 内容
+    bool is_ai_gen = 11;           // 是否由AI生成
+    repeated StoryRole roles = 12;  // 相关角色列表
+    string backgroud = 13;         // 背景
+    StoryBoardParams params = 15;   // 故事板参数
+    StoryBoardSences sences = 16;   // 场景列表
+    bool is_multi_branch = 17;     // 是否多分支
+    StoryboardStage stage = 18;    // 故事板阶段
+    int64 Ctime = 19;              // 创建时间
+    int64 Mtime = 20;              // 修改时间
+    WhatCurrentUserStatus current_user_status = 21;  // 当前用户状态
 }
 
+// StoryBoardSences 包含故事板中的所有场景
 message StoryBoardSences{
-    int64 total = 1;
-    repeated StoryBoardSence list = 2;
+    int64 total = 1;               // 场景总数
+    repeated StoryBoardSence list = 2;  // 场景列表
 }
 
-// CharacterDetail represents detailed information about a character
+// CharacterDetail represents detailed information about a character in a story
 message CharacterDetail {
-  // 角色描述
+  // Description of the character's overall appearance and basic traits
   string description = 1;
-  // 角色短期目标
+  
+  // Character's immediate objectives and goals in the current story arc
   string short_term_goal = 2;
-  // 角色长期目标
+  
+  // Character's overarching ambitions and long-term aspirations
   string long_term_goal = 3;
-  // 角色性格
+  
+  // Character's personality traits, temperament, and behavioral patterns
   string personality = 4;
-  // 角色背景
+  
+  // Character's history, origin story, and formative experiences
   string background = 5;
-  // 处事风格
+  
+  // Character's approach to handling situations and solving problems
   string handling_style = 6;
-  // 认知范围
+  
+  // Character's knowledge, understanding, and awareness of their world
   string cognition_range = 7;
-  // 能力特点
+  
+  // Character's special skills, talents, and unique capabilities
   string ability_features = 8;
-  // 外貌特征
+  
+  // Character's physical appearance and distinguishing features
   string appearance = 9;
-  // 穿着喜好
+  
+  // Character's clothing preferences and style choices
   string dress_preference = 10;
 }
 
+// StoryRole 表示故事中的角色
 message StoryRole{
-    int64 role_id = 1;
-    int64 story_id = 2;
-    string character_description = 5;
-    string character_name = 6;
-    string character_avatar = 7;
-    string character_id = 8;
-    string character_type = 9;
-    string character_prompt = 10;
-    CharacterDetail character_detail = 11;
-    repeated string character_ref_images = 12;
-    int64 creator_id = 13;
-    int32 status = 14;
-    int64 like_count = 15;
-    int64 follow_count = 16;
-    int64 storyboard_num = 17;
-    int64 version = 18;
-    bool isliked = 19;
-    bool isfolllowed = 20;
-    int64 Ctime = 21;
-    int64 Mtime = 22;  
-    WhatCurrentUserStatus current_user_status = 23;
-    UserInfo creator = 24;
-    string poster_image_url = 25;
+    int64 role_id = 1;             // 角色ID
+    int64 story_id = 2;            // 所属故事ID
+    string character_description = 5;  // 角色描述
+    string character_name = 6;     // 角色名称
+    string character_avatar = 7;   // 角色头像
+    string character_id = 8;       // 角色标识符
+    string character_type = 9;     // 角色类型
+    string character_prompt = 10;  // 角色提示词
+    CharacterDetail character_detail = 11;  // 角色详细信息
+    repeated string character_ref_images = 12;  // 角色参考图片
+    int64 creator_id = 13;         // 创建者ID
+    int32 status = 14;             // 状态
+    int64 like_count = 15;         // 点赞数
+    int64 follow_count = 16;       // 关注数
+    int64 storyboard_num = 17;     // 故事板数量
+    int64 version = 18;            // 版本号
+    bool isliked = 19;             // 当前用户是否点赞
+    bool isfolllowed = 20;         // 当前用户是否关注
+    int64 Ctime = 21;              // 创建时间
+    int64 Mtime = 22;              // 修改时间
+    WhatCurrentUserStatus current_user_status = 23;  // 当前用户状态
+    UserInfo creator = 24;         // 创建者信息
+    string poster_image_url = 25;  // 海报图片URL
 }
 
+// StoryBoardParams 包含故事板渲染的相关参数
 message StoryBoardParams{
-    int64 board_id = 1;
-    string StoryDescription = 2;
-    int32 NumIds = 3;
-    int32 NumSteps = 4;
-    string SdModel = 5;
-    string RefImage = 6;
-    string ComicLayoutStyle = 7;
-    string ComicStyle = 8;
-    string NegativePrompt = 9;
-    int32 OutputQuality = 10;
-    float GuidanceScale = 11;
-    int32 OutputFormat = 13;
-    int32 ImageWidth = 14;
-    int32 ImageHeight = 15;
-    int32 Self32AttentionLayers = 16;
-    int32 Self64AttentionLayers = 17;
-    int32 Self128AttentionLayers = 18;
+    int64 board_id = 1;            // 故事板ID
+    string StoryDescription = 2;    // 故事描述
+    int32 NumIds = 3;              // ID数量
+    int32 NumSteps = 4;            // 步骤数
+    string SdModel = 5;            // 模型名称
+    string RefImage = 6;           // 参考图片
+    string ComicLayoutStyle = 7;   // 漫画布局风格
+    string ComicStyle = 8;         // 漫画风格
+    string NegativePrompt = 9;     // 负面提示词
+    int32 OutputQuality = 10;      // 输出质量
+    float GuidanceScale = 11;      // 引导比例
+    int32 OutputFormat = 13;       // 输出格式
+    int32 ImageWidth = 14;         // 图片宽度
+    int32 ImageHeight = 15;        // 图片高度
+    int32 Self32AttentionLayers = 16;  // 32层自注意力
+    int32 Self64AttentionLayers = 17;  // 64层自注意力
+    int32 Self128AttentionLayers = 18; // 128层自注意力
 }
 
+// TimeLine 表示时间线信息
 message TimeLine {
-  int64 root_id = 1;
-  int64 group_id = 2;
-  int64 project_id = 3;
-  int64 creator_id = 4;
-  string title = 5;
-  int64 item_id = 6;
-  int64 Ctime = 9;
-  int64 Mtime = 10;
+  int64 root_id = 1;               // 根ID
+  int64 group_id = 2;              // 组织ID
+  int64 project_id = 3;            // 项目ID
+  int64 creator_id = 4;            // 创建者ID
+  string title = 5;                // 标题
+  int64 item_id = 6;               // 项目ID
+  int64 Ctime = 9;                 // 创建时间
+  int64 Mtime = 10;                // 修改时间
 }
 
+// CreateStoryRequest 创建故事的请求参数
 message CreateStoryRequest {
-    string name = 1;
-    string title = 2;
-    string short_desc = 3;
-    int64 creator_id = 4;
-    int64 owner_id = 5;
-    int64 group_id = 6;
-    string origin = 7;
-    int32 status = 8;
-    bool is_achieve = 9;
-    bool is_close = 10;
-    bool is_ai_gen = 11;
-    StoryParams params = 12;
-    repeated StoryRole roles = 13;
-  }
-  
-  message CreateStoryResponse {
-    int32 code = 1;
-    string message = 2;
+    string name = 1;                // 故事名称
+    string title = 2;               // 故事标题
+    string short_desc = 3;          // 简短描述
+    int64 creator_id = 4;           // 创建者ID
+    int64 owner_id = 5;             // 所有者ID
+    int64 group_id = 6;             // 组织ID
+    string origin = 7;              // 来源
+    int32 status = 8;               // 状态
+    bool is_achieve = 9;            // 是否归档
+    bool is_close = 10;             // 是否关闭
+    bool is_ai_gen = 11;            // 是否AI生成
+    StoryParams params = 12;        // 故事参数
+    repeated StoryRole roles = 13;   // 角色列表
+}
+
+// CreateStoryResponse 创建故事的响应结果
+message CreateStoryResponse {
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
     message Data {
-      int32 story_id = 1;
-      int32 board_id = 2;
+        int32 story_id = 1;         // 故事ID
+        int32 board_id = 2;         // 故事板ID
     }Data data = 3;
-  }
-  
-  message UpdateStoryRequest {
-    string short_desc = 1;
-    string origin = 2;
-    int32 status = 3;
-    bool is_achieve = 4;
-    bool is_close = 5;
-    bool is_ai_gen = 6;
-    StoryParams params = 7;
-    int64 story_id = 8;
-    repeated StoryRole roles = 10;
-  }
-  
-  message UpdateStoryResponse {
-    int32 code = 1;
-    string message = 2;
+}
+
+// UpdateStoryRequest 更新故事的请求参数
+message UpdateStoryRequest {
+    string short_desc = 1;          // 简短描述
+    string origin = 2;              // 来源
+    int32 status = 3;               // 状态
+    bool is_achieve = 4;            // 是否归档
+    bool is_close = 5;              // 是否关闭
+    bool is_ai_gen = 6;             // 是否AI生成
+    StoryParams params = 7;         // 故事参数
+    int64 story_id = 8;             // 故事ID
+    repeated StoryRole roles = 10;   // 角色列表
+}
+
+// UpdateStoryResponse 更新故事的响应结果
+message UpdateStoryResponse {
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
     message Data {
-      int32 story_id = 1;
+        int32 story_id = 1;         // 故事ID
     }Data data = 3;
-  }
-  
-  message GetStoryInfoRequest {
-    int64 story_id = 1;
-  }
-  
-  message GetStoryInfoResponse {
-    int32 code = 1;
-    string message = 2;
+}
+
+// GetStoryInfoRequest 获取故事信息的请求参数
+message GetStoryInfoRequest {
+    int64 story_id = 1;             // 故事ID
+}
+
+// GetStoryInfoResponse 获取故事信息的响应结果
+message GetStoryInfoResponse {
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
     message Data {
-      Story info = 1;
-      UserInfo creator = 2;
+        Story info = 1;             // 故事信息
+        UserInfo creator = 2;        // 创建者信息
     }Data data = 4;
-  }
-  
-  message CreateStoryboardRequest {
-    StoryBoard board = 1;
-  }
-  
-  message CreateStoryboardResponse {
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      int64 board_id = 1;
-    }Data data = 3;
-  }
-  
-  message GetStoryboardRequest {
-    int64 board_id = 1;
-    int64 user_id = 2;
-  }
-  
-  message GetStoryboardResponse {
-    int32 code = 1;
-    string message = 2;
-    message Data {
-      StoryBoardActive board_info = 1;
-      UserInfo creator = 2;
-    }Data data = 3;
-  }
-  
-  message GetStoryboardsRequest{
-    int64 story_id = 1;
-    int64 timeline_id = 2;
-    int64 start_time = 4;
-    int64 end_time = 5;
-    int64 user_id = 6;
-    bool is_multi_branch = 7;
-    int32 page = 8;
-    int32 page_size = 9;
-    MultiBranchOrderBy order_by = 10;
-  }
+}
 
+// CreateStoryboardRequest 创建故事板的请求参数
+message CreateStoryboardRequest {
+    StoryBoard board = 1;           // 故事板信息
+}
 
+// CreateStoryboardResponse 创建故事板的响应结果
+message CreateStoryboardResponse {
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
+    message Data {
+        int64 board_id = 1;         // 故事板ID
+    }Data data = 3;
+}
+
+// GetStoryboardRequest 获取故事板的请求参数
+message GetStoryboardRequest {
+    int64 board_id = 1;             // 故事板ID
+    int64 user_id = 2;              // 用户ID
+}
+
+// GetStoryboardResponse 获取故事板的响应结果
+message GetStoryboardResponse {
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
+    message Data {
+        StoryBoardActive board_info = 1;  // 故事板活动信息
+        UserInfo creator = 2;        // 创建者信息
+    }Data data = 3;
+}
+
+// GetStoryboardsRequest 获取故事板列表的请求参数
+message GetStoryboardsRequest{
+    int64 story_id = 1;             // 故事ID
+    int64 timeline_id = 2;          // 时间线ID
+    int64 start_time = 4;           // 开始时间
+    int64 end_time = 5;             // 结束时间
+    int64 user_id = 6;              // 用户ID
+    bool is_multi_branch = 7;       // 是否多分支
+    int32 page = 8;                 // 页码
+    int32 page_size = 9;            // 每页大小
+    MultiBranchOrderBy order_by = 10;  // 排序方式
+}
+
+// StoryBoardActiveRole 故事板活动中的角色信息
 message StoryBoardActiveRole {
-  int64 role_id = 1;
-  string role_name = 2;
-  string role_avatar = 3;
+    int64 role_id = 1;              // 角色ID
+    string role_name = 2;           // 角色名称
+    string role_avatar = 3;         // 角色头像
 }
 
+// StoryBoardActiveUser 故事板活动中的用户信息
 message StoryBoardActiveUser {
-  int64 user_id = 1;
-  string user_name = 2;
-  string user_avatar = 3;
+    int64 user_id = 1;              // 用户ID
+    string user_name = 2;           // 用户名称
+    string user_avatar = 3;         // 用户头像
 }
 
-
+// StoryBoardActive 故事板活动信息
 message StoryBoardActive {
-  StoryBoard storyboard = 1;
-  int64 total_like_count = 2;
-  int64 total_comment_count = 3;
-  int64 total_share_count = 4;
-  int64 total_render_count = 5;
-  int64 total_fork_count = 6;
-  repeated StoryBoardActiveUser users = 7;
-  repeated StoryBoardActiveRole roles = 8;
-  StoryBoardActiveUser creator = 9;
-  StorySummaryInfo summary = 10;
-  bool isliked = 11; 
-  int64 mtime = 12;
+    StoryBoard storyboard = 1;      // 故事板信息
+    int64 total_like_count = 2;     // 总点赞数
+    int64 total_comment_count = 3;  // 总评论数
+    int64 total_share_count = 4;    // 总分享数
+    int64 total_render_count = 5;   // 总渲染数
+    int64 total_fork_count = 6;     // 总分叉数
+    repeated StoryBoardActiveUser users = 7;  // 用户列表
+    repeated StoryBoardActiveRole roles = 8;  // 角色列表
+    StoryBoardActiveUser creator = 9;  // 创建者信息
+    StorySummaryInfo summary = 10;  // 摘要信息
+    bool isliked = 11;              // 是否点赞
+    int64 mtime = 12;               // 修改时间
 }
 
+// StorySummaryInfo 故事摘要信息
 message StorySummaryInfo{
-  int64 story_id = 1;
-  string story_title = 2;
-  string story_avatar = 3;
-  string story_description = 4;
-  string story_cover = 5;
-  string story_tags = 6;
-  int64 create_time = 7;
-  int64 create_user_id = 8;
-  int64 total_board_count = 9;
-  int64 total_like_count = 10;
-  int64 total_comment_count = 11;
-  int64 total_share_count = 12;
-  int64 total_render_count = 13;
-  int64 total_fork_count = 14;
-  int64 total_view_count = 15;
+    int64 story_id = 1;             // 故事ID
+    string story_title = 2;         // 故事标题
+    string story_avatar = 3;        // 故事头像
+    string story_description = 4;   // 故事描述
+    string story_cover = 5;         // 故事封面
+    string story_tags = 6;          // 故事标签
+    int64 create_time = 7;          // 创建时间
+    int64 create_user_id = 8;       // 创建用户ID
+    int64 total_board_count = 9;    // 故事板总数
+    int64 total_like_count = 10;    // 点赞总数
+    int64 total_comment_count = 11; // 评论总数
+    int64 total_share_count = 12;   // 分享总数
+    int64 total_render_count = 13;  // 渲染总数
+    int64 total_fork_count = 14;    // 分叉总数
+    int64 total_view_count = 15;    // 查看总数
 }
 
+// GetStoryboardsResponse 获取故事板列表的响应结果
 message GetStoryboardsResponse {
-  int32 code = 1;
-  string message = 2;
-  message Data {
-    repeated StoryBoardActive list = 1;
-    bool is_multi_branch = 4;
-    int64 total = 5;
-    int64 offset = 6;
-    int64 page_size = 7;
-  }Data data = 3;
+    int32 code = 1;                 // 响应码
+    string message = 2;             // 响应消息
+    message Data {
+        repeated StoryBoardActive list = 1;  // 故事板活动列表
+        bool is_multi_branch = 4;    // 是否多分支
+        int64 total = 5;             // 总数
+        int64 offset = 6;            // 偏移量
+        int64 page_size = 7;         // 每页大小
+    }Data data = 3;
 }
 
 message DelStoryboardRequest {
@@ -897,7 +927,3 @@ message GetStoryBoardGenerateResponse{
   int32 generating_stage = 3;
   repeated StoryBoardSence list = 4;
 }
-
-
-
-  
