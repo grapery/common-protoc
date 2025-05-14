@@ -503,11 +503,11 @@ public struct Common_StoryParams: Sendable {
   /// 提示词
   public var prompt: String = String()
 
-  /// 漫画布局风格
-  public var comicLayoutStyle: String = String()
+  /// 布局风格
+  public var layoutStyle: String = String()
 
-  /// 漫画风格
-  public var comicStyle: String = String()
+  /// 风格
+  public var style: String = String()
 
   /// 背景
   public var background: String = String()
@@ -517,6 +517,9 @@ public struct Common_StoryParams: Sendable {
 
   /// 主题
   public var subject: String = String()
+
+  /// 场景数量
+  public var sceneCount: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -878,118 +881,59 @@ public struct Common_StoryRole: @unchecked Sendable {
 }
 
 /// StoryBoardParams 包含故事板渲染的相关参数
-public struct Common_StoryBoardParams: @unchecked Sendable {
+public struct Common_StoryBoardParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// 故事板ID
-  public var boardID: Int64 {
-    get {return _storage._boardID}
-    set {_uniqueStorage()._boardID = newValue}
-  }
+  public var boardID: Int64 = 0
 
   /// 故事描述
-  public var storyDescription: String {
-    get {return _storage._storyDescription}
-    set {_uniqueStorage()._storyDescription = newValue}
-  }
+  public var storyDescription: String = String()
 
   /// ID数量
-  public var numIds: Int32 {
-    get {return _storage._numIds}
-    set {_uniqueStorage()._numIds = newValue}
-  }
+  public var numIds: Int32 = 0
 
   /// 步骤数
-  public var numSteps: Int32 {
-    get {return _storage._numSteps}
-    set {_uniqueStorage()._numSteps = newValue}
-  }
+  public var numSteps: Int32 = 0
 
   /// 模型名称
-  public var sdModel: String {
-    get {return _storage._sdModel}
-    set {_uniqueStorage()._sdModel = newValue}
-  }
+  public var sdModel: String = String()
 
   /// 参考图片
-  public var refImage: String {
-    get {return _storage._refImage}
-    set {_uniqueStorage()._refImage = newValue}
-  }
+  public var refImage: String = String()
 
-  /// 漫画布局风格
-  public var comicLayoutStyle: String {
-    get {return _storage._comicLayoutStyle}
-    set {_uniqueStorage()._comicLayoutStyle = newValue}
-  }
+  /// 布局风格
+  public var layoutStyle: String = String()
 
-  /// 漫画风格
-  public var comicStyle: String {
-    get {return _storage._comicStyle}
-    set {_uniqueStorage()._comicStyle = newValue}
-  }
+  /// 风格
+  public var style: String = String()
 
   /// 负面提示词
-  public var negativePrompt: String {
-    get {return _storage._negativePrompt}
-    set {_uniqueStorage()._negativePrompt = newValue}
-  }
+  public var negativePrompt: String = String()
 
   /// 输出质量
-  public var outputQuality: Int32 {
-    get {return _storage._outputQuality}
-    set {_uniqueStorage()._outputQuality = newValue}
-  }
+  public var outputQuality: Int32 = 0
 
   /// 引导比例
-  public var guidanceScale: Float {
-    get {return _storage._guidanceScale}
-    set {_uniqueStorage()._guidanceScale = newValue}
-  }
+  public var guidanceScale: Float = 0
 
   /// 输出格式
-  public var outputFormat: Int32 {
-    get {return _storage._outputFormat}
-    set {_uniqueStorage()._outputFormat = newValue}
-  }
+  public var outputFormat: Int32 = 0
 
   /// 图片宽度
-  public var imageWidth: Int32 {
-    get {return _storage._imageWidth}
-    set {_uniqueStorage()._imageWidth = newValue}
-  }
+  public var imageWidth: Int32 = 0
 
   /// 图片高度
-  public var imageHeight: Int32 {
-    get {return _storage._imageHeight}
-    set {_uniqueStorage()._imageHeight = newValue}
-  }
+  public var imageHeight: Int32 = 0
 
-  /// 32层自注意力
-  public var self32AttentionLayers: Int32 {
-    get {return _storage._self32AttentionLayers}
-    set {_uniqueStorage()._self32AttentionLayers = newValue}
-  }
-
-  /// 64层自注意力
-  public var self64AttentionLayers: Int32 {
-    get {return _storage._self64AttentionLayers}
-    set {_uniqueStorage()._self64AttentionLayers = newValue}
-  }
-
-  /// 128层自注意力
-  public var self128AttentionLayers: Int32 {
-    get {return _storage._self128AttentionLayers}
-    set {_uniqueStorage()._self128AttentionLayers = newValue}
-  }
+  /// 场景数量
+  public var sceneCount: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// TimeLine 表示时间线信息
@@ -999,22 +943,19 @@ public struct Common_TimeLine: Sendable {
   // methods supported on all messages.
 
   /// 根ID
-  public var rootID: Int64 = 0
+  public var rootBoardID: Int64 = 0
 
   /// 组织ID
   public var groupID: Int64 = 0
 
-  /// 项目ID
-  public var projectID: Int64 = 0
+  /// 故事ID
+  public var storyID: Int64 = 0
 
   /// 创建者ID
   public var creatorID: Int64 = 0
 
   /// 标题
   public var title: String = String()
-
-  /// 项目ID
-  public var itemID: Int64 = 0
 
   /// 创建时间
   public var ctime: Int64 = 0
@@ -1879,31 +1820,40 @@ public struct Common_ForkStoryboardResponse: Sendable {
   fileprivate var _data: Common_ForkStoryboardResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateStoryboardRequest: Sendable {
+public struct Common_UpdateStoryboardRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var boardID: Int64 = 0
+  public var boardID: Int64 {
+    get {return _storage._boardID}
+    set {_uniqueStorage()._boardID = newValue}
+  }
 
-  public var storyID: Int64 = 0
+  public var storyID: Int64 {
+    get {return _storage._storyID}
+    set {_uniqueStorage()._storyID = newValue}
+  }
 
-  public var userID: Int64 = 0
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
 
   public var params: Common_StoryBoardParams {
-    get {return _params ?? Common_StoryBoardParams()}
-    set {_params = newValue}
+    get {return _storage._params ?? Common_StoryBoardParams()}
+    set {_uniqueStorage()._params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  public var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return _storage._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  public mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {_uniqueStorage()._params = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _params: Common_StoryBoardParams? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Common_UpdateStoryboardResponse: Sendable {
@@ -3838,11 +3788,12 @@ extension Common_StoryParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     2: .standard(proto: "ref_image"),
     3: .standard(proto: "negative_prompt"),
     4: .same(proto: "prompt"),
-    5: .standard(proto: "comic_layout_style"),
-    6: .standard(proto: "comic_style"),
+    5: .standard(proto: "layout_style"),
+    6: .same(proto: "style"),
     7: .same(proto: "background"),
     8: .standard(proto: "style_ref_image"),
     9: .same(proto: "subject"),
+    10: .standard(proto: "scene_count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3855,11 +3806,12 @@ extension Common_StoryParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       case 2: try { try decoder.decodeSingularStringField(value: &self.refImage) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.negativePrompt) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.comicLayoutStyle) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.comicStyle) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.layoutStyle) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.style) }()
       case 7: try { try decoder.decodeSingularStringField(value: &self.background) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.styleRefImage) }()
       case 9: try { try decoder.decodeSingularStringField(value: &self.subject) }()
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self.sceneCount) }()
       default: break
       }
     }
@@ -3878,11 +3830,11 @@ extension Common_StoryParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if !self.prompt.isEmpty {
       try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 4)
     }
-    if !self.comicLayoutStyle.isEmpty {
-      try visitor.visitSingularStringField(value: self.comicLayoutStyle, fieldNumber: 5)
+    if !self.layoutStyle.isEmpty {
+      try visitor.visitSingularStringField(value: self.layoutStyle, fieldNumber: 5)
     }
-    if !self.comicStyle.isEmpty {
-      try visitor.visitSingularStringField(value: self.comicStyle, fieldNumber: 6)
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 6)
     }
     if !self.background.isEmpty {
       try visitor.visitSingularStringField(value: self.background, fieldNumber: 7)
@@ -3893,6 +3845,9 @@ extension Common_StoryParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if !self.subject.isEmpty {
       try visitor.visitSingularStringField(value: self.subject, fieldNumber: 9)
     }
+    if self.sceneCount != 0 {
+      try visitor.visitSingularInt32Field(value: self.sceneCount, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3901,11 +3856,12 @@ extension Common_StoryParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     if lhs.refImage != rhs.refImage {return false}
     if lhs.negativePrompt != rhs.negativePrompt {return false}
     if lhs.prompt != rhs.prompt {return false}
-    if lhs.comicLayoutStyle != rhs.comicLayoutStyle {return false}
-    if lhs.comicStyle != rhs.comicStyle {return false}
+    if lhs.layoutStyle != rhs.layoutStyle {return false}
+    if lhs.style != rhs.style {return false}
     if lhs.background != rhs.background {return false}
     if lhs.styleRefImage != rhs.styleRefImage {return false}
     if lhs.subject != rhs.subject {return false}
+    if lhs.sceneCount != rhs.sceneCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4508,208 +4464,15 @@ extension Common_StoryBoardParams: SwiftProtobuf.Message, SwiftProtobuf._Message
     4: .same(proto: "NumSteps"),
     5: .same(proto: "SdModel"),
     6: .same(proto: "RefImage"),
-    7: .same(proto: "ComicLayoutStyle"),
-    8: .same(proto: "ComicStyle"),
+    7: .same(proto: "LayoutStyle"),
+    8: .same(proto: "Style"),
     9: .same(proto: "NegativePrompt"),
     10: .same(proto: "OutputQuality"),
     11: .same(proto: "GuidanceScale"),
     13: .same(proto: "OutputFormat"),
     14: .same(proto: "ImageWidth"),
     15: .same(proto: "ImageHeight"),
-    16: .same(proto: "Self32AttentionLayers"),
-    17: .same(proto: "Self64AttentionLayers"),
-    18: .same(proto: "Self128AttentionLayers"),
-  ]
-
-  fileprivate class _StorageClass {
-    var _boardID: Int64 = 0
-    var _storyDescription: String = String()
-    var _numIds: Int32 = 0
-    var _numSteps: Int32 = 0
-    var _sdModel: String = String()
-    var _refImage: String = String()
-    var _comicLayoutStyle: String = String()
-    var _comicStyle: String = String()
-    var _negativePrompt: String = String()
-    var _outputQuality: Int32 = 0
-    var _guidanceScale: Float = 0
-    var _outputFormat: Int32 = 0
-    var _imageWidth: Int32 = 0
-    var _imageHeight: Int32 = 0
-    var _self32AttentionLayers: Int32 = 0
-    var _self64AttentionLayers: Int32 = 0
-    var _self128AttentionLayers: Int32 = 0
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _boardID = source._boardID
-      _storyDescription = source._storyDescription
-      _numIds = source._numIds
-      _numSteps = source._numSteps
-      _sdModel = source._sdModel
-      _refImage = source._refImage
-      _comicLayoutStyle = source._comicLayoutStyle
-      _comicStyle = source._comicStyle
-      _negativePrompt = source._negativePrompt
-      _outputQuality = source._outputQuality
-      _guidanceScale = source._guidanceScale
-      _outputFormat = source._outputFormat
-      _imageWidth = source._imageWidth
-      _imageHeight = source._imageHeight
-      _self32AttentionLayers = source._self32AttentionLayers
-      _self64AttentionLayers = source._self64AttentionLayers
-      _self128AttentionLayers = source._self128AttentionLayers
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._boardID) }()
-        case 2: try { try decoder.decodeSingularStringField(value: &_storage._storyDescription) }()
-        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._numIds) }()
-        case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._numSteps) }()
-        case 5: try { try decoder.decodeSingularStringField(value: &_storage._sdModel) }()
-        case 6: try { try decoder.decodeSingularStringField(value: &_storage._refImage) }()
-        case 7: try { try decoder.decodeSingularStringField(value: &_storage._comicLayoutStyle) }()
-        case 8: try { try decoder.decodeSingularStringField(value: &_storage._comicStyle) }()
-        case 9: try { try decoder.decodeSingularStringField(value: &_storage._negativePrompt) }()
-        case 10: try { try decoder.decodeSingularInt32Field(value: &_storage._outputQuality) }()
-        case 11: try { try decoder.decodeSingularFloatField(value: &_storage._guidanceScale) }()
-        case 13: try { try decoder.decodeSingularInt32Field(value: &_storage._outputFormat) }()
-        case 14: try { try decoder.decodeSingularInt32Field(value: &_storage._imageWidth) }()
-        case 15: try { try decoder.decodeSingularInt32Field(value: &_storage._imageHeight) }()
-        case 16: try { try decoder.decodeSingularInt32Field(value: &_storage._self32AttentionLayers) }()
-        case 17: try { try decoder.decodeSingularInt32Field(value: &_storage._self64AttentionLayers) }()
-        case 18: try { try decoder.decodeSingularInt32Field(value: &_storage._self128AttentionLayers) }()
-        default: break
-        }
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._boardID != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._boardID, fieldNumber: 1)
-      }
-      if !_storage._storyDescription.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._storyDescription, fieldNumber: 2)
-      }
-      if _storage._numIds != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._numIds, fieldNumber: 3)
-      }
-      if _storage._numSteps != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._numSteps, fieldNumber: 4)
-      }
-      if !_storage._sdModel.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._sdModel, fieldNumber: 5)
-      }
-      if !_storage._refImage.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._refImage, fieldNumber: 6)
-      }
-      if !_storage._comicLayoutStyle.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._comicLayoutStyle, fieldNumber: 7)
-      }
-      if !_storage._comicStyle.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._comicStyle, fieldNumber: 8)
-      }
-      if !_storage._negativePrompt.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._negativePrompt, fieldNumber: 9)
-      }
-      if _storage._outputQuality != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._outputQuality, fieldNumber: 10)
-      }
-      if _storage._guidanceScale.bitPattern != 0 {
-        try visitor.visitSingularFloatField(value: _storage._guidanceScale, fieldNumber: 11)
-      }
-      if _storage._outputFormat != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._outputFormat, fieldNumber: 13)
-      }
-      if _storage._imageWidth != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._imageWidth, fieldNumber: 14)
-      }
-      if _storage._imageHeight != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._imageHeight, fieldNumber: 15)
-      }
-      if _storage._self32AttentionLayers != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._self32AttentionLayers, fieldNumber: 16)
-      }
-      if _storage._self64AttentionLayers != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._self64AttentionLayers, fieldNumber: 17)
-      }
-      if _storage._self128AttentionLayers != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._self128AttentionLayers, fieldNumber: 18)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_StoryBoardParams, rhs: Common_StoryBoardParams) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._boardID != rhs_storage._boardID {return false}
-        if _storage._storyDescription != rhs_storage._storyDescription {return false}
-        if _storage._numIds != rhs_storage._numIds {return false}
-        if _storage._numSteps != rhs_storage._numSteps {return false}
-        if _storage._sdModel != rhs_storage._sdModel {return false}
-        if _storage._refImage != rhs_storage._refImage {return false}
-        if _storage._comicLayoutStyle != rhs_storage._comicLayoutStyle {return false}
-        if _storage._comicStyle != rhs_storage._comicStyle {return false}
-        if _storage._negativePrompt != rhs_storage._negativePrompt {return false}
-        if _storage._outputQuality != rhs_storage._outputQuality {return false}
-        if _storage._guidanceScale != rhs_storage._guidanceScale {return false}
-        if _storage._outputFormat != rhs_storage._outputFormat {return false}
-        if _storage._imageWidth != rhs_storage._imageWidth {return false}
-        if _storage._imageHeight != rhs_storage._imageHeight {return false}
-        if _storage._self32AttentionLayers != rhs_storage._self32AttentionLayers {return false}
-        if _storage._self64AttentionLayers != rhs_storage._self64AttentionLayers {return false}
-        if _storage._self128AttentionLayers != rhs_storage._self128AttentionLayers {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_TimeLine: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".TimeLine"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "root_id"),
-    2: .standard(proto: "group_id"),
-    3: .standard(proto: "project_id"),
-    4: .standard(proto: "creator_id"),
-    5: .same(proto: "title"),
-    6: .standard(proto: "item_id"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
+    16: .standard(proto: "scene_count"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4718,28 +4481,135 @@ extension Common_TimeLine: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.rootID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.title) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.itemID) }()
-      case 9: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.storyDescription) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.numIds) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.numSteps) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.sdModel) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.refImage) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.layoutStyle) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.style) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.negativePrompt) }()
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self.outputQuality) }()
+      case 11: try { try decoder.decodeSingularFloatField(value: &self.guidanceScale) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self.outputFormat) }()
+      case 14: try { try decoder.decodeSingularInt32Field(value: &self.imageWidth) }()
+      case 15: try { try decoder.decodeSingularInt32Field(value: &self.imageHeight) }()
+      case 16: try { try decoder.decodeSingularInt32Field(value: &self.sceneCount) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.rootID != 0 {
-      try visitor.visitSingularInt64Field(value: self.rootID, fieldNumber: 1)
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    if !self.storyDescription.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyDescription, fieldNumber: 2)
+    }
+    if self.numIds != 0 {
+      try visitor.visitSingularInt32Field(value: self.numIds, fieldNumber: 3)
+    }
+    if self.numSteps != 0 {
+      try visitor.visitSingularInt32Field(value: self.numSteps, fieldNumber: 4)
+    }
+    if !self.sdModel.isEmpty {
+      try visitor.visitSingularStringField(value: self.sdModel, fieldNumber: 5)
+    }
+    if !self.refImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.refImage, fieldNumber: 6)
+    }
+    if !self.layoutStyle.isEmpty {
+      try visitor.visitSingularStringField(value: self.layoutStyle, fieldNumber: 7)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 8)
+    }
+    if !self.negativePrompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.negativePrompt, fieldNumber: 9)
+    }
+    if self.outputQuality != 0 {
+      try visitor.visitSingularInt32Field(value: self.outputQuality, fieldNumber: 10)
+    }
+    if self.guidanceScale.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.guidanceScale, fieldNumber: 11)
+    }
+    if self.outputFormat != 0 {
+      try visitor.visitSingularInt32Field(value: self.outputFormat, fieldNumber: 13)
+    }
+    if self.imageWidth != 0 {
+      try visitor.visitSingularInt32Field(value: self.imageWidth, fieldNumber: 14)
+    }
+    if self.imageHeight != 0 {
+      try visitor.visitSingularInt32Field(value: self.imageHeight, fieldNumber: 15)
+    }
+    if self.sceneCount != 0 {
+      try visitor.visitSingularInt32Field(value: self.sceneCount, fieldNumber: 16)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryBoardParams, rhs: Common_StoryBoardParams) -> Bool {
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.storyDescription != rhs.storyDescription {return false}
+    if lhs.numIds != rhs.numIds {return false}
+    if lhs.numSteps != rhs.numSteps {return false}
+    if lhs.sdModel != rhs.sdModel {return false}
+    if lhs.refImage != rhs.refImage {return false}
+    if lhs.layoutStyle != rhs.layoutStyle {return false}
+    if lhs.style != rhs.style {return false}
+    if lhs.negativePrompt != rhs.negativePrompt {return false}
+    if lhs.outputQuality != rhs.outputQuality {return false}
+    if lhs.guidanceScale != rhs.guidanceScale {return false}
+    if lhs.outputFormat != rhs.outputFormat {return false}
+    if lhs.imageWidth != rhs.imageWidth {return false}
+    if lhs.imageHeight != rhs.imageHeight {return false}
+    if lhs.sceneCount != rhs.sceneCount {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_TimeLine: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".TimeLine"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "root_board_id"),
+    2: .standard(proto: "group_id"),
+    3: .standard(proto: "story_id"),
+    4: .standard(proto: "creator_id"),
+    5: .same(proto: "title"),
+    6: .same(proto: "Ctime"),
+    7: .same(proto: "Mtime"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.rootBoardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creatorID) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.ctime) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.mtime) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.rootBoardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.rootBoardID, fieldNumber: 1)
     }
     if self.groupID != 0 {
       try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 2)
     }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 3)
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 3)
     }
     if self.creatorID != 0 {
       try visitor.visitSingularInt64Field(value: self.creatorID, fieldNumber: 4)
@@ -4747,25 +4617,21 @@ extension Common_TimeLine: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 5)
     }
-    if self.itemID != 0 {
-      try visitor.visitSingularInt64Field(value: self.itemID, fieldNumber: 6)
-    }
     if self.ctime != 0 {
-      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 9)
+      try visitor.visitSingularInt64Field(value: self.ctime, fieldNumber: 6)
     }
     if self.mtime != 0 {
-      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 10)
+      try visitor.visitSingularInt64Field(value: self.mtime, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_TimeLine, rhs: Common_TimeLine) -> Bool {
-    if lhs.rootID != rhs.rootID {return false}
+    if lhs.rootBoardID != rhs.rootBoardID {return false}
     if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
+    if lhs.storyID != rhs.storyID {return false}
     if lhs.creatorID != rhs.creatorID {return false}
     if lhs.title != rhs.title {return false}
-    if lhs.itemID != rhs.itemID {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6412,46 +6278,92 @@ extension Common_UpdateStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._
     4: .same(proto: "params"),
   ]
 
+  fileprivate class _StorageClass {
+    var _boardID: Int64 = 0
+    var _storyID: Int64 = 0
+    var _userID: Int64 = 0
+    var _params: Common_StoryBoardParams? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _boardID = source._boardID
+      _storyID = source._storyID
+      _userID = source._userID
+      _params = source._params
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._params) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._boardID) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._storyID) }()
+        case 3: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._params) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.boardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._boardID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._boardID, fieldNumber: 1)
+      }
+      if _storage._storyID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._storyID, fieldNumber: 2)
+      }
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 3)
+      }
+      try { if let v = _storage._params {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
     }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try { if let v = self._params {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateStoryboardRequest, rhs: Common_UpdateStoryboardRequest) -> Bool {
-    if lhs.boardID != rhs.boardID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs._params != rhs._params {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._boardID != rhs_storage._boardID {return false}
+        if _storage._storyID != rhs_storage._storyID {return false}
+        if _storage._userID != rhs_storage._userID {return false}
+        if _storage._params != rhs_storage._params {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

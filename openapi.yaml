@@ -7252,9 +7252,9 @@ components:
                     type: string
                 RefImage:
                     type: string
-                ComicLayoutStyle:
+                LayoutStyle:
                     type: string
-                ComicStyle:
+                Style:
                     type: string
                 NegativePrompt:
                     type: string
@@ -7273,13 +7273,7 @@ components:
                 ImageHeight:
                     type: integer
                     format: int32
-                Self32AttentionLayers:
-                    type: integer
-                    format: int32
-                Self64AttentionLayers:
-                    type: integer
-                    format: int32
-                Self128AttentionLayers:
+                sceneCount:
                     type: integer
                     format: int32
             description: StoryBoardParams 包含故事板渲染的相关参数
@@ -7421,9 +7415,9 @@ components:
                     type: string
                 prompt:
                     type: string
-                comicLayoutStyle:
+                layoutStyle:
                     type: string
-                comicStyle:
+                style:
                     type: string
                 background:
                     type: string
@@ -7431,6 +7425,9 @@ components:
                     type: string
                 subject:
                     type: string
+                sceneCount:
+                    type: integer
+                    format: int32
             description: StoryParams 包含故事生成和渲染的相关参数
         StoryRole:
             type: object

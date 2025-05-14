@@ -116,15 +116,16 @@ message Story{
 
 // StoryParams 包含故事生成和渲染的相关参数
 message StoryParams{
-    string story_description = 1;   // 故事描述
+    string story_description = 1;  // 故事描述
     string ref_image = 2;          // 参考图片
-    string negative_prompt = 3;     // 负面提示词
+    string negative_prompt = 3;    // 负面提示词
     string prompt = 4;             // 提示词
-    string comic_layout_style = 5;  // 漫画布局风格
-    string comic_style = 6;        // 漫画风格
+    string layout_style = 5;       // 布局风格
+    string style = 6;              // 风格
     string background = 7;         // 背景
     string style_ref_image = 8;    // 风格参考图片
     string subject = 9;            // 主题
+    int32 scene_count = 10;        // 场景数量
 }
 
 // StoryBoard 表示故事中的一个场景或章节
@@ -223,29 +224,26 @@ message StoryBoardParams{
     int32 NumSteps = 4;            // 步骤数
     string SdModel = 5;            // 模型名称
     string RefImage = 6;           // 参考图片
-    string ComicLayoutStyle = 7;   // 漫画布局风格
-    string ComicStyle = 8;         // 漫画风格
+    string LayoutStyle = 7;       // 布局风格
+    string Style = 8;              // 风格
     string NegativePrompt = 9;     // 负面提示词
     int32 OutputQuality = 10;      // 输出质量
     float GuidanceScale = 11;      // 引导比例
     int32 OutputFormat = 13;       // 输出格式
     int32 ImageWidth = 14;         // 图片宽度
     int32 ImageHeight = 15;        // 图片高度
-    int32 Self32AttentionLayers = 16;  // 32层自注意力
-    int32 Self64AttentionLayers = 17;  // 64层自注意力
-    int32 Self128AttentionLayers = 18; // 128层自注意力
+    int32 scene_count = 16;        // 场景数量
 }
 
 // TimeLine 表示时间线信息
 message TimeLine {
-  int64 root_id = 1;               // 根ID
+  int64 root_board_id = 1;               // 根ID
   int64 group_id = 2;              // 组织ID
-  int64 project_id = 3;            // 项目ID
+  int64 story_id = 3;              // 故事ID
   int64 creator_id = 4;            // 创建者ID
   string title = 5;                // 标题
-  int64 item_id = 6;               // 项目ID
-  int64 Ctime = 9;                 // 创建时间
-  int64 Mtime = 10;                // 修改时间
+  int64 Ctime = 6;                 // 创建时间
+  int64 Mtime = 7;                 // 修改时间
 }
 
 // CreateStoryRequest 创建故事的请求参数

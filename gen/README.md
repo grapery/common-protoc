@@ -3050,17 +3050,15 @@ StoryBoardParams 包含故事板渲染的相关参数
 | NumSteps | [int32](#int32) |  | 步骤数 |
 | SdModel | [string](#string) |  | 模型名称 |
 | RefImage | [string](#string) |  | 参考图片 |
-| ComicLayoutStyle | [string](#string) |  | 漫画布局风格 |
-| ComicStyle | [string](#string) |  | 漫画风格 |
+| LayoutStyle | [string](#string) |  | 布局风格 |
+| Style | [string](#string) |  | 风格 |
 | NegativePrompt | [string](#string) |  | 负面提示词 |
 | OutputQuality | [int32](#int32) |  | 输出质量 |
 | GuidanceScale | [float](#float) |  | 引导比例 |
 | OutputFormat | [int32](#int32) |  | 输出格式 |
 | ImageWidth | [int32](#int32) |  | 图片宽度 |
 | ImageHeight | [int32](#int32) |  | 图片高度 |
-| Self32AttentionLayers | [int32](#int32) |  | 32层自注意力 |
-| Self64AttentionLayers | [int32](#int32) |  | 64层自注意力 |
-| Self128AttentionLayers | [int32](#int32) |  | 128层自注意力 |
+| scene_count | [int32](#int32) |  | 场景数量 |
 
 
 
@@ -3175,11 +3173,12 @@ StoryParams 包含故事生成和渲染的相关参数
 | ref_image | [string](#string) |  | 参考图片 |
 | negative_prompt | [string](#string) |  | 负面提示词 |
 | prompt | [string](#string) |  | 提示词 |
-| comic_layout_style | [string](#string) |  | 漫画布局风格 |
-| comic_style | [string](#string) |  | 漫画风格 |
+| layout_style | [string](#string) |  | 布局风格 |
+| style | [string](#string) |  | 风格 |
 | background | [string](#string) |  | 背景 |
 | style_ref_image | [string](#string) |  | 风格参考图片 |
 | subject | [string](#string) |  | 主题 |
+| scene_count | [int32](#int32) |  | 场景数量 |
 
 
 
@@ -3260,12 +3259,11 @@ TimeLine 表示时间线信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| root_id | [int64](#int64) |  | 根ID |
+| root_board_id | [int64](#int64) |  | 根ID |
 | group_id | [int64](#int64) |  | 组织ID |
-| project_id | [int64](#int64) |  | 项目ID |
+| story_id | [int64](#int64) |  | 故事ID |
 | creator_id | [int64](#int64) |  | 创建者ID |
 | title | [string](#string) |  | 标题 |
-| item_id | [int64](#int64) |  | 项目ID |
 | Ctime | [int64](#int64) |  | 创建时间 |
 | Mtime | [int64](#int64) |  | 修改时间 |
 
