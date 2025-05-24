@@ -6,6 +6,7 @@ package common;
 enum ResponseCode {
   // 成功 (0)
   OK = 0;  // 请求成功
+  
   // 系统级错误 (1-99)
   SYSTEM_ERROR = 1;              // 系统错误
   INTERNAL_ERROR = 2;            // 内部错误
@@ -26,7 +27,7 @@ enum ResponseCode {
   ACCOUNT_NOT_FOUND = 104;      // 账号不存在
   WRONG_PASSWORD = 105;         // 密码错误
   ACCOUNT_DISABLED = 106;       // 账号已禁用
-  LOGIN_REQUIRED = 107;         // 需要登���
+  LOGIN_REQUIRED = 107;         // 需要登录
   TOKEN_MISSING = 108;          // Token缺失
   SESSION_EXPIRED = 109;        // 会话过期
   INVALID_CREDENTIALS = 110;    // 无效的凭证
@@ -113,7 +114,7 @@ enum ResponseCode {
   STORYBOARD_LOCKED = 804;     // 故事板已锁定
   STORYBOARD_STATUS_ERROR = 805; // 故事板状态错误
   STORYBOARD_VERSION_ERROR = 806; // 故事板版本错误
-  STORYBOARD_SCENE_ERROR = 807; // 故���板场景错误
+  STORYBOARD_SCENE_ERROR = 807; // 故事板场景错误
   STORYBOARD_GENERATION_FAILED = 808; // 故事板生成失败
   STORYBOARD_OPERATION_DENIED = 809; // 故事板操作被拒绝
   
@@ -219,5 +220,435 @@ enum ResponseCode {
   MESSAGE_LOCKED = 1903;        // 消息已锁定
   MESSAGE_STATUS_ERROR = 1904;  // 消息状态错误
 
+  // 聊天相关错误 (2000-2099)
+  CHAT_NOT_FOUND = 2000;        // 聊天不存在
+  CHAT_ALREADY_EXISTS = 2001;   // 聊天已存在
+  CHAT_PERMISSION_DENIED = 2002; // 聊天权限不足
+  CHAT_LOCKED = 2003;           // 聊天已锁定
+  CHAT_STATUS_ERROR = 2004;     // 聊天状态错误
+  CHAT_MESSAGE_ERROR = 2005;    // 聊天消息错误
+  CHAT_CONTEXT_ERROR = 2006;    // 聊天上下文错误
+  CHAT_STREAM_ERROR = 2007;     // 聊天流错误
+  CHAT_TIMEOUT = 2008;          // 聊天超时
+  CHAT_RATE_LIMITED = 2009;     // 聊天频率限制
+
+  // 文件上传相关错误 (2100-2199)
+  UPLOAD_FAILED = 2100;         // 上传失败
+  UPLOAD_SIZE_EXCEEDED = 2101;  // 上传大小超限
+  UPLOAD_FORMAT_ERROR = 2102;   // 上传格式错误
+  UPLOAD_PERMISSION_DENIED = 2103; // 上传权限不足
+  UPLOAD_QUOTA_EXCEEDED = 2104; // 上传配额超限
+  UPLOAD_TYPE_INVALID = 2105;   // 上传类型无效
+  UPLOAD_TIMEOUT = 2106;        // 上传超时
+  UPLOAD_CORRUPTED = 2107;      // 上传文件损坏
+  UPLOAD_STORAGE_ERROR = 2108;  // 上传存储错误
+  UPLOAD_PROCESSING_ERROR = 2109; // 上传处理错误
+
+  // 搜索相关错误 (2200-2299)
+  SEARCH_FAILED = 2200;         // 搜索失败
+  SEARCH_PARAMETER_ERROR = 2201; // 搜索参数错误
+  SEARCH_TIMEOUT = 2202;        // 搜索超时
+  SEARCH_PERMISSION_DENIED = 2203; // 搜索权限不足
+  SEARCH_QUOTA_EXCEEDED = 2204; // 搜索配额超限
+  SEARCH_INDEX_ERROR = 2205;    // 搜索索引错误
+  SEARCH_RESULT_ERROR = 2206;   // 搜索结果错误
+  SEARCH_FILTER_ERROR = 2207;   // 搜索过滤错误
+  SEARCH_SORT_ERROR = 2208;     // 搜索排序错误
+  SEARCH_SCOPE_ERROR = 2209;    // 搜索范围错误
+}
+
+// 错误描述信息
+message ErrorDescription {
+  // 系统级错误描述
+  map<int32, string> system_errors = 1;
+  // 认证和授权错误描述
+  map<int32, string> auth_errors = 2;
+  // 参数验证错误描述
+  map<int32, string> validation_errors = 3;
+  // 资源错误描述
+  map<int32, string> resource_errors = 4;
+  // 用户相关错误描述
+  map<int32, string> user_errors = 5;
+  // 组织相关错误描述
+  map<int32, string> group_errors = 6;
+  // 项目相关错误描述
+  map<int32, string> project_errors = 7;
+  // 故事相关错误描述
+  map<int32, string> story_errors = 8;
+  // 故事板相关错误描述
+  map<int32, string> storyboard_errors = 9;
+  // 角色相关错误描述
+  map<int32, string> role_errors = 10;
+  // 内容相关错误描述
+  map<int32, string> content_errors = 11;
+  // 操作相关错误描述
+  map<int32, string> operation_errors = 12;
+  // 限制相关错误描述
+  map<int32, string> limit_errors = 13;
+  // AI生成相关错误描述
+  map<int32, string> ai_errors = 14;
+  // 评论相关错误描述
+  map<int32, string> comment_errors = 15;
+  // 点赞相关错误描述
+  map<int32, string> like_errors = 16;
+  // VIP/充值相关错误描述
+  map<int32, string> vip_errors = 17;
+  // 支付相关错误描述
+  map<int32, string> payment_errors = 18;
+  // 订单相关错误描述
+  map<int32, string> order_errors = 19;
+  // 消息相关错误描述
+  map<int32, string> message_errors = 20;
+  // 聊天相关错误描述
+  map<int32, string> chat_errors = 21;
+  // 文件上传相关错误描述
+  map<int32, string> upload_errors = 22;
+  // 搜索相关错误描述
+  map<int32, string> search_errors = 23;
+}
+
+// 错误描述常量
+message ErrorDescriptions {
+  // 系统级错误描述
+  map<int32, string> system_errors = 1;
+  // 认证和授权错误描述
+  map<int32, string> auth_errors = 2;
+  // 参数验证错误描述
+  map<int32, string> validation_errors = 3;
+  // 资源错误描述
+  map<int32, string> resource_errors = 4;
+  // 用户相关错误描述
+  map<int32, string> user_errors = 5;
+  // 组织相关错误描述
+  map<int32, string> group_errors = 6;
+  // 项目相关错误描述
+  map<int32, string> project_errors = 7;
+  // 故事相关错误描述
+  map<int32, string> story_errors = 8;
+  // 故事板相关错误描述
+  map<int32, string> storyboard_errors = 9;
+  // 角色相关错误描述
+  map<int32, string> role_errors = 10;
+  // 内容相关错误描述
+  map<int32, string> content_errors = 11;
+  // 操作相关错误描述
+  map<int32, string> operation_errors = 12;
+  // 限制相关错误描述
+  map<int32, string> limit_errors = 13;
+  // AI生成相关错误描述
+  map<int32, string> ai_errors = 14;
+  // 评论相关错误描述
+  map<int32, string> comment_errors = 15;
+  // 点赞相关错误描述
+  map<int32, string> like_errors = 16;
+  // VIP/充值相关错误描述
+  map<int32, string> vip_errors = 17;
+  // 支付相关错误描述
+  map<int32, string> payment_errors = 18;
+  // 订单相关错误描述
+  map<int32, string> order_errors = 19;
+  // 消息相关错误描述
+  map<int32, string> message_errors = 20;
+  // 聊天相关错误描述
+  map<int32, string> chat_errors = 21;
+  // 文件上传相关错误描述
+  map<int32, string> upload_errors = 22;
+  // 搜索相关错误描述
+  map<int32, string> search_errors = 23;
+}
+
+// 系统级错误描述
+message SystemErrorMessages {
+  string SYSTEM_ERROR = 1;              // 系统错误
+  string INTERNAL_ERROR = 2;            // 内部错误
+  string DATABASE_ERROR = 3;            // 数据库错误
+  string CACHE_ERROR = 4;              // 缓存错误
+  string NETWORK_ERROR = 5;            // 网络错误
+  string TIMEOUT_ERROR = 6;            // 超时错误
+  string SERVICE_UNAVAILABLE = 7;       // 服务不可用
+  string TOO_MANY_REQUESTS = 8;         // 请求过于频繁
+  string CONFIGURATION_ERROR = 9;       // 配置错误
+  string INITIALIZATION_ERROR = 10;     // 初始化错误
+}
+
+// 认证和授权错误描述
+message AuthErrorMessages {
+  string UNAUTHORIZED = 1;            // 未授权
+  string TOKEN_EXPIRED = 2;          // Token过期
+  string TOKEN_INVALID = 3;          // Token无效
+  string PERMISSION_DENIED = 4;      // 权限不足
+  string ACCOUNT_NOT_FOUND = 5;      // 账号不存在
+  string WRONG_PASSWORD = 6;         // 密码错误
+  string ACCOUNT_DISABLED = 7;       // 账号已禁用
+  string LOGIN_REQUIRED = 8;         // 需要登录
+  string TOKEN_MISSING = 9;          // Token缺失
+  string SESSION_EXPIRED = 10;        // 会话过期
+  string INVALID_CREDENTIALS = 11;    // 无效的凭证
+  string ACCOUNT_LOCKED = 12;         // 账号已锁定
+  string ACCOUNT_EXPIRED = 13;        // 账号已过期
+  string INVALID_LOGIN_TYPE = 14;     // 无效的登录类型
+}
+
+// 参数验证错误描述
+message ValidationErrorMessages {
+  string INVALID_PARAMETER = 1;      // 无效的参数
+  string MISSING_PARAMETER = 2;      // 缺少参数
+  string INVALID_FORMAT = 3;         // 格式错误
+  string INVALID_LENGTH = 4;         // 长度错误
+  string INVALID_VALUE = 5;          // 值错误
+  string INVALID_TYPE = 6;          // 类型错误
+  string INVALID_SYNTAX = 7;        // 语法错误
+  string INVALID_ENCODING = 8;      // 编码错误
+  string INVALID_OPERATION = 9;     // 无效的操作
+  string VALIDATION_FAILED = 10;     // 验证失败
+}
+
+// 资源错误描述
+message ResourceErrorMessages {
+  string RESOURCE_NOT_FOUND = 1;     // 资源不存在
+  string RESOURCE_ALREADY_EXISTS = 2; // 资源已存在
+  string RESOURCE_EXPIRED = 3;       // 资源已过期
+  string RESOURCE_EXHAUSTED = 4;     // 资源耗尽
+  string RESOURCE_BUSY = 5;         // 资源忙碌
+  string RESOURCE_LOCKED = 6;       // 资源已锁定
+  string RESOURCE_UNAVAILABLE = 7;   // 资源不可用
+  string RESOURCE_QUOTA_EXCEEDED = 8; // 资源配额超限
+  string RESOURCE_CORRUPTED = 9;    // 资源已损坏
+}
+
+// 用户相关错误描述
+message UserErrorMessages {
+  string USER_NOT_FOUND = 1;         // 用户不存在
+  string USER_ALREADY_EXISTS = 2;    // 用户已存在
+  string USER_NOT_ACTIVE = 3;        // 用户未激活
+  string USER_BLOCKED = 4;           // 用户已封禁
+  string USER_PROFILE_INCOMPLETE = 5; // 用户资料不完整
+  string USER_OPERATION_DENIED = 6;  // 用户操作被拒绝
+  string USER_QUOTA_EXCEEDED = 7;    // 用户配额超限
+  string USER_STATUS_ERROR = 8;      // 用户状态错误
+  string USER_VERIFICATION_FAILED = 9; // 用户验证失败
+  string USER_ROLE_INVALID = 10;      // 用户角色无效
+}
+
+// 组织相关错误描述
+message GroupErrorMessages {
+  string GROUP_NOT_FOUND = 1;        // 组织不存在
+  string GROUP_ALREADY_EXISTS = 2;   // 组织已存在
+  string NOT_GROUP_MEMBER = 3;       // 非组织成员
+  string GROUP_PERMISSION_DENIED = 4; // 组织权限不足
+  string GROUP_FULL = 5;            // 组织人数已满
+  string GROUP_CLOSED = 6;          // 组织已关闭
+  string GROUP_OPERATION_DENIED = 7; // 组织操作被拒绝
+  string GROUP_STATUS_ERROR = 8;    // 组织状态错误
+  string GROUP_TYPE_INVALID = 9;    // 组织类型无效
+  string GROUP_QUOTA_EXCEEDED = 10;  // 组织配额超限
+}
+
+// 项目相关错误描述
+message ProjectErrorMessages {
+  string PROJECT_NOT_FOUND = 1;      // 项目不存在
+  string PROJECT_ALREADY_EXISTS = 2; // 项目已存在
+  string PROJECT_PERMISSION_DENIED = 3; // 项目权限不足
+  string PROJECT_CLOSED = 4;        // 项目已关闭
+  string PROJECT_ARCHIVED = 5;      // 项目已归档
+  string PROJECT_FULL = 6;         // 项目已满
+  string PROJECT_STATUS_ERROR = 7;  // 项目状态错误
+  string PROJECT_TYPE_INVALID = 8;  // 项目类型无效
+  string PROJECT_OPERATION_DENIED = 9; // 项目操作被拒绝
+  string PROJECT_QUOTA_EXCEEDED = 10; // 项目配额超限
+}
+
+// 故事相关错误描述
+message StoryErrorMessages {
+  string STORY_NOT_FOUND = 1;       // 故事不存在
+  string STORY_ALREADY_EXISTS = 2;  // 故事已存在
+  string STORY_PERMISSION_DENIED = 3; // 故事权限不足
+  string STORY_LOCKED = 4;         // 故事已锁定
+  string STORY_ARCHIVED = 5;       // 故事已归档
+  string STORY_STATUS_ERROR = 6;   // 故事状态错误
+  string STORY_VERSION_ERROR = 7;  // 故事版本错误
+  string STORY_CONTENT_ERROR = 8;  // 故事内容错误
+  string STORY_OPERATION_DENIED = 9; // 故事操作被拒绝
+  string STORY_GENERATION_FAILED = 10; // 故事生成失败
+}
+
+// 故事板相关错误描述
+message StoryboardErrorMessages {
+  string STORYBOARD_NOT_FOUND = 1;   // 故事板不存在
+  string STORYBOARD_ALREADY_EXISTS = 2; // 故事板已存在
+  string STORYBOARD_PERMISSION_DENIED = 3; // 故事板权限不足
+  string STORYBOARD_RENDER_ERROR = 4; // 故事板渲染错误
+  string STORYBOARD_LOCKED = 5;     // 故事板已锁定
+  string STORYBOARD_STATUS_ERROR = 6; // 故事板状态错误
+  string STORYBOARD_VERSION_ERROR = 7; // 故事板版本错误
+  string STORYBOARD_SCENE_ERROR = 8; // 故事板场景错误
+  string STORYBOARD_GENERATION_FAILED = 9; // 故事板生成失败
+  string STORYBOARD_OPERATION_DENIED = 10; // 故事板操作被拒绝
+}
+
+// 角色相关错误描述
+message RoleErrorMessages {
+  string ROLE_NOT_FOUND = 1;        // 角色不存在
+  string ROLE_ALREADY_EXISTS = 2;   // 角色已存在
+  string ROLE_PERMISSION_DENIED = 3; // 角色权限不足
+  string ROLE_RENDER_ERROR = 4;     // 角色渲染错误
+  string ROLE_LOCKED = 5;          // 角色已锁定
+  string ROLE_STATUS_ERROR = 6;    // 角色状态错误
+  string ROLE_TYPE_INVALID = 7;    // 角色类型无效
+  string ROLE_QUOTA_EXCEEDED = 8;  // 角色配额超限
+  string ROLE_GENERATION_FAILED = 9; // 角色生成失败
+  string ROLE_OPERATION_DENIED = 10; // 角色操作被拒绝
+}
+
+// 内容相关错误描述
+message ContentErrorMessages {
+  string CONTENT_NOT_FOUND = 1;     // 内容不存在
+  string CONTENT_ALREADY_EXISTS = 2; // 内容已存在
+  string CONTENT_PERMISSION_DENIED = 3; // 内容权限不足
+  string CONTENT_TYPE_INVALID = 4;  // 内容类型无效
+  string CONTENT_SIZE_EXCEEDED = 5; // 内容大小超限
+  string CONTENT_FORMAT_ERROR = 6;  // 内容格式错误
+  string CONTENT_LOCKED = 7;       // 内容已锁定
+  string CONTENT_EXPIRED = 8;      // 内容已过期
+  string CONTENT_CORRUPTED = 9;    // 内容已损坏
+  string CONTENT_OPERATION_DENIED = 10; // 内容操作被拒绝
+}
+
+// 操作相关错误描述
+message OperationErrorMessages {
+  string OPERATION_FAILED = 1;     // 操作失败
+  string OPERATION_TIMEOUT = 2;    // 操作超时
+  string OPERATION_CANCELLED = 3;  // 操作已取消
+  string OPERATION_NOT_SUPPORTED = 4; // 操作不支持
+  string OPERATION_IN_PROGRESS = 5; // 操作进行中
+  string OPERATION_ABORTED = 6;    // 操作已中止
+  string OPERATION_REJECTED = 7;   // 操作被拒绝
+  string OPERATION_INVALID = 8;    // 操作无效
+  string OPERATION_CONFLICT = 9;   // 操作冲突
+  string OPERATION_TOO_FREQUENT = 10; // 操作过于频繁
+}
+
+// 限制相关错误描述
+message LimitErrorMessages {
+  string RATE_LIMIT_EXCEEDED = 1;  // 速率限制超限
+  string QUOTA_EXCEEDED = 2;       // 配额超限
+  string SIZE_LIMIT_EXCEEDED = 3;  // 大小限制超限
+  string TIME_LIMIT_EXCEEDED = 4;  // 时间限制超限
+  string FREQUENCY_LIMIT_EXCEEDED = 5; // 频率限制超限
+  string CONCURRENT_LIMIT_EXCEEDED = 6; // 并发限制超限
+  string STORAGE_LIMIT_EXCEEDED = 7; // 存储限制超限
+  string BANDWIDTH_LIMIT_EXCEEDED = 8; // 带宽限制超限
+  string REQUEST_LIMIT_EXCEEDED = 9; // 请求限制超限
+  string USER_LIMIT_EXCEEDED = 10;   // 用户限制超限
+}
+
+// AI生成相关错误描述
+message AIErrorMessages {
+  string AI_GENERATION_FAILED = 1;  // AI生成失败
+  string AI_SERVICE_UNAVAILABLE = 2; // AI服务不可用
+  string AI_QUOTA_EXCEEDED = 3;     // AI配额超限
+  string AI_MODEL_ERROR = 4;       // AI模型错误
+  string AI_PARAMETER_ERROR = 5;   // AI参数错误
+  string AI_CONTENT_ERROR = 6;     // AI内容错误
+  string AI_TIMEOUT = 7;          // AI处理超时
+  string AI_RATE_LIMITED = 8;     // AI速率受限
+  string AI_CONTEXT_ERROR = 9;    // AI上下文错误
+  string AI_RESPONSE_ERROR = 10;   // AI响应错误
+}
+
+// 评论相关错误描述
+message CommentErrorMessages {
+  string COMMENT_NOT_FOUND = 1;   // 评论不存在
+  string COMMENT_ALREADY_EXISTS = 2; // 评论已存在
+  string COMMENT_PERMISSION_DENIED = 3; // 评论权限不足
+  string COMMENT_LOCKED = 4;     // 评论已锁定
+  string COMMENT_STATUS_ERROR = 5; // 评论状态错误
+}
+
+// 点赞相关错误描述
+message LikeErrorMessages {
+  string LIKE_NOT_FOUND = 1;       // 点赞不存在
+  string LIKE_ALREADY_EXISTS = 2;  // 点赞已存在
+  string LIKE_PERMISSION_DENIED = 3; // 点赞权限不足
+  string LIKE_LOCKED = 4;          // 点赞已锁定
+  string LIKE_STATUS_ERROR = 5;    // 点赞状态错误
+}
+
+// VIP/充值相关错误描述
+message VIPErrorMessages {
+  string VIP_NOT_FOUND = 1;        // VIP不存在
+  string VIP_ALREADY_EXISTS = 2;   // VIP已存在
+  string VIP_PERMISSION_DENIED = 3; // VIP权限不足
+  string VIP_LOCKED = 4;           // VIP已锁定
+  string VIP_STATUS_ERROR = 5;     // VIP状态错误
+}
+
+// 支付相关错误描述
+message PaymentErrorMessages {
+  string PAYMENT_NOT_FOUND = 1;    // 支付不存在
+  string PAYMENT_ALREADY_EXISTS = 2; // 支付已存在
+  string PAYMENT_PERMISSION_DENIED = 3; // 支付权限不足
+  string PAYMENT_LOCKED = 4;        // 支付已锁定
+  string PAYMENT_STATUS_ERROR = 5;  // 支付状态错误
+}
+
+// 订单相关错误描述
+message OrderErrorMessages {
+  string ORDER_NOT_FOUND = 1;       // 订单不存在
+  string ORDER_ALREADY_EXISTS = 2;  // 订单已存在
+  string ORDER_PERMISSION_DENIED = 3; // 订单权限不足
+  string ORDER_LOCKED = 4;          // 订单已锁定
+  string ORDER_STATUS_ERROR = 5;    // 订单状态错误
+}
+
+// 消息相关错误描述
+message MessageErrorMessages {
+  string MESSAGE_NOT_FOUND = 1;     // 消息不存在
+  string MESSAGE_ALREADY_EXISTS = 2; // 消息已存在
+  string MESSAGE_PERMISSION_DENIED = 3; // 消息权限不足
+  string MESSAGE_LOCKED = 4;        // 消息已锁定
+  string MESSAGE_STATUS_ERROR = 5;  // 消息状态错误
+}
+
+// 聊天相关错误描述
+message ChatErrorMessages {
+  string CHAT_NOT_FOUND = 1;        // 聊天不存在
+  string CHAT_ALREADY_EXISTS = 2;   // 聊天已存在
+  string CHAT_PERMISSION_DENIED = 3; // 聊天权限不足
+  string CHAT_LOCKED = 4;           // 聊天已锁定
+  string CHAT_STATUS_ERROR = 5;     // 聊天状态错误
+  string CHAT_MESSAGE_ERROR = 6;    // 聊天消息错误
+  string CHAT_CONTEXT_ERROR = 7;    // 聊天上下文错误
+  string CHAT_STREAM_ERROR = 8;     // 聊天流错误
+  string CHAT_TIMEOUT = 9;          // 聊天超时
+  string CHAT_RATE_LIMITED = 10;     // 聊天频率限制
+}
+
+// 文件上传相关错误描述
+message UploadErrorMessages {
+  string UPLOAD_FAILED = 1;         // 上传失败
+  string UPLOAD_SIZE_EXCEEDED = 2;  // 上传大小超限
+  string UPLOAD_FORMAT_ERROR = 3;   // 上传格式错误
+  string UPLOAD_PERMISSION_DENIED = 4; // 上传权限不足
+  string UPLOAD_QUOTA_EXCEEDED = 5; // 上传配额超限
+  string UPLOAD_TYPE_INVALID = 6;   // 上传类型无效
+  string UPLOAD_TIMEOUT = 7;        // 上传超时
+  string UPLOAD_CORRUPTED = 8;      // 上传文件损坏
+  string UPLOAD_STORAGE_ERROR = 9;  // 上传存储错误
+  string UPLOAD_PROCESSING_ERROR = 10; // 上传处理错误
+}
+
+// 搜索相关错误描述
+message SearchErrorMessages {
+  string SEARCH_FAILED = 1;         // 搜索失败
+  string SEARCH_PARAMETER_ERROR = 2; // 搜索参数错误
+  string SEARCH_TIMEOUT = 3;        // 搜索超时
+  string SEARCH_PERMISSION_DENIED = 4; // 搜索权限不足
+  string SEARCH_QUOTA_EXCEEDED = 5; // 搜索配额超限
+  string SEARCH_INDEX_ERROR = 6;    // 搜索索引错误
+  string SEARCH_RESULT_ERROR = 7;   // 搜索结果错误
+  string SEARCH_FILTER_ERROR = 8;   // 搜索过滤错误
+  string SEARCH_SORT_ERROR = 9;     // 搜索排序错误
+  string SEARCH_SCOPE_ERROR = 10;    // 搜索范围错误
 }
 
