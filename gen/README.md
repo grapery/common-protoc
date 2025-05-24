@@ -25,6 +25,78 @@
     - [CommentInfo](#common-CommentInfo)
   
 - [error.proto](#error-proto)
+    - [AIErrorMessages](#common-AIErrorMessages)
+    - [AuthErrorMessages](#common-AuthErrorMessages)
+    - [ChatErrorMessages](#common-ChatErrorMessages)
+    - [CommentErrorMessages](#common-CommentErrorMessages)
+    - [ContentErrorMessages](#common-ContentErrorMessages)
+    - [ErrorDescription](#common-ErrorDescription)
+    - [ErrorDescription.AiErrorsEntry](#common-ErrorDescription-AiErrorsEntry)
+    - [ErrorDescription.AuthErrorsEntry](#common-ErrorDescription-AuthErrorsEntry)
+    - [ErrorDescription.ChatErrorsEntry](#common-ErrorDescription-ChatErrorsEntry)
+    - [ErrorDescription.CommentErrorsEntry](#common-ErrorDescription-CommentErrorsEntry)
+    - [ErrorDescription.ContentErrorsEntry](#common-ErrorDescription-ContentErrorsEntry)
+    - [ErrorDescription.GroupErrorsEntry](#common-ErrorDescription-GroupErrorsEntry)
+    - [ErrorDescription.LikeErrorsEntry](#common-ErrorDescription-LikeErrorsEntry)
+    - [ErrorDescription.LimitErrorsEntry](#common-ErrorDescription-LimitErrorsEntry)
+    - [ErrorDescription.MessageErrorsEntry](#common-ErrorDescription-MessageErrorsEntry)
+    - [ErrorDescription.OperationErrorsEntry](#common-ErrorDescription-OperationErrorsEntry)
+    - [ErrorDescription.OrderErrorsEntry](#common-ErrorDescription-OrderErrorsEntry)
+    - [ErrorDescription.PaymentErrorsEntry](#common-ErrorDescription-PaymentErrorsEntry)
+    - [ErrorDescription.ProjectErrorsEntry](#common-ErrorDescription-ProjectErrorsEntry)
+    - [ErrorDescription.ResourceErrorsEntry](#common-ErrorDescription-ResourceErrorsEntry)
+    - [ErrorDescription.RoleErrorsEntry](#common-ErrorDescription-RoleErrorsEntry)
+    - [ErrorDescription.SearchErrorsEntry](#common-ErrorDescription-SearchErrorsEntry)
+    - [ErrorDescription.StoryErrorsEntry](#common-ErrorDescription-StoryErrorsEntry)
+    - [ErrorDescription.StoryboardErrorsEntry](#common-ErrorDescription-StoryboardErrorsEntry)
+    - [ErrorDescription.SystemErrorsEntry](#common-ErrorDescription-SystemErrorsEntry)
+    - [ErrorDescription.UploadErrorsEntry](#common-ErrorDescription-UploadErrorsEntry)
+    - [ErrorDescription.UserErrorsEntry](#common-ErrorDescription-UserErrorsEntry)
+    - [ErrorDescription.ValidationErrorsEntry](#common-ErrorDescription-ValidationErrorsEntry)
+    - [ErrorDescription.VipErrorsEntry](#common-ErrorDescription-VipErrorsEntry)
+    - [ErrorDescriptions](#common-ErrorDescriptions)
+    - [ErrorDescriptions.AiErrorsEntry](#common-ErrorDescriptions-AiErrorsEntry)
+    - [ErrorDescriptions.AuthErrorsEntry](#common-ErrorDescriptions-AuthErrorsEntry)
+    - [ErrorDescriptions.ChatErrorsEntry](#common-ErrorDescriptions-ChatErrorsEntry)
+    - [ErrorDescriptions.CommentErrorsEntry](#common-ErrorDescriptions-CommentErrorsEntry)
+    - [ErrorDescriptions.ContentErrorsEntry](#common-ErrorDescriptions-ContentErrorsEntry)
+    - [ErrorDescriptions.GroupErrorsEntry](#common-ErrorDescriptions-GroupErrorsEntry)
+    - [ErrorDescriptions.LikeErrorsEntry](#common-ErrorDescriptions-LikeErrorsEntry)
+    - [ErrorDescriptions.LimitErrorsEntry](#common-ErrorDescriptions-LimitErrorsEntry)
+    - [ErrorDescriptions.MessageErrorsEntry](#common-ErrorDescriptions-MessageErrorsEntry)
+    - [ErrorDescriptions.OperationErrorsEntry](#common-ErrorDescriptions-OperationErrorsEntry)
+    - [ErrorDescriptions.OrderErrorsEntry](#common-ErrorDescriptions-OrderErrorsEntry)
+    - [ErrorDescriptions.PaymentErrorsEntry](#common-ErrorDescriptions-PaymentErrorsEntry)
+    - [ErrorDescriptions.ProjectErrorsEntry](#common-ErrorDescriptions-ProjectErrorsEntry)
+    - [ErrorDescriptions.ResourceErrorsEntry](#common-ErrorDescriptions-ResourceErrorsEntry)
+    - [ErrorDescriptions.RoleErrorsEntry](#common-ErrorDescriptions-RoleErrorsEntry)
+    - [ErrorDescriptions.SearchErrorsEntry](#common-ErrorDescriptions-SearchErrorsEntry)
+    - [ErrorDescriptions.StoryErrorsEntry](#common-ErrorDescriptions-StoryErrorsEntry)
+    - [ErrorDescriptions.StoryboardErrorsEntry](#common-ErrorDescriptions-StoryboardErrorsEntry)
+    - [ErrorDescriptions.SystemErrorsEntry](#common-ErrorDescriptions-SystemErrorsEntry)
+    - [ErrorDescriptions.UploadErrorsEntry](#common-ErrorDescriptions-UploadErrorsEntry)
+    - [ErrorDescriptions.UserErrorsEntry](#common-ErrorDescriptions-UserErrorsEntry)
+    - [ErrorDescriptions.ValidationErrorsEntry](#common-ErrorDescriptions-ValidationErrorsEntry)
+    - [ErrorDescriptions.VipErrorsEntry](#common-ErrorDescriptions-VipErrorsEntry)
+    - [GroupErrorMessages](#common-GroupErrorMessages)
+    - [LikeErrorMessages](#common-LikeErrorMessages)
+    - [LimitErrorMessages](#common-LimitErrorMessages)
+    - [MessageErrorMessages](#common-MessageErrorMessages)
+    - [OperationErrorMessages](#common-OperationErrorMessages)
+    - [OrderErrorMessages](#common-OrderErrorMessages)
+    - [PaymentErrorMessages](#common-PaymentErrorMessages)
+    - [ProjectErrorMessages](#common-ProjectErrorMessages)
+    - [ResourceErrorMessages](#common-ResourceErrorMessages)
+    - [RoleErrorMessages](#common-RoleErrorMessages)
+    - [SearchErrorMessages](#common-SearchErrorMessages)
+    - [StoryErrorMessages](#common-StoryErrorMessages)
+    - [StoryboardErrorMessages](#common-StoryboardErrorMessages)
+    - [SystemErrorMessages](#common-SystemErrorMessages)
+    - [UploadErrorMessages](#common-UploadErrorMessages)
+    - [UserErrorMessages](#common-UserErrorMessages)
+    - [VIPErrorMessages](#common-VIPErrorMessages)
+    - [ValidationErrorMessages](#common-ValidationErrorMessages)
+  
     - [ResponseCode](#common-ResponseCode)
   
 - [group.proto](#group-proto)
@@ -810,6 +882,1341 @@
 ## error.proto
 
 
+
+<a name="common-AIErrorMessages"></a>
+
+### AIErrorMessages
+AI生成相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| AI_GENERATION_FAILED | [string](#string) |  | AI生成失败 |
+| AI_SERVICE_UNAVAILABLE | [string](#string) |  | AI服务不可用 |
+| AI_QUOTA_EXCEEDED | [string](#string) |  | AI配额超限 |
+| AI_MODEL_ERROR | [string](#string) |  | AI模型错误 |
+| AI_PARAMETER_ERROR | [string](#string) |  | AI参数错误 |
+| AI_CONTENT_ERROR | [string](#string) |  | AI内容错误 |
+| AI_TIMEOUT | [string](#string) |  | AI处理超时 |
+| AI_RATE_LIMITED | [string](#string) |  | AI速率受限 |
+| AI_CONTEXT_ERROR | [string](#string) |  | AI上下文错误 |
+| AI_RESPONSE_ERROR | [string](#string) |  | AI响应错误 |
+
+
+
+
+
+
+<a name="common-AuthErrorMessages"></a>
+
+### AuthErrorMessages
+认证和授权错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| UNAUTHORIZED | [string](#string) |  | 未授权 |
+| TOKEN_EXPIRED | [string](#string) |  | Token过期 |
+| TOKEN_INVALID | [string](#string) |  | Token无效 |
+| PERMISSION_DENIED | [string](#string) |  | 权限不足 |
+| ACCOUNT_NOT_FOUND | [string](#string) |  | 账号不存在 |
+| WRONG_PASSWORD | [string](#string) |  | 密码错误 |
+| ACCOUNT_DISABLED | [string](#string) |  | 账号已禁用 |
+| LOGIN_REQUIRED | [string](#string) |  | 需要登录 |
+| TOKEN_MISSING | [string](#string) |  | Token缺失 |
+| SESSION_EXPIRED | [string](#string) |  | 会话过期 |
+| INVALID_CREDENTIALS | [string](#string) |  | 无效的凭证 |
+| ACCOUNT_LOCKED | [string](#string) |  | 账号已锁定 |
+| ACCOUNT_EXPIRED | [string](#string) |  | 账号已过期 |
+| INVALID_LOGIN_TYPE | [string](#string) |  | 无效的登录类型 |
+
+
+
+
+
+
+<a name="common-ChatErrorMessages"></a>
+
+### ChatErrorMessages
+聊天相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CHAT_NOT_FOUND | [string](#string) |  | 聊天不存在 |
+| CHAT_ALREADY_EXISTS | [string](#string) |  | 聊天已存在 |
+| CHAT_PERMISSION_DENIED | [string](#string) |  | 聊天权限不足 |
+| CHAT_LOCKED | [string](#string) |  | 聊天已锁定 |
+| CHAT_STATUS_ERROR | [string](#string) |  | 聊天状态错误 |
+| CHAT_MESSAGE_ERROR | [string](#string) |  | 聊天消息错误 |
+| CHAT_CONTEXT_ERROR | [string](#string) |  | 聊天上下文错误 |
+| CHAT_STREAM_ERROR | [string](#string) |  | 聊天流错误 |
+| CHAT_TIMEOUT | [string](#string) |  | 聊天超时 |
+| CHAT_RATE_LIMITED | [string](#string) |  | 聊天频率限制 |
+
+
+
+
+
+
+<a name="common-CommentErrorMessages"></a>
+
+### CommentErrorMessages
+评论相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| COMMENT_NOT_FOUND | [string](#string) |  | 评论不存在 |
+| COMMENT_ALREADY_EXISTS | [string](#string) |  | 评论已存在 |
+| COMMENT_PERMISSION_DENIED | [string](#string) |  | 评论权限不足 |
+| COMMENT_LOCKED | [string](#string) |  | 评论已锁定 |
+| COMMENT_STATUS_ERROR | [string](#string) |  | 评论状态错误 |
+
+
+
+
+
+
+<a name="common-ContentErrorMessages"></a>
+
+### ContentErrorMessages
+内容相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CONTENT_NOT_FOUND | [string](#string) |  | 内容不存在 |
+| CONTENT_ALREADY_EXISTS | [string](#string) |  | 内容已存在 |
+| CONTENT_PERMISSION_DENIED | [string](#string) |  | 内容权限不足 |
+| CONTENT_TYPE_INVALID | [string](#string) |  | 内容类型无效 |
+| CONTENT_SIZE_EXCEEDED | [string](#string) |  | 内容大小超限 |
+| CONTENT_FORMAT_ERROR | [string](#string) |  | 内容格式错误 |
+| CONTENT_LOCKED | [string](#string) |  | 内容已锁定 |
+| CONTENT_EXPIRED | [string](#string) |  | 内容已过期 |
+| CONTENT_CORRUPTED | [string](#string) |  | 内容已损坏 |
+| CONTENT_OPERATION_DENIED | [string](#string) |  | 内容操作被拒绝 |
+
+
+
+
+
+
+<a name="common-ErrorDescription"></a>
+
+### ErrorDescription
+错误描述信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| system_errors | [ErrorDescription.SystemErrorsEntry](#common-ErrorDescription-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescription.AuthErrorsEntry](#common-ErrorDescription-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescription.ValidationErrorsEntry](#common-ErrorDescription-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescription.ResourceErrorsEntry](#common-ErrorDescription-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescription.UserErrorsEntry](#common-ErrorDescription-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescription.GroupErrorsEntry](#common-ErrorDescription-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescription.ProjectErrorsEntry](#common-ErrorDescription-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescription.StoryErrorsEntry](#common-ErrorDescription-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescription.StoryboardErrorsEntry](#common-ErrorDescription-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescription.RoleErrorsEntry](#common-ErrorDescription-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescription.ContentErrorsEntry](#common-ErrorDescription-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescription.OperationErrorsEntry](#common-ErrorDescription-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescription.LimitErrorsEntry](#common-ErrorDescription-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescription.AiErrorsEntry](#common-ErrorDescription-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescription.CommentErrorsEntry](#common-ErrorDescription-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescription.LikeErrorsEntry](#common-ErrorDescription-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescription.VipErrorsEntry](#common-ErrorDescription-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescription.PaymentErrorsEntry](#common-ErrorDescription-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescription.OrderErrorsEntry](#common-ErrorDescription-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescription.MessageErrorsEntry](#common-ErrorDescription-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescription.ChatErrorsEntry](#common-ErrorDescription-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescription.UploadErrorsEntry](#common-ErrorDescription-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescription.SearchErrorsEntry](#common-ErrorDescription-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+
+
+
+
+
+
+<a name="common-ErrorDescription-AiErrorsEntry"></a>
+
+### ErrorDescription.AiErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-AuthErrorsEntry"></a>
+
+### ErrorDescription.AuthErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-ChatErrorsEntry"></a>
+
+### ErrorDescription.ChatErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-CommentErrorsEntry"></a>
+
+### ErrorDescription.CommentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-ContentErrorsEntry"></a>
+
+### ErrorDescription.ContentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-GroupErrorsEntry"></a>
+
+### ErrorDescription.GroupErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-LikeErrorsEntry"></a>
+
+### ErrorDescription.LikeErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-LimitErrorsEntry"></a>
+
+### ErrorDescription.LimitErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-MessageErrorsEntry"></a>
+
+### ErrorDescription.MessageErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-OperationErrorsEntry"></a>
+
+### ErrorDescription.OperationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-OrderErrorsEntry"></a>
+
+### ErrorDescription.OrderErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-PaymentErrorsEntry"></a>
+
+### ErrorDescription.PaymentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-ProjectErrorsEntry"></a>
+
+### ErrorDescription.ProjectErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-ResourceErrorsEntry"></a>
+
+### ErrorDescription.ResourceErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-RoleErrorsEntry"></a>
+
+### ErrorDescription.RoleErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-SearchErrorsEntry"></a>
+
+### ErrorDescription.SearchErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-StoryErrorsEntry"></a>
+
+### ErrorDescription.StoryErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-StoryboardErrorsEntry"></a>
+
+### ErrorDescription.StoryboardErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-SystemErrorsEntry"></a>
+
+### ErrorDescription.SystemErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-UploadErrorsEntry"></a>
+
+### ErrorDescription.UploadErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-UserErrorsEntry"></a>
+
+### ErrorDescription.UserErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-ValidationErrorsEntry"></a>
+
+### ErrorDescription.ValidationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescription-VipErrorsEntry"></a>
+
+### ErrorDescription.VipErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions"></a>
+
+### ErrorDescriptions
+错误描述常量
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| system_errors | [ErrorDescriptions.SystemErrorsEntry](#common-ErrorDescriptions-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescriptions.AuthErrorsEntry](#common-ErrorDescriptions-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescriptions.ValidationErrorsEntry](#common-ErrorDescriptions-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescriptions.ResourceErrorsEntry](#common-ErrorDescriptions-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescriptions.UserErrorsEntry](#common-ErrorDescriptions-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescriptions.GroupErrorsEntry](#common-ErrorDescriptions-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescriptions.ProjectErrorsEntry](#common-ErrorDescriptions-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescriptions.StoryErrorsEntry](#common-ErrorDescriptions-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescriptions.StoryboardErrorsEntry](#common-ErrorDescriptions-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescriptions.RoleErrorsEntry](#common-ErrorDescriptions-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescriptions.ContentErrorsEntry](#common-ErrorDescriptions-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescriptions.OperationErrorsEntry](#common-ErrorDescriptions-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescriptions.LimitErrorsEntry](#common-ErrorDescriptions-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescriptions.AiErrorsEntry](#common-ErrorDescriptions-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescriptions.CommentErrorsEntry](#common-ErrorDescriptions-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescriptions.LikeErrorsEntry](#common-ErrorDescriptions-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescriptions.VipErrorsEntry](#common-ErrorDescriptions-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescriptions.PaymentErrorsEntry](#common-ErrorDescriptions-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescriptions.OrderErrorsEntry](#common-ErrorDescriptions-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescriptions.MessageErrorsEntry](#common-ErrorDescriptions-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescriptions.ChatErrorsEntry](#common-ErrorDescriptions-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescriptions.UploadErrorsEntry](#common-ErrorDescriptions-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescriptions.SearchErrorsEntry](#common-ErrorDescriptions-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-AiErrorsEntry"></a>
+
+### ErrorDescriptions.AiErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-AuthErrorsEntry"></a>
+
+### ErrorDescriptions.AuthErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-ChatErrorsEntry"></a>
+
+### ErrorDescriptions.ChatErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-CommentErrorsEntry"></a>
+
+### ErrorDescriptions.CommentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-ContentErrorsEntry"></a>
+
+### ErrorDescriptions.ContentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-GroupErrorsEntry"></a>
+
+### ErrorDescriptions.GroupErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-LikeErrorsEntry"></a>
+
+### ErrorDescriptions.LikeErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-LimitErrorsEntry"></a>
+
+### ErrorDescriptions.LimitErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-MessageErrorsEntry"></a>
+
+### ErrorDescriptions.MessageErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-OperationErrorsEntry"></a>
+
+### ErrorDescriptions.OperationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-OrderErrorsEntry"></a>
+
+### ErrorDescriptions.OrderErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-PaymentErrorsEntry"></a>
+
+### ErrorDescriptions.PaymentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-ProjectErrorsEntry"></a>
+
+### ErrorDescriptions.ProjectErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-ResourceErrorsEntry"></a>
+
+### ErrorDescriptions.ResourceErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-RoleErrorsEntry"></a>
+
+### ErrorDescriptions.RoleErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-SearchErrorsEntry"></a>
+
+### ErrorDescriptions.SearchErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-StoryErrorsEntry"></a>
+
+### ErrorDescriptions.StoryErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-StoryboardErrorsEntry"></a>
+
+### ErrorDescriptions.StoryboardErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-SystemErrorsEntry"></a>
+
+### ErrorDescriptions.SystemErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-UploadErrorsEntry"></a>
+
+### ErrorDescriptions.UploadErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-UserErrorsEntry"></a>
+
+### ErrorDescriptions.UserErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-ValidationErrorsEntry"></a>
+
+### ErrorDescriptions.ValidationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-ErrorDescriptions-VipErrorsEntry"></a>
+
+### ErrorDescriptions.VipErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GroupErrorMessages"></a>
+
+### GroupErrorMessages
+组织相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| GROUP_NOT_FOUND | [string](#string) |  | 组织不存在 |
+| GROUP_ALREADY_EXISTS | [string](#string) |  | 组织已存在 |
+| NOT_GROUP_MEMBER | [string](#string) |  | 非组织成员 |
+| GROUP_PERMISSION_DENIED | [string](#string) |  | 组织权限不足 |
+| GROUP_FULL | [string](#string) |  | 组织人数已满 |
+| GROUP_CLOSED | [string](#string) |  | 组织已关闭 |
+| GROUP_OPERATION_DENIED | [string](#string) |  | 组织操作被拒绝 |
+| GROUP_STATUS_ERROR | [string](#string) |  | 组织状态错误 |
+| GROUP_TYPE_INVALID | [string](#string) |  | 组织类型无效 |
+| GROUP_QUOTA_EXCEEDED | [string](#string) |  | 组织配额超限 |
+
+
+
+
+
+
+<a name="common-LikeErrorMessages"></a>
+
+### LikeErrorMessages
+点赞相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| LIKE_NOT_FOUND | [string](#string) |  | 点赞不存在 |
+| LIKE_ALREADY_EXISTS | [string](#string) |  | 点赞已存在 |
+| LIKE_PERMISSION_DENIED | [string](#string) |  | 点赞权限不足 |
+| LIKE_LOCKED | [string](#string) |  | 点赞已锁定 |
+| LIKE_STATUS_ERROR | [string](#string) |  | 点赞状态错误 |
+
+
+
+
+
+
+<a name="common-LimitErrorMessages"></a>
+
+### LimitErrorMessages
+限制相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| RATE_LIMIT_EXCEEDED | [string](#string) |  | 速率限制超限 |
+| QUOTA_EXCEEDED | [string](#string) |  | 配额超限 |
+| SIZE_LIMIT_EXCEEDED | [string](#string) |  | 大小限制超限 |
+| TIME_LIMIT_EXCEEDED | [string](#string) |  | 时间限制超限 |
+| FREQUENCY_LIMIT_EXCEEDED | [string](#string) |  | 频率限制超限 |
+| CONCURRENT_LIMIT_EXCEEDED | [string](#string) |  | 并发限制超限 |
+| STORAGE_LIMIT_EXCEEDED | [string](#string) |  | 存储限制超限 |
+| BANDWIDTH_LIMIT_EXCEEDED | [string](#string) |  | 带宽限制超限 |
+| REQUEST_LIMIT_EXCEEDED | [string](#string) |  | 请求限制超限 |
+| USER_LIMIT_EXCEEDED | [string](#string) |  | 用户限制超限 |
+
+
+
+
+
+
+<a name="common-MessageErrorMessages"></a>
+
+### MessageErrorMessages
+消息相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| MESSAGE_NOT_FOUND | [string](#string) |  | 消息不存在 |
+| MESSAGE_ALREADY_EXISTS | [string](#string) |  | 消息已存在 |
+| MESSAGE_PERMISSION_DENIED | [string](#string) |  | 消息权限不足 |
+| MESSAGE_LOCKED | [string](#string) |  | 消息已锁定 |
+| MESSAGE_STATUS_ERROR | [string](#string) |  | 消息状态错误 |
+
+
+
+
+
+
+<a name="common-OperationErrorMessages"></a>
+
+### OperationErrorMessages
+操作相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| OPERATION_FAILED | [string](#string) |  | 操作失败 |
+| OPERATION_TIMEOUT | [string](#string) |  | 操作超时 |
+| OPERATION_CANCELLED | [string](#string) |  | 操作已取消 |
+| OPERATION_NOT_SUPPORTED | [string](#string) |  | 操作不支持 |
+| OPERATION_IN_PROGRESS | [string](#string) |  | 操作进行中 |
+| OPERATION_ABORTED | [string](#string) |  | 操作已中止 |
+| OPERATION_REJECTED | [string](#string) |  | 操作被拒绝 |
+| OPERATION_INVALID | [string](#string) |  | 操作无效 |
+| OPERATION_CONFLICT | [string](#string) |  | 操作冲突 |
+| OPERATION_TOO_FREQUENT | [string](#string) |  | 操作过于频繁 |
+
+
+
+
+
+
+<a name="common-OrderErrorMessages"></a>
+
+### OrderErrorMessages
+订单相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ORDER_NOT_FOUND | [string](#string) |  | 订单不存在 |
+| ORDER_ALREADY_EXISTS | [string](#string) |  | 订单已存在 |
+| ORDER_PERMISSION_DENIED | [string](#string) |  | 订单权限不足 |
+| ORDER_LOCKED | [string](#string) |  | 订单已锁定 |
+| ORDER_STATUS_ERROR | [string](#string) |  | 订单状态错误 |
+
+
+
+
+
+
+<a name="common-PaymentErrorMessages"></a>
+
+### PaymentErrorMessages
+支付相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| PAYMENT_NOT_FOUND | [string](#string) |  | 支付不存在 |
+| PAYMENT_ALREADY_EXISTS | [string](#string) |  | 支付已存在 |
+| PAYMENT_PERMISSION_DENIED | [string](#string) |  | 支付权限不足 |
+| PAYMENT_LOCKED | [string](#string) |  | 支付已锁定 |
+| PAYMENT_STATUS_ERROR | [string](#string) |  | 支付状态错误 |
+
+
+
+
+
+
+<a name="common-ProjectErrorMessages"></a>
+
+### ProjectErrorMessages
+项目相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| PROJECT_NOT_FOUND | [string](#string) |  | 项目不存在 |
+| PROJECT_ALREADY_EXISTS | [string](#string) |  | 项目已存在 |
+| PROJECT_PERMISSION_DENIED | [string](#string) |  | 项目权限不足 |
+| PROJECT_CLOSED | [string](#string) |  | 项目已关闭 |
+| PROJECT_ARCHIVED | [string](#string) |  | 项目已归档 |
+| PROJECT_FULL | [string](#string) |  | 项目已满 |
+| PROJECT_STATUS_ERROR | [string](#string) |  | 项目状态错误 |
+| PROJECT_TYPE_INVALID | [string](#string) |  | 项目类型无效 |
+| PROJECT_OPERATION_DENIED | [string](#string) |  | 项目操作被拒绝 |
+| PROJECT_QUOTA_EXCEEDED | [string](#string) |  | 项目配额超限 |
+
+
+
+
+
+
+<a name="common-ResourceErrorMessages"></a>
+
+### ResourceErrorMessages
+资源错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| RESOURCE_NOT_FOUND | [string](#string) |  | 资源不存在 |
+| RESOURCE_ALREADY_EXISTS | [string](#string) |  | 资源已存在 |
+| RESOURCE_EXPIRED | [string](#string) |  | 资源已过期 |
+| RESOURCE_EXHAUSTED | [string](#string) |  | 资源耗尽 |
+| RESOURCE_BUSY | [string](#string) |  | 资源忙碌 |
+| RESOURCE_LOCKED | [string](#string) |  | 资源已锁定 |
+| RESOURCE_UNAVAILABLE | [string](#string) |  | 资源不可用 |
+| RESOURCE_QUOTA_EXCEEDED | [string](#string) |  | 资源配额超限 |
+| RESOURCE_CORRUPTED | [string](#string) |  | 资源已损坏 |
+
+
+
+
+
+
+<a name="common-RoleErrorMessages"></a>
+
+### RoleErrorMessages
+角色相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ROLE_NOT_FOUND | [string](#string) |  | 角色不存在 |
+| ROLE_ALREADY_EXISTS | [string](#string) |  | 角色已存在 |
+| ROLE_PERMISSION_DENIED | [string](#string) |  | 角色权限不足 |
+| ROLE_RENDER_ERROR | [string](#string) |  | 角色渲染错误 |
+| ROLE_LOCKED | [string](#string) |  | 角色已锁定 |
+| ROLE_STATUS_ERROR | [string](#string) |  | 角色状态错误 |
+| ROLE_TYPE_INVALID | [string](#string) |  | 角色类型无效 |
+| ROLE_QUOTA_EXCEEDED | [string](#string) |  | 角色配额超限 |
+| ROLE_GENERATION_FAILED | [string](#string) |  | 角色生成失败 |
+| ROLE_OPERATION_DENIED | [string](#string) |  | 角色操作被拒绝 |
+
+
+
+
+
+
+<a name="common-SearchErrorMessages"></a>
+
+### SearchErrorMessages
+搜索相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| SEARCH_FAILED | [string](#string) |  | 搜索失败 |
+| SEARCH_PARAMETER_ERROR | [string](#string) |  | 搜索参数错误 |
+| SEARCH_TIMEOUT | [string](#string) |  | 搜索超时 |
+| SEARCH_PERMISSION_DENIED | [string](#string) |  | 搜索权限不足 |
+| SEARCH_QUOTA_EXCEEDED | [string](#string) |  | 搜索配额超限 |
+| SEARCH_INDEX_ERROR | [string](#string) |  | 搜索索引错误 |
+| SEARCH_RESULT_ERROR | [string](#string) |  | 搜索结果错误 |
+| SEARCH_FILTER_ERROR | [string](#string) |  | 搜索过滤错误 |
+| SEARCH_SORT_ERROR | [string](#string) |  | 搜索排序错误 |
+| SEARCH_SCOPE_ERROR | [string](#string) |  | 搜索范围错误 |
+
+
+
+
+
+
+<a name="common-StoryErrorMessages"></a>
+
+### StoryErrorMessages
+故事相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| STORY_NOT_FOUND | [string](#string) |  | 故事不存在 |
+| STORY_ALREADY_EXISTS | [string](#string) |  | 故事已存在 |
+| STORY_PERMISSION_DENIED | [string](#string) |  | 故事权限不足 |
+| STORY_LOCKED | [string](#string) |  | 故事已锁定 |
+| STORY_ARCHIVED | [string](#string) |  | 故事已归档 |
+| STORY_STATUS_ERROR | [string](#string) |  | 故事状态错误 |
+| STORY_VERSION_ERROR | [string](#string) |  | 故事版本错误 |
+| STORY_CONTENT_ERROR | [string](#string) |  | 故事内容错误 |
+| STORY_OPERATION_DENIED | [string](#string) |  | 故事操作被拒绝 |
+| STORY_GENERATION_FAILED | [string](#string) |  | 故事生成失败 |
+
+
+
+
+
+
+<a name="common-StoryboardErrorMessages"></a>
+
+### StoryboardErrorMessages
+故事板相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| STORYBOARD_NOT_FOUND | [string](#string) |  | 故事板不存在 |
+| STORYBOARD_ALREADY_EXISTS | [string](#string) |  | 故事板已存在 |
+| STORYBOARD_PERMISSION_DENIED | [string](#string) |  | 故事板权限不足 |
+| STORYBOARD_RENDER_ERROR | [string](#string) |  | 故事板渲染错误 |
+| STORYBOARD_LOCKED | [string](#string) |  | 故事板已锁定 |
+| STORYBOARD_STATUS_ERROR | [string](#string) |  | 故事板状态错误 |
+| STORYBOARD_VERSION_ERROR | [string](#string) |  | 故事板版本错误 |
+| STORYBOARD_SCENE_ERROR | [string](#string) |  | 故事板场景错误 |
+| STORYBOARD_GENERATION_FAILED | [string](#string) |  | 故事板生成失败 |
+| STORYBOARD_OPERATION_DENIED | [string](#string) |  | 故事板操作被拒绝 |
+
+
+
+
+
+
+<a name="common-SystemErrorMessages"></a>
+
+### SystemErrorMessages
+系统级错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| SYSTEM_ERROR | [string](#string) |  | 系统错误 |
+| INTERNAL_ERROR | [string](#string) |  | 内部错误 |
+| DATABASE_ERROR | [string](#string) |  | 数据库错误 |
+| CACHE_ERROR | [string](#string) |  | 缓存错误 |
+| NETWORK_ERROR | [string](#string) |  | 网络错误 |
+| TIMEOUT_ERROR | [string](#string) |  | 超时错误 |
+| SERVICE_UNAVAILABLE | [string](#string) |  | 服务不可用 |
+| TOO_MANY_REQUESTS | [string](#string) |  | 请求过于频繁 |
+| CONFIGURATION_ERROR | [string](#string) |  | 配置错误 |
+| INITIALIZATION_ERROR | [string](#string) |  | 初始化错误 |
+
+
+
+
+
+
+<a name="common-UploadErrorMessages"></a>
+
+### UploadErrorMessages
+文件上传相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| UPLOAD_FAILED | [string](#string) |  | 上传失败 |
+| UPLOAD_SIZE_EXCEEDED | [string](#string) |  | 上传大小超限 |
+| UPLOAD_FORMAT_ERROR | [string](#string) |  | 上传格式错误 |
+| UPLOAD_PERMISSION_DENIED | [string](#string) |  | 上传权限不足 |
+| UPLOAD_QUOTA_EXCEEDED | [string](#string) |  | 上传配额超限 |
+| UPLOAD_TYPE_INVALID | [string](#string) |  | 上传类型无效 |
+| UPLOAD_TIMEOUT | [string](#string) |  | 上传超时 |
+| UPLOAD_CORRUPTED | [string](#string) |  | 上传文件损坏 |
+| UPLOAD_STORAGE_ERROR | [string](#string) |  | 上传存储错误 |
+| UPLOAD_PROCESSING_ERROR | [string](#string) |  | 上传处理错误 |
+
+
+
+
+
+
+<a name="common-UserErrorMessages"></a>
+
+### UserErrorMessages
+用户相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| USER_NOT_FOUND | [string](#string) |  | 用户不存在 |
+| USER_ALREADY_EXISTS | [string](#string) |  | 用户已存在 |
+| USER_NOT_ACTIVE | [string](#string) |  | 用户未激活 |
+| USER_BLOCKED | [string](#string) |  | 用户已封禁 |
+| USER_PROFILE_INCOMPLETE | [string](#string) |  | 用户资料不完整 |
+| USER_OPERATION_DENIED | [string](#string) |  | 用户操作被拒绝 |
+| USER_QUOTA_EXCEEDED | [string](#string) |  | 用户配额超限 |
+| USER_STATUS_ERROR | [string](#string) |  | 用户状态错误 |
+| USER_VERIFICATION_FAILED | [string](#string) |  | 用户验证失败 |
+| USER_ROLE_INVALID | [string](#string) |  | 用户角色无效 |
+
+
+
+
+
+
+<a name="common-VIPErrorMessages"></a>
+
+### VIPErrorMessages
+VIP/充值相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| VIP_NOT_FOUND | [string](#string) |  | VIP不存在 |
+| VIP_ALREADY_EXISTS | [string](#string) |  | VIP已存在 |
+| VIP_PERMISSION_DENIED | [string](#string) |  | VIP权限不足 |
+| VIP_LOCKED | [string](#string) |  | VIP已锁定 |
+| VIP_STATUS_ERROR | [string](#string) |  | VIP状态错误 |
+
+
+
+
+
+
+<a name="common-ValidationErrorMessages"></a>
+
+### ValidationErrorMessages
+参数验证错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| INVALID_PARAMETER | [string](#string) |  | 无效的参数 |
+| MISSING_PARAMETER | [string](#string) |  | 缺少参数 |
+| INVALID_FORMAT | [string](#string) |  | 格式错误 |
+| INVALID_LENGTH | [string](#string) |  | 长度错误 |
+| INVALID_VALUE | [string](#string) |  | 值错误 |
+| INVALID_TYPE | [string](#string) |  | 类型错误 |
+| INVALID_SYNTAX | [string](#string) |  | 语法错误 |
+| INVALID_ENCODING | [string](#string) |  | 编码错误 |
+| INVALID_OPERATION | [string](#string) |  | 无效的操作 |
+| VALIDATION_FAILED | [string](#string) |  | 验证失败 |
+
+
+
+
+
  
 
 
@@ -844,7 +2251,7 @@
 | ACCOUNT_NOT_FOUND | 104 | 账号不存在 |
 | WRONG_PASSWORD | 105 | 密码错误 |
 | ACCOUNT_DISABLED | 106 | 账号已禁用 |
-| LOGIN_REQUIRED | 107 | 需要登��� |
+| LOGIN_REQUIRED | 107 | 需要登录 |
 | TOKEN_MISSING | 108 | Token缺失 |
 | SESSION_EXPIRED | 109 | 会话过期 |
 | INVALID_CREDENTIALS | 110 | 无效的凭证 |
@@ -931,7 +2338,7 @@
 | STORYBOARD_LOCKED | 804 | 故事板已锁定 |
 | STORYBOARD_STATUS_ERROR | 805 | 故事板状态错误 |
 | STORYBOARD_VERSION_ERROR | 806 | 故事板版本错误 |
-| STORYBOARD_SCENE_ERROR | 807 | 故���板场景错误 |
+| STORYBOARD_SCENE_ERROR | 807 | 故事板场景错误 |
 | STORYBOARD_GENERATION_FAILED | 808 | 故事板生成失败 |
 | STORYBOARD_OPERATION_DENIED | 809 | 故事板操作被拒绝 |
 | ROLE_NOT_FOUND | 900 | 角色相关错误 (900-999)
@@ -1036,6 +2443,42 @@ VIP不存在 |
 | MESSAGE_PERMISSION_DENIED | 1902 | 消息权限不足 |
 | MESSAGE_LOCKED | 1903 | 消息已锁定 |
 | MESSAGE_STATUS_ERROR | 1904 | 消息状态错误 |
+| CHAT_NOT_FOUND | 2000 | 聊天相关错误 (2000-2099)
+
+聊天不存在 |
+| CHAT_ALREADY_EXISTS | 2001 | 聊天已存在 |
+| CHAT_PERMISSION_DENIED | 2002 | 聊天权限不足 |
+| CHAT_LOCKED | 2003 | 聊天已锁定 |
+| CHAT_STATUS_ERROR | 2004 | 聊天状态错误 |
+| CHAT_MESSAGE_ERROR | 2005 | 聊天消息错误 |
+| CHAT_CONTEXT_ERROR | 2006 | 聊天上下文错误 |
+| CHAT_STREAM_ERROR | 2007 | 聊天流错误 |
+| CHAT_TIMEOUT | 2008 | 聊天超时 |
+| CHAT_RATE_LIMITED | 2009 | 聊天频率限制 |
+| UPLOAD_FAILED | 2100 | 文件上传相关错误 (2100-2199)
+
+上传失败 |
+| UPLOAD_SIZE_EXCEEDED | 2101 | 上传大小超限 |
+| UPLOAD_FORMAT_ERROR | 2102 | 上传格式错误 |
+| UPLOAD_PERMISSION_DENIED | 2103 | 上传权限不足 |
+| UPLOAD_QUOTA_EXCEEDED | 2104 | 上传配额超限 |
+| UPLOAD_TYPE_INVALID | 2105 | 上传类型无效 |
+| UPLOAD_TIMEOUT | 2106 | 上传超时 |
+| UPLOAD_CORRUPTED | 2107 | 上传文件损坏 |
+| UPLOAD_STORAGE_ERROR | 2108 | 上传存储错误 |
+| UPLOAD_PROCESSING_ERROR | 2109 | 上传处理错误 |
+| SEARCH_FAILED | 2200 | 搜索相关错误 (2200-2299)
+
+搜索失败 |
+| SEARCH_PARAMETER_ERROR | 2201 | 搜索参数错误 |
+| SEARCH_TIMEOUT | 2202 | 搜索超时 |
+| SEARCH_PERMISSION_DENIED | 2203 | 搜索权限不足 |
+| SEARCH_QUOTA_EXCEEDED | 2204 | 搜索配额超限 |
+| SEARCH_INDEX_ERROR | 2205 | 搜索索引错误 |
+| SEARCH_RESULT_ERROR | 2206 | 搜索结果错误 |
+| SEARCH_FILTER_ERROR | 2207 | 搜索过滤错误 |
+| SEARCH_SORT_ERROR | 2208 | 搜索排序错误 |
+| SEARCH_SCOPE_ERROR | 2209 | 搜索范围错误 |
 
 
  

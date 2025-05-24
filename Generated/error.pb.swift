@@ -78,7 +78,7 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 账号已禁用
   case accountDisabled // = 106
 
-  /// 需要登���
+  /// 需要登录
   case loginRequired // = 107
 
   /// Token缺失
@@ -297,7 +297,7 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// 故事板版本错误
   case storyboardVersionError // = 806
 
-  /// 故���板场景错误
+  /// 故事板场景错误
   case storyboardSceneError // = 807
 
   /// 故事板生成失败
@@ -545,6 +545,96 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 消息状态错误
   case messageStatusError // = 1904
+
+  /// 聊天相关错误 (2000-2099)
+  case chatNotFound // = 2000
+
+  /// 聊天已存在
+  case chatAlreadyExists // = 2001
+
+  /// 聊天权限不足
+  case chatPermissionDenied // = 2002
+
+  /// 聊天已锁定
+  case chatLocked // = 2003
+
+  /// 聊天状态错误
+  case chatStatusError // = 2004
+
+  /// 聊天消息错误
+  case chatMessageError // = 2005
+
+  /// 聊天上下文错误
+  case chatContextError // = 2006
+
+  /// 聊天流错误
+  case chatStreamError // = 2007
+
+  /// 聊天超时
+  case chatTimeout // = 2008
+
+  /// 聊天频率限制
+  case chatRateLimited // = 2009
+
+  /// 文件上传相关错误 (2100-2199)
+  case uploadFailed // = 2100
+
+  /// 上传大小超限
+  case uploadSizeExceeded // = 2101
+
+  /// 上传格式错误
+  case uploadFormatError // = 2102
+
+  /// 上传权限不足
+  case uploadPermissionDenied // = 2103
+
+  /// 上传配额超限
+  case uploadQuotaExceeded // = 2104
+
+  /// 上传类型无效
+  case uploadTypeInvalid // = 2105
+
+  /// 上传超时
+  case uploadTimeout // = 2106
+
+  /// 上传文件损坏
+  case uploadCorrupted // = 2107
+
+  /// 上传存储错误
+  case uploadStorageError // = 2108
+
+  /// 上传处理错误
+  case uploadProcessingError // = 2109
+
+  /// 搜索相关错误 (2200-2299)
+  case searchFailed // = 2200
+
+  /// 搜索参数错误
+  case searchParameterError // = 2201
+
+  /// 搜索超时
+  case searchTimeout // = 2202
+
+  /// 搜索权限不足
+  case searchPermissionDenied // = 2203
+
+  /// 搜索配额超限
+  case searchQuotaExceeded // = 2204
+
+  /// 搜索索引错误
+  case searchIndexError // = 2205
+
+  /// 搜索结果错误
+  case searchResultError // = 2206
+
+  /// 搜索过滤错误
+  case searchFilterError // = 2207
+
+  /// 搜索排序错误
+  case searchSortError // = 2208
+
+  /// 搜索范围错误
+  case searchScopeError // = 2209
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -727,6 +817,36 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1902: self = .messagePermissionDenied
     case 1903: self = .messageLocked
     case 1904: self = .messageStatusError
+    case 2000: self = .chatNotFound
+    case 2001: self = .chatAlreadyExists
+    case 2002: self = .chatPermissionDenied
+    case 2003: self = .chatLocked
+    case 2004: self = .chatStatusError
+    case 2005: self = .chatMessageError
+    case 2006: self = .chatContextError
+    case 2007: self = .chatStreamError
+    case 2008: self = .chatTimeout
+    case 2009: self = .chatRateLimited
+    case 2100: self = .uploadFailed
+    case 2101: self = .uploadSizeExceeded
+    case 2102: self = .uploadFormatError
+    case 2103: self = .uploadPermissionDenied
+    case 2104: self = .uploadQuotaExceeded
+    case 2105: self = .uploadTypeInvalid
+    case 2106: self = .uploadTimeout
+    case 2107: self = .uploadCorrupted
+    case 2108: self = .uploadStorageError
+    case 2109: self = .uploadProcessingError
+    case 2200: self = .searchFailed
+    case 2201: self = .searchParameterError
+    case 2202: self = .searchTimeout
+    case 2203: self = .searchPermissionDenied
+    case 2204: self = .searchQuotaExceeded
+    case 2205: self = .searchIndexError
+    case 2206: self = .searchResultError
+    case 2207: self = .searchFilterError
+    case 2208: self = .searchSortError
+    case 2209: self = .searchScopeError
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -907,6 +1027,36 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .messagePermissionDenied: return 1902
     case .messageLocked: return 1903
     case .messageStatusError: return 1904
+    case .chatNotFound: return 2000
+    case .chatAlreadyExists: return 2001
+    case .chatPermissionDenied: return 2002
+    case .chatLocked: return 2003
+    case .chatStatusError: return 2004
+    case .chatMessageError: return 2005
+    case .chatContextError: return 2006
+    case .chatStreamError: return 2007
+    case .chatTimeout: return 2008
+    case .chatRateLimited: return 2009
+    case .uploadFailed: return 2100
+    case .uploadSizeExceeded: return 2101
+    case .uploadFormatError: return 2102
+    case .uploadPermissionDenied: return 2103
+    case .uploadQuotaExceeded: return 2104
+    case .uploadTypeInvalid: return 2105
+    case .uploadTimeout: return 2106
+    case .uploadCorrupted: return 2107
+    case .uploadStorageError: return 2108
+    case .uploadProcessingError: return 2109
+    case .searchFailed: return 2200
+    case .searchParameterError: return 2201
+    case .searchTimeout: return 2202
+    case .searchPermissionDenied: return 2203
+    case .searchQuotaExceeded: return 2204
+    case .searchIndexError: return 2205
+    case .searchResultError: return 2206
+    case .searchFilterError: return 2207
+    case .searchSortError: return 2208
+    case .searchScopeError: return 2209
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1087,11 +1237,1207 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     .messagePermissionDenied,
     .messageLocked,
     .messageStatusError,
+    .chatNotFound,
+    .chatAlreadyExists,
+    .chatPermissionDenied,
+    .chatLocked,
+    .chatStatusError,
+    .chatMessageError,
+    .chatContextError,
+    .chatStreamError,
+    .chatTimeout,
+    .chatRateLimited,
+    .uploadFailed,
+    .uploadSizeExceeded,
+    .uploadFormatError,
+    .uploadPermissionDenied,
+    .uploadQuotaExceeded,
+    .uploadTypeInvalid,
+    .uploadTimeout,
+    .uploadCorrupted,
+    .uploadStorageError,
+    .uploadProcessingError,
+    .searchFailed,
+    .searchParameterError,
+    .searchTimeout,
+    .searchPermissionDenied,
+    .searchQuotaExceeded,
+    .searchIndexError,
+    .searchResultError,
+    .searchFilterError,
+    .searchSortError,
+    .searchScopeError,
   ]
 
 }
 
+/// 错误描述信息
+public struct Common_ErrorDescription: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 系统级错误描述
+  public var systemErrors: Dictionary<Int32,String> {
+    get {return _storage._systemErrors}
+    set {_uniqueStorage()._systemErrors = newValue}
+  }
+
+  /// 认证和授权错误描述
+  public var authErrors: Dictionary<Int32,String> {
+    get {return _storage._authErrors}
+    set {_uniqueStorage()._authErrors = newValue}
+  }
+
+  /// 参数验证错误描述
+  public var validationErrors: Dictionary<Int32,String> {
+    get {return _storage._validationErrors}
+    set {_uniqueStorage()._validationErrors = newValue}
+  }
+
+  /// 资源错误描述
+  public var resourceErrors: Dictionary<Int32,String> {
+    get {return _storage._resourceErrors}
+    set {_uniqueStorage()._resourceErrors = newValue}
+  }
+
+  /// 用户相关错误描述
+  public var userErrors: Dictionary<Int32,String> {
+    get {return _storage._userErrors}
+    set {_uniqueStorage()._userErrors = newValue}
+  }
+
+  /// 组织相关错误描述
+  public var groupErrors: Dictionary<Int32,String> {
+    get {return _storage._groupErrors}
+    set {_uniqueStorage()._groupErrors = newValue}
+  }
+
+  /// 项目相关错误描述
+  public var projectErrors: Dictionary<Int32,String> {
+    get {return _storage._projectErrors}
+    set {_uniqueStorage()._projectErrors = newValue}
+  }
+
+  /// 故事相关错误描述
+  public var storyErrors: Dictionary<Int32,String> {
+    get {return _storage._storyErrors}
+    set {_uniqueStorage()._storyErrors = newValue}
+  }
+
+  /// 故事板相关错误描述
+  public var storyboardErrors: Dictionary<Int32,String> {
+    get {return _storage._storyboardErrors}
+    set {_uniqueStorage()._storyboardErrors = newValue}
+  }
+
+  /// 角色相关错误描述
+  public var roleErrors: Dictionary<Int32,String> {
+    get {return _storage._roleErrors}
+    set {_uniqueStorage()._roleErrors = newValue}
+  }
+
+  /// 内容相关错误描述
+  public var contentErrors: Dictionary<Int32,String> {
+    get {return _storage._contentErrors}
+    set {_uniqueStorage()._contentErrors = newValue}
+  }
+
+  /// 操作相关错误描述
+  public var operationErrors: Dictionary<Int32,String> {
+    get {return _storage._operationErrors}
+    set {_uniqueStorage()._operationErrors = newValue}
+  }
+
+  /// 限制相关错误描述
+  public var limitErrors: Dictionary<Int32,String> {
+    get {return _storage._limitErrors}
+    set {_uniqueStorage()._limitErrors = newValue}
+  }
+
+  /// AI生成相关错误描述
+  public var aiErrors: Dictionary<Int32,String> {
+    get {return _storage._aiErrors}
+    set {_uniqueStorage()._aiErrors = newValue}
+  }
+
+  /// 评论相关错误描述
+  public var commentErrors: Dictionary<Int32,String> {
+    get {return _storage._commentErrors}
+    set {_uniqueStorage()._commentErrors = newValue}
+  }
+
+  /// 点赞相关错误描述
+  public var likeErrors: Dictionary<Int32,String> {
+    get {return _storage._likeErrors}
+    set {_uniqueStorage()._likeErrors = newValue}
+  }
+
+  /// VIP/充值相关错误描述
+  public var vipErrors: Dictionary<Int32,String> {
+    get {return _storage._vipErrors}
+    set {_uniqueStorage()._vipErrors = newValue}
+  }
+
+  /// 支付相关错误描述
+  public var paymentErrors: Dictionary<Int32,String> {
+    get {return _storage._paymentErrors}
+    set {_uniqueStorage()._paymentErrors = newValue}
+  }
+
+  /// 订单相关错误描述
+  public var orderErrors: Dictionary<Int32,String> {
+    get {return _storage._orderErrors}
+    set {_uniqueStorage()._orderErrors = newValue}
+  }
+
+  /// 消息相关错误描述
+  public var messageErrors: Dictionary<Int32,String> {
+    get {return _storage._messageErrors}
+    set {_uniqueStorage()._messageErrors = newValue}
+  }
+
+  /// 聊天相关错误描述
+  public var chatErrors: Dictionary<Int32,String> {
+    get {return _storage._chatErrors}
+    set {_uniqueStorage()._chatErrors = newValue}
+  }
+
+  /// 文件上传相关错误描述
+  public var uploadErrors: Dictionary<Int32,String> {
+    get {return _storage._uploadErrors}
+    set {_uniqueStorage()._uploadErrors = newValue}
+  }
+
+  /// 搜索相关错误描述
+  public var searchErrors: Dictionary<Int32,String> {
+    get {return _storage._searchErrors}
+    set {_uniqueStorage()._searchErrors = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+/// 错误描述常量
+public struct Common_ErrorDescriptions: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 系统级错误描述
+  public var systemErrors: Dictionary<Int32,String> {
+    get {return _storage._systemErrors}
+    set {_uniqueStorage()._systemErrors = newValue}
+  }
+
+  /// 认证和授权错误描述
+  public var authErrors: Dictionary<Int32,String> {
+    get {return _storage._authErrors}
+    set {_uniqueStorage()._authErrors = newValue}
+  }
+
+  /// 参数验证错误描述
+  public var validationErrors: Dictionary<Int32,String> {
+    get {return _storage._validationErrors}
+    set {_uniqueStorage()._validationErrors = newValue}
+  }
+
+  /// 资源错误描述
+  public var resourceErrors: Dictionary<Int32,String> {
+    get {return _storage._resourceErrors}
+    set {_uniqueStorage()._resourceErrors = newValue}
+  }
+
+  /// 用户相关错误描述
+  public var userErrors: Dictionary<Int32,String> {
+    get {return _storage._userErrors}
+    set {_uniqueStorage()._userErrors = newValue}
+  }
+
+  /// 组织相关错误描述
+  public var groupErrors: Dictionary<Int32,String> {
+    get {return _storage._groupErrors}
+    set {_uniqueStorage()._groupErrors = newValue}
+  }
+
+  /// 项目相关错误描述
+  public var projectErrors: Dictionary<Int32,String> {
+    get {return _storage._projectErrors}
+    set {_uniqueStorage()._projectErrors = newValue}
+  }
+
+  /// 故事相关错误描述
+  public var storyErrors: Dictionary<Int32,String> {
+    get {return _storage._storyErrors}
+    set {_uniqueStorage()._storyErrors = newValue}
+  }
+
+  /// 故事板相关错误描述
+  public var storyboardErrors: Dictionary<Int32,String> {
+    get {return _storage._storyboardErrors}
+    set {_uniqueStorage()._storyboardErrors = newValue}
+  }
+
+  /// 角色相关错误描述
+  public var roleErrors: Dictionary<Int32,String> {
+    get {return _storage._roleErrors}
+    set {_uniqueStorage()._roleErrors = newValue}
+  }
+
+  /// 内容相关错误描述
+  public var contentErrors: Dictionary<Int32,String> {
+    get {return _storage._contentErrors}
+    set {_uniqueStorage()._contentErrors = newValue}
+  }
+
+  /// 操作相关错误描述
+  public var operationErrors: Dictionary<Int32,String> {
+    get {return _storage._operationErrors}
+    set {_uniqueStorage()._operationErrors = newValue}
+  }
+
+  /// 限制相关错误描述
+  public var limitErrors: Dictionary<Int32,String> {
+    get {return _storage._limitErrors}
+    set {_uniqueStorage()._limitErrors = newValue}
+  }
+
+  /// AI生成相关错误描述
+  public var aiErrors: Dictionary<Int32,String> {
+    get {return _storage._aiErrors}
+    set {_uniqueStorage()._aiErrors = newValue}
+  }
+
+  /// 评论相关错误描述
+  public var commentErrors: Dictionary<Int32,String> {
+    get {return _storage._commentErrors}
+    set {_uniqueStorage()._commentErrors = newValue}
+  }
+
+  /// 点赞相关错误描述
+  public var likeErrors: Dictionary<Int32,String> {
+    get {return _storage._likeErrors}
+    set {_uniqueStorage()._likeErrors = newValue}
+  }
+
+  /// VIP/充值相关错误描述
+  public var vipErrors: Dictionary<Int32,String> {
+    get {return _storage._vipErrors}
+    set {_uniqueStorage()._vipErrors = newValue}
+  }
+
+  /// 支付相关错误描述
+  public var paymentErrors: Dictionary<Int32,String> {
+    get {return _storage._paymentErrors}
+    set {_uniqueStorage()._paymentErrors = newValue}
+  }
+
+  /// 订单相关错误描述
+  public var orderErrors: Dictionary<Int32,String> {
+    get {return _storage._orderErrors}
+    set {_uniqueStorage()._orderErrors = newValue}
+  }
+
+  /// 消息相关错误描述
+  public var messageErrors: Dictionary<Int32,String> {
+    get {return _storage._messageErrors}
+    set {_uniqueStorage()._messageErrors = newValue}
+  }
+
+  /// 聊天相关错误描述
+  public var chatErrors: Dictionary<Int32,String> {
+    get {return _storage._chatErrors}
+    set {_uniqueStorage()._chatErrors = newValue}
+  }
+
+  /// 文件上传相关错误描述
+  public var uploadErrors: Dictionary<Int32,String> {
+    get {return _storage._uploadErrors}
+    set {_uniqueStorage()._uploadErrors = newValue}
+  }
+
+  /// 搜索相关错误描述
+  public var searchErrors: Dictionary<Int32,String> {
+    get {return _storage._searchErrors}
+    set {_uniqueStorage()._searchErrors = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+/// 系统级错误描述
+public struct Common_SystemErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 系统错误
+  public var systemError: String = String()
+
+  /// 内部错误
+  public var internalError: String = String()
+
+  /// 数据库错误
+  public var databaseError: String = String()
+
+  /// 缓存错误
+  public var cacheError: String = String()
+
+  /// 网络错误
+  public var networkError: String = String()
+
+  /// 超时错误
+  public var timeoutError: String = String()
+
+  /// 服务不可用
+  public var serviceUnavailable: String = String()
+
+  /// 请求过于频繁
+  public var tooManyRequests: String = String()
+
+  /// 配置错误
+  public var configurationError: String = String()
+
+  /// 初始化错误
+  public var initializationError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 认证和授权错误描述
+public struct Common_AuthErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 未授权
+  public var unauthorized: String = String()
+
+  /// Token过期
+  public var tokenExpired: String = String()
+
+  /// Token无效
+  public var tokenInvalid: String = String()
+
+  /// 权限不足
+  public var permissionDenied: String = String()
+
+  /// 账号不存在
+  public var accountNotFound: String = String()
+
+  /// 密码错误
+  public var wrongPassword: String = String()
+
+  /// 账号已禁用
+  public var accountDisabled: String = String()
+
+  /// 需要登录
+  public var loginRequired: String = String()
+
+  /// Token缺失
+  public var tokenMissing: String = String()
+
+  /// 会话过期
+  public var sessionExpired: String = String()
+
+  /// 无效的凭证
+  public var invalidCredentials: String = String()
+
+  /// 账号已锁定
+  public var accountLocked: String = String()
+
+  /// 账号已过期
+  public var accountExpired: String = String()
+
+  /// 无效的登录类型
+  public var invalidLoginType: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 参数验证错误描述
+public struct Common_ValidationErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 无效的参数
+  public var invalidParameter: String = String()
+
+  /// 缺少参数
+  public var missingParameter: String = String()
+
+  /// 格式错误
+  public var invalidFormat: String = String()
+
+  /// 长度错误
+  public var invalidLength: String = String()
+
+  /// 值错误
+  public var invalidValue: String = String()
+
+  /// 类型错误
+  public var invalidType: String = String()
+
+  /// 语法错误
+  public var invalidSyntax: String = String()
+
+  /// 编码错误
+  public var invalidEncoding: String = String()
+
+  /// 无效的操作
+  public var invalidOperation: String = String()
+
+  /// 验证失败
+  public var validationFailed: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 资源错误描述
+public struct Common_ResourceErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 资源不存在
+  public var resourceNotFound: String = String()
+
+  /// 资源已存在
+  public var resourceAlreadyExists: String = String()
+
+  /// 资源已过期
+  public var resourceExpired: String = String()
+
+  /// 资源耗尽
+  public var resourceExhausted: String = String()
+
+  /// 资源忙碌
+  public var resourceBusy: String = String()
+
+  /// 资源已锁定
+  public var resourceLocked: String = String()
+
+  /// 资源不可用
+  public var resourceUnavailable: String = String()
+
+  /// 资源配额超限
+  public var resourceQuotaExceeded: String = String()
+
+  /// 资源已损坏
+  public var resourceCorrupted: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 用户相关错误描述
+public struct Common_UserErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 用户不存在
+  public var userNotFound: String = String()
+
+  /// 用户已存在
+  public var userAlreadyExists: String = String()
+
+  /// 用户未激活
+  public var userNotActive: String = String()
+
+  /// 用户已封禁
+  public var userBlocked: String = String()
+
+  /// 用户资料不完整
+  public var userProfileIncomplete: String = String()
+
+  /// 用户操作被拒绝
+  public var userOperationDenied: String = String()
+
+  /// 用户配额超限
+  public var userQuotaExceeded: String = String()
+
+  /// 用户状态错误
+  public var userStatusError: String = String()
+
+  /// 用户验证失败
+  public var userVerificationFailed: String = String()
+
+  /// 用户角色无效
+  public var userRoleInvalid: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 组织相关错误描述
+public struct Common_GroupErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 组织不存在
+  public var groupNotFound: String = String()
+
+  /// 组织已存在
+  public var groupAlreadyExists: String = String()
+
+  /// 非组织成员
+  public var notGroupMember: String = String()
+
+  /// 组织权限不足
+  public var groupPermissionDenied: String = String()
+
+  /// 组织人数已满
+  public var groupFull: String = String()
+
+  /// 组织已关闭
+  public var groupClosed: String = String()
+
+  /// 组织操作被拒绝
+  public var groupOperationDenied: String = String()
+
+  /// 组织状态错误
+  public var groupStatusError: String = String()
+
+  /// 组织类型无效
+  public var groupTypeInvalid: String = String()
+
+  /// 组织配额超限
+  public var groupQuotaExceeded: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 项目相关错误描述
+public struct Common_ProjectErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 项目不存在
+  public var projectNotFound: String = String()
+
+  /// 项目已存在
+  public var projectAlreadyExists: String = String()
+
+  /// 项目权限不足
+  public var projectPermissionDenied: String = String()
+
+  /// 项目已关闭
+  public var projectClosed: String = String()
+
+  /// 项目已归档
+  public var projectArchived: String = String()
+
+  /// 项目已满
+  public var projectFull: String = String()
+
+  /// 项目状态错误
+  public var projectStatusError: String = String()
+
+  /// 项目类型无效
+  public var projectTypeInvalid: String = String()
+
+  /// 项目操作被拒绝
+  public var projectOperationDenied: String = String()
+
+  /// 项目配额超限
+  public var projectQuotaExceeded: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 故事相关错误描述
+public struct Common_StoryErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 故事不存在
+  public var storyNotFound: String = String()
+
+  /// 故事已存在
+  public var storyAlreadyExists: String = String()
+
+  /// 故事权限不足
+  public var storyPermissionDenied: String = String()
+
+  /// 故事已锁定
+  public var storyLocked: String = String()
+
+  /// 故事已归档
+  public var storyArchived: String = String()
+
+  /// 故事状态错误
+  public var storyStatusError: String = String()
+
+  /// 故事版本错误
+  public var storyVersionError: String = String()
+
+  /// 故事内容错误
+  public var storyContentError: String = String()
+
+  /// 故事操作被拒绝
+  public var storyOperationDenied: String = String()
+
+  /// 故事生成失败
+  public var storyGenerationFailed: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 故事板相关错误描述
+public struct Common_StoryboardErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 故事板不存在
+  public var storyboardNotFound: String = String()
+
+  /// 故事板已存在
+  public var storyboardAlreadyExists: String = String()
+
+  /// 故事板权限不足
+  public var storyboardPermissionDenied: String = String()
+
+  /// 故事板渲染错误
+  public var storyboardRenderError: String = String()
+
+  /// 故事板已锁定
+  public var storyboardLocked: String = String()
+
+  /// 故事板状态错误
+  public var storyboardStatusError: String = String()
+
+  /// 故事板版本错误
+  public var storyboardVersionError: String = String()
+
+  /// 故事板场景错误
+  public var storyboardSceneError: String = String()
+
+  /// 故事板生成失败
+  public var storyboardGenerationFailed: String = String()
+
+  /// 故事板操作被拒绝
+  public var storyboardOperationDenied: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 角色相关错误描述
+public struct Common_RoleErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 角色不存在
+  public var roleNotFound: String = String()
+
+  /// 角色已存在
+  public var roleAlreadyExists: String = String()
+
+  /// 角色权限不足
+  public var rolePermissionDenied: String = String()
+
+  /// 角色渲染错误
+  public var roleRenderError: String = String()
+
+  /// 角色已锁定
+  public var roleLocked: String = String()
+
+  /// 角色状态错误
+  public var roleStatusError: String = String()
+
+  /// 角色类型无效
+  public var roleTypeInvalid: String = String()
+
+  /// 角色配额超限
+  public var roleQuotaExceeded: String = String()
+
+  /// 角色生成失败
+  public var roleGenerationFailed: String = String()
+
+  /// 角色操作被拒绝
+  public var roleOperationDenied: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 内容相关错误描述
+public struct Common_ContentErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 内容不存在
+  public var contentNotFound: String = String()
+
+  /// 内容已存在
+  public var contentAlreadyExists: String = String()
+
+  /// 内容权限不足
+  public var contentPermissionDenied: String = String()
+
+  /// 内容类型无效
+  public var contentTypeInvalid: String = String()
+
+  /// 内容大小超限
+  public var contentSizeExceeded: String = String()
+
+  /// 内容格式错误
+  public var contentFormatError: String = String()
+
+  /// 内容已锁定
+  public var contentLocked: String = String()
+
+  /// 内容已过期
+  public var contentExpired: String = String()
+
+  /// 内容已损坏
+  public var contentCorrupted: String = String()
+
+  /// 内容操作被拒绝
+  public var contentOperationDenied: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 操作相关错误描述
+public struct Common_OperationErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 操作失败
+  public var operationFailed: String = String()
+
+  /// 操作超时
+  public var operationTimeout: String = String()
+
+  /// 操作已取消
+  public var operationCancelled: String = String()
+
+  /// 操作不支持
+  public var operationNotSupported: String = String()
+
+  /// 操作进行中
+  public var operationInProgress: String = String()
+
+  /// 操作已中止
+  public var operationAborted: String = String()
+
+  /// 操作被拒绝
+  public var operationRejected: String = String()
+
+  /// 操作无效
+  public var operationInvalid: String = String()
+
+  /// 操作冲突
+  public var operationConflict: String = String()
+
+  /// 操作过于频繁
+  public var operationTooFrequent: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 限制相关错误描述
+public struct Common_LimitErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 速率限制超限
+  public var rateLimitExceeded: String = String()
+
+  /// 配额超限
+  public var quotaExceeded: String = String()
+
+  /// 大小限制超限
+  public var sizeLimitExceeded: String = String()
+
+  /// 时间限制超限
+  public var timeLimitExceeded: String = String()
+
+  /// 频率限制超限
+  public var frequencyLimitExceeded: String = String()
+
+  /// 并发限制超限
+  public var concurrentLimitExceeded: String = String()
+
+  /// 存储限制超限
+  public var storageLimitExceeded: String = String()
+
+  /// 带宽限制超限
+  public var bandwidthLimitExceeded: String = String()
+
+  /// 请求限制超限
+  public var requestLimitExceeded: String = String()
+
+  /// 用户限制超限
+  public var userLimitExceeded: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// AI生成相关错误描述
+public struct Common_AIErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// AI生成失败
+  public var aiGenerationFailed: String = String()
+
+  /// AI服务不可用
+  public var aiServiceUnavailable: String = String()
+
+  /// AI配额超限
+  public var aiQuotaExceeded: String = String()
+
+  /// AI模型错误
+  public var aiModelError: String = String()
+
+  /// AI参数错误
+  public var aiParameterError: String = String()
+
+  /// AI内容错误
+  public var aiContentError: String = String()
+
+  /// AI处理超时
+  public var aiTimeout: String = String()
+
+  /// AI速率受限
+  public var aiRateLimited: String = String()
+
+  /// AI上下文错误
+  public var aiContextError: String = String()
+
+  /// AI响应错误
+  public var aiResponseError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 评论相关错误描述
+public struct Common_CommentErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 评论不存在
+  public var commentNotFound: String = String()
+
+  /// 评论已存在
+  public var commentAlreadyExists: String = String()
+
+  /// 评论权限不足
+  public var commentPermissionDenied: String = String()
+
+  /// 评论已锁定
+  public var commentLocked: String = String()
+
+  /// 评论状态错误
+  public var commentStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 点赞相关错误描述
+public struct Common_LikeErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 点赞不存在
+  public var likeNotFound: String = String()
+
+  /// 点赞已存在
+  public var likeAlreadyExists: String = String()
+
+  /// 点赞权限不足
+  public var likePermissionDenied: String = String()
+
+  /// 点赞已锁定
+  public var likeLocked: String = String()
+
+  /// 点赞状态错误
+  public var likeStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// VIP/充值相关错误描述
+public struct Common_VIPErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// VIP不存在
+  public var vipNotFound: String = String()
+
+  /// VIP已存在
+  public var vipAlreadyExists: String = String()
+
+  /// VIP权限不足
+  public var vipPermissionDenied: String = String()
+
+  /// VIP已锁定
+  public var vipLocked: String = String()
+
+  /// VIP状态错误
+  public var vipStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 支付相关错误描述
+public struct Common_PaymentErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 支付不存在
+  public var paymentNotFound: String = String()
+
+  /// 支付已存在
+  public var paymentAlreadyExists: String = String()
+
+  /// 支付权限不足
+  public var paymentPermissionDenied: String = String()
+
+  /// 支付已锁定
+  public var paymentLocked: String = String()
+
+  /// 支付状态错误
+  public var paymentStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 订单相关错误描述
+public struct Common_OrderErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 订单不存在
+  public var orderNotFound: String = String()
+
+  /// 订单已存在
+  public var orderAlreadyExists: String = String()
+
+  /// 订单权限不足
+  public var orderPermissionDenied: String = String()
+
+  /// 订单已锁定
+  public var orderLocked: String = String()
+
+  /// 订单状态错误
+  public var orderStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 消息相关错误描述
+public struct Common_MessageErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 消息不存在
+  public var messageNotFound: String = String()
+
+  /// 消息已存在
+  public var messageAlreadyExists: String = String()
+
+  /// 消息权限不足
+  public var messagePermissionDenied: String = String()
+
+  /// 消息已锁定
+  public var messageLocked: String = String()
+
+  /// 消息状态错误
+  public var messageStatusError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 聊天相关错误描述
+public struct Common_ChatErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 聊天不存在
+  public var chatNotFound: String = String()
+
+  /// 聊天已存在
+  public var chatAlreadyExists: String = String()
+
+  /// 聊天权限不足
+  public var chatPermissionDenied: String = String()
+
+  /// 聊天已锁定
+  public var chatLocked: String = String()
+
+  /// 聊天状态错误
+  public var chatStatusError: String = String()
+
+  /// 聊天消息错误
+  public var chatMessageError: String = String()
+
+  /// 聊天上下文错误
+  public var chatContextError: String = String()
+
+  /// 聊天流错误
+  public var chatStreamError: String = String()
+
+  /// 聊天超时
+  public var chatTimeout: String = String()
+
+  /// 聊天频率限制
+  public var chatRateLimited: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 文件上传相关错误描述
+public struct Common_UploadErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 上传失败
+  public var uploadFailed: String = String()
+
+  /// 上传大小超限
+  public var uploadSizeExceeded: String = String()
+
+  /// 上传格式错误
+  public var uploadFormatError: String = String()
+
+  /// 上传权限不足
+  public var uploadPermissionDenied: String = String()
+
+  /// 上传配额超限
+  public var uploadQuotaExceeded: String = String()
+
+  /// 上传类型无效
+  public var uploadTypeInvalid: String = String()
+
+  /// 上传超时
+  public var uploadTimeout: String = String()
+
+  /// 上传文件损坏
+  public var uploadCorrupted: String = String()
+
+  /// 上传存储错误
+  public var uploadStorageError: String = String()
+
+  /// 上传处理错误
+  public var uploadProcessingError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// 搜索相关错误描述
+public struct Common_SearchErrorMessages: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 搜索失败
+  public var searchFailed: String = String()
+
+  /// 搜索参数错误
+  public var searchParameterError: String = String()
+
+  /// 搜索超时
+  public var searchTimeout: String = String()
+
+  /// 搜索权限不足
+  public var searchPermissionDenied: String = String()
+
+  /// 搜索配额超限
+  public var searchQuotaExceeded: String = String()
+
+  /// 搜索索引错误
+  public var searchIndexError: String = String()
+
+  /// 搜索结果错误
+  public var searchResultError: String = String()
+
+  /// 搜索过滤错误
+  public var searchFilterError: String = String()
+
+  /// 搜索排序错误
+  public var searchSortError: String = String()
+
+  /// 搜索范围错误
+  public var searchScopeError: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "common"
 
 extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1269,5 +2615,2347 @@ extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
     1902: .same(proto: "MESSAGE_PERMISSION_DENIED"),
     1903: .same(proto: "MESSAGE_LOCKED"),
     1904: .same(proto: "MESSAGE_STATUS_ERROR"),
+    2000: .same(proto: "CHAT_NOT_FOUND"),
+    2001: .same(proto: "CHAT_ALREADY_EXISTS"),
+    2002: .same(proto: "CHAT_PERMISSION_DENIED"),
+    2003: .same(proto: "CHAT_LOCKED"),
+    2004: .same(proto: "CHAT_STATUS_ERROR"),
+    2005: .same(proto: "CHAT_MESSAGE_ERROR"),
+    2006: .same(proto: "CHAT_CONTEXT_ERROR"),
+    2007: .same(proto: "CHAT_STREAM_ERROR"),
+    2008: .same(proto: "CHAT_TIMEOUT"),
+    2009: .same(proto: "CHAT_RATE_LIMITED"),
+    2100: .same(proto: "UPLOAD_FAILED"),
+    2101: .same(proto: "UPLOAD_SIZE_EXCEEDED"),
+    2102: .same(proto: "UPLOAD_FORMAT_ERROR"),
+    2103: .same(proto: "UPLOAD_PERMISSION_DENIED"),
+    2104: .same(proto: "UPLOAD_QUOTA_EXCEEDED"),
+    2105: .same(proto: "UPLOAD_TYPE_INVALID"),
+    2106: .same(proto: "UPLOAD_TIMEOUT"),
+    2107: .same(proto: "UPLOAD_CORRUPTED"),
+    2108: .same(proto: "UPLOAD_STORAGE_ERROR"),
+    2109: .same(proto: "UPLOAD_PROCESSING_ERROR"),
+    2200: .same(proto: "SEARCH_FAILED"),
+    2201: .same(proto: "SEARCH_PARAMETER_ERROR"),
+    2202: .same(proto: "SEARCH_TIMEOUT"),
+    2203: .same(proto: "SEARCH_PERMISSION_DENIED"),
+    2204: .same(proto: "SEARCH_QUOTA_EXCEEDED"),
+    2205: .same(proto: "SEARCH_INDEX_ERROR"),
+    2206: .same(proto: "SEARCH_RESULT_ERROR"),
+    2207: .same(proto: "SEARCH_FILTER_ERROR"),
+    2208: .same(proto: "SEARCH_SORT_ERROR"),
+    2209: .same(proto: "SEARCH_SCOPE_ERROR"),
   ]
+}
+
+extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ErrorDescription"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "system_errors"),
+    2: .standard(proto: "auth_errors"),
+    3: .standard(proto: "validation_errors"),
+    4: .standard(proto: "resource_errors"),
+    5: .standard(proto: "user_errors"),
+    6: .standard(proto: "group_errors"),
+    7: .standard(proto: "project_errors"),
+    8: .standard(proto: "story_errors"),
+    9: .standard(proto: "storyboard_errors"),
+    10: .standard(proto: "role_errors"),
+    11: .standard(proto: "content_errors"),
+    12: .standard(proto: "operation_errors"),
+    13: .standard(proto: "limit_errors"),
+    14: .standard(proto: "ai_errors"),
+    15: .standard(proto: "comment_errors"),
+    16: .standard(proto: "like_errors"),
+    17: .standard(proto: "vip_errors"),
+    18: .standard(proto: "payment_errors"),
+    19: .standard(proto: "order_errors"),
+    20: .standard(proto: "message_errors"),
+    21: .standard(proto: "chat_errors"),
+    22: .standard(proto: "upload_errors"),
+    23: .standard(proto: "search_errors"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _systemErrors: Dictionary<Int32,String> = [:]
+    var _authErrors: Dictionary<Int32,String> = [:]
+    var _validationErrors: Dictionary<Int32,String> = [:]
+    var _resourceErrors: Dictionary<Int32,String> = [:]
+    var _userErrors: Dictionary<Int32,String> = [:]
+    var _groupErrors: Dictionary<Int32,String> = [:]
+    var _projectErrors: Dictionary<Int32,String> = [:]
+    var _storyErrors: Dictionary<Int32,String> = [:]
+    var _storyboardErrors: Dictionary<Int32,String> = [:]
+    var _roleErrors: Dictionary<Int32,String> = [:]
+    var _contentErrors: Dictionary<Int32,String> = [:]
+    var _operationErrors: Dictionary<Int32,String> = [:]
+    var _limitErrors: Dictionary<Int32,String> = [:]
+    var _aiErrors: Dictionary<Int32,String> = [:]
+    var _commentErrors: Dictionary<Int32,String> = [:]
+    var _likeErrors: Dictionary<Int32,String> = [:]
+    var _vipErrors: Dictionary<Int32,String> = [:]
+    var _paymentErrors: Dictionary<Int32,String> = [:]
+    var _orderErrors: Dictionary<Int32,String> = [:]
+    var _messageErrors: Dictionary<Int32,String> = [:]
+    var _chatErrors: Dictionary<Int32,String> = [:]
+    var _uploadErrors: Dictionary<Int32,String> = [:]
+    var _searchErrors: Dictionary<Int32,String> = [:]
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _systemErrors = source._systemErrors
+      _authErrors = source._authErrors
+      _validationErrors = source._validationErrors
+      _resourceErrors = source._resourceErrors
+      _userErrors = source._userErrors
+      _groupErrors = source._groupErrors
+      _projectErrors = source._projectErrors
+      _storyErrors = source._storyErrors
+      _storyboardErrors = source._storyboardErrors
+      _roleErrors = source._roleErrors
+      _contentErrors = source._contentErrors
+      _operationErrors = source._operationErrors
+      _limitErrors = source._limitErrors
+      _aiErrors = source._aiErrors
+      _commentErrors = source._commentErrors
+      _likeErrors = source._likeErrors
+      _vipErrors = source._vipErrors
+      _paymentErrors = source._paymentErrors
+      _orderErrors = source._orderErrors
+      _messageErrors = source._messageErrors
+      _chatErrors = source._chatErrors
+      _uploadErrors = source._uploadErrors
+      _searchErrors = source._searchErrors
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._systemErrors) }()
+        case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._authErrors) }()
+        case 3: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._validationErrors) }()
+        case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._resourceErrors) }()
+        case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._userErrors) }()
+        case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._groupErrors) }()
+        case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._projectErrors) }()
+        case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._storyErrors) }()
+        case 9: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._storyboardErrors) }()
+        case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._roleErrors) }()
+        case 11: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._contentErrors) }()
+        case 12: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._operationErrors) }()
+        case 13: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._limitErrors) }()
+        case 14: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._aiErrors) }()
+        case 15: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._commentErrors) }()
+        case 16: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._likeErrors) }()
+        case 17: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._vipErrors) }()
+        case 18: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._paymentErrors) }()
+        case 19: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._orderErrors) }()
+        case 20: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._messageErrors) }()
+        case 21: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._chatErrors) }()
+        case 22: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._uploadErrors) }()
+        case 23: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._searchErrors) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._systemErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._systemErrors, fieldNumber: 1)
+      }
+      if !_storage._authErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._authErrors, fieldNumber: 2)
+      }
+      if !_storage._validationErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._validationErrors, fieldNumber: 3)
+      }
+      if !_storage._resourceErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._resourceErrors, fieldNumber: 4)
+      }
+      if !_storage._userErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._userErrors, fieldNumber: 5)
+      }
+      if !_storage._groupErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._groupErrors, fieldNumber: 6)
+      }
+      if !_storage._projectErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._projectErrors, fieldNumber: 7)
+      }
+      if !_storage._storyErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._storyErrors, fieldNumber: 8)
+      }
+      if !_storage._storyboardErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._storyboardErrors, fieldNumber: 9)
+      }
+      if !_storage._roleErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._roleErrors, fieldNumber: 10)
+      }
+      if !_storage._contentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._contentErrors, fieldNumber: 11)
+      }
+      if !_storage._operationErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._operationErrors, fieldNumber: 12)
+      }
+      if !_storage._limitErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._limitErrors, fieldNumber: 13)
+      }
+      if !_storage._aiErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._aiErrors, fieldNumber: 14)
+      }
+      if !_storage._commentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._commentErrors, fieldNumber: 15)
+      }
+      if !_storage._likeErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._likeErrors, fieldNumber: 16)
+      }
+      if !_storage._vipErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._vipErrors, fieldNumber: 17)
+      }
+      if !_storage._paymentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._paymentErrors, fieldNumber: 18)
+      }
+      if !_storage._orderErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._orderErrors, fieldNumber: 19)
+      }
+      if !_storage._messageErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._messageErrors, fieldNumber: 20)
+      }
+      if !_storage._chatErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._chatErrors, fieldNumber: 21)
+      }
+      if !_storage._uploadErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._uploadErrors, fieldNumber: 22)
+      }
+      if !_storage._searchErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._searchErrors, fieldNumber: 23)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ErrorDescription, rhs: Common_ErrorDescription) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._systemErrors != rhs_storage._systemErrors {return false}
+        if _storage._authErrors != rhs_storage._authErrors {return false}
+        if _storage._validationErrors != rhs_storage._validationErrors {return false}
+        if _storage._resourceErrors != rhs_storage._resourceErrors {return false}
+        if _storage._userErrors != rhs_storage._userErrors {return false}
+        if _storage._groupErrors != rhs_storage._groupErrors {return false}
+        if _storage._projectErrors != rhs_storage._projectErrors {return false}
+        if _storage._storyErrors != rhs_storage._storyErrors {return false}
+        if _storage._storyboardErrors != rhs_storage._storyboardErrors {return false}
+        if _storage._roleErrors != rhs_storage._roleErrors {return false}
+        if _storage._contentErrors != rhs_storage._contentErrors {return false}
+        if _storage._operationErrors != rhs_storage._operationErrors {return false}
+        if _storage._limitErrors != rhs_storage._limitErrors {return false}
+        if _storage._aiErrors != rhs_storage._aiErrors {return false}
+        if _storage._commentErrors != rhs_storage._commentErrors {return false}
+        if _storage._likeErrors != rhs_storage._likeErrors {return false}
+        if _storage._vipErrors != rhs_storage._vipErrors {return false}
+        if _storage._paymentErrors != rhs_storage._paymentErrors {return false}
+        if _storage._orderErrors != rhs_storage._orderErrors {return false}
+        if _storage._messageErrors != rhs_storage._messageErrors {return false}
+        if _storage._chatErrors != rhs_storage._chatErrors {return false}
+        if _storage._uploadErrors != rhs_storage._uploadErrors {return false}
+        if _storage._searchErrors != rhs_storage._searchErrors {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ErrorDescriptions"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "system_errors"),
+    2: .standard(proto: "auth_errors"),
+    3: .standard(proto: "validation_errors"),
+    4: .standard(proto: "resource_errors"),
+    5: .standard(proto: "user_errors"),
+    6: .standard(proto: "group_errors"),
+    7: .standard(proto: "project_errors"),
+    8: .standard(proto: "story_errors"),
+    9: .standard(proto: "storyboard_errors"),
+    10: .standard(proto: "role_errors"),
+    11: .standard(proto: "content_errors"),
+    12: .standard(proto: "operation_errors"),
+    13: .standard(proto: "limit_errors"),
+    14: .standard(proto: "ai_errors"),
+    15: .standard(proto: "comment_errors"),
+    16: .standard(proto: "like_errors"),
+    17: .standard(proto: "vip_errors"),
+    18: .standard(proto: "payment_errors"),
+    19: .standard(proto: "order_errors"),
+    20: .standard(proto: "message_errors"),
+    21: .standard(proto: "chat_errors"),
+    22: .standard(proto: "upload_errors"),
+    23: .standard(proto: "search_errors"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _systemErrors: Dictionary<Int32,String> = [:]
+    var _authErrors: Dictionary<Int32,String> = [:]
+    var _validationErrors: Dictionary<Int32,String> = [:]
+    var _resourceErrors: Dictionary<Int32,String> = [:]
+    var _userErrors: Dictionary<Int32,String> = [:]
+    var _groupErrors: Dictionary<Int32,String> = [:]
+    var _projectErrors: Dictionary<Int32,String> = [:]
+    var _storyErrors: Dictionary<Int32,String> = [:]
+    var _storyboardErrors: Dictionary<Int32,String> = [:]
+    var _roleErrors: Dictionary<Int32,String> = [:]
+    var _contentErrors: Dictionary<Int32,String> = [:]
+    var _operationErrors: Dictionary<Int32,String> = [:]
+    var _limitErrors: Dictionary<Int32,String> = [:]
+    var _aiErrors: Dictionary<Int32,String> = [:]
+    var _commentErrors: Dictionary<Int32,String> = [:]
+    var _likeErrors: Dictionary<Int32,String> = [:]
+    var _vipErrors: Dictionary<Int32,String> = [:]
+    var _paymentErrors: Dictionary<Int32,String> = [:]
+    var _orderErrors: Dictionary<Int32,String> = [:]
+    var _messageErrors: Dictionary<Int32,String> = [:]
+    var _chatErrors: Dictionary<Int32,String> = [:]
+    var _uploadErrors: Dictionary<Int32,String> = [:]
+    var _searchErrors: Dictionary<Int32,String> = [:]
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _systemErrors = source._systemErrors
+      _authErrors = source._authErrors
+      _validationErrors = source._validationErrors
+      _resourceErrors = source._resourceErrors
+      _userErrors = source._userErrors
+      _groupErrors = source._groupErrors
+      _projectErrors = source._projectErrors
+      _storyErrors = source._storyErrors
+      _storyboardErrors = source._storyboardErrors
+      _roleErrors = source._roleErrors
+      _contentErrors = source._contentErrors
+      _operationErrors = source._operationErrors
+      _limitErrors = source._limitErrors
+      _aiErrors = source._aiErrors
+      _commentErrors = source._commentErrors
+      _likeErrors = source._likeErrors
+      _vipErrors = source._vipErrors
+      _paymentErrors = source._paymentErrors
+      _orderErrors = source._orderErrors
+      _messageErrors = source._messageErrors
+      _chatErrors = source._chatErrors
+      _uploadErrors = source._uploadErrors
+      _searchErrors = source._searchErrors
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._systemErrors) }()
+        case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._authErrors) }()
+        case 3: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._validationErrors) }()
+        case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._resourceErrors) }()
+        case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._userErrors) }()
+        case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._groupErrors) }()
+        case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._projectErrors) }()
+        case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._storyErrors) }()
+        case 9: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._storyboardErrors) }()
+        case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._roleErrors) }()
+        case 11: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._contentErrors) }()
+        case 12: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._operationErrors) }()
+        case 13: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._limitErrors) }()
+        case 14: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._aiErrors) }()
+        case 15: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._commentErrors) }()
+        case 16: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._likeErrors) }()
+        case 17: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._vipErrors) }()
+        case 18: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._paymentErrors) }()
+        case 19: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._orderErrors) }()
+        case 20: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._messageErrors) }()
+        case 21: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._chatErrors) }()
+        case 22: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._uploadErrors) }()
+        case 23: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &_storage._searchErrors) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._systemErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._systemErrors, fieldNumber: 1)
+      }
+      if !_storage._authErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._authErrors, fieldNumber: 2)
+      }
+      if !_storage._validationErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._validationErrors, fieldNumber: 3)
+      }
+      if !_storage._resourceErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._resourceErrors, fieldNumber: 4)
+      }
+      if !_storage._userErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._userErrors, fieldNumber: 5)
+      }
+      if !_storage._groupErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._groupErrors, fieldNumber: 6)
+      }
+      if !_storage._projectErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._projectErrors, fieldNumber: 7)
+      }
+      if !_storage._storyErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._storyErrors, fieldNumber: 8)
+      }
+      if !_storage._storyboardErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._storyboardErrors, fieldNumber: 9)
+      }
+      if !_storage._roleErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._roleErrors, fieldNumber: 10)
+      }
+      if !_storage._contentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._contentErrors, fieldNumber: 11)
+      }
+      if !_storage._operationErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._operationErrors, fieldNumber: 12)
+      }
+      if !_storage._limitErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._limitErrors, fieldNumber: 13)
+      }
+      if !_storage._aiErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._aiErrors, fieldNumber: 14)
+      }
+      if !_storage._commentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._commentErrors, fieldNumber: 15)
+      }
+      if !_storage._likeErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._likeErrors, fieldNumber: 16)
+      }
+      if !_storage._vipErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._vipErrors, fieldNumber: 17)
+      }
+      if !_storage._paymentErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._paymentErrors, fieldNumber: 18)
+      }
+      if !_storage._orderErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._orderErrors, fieldNumber: 19)
+      }
+      if !_storage._messageErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._messageErrors, fieldNumber: 20)
+      }
+      if !_storage._chatErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._chatErrors, fieldNumber: 21)
+      }
+      if !_storage._uploadErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._uploadErrors, fieldNumber: 22)
+      }
+      if !_storage._searchErrors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._searchErrors, fieldNumber: 23)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ErrorDescriptions, rhs: Common_ErrorDescriptions) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._systemErrors != rhs_storage._systemErrors {return false}
+        if _storage._authErrors != rhs_storage._authErrors {return false}
+        if _storage._validationErrors != rhs_storage._validationErrors {return false}
+        if _storage._resourceErrors != rhs_storage._resourceErrors {return false}
+        if _storage._userErrors != rhs_storage._userErrors {return false}
+        if _storage._groupErrors != rhs_storage._groupErrors {return false}
+        if _storage._projectErrors != rhs_storage._projectErrors {return false}
+        if _storage._storyErrors != rhs_storage._storyErrors {return false}
+        if _storage._storyboardErrors != rhs_storage._storyboardErrors {return false}
+        if _storage._roleErrors != rhs_storage._roleErrors {return false}
+        if _storage._contentErrors != rhs_storage._contentErrors {return false}
+        if _storage._operationErrors != rhs_storage._operationErrors {return false}
+        if _storage._limitErrors != rhs_storage._limitErrors {return false}
+        if _storage._aiErrors != rhs_storage._aiErrors {return false}
+        if _storage._commentErrors != rhs_storage._commentErrors {return false}
+        if _storage._likeErrors != rhs_storage._likeErrors {return false}
+        if _storage._vipErrors != rhs_storage._vipErrors {return false}
+        if _storage._paymentErrors != rhs_storage._paymentErrors {return false}
+        if _storage._orderErrors != rhs_storage._orderErrors {return false}
+        if _storage._messageErrors != rhs_storage._messageErrors {return false}
+        if _storage._chatErrors != rhs_storage._chatErrors {return false}
+        if _storage._uploadErrors != rhs_storage._uploadErrors {return false}
+        if _storage._searchErrors != rhs_storage._searchErrors {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SystemErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "SYSTEM_ERROR"),
+    2: .standard(proto: "INTERNAL_ERROR"),
+    3: .standard(proto: "DATABASE_ERROR"),
+    4: .standard(proto: "CACHE_ERROR"),
+    5: .standard(proto: "NETWORK_ERROR"),
+    6: .standard(proto: "TIMEOUT_ERROR"),
+    7: .standard(proto: "SERVICE_UNAVAILABLE"),
+    8: .standard(proto: "TOO_MANY_REQUESTS"),
+    9: .standard(proto: "CONFIGURATION_ERROR"),
+    10: .standard(proto: "INITIALIZATION_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.systemError) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.internalError) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.databaseError) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.cacheError) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.networkError) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.timeoutError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.serviceUnavailable) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.tooManyRequests) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.configurationError) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.initializationError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.systemError.isEmpty {
+      try visitor.visitSingularStringField(value: self.systemError, fieldNumber: 1)
+    }
+    if !self.internalError.isEmpty {
+      try visitor.visitSingularStringField(value: self.internalError, fieldNumber: 2)
+    }
+    if !self.databaseError.isEmpty {
+      try visitor.visitSingularStringField(value: self.databaseError, fieldNumber: 3)
+    }
+    if !self.cacheError.isEmpty {
+      try visitor.visitSingularStringField(value: self.cacheError, fieldNumber: 4)
+    }
+    if !self.networkError.isEmpty {
+      try visitor.visitSingularStringField(value: self.networkError, fieldNumber: 5)
+    }
+    if !self.timeoutError.isEmpty {
+      try visitor.visitSingularStringField(value: self.timeoutError, fieldNumber: 6)
+    }
+    if !self.serviceUnavailable.isEmpty {
+      try visitor.visitSingularStringField(value: self.serviceUnavailable, fieldNumber: 7)
+    }
+    if !self.tooManyRequests.isEmpty {
+      try visitor.visitSingularStringField(value: self.tooManyRequests, fieldNumber: 8)
+    }
+    if !self.configurationError.isEmpty {
+      try visitor.visitSingularStringField(value: self.configurationError, fieldNumber: 9)
+    }
+    if !self.initializationError.isEmpty {
+      try visitor.visitSingularStringField(value: self.initializationError, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_SystemErrorMessages, rhs: Common_SystemErrorMessages) -> Bool {
+    if lhs.systemError != rhs.systemError {return false}
+    if lhs.internalError != rhs.internalError {return false}
+    if lhs.databaseError != rhs.databaseError {return false}
+    if lhs.cacheError != rhs.cacheError {return false}
+    if lhs.networkError != rhs.networkError {return false}
+    if lhs.timeoutError != rhs.timeoutError {return false}
+    if lhs.serviceUnavailable != rhs.serviceUnavailable {return false}
+    if lhs.tooManyRequests != rhs.tooManyRequests {return false}
+    if lhs.configurationError != rhs.configurationError {return false}
+    if lhs.initializationError != rhs.initializationError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AuthErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "UNAUTHORIZED"),
+    2: .standard(proto: "TOKEN_EXPIRED"),
+    3: .standard(proto: "TOKEN_INVALID"),
+    4: .standard(proto: "PERMISSION_DENIED"),
+    5: .standard(proto: "ACCOUNT_NOT_FOUND"),
+    6: .standard(proto: "WRONG_PASSWORD"),
+    7: .standard(proto: "ACCOUNT_DISABLED"),
+    8: .standard(proto: "LOGIN_REQUIRED"),
+    9: .standard(proto: "TOKEN_MISSING"),
+    10: .standard(proto: "SESSION_EXPIRED"),
+    11: .standard(proto: "INVALID_CREDENTIALS"),
+    12: .standard(proto: "ACCOUNT_LOCKED"),
+    13: .standard(proto: "ACCOUNT_EXPIRED"),
+    14: .standard(proto: "INVALID_LOGIN_TYPE"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.unauthorized) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.tokenExpired) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.tokenInvalid) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.permissionDenied) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.accountNotFound) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.wrongPassword) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.accountDisabled) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.loginRequired) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.tokenMissing) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.sessionExpired) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.invalidCredentials) }()
+      case 12: try { try decoder.decodeSingularStringField(value: &self.accountLocked) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self.accountExpired) }()
+      case 14: try { try decoder.decodeSingularStringField(value: &self.invalidLoginType) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.unauthorized.isEmpty {
+      try visitor.visitSingularStringField(value: self.unauthorized, fieldNumber: 1)
+    }
+    if !self.tokenExpired.isEmpty {
+      try visitor.visitSingularStringField(value: self.tokenExpired, fieldNumber: 2)
+    }
+    if !self.tokenInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.tokenInvalid, fieldNumber: 3)
+    }
+    if !self.permissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.permissionDenied, fieldNumber: 4)
+    }
+    if !self.accountNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.accountNotFound, fieldNumber: 5)
+    }
+    if !self.wrongPassword.isEmpty {
+      try visitor.visitSingularStringField(value: self.wrongPassword, fieldNumber: 6)
+    }
+    if !self.accountDisabled.isEmpty {
+      try visitor.visitSingularStringField(value: self.accountDisabled, fieldNumber: 7)
+    }
+    if !self.loginRequired.isEmpty {
+      try visitor.visitSingularStringField(value: self.loginRequired, fieldNumber: 8)
+    }
+    if !self.tokenMissing.isEmpty {
+      try visitor.visitSingularStringField(value: self.tokenMissing, fieldNumber: 9)
+    }
+    if !self.sessionExpired.isEmpty {
+      try visitor.visitSingularStringField(value: self.sessionExpired, fieldNumber: 10)
+    }
+    if !self.invalidCredentials.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidCredentials, fieldNumber: 11)
+    }
+    if !self.accountLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.accountLocked, fieldNumber: 12)
+    }
+    if !self.accountExpired.isEmpty {
+      try visitor.visitSingularStringField(value: self.accountExpired, fieldNumber: 13)
+    }
+    if !self.invalidLoginType.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidLoginType, fieldNumber: 14)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_AuthErrorMessages, rhs: Common_AuthErrorMessages) -> Bool {
+    if lhs.unauthorized != rhs.unauthorized {return false}
+    if lhs.tokenExpired != rhs.tokenExpired {return false}
+    if lhs.tokenInvalid != rhs.tokenInvalid {return false}
+    if lhs.permissionDenied != rhs.permissionDenied {return false}
+    if lhs.accountNotFound != rhs.accountNotFound {return false}
+    if lhs.wrongPassword != rhs.wrongPassword {return false}
+    if lhs.accountDisabled != rhs.accountDisabled {return false}
+    if lhs.loginRequired != rhs.loginRequired {return false}
+    if lhs.tokenMissing != rhs.tokenMissing {return false}
+    if lhs.sessionExpired != rhs.sessionExpired {return false}
+    if lhs.invalidCredentials != rhs.invalidCredentials {return false}
+    if lhs.accountLocked != rhs.accountLocked {return false}
+    if lhs.accountExpired != rhs.accountExpired {return false}
+    if lhs.invalidLoginType != rhs.invalidLoginType {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ValidationErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "INVALID_PARAMETER"),
+    2: .standard(proto: "MISSING_PARAMETER"),
+    3: .standard(proto: "INVALID_FORMAT"),
+    4: .standard(proto: "INVALID_LENGTH"),
+    5: .standard(proto: "INVALID_VALUE"),
+    6: .standard(proto: "INVALID_TYPE"),
+    7: .standard(proto: "INVALID_SYNTAX"),
+    8: .standard(proto: "INVALID_ENCODING"),
+    9: .standard(proto: "INVALID_OPERATION"),
+    10: .standard(proto: "VALIDATION_FAILED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.invalidParameter) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.missingParameter) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.invalidFormat) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.invalidLength) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.invalidValue) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.invalidType) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.invalidSyntax) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.invalidEncoding) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.invalidOperation) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.validationFailed) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.invalidParameter.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidParameter, fieldNumber: 1)
+    }
+    if !self.missingParameter.isEmpty {
+      try visitor.visitSingularStringField(value: self.missingParameter, fieldNumber: 2)
+    }
+    if !self.invalidFormat.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidFormat, fieldNumber: 3)
+    }
+    if !self.invalidLength.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidLength, fieldNumber: 4)
+    }
+    if !self.invalidValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidValue, fieldNumber: 5)
+    }
+    if !self.invalidType.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidType, fieldNumber: 6)
+    }
+    if !self.invalidSyntax.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidSyntax, fieldNumber: 7)
+    }
+    if !self.invalidEncoding.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidEncoding, fieldNumber: 8)
+    }
+    if !self.invalidOperation.isEmpty {
+      try visitor.visitSingularStringField(value: self.invalidOperation, fieldNumber: 9)
+    }
+    if !self.validationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.validationFailed, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ValidationErrorMessages, rhs: Common_ValidationErrorMessages) -> Bool {
+    if lhs.invalidParameter != rhs.invalidParameter {return false}
+    if lhs.missingParameter != rhs.missingParameter {return false}
+    if lhs.invalidFormat != rhs.invalidFormat {return false}
+    if lhs.invalidLength != rhs.invalidLength {return false}
+    if lhs.invalidValue != rhs.invalidValue {return false}
+    if lhs.invalidType != rhs.invalidType {return false}
+    if lhs.invalidSyntax != rhs.invalidSyntax {return false}
+    if lhs.invalidEncoding != rhs.invalidEncoding {return false}
+    if lhs.invalidOperation != rhs.invalidOperation {return false}
+    if lhs.validationFailed != rhs.validationFailed {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ResourceErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "RESOURCE_NOT_FOUND"),
+    2: .standard(proto: "RESOURCE_ALREADY_EXISTS"),
+    3: .standard(proto: "RESOURCE_EXPIRED"),
+    4: .standard(proto: "RESOURCE_EXHAUSTED"),
+    5: .standard(proto: "RESOURCE_BUSY"),
+    6: .standard(proto: "RESOURCE_LOCKED"),
+    7: .standard(proto: "RESOURCE_UNAVAILABLE"),
+    8: .standard(proto: "RESOURCE_QUOTA_EXCEEDED"),
+    9: .standard(proto: "RESOURCE_CORRUPTED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.resourceNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.resourceAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.resourceExpired) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.resourceExhausted) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.resourceBusy) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.resourceLocked) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.resourceUnavailable) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.resourceQuotaExceeded) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.resourceCorrupted) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.resourceNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceNotFound, fieldNumber: 1)
+    }
+    if !self.resourceAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceAlreadyExists, fieldNumber: 2)
+    }
+    if !self.resourceExpired.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceExpired, fieldNumber: 3)
+    }
+    if !self.resourceExhausted.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceExhausted, fieldNumber: 4)
+    }
+    if !self.resourceBusy.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceBusy, fieldNumber: 5)
+    }
+    if !self.resourceLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceLocked, fieldNumber: 6)
+    }
+    if !self.resourceUnavailable.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceUnavailable, fieldNumber: 7)
+    }
+    if !self.resourceQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceQuotaExceeded, fieldNumber: 8)
+    }
+    if !self.resourceCorrupted.isEmpty {
+      try visitor.visitSingularStringField(value: self.resourceCorrupted, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ResourceErrorMessages, rhs: Common_ResourceErrorMessages) -> Bool {
+    if lhs.resourceNotFound != rhs.resourceNotFound {return false}
+    if lhs.resourceAlreadyExists != rhs.resourceAlreadyExists {return false}
+    if lhs.resourceExpired != rhs.resourceExpired {return false}
+    if lhs.resourceExhausted != rhs.resourceExhausted {return false}
+    if lhs.resourceBusy != rhs.resourceBusy {return false}
+    if lhs.resourceLocked != rhs.resourceLocked {return false}
+    if lhs.resourceUnavailable != rhs.resourceUnavailable {return false}
+    if lhs.resourceQuotaExceeded != rhs.resourceQuotaExceeded {return false}
+    if lhs.resourceCorrupted != rhs.resourceCorrupted {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UserErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "USER_NOT_FOUND"),
+    2: .standard(proto: "USER_ALREADY_EXISTS"),
+    3: .standard(proto: "USER_NOT_ACTIVE"),
+    4: .standard(proto: "USER_BLOCKED"),
+    5: .standard(proto: "USER_PROFILE_INCOMPLETE"),
+    6: .standard(proto: "USER_OPERATION_DENIED"),
+    7: .standard(proto: "USER_QUOTA_EXCEEDED"),
+    8: .standard(proto: "USER_STATUS_ERROR"),
+    9: .standard(proto: "USER_VERIFICATION_FAILED"),
+    10: .standard(proto: "USER_ROLE_INVALID"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.userNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.userAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.userNotActive) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.userBlocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.userProfileIncomplete) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.userOperationDenied) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.userQuotaExceeded) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.userStatusError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.userVerificationFailed) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.userRoleInvalid) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.userNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.userNotFound, fieldNumber: 1)
+    }
+    if !self.userAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.userAlreadyExists, fieldNumber: 2)
+    }
+    if !self.userNotActive.isEmpty {
+      try visitor.visitSingularStringField(value: self.userNotActive, fieldNumber: 3)
+    }
+    if !self.userBlocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.userBlocked, fieldNumber: 4)
+    }
+    if !self.userProfileIncomplete.isEmpty {
+      try visitor.visitSingularStringField(value: self.userProfileIncomplete, fieldNumber: 5)
+    }
+    if !self.userOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.userOperationDenied, fieldNumber: 6)
+    }
+    if !self.userQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.userQuotaExceeded, fieldNumber: 7)
+    }
+    if !self.userStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.userStatusError, fieldNumber: 8)
+    }
+    if !self.userVerificationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.userVerificationFailed, fieldNumber: 9)
+    }
+    if !self.userRoleInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.userRoleInvalid, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UserErrorMessages, rhs: Common_UserErrorMessages) -> Bool {
+    if lhs.userNotFound != rhs.userNotFound {return false}
+    if lhs.userAlreadyExists != rhs.userAlreadyExists {return false}
+    if lhs.userNotActive != rhs.userNotActive {return false}
+    if lhs.userBlocked != rhs.userBlocked {return false}
+    if lhs.userProfileIncomplete != rhs.userProfileIncomplete {return false}
+    if lhs.userOperationDenied != rhs.userOperationDenied {return false}
+    if lhs.userQuotaExceeded != rhs.userQuotaExceeded {return false}
+    if lhs.userStatusError != rhs.userStatusError {return false}
+    if lhs.userVerificationFailed != rhs.userVerificationFailed {return false}
+    if lhs.userRoleInvalid != rhs.userRoleInvalid {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GroupErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "GROUP_NOT_FOUND"),
+    2: .standard(proto: "GROUP_ALREADY_EXISTS"),
+    3: .standard(proto: "NOT_GROUP_MEMBER"),
+    4: .standard(proto: "GROUP_PERMISSION_DENIED"),
+    5: .standard(proto: "GROUP_FULL"),
+    6: .standard(proto: "GROUP_CLOSED"),
+    7: .standard(proto: "GROUP_OPERATION_DENIED"),
+    8: .standard(proto: "GROUP_STATUS_ERROR"),
+    9: .standard(proto: "GROUP_TYPE_INVALID"),
+    10: .standard(proto: "GROUP_QUOTA_EXCEEDED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.groupNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.groupAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.notGroupMember) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.groupPermissionDenied) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.groupFull) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.groupClosed) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.groupOperationDenied) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.groupStatusError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.groupTypeInvalid) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.groupQuotaExceeded) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.groupNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupNotFound, fieldNumber: 1)
+    }
+    if !self.groupAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupAlreadyExists, fieldNumber: 2)
+    }
+    if !self.notGroupMember.isEmpty {
+      try visitor.visitSingularStringField(value: self.notGroupMember, fieldNumber: 3)
+    }
+    if !self.groupPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupPermissionDenied, fieldNumber: 4)
+    }
+    if !self.groupFull.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupFull, fieldNumber: 5)
+    }
+    if !self.groupClosed.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupClosed, fieldNumber: 6)
+    }
+    if !self.groupOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupOperationDenied, fieldNumber: 7)
+    }
+    if !self.groupStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupStatusError, fieldNumber: 8)
+    }
+    if !self.groupTypeInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupTypeInvalid, fieldNumber: 9)
+    }
+    if !self.groupQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.groupQuotaExceeded, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GroupErrorMessages, rhs: Common_GroupErrorMessages) -> Bool {
+    if lhs.groupNotFound != rhs.groupNotFound {return false}
+    if lhs.groupAlreadyExists != rhs.groupAlreadyExists {return false}
+    if lhs.notGroupMember != rhs.notGroupMember {return false}
+    if lhs.groupPermissionDenied != rhs.groupPermissionDenied {return false}
+    if lhs.groupFull != rhs.groupFull {return false}
+    if lhs.groupClosed != rhs.groupClosed {return false}
+    if lhs.groupOperationDenied != rhs.groupOperationDenied {return false}
+    if lhs.groupStatusError != rhs.groupStatusError {return false}
+    if lhs.groupTypeInvalid != rhs.groupTypeInvalid {return false}
+    if lhs.groupQuotaExceeded != rhs.groupQuotaExceeded {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ProjectErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ProjectErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "PROJECT_NOT_FOUND"),
+    2: .standard(proto: "PROJECT_ALREADY_EXISTS"),
+    3: .standard(proto: "PROJECT_PERMISSION_DENIED"),
+    4: .standard(proto: "PROJECT_CLOSED"),
+    5: .standard(proto: "PROJECT_ARCHIVED"),
+    6: .standard(proto: "PROJECT_FULL"),
+    7: .standard(proto: "PROJECT_STATUS_ERROR"),
+    8: .standard(proto: "PROJECT_TYPE_INVALID"),
+    9: .standard(proto: "PROJECT_OPERATION_DENIED"),
+    10: .standard(proto: "PROJECT_QUOTA_EXCEEDED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.projectNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.projectAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.projectPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.projectClosed) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.projectArchived) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.projectFull) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.projectStatusError) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.projectTypeInvalid) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.projectOperationDenied) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.projectQuotaExceeded) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.projectNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectNotFound, fieldNumber: 1)
+    }
+    if !self.projectAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectAlreadyExists, fieldNumber: 2)
+    }
+    if !self.projectPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectPermissionDenied, fieldNumber: 3)
+    }
+    if !self.projectClosed.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectClosed, fieldNumber: 4)
+    }
+    if !self.projectArchived.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectArchived, fieldNumber: 5)
+    }
+    if !self.projectFull.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectFull, fieldNumber: 6)
+    }
+    if !self.projectStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectStatusError, fieldNumber: 7)
+    }
+    if !self.projectTypeInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectTypeInvalid, fieldNumber: 8)
+    }
+    if !self.projectOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectOperationDenied, fieldNumber: 9)
+    }
+    if !self.projectQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.projectQuotaExceeded, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ProjectErrorMessages, rhs: Common_ProjectErrorMessages) -> Bool {
+    if lhs.projectNotFound != rhs.projectNotFound {return false}
+    if lhs.projectAlreadyExists != rhs.projectAlreadyExists {return false}
+    if lhs.projectPermissionDenied != rhs.projectPermissionDenied {return false}
+    if lhs.projectClosed != rhs.projectClosed {return false}
+    if lhs.projectArchived != rhs.projectArchived {return false}
+    if lhs.projectFull != rhs.projectFull {return false}
+    if lhs.projectStatusError != rhs.projectStatusError {return false}
+    if lhs.projectTypeInvalid != rhs.projectTypeInvalid {return false}
+    if lhs.projectOperationDenied != rhs.projectOperationDenied {return false}
+    if lhs.projectQuotaExceeded != rhs.projectQuotaExceeded {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "STORY_NOT_FOUND"),
+    2: .standard(proto: "STORY_ALREADY_EXISTS"),
+    3: .standard(proto: "STORY_PERMISSION_DENIED"),
+    4: .standard(proto: "STORY_LOCKED"),
+    5: .standard(proto: "STORY_ARCHIVED"),
+    6: .standard(proto: "STORY_STATUS_ERROR"),
+    7: .standard(proto: "STORY_VERSION_ERROR"),
+    8: .standard(proto: "STORY_CONTENT_ERROR"),
+    9: .standard(proto: "STORY_OPERATION_DENIED"),
+    10: .standard(proto: "STORY_GENERATION_FAILED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.storyNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.storyAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.storyPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.storyLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.storyArchived) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.storyStatusError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.storyVersionError) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.storyContentError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.storyOperationDenied) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.storyGenerationFailed) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.storyNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyNotFound, fieldNumber: 1)
+    }
+    if !self.storyAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyAlreadyExists, fieldNumber: 2)
+    }
+    if !self.storyPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyPermissionDenied, fieldNumber: 3)
+    }
+    if !self.storyLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyLocked, fieldNumber: 4)
+    }
+    if !self.storyArchived.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyArchived, fieldNumber: 5)
+    }
+    if !self.storyStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyStatusError, fieldNumber: 6)
+    }
+    if !self.storyVersionError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyVersionError, fieldNumber: 7)
+    }
+    if !self.storyContentError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyContentError, fieldNumber: 8)
+    }
+    if !self.storyOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyOperationDenied, fieldNumber: 9)
+    }
+    if !self.storyGenerationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyGenerationFailed, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryErrorMessages, rhs: Common_StoryErrorMessages) -> Bool {
+    if lhs.storyNotFound != rhs.storyNotFound {return false}
+    if lhs.storyAlreadyExists != rhs.storyAlreadyExists {return false}
+    if lhs.storyPermissionDenied != rhs.storyPermissionDenied {return false}
+    if lhs.storyLocked != rhs.storyLocked {return false}
+    if lhs.storyArchived != rhs.storyArchived {return false}
+    if lhs.storyStatusError != rhs.storyStatusError {return false}
+    if lhs.storyVersionError != rhs.storyVersionError {return false}
+    if lhs.storyContentError != rhs.storyContentError {return false}
+    if lhs.storyOperationDenied != rhs.storyOperationDenied {return false}
+    if lhs.storyGenerationFailed != rhs.storyGenerationFailed {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryboardErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "STORYBOARD_NOT_FOUND"),
+    2: .standard(proto: "STORYBOARD_ALREADY_EXISTS"),
+    3: .standard(proto: "STORYBOARD_PERMISSION_DENIED"),
+    4: .standard(proto: "STORYBOARD_RENDER_ERROR"),
+    5: .standard(proto: "STORYBOARD_LOCKED"),
+    6: .standard(proto: "STORYBOARD_STATUS_ERROR"),
+    7: .standard(proto: "STORYBOARD_VERSION_ERROR"),
+    8: .standard(proto: "STORYBOARD_SCENE_ERROR"),
+    9: .standard(proto: "STORYBOARD_GENERATION_FAILED"),
+    10: .standard(proto: "STORYBOARD_OPERATION_DENIED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.storyboardNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.storyboardAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.storyboardPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.storyboardRenderError) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.storyboardLocked) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.storyboardStatusError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.storyboardVersionError) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.storyboardSceneError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.storyboardGenerationFailed) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.storyboardOperationDenied) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.storyboardNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardNotFound, fieldNumber: 1)
+    }
+    if !self.storyboardAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardAlreadyExists, fieldNumber: 2)
+    }
+    if !self.storyboardPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardPermissionDenied, fieldNumber: 3)
+    }
+    if !self.storyboardRenderError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardRenderError, fieldNumber: 4)
+    }
+    if !self.storyboardLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardLocked, fieldNumber: 5)
+    }
+    if !self.storyboardStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardStatusError, fieldNumber: 6)
+    }
+    if !self.storyboardVersionError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardVersionError, fieldNumber: 7)
+    }
+    if !self.storyboardSceneError.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardSceneError, fieldNumber: 8)
+    }
+    if !self.storyboardGenerationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardGenerationFailed, fieldNumber: 9)
+    }
+    if !self.storyboardOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardOperationDenied, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryboardErrorMessages, rhs: Common_StoryboardErrorMessages) -> Bool {
+    if lhs.storyboardNotFound != rhs.storyboardNotFound {return false}
+    if lhs.storyboardAlreadyExists != rhs.storyboardAlreadyExists {return false}
+    if lhs.storyboardPermissionDenied != rhs.storyboardPermissionDenied {return false}
+    if lhs.storyboardRenderError != rhs.storyboardRenderError {return false}
+    if lhs.storyboardLocked != rhs.storyboardLocked {return false}
+    if lhs.storyboardStatusError != rhs.storyboardStatusError {return false}
+    if lhs.storyboardVersionError != rhs.storyboardVersionError {return false}
+    if lhs.storyboardSceneError != rhs.storyboardSceneError {return false}
+    if lhs.storyboardGenerationFailed != rhs.storyboardGenerationFailed {return false}
+    if lhs.storyboardOperationDenied != rhs.storyboardOperationDenied {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RoleErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "ROLE_NOT_FOUND"),
+    2: .standard(proto: "ROLE_ALREADY_EXISTS"),
+    3: .standard(proto: "ROLE_PERMISSION_DENIED"),
+    4: .standard(proto: "ROLE_RENDER_ERROR"),
+    5: .standard(proto: "ROLE_LOCKED"),
+    6: .standard(proto: "ROLE_STATUS_ERROR"),
+    7: .standard(proto: "ROLE_TYPE_INVALID"),
+    8: .standard(proto: "ROLE_QUOTA_EXCEEDED"),
+    9: .standard(proto: "ROLE_GENERATION_FAILED"),
+    10: .standard(proto: "ROLE_OPERATION_DENIED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.roleNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.roleAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.rolePermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.roleRenderError) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.roleLocked) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.roleStatusError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.roleTypeInvalid) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.roleQuotaExceeded) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.roleGenerationFailed) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.roleOperationDenied) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.roleNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleNotFound, fieldNumber: 1)
+    }
+    if !self.roleAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleAlreadyExists, fieldNumber: 2)
+    }
+    if !self.rolePermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.rolePermissionDenied, fieldNumber: 3)
+    }
+    if !self.roleRenderError.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleRenderError, fieldNumber: 4)
+    }
+    if !self.roleLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleLocked, fieldNumber: 5)
+    }
+    if !self.roleStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleStatusError, fieldNumber: 6)
+    }
+    if !self.roleTypeInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleTypeInvalid, fieldNumber: 7)
+    }
+    if !self.roleQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleQuotaExceeded, fieldNumber: 8)
+    }
+    if !self.roleGenerationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleGenerationFailed, fieldNumber: 9)
+    }
+    if !self.roleOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.roleOperationDenied, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_RoleErrorMessages, rhs: Common_RoleErrorMessages) -> Bool {
+    if lhs.roleNotFound != rhs.roleNotFound {return false}
+    if lhs.roleAlreadyExists != rhs.roleAlreadyExists {return false}
+    if lhs.rolePermissionDenied != rhs.rolePermissionDenied {return false}
+    if lhs.roleRenderError != rhs.roleRenderError {return false}
+    if lhs.roleLocked != rhs.roleLocked {return false}
+    if lhs.roleStatusError != rhs.roleStatusError {return false}
+    if lhs.roleTypeInvalid != rhs.roleTypeInvalid {return false}
+    if lhs.roleQuotaExceeded != rhs.roleQuotaExceeded {return false}
+    if lhs.roleGenerationFailed != rhs.roleGenerationFailed {return false}
+    if lhs.roleOperationDenied != rhs.roleOperationDenied {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ContentErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "CONTENT_NOT_FOUND"),
+    2: .standard(proto: "CONTENT_ALREADY_EXISTS"),
+    3: .standard(proto: "CONTENT_PERMISSION_DENIED"),
+    4: .standard(proto: "CONTENT_TYPE_INVALID"),
+    5: .standard(proto: "CONTENT_SIZE_EXCEEDED"),
+    6: .standard(proto: "CONTENT_FORMAT_ERROR"),
+    7: .standard(proto: "CONTENT_LOCKED"),
+    8: .standard(proto: "CONTENT_EXPIRED"),
+    9: .standard(proto: "CONTENT_CORRUPTED"),
+    10: .standard(proto: "CONTENT_OPERATION_DENIED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.contentNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.contentAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.contentPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.contentTypeInvalid) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.contentSizeExceeded) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.contentFormatError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.contentLocked) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.contentExpired) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.contentCorrupted) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.contentOperationDenied) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.contentNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentNotFound, fieldNumber: 1)
+    }
+    if !self.contentAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentAlreadyExists, fieldNumber: 2)
+    }
+    if !self.contentPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentPermissionDenied, fieldNumber: 3)
+    }
+    if !self.contentTypeInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentTypeInvalid, fieldNumber: 4)
+    }
+    if !self.contentSizeExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentSizeExceeded, fieldNumber: 5)
+    }
+    if !self.contentFormatError.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentFormatError, fieldNumber: 6)
+    }
+    if !self.contentLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentLocked, fieldNumber: 7)
+    }
+    if !self.contentExpired.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentExpired, fieldNumber: 8)
+    }
+    if !self.contentCorrupted.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentCorrupted, fieldNumber: 9)
+    }
+    if !self.contentOperationDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.contentOperationDenied, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ContentErrorMessages, rhs: Common_ContentErrorMessages) -> Bool {
+    if lhs.contentNotFound != rhs.contentNotFound {return false}
+    if lhs.contentAlreadyExists != rhs.contentAlreadyExists {return false}
+    if lhs.contentPermissionDenied != rhs.contentPermissionDenied {return false}
+    if lhs.contentTypeInvalid != rhs.contentTypeInvalid {return false}
+    if lhs.contentSizeExceeded != rhs.contentSizeExceeded {return false}
+    if lhs.contentFormatError != rhs.contentFormatError {return false}
+    if lhs.contentLocked != rhs.contentLocked {return false}
+    if lhs.contentExpired != rhs.contentExpired {return false}
+    if lhs.contentCorrupted != rhs.contentCorrupted {return false}
+    if lhs.contentOperationDenied != rhs.contentOperationDenied {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".OperationErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "OPERATION_FAILED"),
+    2: .standard(proto: "OPERATION_TIMEOUT"),
+    3: .standard(proto: "OPERATION_CANCELLED"),
+    4: .standard(proto: "OPERATION_NOT_SUPPORTED"),
+    5: .standard(proto: "OPERATION_IN_PROGRESS"),
+    6: .standard(proto: "OPERATION_ABORTED"),
+    7: .standard(proto: "OPERATION_REJECTED"),
+    8: .standard(proto: "OPERATION_INVALID"),
+    9: .standard(proto: "OPERATION_CONFLICT"),
+    10: .standard(proto: "OPERATION_TOO_FREQUENT"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.operationFailed) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.operationTimeout) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.operationCancelled) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.operationNotSupported) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.operationInProgress) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.operationAborted) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.operationRejected) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.operationInvalid) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.operationConflict) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.operationTooFrequent) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.operationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationFailed, fieldNumber: 1)
+    }
+    if !self.operationTimeout.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationTimeout, fieldNumber: 2)
+    }
+    if !self.operationCancelled.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationCancelled, fieldNumber: 3)
+    }
+    if !self.operationNotSupported.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationNotSupported, fieldNumber: 4)
+    }
+    if !self.operationInProgress.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationInProgress, fieldNumber: 5)
+    }
+    if !self.operationAborted.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationAborted, fieldNumber: 6)
+    }
+    if !self.operationRejected.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationRejected, fieldNumber: 7)
+    }
+    if !self.operationInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationInvalid, fieldNumber: 8)
+    }
+    if !self.operationConflict.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationConflict, fieldNumber: 9)
+    }
+    if !self.operationTooFrequent.isEmpty {
+      try visitor.visitSingularStringField(value: self.operationTooFrequent, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_OperationErrorMessages, rhs: Common_OperationErrorMessages) -> Bool {
+    if lhs.operationFailed != rhs.operationFailed {return false}
+    if lhs.operationTimeout != rhs.operationTimeout {return false}
+    if lhs.operationCancelled != rhs.operationCancelled {return false}
+    if lhs.operationNotSupported != rhs.operationNotSupported {return false}
+    if lhs.operationInProgress != rhs.operationInProgress {return false}
+    if lhs.operationAborted != rhs.operationAborted {return false}
+    if lhs.operationRejected != rhs.operationRejected {return false}
+    if lhs.operationInvalid != rhs.operationInvalid {return false}
+    if lhs.operationConflict != rhs.operationConflict {return false}
+    if lhs.operationTooFrequent != rhs.operationTooFrequent {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".LimitErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "RATE_LIMIT_EXCEEDED"),
+    2: .standard(proto: "QUOTA_EXCEEDED"),
+    3: .standard(proto: "SIZE_LIMIT_EXCEEDED"),
+    4: .standard(proto: "TIME_LIMIT_EXCEEDED"),
+    5: .standard(proto: "FREQUENCY_LIMIT_EXCEEDED"),
+    6: .standard(proto: "CONCURRENT_LIMIT_EXCEEDED"),
+    7: .standard(proto: "STORAGE_LIMIT_EXCEEDED"),
+    8: .standard(proto: "BANDWIDTH_LIMIT_EXCEEDED"),
+    9: .standard(proto: "REQUEST_LIMIT_EXCEEDED"),
+    10: .standard(proto: "USER_LIMIT_EXCEEDED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.rateLimitExceeded) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.quotaExceeded) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.sizeLimitExceeded) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.timeLimitExceeded) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.frequencyLimitExceeded) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.concurrentLimitExceeded) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.storageLimitExceeded) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.bandwidthLimitExceeded) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.requestLimitExceeded) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.userLimitExceeded) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.rateLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.rateLimitExceeded, fieldNumber: 1)
+    }
+    if !self.quotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.quotaExceeded, fieldNumber: 2)
+    }
+    if !self.sizeLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.sizeLimitExceeded, fieldNumber: 3)
+    }
+    if !self.timeLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.timeLimitExceeded, fieldNumber: 4)
+    }
+    if !self.frequencyLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.frequencyLimitExceeded, fieldNumber: 5)
+    }
+    if !self.concurrentLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.concurrentLimitExceeded, fieldNumber: 6)
+    }
+    if !self.storageLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.storageLimitExceeded, fieldNumber: 7)
+    }
+    if !self.bandwidthLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.bandwidthLimitExceeded, fieldNumber: 8)
+    }
+    if !self.requestLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.requestLimitExceeded, fieldNumber: 9)
+    }
+    if !self.userLimitExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.userLimitExceeded, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_LimitErrorMessages, rhs: Common_LimitErrorMessages) -> Bool {
+    if lhs.rateLimitExceeded != rhs.rateLimitExceeded {return false}
+    if lhs.quotaExceeded != rhs.quotaExceeded {return false}
+    if lhs.sizeLimitExceeded != rhs.sizeLimitExceeded {return false}
+    if lhs.timeLimitExceeded != rhs.timeLimitExceeded {return false}
+    if lhs.frequencyLimitExceeded != rhs.frequencyLimitExceeded {return false}
+    if lhs.concurrentLimitExceeded != rhs.concurrentLimitExceeded {return false}
+    if lhs.storageLimitExceeded != rhs.storageLimitExceeded {return false}
+    if lhs.bandwidthLimitExceeded != rhs.bandwidthLimitExceeded {return false}
+    if lhs.requestLimitExceeded != rhs.requestLimitExceeded {return false}
+    if lhs.userLimitExceeded != rhs.userLimitExceeded {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AIErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "AI_GENERATION_FAILED"),
+    2: .standard(proto: "AI_SERVICE_UNAVAILABLE"),
+    3: .standard(proto: "AI_QUOTA_EXCEEDED"),
+    4: .standard(proto: "AI_MODEL_ERROR"),
+    5: .standard(proto: "AI_PARAMETER_ERROR"),
+    6: .standard(proto: "AI_CONTENT_ERROR"),
+    7: .standard(proto: "AI_TIMEOUT"),
+    8: .standard(proto: "AI_RATE_LIMITED"),
+    9: .standard(proto: "AI_CONTEXT_ERROR"),
+    10: .standard(proto: "AI_RESPONSE_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.aiGenerationFailed) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.aiServiceUnavailable) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.aiQuotaExceeded) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.aiModelError) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.aiParameterError) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.aiContentError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.aiTimeout) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.aiRateLimited) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.aiContextError) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.aiResponseError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.aiGenerationFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiGenerationFailed, fieldNumber: 1)
+    }
+    if !self.aiServiceUnavailable.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiServiceUnavailable, fieldNumber: 2)
+    }
+    if !self.aiQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiQuotaExceeded, fieldNumber: 3)
+    }
+    if !self.aiModelError.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiModelError, fieldNumber: 4)
+    }
+    if !self.aiParameterError.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiParameterError, fieldNumber: 5)
+    }
+    if !self.aiContentError.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiContentError, fieldNumber: 6)
+    }
+    if !self.aiTimeout.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiTimeout, fieldNumber: 7)
+    }
+    if !self.aiRateLimited.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiRateLimited, fieldNumber: 8)
+    }
+    if !self.aiContextError.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiContextError, fieldNumber: 9)
+    }
+    if !self.aiResponseError.isEmpty {
+      try visitor.visitSingularStringField(value: self.aiResponseError, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_AIErrorMessages, rhs: Common_AIErrorMessages) -> Bool {
+    if lhs.aiGenerationFailed != rhs.aiGenerationFailed {return false}
+    if lhs.aiServiceUnavailable != rhs.aiServiceUnavailable {return false}
+    if lhs.aiQuotaExceeded != rhs.aiQuotaExceeded {return false}
+    if lhs.aiModelError != rhs.aiModelError {return false}
+    if lhs.aiParameterError != rhs.aiParameterError {return false}
+    if lhs.aiContentError != rhs.aiContentError {return false}
+    if lhs.aiTimeout != rhs.aiTimeout {return false}
+    if lhs.aiRateLimited != rhs.aiRateLimited {return false}
+    if lhs.aiContextError != rhs.aiContextError {return false}
+    if lhs.aiResponseError != rhs.aiResponseError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CommentErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "COMMENT_NOT_FOUND"),
+    2: .standard(proto: "COMMENT_ALREADY_EXISTS"),
+    3: .standard(proto: "COMMENT_PERMISSION_DENIED"),
+    4: .standard(proto: "COMMENT_LOCKED"),
+    5: .standard(proto: "COMMENT_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.commentNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.commentAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.commentPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.commentLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.commentStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.commentNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.commentNotFound, fieldNumber: 1)
+    }
+    if !self.commentAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.commentAlreadyExists, fieldNumber: 2)
+    }
+    if !self.commentPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.commentPermissionDenied, fieldNumber: 3)
+    }
+    if !self.commentLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.commentLocked, fieldNumber: 4)
+    }
+    if !self.commentStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.commentStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_CommentErrorMessages, rhs: Common_CommentErrorMessages) -> Bool {
+    if lhs.commentNotFound != rhs.commentNotFound {return false}
+    if lhs.commentAlreadyExists != rhs.commentAlreadyExists {return false}
+    if lhs.commentPermissionDenied != rhs.commentPermissionDenied {return false}
+    if lhs.commentLocked != rhs.commentLocked {return false}
+    if lhs.commentStatusError != rhs.commentStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".LikeErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "LIKE_NOT_FOUND"),
+    2: .standard(proto: "LIKE_ALREADY_EXISTS"),
+    3: .standard(proto: "LIKE_PERMISSION_DENIED"),
+    4: .standard(proto: "LIKE_LOCKED"),
+    5: .standard(proto: "LIKE_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.likeNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.likeAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.likePermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.likeLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.likeStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.likeNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.likeNotFound, fieldNumber: 1)
+    }
+    if !self.likeAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.likeAlreadyExists, fieldNumber: 2)
+    }
+    if !self.likePermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.likePermissionDenied, fieldNumber: 3)
+    }
+    if !self.likeLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.likeLocked, fieldNumber: 4)
+    }
+    if !self.likeStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.likeStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_LikeErrorMessages, rhs: Common_LikeErrorMessages) -> Bool {
+    if lhs.likeNotFound != rhs.likeNotFound {return false}
+    if lhs.likeAlreadyExists != rhs.likeAlreadyExists {return false}
+    if lhs.likePermissionDenied != rhs.likePermissionDenied {return false}
+    if lhs.likeLocked != rhs.likeLocked {return false}
+    if lhs.likeStatusError != rhs.likeStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".VIPErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "VIP_NOT_FOUND"),
+    2: .standard(proto: "VIP_ALREADY_EXISTS"),
+    3: .standard(proto: "VIP_PERMISSION_DENIED"),
+    4: .standard(proto: "VIP_LOCKED"),
+    5: .standard(proto: "VIP_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.vipNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.vipAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.vipPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.vipLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.vipStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.vipNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.vipNotFound, fieldNumber: 1)
+    }
+    if !self.vipAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.vipAlreadyExists, fieldNumber: 2)
+    }
+    if !self.vipPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.vipPermissionDenied, fieldNumber: 3)
+    }
+    if !self.vipLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.vipLocked, fieldNumber: 4)
+    }
+    if !self.vipStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.vipStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_VIPErrorMessages, rhs: Common_VIPErrorMessages) -> Bool {
+    if lhs.vipNotFound != rhs.vipNotFound {return false}
+    if lhs.vipAlreadyExists != rhs.vipAlreadyExists {return false}
+    if lhs.vipPermissionDenied != rhs.vipPermissionDenied {return false}
+    if lhs.vipLocked != rhs.vipLocked {return false}
+    if lhs.vipStatusError != rhs.vipStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".PaymentErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "PAYMENT_NOT_FOUND"),
+    2: .standard(proto: "PAYMENT_ALREADY_EXISTS"),
+    3: .standard(proto: "PAYMENT_PERMISSION_DENIED"),
+    4: .standard(proto: "PAYMENT_LOCKED"),
+    5: .standard(proto: "PAYMENT_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.paymentNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.paymentAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.paymentPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.paymentLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.paymentStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.paymentNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.paymentNotFound, fieldNumber: 1)
+    }
+    if !self.paymentAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.paymentAlreadyExists, fieldNumber: 2)
+    }
+    if !self.paymentPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.paymentPermissionDenied, fieldNumber: 3)
+    }
+    if !self.paymentLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.paymentLocked, fieldNumber: 4)
+    }
+    if !self.paymentStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.paymentStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_PaymentErrorMessages, rhs: Common_PaymentErrorMessages) -> Bool {
+    if lhs.paymentNotFound != rhs.paymentNotFound {return false}
+    if lhs.paymentAlreadyExists != rhs.paymentAlreadyExists {return false}
+    if lhs.paymentPermissionDenied != rhs.paymentPermissionDenied {return false}
+    if lhs.paymentLocked != rhs.paymentLocked {return false}
+    if lhs.paymentStatusError != rhs.paymentStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".OrderErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "ORDER_NOT_FOUND"),
+    2: .standard(proto: "ORDER_ALREADY_EXISTS"),
+    3: .standard(proto: "ORDER_PERMISSION_DENIED"),
+    4: .standard(proto: "ORDER_LOCKED"),
+    5: .standard(proto: "ORDER_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.orderNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.orderAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.orderPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.orderLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.orderStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.orderNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.orderNotFound, fieldNumber: 1)
+    }
+    if !self.orderAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.orderAlreadyExists, fieldNumber: 2)
+    }
+    if !self.orderPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.orderPermissionDenied, fieldNumber: 3)
+    }
+    if !self.orderLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.orderLocked, fieldNumber: 4)
+    }
+    if !self.orderStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.orderStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_OrderErrorMessages, rhs: Common_OrderErrorMessages) -> Bool {
+    if lhs.orderNotFound != rhs.orderNotFound {return false}
+    if lhs.orderAlreadyExists != rhs.orderAlreadyExists {return false}
+    if lhs.orderPermissionDenied != rhs.orderPermissionDenied {return false}
+    if lhs.orderLocked != rhs.orderLocked {return false}
+    if lhs.orderStatusError != rhs.orderStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MessageErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "MESSAGE_NOT_FOUND"),
+    2: .standard(proto: "MESSAGE_ALREADY_EXISTS"),
+    3: .standard(proto: "MESSAGE_PERMISSION_DENIED"),
+    4: .standard(proto: "MESSAGE_LOCKED"),
+    5: .standard(proto: "MESSAGE_STATUS_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.messageNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.messageAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.messagePermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.messageLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.messageStatusError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.messageNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageNotFound, fieldNumber: 1)
+    }
+    if !self.messageAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageAlreadyExists, fieldNumber: 2)
+    }
+    if !self.messagePermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.messagePermissionDenied, fieldNumber: 3)
+    }
+    if !self.messageLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageLocked, fieldNumber: 4)
+    }
+    if !self.messageStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageStatusError, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_MessageErrorMessages, rhs: Common_MessageErrorMessages) -> Bool {
+    if lhs.messageNotFound != rhs.messageNotFound {return false}
+    if lhs.messageAlreadyExists != rhs.messageAlreadyExists {return false}
+    if lhs.messagePermissionDenied != rhs.messagePermissionDenied {return false}
+    if lhs.messageLocked != rhs.messageLocked {return false}
+    if lhs.messageStatusError != rhs.messageStatusError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ChatErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "CHAT_NOT_FOUND"),
+    2: .standard(proto: "CHAT_ALREADY_EXISTS"),
+    3: .standard(proto: "CHAT_PERMISSION_DENIED"),
+    4: .standard(proto: "CHAT_LOCKED"),
+    5: .standard(proto: "CHAT_STATUS_ERROR"),
+    6: .standard(proto: "CHAT_MESSAGE_ERROR"),
+    7: .standard(proto: "CHAT_CONTEXT_ERROR"),
+    8: .standard(proto: "CHAT_STREAM_ERROR"),
+    9: .standard(proto: "CHAT_TIMEOUT"),
+    10: .standard(proto: "CHAT_RATE_LIMITED"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.chatNotFound) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.chatAlreadyExists) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.chatPermissionDenied) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.chatLocked) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.chatStatusError) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.chatMessageError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.chatContextError) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.chatStreamError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.chatTimeout) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.chatRateLimited) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.chatNotFound.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatNotFound, fieldNumber: 1)
+    }
+    if !self.chatAlreadyExists.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatAlreadyExists, fieldNumber: 2)
+    }
+    if !self.chatPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatPermissionDenied, fieldNumber: 3)
+    }
+    if !self.chatLocked.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatLocked, fieldNumber: 4)
+    }
+    if !self.chatStatusError.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatStatusError, fieldNumber: 5)
+    }
+    if !self.chatMessageError.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatMessageError, fieldNumber: 6)
+    }
+    if !self.chatContextError.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatContextError, fieldNumber: 7)
+    }
+    if !self.chatStreamError.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatStreamError, fieldNumber: 8)
+    }
+    if !self.chatTimeout.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatTimeout, fieldNumber: 9)
+    }
+    if !self.chatRateLimited.isEmpty {
+      try visitor.visitSingularStringField(value: self.chatRateLimited, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_ChatErrorMessages, rhs: Common_ChatErrorMessages) -> Bool {
+    if lhs.chatNotFound != rhs.chatNotFound {return false}
+    if lhs.chatAlreadyExists != rhs.chatAlreadyExists {return false}
+    if lhs.chatPermissionDenied != rhs.chatPermissionDenied {return false}
+    if lhs.chatLocked != rhs.chatLocked {return false}
+    if lhs.chatStatusError != rhs.chatStatusError {return false}
+    if lhs.chatMessageError != rhs.chatMessageError {return false}
+    if lhs.chatContextError != rhs.chatContextError {return false}
+    if lhs.chatStreamError != rhs.chatStreamError {return false}
+    if lhs.chatTimeout != rhs.chatTimeout {return false}
+    if lhs.chatRateLimited != rhs.chatRateLimited {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UploadErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "UPLOAD_FAILED"),
+    2: .standard(proto: "UPLOAD_SIZE_EXCEEDED"),
+    3: .standard(proto: "UPLOAD_FORMAT_ERROR"),
+    4: .standard(proto: "UPLOAD_PERMISSION_DENIED"),
+    5: .standard(proto: "UPLOAD_QUOTA_EXCEEDED"),
+    6: .standard(proto: "UPLOAD_TYPE_INVALID"),
+    7: .standard(proto: "UPLOAD_TIMEOUT"),
+    8: .standard(proto: "UPLOAD_CORRUPTED"),
+    9: .standard(proto: "UPLOAD_STORAGE_ERROR"),
+    10: .standard(proto: "UPLOAD_PROCESSING_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.uploadFailed) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.uploadSizeExceeded) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.uploadFormatError) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.uploadPermissionDenied) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.uploadQuotaExceeded) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.uploadTypeInvalid) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.uploadTimeout) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.uploadCorrupted) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.uploadStorageError) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.uploadProcessingError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.uploadFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadFailed, fieldNumber: 1)
+    }
+    if !self.uploadSizeExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadSizeExceeded, fieldNumber: 2)
+    }
+    if !self.uploadFormatError.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadFormatError, fieldNumber: 3)
+    }
+    if !self.uploadPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadPermissionDenied, fieldNumber: 4)
+    }
+    if !self.uploadQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadQuotaExceeded, fieldNumber: 5)
+    }
+    if !self.uploadTypeInvalid.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadTypeInvalid, fieldNumber: 6)
+    }
+    if !self.uploadTimeout.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadTimeout, fieldNumber: 7)
+    }
+    if !self.uploadCorrupted.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadCorrupted, fieldNumber: 8)
+    }
+    if !self.uploadStorageError.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadStorageError, fieldNumber: 9)
+    }
+    if !self.uploadProcessingError.isEmpty {
+      try visitor.visitSingularStringField(value: self.uploadProcessingError, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UploadErrorMessages, rhs: Common_UploadErrorMessages) -> Bool {
+    if lhs.uploadFailed != rhs.uploadFailed {return false}
+    if lhs.uploadSizeExceeded != rhs.uploadSizeExceeded {return false}
+    if lhs.uploadFormatError != rhs.uploadFormatError {return false}
+    if lhs.uploadPermissionDenied != rhs.uploadPermissionDenied {return false}
+    if lhs.uploadQuotaExceeded != rhs.uploadQuotaExceeded {return false}
+    if lhs.uploadTypeInvalid != rhs.uploadTypeInvalid {return false}
+    if lhs.uploadTimeout != rhs.uploadTimeout {return false}
+    if lhs.uploadCorrupted != rhs.uploadCorrupted {return false}
+    if lhs.uploadStorageError != rhs.uploadStorageError {return false}
+    if lhs.uploadProcessingError != rhs.uploadProcessingError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_SearchErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SearchErrorMessages"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "SEARCH_FAILED"),
+    2: .standard(proto: "SEARCH_PARAMETER_ERROR"),
+    3: .standard(proto: "SEARCH_TIMEOUT"),
+    4: .standard(proto: "SEARCH_PERMISSION_DENIED"),
+    5: .standard(proto: "SEARCH_QUOTA_EXCEEDED"),
+    6: .standard(proto: "SEARCH_INDEX_ERROR"),
+    7: .standard(proto: "SEARCH_RESULT_ERROR"),
+    8: .standard(proto: "SEARCH_FILTER_ERROR"),
+    9: .standard(proto: "SEARCH_SORT_ERROR"),
+    10: .standard(proto: "SEARCH_SCOPE_ERROR"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.searchFailed) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.searchParameterError) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.searchTimeout) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.searchPermissionDenied) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.searchQuotaExceeded) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.searchIndexError) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.searchResultError) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.searchFilterError) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.searchSortError) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.searchScopeError) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.searchFailed.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchFailed, fieldNumber: 1)
+    }
+    if !self.searchParameterError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchParameterError, fieldNumber: 2)
+    }
+    if !self.searchTimeout.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchTimeout, fieldNumber: 3)
+    }
+    if !self.searchPermissionDenied.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchPermissionDenied, fieldNumber: 4)
+    }
+    if !self.searchQuotaExceeded.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchQuotaExceeded, fieldNumber: 5)
+    }
+    if !self.searchIndexError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchIndexError, fieldNumber: 6)
+    }
+    if !self.searchResultError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchResultError, fieldNumber: 7)
+    }
+    if !self.searchFilterError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchFilterError, fieldNumber: 8)
+    }
+    if !self.searchSortError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchSortError, fieldNumber: 9)
+    }
+    if !self.searchScopeError.isEmpty {
+      try visitor.visitSingularStringField(value: self.searchScopeError, fieldNumber: 10)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_SearchErrorMessages, rhs: Common_SearchErrorMessages) -> Bool {
+    if lhs.searchFailed != rhs.searchFailed {return false}
+    if lhs.searchParameterError != rhs.searchParameterError {return false}
+    if lhs.searchTimeout != rhs.searchTimeout {return false}
+    if lhs.searchPermissionDenied != rhs.searchPermissionDenied {return false}
+    if lhs.searchQuotaExceeded != rhs.searchQuotaExceeded {return false}
+    if lhs.searchIndexError != rhs.searchIndexError {return false}
+    if lhs.searchResultError != rhs.searchResultError {return false}
+    if lhs.searchFilterError != rhs.searchFilterError {return false}
+    if lhs.searchSortError != rhs.searchSortError {return false}
+    if lhs.searchScopeError != rhs.searchScopeError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
