@@ -214,6 +214,7 @@ message StoryRole{
     WhatCurrentUserStatus current_user_status = 23;  // 当前用户状态
     UserInfo creator = 24;         // 创建者信息
     string poster_image_url = 25;  // 海报图片URL
+    StorySummaryInfo story = 26;       // 角色所在的故事
 }
 
 // StoryBoardParams 包含故事板渲染的相关参数
@@ -924,4 +925,27 @@ message GetStoryBoardGenerateResponse{
   string message = 2;
   int32 generating_stage = 3;
   repeated StoryBoardSence list = 4;
+}
+
+message QueryTaskStatusRequest {
+  int64 board_id = 1;              // 故事板ID
+  int64 user_id = 2;               // 用户ID
+  int64 story_id = 3;              // 故事ID
+  int64 sence_id = 4;             // 场景ID
+  int64 role_id = 5;              // 角色ID
+  RenderType render_type = 6;     // 渲染类型
+  string TaskId = 7;          // 任务ID
+}
+
+message QueryTaskStatusResponse {
+  int32 code = 1;                  // 响应码
+  string message = 2;              // 响应消息
+  message Data {
+    StoryBoardGeneratingStage stage = 1; 
+    DashScopeTaskStatus dashscope_task_status = 2; 
+    RenderStoryboardDetail render_storyboard_detail = 3; 
+    RenderStoryDetail render_story_detail = 4;
+    repeated StoryBoardSence render_storyboard_sence_list = 5;
+    StoryRole render_story_role = 6;
+  }Data data = 3;
 }

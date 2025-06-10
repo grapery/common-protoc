@@ -2052,6 +2052,14 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取生成任务状态
+  rpc QueryTaskStatus(QueryTaskStatusRequest) returns (QueryTaskStatusResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/QueryTaskStatus"
+      body : "*"
+    };
+  }
 }
 
 

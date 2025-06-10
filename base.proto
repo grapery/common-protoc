@@ -18,7 +18,6 @@ enum GenderType {
   None = 0;
   Man = 1;
   Women = 2;
-  Double = 3;
 }
 
 enum UserStatus {
@@ -119,6 +118,12 @@ enum AuthType {
   WithEmail = 2;
   // 第三方
   WithThirdpart = 3;
+  // gmail
+  WithGmail = 4;
+  // 微信
+  WithWeChat = 5;
+  // apple
+  WithApple = 6;
 }
 
 enum ScopeType {
@@ -216,4 +221,15 @@ message WhatCurrentUserStatus{
   bool is_liked = 4;
   bool is_joined = 5;
   bool is_viewed = 6;
+}
+
+
+
+enum DashScopeTaskStatus {
+  DashScopeTaskStatusUnknown = 0;
+  DashScopeTaskStatusPending = 1;
+  DashScopeTaskStatusRunning = 2;
+  DashScopeTaskStatusSucceeded = 3;
+  DashScopeTaskStatusFailed = 4; 
+  DashScopeTaskStatusCanceled = 5;
 }
