@@ -10,6 +10,7 @@
     - [ActiveFlowType](#common-ActiveFlowType)
     - [ActiveType](#common-ActiveType)
     - [AuthType](#common-AuthType)
+    - [DashScopeTaskStatus](#common-DashScopeTaskStatus)
     - [GenderType](#common-GenderType)
     - [GroupStatus](#common-GroupStatus)
     - [ItemType](#common-ItemType)
@@ -187,6 +188,9 @@
     - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
     - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
     - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
+    - [QueryTaskStatusRequest](#common-QueryTaskStatusRequest)
+    - [QueryTaskStatusResponse](#common-QueryTaskStatusResponse)
+    - [QueryTaskStatusResponse.Data](#common-QueryTaskStatusResponse-Data)
     - [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest)
     - [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse)
     - [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest)
@@ -664,6 +668,25 @@
 | WithPhone | 1 | 手机号 |
 | WithEmail | 2 | 邮箱 |
 | WithThirdpart | 3 | 第三方 |
+| WithGmail | 4 | gmail |
+| WithWeChat | 5 | 微信 |
+| WithApple | 6 | apple |
+
+
+
+<a name="common-DashScopeTaskStatus"></a>
+
+### DashScopeTaskStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| DashScopeTaskStatusUnknown | 0 |  |
+| DashScopeTaskStatusPending | 1 |  |
+| DashScopeTaskStatusRunning | 2 |  |
+| DashScopeTaskStatusSucceeded | 3 |  |
+| DashScopeTaskStatusFailed | 4 |  |
+| DashScopeTaskStatusCanceled | 5 |  |
 
 
 
@@ -677,7 +700,6 @@
 | None | 0 | 不公开性别 |
 | Man | 1 |  |
 | Women | 2 |  |
-| Double | 3 |  |
 
 
 
@@ -3997,6 +4019,64 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
+<a name="common-QueryTaskStatusRequest"></a>
+
+### QueryTaskStatusRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  | 故事板ID |
+| user_id | [int64](#int64) |  | 用户ID |
+| story_id | [int64](#int64) |  | 故事ID |
+| sence_id | [int64](#int64) |  | 场景ID |
+| role_id | [int64](#int64) |  | 角色ID |
+| render_type | [RenderType](#common-RenderType) |  | 渲染类型 |
+| TaskId | [string](#string) |  | 任务ID |
+
+
+
+
+
+
+<a name="common-QueryTaskStatusResponse"></a>
+
+### QueryTaskStatusResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [QueryTaskStatusResponse.Data](#common-QueryTaskStatusResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="common-QueryTaskStatusResponse-Data"></a>
+
+### QueryTaskStatusResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| stage | [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage) |  |  |
+| dashscope_task_status | [DashScopeTaskStatus](#common-DashScopeTaskStatus) |  |  |
+| render_storyboard_detail | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
+| render_story_detail | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
+| render_storyboard_sence_list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| render_story_role | [StoryRole](#common-StoryRole) |  |  |
+
+
+
+
+
+
 <a name="common-RenderStoryBoardSenceRequest"></a>
 
 ### RenderStoryBoardSenceRequest
@@ -4659,6 +4739,7 @@ StoryRole 表示故事中的角色
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
 | creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
 | poster_image_url | [string](#string) |  | 海报图片URL |
+| story | [StorySummaryInfo](#common-StorySummaryInfo) |  | 角色所在的故事 |
 
 
 
@@ -10423,6 +10504,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
 | UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
 | UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
+| QueryTaskStatus | [QueryTaskStatusRequest](#common-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#common-QueryTaskStatusResponse) | 获取生成任务状态 |
 
  
 

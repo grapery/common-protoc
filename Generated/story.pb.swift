@@ -873,6 +873,16 @@ public struct Common_StoryRole: @unchecked Sendable {
     set {_uniqueStorage()._posterImageURL = newValue}
   }
 
+  /// 角色所在的故事
+  public var story: Common_StorySummaryInfo {
+    get {return _storage._story ?? Common_StorySummaryInfo()}
+    set {_uniqueStorage()._story = newValue}
+  }
+  /// Returns true if `story` has been explicitly set.
+  public var hasStory: Bool {return _storage._story != nil}
+  /// Clears the value of `story`. Subsequent reads from it will return its default value.
+  public mutating func clearStory() {_uniqueStorage()._story = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3430,6 +3440,118 @@ public struct Common_GetStoryBoardGenerateResponse: Sendable {
   public init() {}
 }
 
+public struct Common_QueryTaskStatusRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 故事板ID
+  public var boardID: Int64 = 0
+
+  /// 用户ID
+  public var userID: Int64 = 0
+
+  /// 故事ID
+  public var storyID: Int64 = 0
+
+  /// 场景ID
+  public var senceID: Int64 = 0
+
+  /// 角色ID
+  public var roleID: Int64 = 0
+
+  /// 渲染类型
+  public var renderType: Common_RenderType = .textUnspecified
+
+  /// 任务ID
+  public var taskID: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_QueryTaskStatusResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 响应码
+  public var code: Int32 = 0
+
+  /// 响应消息
+  public var message: String = String()
+
+  public var data: Common_QueryTaskStatusResponse.DataMessage {
+    get {return _data ?? Common_QueryTaskStatusResponse.DataMessage()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  public var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  public mutating func clearData() {self._data = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public struct DataMessage: @unchecked Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var stage: Common_StoryBoardGeneratingStage {
+      get {return _storage._stage}
+      set {_uniqueStorage()._stage = newValue}
+    }
+
+    public var dashscopeTaskStatus: Common_DashScopeTaskStatus {
+      get {return _storage._dashscopeTaskStatus}
+      set {_uniqueStorage()._dashscopeTaskStatus = newValue}
+    }
+
+    public var renderStoryboardDetail: Common_RenderStoryboardDetail {
+      get {return _storage._renderStoryboardDetail ?? Common_RenderStoryboardDetail()}
+      set {_uniqueStorage()._renderStoryboardDetail = newValue}
+    }
+    /// Returns true if `renderStoryboardDetail` has been explicitly set.
+    public var hasRenderStoryboardDetail: Bool {return _storage._renderStoryboardDetail != nil}
+    /// Clears the value of `renderStoryboardDetail`. Subsequent reads from it will return its default value.
+    public mutating func clearRenderStoryboardDetail() {_uniqueStorage()._renderStoryboardDetail = nil}
+
+    public var renderStoryDetail: Common_RenderStoryDetail {
+      get {return _storage._renderStoryDetail ?? Common_RenderStoryDetail()}
+      set {_uniqueStorage()._renderStoryDetail = newValue}
+    }
+    /// Returns true if `renderStoryDetail` has been explicitly set.
+    public var hasRenderStoryDetail: Bool {return _storage._renderStoryDetail != nil}
+    /// Clears the value of `renderStoryDetail`. Subsequent reads from it will return its default value.
+    public mutating func clearRenderStoryDetail() {_uniqueStorage()._renderStoryDetail = nil}
+
+    public var renderStoryboardSenceList: [Common_StoryBoardSence] {
+      get {return _storage._renderStoryboardSenceList}
+      set {_uniqueStorage()._renderStoryboardSenceList = newValue}
+    }
+
+    public var renderStoryRole: Common_StoryRole {
+      get {return _storage._renderStoryRole ?? Common_StoryRole()}
+      set {_uniqueStorage()._renderStoryRole = newValue}
+    }
+    /// Returns true if `renderStoryRole` has been explicitly set.
+    public var hasRenderStoryRole: Bool {return _storage._renderStoryRole != nil}
+    /// Clears the value of `renderStoryRole`. Subsequent reads from it will return its default value.
+    public mutating func clearRenderStoryRole() {_uniqueStorage()._renderStoryRole = nil}
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+  }
+
+  public init() {}
+
+  fileprivate var _data: Common_QueryTaskStatusResponse.DataMessage? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
@@ -3546,15 +3668,11 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -3910,15 +4028,11 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     var _mtime: Int64 = 0
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -4229,6 +4343,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     23: .standard(proto: "current_user_status"),
     24: .same(proto: "creator"),
     25: .standard(proto: "poster_image_url"),
+    26: .same(proto: "story"),
   ]
 
   fileprivate class _StorageClass {
@@ -4255,16 +4370,13 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
     var _creator: Common_UserInfo? = nil
     var _posterImageURL: String = String()
+    var _story: Common_StorySummaryInfo? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -4292,6 +4404,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       _currentUserStatus = source._currentUserStatus
       _creator = source._creator
       _posterImageURL = source._posterImageURL
+      _story = source._story
     }
   }
 
@@ -4333,6 +4446,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         case 23: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
         case 24: try { try decoder.decodeSingularMessageField(value: &_storage._creator) }()
         case 25: try { try decoder.decodeSingularStringField(value: &_storage._posterImageURL) }()
+        case 26: try { try decoder.decodeSingularMessageField(value: &_storage._story) }()
         default: break
         }
       }
@@ -4414,6 +4528,9 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       if !_storage._posterImageURL.isEmpty {
         try visitor.visitSingularStringField(value: _storage._posterImageURL, fieldNumber: 25)
       }
+      try { if let v = _storage._story {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4446,6 +4563,7 @@ extension Common_StoryRole: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if _storage._currentUserStatus != rhs_storage._currentUserStatus {return false}
         if _storage._creator != rhs_storage._creator {return false}
         if _storage._posterImageURL != rhs_storage._posterImageURL {return false}
+        if _storage._story != rhs_storage._story {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -4672,15 +4790,11 @@ extension Common_CreateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _params: Common_StoryParams? = nil
     var _roles: [Common_StoryRole] = []
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -4922,15 +5036,11 @@ extension Common_UpdateStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _storyID: Int64 = 0
     var _roles: [Common_StoryRole] = []
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -5682,15 +5792,11 @@ extension Common_StoryBoardActive: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _isliked: Bool = false
     var _mtime: Int64 = 0
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -6284,15 +6390,11 @@ extension Common_UpdateStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._
     var _userID: Int64 = 0
     var _params: Common_StoryBoardParams? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -9062,15 +9164,11 @@ extension Common_StoryBoardSence: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -9978,6 +10076,234 @@ extension Common_GetStoryBoardGenerateResponse: SwiftProtobuf.Message, SwiftProt
     if lhs.message != rhs.message {return false}
     if lhs.generatingStage != rhs.generatingStage {return false}
     if lhs.list != rhs.list {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_QueryTaskStatusRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryTaskStatusRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "board_id"),
+    2: .standard(proto: "user_id"),
+    3: .standard(proto: "story_id"),
+    4: .standard(proto: "sence_id"),
+    5: .standard(proto: "role_id"),
+    6: .standard(proto: "render_type"),
+    7: .same(proto: "TaskId"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.renderType) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.taskID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 1)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 3)
+    }
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 4)
+    }
+    if self.roleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.roleID, fieldNumber: 5)
+    }
+    if self.renderType != .textUnspecified {
+      try visitor.visitSingularEnumField(value: self.renderType, fieldNumber: 6)
+    }
+    if !self.taskID.isEmpty {
+      try visitor.visitSingularStringField(value: self.taskID, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_QueryTaskStatusRequest, rhs: Common_QueryTaskStatusRequest) -> Bool {
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.roleID != rhs.roleID {return false}
+    if lhs.renderType != rhs.renderType {return false}
+    if lhs.taskID != rhs.taskID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_QueryTaskStatusResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryTaskStatusResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "data"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if self.code != 0 {
+      try visitor.visitSingularInt32Field(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try { if let v = self._data {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_QueryTaskStatusResponse, rhs: Common_QueryTaskStatusResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_QueryTaskStatusResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Common_QueryTaskStatusResponse.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "stage"),
+    2: .standard(proto: "dashscope_task_status"),
+    3: .standard(proto: "render_storyboard_detail"),
+    4: .standard(proto: "render_story_detail"),
+    5: .standard(proto: "render_storyboard_sence_list"),
+    6: .standard(proto: "render_story_role"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _stage: Common_StoryBoardGeneratingStage = .unspecified
+    var _dashscopeTaskStatus: Common_DashScopeTaskStatus = .unknown
+    var _renderStoryboardDetail: Common_RenderStoryboardDetail? = nil
+    var _renderStoryDetail: Common_RenderStoryDetail? = nil
+    var _renderStoryboardSenceList: [Common_StoryBoardSence] = []
+    var _renderStoryRole: Common_StoryRole? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _stage = source._stage
+      _dashscopeTaskStatus = source._dashscopeTaskStatus
+      _renderStoryboardDetail = source._renderStoryboardDetail
+      _renderStoryDetail = source._renderStoryDetail
+      _renderStoryboardSenceList = source._renderStoryboardSenceList
+      _renderStoryRole = source._renderStoryRole
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._dashscopeTaskStatus) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._renderStoryboardDetail) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._renderStoryDetail) }()
+        case 5: try { try decoder.decodeRepeatedMessageField(value: &_storage._renderStoryboardSenceList) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._renderStoryRole) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._stage != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._stage, fieldNumber: 1)
+      }
+      if _storage._dashscopeTaskStatus != .unknown {
+        try visitor.visitSingularEnumField(value: _storage._dashscopeTaskStatus, fieldNumber: 2)
+      }
+      try { if let v = _storage._renderStoryboardDetail {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._renderStoryDetail {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      if !_storage._renderStoryboardSenceList.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._renderStoryboardSenceList, fieldNumber: 5)
+      }
+      try { if let v = _storage._renderStoryRole {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_QueryTaskStatusResponse.DataMessage, rhs: Common_QueryTaskStatusResponse.DataMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._stage != rhs_storage._stage {return false}
+        if _storage._dashscopeTaskStatus != rhs_storage._dashscopeTaskStatus {return false}
+        if _storage._renderStoryboardDetail != rhs_storage._renderStoryboardDetail {return false}
+        if _storage._renderStoryDetail != rhs_storage._renderStoryDetail {return false}
+        if _storage._renderStoryboardSenceList != rhs_storage._renderStoryboardSenceList {return false}
+        if _storage._renderStoryRole != rhs_storage._renderStoryRole {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

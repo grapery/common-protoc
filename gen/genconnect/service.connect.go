@@ -415,6 +415,9 @@ const (
 	// TeamsAPIUpdateStoryRoleDescriptionDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRoleDescriptionDetail RPC.
 	TeamsAPIUpdateStoryRoleDescriptionDetailProcedure = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
+	// TeamsAPIQueryTaskStatusProcedure is the fully-qualified name of the TeamsAPI's QueryTaskStatus
+	// RPC.
+	TeamsAPIQueryTaskStatusProcedure = "/common.TeamsAPI/QueryTaskStatus"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -708,6 +711,8 @@ type TeamsAPIClient interface {
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
+	// 获取生成任务状态
+	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1460,6 +1465,11 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIUpdateStoryRoleDescriptionDetailProcedure,
 			opts...,
 		),
+		queryTaskStatus: connect_go.NewClient[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse](
+			httpClient,
+			baseURL+TeamsAPIQueryTaskStatusProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1613,6 +1623,7 @@ type teamsAPIClient struct {
 	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
 	updateStoryRolePrompt              *connect_go.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
 	updateStoryRoleDescriptionDetail   *connect_go.Client[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse]
+	queryTaskStatus                    *connect_go.Client[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2355,6 +2366,11 @@ func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, r
 	return c.updateStoryRoleDescriptionDetail.CallUnary(ctx, req)
 }
 
+// QueryTaskStatus calls common.TeamsAPI.QueryTaskStatus.
+func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, req *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
+	return c.queryTaskStatus.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
@@ -2646,6 +2662,8 @@ type TeamsAPIHandler interface {
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
+	// 获取生成任务状态
+	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3394,6 +3412,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.UpdateStoryRoleDescriptionDetail,
 		opts...,
 	)
+	teamsAPIQueryTaskStatusHandler := connect_go.NewUnaryHandler(
+		TeamsAPIQueryTaskStatusProcedure,
+		svc.QueryTaskStatus,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3692,6 +3715,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIUpdateStoryRolePromptHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRoleDescriptionDetailProcedure:
 			teamsAPIUpdateStoryRoleDescriptionDetailHandler.ServeHTTP(w, r)
+		case TeamsAPIQueryTaskStatusProcedure:
+			teamsAPIQueryTaskStatusHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4291,4 +4316,8 @@ func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *conn
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.QueryTaskStatus is not implemented"))
 }

@@ -167,6 +167,7 @@ const (
 	TeamsAPI_UpdateStoryRolePoster_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePoster"
 	TeamsAPI_UpdateStoryRolePrompt_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePrompt"
 	TeamsAPI_UpdateStoryRoleDescriptionDetail_FullMethodName   = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
+	TeamsAPI_QueryTaskStatus_FullMethodName                    = "/common.TeamsAPI/QueryTaskStatus"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -462,6 +463,8 @@ type TeamsAPIClient interface {
 	UpdateStoryRolePrompt(ctx context.Context, in *UpdateStoryRolePromptRequest, opts ...grpc.CallOption) (*UpdateStoryRolePromptResponse, error)
 	// 更新角色的描述
 	UpdateStoryRoleDescriptionDetail(ctx context.Context, in *UpdateStoryRoleDescriptionDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionDetailResponse, error)
+	// 获取生成任务状态
+	QueryTaskStatus(ctx context.Context, in *QueryTaskStatusRequest, opts ...grpc.CallOption) (*QueryTaskStatusResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1804,6 +1807,15 @@ func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, i
 	return out, nil
 }
 
+func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, in *QueryTaskStatusRequest, opts ...grpc.CallOption) (*QueryTaskStatusResponse, error) {
+	out := new(QueryTaskStatusResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_QueryTaskStatus_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -2097,6 +2109,8 @@ type TeamsAPIServer interface {
 	UpdateStoryRolePrompt(context.Context, *UpdateStoryRolePromptRequest) (*UpdateStoryRolePromptResponse, error)
 	// 更新角色的描述
 	UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error)
+	// 获取生成任务状态
+	QueryTaskStatus(context.Context, *QueryTaskStatusRequest) (*QueryTaskStatusResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2547,6 +2561,9 @@ func (UnimplementedTeamsAPIServer) UpdateStoryRolePrompt(context.Context, *Updat
 }
 func (UnimplementedTeamsAPIServer) UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryRoleDescriptionDetail not implemented")
+}
+func (UnimplementedTeamsAPIServer) QueryTaskStatus(context.Context, *QueryTaskStatusRequest) (*QueryTaskStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QueryTaskStatus not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -5225,6 +5242,24 @@ func _TeamsAPI_UpdateStoryRoleDescriptionDetail_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_QueryTaskStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryTaskStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).QueryTaskStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_QueryTaskStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).QueryTaskStatus(ctx, req.(*QueryTaskStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5823,6 +5858,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStoryRoleDescriptionDetail",
 			Handler:    _TeamsAPI_UpdateStoryRoleDescriptionDetail_Handler,
+		},
+		{
+			MethodName: "QueryTaskStatus",
+			Handler:    _TeamsAPI_QueryTaskStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

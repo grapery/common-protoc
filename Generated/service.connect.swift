@@ -1179,6 +1179,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 更新角色的描述
     @available(iOS 13, *)
     func `updateStoryRoleDescriptionDetail`(request: Common_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleDescriptionDetailResponse>
+
+    /// 获取生成任务状态
+    @discardableResult
+    func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取生成任务状态
+    @available(iOS 13, *)
+    func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Common_QueryTaskStatusResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2669,6 +2677,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_QueryTaskStatusResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2819,6 +2837,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryRolePoster = Connect.MethodSpec(name: "UpdateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryRolePrompt = Connect.MethodSpec(name: "UpdateStoryRolePrompt", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryRoleDescriptionDetail = Connect.MethodSpec(name: "UpdateStoryRoleDescriptionDetail", service: "common.TeamsAPI", type: .unary)
+            public static let queryTaskStatus = Connect.MethodSpec(name: "QueryTaskStatus", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

@@ -77,7 +77,6 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   case none // = 0
   case man // = 1
   case women // = 2
-  case double // = 3
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -89,7 +88,6 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 0: self = .none
     case 1: self = .man
     case 2: self = .women
-    case 3: self = .double
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -99,7 +97,6 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .none: return 0
     case .man: return 1
     case .women: return 2
-    case .double: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -109,7 +106,6 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     .none,
     .man,
     .women,
-    .double,
   ]
 
 }
@@ -481,6 +477,15 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 第三方
   case withThirdpart // = 3
+
+  /// gmail
+  case withGmail // = 4
+
+  /// 微信
+  case withWeChat // = 5
+
+  /// apple
+  case withApple // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -493,6 +498,9 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 1: self = .withPhone
     case 2: self = .withEmail
     case 3: self = .withThirdpart
+    case 4: self = .withGmail
+    case 5: self = .withWeChat
+    case 6: self = .withApple
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -503,6 +511,9 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .withPhone: return 1
     case .withEmail: return 2
     case .withThirdpart: return 3
+    case .withGmail: return 4
+    case .withWeChat: return 5
+    case .withApple: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -513,6 +524,9 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
     .withPhone,
     .withEmail,
     .withThirdpart,
+    .withGmail,
+    .withWeChat,
+    .withApple,
   ]
 
 }
@@ -827,6 +841,56 @@ public enum Common_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum Common_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unknown // = 0
+  case pending // = 1
+  case running // = 2
+  case succeeded // = 3
+  case failed // = 4
+  case canceled // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unknown
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unknown
+    case 1: self = .pending
+    case 2: self = .running
+    case 3: self = .succeeded
+    case 4: self = .failed
+    case 5: self = .canceled
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unknown: return 0
+    case .pending: return 1
+    case .running: return 2
+    case .succeeded: return 3
+    case .failed: return 4
+    case .canceled: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_DashScopeTaskStatus] = [
+    .unknown,
+    .pending,
+    .running,
+    .succeeded,
+    .failed,
+    .canceled,
+  ]
+
+}
+
 public struct Common_Tags: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -895,7 +959,6 @@ extension Common_GenderType: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "None"),
     1: .same(proto: "Man"),
     2: .same(proto: "Women"),
-    3: .same(proto: "Double"),
   ]
 }
 
@@ -967,6 +1030,9 @@ extension Common_AuthType: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "WithPhone"),
     2: .same(proto: "WithEmail"),
     3: .same(proto: "WithThirdpart"),
+    4: .same(proto: "WithGmail"),
+    5: .same(proto: "WithWeChat"),
+    6: .same(proto: "WithApple"),
   ]
 }
 
@@ -1022,6 +1088,17 @@ extension Common_MultiBranchOrderBy: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "MultiBranchOrderByComments"),
     5: .same(proto: "MultiBranchOrderByViews"),
     6: .same(proto: "MultiBranchOrderByFollowRole"),
+  ]
+}
+
+extension Common_DashScopeTaskStatus: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "DashScopeTaskStatusUnknown"),
+    1: .same(proto: "DashScopeTaskStatusPending"),
+    2: .same(proto: "DashScopeTaskStatusRunning"),
+    3: .same(proto: "DashScopeTaskStatusSucceeded"),
+    4: .same(proto: "DashScopeTaskStatusFailed"),
+    5: .same(proto: "DashScopeTaskStatusCanceled"),
   ]
 }
 

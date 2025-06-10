@@ -2239,6 +2239,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/QueryTaskStatus:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取生成任务状态
+            operationId: TeamsAPI_QueryTaskStatus
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/QueryTaskStatusRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/QueryTaskStatusResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/RefreshToken:
         post:
             tags:
@@ -6471,6 +6496,53 @@ components:
                     format: enum
                 message:
                     type: string
+        QueryTaskStatusRequest:
+            type: object
+            properties:
+                boardId:
+                    type: string
+                userId:
+                    type: string
+                storyId:
+                    type: string
+                senceId:
+                    type: string
+                roleId:
+                    type: string
+                renderType:
+                    type: integer
+                    format: enum
+                TaskId:
+                    type: string
+        QueryTaskStatusResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                data:
+                    $ref: '#/components/schemas/QueryTaskStatusResponse_Data'
+        QueryTaskStatusResponse_Data:
+            type: object
+            properties:
+                stage:
+                    type: integer
+                    format: enum
+                dashscopeTaskStatus:
+                    type: integer
+                    format: enum
+                renderStoryboardDetail:
+                    $ref: '#/components/schemas/RenderStoryboardDetail'
+                renderStoryDetail:
+                    $ref: '#/components/schemas/RenderStoryDetail'
+                renderStoryboardSenceList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoardSence'
+                renderStoryRole:
+                    $ref: '#/components/schemas/StoryRole'
         RefreshTokenRequest:
             type: object
             properties:
@@ -7481,6 +7553,8 @@ components:
                     $ref: '#/components/schemas/UserInfo'
                 posterImageUrl:
                     type: string
+                story:
+                    $ref: '#/components/schemas/StorySummaryInfo'
             description: StoryRole 表示故事中的角色
         StorySummaryInfo:
             type: object
