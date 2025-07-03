@@ -150,56 +150,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/CreateItem:
-        post:
-            tags:
-                - TeamsAPI
-            description: 创建内容
-            operationId: TeamsAPI_CreateItem
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateItemRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateItemResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/CreateProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: CreateProject creates a new project
-            operationId: TeamsAPI_CreateProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/CreateProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CreateProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/CreateStory:
         post:
             tags:
@@ -450,56 +400,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/DeleteItem:
-        post:
-            tags:
-                - TeamsAPI
-            description: 删除内容
-            operationId: TeamsAPI_DeleteItem
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/DeleteItemRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/DeleteItemResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/DeleteProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: DeleteProject removes a project
-            operationId: TeamsAPI_DeleteProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/DeleteProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/DeleteProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/DeleteStoryBoardComment:
         post:
             tags:
@@ -644,31 +544,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/ExploreProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: ExploreProject returns trending and recommended projects
-            operationId: TeamsAPI_ExploreProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/ExploreProjectsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ExploreProjectsResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/FetchActives:
         post:
             tags:
@@ -713,31 +588,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/FetchGroupMembersResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/FetchGroupProjects:
-        post:
-            tags:
-                - TeamsAPI
-            description: FetchGroupProjects retrieves the list of projects in a group
-            operationId: TeamsAPI_FetchGroupProjects
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/FetchGroupProjectsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/FetchGroupProjectsResponse'
                 default:
                     description: Default error response
                     content:
@@ -1067,31 +917,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetGroupItems:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetGroupItems retrieves items within a group
-            operationId: TeamsAPI_GetGroupItems
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetGroupItemsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetGroupItemsResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetGroupProfile:
         post:
             tags:
@@ -1117,31 +942,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetItem:
-        post:
-            tags:
-                - TeamsAPI
-            description: 获取内容
-            operationId: TeamsAPI_GetItem
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetItemRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetItemResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetNextStoryboards:
         post:
             tags:
@@ -1161,156 +961,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetNextStoryboardResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectInfo:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectInfo retrieves information about a specific project
-            operationId: TeamsAPI_GetProjectInfo
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectItems:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectItems retrieves items within a project
-            operationId: TeamsAPI_GetProjectItems
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectItemsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectItemsResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectList:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectList retrieves a list of projects
-            operationId: TeamsAPI_GetProjectList
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectListRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectListResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectMembers:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectMembers retrieves the list of members in a project
-            operationId: TeamsAPI_GetProjectMembers
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectMembersRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectMembersResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectProfile:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectProfile retrieves the project's profile information
-            operationId: TeamsAPI_GetProjectProfile
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectProfileRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectProfileResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetProjectWatcher:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetProjectWatcher retrieves the list of watchers for a project
-            operationId: TeamsAPI_GetProjectWatcher
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetProjectWatcherRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetProjectWatcherResponse'
                 default:
                     description: Default error response
                     content:
@@ -1536,6 +1186,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryContributorsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryImageStyle:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取生成任务状态
+            operationId: TeamsAPI_GetStoryImageStyle
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryImageStyleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryImageStyleResponse'
                 default:
                     description: Default error response
                     content:
@@ -1866,31 +1541,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetUserItems:
-        post:
-            tags:
-                - TeamsAPI
-            description: GetUserItems retrieves items created by a user
-            operationId: TeamsAPI_GetUserItems
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetUserItemsRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetUserItemsResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetUserProfile:
         post:
             tags:
@@ -2058,31 +1708,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/LikeCommentResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/LikeItem:
-        post:
-            tags:
-                - TeamsAPI
-            description: 喜欢内容
-            operationId: TeamsAPI_LikeItem
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/LikeItemRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/LikeItemResponse'
                 default:
                     description: Default error response
                     content:
@@ -2589,56 +2214,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/SearchGroupProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: SearchGroupProject searches for projects within a group
-            operationId: TeamsAPI_SearchGroupProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/SearchProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/SearchProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/SearchProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: SearchProject searches for projects across all accessible groups
-            operationId: TeamsAPI_SearchProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/SearchAllProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/SearchAllProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/SearchRoles:
         post:
             tags:
@@ -2939,31 +2514,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/UnWatchProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: UnWatchProject removes a user as a watcher from a project
-            operationId: TeamsAPI_UnWatchProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UnWatchProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/UnWatchProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UnfollowUser:
         post:
             tags:
@@ -3033,81 +2583,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateGroupProfileResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/UpdateItem:
-        post:
-            tags:
-                - TeamsAPI
-            description: 更新内容
-            operationId: TeamsAPI_UpdateItem
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UpdateItemRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/UpdateItemResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/UpdateProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: UpdateProject updates project information
-            operationId: TeamsAPI_UpdateProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UpdateProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/UpdateProjectResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/UpdateProjectProfile:
-        post:
-            tags:
-                - TeamsAPI
-            description: UpdateProjectProfile updates the project's profile information
-            operationId: TeamsAPI_UpdateProjectProfile
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/UpdateProjectProfileRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/UpdateProjectProfileResponse'
                 default:
                     description: Default error response
                     content:
@@ -3206,6 +2681,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateStoryBoardSenceResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryImageStyle:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateStoryImageStyle
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryImageStyleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryImageStyleResponse'
                 default:
                     description: Default error response
                     content:
@@ -3356,6 +2855,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UpdateStoryRolePromptResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStorySenceMaxNumber:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateStorySenceMaxNumber
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStorySenceMaxNumberRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStorySenceMaxNumberResponse'
                 default:
                     description: Default error response
                     content:
@@ -3650,31 +3173,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/VersionResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/WatchProject:
-        post:
-            tags:
-                - TeamsAPI
-            description: WatchProject adds a user as a watcher to a project
-            operationId: TeamsAPI_WatchProject
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/WatchProjectRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/WatchProjectResponse'
                 default:
                     description: Default error response
                     content:
@@ -4035,57 +3533,6 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
-        CreateItemRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                name:
-                    type: string
-                atype:
-                    type: integer
-                    format: enum
-                userId:
-                    type: string
-        CreateItemResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/CreateItemResponse_Data'
-        CreateItemResponse_Data:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ItemInfo'
-        CreateProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                name:
-                    type: string
-        CreateProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/CreateProjectResponse_Data'
-        CreateProjectResponse_Data:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ProjectInfo'
         CreateStoryBoardCommentRequest:
             type: object
             properties:
@@ -4309,52 +3756,6 @@ components:
         DeleteGroupResponse_Data:
             type: object
             properties: {}
-        DeleteItemRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                itemId:
-                    type: string
-                userId:
-                    type: string
-        DeleteItemResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/DeleteItemResponse_Data'
-        DeleteItemResponse_Data:
-            type: object
-            properties: {}
-        DeleteProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-        DeleteProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/DeleteProjectResponse_Data'
-        DeleteProjectResponse_Data:
-            type: object
-            properties: {}
         DeleteStoryBoardCommentRequest:
             type: object
             properties:
@@ -4450,40 +3851,6 @@ components:
                     format: enum
                 message:
                     type: string
-        ExploreProjectsRequest:
-            type: object
-            properties:
-                userId:
-                    type: string
-                groupId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        ExploreProjectsResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/ExploreProjectsResponse_Data'
-        ExploreProjectsResponse_Data:
-            type: object
-            properties:
-                userId:
-                    type: string
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
-                offset:
-                    type: string
-                pageSize:
-                    type: string
         ExploreResponse:
             type: object
             properties:
@@ -4563,36 +3930,6 @@ components:
                 offset:
                     type: string
                 total:
-                    type: string
-        FetchGroupProjectsRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        FetchGroupProjectsResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/FetchGroupProjectsResponse_Data'
-        FetchGroupProjectsResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
-                offset:
-                    type: string
-                pageSize:
                     type: string
         FetchGroupStorysRequest:
             type: object
@@ -4907,42 +4244,6 @@ components:
                     type: string
                 pageSize:
                     type: string
-        GetGroupItemsRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetGroupItemsResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetGroupItemsResponse_Data'
-        GetGroupItemsResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ItemInfo'
-                groupId:
-                    type: string
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
         GetGroupProfileRequest:
             type: object
             properties:
@@ -4991,32 +4292,6 @@ components:
             properties:
                 info:
                     $ref: '#/components/schemas/GroupInfo'
-        GetItemRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                itemId:
-                    type: string
-                userId:
-                    type: string
-        GetItemResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetItemResponse_Data'
-        GetItemResponse_Data:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ItemInfo'
         GetNextStoryboardRequest:
             type: object
             properties:
@@ -5057,195 +4332,6 @@ components:
                     type: string
                 pageSize:
                     type: string
-        GetProjectItemsRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetProjectItemsResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectItemsResponse_Data'
-        GetProjectItemsResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ItemInfo'
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetProjectListRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetProjectListResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectListResponse_Data'
-        GetProjectListResponse_Data:
-            type: object
-            properties:
-                List:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetProjectMembersRequest:
-            type: object
-            properties:
-                projectId:
-                    type: integer
-                    format: int32
-                userId:
-                    type: integer
-                    format: int32
-        GetProjectMembersResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectMembersResponse_Data'
-        GetProjectMembersResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInfo'
-                total:
-                    type: integer
-                    format: int32
-                role:
-                    type: object
-                    additionalProperties:
-                        type: string
-        GetProjectProfileRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-        GetProjectProfileResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectProfileResponse_Data'
-        GetProjectProfileResponse_Data:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                info:
-                    $ref: '#/components/schemas/ProjectProfileInfo'
-        GetProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-        GetProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectResponse_Data'
-        GetProjectResponse_Data:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ProjectInfo'
-        GetProjectWatcherRequest:
-            type: object
-            properties:
-                projectId:
-                    type: integer
-                    format: int32
-        GetProjectWatcherResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetProjectWatcherResponse_Data'
-        GetProjectWatcherResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/UserInfo'
-                total:
-                    type: integer
-                    format: int32
-                timestamp:
-                    type: object
-                    additionalProperties:
-                        type: string
         GetStoryBoardCommentRepliesRequest:
             type: object
             properties:
@@ -5506,6 +4592,23 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryContributor'
+        GetStoryImageStyleRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+        GetStoryImageStyleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                style:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryStyleDesc'
         GetStoryInfoRequest:
             type: object
             properties:
@@ -5912,38 +5015,6 @@ components:
                     type: string
                 pageSize:
                     type: string
-        GetUserItemsRequest:
-            type: object
-            properties:
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        GetUserItemsResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/GetUserItemsResponse_Data'
-        GetUserItemsResponse_Data:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ItemInfo'
-                userId:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
         GetUserProfileRequest:
             type: object
             properties:
@@ -6130,55 +5201,6 @@ components:
                     type: string
                 Mtime:
                     type: string
-        ItemDetail:
-            type: object
-            properties:
-                word:
-                    $ref: '#/components/schemas/WordDetail'
-                pictures:
-                    $ref: '#/components/schemas/PictureDetail'
-                video:
-                    $ref: '#/components/schemas/VideoDetail'
-                music:
-                    $ref: '#/components/schemas/MusicShareDetail'
-                voice:
-                    $ref: '#/components/schemas/VoiceDetail'
-                share:
-                    $ref: '#/components/schemas/ShareDetail'
-                locate:
-                    $ref: '#/components/schemas/Location'
-                title:
-                    type: string
-                prevId:
-                    type: string
-                loc:
-                    $ref: '#/components/schemas/Location'
-                isOrigin:
-                    type: boolean
-                ref:
-                    type: string
-                rootId:
-                    type: string
-        ItemInfo:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                title:
-                    type: string
-                content:
-                    $ref: '#/components/schemas/ItemDetail'
-                itype:
-                    type: integer
-                    format: enum
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
         JoinGroupRequest:
             type: object
             properties:
@@ -6234,32 +5256,6 @@ components:
                     format: enum
                 message:
                     type: string
-        LikeItemRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                itemId:
-                    type: string
-                userId:
-                    type: string
-                islike:
-                    type: boolean
-        LikeItemResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/LikeItemResponse_Data'
-        LikeItemResponse_Data:
-            type: object
-            properties: {}
         LikeStoryRequest:
             type: object
             properties:
@@ -6322,17 +5318,6 @@ components:
                     type: string
                 likeNum:
                     type: string
-        Location:
-            type: object
-            properties:
-                country:
-                    type: string
-                province:
-                    type: string
-                city:
-                    type: string
-                district:
-                    type: string
         LoginRequest:
             type: object
             properties:
@@ -6381,105 +5366,6 @@ components:
                     type: integer
                     format: enum
                 msg:
-                    type: string
-        MusicShareDetail:
-            type: object
-            properties:
-                resourceUrl:
-                    type: string
-                source:
-                    type: string
-                prompt:
-                    type: string
-                title:
-                    type: string
-                desc:
-                    type: string
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
-        PictureDetail:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/PictureInfo'
-                total:
-                    type: string
-                prompt:
-                    type: string
-                title:
-                    type: string
-                desc:
-                    type: string
-        PictureInfo:
-            type: object
-            properties:
-                resourceUrl:
-                    type: string
-                size:
-                    type: string
-                num:
-                    type: string
-        ProjectInfo:
-            type: object
-            properties:
-                projectId:
-                    type: string
-                groupId:
-                    type: integer
-                    format: uint32
-                name:
-                    type: string
-                avatar:
-                    type: string
-                creator:
-                    type: string
-                owner:
-                    type: string
-                tags:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/Tags'
-                visable:
-                    type: integer
-                    format: enum
-                isAchieve:
-                    type: boolean
-                isClose:
-                    type: boolean
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
-        ProjectProfileInfo:
-            type: object
-            properties:
-                projectId:
-                    type: string
-                groupId:
-                    type: integer
-                    format: int32
-                description:
-                    type: string
-                watchingCount:
-                    type: string
-                involvedCount:
-                    type: string
-                avatar:
-                    type: string
-                isAchieve:
-                    type: boolean
-                isClose:
-                    type: boolean
-                scopeType:
-                    type: integer
-                    format: enum
-                Ctime:
-                    type: string
-                Mtime:
                     type: string
         PublishStoryboardRequest:
             type: object
@@ -6884,40 +5770,6 @@ components:
                     type: string
                 store:
                     $ref: '#/components/schemas/StoryboardStageStore'
-        SearchAllProjectRequest:
-            type: object
-            properties:
-                userId:
-                    type: string
-                name:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        SearchAllProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/SearchAllProjectResponse_Data'
-        SearchAllProjectResponse_Data:
-            type: object
-            properties:
-                userId:
-                    type: string
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
-                offset:
-                    type: string
-                pageSize:
-                    type: string
         SearchGroupRequest:
             type: object
             properties:
@@ -6953,40 +5805,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/GroupInfo'
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        SearchProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                name:
-                    type: string
-                offset:
-                    type: string
-                pageSize:
-                    type: string
-        SearchProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                msg:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/SearchProjectResponse_Data'
-        SearchProjectResponse_Data:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
                 offset:
                     type: string
                 pageSize:
@@ -7086,17 +5904,6 @@ components:
                 offset:
                     type: string
                 pageSize:
-                    type: string
-        ShareDetail:
-            type: object
-            properties:
-                resourceUrl:
-                    type: string
-                source:
-                    type: string
-                Ctime:
-                    type: string
-                Mtime:
                     type: string
         ShareStoryboardRequest:
             type: object
@@ -7556,6 +6363,15 @@ components:
                 story:
                     $ref: '#/components/schemas/StorySummaryInfo'
             description: StoryRole 表示故事中的角色
+        StoryStyleDesc:
+            type: object
+            properties:
+                id:
+                    type: string
+                style:
+                    type: string
+                description:
+                    type: string
         StorySummaryInfo:
             type: object
             properties:
@@ -7800,28 +6616,6 @@ components:
                     format: int32
                 message:
                     type: string
-        UnWatchProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-        UnWatchProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/UnWatchProjectResponse_Data'
-        UnWatchProjectResponse_Data:
-            type: object
-            properties: {}
         UnfollowUserRequest:
             type: object
             properties:
@@ -7876,74 +6670,6 @@ components:
                     format: enum
                 message:
                     type: string
-        UpdateItemRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                itemId:
-                    type: string
-                info:
-                    $ref: '#/components/schemas/ItemInfo'
-                userId:
-                    type: string
-        UpdateItemResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/UpdateItemResponse_Data'
-        UpdateItemResponse_Data:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ItemInfo'
-        UpdateProjectProfileRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                info:
-                    $ref: '#/components/schemas/ProjectProfileInfo'
-        UpdateProjectProfileResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/UpdateProjectProfileResponse_Data'
-        UpdateProjectProfileResponse_Data:
-            type: object
-            properties: {}
-        UpdateProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-                info:
-                    $ref: '#/components/schemas/ProjectInfo'
-        UpdateProjectResponse:
-            type: object
-            properties:
-                info:
-                    $ref: '#/components/schemas/ProjectInfo'
         UpdateRoleDescriptionRequest:
             type: object
             properties:
@@ -7991,6 +6717,25 @@ components:
                 code:
                     type: integer
                     format: int32
+                message:
+                    type: string
+        UpdateStoryImageStyleRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                styleId:
+                    type: string
+                style:
+                    type: string
+                userId:
+                    type: string
+        UpdateStoryImageStyleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
                 message:
                     type: string
         UpdateStoryRequest:
@@ -8143,6 +6888,23 @@ components:
                 code:
                     type: integer
                     format: int32
+                message:
+                    type: string
+        UpdateStorySenceMaxNumberRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                maxNumber:
+                    type: string
+                userId:
+                    type: string
+        UpdateStorySenceMaxNumberResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
                 message:
                     type: string
         UpdateStoryboardRequest:
@@ -8515,17 +7277,7 @@ components:
                     $ref: '#/components/schemas/UserWatchingResponse_Data'
         UserWatchingResponse_Data:
             type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/ProjectInfo'
-                offset:
-                    type: integer
-                    format: int32
-                pageSize:
-                    type: integer
-                    format: int32
+            properties: {}
         VersionResponse:
             type: object
             properties:
@@ -8543,69 +7295,6 @@ components:
                     type: string
                 buildTime:
                     type: string
-        VideoDetail:
-            type: object
-            properties:
-                list:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/VideoInfo'
-                num:
-                    type: string
-                prompt:
-                    type: string
-                title:
-                    type: string
-                desc:
-                    type: string
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
-        VideoInfo:
-            type: object
-            properties:
-                resourceUrl:
-                    type: string
-                size:
-                    type: string
-                timeLength:
-                    type: string
-        VoiceDetail:
-            type: object
-            properties:
-                resourceUrl:
-                    type: string
-                size:
-                    type: string
-                timeLength:
-                    type: string
-                Ctime:
-                    type: string
-                Mtime:
-                    type: string
-        WatchProjectRequest:
-            type: object
-            properties:
-                groupId:
-                    type: string
-                projectId:
-                    type: string
-                userId:
-                    type: string
-        WatchProjectResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    format: enum
-                message:
-                    type: string
-                data:
-                    $ref: '#/components/schemas/WatchProjectResponse_Data'
-        WatchProjectResponse_Data:
-            type: object
-            properties: {}
         WatchStoryRequest:
             type: object
             properties:
@@ -8643,19 +7332,6 @@ components:
                     type: boolean
                 isViewed:
                     type: boolean
-        WordDetail:
-            type: object
-            properties:
-                content:
-                    type: string
-                length:
-                    type: string
-                prompt:
-                    type: string
-                title:
-                    type: string
-                desc:
-                    type: string
 tags:
     - name: StreamMessageService
       description: 使用 stream 发送、接收消息

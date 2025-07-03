@@ -1935,126 +1935,6 @@ func (x *GroupErrorMessages) GetGROUP_QUOTA_EXCEEDED() string {
 	return ""
 }
 
-// 项目相关错误描述
-type ProjectErrorMessages struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	PROJECT_NOT_FOUND         string `protobuf:"bytes,1,opt,name=PROJECT_NOT_FOUND,json=PROJECTNOTFOUND,proto3" json:"PROJECT_NOT_FOUND,omitempty"`                         // 项目不存在
-	PROJECT_ALREADY_EXISTS    string `protobuf:"bytes,2,opt,name=PROJECT_ALREADY_EXISTS,json=PROJECTALREADYEXISTS,proto3" json:"PROJECT_ALREADY_EXISTS,omitempty"`          // 项目已存在
-	PROJECT_PERMISSION_DENIED string `protobuf:"bytes,3,opt,name=PROJECT_PERMISSION_DENIED,json=PROJECTPERMISSIONDENIED,proto3" json:"PROJECT_PERMISSION_DENIED,omitempty"` // 项目权限不足
-	PROJECT_CLOSED            string `protobuf:"bytes,4,opt,name=PROJECT_CLOSED,json=PROJECTCLOSED,proto3" json:"PROJECT_CLOSED,omitempty"`                                 // 项目已关闭
-	PROJECT_ARCHIVED          string `protobuf:"bytes,5,opt,name=PROJECT_ARCHIVED,json=PROJECTARCHIVED,proto3" json:"PROJECT_ARCHIVED,omitempty"`                           // 项目已归档
-	PROJECT_FULL              string `protobuf:"bytes,6,opt,name=PROJECT_FULL,json=PROJECTFULL,proto3" json:"PROJECT_FULL,omitempty"`                                       // 项目已满
-	PROJECT_STATUS_ERROR      string `protobuf:"bytes,7,opt,name=PROJECT_STATUS_ERROR,json=PROJECTSTATUSERROR,proto3" json:"PROJECT_STATUS_ERROR,omitempty"`                // 项目状态错误
-	PROJECT_TYPE_INVALID      string `protobuf:"bytes,8,opt,name=PROJECT_TYPE_INVALID,json=PROJECTTYPEINVALID,proto3" json:"PROJECT_TYPE_INVALID,omitempty"`                // 项目类型无效
-	PROJECT_OPERATION_DENIED  string `protobuf:"bytes,9,opt,name=PROJECT_OPERATION_DENIED,json=PROJECTOPERATIONDENIED,proto3" json:"PROJECT_OPERATION_DENIED,omitempty"`    // 项目操作被拒绝
-	PROJECT_QUOTA_EXCEEDED    string `protobuf:"bytes,10,opt,name=PROJECT_QUOTA_EXCEEDED,json=PROJECTQUOTAEXCEEDED,proto3" json:"PROJECT_QUOTA_EXCEEDED,omitempty"`         // 项目配额超限
-}
-
-func (x *ProjectErrorMessages) Reset() {
-	*x = ProjectErrorMessages{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ProjectErrorMessages) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ProjectErrorMessages) ProtoMessage() {}
-
-func (x *ProjectErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ProjectErrorMessages.ProtoReflect.Descriptor instead.
-func (*ProjectErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_NOT_FOUND() string {
-	if x != nil {
-		return x.PROJECT_NOT_FOUND
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_ALREADY_EXISTS() string {
-	if x != nil {
-		return x.PROJECT_ALREADY_EXISTS
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_PERMISSION_DENIED() string {
-	if x != nil {
-		return x.PROJECT_PERMISSION_DENIED
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_CLOSED() string {
-	if x != nil {
-		return x.PROJECT_CLOSED
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_ARCHIVED() string {
-	if x != nil {
-		return x.PROJECT_ARCHIVED
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_FULL() string {
-	if x != nil {
-		return x.PROJECT_FULL
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_STATUS_ERROR() string {
-	if x != nil {
-		return x.PROJECT_STATUS_ERROR
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_TYPE_INVALID() string {
-	if x != nil {
-		return x.PROJECT_TYPE_INVALID
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_OPERATION_DENIED() string {
-	if x != nil {
-		return x.PROJECT_OPERATION_DENIED
-	}
-	return ""
-}
-
-func (x *ProjectErrorMessages) GetPROJECT_QUOTA_EXCEEDED() string {
-	if x != nil {
-		return x.PROJECT_QUOTA_EXCEEDED
-	}
-	return ""
-}
-
 // 故事相关错误描述
 type StoryErrorMessages struct {
 	state         protoimpl.MessageState
@@ -2076,7 +1956,7 @@ type StoryErrorMessages struct {
 func (x *StoryErrorMessages) Reset() {
 	*x = StoryErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[9]
+		mi := &file_error_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2089,7 +1969,7 @@ func (x *StoryErrorMessages) String() string {
 func (*StoryErrorMessages) ProtoMessage() {}
 
 func (x *StoryErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[9]
+	mi := &file_error_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2102,7 +1982,7 @@ func (x *StoryErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StoryErrorMessages.ProtoReflect.Descriptor instead.
 func (*StoryErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{9}
+	return file_error_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *StoryErrorMessages) GetSTORY_NOT_FOUND() string {
@@ -2196,7 +2076,7 @@ type StoryboardErrorMessages struct {
 func (x *StoryboardErrorMessages) Reset() {
 	*x = StoryboardErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[10]
+		mi := &file_error_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2209,7 +2089,7 @@ func (x *StoryboardErrorMessages) String() string {
 func (*StoryboardErrorMessages) ProtoMessage() {}
 
 func (x *StoryboardErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[10]
+	mi := &file_error_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2222,7 +2102,7 @@ func (x *StoryboardErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StoryboardErrorMessages.ProtoReflect.Descriptor instead.
 func (*StoryboardErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{10}
+	return file_error_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *StoryboardErrorMessages) GetSTORYBOARD_NOT_FOUND() string {
@@ -2316,7 +2196,7 @@ type RoleErrorMessages struct {
 func (x *RoleErrorMessages) Reset() {
 	*x = RoleErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[11]
+		mi := &file_error_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2329,7 +2209,7 @@ func (x *RoleErrorMessages) String() string {
 func (*RoleErrorMessages) ProtoMessage() {}
 
 func (x *RoleErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[11]
+	mi := &file_error_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2342,7 +2222,7 @@ func (x *RoleErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoleErrorMessages.ProtoReflect.Descriptor instead.
 func (*RoleErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{11}
+	return file_error_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *RoleErrorMessages) GetROLE_NOT_FOUND() string {
@@ -2436,7 +2316,7 @@ type ContentErrorMessages struct {
 func (x *ContentErrorMessages) Reset() {
 	*x = ContentErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[12]
+		mi := &file_error_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2449,7 +2329,7 @@ func (x *ContentErrorMessages) String() string {
 func (*ContentErrorMessages) ProtoMessage() {}
 
 func (x *ContentErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[12]
+	mi := &file_error_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2462,7 +2342,7 @@ func (x *ContentErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContentErrorMessages.ProtoReflect.Descriptor instead.
 func (*ContentErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{12}
+	return file_error_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ContentErrorMessages) GetCONTENT_NOT_FOUND() string {
@@ -2556,7 +2436,7 @@ type OperationErrorMessages struct {
 func (x *OperationErrorMessages) Reset() {
 	*x = OperationErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[13]
+		mi := &file_error_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2569,7 +2449,7 @@ func (x *OperationErrorMessages) String() string {
 func (*OperationErrorMessages) ProtoMessage() {}
 
 func (x *OperationErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[13]
+	mi := &file_error_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2582,7 +2462,7 @@ func (x *OperationErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OperationErrorMessages.ProtoReflect.Descriptor instead.
 func (*OperationErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{13}
+	return file_error_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *OperationErrorMessages) GetOPERATION_FAILED() string {
@@ -2676,7 +2556,7 @@ type LimitErrorMessages struct {
 func (x *LimitErrorMessages) Reset() {
 	*x = LimitErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[14]
+		mi := &file_error_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2689,7 +2569,7 @@ func (x *LimitErrorMessages) String() string {
 func (*LimitErrorMessages) ProtoMessage() {}
 
 func (x *LimitErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[14]
+	mi := &file_error_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2702,7 +2582,7 @@ func (x *LimitErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LimitErrorMessages.ProtoReflect.Descriptor instead.
 func (*LimitErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{14}
+	return file_error_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *LimitErrorMessages) GetRATE_LIMIT_EXCEEDED() string {
@@ -2796,7 +2676,7 @@ type AIErrorMessages struct {
 func (x *AIErrorMessages) Reset() {
 	*x = AIErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[15]
+		mi := &file_error_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2809,7 +2689,7 @@ func (x *AIErrorMessages) String() string {
 func (*AIErrorMessages) ProtoMessage() {}
 
 func (x *AIErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[15]
+	mi := &file_error_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2822,7 +2702,7 @@ func (x *AIErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AIErrorMessages.ProtoReflect.Descriptor instead.
 func (*AIErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{15}
+	return file_error_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *AIErrorMessages) GetAI_GENERATION_FAILED() string {
@@ -2911,7 +2791,7 @@ type CommentErrorMessages struct {
 func (x *CommentErrorMessages) Reset() {
 	*x = CommentErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[16]
+		mi := &file_error_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2924,7 +2804,7 @@ func (x *CommentErrorMessages) String() string {
 func (*CommentErrorMessages) ProtoMessage() {}
 
 func (x *CommentErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[16]
+	mi := &file_error_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2937,7 +2817,7 @@ func (x *CommentErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommentErrorMessages.ProtoReflect.Descriptor instead.
 func (*CommentErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{16}
+	return file_error_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CommentErrorMessages) GetCOMMENT_NOT_FOUND() string {
@@ -2991,7 +2871,7 @@ type LikeErrorMessages struct {
 func (x *LikeErrorMessages) Reset() {
 	*x = LikeErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[17]
+		mi := &file_error_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3004,7 +2884,7 @@ func (x *LikeErrorMessages) String() string {
 func (*LikeErrorMessages) ProtoMessage() {}
 
 func (x *LikeErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[17]
+	mi := &file_error_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3017,7 +2897,7 @@ func (x *LikeErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LikeErrorMessages.ProtoReflect.Descriptor instead.
 func (*LikeErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{17}
+	return file_error_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *LikeErrorMessages) GetLIKE_NOT_FOUND() string {
@@ -3071,7 +2951,7 @@ type VIPErrorMessages struct {
 func (x *VIPErrorMessages) Reset() {
 	*x = VIPErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[18]
+		mi := &file_error_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3084,7 +2964,7 @@ func (x *VIPErrorMessages) String() string {
 func (*VIPErrorMessages) ProtoMessage() {}
 
 func (x *VIPErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[18]
+	mi := &file_error_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3097,7 +2977,7 @@ func (x *VIPErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VIPErrorMessages.ProtoReflect.Descriptor instead.
 func (*VIPErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{18}
+	return file_error_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *VIPErrorMessages) GetVIP_NOT_FOUND() string {
@@ -3151,7 +3031,7 @@ type PaymentErrorMessages struct {
 func (x *PaymentErrorMessages) Reset() {
 	*x = PaymentErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[19]
+		mi := &file_error_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3164,7 +3044,7 @@ func (x *PaymentErrorMessages) String() string {
 func (*PaymentErrorMessages) ProtoMessage() {}
 
 func (x *PaymentErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[19]
+	mi := &file_error_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3177,7 +3057,7 @@ func (x *PaymentErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PaymentErrorMessages.ProtoReflect.Descriptor instead.
 func (*PaymentErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{19}
+	return file_error_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *PaymentErrorMessages) GetPAYMENT_NOT_FOUND() string {
@@ -3231,7 +3111,7 @@ type OrderErrorMessages struct {
 func (x *OrderErrorMessages) Reset() {
 	*x = OrderErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[20]
+		mi := &file_error_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3244,7 +3124,7 @@ func (x *OrderErrorMessages) String() string {
 func (*OrderErrorMessages) ProtoMessage() {}
 
 func (x *OrderErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[20]
+	mi := &file_error_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3257,7 +3137,7 @@ func (x *OrderErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderErrorMessages.ProtoReflect.Descriptor instead.
 func (*OrderErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{20}
+	return file_error_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *OrderErrorMessages) GetORDER_NOT_FOUND() string {
@@ -3311,7 +3191,7 @@ type MessageErrorMessages struct {
 func (x *MessageErrorMessages) Reset() {
 	*x = MessageErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[21]
+		mi := &file_error_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3324,7 +3204,7 @@ func (x *MessageErrorMessages) String() string {
 func (*MessageErrorMessages) ProtoMessage() {}
 
 func (x *MessageErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[21]
+	mi := &file_error_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3337,7 +3217,7 @@ func (x *MessageErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageErrorMessages.ProtoReflect.Descriptor instead.
 func (*MessageErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{21}
+	return file_error_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *MessageErrorMessages) GetMESSAGE_NOT_FOUND() string {
@@ -3396,7 +3276,7 @@ type ChatErrorMessages struct {
 func (x *ChatErrorMessages) Reset() {
 	*x = ChatErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[22]
+		mi := &file_error_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3409,7 +3289,7 @@ func (x *ChatErrorMessages) String() string {
 func (*ChatErrorMessages) ProtoMessage() {}
 
 func (x *ChatErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[22]
+	mi := &file_error_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3422,7 +3302,7 @@ func (x *ChatErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChatErrorMessages.ProtoReflect.Descriptor instead.
 func (*ChatErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{22}
+	return file_error_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ChatErrorMessages) GetCHAT_NOT_FOUND() string {
@@ -3516,7 +3396,7 @@ type UploadErrorMessages struct {
 func (x *UploadErrorMessages) Reset() {
 	*x = UploadErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[23]
+		mi := &file_error_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3529,7 +3409,7 @@ func (x *UploadErrorMessages) String() string {
 func (*UploadErrorMessages) ProtoMessage() {}
 
 func (x *UploadErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[23]
+	mi := &file_error_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3542,7 +3422,7 @@ func (x *UploadErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadErrorMessages.ProtoReflect.Descriptor instead.
 func (*UploadErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{23}
+	return file_error_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *UploadErrorMessages) GetUPLOAD_FAILED() string {
@@ -3636,7 +3516,7 @@ type SearchErrorMessages struct {
 func (x *SearchErrorMessages) Reset() {
 	*x = SearchErrorMessages{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_error_proto_msgTypes[24]
+		mi := &file_error_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3649,7 +3529,7 @@ func (x *SearchErrorMessages) String() string {
 func (*SearchErrorMessages) ProtoMessage() {}
 
 func (x *SearchErrorMessages) ProtoReflect() protoreflect.Message {
-	mi := &file_error_proto_msgTypes[24]
+	mi := &file_error_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3662,7 +3542,7 @@ func (x *SearchErrorMessages) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchErrorMessages.ProtoReflect.Descriptor instead.
 func (*SearchErrorMessages) Descriptor() ([]byte, []int) {
-	return file_error_proto_rawDescGZIP(), []int{24}
+	return file_error_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SearchErrorMessages) GetSEARCH_FAILED() string {
@@ -4341,38 +4221,6 @@ var file_error_proto_rawDesc = []byte{
 	0x50, 0x45, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49, 0x44, 0x12, 0x30, 0x0a, 0x14, 0x47, 0x52, 0x4f,
 	0x55, 0x50, 0x5f, 0x51, 0x55, 0x4f, 0x54, 0x41, 0x5f, 0x45, 0x58, 0x43, 0x45, 0x45, 0x44, 0x45,
 	0x44, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x12, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x51, 0x55,
-	0x4f, 0x54, 0x41, 0x45, 0x58, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x22, 0xfd, 0x03, 0x0a, 0x14,
-	0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x73, 0x12, 0x2a, 0x0a, 0x11, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x5f,
-	0x4e, 0x4f, 0x54, 0x5f, 0x46, 0x4f, 0x55, 0x4e, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0f, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x4e, 0x4f, 0x54, 0x46, 0x4f, 0x55, 0x4e, 0x44,
-	0x12, 0x34, 0x0a, 0x16, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x5f, 0x41, 0x4c, 0x52, 0x45,
-	0x41, 0x44, 0x59, 0x5f, 0x45, 0x58, 0x49, 0x53, 0x54, 0x53, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x14, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x41, 0x4c, 0x52, 0x45, 0x41, 0x44, 0x59,
-	0x45, 0x58, 0x49, 0x53, 0x54, 0x53, 0x12, 0x3a, 0x0a, 0x19, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43,
-	0x54, 0x5f, 0x50, 0x45, 0x52, 0x4d, 0x49, 0x53, 0x53, 0x49, 0x4f, 0x4e, 0x5f, 0x44, 0x45, 0x4e,
-	0x49, 0x45, 0x44, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x17, 0x50, 0x52, 0x4f, 0x4a, 0x45,
-	0x43, 0x54, 0x50, 0x45, 0x52, 0x4d, 0x49, 0x53, 0x53, 0x49, 0x4f, 0x4e, 0x44, 0x45, 0x4e, 0x49,
-	0x45, 0x44, 0x12, 0x25, 0x0a, 0x0e, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x5f, 0x43, 0x4c,
-	0x4f, 0x53, 0x45, 0x44, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x50, 0x52, 0x4f, 0x4a,
-	0x45, 0x43, 0x54, 0x43, 0x4c, 0x4f, 0x53, 0x45, 0x44, 0x12, 0x29, 0x0a, 0x10, 0x50, 0x52, 0x4f,
-	0x4a, 0x45, 0x43, 0x54, 0x5f, 0x41, 0x52, 0x43, 0x48, 0x49, 0x56, 0x45, 0x44, 0x18, 0x05, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0f, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x41, 0x52, 0x43, 0x48,
-	0x49, 0x56, 0x45, 0x44, 0x12, 0x21, 0x0a, 0x0c, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x5f,
-	0x46, 0x55, 0x4c, 0x4c, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x50, 0x52, 0x4f, 0x4a,
-	0x45, 0x43, 0x54, 0x46, 0x55, 0x4c, 0x4c, 0x12, 0x30, 0x0a, 0x14, 0x50, 0x52, 0x4f, 0x4a, 0x45,
-	0x43, 0x54, 0x5f, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x18,
-	0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x12, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x53, 0x54,
-	0x41, 0x54, 0x55, 0x53, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x12, 0x30, 0x0a, 0x14, 0x50, 0x52, 0x4f,
-	0x4a, 0x45, 0x43, 0x54, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49,
-	0x44, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x12, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54,
-	0x54, 0x59, 0x50, 0x45, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49, 0x44, 0x12, 0x38, 0x0a, 0x18, 0x50,
-	0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x5f, 0x4f, 0x50, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e,
-	0x5f, 0x44, 0x45, 0x4e, 0x49, 0x45, 0x44, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x16, 0x50,
-	0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x4f, 0x50, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x44,
-	0x45, 0x4e, 0x49, 0x45, 0x44, 0x12, 0x34, 0x0a, 0x16, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54,
-	0x5f, 0x51, 0x55, 0x4f, 0x54, 0x41, 0x5f, 0x45, 0x58, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x18,
-	0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x50, 0x52, 0x4f, 0x4a, 0x45, 0x43, 0x54, 0x51, 0x55,
 	0x4f, 0x54, 0x41, 0x45, 0x58, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x22, 0xec, 0x03, 0x0a, 0x12,
 	0x53, 0x74, 0x6f, 0x72, 0x79, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
 	0x65, 0x73, 0x12, 0x26, 0x0a, 0x0f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x4e, 0x4f, 0x54, 0x5f,
@@ -5126,7 +4974,7 @@ func file_error_proto_rawDescGZIP() []byte {
 }
 
 var file_error_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_error_proto_msgTypes = make([]protoimpl.MessageInfo, 71)
+var file_error_proto_msgTypes = make([]protoimpl.MessageInfo, 70)
 var file_error_proto_goTypes = []interface{}{
 	(ResponseCode)(0),               // 0: common.ResponseCode
 	(*ErrorDescription)(nil),        // 1: common.ErrorDescription
@@ -5137,117 +4985,116 @@ var file_error_proto_goTypes = []interface{}{
 	(*ResourceErrorMessages)(nil),   // 6: common.ResourceErrorMessages
 	(*UserErrorMessages)(nil),       // 7: common.UserErrorMessages
 	(*GroupErrorMessages)(nil),      // 8: common.GroupErrorMessages
-	(*ProjectErrorMessages)(nil),    // 9: common.ProjectErrorMessages
-	(*StoryErrorMessages)(nil),      // 10: common.StoryErrorMessages
-	(*StoryboardErrorMessages)(nil), // 11: common.StoryboardErrorMessages
-	(*RoleErrorMessages)(nil),       // 12: common.RoleErrorMessages
-	(*ContentErrorMessages)(nil),    // 13: common.ContentErrorMessages
-	(*OperationErrorMessages)(nil),  // 14: common.OperationErrorMessages
-	(*LimitErrorMessages)(nil),      // 15: common.LimitErrorMessages
-	(*AIErrorMessages)(nil),         // 16: common.AIErrorMessages
-	(*CommentErrorMessages)(nil),    // 17: common.CommentErrorMessages
-	(*LikeErrorMessages)(nil),       // 18: common.LikeErrorMessages
-	(*VIPErrorMessages)(nil),        // 19: common.VIPErrorMessages
-	(*PaymentErrorMessages)(nil),    // 20: common.PaymentErrorMessages
-	(*OrderErrorMessages)(nil),      // 21: common.OrderErrorMessages
-	(*MessageErrorMessages)(nil),    // 22: common.MessageErrorMessages
-	(*ChatErrorMessages)(nil),       // 23: common.ChatErrorMessages
-	(*UploadErrorMessages)(nil),     // 24: common.UploadErrorMessages
-	(*SearchErrorMessages)(nil),     // 25: common.SearchErrorMessages
-	nil,                             // 26: common.ErrorDescription.SystemErrorsEntry
-	nil,                             // 27: common.ErrorDescription.AuthErrorsEntry
-	nil,                             // 28: common.ErrorDescription.ValidationErrorsEntry
-	nil,                             // 29: common.ErrorDescription.ResourceErrorsEntry
-	nil,                             // 30: common.ErrorDescription.UserErrorsEntry
-	nil,                             // 31: common.ErrorDescription.GroupErrorsEntry
-	nil,                             // 32: common.ErrorDescription.ProjectErrorsEntry
-	nil,                             // 33: common.ErrorDescription.StoryErrorsEntry
-	nil,                             // 34: common.ErrorDescription.StoryboardErrorsEntry
-	nil,                             // 35: common.ErrorDescription.RoleErrorsEntry
-	nil,                             // 36: common.ErrorDescription.ContentErrorsEntry
-	nil,                             // 37: common.ErrorDescription.OperationErrorsEntry
-	nil,                             // 38: common.ErrorDescription.LimitErrorsEntry
-	nil,                             // 39: common.ErrorDescription.AiErrorsEntry
-	nil,                             // 40: common.ErrorDescription.CommentErrorsEntry
-	nil,                             // 41: common.ErrorDescription.LikeErrorsEntry
-	nil,                             // 42: common.ErrorDescription.VipErrorsEntry
-	nil,                             // 43: common.ErrorDescription.PaymentErrorsEntry
-	nil,                             // 44: common.ErrorDescription.OrderErrorsEntry
-	nil,                             // 45: common.ErrorDescription.MessageErrorsEntry
-	nil,                             // 46: common.ErrorDescription.ChatErrorsEntry
-	nil,                             // 47: common.ErrorDescription.UploadErrorsEntry
-	nil,                             // 48: common.ErrorDescription.SearchErrorsEntry
-	nil,                             // 49: common.ErrorDescriptions.SystemErrorsEntry
-	nil,                             // 50: common.ErrorDescriptions.AuthErrorsEntry
-	nil,                             // 51: common.ErrorDescriptions.ValidationErrorsEntry
-	nil,                             // 52: common.ErrorDescriptions.ResourceErrorsEntry
-	nil,                             // 53: common.ErrorDescriptions.UserErrorsEntry
-	nil,                             // 54: common.ErrorDescriptions.GroupErrorsEntry
-	nil,                             // 55: common.ErrorDescriptions.ProjectErrorsEntry
-	nil,                             // 56: common.ErrorDescriptions.StoryErrorsEntry
-	nil,                             // 57: common.ErrorDescriptions.StoryboardErrorsEntry
-	nil,                             // 58: common.ErrorDescriptions.RoleErrorsEntry
-	nil,                             // 59: common.ErrorDescriptions.ContentErrorsEntry
-	nil,                             // 60: common.ErrorDescriptions.OperationErrorsEntry
-	nil,                             // 61: common.ErrorDescriptions.LimitErrorsEntry
-	nil,                             // 62: common.ErrorDescriptions.AiErrorsEntry
-	nil,                             // 63: common.ErrorDescriptions.CommentErrorsEntry
-	nil,                             // 64: common.ErrorDescriptions.LikeErrorsEntry
-	nil,                             // 65: common.ErrorDescriptions.VipErrorsEntry
-	nil,                             // 66: common.ErrorDescriptions.PaymentErrorsEntry
-	nil,                             // 67: common.ErrorDescriptions.OrderErrorsEntry
-	nil,                             // 68: common.ErrorDescriptions.MessageErrorsEntry
-	nil,                             // 69: common.ErrorDescriptions.ChatErrorsEntry
-	nil,                             // 70: common.ErrorDescriptions.UploadErrorsEntry
-	nil,                             // 71: common.ErrorDescriptions.SearchErrorsEntry
+	(*StoryErrorMessages)(nil),      // 9: common.StoryErrorMessages
+	(*StoryboardErrorMessages)(nil), // 10: common.StoryboardErrorMessages
+	(*RoleErrorMessages)(nil),       // 11: common.RoleErrorMessages
+	(*ContentErrorMessages)(nil),    // 12: common.ContentErrorMessages
+	(*OperationErrorMessages)(nil),  // 13: common.OperationErrorMessages
+	(*LimitErrorMessages)(nil),      // 14: common.LimitErrorMessages
+	(*AIErrorMessages)(nil),         // 15: common.AIErrorMessages
+	(*CommentErrorMessages)(nil),    // 16: common.CommentErrorMessages
+	(*LikeErrorMessages)(nil),       // 17: common.LikeErrorMessages
+	(*VIPErrorMessages)(nil),        // 18: common.VIPErrorMessages
+	(*PaymentErrorMessages)(nil),    // 19: common.PaymentErrorMessages
+	(*OrderErrorMessages)(nil),      // 20: common.OrderErrorMessages
+	(*MessageErrorMessages)(nil),    // 21: common.MessageErrorMessages
+	(*ChatErrorMessages)(nil),       // 22: common.ChatErrorMessages
+	(*UploadErrorMessages)(nil),     // 23: common.UploadErrorMessages
+	(*SearchErrorMessages)(nil),     // 24: common.SearchErrorMessages
+	nil,                             // 25: common.ErrorDescription.SystemErrorsEntry
+	nil,                             // 26: common.ErrorDescription.AuthErrorsEntry
+	nil,                             // 27: common.ErrorDescription.ValidationErrorsEntry
+	nil,                             // 28: common.ErrorDescription.ResourceErrorsEntry
+	nil,                             // 29: common.ErrorDescription.UserErrorsEntry
+	nil,                             // 30: common.ErrorDescription.GroupErrorsEntry
+	nil,                             // 31: common.ErrorDescription.ProjectErrorsEntry
+	nil,                             // 32: common.ErrorDescription.StoryErrorsEntry
+	nil,                             // 33: common.ErrorDescription.StoryboardErrorsEntry
+	nil,                             // 34: common.ErrorDescription.RoleErrorsEntry
+	nil,                             // 35: common.ErrorDescription.ContentErrorsEntry
+	nil,                             // 36: common.ErrorDescription.OperationErrorsEntry
+	nil,                             // 37: common.ErrorDescription.LimitErrorsEntry
+	nil,                             // 38: common.ErrorDescription.AiErrorsEntry
+	nil,                             // 39: common.ErrorDescription.CommentErrorsEntry
+	nil,                             // 40: common.ErrorDescription.LikeErrorsEntry
+	nil,                             // 41: common.ErrorDescription.VipErrorsEntry
+	nil,                             // 42: common.ErrorDescription.PaymentErrorsEntry
+	nil,                             // 43: common.ErrorDescription.OrderErrorsEntry
+	nil,                             // 44: common.ErrorDescription.MessageErrorsEntry
+	nil,                             // 45: common.ErrorDescription.ChatErrorsEntry
+	nil,                             // 46: common.ErrorDescription.UploadErrorsEntry
+	nil,                             // 47: common.ErrorDescription.SearchErrorsEntry
+	nil,                             // 48: common.ErrorDescriptions.SystemErrorsEntry
+	nil,                             // 49: common.ErrorDescriptions.AuthErrorsEntry
+	nil,                             // 50: common.ErrorDescriptions.ValidationErrorsEntry
+	nil,                             // 51: common.ErrorDescriptions.ResourceErrorsEntry
+	nil,                             // 52: common.ErrorDescriptions.UserErrorsEntry
+	nil,                             // 53: common.ErrorDescriptions.GroupErrorsEntry
+	nil,                             // 54: common.ErrorDescriptions.ProjectErrorsEntry
+	nil,                             // 55: common.ErrorDescriptions.StoryErrorsEntry
+	nil,                             // 56: common.ErrorDescriptions.StoryboardErrorsEntry
+	nil,                             // 57: common.ErrorDescriptions.RoleErrorsEntry
+	nil,                             // 58: common.ErrorDescriptions.ContentErrorsEntry
+	nil,                             // 59: common.ErrorDescriptions.OperationErrorsEntry
+	nil,                             // 60: common.ErrorDescriptions.LimitErrorsEntry
+	nil,                             // 61: common.ErrorDescriptions.AiErrorsEntry
+	nil,                             // 62: common.ErrorDescriptions.CommentErrorsEntry
+	nil,                             // 63: common.ErrorDescriptions.LikeErrorsEntry
+	nil,                             // 64: common.ErrorDescriptions.VipErrorsEntry
+	nil,                             // 65: common.ErrorDescriptions.PaymentErrorsEntry
+	nil,                             // 66: common.ErrorDescriptions.OrderErrorsEntry
+	nil,                             // 67: common.ErrorDescriptions.MessageErrorsEntry
+	nil,                             // 68: common.ErrorDescriptions.ChatErrorsEntry
+	nil,                             // 69: common.ErrorDescriptions.UploadErrorsEntry
+	nil,                             // 70: common.ErrorDescriptions.SearchErrorsEntry
 }
 var file_error_proto_depIdxs = []int32{
-	26, // 0: common.ErrorDescription.system_errors:type_name -> common.ErrorDescription.SystemErrorsEntry
-	27, // 1: common.ErrorDescription.auth_errors:type_name -> common.ErrorDescription.AuthErrorsEntry
-	28, // 2: common.ErrorDescription.validation_errors:type_name -> common.ErrorDescription.ValidationErrorsEntry
-	29, // 3: common.ErrorDescription.resource_errors:type_name -> common.ErrorDescription.ResourceErrorsEntry
-	30, // 4: common.ErrorDescription.user_errors:type_name -> common.ErrorDescription.UserErrorsEntry
-	31, // 5: common.ErrorDescription.group_errors:type_name -> common.ErrorDescription.GroupErrorsEntry
-	32, // 6: common.ErrorDescription.project_errors:type_name -> common.ErrorDescription.ProjectErrorsEntry
-	33, // 7: common.ErrorDescription.story_errors:type_name -> common.ErrorDescription.StoryErrorsEntry
-	34, // 8: common.ErrorDescription.storyboard_errors:type_name -> common.ErrorDescription.StoryboardErrorsEntry
-	35, // 9: common.ErrorDescription.role_errors:type_name -> common.ErrorDescription.RoleErrorsEntry
-	36, // 10: common.ErrorDescription.content_errors:type_name -> common.ErrorDescription.ContentErrorsEntry
-	37, // 11: common.ErrorDescription.operation_errors:type_name -> common.ErrorDescription.OperationErrorsEntry
-	38, // 12: common.ErrorDescription.limit_errors:type_name -> common.ErrorDescription.LimitErrorsEntry
-	39, // 13: common.ErrorDescription.ai_errors:type_name -> common.ErrorDescription.AiErrorsEntry
-	40, // 14: common.ErrorDescription.comment_errors:type_name -> common.ErrorDescription.CommentErrorsEntry
-	41, // 15: common.ErrorDescription.like_errors:type_name -> common.ErrorDescription.LikeErrorsEntry
-	42, // 16: common.ErrorDescription.vip_errors:type_name -> common.ErrorDescription.VipErrorsEntry
-	43, // 17: common.ErrorDescription.payment_errors:type_name -> common.ErrorDescription.PaymentErrorsEntry
-	44, // 18: common.ErrorDescription.order_errors:type_name -> common.ErrorDescription.OrderErrorsEntry
-	45, // 19: common.ErrorDescription.message_errors:type_name -> common.ErrorDescription.MessageErrorsEntry
-	46, // 20: common.ErrorDescription.chat_errors:type_name -> common.ErrorDescription.ChatErrorsEntry
-	47, // 21: common.ErrorDescription.upload_errors:type_name -> common.ErrorDescription.UploadErrorsEntry
-	48, // 22: common.ErrorDescription.search_errors:type_name -> common.ErrorDescription.SearchErrorsEntry
-	49, // 23: common.ErrorDescriptions.system_errors:type_name -> common.ErrorDescriptions.SystemErrorsEntry
-	50, // 24: common.ErrorDescriptions.auth_errors:type_name -> common.ErrorDescriptions.AuthErrorsEntry
-	51, // 25: common.ErrorDescriptions.validation_errors:type_name -> common.ErrorDescriptions.ValidationErrorsEntry
-	52, // 26: common.ErrorDescriptions.resource_errors:type_name -> common.ErrorDescriptions.ResourceErrorsEntry
-	53, // 27: common.ErrorDescriptions.user_errors:type_name -> common.ErrorDescriptions.UserErrorsEntry
-	54, // 28: common.ErrorDescriptions.group_errors:type_name -> common.ErrorDescriptions.GroupErrorsEntry
-	55, // 29: common.ErrorDescriptions.project_errors:type_name -> common.ErrorDescriptions.ProjectErrorsEntry
-	56, // 30: common.ErrorDescriptions.story_errors:type_name -> common.ErrorDescriptions.StoryErrorsEntry
-	57, // 31: common.ErrorDescriptions.storyboard_errors:type_name -> common.ErrorDescriptions.StoryboardErrorsEntry
-	58, // 32: common.ErrorDescriptions.role_errors:type_name -> common.ErrorDescriptions.RoleErrorsEntry
-	59, // 33: common.ErrorDescriptions.content_errors:type_name -> common.ErrorDescriptions.ContentErrorsEntry
-	60, // 34: common.ErrorDescriptions.operation_errors:type_name -> common.ErrorDescriptions.OperationErrorsEntry
-	61, // 35: common.ErrorDescriptions.limit_errors:type_name -> common.ErrorDescriptions.LimitErrorsEntry
-	62, // 36: common.ErrorDescriptions.ai_errors:type_name -> common.ErrorDescriptions.AiErrorsEntry
-	63, // 37: common.ErrorDescriptions.comment_errors:type_name -> common.ErrorDescriptions.CommentErrorsEntry
-	64, // 38: common.ErrorDescriptions.like_errors:type_name -> common.ErrorDescriptions.LikeErrorsEntry
-	65, // 39: common.ErrorDescriptions.vip_errors:type_name -> common.ErrorDescriptions.VipErrorsEntry
-	66, // 40: common.ErrorDescriptions.payment_errors:type_name -> common.ErrorDescriptions.PaymentErrorsEntry
-	67, // 41: common.ErrorDescriptions.order_errors:type_name -> common.ErrorDescriptions.OrderErrorsEntry
-	68, // 42: common.ErrorDescriptions.message_errors:type_name -> common.ErrorDescriptions.MessageErrorsEntry
-	69, // 43: common.ErrorDescriptions.chat_errors:type_name -> common.ErrorDescriptions.ChatErrorsEntry
-	70, // 44: common.ErrorDescriptions.upload_errors:type_name -> common.ErrorDescriptions.UploadErrorsEntry
-	71, // 45: common.ErrorDescriptions.search_errors:type_name -> common.ErrorDescriptions.SearchErrorsEntry
+	25, // 0: common.ErrorDescription.system_errors:type_name -> common.ErrorDescription.SystemErrorsEntry
+	26, // 1: common.ErrorDescription.auth_errors:type_name -> common.ErrorDescription.AuthErrorsEntry
+	27, // 2: common.ErrorDescription.validation_errors:type_name -> common.ErrorDescription.ValidationErrorsEntry
+	28, // 3: common.ErrorDescription.resource_errors:type_name -> common.ErrorDescription.ResourceErrorsEntry
+	29, // 4: common.ErrorDescription.user_errors:type_name -> common.ErrorDescription.UserErrorsEntry
+	30, // 5: common.ErrorDescription.group_errors:type_name -> common.ErrorDescription.GroupErrorsEntry
+	31, // 6: common.ErrorDescription.project_errors:type_name -> common.ErrorDescription.ProjectErrorsEntry
+	32, // 7: common.ErrorDescription.story_errors:type_name -> common.ErrorDescription.StoryErrorsEntry
+	33, // 8: common.ErrorDescription.storyboard_errors:type_name -> common.ErrorDescription.StoryboardErrorsEntry
+	34, // 9: common.ErrorDescription.role_errors:type_name -> common.ErrorDescription.RoleErrorsEntry
+	35, // 10: common.ErrorDescription.content_errors:type_name -> common.ErrorDescription.ContentErrorsEntry
+	36, // 11: common.ErrorDescription.operation_errors:type_name -> common.ErrorDescription.OperationErrorsEntry
+	37, // 12: common.ErrorDescription.limit_errors:type_name -> common.ErrorDescription.LimitErrorsEntry
+	38, // 13: common.ErrorDescription.ai_errors:type_name -> common.ErrorDescription.AiErrorsEntry
+	39, // 14: common.ErrorDescription.comment_errors:type_name -> common.ErrorDescription.CommentErrorsEntry
+	40, // 15: common.ErrorDescription.like_errors:type_name -> common.ErrorDescription.LikeErrorsEntry
+	41, // 16: common.ErrorDescription.vip_errors:type_name -> common.ErrorDescription.VipErrorsEntry
+	42, // 17: common.ErrorDescription.payment_errors:type_name -> common.ErrorDescription.PaymentErrorsEntry
+	43, // 18: common.ErrorDescription.order_errors:type_name -> common.ErrorDescription.OrderErrorsEntry
+	44, // 19: common.ErrorDescription.message_errors:type_name -> common.ErrorDescription.MessageErrorsEntry
+	45, // 20: common.ErrorDescription.chat_errors:type_name -> common.ErrorDescription.ChatErrorsEntry
+	46, // 21: common.ErrorDescription.upload_errors:type_name -> common.ErrorDescription.UploadErrorsEntry
+	47, // 22: common.ErrorDescription.search_errors:type_name -> common.ErrorDescription.SearchErrorsEntry
+	48, // 23: common.ErrorDescriptions.system_errors:type_name -> common.ErrorDescriptions.SystemErrorsEntry
+	49, // 24: common.ErrorDescriptions.auth_errors:type_name -> common.ErrorDescriptions.AuthErrorsEntry
+	50, // 25: common.ErrorDescriptions.validation_errors:type_name -> common.ErrorDescriptions.ValidationErrorsEntry
+	51, // 26: common.ErrorDescriptions.resource_errors:type_name -> common.ErrorDescriptions.ResourceErrorsEntry
+	52, // 27: common.ErrorDescriptions.user_errors:type_name -> common.ErrorDescriptions.UserErrorsEntry
+	53, // 28: common.ErrorDescriptions.group_errors:type_name -> common.ErrorDescriptions.GroupErrorsEntry
+	54, // 29: common.ErrorDescriptions.project_errors:type_name -> common.ErrorDescriptions.ProjectErrorsEntry
+	55, // 30: common.ErrorDescriptions.story_errors:type_name -> common.ErrorDescriptions.StoryErrorsEntry
+	56, // 31: common.ErrorDescriptions.storyboard_errors:type_name -> common.ErrorDescriptions.StoryboardErrorsEntry
+	57, // 32: common.ErrorDescriptions.role_errors:type_name -> common.ErrorDescriptions.RoleErrorsEntry
+	58, // 33: common.ErrorDescriptions.content_errors:type_name -> common.ErrorDescriptions.ContentErrorsEntry
+	59, // 34: common.ErrorDescriptions.operation_errors:type_name -> common.ErrorDescriptions.OperationErrorsEntry
+	60, // 35: common.ErrorDescriptions.limit_errors:type_name -> common.ErrorDescriptions.LimitErrorsEntry
+	61, // 36: common.ErrorDescriptions.ai_errors:type_name -> common.ErrorDescriptions.AiErrorsEntry
+	62, // 37: common.ErrorDescriptions.comment_errors:type_name -> common.ErrorDescriptions.CommentErrorsEntry
+	63, // 38: common.ErrorDescriptions.like_errors:type_name -> common.ErrorDescriptions.LikeErrorsEntry
+	64, // 39: common.ErrorDescriptions.vip_errors:type_name -> common.ErrorDescriptions.VipErrorsEntry
+	65, // 40: common.ErrorDescriptions.payment_errors:type_name -> common.ErrorDescriptions.PaymentErrorsEntry
+	66, // 41: common.ErrorDescriptions.order_errors:type_name -> common.ErrorDescriptions.OrderErrorsEntry
+	67, // 42: common.ErrorDescriptions.message_errors:type_name -> common.ErrorDescriptions.MessageErrorsEntry
+	68, // 43: common.ErrorDescriptions.chat_errors:type_name -> common.ErrorDescriptions.ChatErrorsEntry
+	69, // 44: common.ErrorDescriptions.upload_errors:type_name -> common.ErrorDescriptions.UploadErrorsEntry
+	70, // 45: common.ErrorDescriptions.search_errors:type_name -> common.ErrorDescriptions.SearchErrorsEntry
 	46, // [46:46] is the sub-list for method output_type
 	46, // [46:46] is the sub-list for method input_type
 	46, // [46:46] is the sub-list for extension type_name
@@ -5358,18 +5205,6 @@ func file_error_proto_init() {
 			}
 		}
 		file_error_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ProjectErrorMessages); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_error_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StoryErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5381,7 +5216,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StoryboardErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5393,7 +5228,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RoleErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5405,7 +5240,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ContentErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5417,7 +5252,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OperationErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5429,7 +5264,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LimitErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5441,7 +5276,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AIErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5453,7 +5288,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CommentErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5465,7 +5300,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LikeErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5477,7 +5312,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VIPErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5489,7 +5324,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PaymentErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5501,7 +5336,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrderErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5513,7 +5348,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MessageErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5525,7 +5360,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ChatErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5537,7 +5372,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5549,7 +5384,7 @@ func file_error_proto_init() {
 				return nil
 			}
 		}
-		file_error_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_error_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SearchErrorMessages); i {
 			case 0:
 				return &v.state
@@ -5568,7 +5403,7 @@ func file_error_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_error_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   71,
+			NumMessages:   70,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

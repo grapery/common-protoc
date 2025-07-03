@@ -86,7 +86,6 @@
     - [OperationErrorMessages](#common-OperationErrorMessages)
     - [OrderErrorMessages](#common-OrderErrorMessages)
     - [PaymentErrorMessages](#common-PaymentErrorMessages)
-    - [ProjectErrorMessages](#common-ProjectErrorMessages)
     - [ResourceErrorMessages](#common-ResourceErrorMessages)
     - [RoleErrorMessages](#common-RoleErrorMessages)
     - [SearchErrorMessages](#common-SearchErrorMessages)
@@ -255,10 +254,6 @@
   
     - [StreamMessageService](#common-StreamMessageService)
   
-- [project.proto](#project-proto)
-    - [ProjectInfo](#common-ProjectInfo)
-    - [ProjectProfileInfo](#common-ProjectProfileInfo)
-  
 - [service.proto](#service-proto)
     - [AboutRequest](#common-AboutRequest)
     - [AboutResponse](#common-AboutResponse)
@@ -281,9 +276,6 @@
     - [CreateItemRequest](#common-CreateItemRequest)
     - [CreateItemResponse](#common-CreateItemResponse)
     - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
-    - [CreateProjectRequest](#common-CreateProjectRequest)
-    - [CreateProjectResponse](#common-CreateProjectResponse)
-    - [CreateProjectResponse.Data](#common-CreateProjectResponse-Data)
     - [CreateStoryBoardCommentRequest](#common-CreateStoryBoardCommentRequest)
     - [CreateStoryBoardCommentResponse](#common-CreateStoryBoardCommentResponse)
     - [CreateStoryCommentReplyRequest](#common-CreateStoryCommentReplyRequest)
@@ -300,9 +292,6 @@
     - [DeleteItemRequest](#common-DeleteItemRequest)
     - [DeleteItemResponse](#common-DeleteItemResponse)
     - [DeleteItemResponse.Data](#common-DeleteItemResponse-Data)
-    - [DeleteProjectRequest](#common-DeleteProjectRequest)
-    - [DeleteProjectResponse](#common-DeleteProjectResponse)
-    - [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data)
     - [DeleteStoryBoardCommentRequest](#common-DeleteStoryBoardCommentRequest)
     - [DeleteStoryBoardCommentResponse](#common-DeleteStoryBoardCommentResponse)
     - [DeleteStoryCommentReplyRequest](#common-DeleteStoryCommentReplyRequest)
@@ -312,9 +301,6 @@
     - [DislikeCommentRequest](#common-DislikeCommentRequest)
     - [DislikeCommentResponse](#common-DislikeCommentResponse)
     - [DisscussParams](#common-DisscussParams)
-    - [ExploreProjectsRequest](#common-ExploreProjectsRequest)
-    - [ExploreProjectsResponse](#common-ExploreProjectsResponse)
-    - [ExploreProjectsResponse.Data](#common-ExploreProjectsResponse-Data)
     - [ExploreRequest](#common-ExploreRequest)
     - [ExploreResponse](#common-ExploreResponse)
     - [ExploreResponse.Data](#common-ExploreResponse-Data)
@@ -324,9 +310,6 @@
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
     - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
-    - [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest)
-    - [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse)
-    - [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data)
     - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
     - [FollowUserRequest](#common-FollowUserRequest)
@@ -362,22 +345,10 @@
     - [GetItemResponse.Data](#common-GetItemResponse-Data)
     - [GetNextStoryboardRequest](#common-GetNextStoryboardRequest)
     - [GetNextStoryboardResponse](#common-GetNextStoryboardResponse)
-    - [GetProjectItemsRequest](#common-GetProjectItemsRequest)
-    - [GetProjectItemsResponse](#common-GetProjectItemsResponse)
-    - [GetProjectItemsResponse.Data](#common-GetProjectItemsResponse-Data)
-    - [GetProjectListRequest](#common-GetProjectListRequest)
-    - [GetProjectListResponse](#common-GetProjectListResponse)
-    - [GetProjectListResponse.Data](#common-GetProjectListResponse-Data)
     - [GetProjectMembersRequest](#common-GetProjectMembersRequest)
     - [GetProjectMembersResponse](#common-GetProjectMembersResponse)
     - [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data)
     - [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry)
-    - [GetProjectProfileRequest](#common-GetProjectProfileRequest)
-    - [GetProjectProfileResponse](#common-GetProjectProfileResponse)
-    - [GetProjectProfileResponse.Data](#common-GetProjectProfileResponse-Data)
-    - [GetProjectRequest](#common-GetProjectRequest)
-    - [GetProjectResponse](#common-GetProjectResponse)
-    - [GetProjectResponse.Data](#common-GetProjectResponse-Data)
     - [GetProjectWatcherRequest](#common-GetProjectWatcherRequest)
     - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
     - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
@@ -393,6 +364,8 @@
     - [GetStoryContributorsRequest](#common-GetStoryContributorsRequest)
     - [GetStoryContributorsResponse](#common-GetStoryContributorsResponse)
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
+    - [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest)
+    - [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse)
     - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
     - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
     - [GetStoryRoleListRequest](#common-GetStoryRoleListRequest)
@@ -422,9 +395,6 @@
     - [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse)
     - [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest)
     - [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse)
-    - [GetWatchingProjectRequest](#common-GetWatchingProjectRequest)
-    - [GetWatchingProjectResponse](#common-GetWatchingProjectResponse)
-    - [GetWatchingProjectResponse.Data](#common-GetWatchingProjectResponse-Data)
     - [JoinGroupRequest](#common-JoinGroupRequest)
     - [JoinGroupResponse](#common-JoinGroupResponse)
     - [JoinGroupResponse.Data](#common-JoinGroupResponse-Data)
@@ -460,15 +430,9 @@
     - [ResetPasswordResponse](#common-ResetPasswordResponse)
     - [RestoreStoryboardRequest](#common-RestoreStoryboardRequest)
     - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
-    - [SearchAllProjectRequest](#common-SearchAllProjectRequest)
-    - [SearchAllProjectResponse](#common-SearchAllProjectResponse)
-    - [SearchAllProjectResponse.Data](#common-SearchAllProjectResponse-Data)
     - [SearchGroupRequest](#common-SearchGroupRequest)
     - [SearchGroupResponse](#common-SearchGroupResponse)
     - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
-    - [SearchProjectRequest](#common-SearchProjectRequest)
-    - [SearchProjectResponse](#common-SearchProjectResponse)
-    - [SearchProjectResponse.Data](#common-SearchProjectResponse-Data)
     - [SearchRolesRequest](#common-SearchRolesRequest)
     - [SearchRolesResponse](#common-SearchRolesResponse)
     - [SearchStoriesRequest](#common-SearchStoriesRequest)
@@ -478,6 +442,7 @@
     - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
     - [StoryComment](#common-StoryComment)
     - [StoryContributor](#common-StoryContributor)
+    - [StoryStyleDesc](#common-StoryStyleDesc)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingStoryRequest](#common-TrendingStoryRequest)
     - [TrendingStoryResponse](#common-TrendingStoryResponse)
@@ -491,9 +456,6 @@
     - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
     - [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest)
     - [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse)
-    - [UnWatchProjectRequest](#common-UnWatchProjectRequest)
-    - [UnWatchProjectResponse](#common-UnWatchProjectResponse)
-    - [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data)
     - [UnfollowUserRequest](#common-UnfollowUserRequest)
     - [UnfollowUserResponse](#common-UnfollowUserResponse)
     - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
@@ -504,15 +466,12 @@
     - [UpdateItemRequest](#common-UpdateItemRequest)
     - [UpdateItemResponse](#common-UpdateItemResponse)
     - [UpdateItemResponse.Data](#common-UpdateItemResponse-Data)
-    - [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest)
-    - [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse)
-    - [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data)
-    - [UpdateProjectRequest](#common-UpdateProjectRequest)
-    - [UpdateProjectResponse](#common-UpdateProjectResponse)
     - [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest)
     - [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse)
     - [UpdateRolePromptRequest](#common-UpdateRolePromptRequest)
     - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
+    - [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest)
+    - [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse)
     - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
     - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
     - [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest)
@@ -523,6 +482,8 @@
     - [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse)
     - [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest)
     - [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse)
+    - [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest)
+    - [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse)
     - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
     - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
@@ -555,9 +516,6 @@
     - [VersionRequest](#common-VersionRequest)
     - [VersionResponse](#common-VersionResponse)
     - [VersionResponse.Data](#common-VersionResponse-Data)
-    - [WatchProjectRequest](#common-WatchProjectRequest)
-    - [WatchProjectResponse](#common-WatchProjectResponse)
-    - [WatchProjectResponse.Data](#common-WatchProjectResponse-Data)
   
     - [GroupType](#common-GroupType)
   
@@ -1976,30 +1934,6 @@ AI生成相关错误描述
 | PAYMENT_PERMISSION_DENIED | [string](#string) |  | 支付权限不足 |
 | PAYMENT_LOCKED | [string](#string) |  | 支付已锁定 |
 | PAYMENT_STATUS_ERROR | [string](#string) |  | 支付状态错误 |
-
-
-
-
-
-
-<a name="common-ProjectErrorMessages"></a>
-
-### ProjectErrorMessages
-项目相关错误描述
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| PROJECT_NOT_FOUND | [string](#string) |  | 项目不存在 |
-| PROJECT_ALREADY_EXISTS | [string](#string) |  | 项目已存在 |
-| PROJECT_PERMISSION_DENIED | [string](#string) |  | 项目权限不足 |
-| PROJECT_CLOSED | [string](#string) |  | 项目已关闭 |
-| PROJECT_ARCHIVED | [string](#string) |  | 项目已归档 |
-| PROJECT_FULL | [string](#string) |  | 项目已满 |
-| PROJECT_STATUS_ERROR | [string](#string) |  | 项目状态错误 |
-| PROJECT_TYPE_INVALID | [string](#string) |  | 项目类型无效 |
-| PROJECT_OPERATION_DENIED | [string](#string) |  | 项目操作被拒绝 |
-| PROJECT_QUOTA_EXCEEDED | [string](#string) |  | 项目配额超限 |
 
 
 
@@ -5237,73 +5171,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="project-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## project.proto
-
-
-
-<a name="common-ProjectInfo"></a>
-
-### ProjectInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| project_id | [uint64](#uint64) |  |  |
-| group_id | [uint32](#uint32) |  |  |
-| name | [string](#string) |  |  |
-| avatar | [string](#string) |  |  |
-| creator | [int64](#int64) |  |  |
-| owner | [int64](#int64) |  |  |
-| tags | [Tags](#common-Tags) | repeated |  |
-| visable | [ScopeType](#common-ScopeType) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-ProjectProfileInfo"></a>
-
-### ProjectProfileInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| project_id | [int64](#int64) |  |  |
-| group_id | [int32](#int32) |  |  |
-| description | [string](#string) |  |  |
-| watching_count | [int64](#int64) |  |  |
-| involved_count | [int64](#int64) |  |  |
-| avatar | [string](#string) |  |  |
-| is_achieve | [bool](#bool) |  |  |
-| is_close | [bool](#bool) |  |  |
-| scope_type | [ScopeType](#common-ScopeType) |  |  |
-| Ctime | [int64](#int64) |  |  |
-| Mtime | [int64](#int64) |  |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
 <a name="service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -5651,54 +5518,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateProjectRequest"></a>
-
-### CreateProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-CreateProjectResponse"></a>
-
-### CreateProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [CreateProjectResponse.Data](#common-CreateProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-CreateProjectResponse-Data"></a>
-
-### CreateProjectResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| info | [ProjectInfo](#common-ProjectInfo) |  |  |
-
-
-
-
-
-
 <a name="common-CreateStoryBoardCommentRequest"></a>
 
 ### CreateStoryBoardCommentRequest
@@ -5954,50 +5773,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteProjectRequest"></a>
-
-### DeleteProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-DeleteProjectResponse"></a>
-
-### DeleteProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [DeleteProjectResponse.Data](#common-DeleteProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-DeleteProjectResponse-Data"></a>
-
-### DeleteProjectResponse.Data
-
-
-
-
-
-
-
 <a name="common-DeleteStoryBoardCommentRequest"></a>
 
 ### DeleteStoryBoardCommentRequest
@@ -6131,59 +5906,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 ### DisscussParams
 
-
-
-
-
-
-
-<a name="common-ExploreProjectsRequest"></a>
-
-### ExploreProjectsRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| group_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-ExploreProjectsResponse"></a>
-
-### ExploreProjectsResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [ExploreProjectsResponse.Data](#common-ExploreProjectsResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-ExploreProjectsResponse-Data"></a>
-
-### ExploreProjectsResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
 
 
 
@@ -6326,57 +6048,6 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-FetchGroupProjectsRequest"></a>
-
-### FetchGroupProjectsRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-FetchGroupProjectsResponse"></a>
-
-### FetchGroupProjectsResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [FetchGroupProjectsResponse.Data](#common-FetchGroupProjectsResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-FetchGroupProjectsResponse-Data"></a>
-
-### FetchGroupProjectsResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
 
 
 
@@ -6975,114 +6646,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetProjectItemsRequest"></a>
-
-### GetProjectItemsRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectItemsResponse"></a>
-
-### GetProjectItemsResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [GetProjectItemsResponse.Data](#common-GetProjectItemsResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectItemsResponse-Data"></a>
-
-### GetProjectItemsResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| list | [ItemInfo](#common-ItemInfo) | repeated |  |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectListRequest"></a>
-
-### GetProjectListRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectListResponse"></a>
-
-### GetProjectListResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [GetProjectListResponse.Data](#common-GetProjectListResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectListResponse-Data"></a>
-
-### GetProjectListResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| List | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
 <a name="common-GetProjectMembersRequest"></a>
 
 ### GetProjectMembersRequest
@@ -7143,107 +6706,6 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | key | [string](#string) |  |  |
 | value | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectProfileRequest"></a>
-
-### GetProjectProfileRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectProfileResponse"></a>
-
-### GetProjectProfileResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [GetProjectProfileResponse.Data](#common-GetProjectProfileResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectProfileResponse-Data"></a>
-
-### GetProjectProfileResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| info | [ProjectProfileInfo](#common-ProjectProfileInfo) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectRequest"></a>
-
-### GetProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectResponse"></a>
-
-### GetProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [GetProjectResponse.Data](#common-GetProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetProjectResponse-Data"></a>
-
-### GetProjectResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| info | [ProjectInfo](#common-ProjectInfo) |  |  |
 
 
 
@@ -7508,6 +6970,38 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryContributor](#common-StoryContributor) | repeated |  |
+
+
+
+
+
+
+<a name="common-GetStoryImageStyleRequest"></a>
+
+### GetStoryImageStyleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryImageStyleResponse"></a>
+
+### GetStoryImageStyleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| style | [StoryStyleDesc](#common-StoryStyleDesc) | repeated |  |
 
 
 
@@ -8040,58 +7534,6 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | chats | [ChatContext](#common-ChatContext) | repeated |  |
 | total | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetWatchingProjectRequest"></a>
-
-### GetWatchingProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-GetWatchingProjectResponse"></a>
-
-### GetWatchingProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [GetWatchingProjectResponse.Data](#common-GetWatchingProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-GetWatchingProjectResponse-Data"></a>
-
-### GetWatchingProjectResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -8678,59 +8120,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchAllProjectRequest"></a>
-
-### SearchAllProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-SearchAllProjectResponse"></a>
-
-### SearchAllProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [SearchAllProjectResponse.Data](#common-SearchAllProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-SearchAllProjectResponse-Data"></a>
-
-### SearchAllProjectResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_id | [int64](#int64) |  |  |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
 <a name="common-SearchGroupRequest"></a>
 
 ### SearchGroupRequest
@@ -8778,59 +8167,6 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-SearchProjectRequest"></a>
-
-### SearchProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-| offset | [int64](#int64) |  |  |
-| page_size | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-SearchProjectResponse"></a>
-
-### SearchProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| msg | [string](#string) |  |  |
-| data | [SearchProjectResponse.Data](#common-SearchProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-SearchProjectResponse-Data"></a>
-
-### SearchProjectResponse.Data
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -9010,6 +8346,23 @@ UpdateStoryResponse 更新故事的响应结果
 | username | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | viplevel | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-StoryStyleDesc"></a>
+
+### StoryStyleDesc
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  | 风格ID |
+| style | [string](#string) |  | 风格名称 |
+| description | [string](#string) |  | 风格描述 |
 
 
 
@@ -9238,50 +8591,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnWatchProjectRequest"></a>
-
-### UnWatchProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-UnWatchProjectResponse"></a>
-
-### UnWatchProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [UnWatchProjectResponse.Data](#common-UnWatchProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-UnWatchProjectResponse-Data"></a>
-
-### UnWatchProjectResponse.Data
-
-
-
-
-
-
-
 <a name="common-UnfollowUserRequest"></a>
 
 ### UnfollowUserRequest
@@ -9446,84 +8755,6 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateProjectProfileRequest"></a>
-
-### UpdateProjectProfileRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| info | [ProjectProfileInfo](#common-ProjectProfileInfo) |  |  |
-
-
-
-
-
-
-<a name="common-UpdateProjectProfileResponse"></a>
-
-### UpdateProjectProfileResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [UpdateProjectProfileResponse.Data](#common-UpdateProjectProfileResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-UpdateProjectProfileResponse-Data"></a>
-
-### UpdateProjectProfileResponse.Data
-
-
-
-
-
-
-
-<a name="common-UpdateProjectRequest"></a>
-
-### UpdateProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-| info | [ProjectInfo](#common-ProjectInfo) |  |  |
-
-
-
-
-
-
-<a name="common-UpdateProjectResponse"></a>
-
-### UpdateProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| info | [ProjectInfo](#common-ProjectInfo) |  |  |
-
-
-
-
-
-
 <a name="common-UpdateRoleDescriptionRequest"></a>
 
 ### UpdateRoleDescriptionRequest
@@ -9577,6 +8808,40 @@ UpdateStoryResponse 更新故事的响应结果
 <a name="common-UpdateRolePromptResponse"></a>
 
 ### UpdateRolePromptResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryImageStyleRequest"></a>
+
+### UpdateStoryImageStyleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| style_id | [int64](#int64) |  | 风格ID |
+| style | [string](#string) |  | 风格名称 |
+| user_id | [int64](#int64) |  | 用户ID |
+
+
+
+
+
+
+<a name="common-UpdateStoryImageStyleResponse"></a>
+
+### UpdateStoryImageStyleResponse
 
 
 
@@ -9747,6 +9012,39 @@ UpdateStoryResponse 更新故事的响应结果
 <a name="common-UpdateStoryRolePromptResponse"></a>
 
 ### UpdateStoryRolePromptResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStorySenceMaxNumberRequest"></a>
+
+### UpdateStorySenceMaxNumberRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| max_number | [int64](#int64) |  | 最大场景数 |
+| user_id | [int64](#int64) |  | 用户ID |
+
+
+
+
+
+
+<a name="common-UpdateStorySenceMaxNumberResponse"></a>
+
+### UpdateStorySenceMaxNumberResponse
 
 
 
@@ -10233,13 +9531,6 @@ user ,group .project.item
 
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| list | [ProjectInfo](#common-ProjectInfo) | repeated |  |
-| offset | [int32](#int32) |  |  |
-| page_size | [int32](#int32) |  |  |
-
-
 
 
 
@@ -10281,50 +9572,6 @@ user ,group .project.item
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
 | build_time | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="common-WatchProjectRequest"></a>
-
-### WatchProjectRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int64](#int64) |  |  |
-| project_id | [int64](#int64) |  |  |
-| user_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="common-WatchProjectResponse"></a>
-
-### WatchProjectResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
-| message | [string](#string) |  |  |
-| data | [WatchProjectResponse.Data](#common-WatchProjectResponse-Data) |  |  |
-
-
-
-
-
-
-<a name="common-WatchProjectResponse-Data"></a>
-
-### WatchProjectResponse.Data
-
 
 
 
@@ -10380,31 +9627,8 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | UpdateGroupProfile updates the group&#39;s profile information |
 | DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | DeleteGroup removes a group |
 | FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | FetchGroupMembers retrieves the list of members in a group |
-| FetchGroupProjects | [FetchGroupProjectsRequest](#common-FetchGroupProjectsRequest) | [FetchGroupProjectsResponse](#common-FetchGroupProjectsResponse) | FetchGroupProjects retrieves the list of projects in a group |
 | JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | JoinGroup adds a user to a group |
 | LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | LeaveGroup removes a user from a group |
-| GetProjectInfo | [GetProjectRequest](#common-GetProjectRequest) | [GetProjectResponse](#common-GetProjectResponse) | GetProjectInfo retrieves information about a specific project |
-| GetProjectList | [GetProjectListRequest](#common-GetProjectListRequest) | [GetProjectListResponse](#common-GetProjectListResponse) | GetProjectList retrieves a list of projects |
-| CreateProject | [CreateProjectRequest](#common-CreateProjectRequest) | [CreateProjectResponse](#common-CreateProjectResponse) | CreateProject creates a new project |
-| GetProjectMembers | [GetProjectMembersRequest](#common-GetProjectMembersRequest) | [GetProjectMembersResponse](#common-GetProjectMembersResponse) | GetProjectMembers retrieves the list of members in a project |
-| UpdateProject | [UpdateProjectRequest](#common-UpdateProjectRequest) | [UpdateProjectResponse](#common-UpdateProjectResponse) | UpdateProject updates project information |
-| DeleteProject | [DeleteProjectRequest](#common-DeleteProjectRequest) | [DeleteProjectResponse](#common-DeleteProjectResponse) | DeleteProject removes a project |
-| GetProjectProfile | [GetProjectProfileRequest](#common-GetProjectProfileRequest) | [GetProjectProfileResponse](#common-GetProjectProfileResponse) | GetProjectProfile retrieves the project&#39;s profile information |
-| UpdateProjectProfile | [UpdateProjectProfileRequest](#common-UpdateProjectProfileRequest) | [UpdateProjectProfileResponse](#common-UpdateProjectProfileResponse) | UpdateProjectProfile updates the project&#39;s profile information |
-| WatchProject | [WatchProjectRequest](#common-WatchProjectRequest) | [WatchProjectResponse](#common-WatchProjectResponse) | WatchProject adds a user as a watcher to a project |
-| UnWatchProject | [UnWatchProjectRequest](#common-UnWatchProjectRequest) | [UnWatchProjectResponse](#common-UnWatchProjectResponse) | UnWatchProject removes a user as a watcher from a project |
-| GetProjectWatcher | [GetProjectWatcherRequest](#common-GetProjectWatcherRequest) | [GetProjectWatcherResponse](#common-GetProjectWatcherResponse) | GetProjectWatcher retrieves the list of watchers for a project |
-| SearchGroupProject | [SearchProjectRequest](#common-SearchProjectRequest) | [SearchProjectResponse](#common-SearchProjectResponse) | SearchGroupProject searches for projects within a group |
-| SearchProject | [SearchAllProjectRequest](#common-SearchAllProjectRequest) | [SearchAllProjectResponse](#common-SearchAllProjectResponse) | SearchProject searches for projects across all accessible groups |
-| ExploreProject | [ExploreProjectsRequest](#common-ExploreProjectsRequest) | [ExploreProjectsResponse](#common-ExploreProjectsResponse) | ExploreProject returns trending and recommended projects |
-| GetProjectItems | [GetProjectItemsRequest](#common-GetProjectItemsRequest) | [GetProjectItemsResponse](#common-GetProjectItemsResponse) | GetProjectItems retrieves items within a project |
-| GetGroupItems | [GetGroupItemsRequest](#common-GetGroupItemsRequest) | [GetGroupItemsResponse](#common-GetGroupItemsResponse) | GetGroupItems retrieves items within a group |
-| GetUserItems | [GetUserItemsRequest](#common-GetUserItemsRequest) | [GetUserItemsResponse](#common-GetUserItemsResponse) | GetUserItems retrieves items created by a user |
-| GetItem | [GetItemRequest](#common-GetItemRequest) | [GetItemResponse](#common-GetItemResponse) | 获取内容 |
-| CreateItem | [CreateItemRequest](#common-CreateItemRequest) | [CreateItemResponse](#common-CreateItemResponse) | 创建内容 |
-| UpdateItem | [UpdateItemRequest](#common-UpdateItemRequest) | [UpdateItemResponse](#common-UpdateItemResponse) | 更新内容 |
-| DeleteItem | [DeleteItemRequest](#common-DeleteItemRequest) | [DeleteItemResponse](#common-DeleteItemResponse) | 删除内容 |
-| LikeItem | [LikeItemRequest](#common-LikeItemRequest) | [LikeItemResponse](#common-LikeItemResponse) | 喜欢内容 |
 | CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) | 创建故事 |
 | GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) | 获取故事信息 |
 | RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) | 渲染故事 |
@@ -10505,6 +9729,9 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
 | UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
 | QueryTaskStatus | [QueryTaskStatusRequest](#common-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#common-QueryTaskStatusResponse) | 获取生成任务状态 |
+| GetStoryImageStyle | [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest) | [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse) | 获取生成任务状态 |
+| UpdateStoryImageStyle | [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest) | [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse) |  |
+| UpdateStorySenceMaxNumber | [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest) | [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse) |  |
 
  
 

@@ -444,20 +444,6 @@ message GroupErrorMessages {
   string GROUP_QUOTA_EXCEEDED = 10;  // 组织配额超限
 }
 
-// 项目相关错误描述
-message ProjectErrorMessages {
-  string PROJECT_NOT_FOUND = 1;      // 项目不存在
-  string PROJECT_ALREADY_EXISTS = 2; // 项目已存在
-  string PROJECT_PERMISSION_DENIED = 3; // 项目权限不足
-  string PROJECT_CLOSED = 4;        // 项目已关闭
-  string PROJECT_ARCHIVED = 5;      // 项目已归档
-  string PROJECT_FULL = 6;         // 项目已满
-  string PROJECT_STATUS_ERROR = 7;  // 项目状态错误
-  string PROJECT_TYPE_INVALID = 8;  // 项目类型无效
-  string PROJECT_OPERATION_DENIED = 9; // 项目操作被拒绝
-  string PROJECT_QUOTA_EXCEEDED = 10; // 项目配额超限
-}
-
 // 故事相关错误描述
 message StoryErrorMessages {
   string STORY_NOT_FOUND = 1;       // 故事不存在

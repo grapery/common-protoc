@@ -43,31 +43,8 @@ const (
 	TeamsAPI_UpdateGroupProfile_FullMethodName                 = "/common.TeamsAPI/UpdateGroupProfile"
 	TeamsAPI_DeleteGroup_FullMethodName                        = "/common.TeamsAPI/DeleteGroup"
 	TeamsAPI_FetchGroupMembers_FullMethodName                  = "/common.TeamsAPI/FetchGroupMembers"
-	TeamsAPI_FetchGroupProjects_FullMethodName                 = "/common.TeamsAPI/FetchGroupProjects"
 	TeamsAPI_JoinGroup_FullMethodName                          = "/common.TeamsAPI/JoinGroup"
 	TeamsAPI_LeaveGroup_FullMethodName                         = "/common.TeamsAPI/LeaveGroup"
-	TeamsAPI_GetProjectInfo_FullMethodName                     = "/common.TeamsAPI/GetProjectInfo"
-	TeamsAPI_GetProjectList_FullMethodName                     = "/common.TeamsAPI/GetProjectList"
-	TeamsAPI_CreateProject_FullMethodName                      = "/common.TeamsAPI/CreateProject"
-	TeamsAPI_GetProjectMembers_FullMethodName                  = "/common.TeamsAPI/GetProjectMembers"
-	TeamsAPI_UpdateProject_FullMethodName                      = "/common.TeamsAPI/UpdateProject"
-	TeamsAPI_DeleteProject_FullMethodName                      = "/common.TeamsAPI/DeleteProject"
-	TeamsAPI_GetProjectProfile_FullMethodName                  = "/common.TeamsAPI/GetProjectProfile"
-	TeamsAPI_UpdateProjectProfile_FullMethodName               = "/common.TeamsAPI/UpdateProjectProfile"
-	TeamsAPI_WatchProject_FullMethodName                       = "/common.TeamsAPI/WatchProject"
-	TeamsAPI_UnWatchProject_FullMethodName                     = "/common.TeamsAPI/UnWatchProject"
-	TeamsAPI_GetProjectWatcher_FullMethodName                  = "/common.TeamsAPI/GetProjectWatcher"
-	TeamsAPI_SearchGroupProject_FullMethodName                 = "/common.TeamsAPI/SearchGroupProject"
-	TeamsAPI_SearchProject_FullMethodName                      = "/common.TeamsAPI/SearchProject"
-	TeamsAPI_ExploreProject_FullMethodName                     = "/common.TeamsAPI/ExploreProject"
-	TeamsAPI_GetProjectItems_FullMethodName                    = "/common.TeamsAPI/GetProjectItems"
-	TeamsAPI_GetGroupItems_FullMethodName                      = "/common.TeamsAPI/GetGroupItems"
-	TeamsAPI_GetUserItems_FullMethodName                       = "/common.TeamsAPI/GetUserItems"
-	TeamsAPI_GetItem_FullMethodName                            = "/common.TeamsAPI/GetItem"
-	TeamsAPI_CreateItem_FullMethodName                         = "/common.TeamsAPI/CreateItem"
-	TeamsAPI_UpdateItem_FullMethodName                         = "/common.TeamsAPI/UpdateItem"
-	TeamsAPI_DeleteItem_FullMethodName                         = "/common.TeamsAPI/DeleteItem"
-	TeamsAPI_LikeItem_FullMethodName                           = "/common.TeamsAPI/LikeItem"
 	TeamsAPI_CreateStory_FullMethodName                        = "/common.TeamsAPI/CreateStory"
 	TeamsAPI_GetStoryInfo_FullMethodName                       = "/common.TeamsAPI/GetStoryInfo"
 	TeamsAPI_RenderStory_FullMethodName                        = "/common.TeamsAPI/RenderStory"
@@ -168,6 +145,9 @@ const (
 	TeamsAPI_UpdateStoryRolePrompt_FullMethodName              = "/common.TeamsAPI/UpdateStoryRolePrompt"
 	TeamsAPI_UpdateStoryRoleDescriptionDetail_FullMethodName   = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
 	TeamsAPI_QueryTaskStatus_FullMethodName                    = "/common.TeamsAPI/QueryTaskStatus"
+	TeamsAPI_GetStoryImageStyle_FullMethodName                 = "/common.TeamsAPI/GetStoryImageStyle"
+	TeamsAPI_UpdateStoryImageStyle_FullMethodName              = "/common.TeamsAPI/UpdateStoryImageStyle"
+	TeamsAPI_UpdateStorySenceMaxNumber_FullMethodName          = "/common.TeamsAPI/UpdateStorySenceMaxNumber"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -222,56 +202,10 @@ type TeamsAPIClient interface {
 	DeleteGroup(ctx context.Context, in *DeleteGroupRequest, opts ...grpc.CallOption) (*DeleteGroupResponse, error)
 	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(ctx context.Context, in *FetchGroupMembersRequest, opts ...grpc.CallOption) (*FetchGroupMembersResponse, error)
-	// FetchGroupProjects retrieves the list of projects in a group
-	FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsRequest, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error)
 	// JoinGroup adds a user to a group
 	JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error)
 	// LeaveGroup removes a user from a group
 	LeaveGroup(ctx context.Context, in *LeaveGroupRequest, opts ...grpc.CallOption) (*LeaveGroupResponse, error)
-	// GetProjectInfo retrieves information about a specific project
-	GetProjectInfo(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error)
-	// GetProjectList retrieves a list of projects
-	GetProjectList(ctx context.Context, in *GetProjectListRequest, opts ...grpc.CallOption) (*GetProjectListResponse, error)
-	// CreateProject creates a new project
-	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
-	// GetProjectMembers retrieves the list of members in a project
-	GetProjectMembers(ctx context.Context, in *GetProjectMembersRequest, opts ...grpc.CallOption) (*GetProjectMembersResponse, error)
-	// UpdateProject updates project information
-	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
-	// DeleteProject removes a project
-	DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error)
-	// GetProjectProfile retrieves the project's profile information
-	GetProjectProfile(ctx context.Context, in *GetProjectProfileRequest, opts ...grpc.CallOption) (*GetProjectProfileResponse, error)
-	// UpdateProjectProfile updates the project's profile information
-	UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error)
-	// WatchProject adds a user as a watcher to a project
-	WatchProject(ctx context.Context, in *WatchProjectRequest, opts ...grpc.CallOption) (*WatchProjectResponse, error)
-	// UnWatchProject removes a user as a watcher from a project
-	UnWatchProject(ctx context.Context, in *UnWatchProjectRequest, opts ...grpc.CallOption) (*UnWatchProjectResponse, error)
-	// GetProjectWatcher retrieves the list of watchers for a project
-	GetProjectWatcher(ctx context.Context, in *GetProjectWatcherRequest, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error)
-	// SearchGroupProject searches for projects within a group
-	SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error)
-	// SearchProject searches for projects across all accessible groups
-	SearchProject(ctx context.Context, in *SearchAllProjectRequest, opts ...grpc.CallOption) (*SearchAllProjectResponse, error)
-	// ExploreProject returns trending and recommended projects
-	ExploreProject(ctx context.Context, in *ExploreProjectsRequest, opts ...grpc.CallOption) (*ExploreProjectsResponse, error)
-	// GetProjectItems retrieves items within a project
-	GetProjectItems(ctx context.Context, in *GetProjectItemsRequest, opts ...grpc.CallOption) (*GetProjectItemsResponse, error)
-	// GetGroupItems retrieves items within a group
-	GetGroupItems(ctx context.Context, in *GetGroupItemsRequest, opts ...grpc.CallOption) (*GetGroupItemsResponse, error)
-	// GetUserItems retrieves items created by a user
-	GetUserItems(ctx context.Context, in *GetUserItemsRequest, opts ...grpc.CallOption) (*GetUserItemsResponse, error)
-	// 获取内容
-	GetItem(ctx context.Context, in *GetItemRequest, opts ...grpc.CallOption) (*GetItemResponse, error)
-	// 创建内容
-	CreateItem(ctx context.Context, in *CreateItemRequest, opts ...grpc.CallOption) (*CreateItemResponse, error)
-	// 更新内容
-	UpdateItem(ctx context.Context, in *UpdateItemRequest, opts ...grpc.CallOption) (*UpdateItemResponse, error)
-	// 删除内容
-	DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error)
-	// 喜欢内容
-	LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error)
 	// 创建故事
 	CreateStory(ctx context.Context, in *CreateStoryRequest, opts ...grpc.CallOption) (*CreateStoryResponse, error)
 	// 获取故事信息
@@ -465,6 +399,10 @@ type TeamsAPIClient interface {
 	UpdateStoryRoleDescriptionDetail(ctx context.Context, in *UpdateStoryRoleDescriptionDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionDetailResponse, error)
 	// 获取生成任务状态
 	QueryTaskStatus(ctx context.Context, in *QueryTaskStatusRequest, opts ...grpc.CallOption) (*QueryTaskStatusResponse, error)
+	// 获取生成任务状态
+	GetStoryImageStyle(ctx context.Context, in *GetStoryImageStyleRequest, opts ...grpc.CallOption) (*GetStoryImageStyleResponse, error)
+	UpdateStoryImageStyle(ctx context.Context, in *UpdateStoryImageStyleRequest, opts ...grpc.CallOption) (*UpdateStoryImageStyleResponse, error)
+	UpdateStorySenceMaxNumber(ctx context.Context, in *UpdateStorySenceMaxNumberRequest, opts ...grpc.CallOption) (*UpdateStorySenceMaxNumberResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -691,15 +629,6 @@ func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, in *FetchGroupMe
 	return out, nil
 }
 
-func (c *teamsAPIClient) FetchGroupProjects(ctx context.Context, in *FetchGroupProjectsRequest, opts ...grpc.CallOption) (*FetchGroupProjectsResponse, error) {
-	out := new(FetchGroupProjectsResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_FetchGroupProjects_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *teamsAPIClient) JoinGroup(ctx context.Context, in *JoinGroupRequest, opts ...grpc.CallOption) (*JoinGroupResponse, error) {
 	out := new(JoinGroupResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_JoinGroup_FullMethodName, in, out, opts...)
@@ -712,204 +641,6 @@ func (c *teamsAPIClient) JoinGroup(ctx context.Context, in *JoinGroupRequest, op
 func (c *teamsAPIClient) LeaveGroup(ctx context.Context, in *LeaveGroupRequest, opts ...grpc.CallOption) (*LeaveGroupResponse, error) {
 	out := new(LeaveGroupResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_LeaveGroup_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectInfo(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error) {
-	out := new(GetProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectInfo_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectList(ctx context.Context, in *GetProjectListRequest, opts ...grpc.CallOption) (*GetProjectListResponse, error) {
-	out := new(GetProjectListResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectList_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
-	out := new(CreateProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_CreateProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectMembers(ctx context.Context, in *GetProjectMembersRequest, opts ...grpc.CallOption) (*GetProjectMembersResponse, error) {
-	out := new(GetProjectMembersResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectMembers_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error) {
-	out := new(UpdateProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_UpdateProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error) {
-	out := new(DeleteProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_DeleteProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectProfile(ctx context.Context, in *GetProjectProfileRequest, opts ...grpc.CallOption) (*GetProjectProfileResponse, error) {
-	out := new(GetProjectProfileResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectProfile_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) UpdateProjectProfile(ctx context.Context, in *UpdateProjectProfileRequest, opts ...grpc.CallOption) (*UpdateProjectProfileResponse, error) {
-	out := new(UpdateProjectProfileResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_UpdateProjectProfile_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) WatchProject(ctx context.Context, in *WatchProjectRequest, opts ...grpc.CallOption) (*WatchProjectResponse, error) {
-	out := new(WatchProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_WatchProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) UnWatchProject(ctx context.Context, in *UnWatchProjectRequest, opts ...grpc.CallOption) (*UnWatchProjectResponse, error) {
-	out := new(UnWatchProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_UnWatchProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectWatcher(ctx context.Context, in *GetProjectWatcherRequest, opts ...grpc.CallOption) (*GetProjectWatcherResponse, error) {
-	out := new(GetProjectWatcherResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectWatcher_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) SearchGroupProject(ctx context.Context, in *SearchProjectRequest, opts ...grpc.CallOption) (*SearchProjectResponse, error) {
-	out := new(SearchProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_SearchGroupProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) SearchProject(ctx context.Context, in *SearchAllProjectRequest, opts ...grpc.CallOption) (*SearchAllProjectResponse, error) {
-	out := new(SearchAllProjectResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_SearchProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) ExploreProject(ctx context.Context, in *ExploreProjectsRequest, opts ...grpc.CallOption) (*ExploreProjectsResponse, error) {
-	out := new(ExploreProjectsResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_ExploreProject_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetProjectItems(ctx context.Context, in *GetProjectItemsRequest, opts ...grpc.CallOption) (*GetProjectItemsResponse, error) {
-	out := new(GetProjectItemsResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetProjectItems_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetGroupItems(ctx context.Context, in *GetGroupItemsRequest, opts ...grpc.CallOption) (*GetGroupItemsResponse, error) {
-	out := new(GetGroupItemsResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetGroupItems_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetUserItems(ctx context.Context, in *GetUserItemsRequest, opts ...grpc.CallOption) (*GetUserItemsResponse, error) {
-	out := new(GetUserItemsResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetUserItems_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) GetItem(ctx context.Context, in *GetItemRequest, opts ...grpc.CallOption) (*GetItemResponse, error) {
-	out := new(GetItemResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GetItem_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) CreateItem(ctx context.Context, in *CreateItemRequest, opts ...grpc.CallOption) (*CreateItemResponse, error) {
-	out := new(CreateItemResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_CreateItem_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) UpdateItem(ctx context.Context, in *UpdateItemRequest, opts ...grpc.CallOption) (*UpdateItemResponse, error) {
-	out := new(UpdateItemResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_UpdateItem_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) DeleteItem(ctx context.Context, in *DeleteItemRequest, opts ...grpc.CallOption) (*DeleteItemResponse, error) {
-	out := new(DeleteItemResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_DeleteItem_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *teamsAPIClient) LikeItem(ctx context.Context, in *LikeItemRequest, opts ...grpc.CallOption) (*LikeItemResponse, error) {
-	out := new(LikeItemResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_LikeItem_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1816,6 +1547,33 @@ func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, in *QueryTaskStatu
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetStoryImageStyle(ctx context.Context, in *GetStoryImageStyleRequest, opts ...grpc.CallOption) (*GetStoryImageStyleResponse, error) {
+	out := new(GetStoryImageStyleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryImageStyle_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryImageStyle(ctx context.Context, in *UpdateStoryImageStyleRequest, opts ...grpc.CallOption) (*UpdateStoryImageStyleResponse, error) {
+	out := new(UpdateStoryImageStyleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryImageStyle_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, in *UpdateStorySenceMaxNumberRequest, opts ...grpc.CallOption) (*UpdateStorySenceMaxNumberResponse, error) {
+	out := new(UpdateStorySenceMaxNumberResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStorySenceMaxNumber_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1868,56 +1626,10 @@ type TeamsAPIServer interface {
 	DeleteGroup(context.Context, *DeleteGroupRequest) (*DeleteGroupResponse, error)
 	// FetchGroupMembers retrieves the list of members in a group
 	FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error)
-	// FetchGroupProjects retrieves the list of projects in a group
-	FetchGroupProjects(context.Context, *FetchGroupProjectsRequest) (*FetchGroupProjectsResponse, error)
 	// JoinGroup adds a user to a group
 	JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error)
 	// LeaveGroup removes a user from a group
 	LeaveGroup(context.Context, *LeaveGroupRequest) (*LeaveGroupResponse, error)
-	// GetProjectInfo retrieves information about a specific project
-	GetProjectInfo(context.Context, *GetProjectRequest) (*GetProjectResponse, error)
-	// GetProjectList retrieves a list of projects
-	GetProjectList(context.Context, *GetProjectListRequest) (*GetProjectListResponse, error)
-	// CreateProject creates a new project
-	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
-	// GetProjectMembers retrieves the list of members in a project
-	GetProjectMembers(context.Context, *GetProjectMembersRequest) (*GetProjectMembersResponse, error)
-	// UpdateProject updates project information
-	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
-	// DeleteProject removes a project
-	DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error)
-	// GetProjectProfile retrieves the project's profile information
-	GetProjectProfile(context.Context, *GetProjectProfileRequest) (*GetProjectProfileResponse, error)
-	// UpdateProjectProfile updates the project's profile information
-	UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error)
-	// WatchProject adds a user as a watcher to a project
-	WatchProject(context.Context, *WatchProjectRequest) (*WatchProjectResponse, error)
-	// UnWatchProject removes a user as a watcher from a project
-	UnWatchProject(context.Context, *UnWatchProjectRequest) (*UnWatchProjectResponse, error)
-	// GetProjectWatcher retrieves the list of watchers for a project
-	GetProjectWatcher(context.Context, *GetProjectWatcherRequest) (*GetProjectWatcherResponse, error)
-	// SearchGroupProject searches for projects within a group
-	SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error)
-	// SearchProject searches for projects across all accessible groups
-	SearchProject(context.Context, *SearchAllProjectRequest) (*SearchAllProjectResponse, error)
-	// ExploreProject returns trending and recommended projects
-	ExploreProject(context.Context, *ExploreProjectsRequest) (*ExploreProjectsResponse, error)
-	// GetProjectItems retrieves items within a project
-	GetProjectItems(context.Context, *GetProjectItemsRequest) (*GetProjectItemsResponse, error)
-	// GetGroupItems retrieves items within a group
-	GetGroupItems(context.Context, *GetGroupItemsRequest) (*GetGroupItemsResponse, error)
-	// GetUserItems retrieves items created by a user
-	GetUserItems(context.Context, *GetUserItemsRequest) (*GetUserItemsResponse, error)
-	// 获取内容
-	GetItem(context.Context, *GetItemRequest) (*GetItemResponse, error)
-	// 创建内容
-	CreateItem(context.Context, *CreateItemRequest) (*CreateItemResponse, error)
-	// 更新内容
-	UpdateItem(context.Context, *UpdateItemRequest) (*UpdateItemResponse, error)
-	// 删除内容
-	DeleteItem(context.Context, *DeleteItemRequest) (*DeleteItemResponse, error)
-	// 喜欢内容
-	LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error)
 	// 创建故事
 	CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error)
 	// 获取故事信息
@@ -2111,6 +1823,10 @@ type TeamsAPIServer interface {
 	UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error)
 	// 获取生成任务状态
 	QueryTaskStatus(context.Context, *QueryTaskStatusRequest) (*QueryTaskStatusResponse, error)
+	// 获取生成任务状态
+	GetStoryImageStyle(context.Context, *GetStoryImageStyleRequest) (*GetStoryImageStyleResponse, error)
+	UpdateStoryImageStyle(context.Context, *UpdateStoryImageStyleRequest) (*UpdateStoryImageStyleResponse, error)
+	UpdateStorySenceMaxNumber(context.Context, *UpdateStorySenceMaxNumberRequest) (*UpdateStorySenceMaxNumberResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2190,80 +1906,11 @@ func (UnimplementedTeamsAPIServer) DeleteGroup(context.Context, *DeleteGroupRequ
 func (UnimplementedTeamsAPIServer) FetchGroupMembers(context.Context, *FetchGroupMembersRequest) (*FetchGroupMembersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupMembers not implemented")
 }
-func (UnimplementedTeamsAPIServer) FetchGroupProjects(context.Context, *FetchGroupProjectsRequest) (*FetchGroupProjectsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchGroupProjects not implemented")
-}
 func (UnimplementedTeamsAPIServer) JoinGroup(context.Context, *JoinGroupRequest) (*JoinGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JoinGroup not implemented")
 }
 func (UnimplementedTeamsAPIServer) LeaveGroup(context.Context, *LeaveGroupRequest) (*LeaveGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LeaveGroup not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectInfo(context.Context, *GetProjectRequest) (*GetProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectInfo not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectList(context.Context, *GetProjectListRequest) (*GetProjectListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectList not implemented")
-}
-func (UnimplementedTeamsAPIServer) CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectMembers(context.Context, *GetProjectMembersRequest) (*GetProjectMembersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectMembers not implemented")
-}
-func (UnimplementedTeamsAPIServer) UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectProfile(context.Context, *GetProjectProfileRequest) (*GetProjectProfileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectProfile not implemented")
-}
-func (UnimplementedTeamsAPIServer) UpdateProjectProfile(context.Context, *UpdateProjectProfileRequest) (*UpdateProjectProfileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProjectProfile not implemented")
-}
-func (UnimplementedTeamsAPIServer) WatchProject(context.Context, *WatchProjectRequest) (*WatchProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WatchProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) UnWatchProject(context.Context, *UnWatchProjectRequest) (*UnWatchProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UnWatchProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectWatcher(context.Context, *GetProjectWatcherRequest) (*GetProjectWatcherResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectWatcher not implemented")
-}
-func (UnimplementedTeamsAPIServer) SearchGroupProject(context.Context, *SearchProjectRequest) (*SearchProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchGroupProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) SearchProject(context.Context, *SearchAllProjectRequest) (*SearchAllProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SearchProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) ExploreProject(context.Context, *ExploreProjectsRequest) (*ExploreProjectsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ExploreProject not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetProjectItems(context.Context, *GetProjectItemsRequest) (*GetProjectItemsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectItems not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetGroupItems(context.Context, *GetGroupItemsRequest) (*GetGroupItemsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetGroupItems not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetUserItems(context.Context, *GetUserItemsRequest) (*GetUserItemsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserItems not implemented")
-}
-func (UnimplementedTeamsAPIServer) GetItem(context.Context, *GetItemRequest) (*GetItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetItem not implemented")
-}
-func (UnimplementedTeamsAPIServer) CreateItem(context.Context, *CreateItemRequest) (*CreateItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateItem not implemented")
-}
-func (UnimplementedTeamsAPIServer) UpdateItem(context.Context, *UpdateItemRequest) (*UpdateItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateItem not implemented")
-}
-func (UnimplementedTeamsAPIServer) DeleteItem(context.Context, *DeleteItemRequest) (*DeleteItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteItem not implemented")
-}
-func (UnimplementedTeamsAPIServer) LikeItem(context.Context, *LikeItemRequest) (*LikeItemResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method LikeItem not implemented")
 }
 func (UnimplementedTeamsAPIServer) CreateStory(context.Context, *CreateStoryRequest) (*CreateStoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateStory not implemented")
@@ -2564,6 +2211,15 @@ func (UnimplementedTeamsAPIServer) UpdateStoryRoleDescriptionDetail(context.Cont
 }
 func (UnimplementedTeamsAPIServer) QueryTaskStatus(context.Context, *QueryTaskStatusRequest) (*QueryTaskStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueryTaskStatus not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryImageStyle(context.Context, *GetStoryImageStyleRequest) (*GetStoryImageStyleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryImageStyle not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryImageStyle(context.Context, *UpdateStoryImageStyleRequest) (*UpdateStoryImageStyleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryImageStyle not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStorySenceMaxNumber(context.Context, *UpdateStorySenceMaxNumberRequest) (*UpdateStorySenceMaxNumberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStorySenceMaxNumber not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -3010,24 +2666,6 @@ func _TeamsAPI_FetchGroupMembers_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TeamsAPI_FetchGroupProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchGroupProjectsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).FetchGroupProjects(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_FetchGroupProjects_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).FetchGroupProjects(ctx, req.(*FetchGroupProjectsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _TeamsAPI_JoinGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(JoinGroupRequest)
 	if err := dec(in); err != nil {
@@ -3060,402 +2698,6 @@ func _TeamsAPI_LeaveGroup_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).LeaveGroup(ctx, req.(*LeaveGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectInfo(ctx, req.(*GetProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectList(ctx, req.(*GetProjectListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_CreateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).CreateProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_CreateProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).CreateProject(ctx, req.(*CreateProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectMembersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectMembers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectMembers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectMembers(ctx, req.(*GetProjectMembersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).UpdateProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_UpdateProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UpdateProject(ctx, req.(*UpdateProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).DeleteProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_DeleteProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).DeleteProject(ctx, req.(*DeleteProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectProfile(ctx, req.(*GetProjectProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_UpdateProjectProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProjectProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).UpdateProjectProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_UpdateProjectProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UpdateProjectProfile(ctx, req.(*UpdateProjectProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_WatchProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).WatchProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_WatchProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).WatchProject(ctx, req.(*WatchProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_UnWatchProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnWatchProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).UnWatchProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_UnWatchProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UnWatchProject(ctx, req.(*UnWatchProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectWatcher_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectWatcherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectWatcher(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectWatcher_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectWatcher(ctx, req.(*GetProjectWatcherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_SearchGroupProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).SearchGroupProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_SearchGroupProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).SearchGroupProject(ctx, req.(*SearchProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_SearchProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchAllProjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).SearchProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_SearchProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).SearchProject(ctx, req.(*SearchAllProjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_ExploreProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExploreProjectsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).ExploreProject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_ExploreProject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).ExploreProject(ctx, req.(*ExploreProjectsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetProjectItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProjectItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetProjectItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetProjectItems_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetProjectItems(ctx, req.(*GetProjectItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetGroupItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetGroupItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetGroupItems_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetGroupItems(ctx, req.(*GetGroupItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetUserItems_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserItemsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetUserItems(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetUserItems_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetUserItems(ctx, req.(*GetUserItemsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_GetItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GetItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GetItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GetItem(ctx, req.(*GetItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_CreateItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).CreateItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_CreateItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).CreateItem(ctx, req.(*CreateItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_UpdateItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).UpdateItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_UpdateItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).UpdateItem(ctx, req.(*UpdateItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_DeleteItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).DeleteItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_DeleteItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).DeleteItem(ctx, req.(*DeleteItemRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TeamsAPI_LikeItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LikeItemRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).LikeItem(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_LikeItem_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).LikeItem(ctx, req.(*LikeItemRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5260,6 +4502,60 @@ func _TeamsAPI_QueryTaskStatus_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetStoryImageStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryImageStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryImageStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryImageStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryImageStyle(ctx, req.(*GetStoryImageStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryImageStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryImageStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryImageStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryImageStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryImageStyle(ctx, req.(*UpdateStoryImageStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStorySenceMaxNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStorySenceMaxNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStorySenceMaxNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStorySenceMaxNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStorySenceMaxNumber(ctx, req.(*UpdateStorySenceMaxNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5364,104 +4660,12 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_FetchGroupMembers_Handler,
 		},
 		{
-			MethodName: "FetchGroupProjects",
-			Handler:    _TeamsAPI_FetchGroupProjects_Handler,
-		},
-		{
 			MethodName: "JoinGroup",
 			Handler:    _TeamsAPI_JoinGroup_Handler,
 		},
 		{
 			MethodName: "LeaveGroup",
 			Handler:    _TeamsAPI_LeaveGroup_Handler,
-		},
-		{
-			MethodName: "GetProjectInfo",
-			Handler:    _TeamsAPI_GetProjectInfo_Handler,
-		},
-		{
-			MethodName: "GetProjectList",
-			Handler:    _TeamsAPI_GetProjectList_Handler,
-		},
-		{
-			MethodName: "CreateProject",
-			Handler:    _TeamsAPI_CreateProject_Handler,
-		},
-		{
-			MethodName: "GetProjectMembers",
-			Handler:    _TeamsAPI_GetProjectMembers_Handler,
-		},
-		{
-			MethodName: "UpdateProject",
-			Handler:    _TeamsAPI_UpdateProject_Handler,
-		},
-		{
-			MethodName: "DeleteProject",
-			Handler:    _TeamsAPI_DeleteProject_Handler,
-		},
-		{
-			MethodName: "GetProjectProfile",
-			Handler:    _TeamsAPI_GetProjectProfile_Handler,
-		},
-		{
-			MethodName: "UpdateProjectProfile",
-			Handler:    _TeamsAPI_UpdateProjectProfile_Handler,
-		},
-		{
-			MethodName: "WatchProject",
-			Handler:    _TeamsAPI_WatchProject_Handler,
-		},
-		{
-			MethodName: "UnWatchProject",
-			Handler:    _TeamsAPI_UnWatchProject_Handler,
-		},
-		{
-			MethodName: "GetProjectWatcher",
-			Handler:    _TeamsAPI_GetProjectWatcher_Handler,
-		},
-		{
-			MethodName: "SearchGroupProject",
-			Handler:    _TeamsAPI_SearchGroupProject_Handler,
-		},
-		{
-			MethodName: "SearchProject",
-			Handler:    _TeamsAPI_SearchProject_Handler,
-		},
-		{
-			MethodName: "ExploreProject",
-			Handler:    _TeamsAPI_ExploreProject_Handler,
-		},
-		{
-			MethodName: "GetProjectItems",
-			Handler:    _TeamsAPI_GetProjectItems_Handler,
-		},
-		{
-			MethodName: "GetGroupItems",
-			Handler:    _TeamsAPI_GetGroupItems_Handler,
-		},
-		{
-			MethodName: "GetUserItems",
-			Handler:    _TeamsAPI_GetUserItems_Handler,
-		},
-		{
-			MethodName: "GetItem",
-			Handler:    _TeamsAPI_GetItem_Handler,
-		},
-		{
-			MethodName: "CreateItem",
-			Handler:    _TeamsAPI_CreateItem_Handler,
-		},
-		{
-			MethodName: "UpdateItem",
-			Handler:    _TeamsAPI_UpdateItem_Handler,
-		},
-		{
-			MethodName: "DeleteItem",
-			Handler:    _TeamsAPI_DeleteItem_Handler,
-		},
-		{
-			MethodName: "LikeItem",
-			Handler:    _TeamsAPI_LikeItem_Handler,
 		},
 		{
 			MethodName: "CreateStory",
@@ -5862,6 +5066,18 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "QueryTaskStatus",
 			Handler:    _TeamsAPI_QueryTaskStatus_Handler,
+		},
+		{
+			MethodName: "GetStoryImageStyle",
+			Handler:    _TeamsAPI_GetStoryImageStyle_Handler,
+		},
+		{
+			MethodName: "UpdateStoryImageStyle",
+			Handler:    _TeamsAPI_UpdateStoryImageStyle_Handler,
+		},
+		{
+			MethodName: "UpdateStorySenceMaxNumber",
+			Handler:    _TeamsAPI_UpdateStorySenceMaxNumber_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

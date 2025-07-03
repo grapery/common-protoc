@@ -520,12 +520,6 @@ public struct Common_UserWatchingResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int32 = 0
-
-    public var pageSize: Int32 = 0
-
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
@@ -884,827 +878,6 @@ public struct Common_UserInitResponse: Sendable {
   public init() {}
 
   fileprivate var _data: Common_UserInitResponse.DataMessage? = nil
-}
-
-public struct Common_GetProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_GetProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_GetProjectResponse.DataMessage {
-    get {return _data ?? Common_GetProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var info: Common_ProjectInfo {
-      get {return _info ?? Common_ProjectInfo()}
-      set {_info = newValue}
-    }
-    /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return self._info != nil}
-    /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {self._info = nil}
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-
-    fileprivate var _info: Common_ProjectInfo? = nil
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_GetProjectResponse.DataMessage? = nil
-}
-
-public struct Common_GetProjectListRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_GetProjectListResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_GetProjectListResponse.DataMessage {
-    get {return _data ?? Common_GetProjectListResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_GetProjectListResponse.DataMessage? = nil
-}
-
-public struct Common_CreateProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var name: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_CreateProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_CreateProjectResponse.DataMessage {
-    get {return _data ?? Common_CreateProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var info: Common_ProjectInfo {
-      get {return _info ?? Common_ProjectInfo()}
-      set {_info = newValue}
-    }
-    /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return self._info != nil}
-    /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {self._info = nil}
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-
-    fileprivate var _info: Common_ProjectInfo? = nil
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_CreateProjectResponse.DataMessage? = nil
-}
-
-public struct Common_UpdateProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var info: Common_ProjectInfo {
-    get {return _info ?? Common_ProjectInfo()}
-    set {_info = newValue}
-  }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _info: Common_ProjectInfo? = nil
-}
-
-public struct Common_UpdateProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var info: Common_ProjectInfo {
-    get {return _info ?? Common_ProjectInfo()}
-    set {_info = newValue}
-  }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _info: Common_ProjectInfo? = nil
-}
-
-public struct Common_DeleteProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_DeleteProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var message: String = String()
-
-  public var data: Common_DeleteProjectResponse.DataMessage {
-    get {return _data ?? Common_DeleteProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_DeleteProjectResponse.DataMessage? = nil
-}
-
-public struct Common_GetWatchingProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var userID: Int64 = 0
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_GetWatchingProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_GetWatchingProjectResponse.DataMessage {
-    get {return _data ?? Common_GetWatchingProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var userID: Int64 = 0
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_GetWatchingProjectResponse.DataMessage? = nil
-}
-
-public struct Common_WatchProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_WatchProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var message: String = String()
-
-  public var data: Common_WatchProjectResponse.DataMessage {
-    get {return _data ?? Common_WatchProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_WatchProjectResponse.DataMessage? = nil
-}
-
-public struct Common_UnWatchProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_UnWatchProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var message: String = String()
-
-  public var data: Common_UnWatchProjectResponse.DataMessage {
-    get {return _data ?? Common_UnWatchProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_UnWatchProjectResponse.DataMessage? = nil
-}
-
-public struct Common_ExploreProjectsRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var userID: Int64 = 0
-
-  public var groupID: Int64 = 0
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_ExploreProjectsResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_ExploreProjectsResponse.DataMessage {
-    get {return _data ?? Common_ExploreProjectsResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var userID: Int64 = 0
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_ExploreProjectsResponse.DataMessage? = nil
-}
-
-public struct Common_SearchProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var name: String = String()
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_SearchProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_SearchProjectResponse.DataMessage {
-    get {return _data ?? Common_SearchProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var groupID: Int64 = 0
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_SearchProjectResponse.DataMessage? = nil
-}
-
-public struct Common_SearchAllProjectRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var userID: Int64 = 0
-
-  public var name: String = String()
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_SearchAllProjectResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_SearchAllProjectResponse.DataMessage {
-    get {return _data ?? Common_SearchAllProjectResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var userID: Int64 = 0
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_SearchAllProjectResponse.DataMessage? = nil
-}
-
-public struct Common_GetProjectProfileRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_GetProjectProfileResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_GetProjectProfileResponse.DataMessage {
-    get {return _data ?? Common_GetProjectProfileResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var groupID: Int64 = 0
-
-    public var projectID: Int64 = 0
-
-    public var userID: Int64 = 0
-
-    public var info: Common_ProjectProfileInfo {
-      get {return _info ?? Common_ProjectProfileInfo()}
-      set {_info = newValue}
-    }
-    /// Returns true if `info` has been explicitly set.
-    public var hasInfo: Bool {return self._info != nil}
-    /// Clears the value of `info`. Subsequent reads from it will return its default value.
-    public mutating func clearInfo() {self._info = nil}
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-
-    fileprivate var _info: Common_ProjectProfileInfo? = nil
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_GetProjectProfileResponse.DataMessage? = nil
-}
-
-public struct Common_UpdateProjectProfileRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var info: Common_ProjectProfileInfo {
-    get {return _info ?? Common_ProjectProfileInfo()}
-    set {_info = newValue}
-  }
-  /// Returns true if `info` has been explicitly set.
-  public var hasInfo: Bool {return self._info != nil}
-  /// Clears the value of `info`. Subsequent reads from it will return its default value.
-  public mutating func clearInfo() {self._info = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  fileprivate var _info: Common_ProjectProfileInfo? = nil
-}
-
-public struct Common_UpdateProjectProfileResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var message: String = String()
-
-  public var data: Common_UpdateProjectProfileResponse.DataMessage {
-    get {return _data ?? Common_UpdateProjectProfileResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_UpdateProjectProfileResponse.DataMessage? = nil
-}
-
-public struct Common_GetProjectItemsRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var projectID: Int64 = 0
-
-  public var userID: Int64 = 0
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_GetProjectItemsResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var msg: String = String()
-
-  public var data: Common_GetProjectItemsResponse.DataMessage {
-    get {return _data ?? Common_GetProjectItemsResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var list: [Common_ItemInfo] = []
-
-    public var groupID: Int64 = 0
-
-    public var projectID: Int64 = 0
-
-    public var userID: Int64 = 0
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_GetProjectItemsResponse.DataMessage? = nil
 }
 
 public struct Common_GetGroupItemsRequest: Sendable {
@@ -2569,63 +1742,6 @@ public struct Common_SearchGroupResponse: Sendable {
   fileprivate var _data: Common_SearchGroupResponse.DataMessage? = nil
 }
 
-public struct Common_FetchGroupProjectsRequest: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var groupID: Int64 = 0
-
-  public var offset: Int64 = 0
-
-  public var pageSize: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct Common_FetchGroupProjectsResponse: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var code: Common_ResponseCode = .ok
-
-  public var message: String = String()
-
-  public var data: Common_FetchGroupProjectsResponse.DataMessage {
-    get {return _data ?? Common_FetchGroupProjectsResponse.DataMessage()}
-    set {_data = newValue}
-  }
-  /// Returns true if `data` has been explicitly set.
-  public var hasData: Bool {return self._data != nil}
-  /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  public mutating func clearData() {self._data = nil}
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public struct DataMessage: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var list: [Common_ProjectInfo] = []
-
-    public var offset: Int64 = 0
-
-    public var pageSize: Int64 = 0
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public init() {}
-
-  fileprivate var _data: Common_FetchGroupProjectsResponse.DataMessage? = nil
-}
-
 public struct Common_JoinGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3256,6 +2372,120 @@ public struct Common_UpdateGroupProfileRequest: Sendable {
 }
 
 public struct Common_UpdateGroupProfileResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryImageStyleRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_StoryStyleDesc: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// 风格ID
+  public var id: Int64 = 0
+
+  /// 风格名称
+  public var style: String = String()
+
+  /// 风格描述
+  public var description_p: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_GetStoryImageStyleResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var style: [Common_StoryStyleDesc] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStoryImageStyleRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyID: Int64 = 0
+
+  /// 风格ID
+  public var styleID: Int64 = 0
+
+  /// 风格名称
+  public var style: String = String()
+
+  /// 用户ID
+  public var userID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStoryImageStyleResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStorySenceMaxNumberRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyID: Int64 = 0
+
+  /// 最大场景数
+  public var maxNumber: Int64 = 0
+
+  /// 用户ID
+  public var userID: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UpdateStorySenceMaxNumberResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6845,43 +6075,18 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserWatchingResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt32Field(value: self.offset, fieldNumber: 2)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserWatchingResponse.DataMessage, rhs: Common_UserWatchingResponse.DataMessage) -> Bool {
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -7720,141 +6925,13 @@ extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_GetProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectRequest, rhs: Common_GetProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectResponse, rhs: Common_GetProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectResponse.DataMessage, rhs: Common_GetProjectResponse.DataMessage) -> Bool {
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectListRequest"
+extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_id"),
     2: .standard(proto: "user_id"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7865,8 +6942,8 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -7880,1716 +6957,10 @@ extension Common_GetProjectListRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
     }
     if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 5)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectListRequest, rhs: Common_GetProjectListRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectListResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectListResponse, rhs: Common_GetProjectListResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectListResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectListResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "List"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
-    }
-    if self.offset != 0 {
       try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
     }
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectListResponse.DataMessage, rhs: Common_GetProjectListResponse.DataMessage) -> Bool {
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_CreateProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CreateProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "name"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_CreateProjectRequest, rhs: Common_CreateProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.name != rhs.name {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_CreateProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".CreateProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_CreateProjectResponse, rhs: Common_CreateProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_CreateProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_CreateProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_CreateProjectResponse.DataMessage, rhs: Common_CreateProjectResponse.DataMessage) -> Bool {
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UpdateProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UpdateProjectRequest, rhs: Common_UpdateProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UpdateProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UpdateProjectResponse, rhs: Common_UpdateProjectResponse) -> Bool {
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_DeleteProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_DeleteProjectRequest, rhs: Common_DeleteProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_DeleteProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".DeleteProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_DeleteProjectResponse, rhs: Common_DeleteProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_DeleteProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_DeleteProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_DeleteProjectResponse.DataMessage, rhs: Common_DeleteProjectResponse.DataMessage) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetWatchingProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetWatchingProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetWatchingProjectRequest, rhs: Common_GetWatchingProjectRequest) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetWatchingProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetWatchingProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetWatchingProjectResponse, rhs: Common_GetWatchingProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetWatchingProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetWatchingProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "list"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetWatchingProjectResponse.DataMessage, rhs: Common_GetWatchingProjectResponse.DataMessage) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_WatchProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".WatchProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_WatchProjectRequest, rhs: Common_WatchProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_WatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".WatchProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_WatchProjectResponse, rhs: Common_WatchProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_WatchProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_WatchProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_WatchProjectResponse.DataMessage, rhs: Common_WatchProjectResponse.DataMessage) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UnWatchProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UnWatchProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UnWatchProjectRequest, rhs: Common_UnWatchProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UnWatchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UnWatchProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UnWatchProjectResponse, rhs: Common_UnWatchProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UnWatchProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UnWatchProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UnWatchProjectResponse.DataMessage, rhs: Common_UnWatchProjectResponse.DataMessage) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_ExploreProjectsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ExploreProjectsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "group_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_ExploreProjectsRequest, rhs: Common_ExploreProjectsRequest) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_ExploreProjectsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ExploreProjectsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_ExploreProjectsResponse, rhs: Common_ExploreProjectsResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_ExploreProjectsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_ExploreProjectsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "list"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_ExploreProjectsResponse.DataMessage, rhs: Common_ExploreProjectsResponse.DataMessage) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchProjectRequest, rhs: Common_SearchProjectRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.name != rhs.name {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchProjectResponse, rhs: Common_SearchProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_SearchProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "list"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchProjectResponse.DataMessage, rhs: Common_SearchProjectResponse.DataMessage) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchAllProjectRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchAllProjectRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchAllProjectRequest, rhs: Common_SearchAllProjectRequest) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.name != rhs.name {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchAllProjectResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".SearchAllProjectResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchAllProjectResponse, rhs: Common_SearchAllProjectResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_SearchAllProjectResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_SearchAllProjectResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "list"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
-    }
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 2)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_SearchAllProjectResponse.DataMessage, rhs: Common_SearchAllProjectResponse.DataMessage) -> Bool {
-    if lhs.userID != rhs.userID {return false}
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectProfileRequest, rhs: Common_GetProjectProfileRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectProfileResponse, rhs: Common_GetProjectProfileResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectProfileResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectProfileResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectProfileResponse.DataMessage, rhs: Common_GetProjectProfileResponse.DataMessage) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UpdateProjectProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateProjectProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "info"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._info) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    try { if let v = self._info {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UpdateProjectProfileRequest, rhs: Common_UpdateProjectProfileRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs._info != rhs._info {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UpdateProjectProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".UpdateProjectProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UpdateProjectProfileResponse, rhs: Common_UpdateProjectProfileResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_UpdateProjectProfileResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UpdateProjectProfileResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_UpdateProjectProfileResponse.DataMessage, rhs: Common_UpdateProjectProfileResponse.DataMessage) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectItemsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 2)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 4)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 5)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectItemsRequest, rhs: Common_GetProjectItemsRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetProjectItemsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectItemsResponse, rhs: Common_GetProjectItemsResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetProjectItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectItemsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .standard(proto: "group_id"),
-    3: .standard(proto: "project_id"),
-    4: .standard(proto: "user_id"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.projectID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
-    }
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 2)
-    }
-    if self.projectID != 0 {
-      try visitor.visitSingularInt64Field(value: self.projectID, fieldNumber: 3)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 4)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 5)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_GetProjectItemsResponse.DataMessage, rhs: Common_GetProjectItemsResponse.DataMessage) -> Bool {
-    if lhs.list != rhs.list {return false}
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.projectID != rhs.projectID {return false}
-    if lhs.userID != rhs.userID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.userID != 0 {
-      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 4)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -11445,142 +8816,6 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_FetchGroupProjectsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchGroupProjectsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.groupID != 0 {
-      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 1)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 2)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_FetchGroupProjectsRequest, rhs: Common_FetchGroupProjectsRequest) -> Bool {
-    if lhs.groupID != rhs.groupID {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_FetchGroupProjectsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FetchGroupProjectsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._data) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.code != .ok {
-      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
-    }
-    if !self.message.isEmpty {
-      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
-    }
-    try { if let v = self._data {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_FetchGroupProjectsResponse, rhs: Common_FetchGroupProjectsResponse) -> Bool {
-    if lhs.code != rhs.code {return false}
-    if lhs.message != rhs.message {return false}
-    if lhs._data != rhs._data {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Common_FetchGroupProjectsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_FetchGroupProjectsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.list.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
-    }
-    if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 2)
-    }
-    if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Common_FetchGroupProjectsResponse.DataMessage, rhs: Common_FetchGroupProjectsResponse.DataMessage) -> Bool {
-    if lhs.list != rhs.list {return false}
-    if lhs.offset != rhs.offset {return false}
-    if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".JoinGroupRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -12971,6 +10206,296 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 
   public static func ==(lhs: Common_UpdateGroupProfileResponse, rhs: Common_UpdateGroupProfileResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "story_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryImageStyleRequest, rhs: Common_GetStoryImageStyleRequest) -> Bool {
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryStyleDesc"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "id"),
+    2: .same(proto: "style"),
+    3: .same(proto: "description"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.style) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.id != 0 {
+      try visitor.visitSingularInt64Field(value: self.id, fieldNumber: 1)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 2)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryStyleDesc, rhs: Common_StoryStyleDesc) -> Bool {
+    if lhs.id != rhs.id {return false}
+    if lhs.style != rhs.style {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+    3: .same(proto: "style"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.style) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.style, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_GetStoryImageStyleResponse, rhs: Common_GetStoryImageStyleResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.style != rhs.style {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "story_id"),
+    2: .standard(proto: "style_id"),
+    3: .same(proto: "style"),
+    4: .standard(proto: "user_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.styleID) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.style) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
+    }
+    if self.styleID != 0 {
+      try visitor.visitSingularInt64Field(value: self.styleID, fieldNumber: 2)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 3)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryImageStyleRequest, rhs: Common_UpdateStoryImageStyleRequest) -> Bool {
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.styleID != rhs.styleID {return false}
+    if lhs.style != rhs.style {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStoryImageStyleResponse, rhs: Common_UpdateStoryImageStyleResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "story_id"),
+    2: .standard(proto: "max_number"),
+    3: .standard(proto: "user_id"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.maxNumber) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
+    }
+    if self.maxNumber != 0 {
+      try visitor.visitSingularInt64Field(value: self.maxNumber, fieldNumber: 2)
+    }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStorySenceMaxNumberRequest, rhs: Common_UpdateStorySenceMaxNumberRequest) -> Bool {
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.maxNumber != rhs.maxNumber {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "code"),
+    2: .same(proto: "message"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UpdateStorySenceMaxNumberResponse, rhs: Common_UpdateStorySenceMaxNumberResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

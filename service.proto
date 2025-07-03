@@ -9,7 +9,6 @@ import "google/protobuf/wrappers.proto";
 import "base.proto";
 import "group.proto";
 import "item.proto";
-import "project.proto";
 import "user.proto";
 import "comment.proto";
 import "story.proto";
@@ -145,9 +144,6 @@ message UserWatchingResponse {
   ResponseCode code = 1;
   string msg = 2;
   message Data {
-    repeated ProjectInfo list = 1;
-    int32 offset = 2;
-    int32 page_size = 3;
   }
   Data data = 3;
 }
@@ -262,230 +258,11 @@ message UserInitResponse {
 }
 
 
-message GetProjectRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-}
-
-message GetProjectResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    ProjectInfo info = 1;
-  }
-  Data data = 3;
-}
-
-message GetProjectListRequest {
-  int64 group_id = 1;
-  int64 user_id = 2;
-  int64 offset = 5;
-  int64 page_size = 6;
-}
-
-message GetProjectListResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    repeated ProjectInfo List = 1;
-    int64 offset = 3;
-    int64 page_size = 4;
-  }
-  Data data = 3;
-}
-
-message CreateProjectRequest {
-  int64 group_id = 1;
-  string name = 2;
-}
-message CreateProjectResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    ProjectInfo info = 1;
-  }
-  Data data = 3;
-}
-message UpdateProjectRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-  ProjectInfo info = 4;
-}
-message UpdateProjectResponse { ProjectInfo info = 1; }
-message DeleteProjectRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-}
-message DeleteProjectResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-  } Data data = 3;
-}
-
-message GetWatchingProjectRequest {
-  int64 user_id = 1;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message GetWatchingProjectResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    int64 user_id = 1;
-    repeated ProjectInfo list = 2;
-    int64 offset = 3;
-    int64 page_size = 4;
-  }
-  Data data = 3;
-}
-
-message WatchProjectRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-}
-
-message WatchProjectResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-  } Data data = 3;
-}
-
-message UnWatchProjectRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-}
-
-message UnWatchProjectResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-  } Data data = 3;
-}
-
-message ExploreProjectsRequest {
-  int64 user_id = 1;
-  int64 group_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message ExploreProjectsResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    int64 user_id = 1;
-    repeated ProjectInfo list = 2;
-    int64 offset = 3;
-    int64 page_size = 4;
-  }
-  Data data = 3;
-}
-
-message SearchProjectRequest {
-  int64 group_id = 1;
-  string name = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message SearchProjectResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    int64 group_id = 1;
-    repeated ProjectInfo list = 2;
-    int64 offset = 3;
-    int64 page_size = 4;
-  }
-  Data data = 3;
-}
-
-message SearchAllProjectRequest {
-  int64 user_id = 1;
-  string name = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message SearchAllProjectResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    int64 user_id = 1;
-    repeated ProjectInfo list = 2;
-    int64 offset = 3;
-    int64 page_size = 4;
-  }
-  Data data = 3;
-}
-
-message GetProjectProfileRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-}
-
-message GetProjectProfileResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    int64 group_id = 1;
-    int64 project_id = 2;
-    int64 user_id = 3;
-    ProjectProfileInfo info = 4;
-  }
-  Data data = 3;
-}
-
-message UpdateProjectProfileRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-  ProjectProfileInfo info = 4;
-}
-
-message UpdateProjectProfileResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-  } Data data = 3;
-}
-
-message GetProjectItemsRequest {
-  int64 group_id = 1;
-  int64 project_id = 2;
-  int64 user_id = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
-}
-
-message GetProjectItemsResponse {
-  ResponseCode code = 1;
-  string msg = 2;
-  message Data {
-    repeated ItemInfo list = 1;
-    int64 group_id = 2;
-    int64 project_id = 3;
-    int64 user_id = 4;
-    int64 offset = 5;
-    int64 page_size = 6;
-  }
-  Data data = 3;
-}
-
 message GetGroupItemsRequest {
   int64 group_id = 1;
-  int64 user_id = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message GetGroupItemsResponse {
@@ -699,21 +476,6 @@ message SearchGroupResponse {
   } Data data = 3;
 }
 
-message FetchGroupProjectsRequest {
-  int64 group_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
-}
-
-message FetchGroupProjectsResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    repeated ProjectInfo list = 1;
-    int64 offset = 2;
-    int64 page_size = 3;
-  } Data data = 3;
-}
 
 message JoinGroupRequest {
   int64 group_id = 1;
@@ -1060,13 +822,6 @@ service TeamsAPI {
     };
   }
 
-  // FetchGroupProjects retrieves the list of projects in a group
-  rpc FetchGroupProjects(FetchGroupProjectsRequest) returns (FetchGroupProjectsResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/FetchGroupProjects"
-      body : "*"
-    };
-  }
 
   // JoinGroup adds a user to a group
   rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
@@ -1080,179 +835,6 @@ service TeamsAPI {
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LeaveGroup"
-      body : "*"
-    };
-  }
-
-  // GetProjectInfo retrieves information about a specific project
-  rpc GetProjectInfo(GetProjectRequest) returns (GetProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectInfo"
-      body : "*"
-    };
-  }
-
-  // GetProjectList retrieves a list of projects
-  rpc GetProjectList(GetProjectListRequest) returns (GetProjectListResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectList"
-      body : "*"
-    };
-  }
-
-  // CreateProject creates a new project
-  rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/CreateProject"
-      body : "*"
-    };
-  }
-
-  // GetProjectMembers retrieves the list of members in a project
-  rpc GetProjectMembers(GetProjectMembersRequest) returns (GetProjectMembersResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectMembers"
-      body : "*"
-    };
-  }
-
-  // UpdateProject updates project information
-  rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/UpdateProject"
-      body : "*"
-    };
-  }
-
-  // DeleteProject removes a project
-  rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/DeleteProject"
-      body : "*"
-    };
-  }
-
-  // GetProjectProfile retrieves the project's profile information
-  rpc GetProjectProfile(GetProjectProfileRequest) returns (GetProjectProfileResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectProfile"
-      body : "*"
-    };
-  }
-
-  // UpdateProjectProfile updates the project's profile information
-  rpc UpdateProjectProfile(UpdateProjectProfileRequest) returns (UpdateProjectProfileResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/UpdateProjectProfile"
-      body : "*"
-    };
-  }
-
-  // WatchProject adds a user as a watcher to a project
-  rpc WatchProject(WatchProjectRequest) returns (WatchProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/WatchProject"
-      body : "*"
-    };
-  }
-
-  // UnWatchProject removes a user as a watcher from a project
-  rpc UnWatchProject(UnWatchProjectRequest) returns (UnWatchProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/UnWatchProject"
-      body : "*"
-    };
-  }
-
-  // GetProjectWatcher retrieves the list of watchers for a project
-  rpc GetProjectWatcher(GetProjectWatcherRequest) returns (GetProjectWatcherResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectWatcher"
-      body : "*"
-    };
-  }
-
-  // SearchGroupProject searches for projects within a group
-  rpc SearchGroupProject(SearchProjectRequest) returns (SearchProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/SearchGroupProject"
-      body : "*"
-    };
-  }
-
-  // SearchProject searches for projects across all accessible groups
-  rpc SearchProject(SearchAllProjectRequest) returns (SearchAllProjectResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/SearchProject"
-      body : "*"
-    };
-  }
-
-  // ExploreProject returns trending and recommended projects
-  rpc ExploreProject(ExploreProjectsRequest) returns (ExploreProjectsResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/ExploreProject"
-      body : "*"
-    };
-  }
-
-  // GetProjectItems retrieves items within a project
-  rpc GetProjectItems(GetProjectItemsRequest) returns (GetProjectItemsResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetProjectItems"
-      body : "*"
-    };
-  }
-
-  // GetGroupItems retrieves items within a group
-  rpc GetGroupItems(GetGroupItemsRequest) returns (GetGroupItemsResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetGroupItems"
-      body : "*"
-    };
-  }
-
-  // GetUserItems retrieves items created by a user
-  rpc GetUserItems(GetUserItemsRequest) returns (GetUserItemsResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetUserItems"
-      body : "*"
-    };
-  }
-
-  // 获取内容
-  rpc GetItem(GetItemRequest) returns (GetItemResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GetItem"
-      body : "*"
-    };
-  }
-
-  // 创建内容
-  rpc CreateItem(CreateItemRequest) returns (CreateItemResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/CreateItem"
-      body : "*"
-    };
-  }
-  // 更新内容
-  rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/UpdateItem"
-      body : "*"
-    };
-  }
-  // 删除内容
-  rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/DeleteItem"
-      body : "*"
-    };
-  }
-  // 喜欢内容
-  rpc LikeItem(LikeItemRequest) returns (LikeItemResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/LikeItem"
       body : "*"
     };
   }
@@ -2060,8 +1642,69 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取生成任务状态
+  rpc GetStoryImageStyle(GetStoryImageStyleRequest) returns (GetStoryImageStyleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryImageStyle"
+      body : "*"
+    };
+  }
+
+  rpc UpdateStoryImageStyle(UpdateStoryImageStyleRequest) returns (UpdateStoryImageStyleResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryImageStyle"
+      body : "*"
+    };
+  }
+
+  rpc UpdateStorySenceMaxNumber(UpdateStorySenceMaxNumberRequest) returns (UpdateStorySenceMaxNumberResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStorySenceMaxNumber"
+      body : "*"
+    };
+  }
+
 }
 
+message GetStoryImageStyleRequest {
+  int64 story_id = 1;
+}
+
+message StoryStyleDesc{
+  int64 id = 1; // 风格ID
+  string style = 2; // 风格名称
+  string description = 3; // 风格描述
+}
+
+message GetStoryImageStyleResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated StoryStyleDesc style = 3;
+}
+
+message UpdateStoryImageStyleRequest {
+  int64 story_id = 1;
+  int64 style_id = 2; // 风格ID
+  string style = 3; // 风格名称
+  int64 user_id = 4; // 用户ID
+}
+
+message UpdateStoryImageStyleResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message UpdateStorySenceMaxNumberRequest {
+  int64 story_id = 1;
+  int64 max_number = 2; // 最大场景数
+  int64 user_id = 3; // 用户ID
+}
+
+message UpdateStorySenceMaxNumberResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
 
 message UpdateStoryRolePromptRequest {
   int64 story_id = 1;
