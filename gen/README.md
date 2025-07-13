@@ -366,6 +366,8 @@
     - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
     - [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest)
     - [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse)
+    - [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest)
+    - [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse)
     - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
     - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
     - [GetStoryRoleListRequest](#common-GetStoryRoleListRequest)
@@ -5335,6 +5337,8 @@ UpdateStoryResponse 更新故事的响应结果
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -5352,6 +5356,8 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | reply_messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6006,6 +6012,8 @@ UpdateStoryResponse 更新故事的响应结果
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
@@ -6318,6 +6326,8 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | followers | [UserInfo](#common-UserInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6352,6 +6362,8 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | followers | [UserInfo](#common-UserInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6404,6 +6416,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
@@ -6649,6 +6663,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6818,6 +6833,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6856,6 +6872,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6894,6 +6911,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -6932,6 +6950,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7017,6 +7036,42 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-GetStoryParticipantsRequest"></a>
+
+### GetStoryParticipantsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryParticipantsResponse"></a>
+
+### GetStoryParticipantsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| participants | [UserInfo](#common-UserInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="common-GetStoryRoleDetailRequest"></a>
 
 ### GetStoryRoleDetailRequest
@@ -7080,6 +7135,8 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7119,6 +7176,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7159,6 +7217,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7196,6 +7255,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7233,6 +7293,7 @@ UpdateStoryResponse 更新故事的响应结果
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | timestamp | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7267,6 +7328,8 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | chat_context | [ChatContext](#common-ChatContext) |  |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7306,6 +7369,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7345,6 +7409,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7468,6 +7533,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7507,6 +7573,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7545,6 +7612,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7993,6 +8061,7 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -8210,6 +8279,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
@@ -8249,6 +8320,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -8287,6 +8359,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | stories | [Story](#common-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -8476,6 +8549,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [Story](#common-Story) | repeated |  |
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -8528,6 +8603,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [StoryRole](#common-StoryRole) | repeated |  |
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -9843,6 +9920,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryAvatar | [UpdateStoryAvatarRequest](#common-UpdateStoryAvatarRequest) | [UpdateStoryAvatarResponse](#common-UpdateStoryAvatarResponse) | 更新故事头像 |
 | UpdateStoryCover | [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse) | 更新故事封面 |
 | SaveStoryboardCraft | [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse) | 保存故事板草稿 |
+| GetStoryParticipants | [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
 
  
 

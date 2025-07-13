@@ -1053,6 +1053,14 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 保存故事板草稿
     @available(iOS 13, *)
     func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SaveStoryboardCraftResponse>
+
+    /// 获取故事参与者，参与故事版创建
+    @discardableResult
+    func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable
+
+    /// 获取故事参与者，参与故事版创建
+    @available(iOS 13, *)
+    func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryParticipantsResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2383,6 +2391,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryParticipantsResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2517,6 +2535,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryAvatar = Connect.MethodSpec(name: "UpdateStoryAvatar", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryCover = Connect.MethodSpec(name: "UpdateStoryCover", service: "common.TeamsAPI", type: .unary)
             public static let saveStoryboardCraft = Connect.MethodSpec(name: "SaveStoryboardCraft", service: "common.TeamsAPI", type: .unary)
+            public static let getStoryParticipants = Connect.MethodSpec(name: "GetStoryParticipants", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

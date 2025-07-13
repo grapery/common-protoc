@@ -220,6 +220,8 @@ message FetchActivesResponse {
     int64 timestamp = 2;
     int64 offset = 3;
     int64 page_size = 4;
+    bool has_more = 5;
+    int64 total = 6;
   }
   Data data = 3;
 }
@@ -416,6 +418,8 @@ message GetGroupActivesResponse {
     repeated ActiveInfo list = 1;
     int64 offset = 2;
     int64 page_size = 3;
+    bool has_more = 4;
+    int64 total = 5;
   } Data data = 3;
 }
 
@@ -473,6 +477,8 @@ message SearchGroupResponse {
     repeated GroupInfo list = 1;
     int64 offset = 2;
     int64 page_size = 3;
+    bool has_more = 4;
+    int64 total = 5;
   } Data data = 3;
 }
 
@@ -1688,6 +1694,28 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 获取故事参与者，参与故事版创建
+  rpc GetStoryParticipants(GetStoryParticipantsRequest) returns (GetStoryParticipantsResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryParticipants"
+      body : "*"
+    };
+  }
+}
+
+message GetStoryParticipantsRequest {
+  int64 story_id = 1;
+  int64 offset = 2;
+  int64 page_size = 3;
+}
+
+message GetStoryParticipantsResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  repeated UserInfo participants = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message UpdateStoryAvatarRequest {
@@ -1821,6 +1849,8 @@ message GetFollowListResponse {
   ResponseCode code = 1;
   string message = 2;
   repeated UserInfo followers = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message GetFollowerListRequest {
@@ -1833,6 +1863,8 @@ message GetFollowerListResponse {
   ResponseCode code = 1;
   string message = 2;
   repeated UserInfo followers = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message FollowUserRequest {
@@ -1869,6 +1901,8 @@ message TrendingStoryRoleResponse{
     repeated StoryRole list = 1;
     int64 page_size = 2;
     int64 page_number = 3;
+    int64 total = 4;
+    bool has_more = 5;
   } Data data = 3;
 }
 
@@ -1886,6 +1920,8 @@ message TrendingStoryResponse {
     repeated Story list = 1;
     int64 page_size = 2;
     int64 page_number = 3;
+    int64 total = 4;
+    bool has_more = 5;
   } Data data = 3;
 }
 
@@ -1902,6 +1938,8 @@ message GetStoryRoleListResponse {
   ResponseCode code = 1;
   string message = 2;
   repeated StoryRole roles = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message ArchiveStoryRequest {
@@ -1960,6 +1998,7 @@ message GetStoryCommentsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message DeleteStoryCommentRequest {
@@ -1986,6 +2025,7 @@ message GetStoryCommentRepliesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message CreateStoryCommentReplyRequest {
@@ -2025,6 +2065,7 @@ message GetStoryBoardCommentsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message CreateStoryBoardCommentRequest {
@@ -2064,6 +2105,7 @@ message GetStoryBoardCommentRepliesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message LikeCommentRequest {
@@ -2148,6 +2190,7 @@ message GetUnPublishStoryboardResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 
@@ -2167,6 +2210,7 @@ message GetUserWatchRoleActiveStoryBoardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message GetUserWatchStoryActiveStoryBoardsRequest {
@@ -2184,6 +2228,7 @@ message GetUserWatchStoryActiveStoryBoardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message SaveStoryboardCraftRequest {
@@ -2228,6 +2273,7 @@ message RenderStoryRoleContinuouslyResponse {
   ResponseCode code = 1;
   string message = 2;
   RenderStoryRoleDetail detail = 3;
+  bool has_more = 4;
 } 
 
 message GetNextStoryboardRequest {
@@ -2249,6 +2295,7 @@ message GetNextStoryboardResponse {
   int64 total = 5;
   int64 offset = 6;
   int64 page_size = 7;
+  bool has_more = 8;
 }
 
 message GetUserChatMessagesRequest {
@@ -2264,6 +2311,7 @@ message GetUserChatMessagesResponse {
   repeated ChatMessage messages = 3;
   int64 timestamp = 4;
   int64 total = 5;
+  bool has_more = 6;
 }
 
 message GetUserChatWithRoleRequest {
@@ -2276,6 +2324,8 @@ message GetUserChatWithRoleResponse {
   string message = 2;
   repeated ChatMessage messages = 3;
   ChatContext chat_context = 4;
+  int64 total = 5;
+  bool has_more = 6;
 }
 
 message GetStoryRoleStoryboardsRequest {
@@ -2294,6 +2344,7 @@ message GetStoryRoleStoryboardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message GetStoryRoleStoriesRequest {
@@ -2311,6 +2362,7 @@ message GetStoryRoleStoriesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message CreateStoryRoleChatRequest {
@@ -2354,12 +2406,16 @@ message ChatWithStoryRoleRequest {
   int64 role_id = 1;
   int64 user_id = 2;
   repeated ChatMessage messages = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message ChatWithStoryRoleResponse {
   ResponseCode code = 1;
   string message = 2;
   repeated ChatMessage reply_messages = 3;
+  int64 total = 4;
+  bool has_more = 5;
 }
 
 message UpdateStoryRoleDetailRequest {
@@ -2401,6 +2457,7 @@ message GetUserWithRoleChatListResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message GetUserCreatedStoryboardsRequest {
@@ -2418,6 +2475,7 @@ message GetUserCreatedStoryboardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message GetUserCreatedRolesRequest {
@@ -2435,6 +2493,7 @@ message GetUserCreatedRolesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+  bool has_more = 7;
 }
 
 message LikeStoryRoleRequest{
@@ -2495,6 +2554,7 @@ message SearchStoriesResponse{
   string message = 2;
   repeated Story stories = 3;
   int64 total = 4;
+  bool has_more = 5;
 }
 
 message SearchRolesRequest {
@@ -2512,6 +2572,7 @@ message SearchRolesResponse{
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
+  bool has_more = 5;
 }
 
 message RestoreStoryboardRequest {

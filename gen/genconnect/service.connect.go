@@ -383,6 +383,9 @@ const (
 	// TeamsAPISaveStoryboardCraftProcedure is the fully-qualified name of the TeamsAPI's
 	// SaveStoryboardCraft RPC.
 	TeamsAPISaveStoryboardCraftProcedure = "/common.TeamsAPI/SaveStoryboardCraft"
+	// TeamsAPIGetStoryParticipantsProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryParticipants RPC.
+	TeamsAPIGetStoryParticipantsProcedure = "/common.TeamsAPI/GetStoryParticipants"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -644,6 +647,8 @@ type TeamsAPIClient interface {
 	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
 	// 保存故事板草稿
 	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
+	// 获取故事参与者，参与故事版创建
+	GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1316,6 +1321,11 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPISaveStoryboardCraftProcedure,
 			opts...,
 		),
+		getStoryParticipants: connect.NewClient[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryParticipantsProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1453,6 +1463,7 @@ type teamsAPIClient struct {
 	updateStoryAvatar                  *connect.Client[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse]
 	updateStoryCover                   *connect.Client[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse]
 	saveStoryboardCraft                *connect.Client[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse]
+	getStoryParticipants               *connect.Client[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2115,6 +2126,11 @@ func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, req *connect.R
 	return c.saveStoryboardCraft.CallUnary(ctx, req)
 }
 
+// GetStoryParticipants calls common.TeamsAPI.GetStoryParticipants.
+func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, req *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error) {
+	return c.getStoryParticipants.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
@@ -2374,6 +2390,8 @@ type TeamsAPIHandler interface {
 	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
 	// 保存故事板草稿
 	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
+	// 获取故事参与者，参与故事版创建
+	GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3042,6 +3060,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.SaveStoryboardCraft,
 		opts...,
 	)
+	teamsAPIGetStoryParticipantsHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryParticipantsProcedure,
+		svc.GetStoryParticipants,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3308,6 +3331,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryCoverHandler.ServeHTTP(w, r)
 		case TeamsAPISaveStoryboardCraftProcedure:
 			teamsAPISaveStoryboardCraftHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryParticipantsProcedure:
+			teamsAPIGetStoryParticipantsHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3843,4 +3868,8 @@ func (UnimplementedTeamsAPIHandler) UpdateStoryCover(context.Context, *connect.R
 
 func (UnimplementedTeamsAPIHandler) SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SaveStoryboardCraft is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryParticipants is not implemented"))
 }

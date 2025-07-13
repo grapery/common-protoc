@@ -151,6 +151,7 @@ const (
 	TeamsAPI_UpdateStoryAvatar_FullMethodName                  = "/common.TeamsAPI/UpdateStoryAvatar"
 	TeamsAPI_UpdateStoryCover_FullMethodName                   = "/common.TeamsAPI/UpdateStoryCover"
 	TeamsAPI_SaveStoryboardCraft_FullMethodName                = "/common.TeamsAPI/SaveStoryboardCraft"
+	TeamsAPI_GetStoryParticipants_FullMethodName               = "/common.TeamsAPI/GetStoryParticipants"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -414,6 +415,8 @@ type TeamsAPIClient interface {
 	UpdateStoryCover(ctx context.Context, in *UpdateStoryCoverRequest, opts ...grpc.CallOption) (*UpdateStoryCoverResponse, error)
 	// 保存故事板草稿
 	SaveStoryboardCraft(ctx context.Context, in *SaveStoryboardCraftRequest, opts ...grpc.CallOption) (*SaveStoryboardCraftResponse, error)
+	// 获取故事参与者，参与故事版创建
+	GetStoryParticipants(ctx context.Context, in *GetStoryParticipantsRequest, opts ...grpc.CallOption) (*GetStoryParticipantsResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1612,6 +1615,15 @@ func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, in *SaveStoryb
 	return out, nil
 }
 
+func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, in *GetStoryParticipantsRequest, opts ...grpc.CallOption) (*GetStoryParticipantsResponse, error) {
+	out := new(GetStoryParticipantsResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryParticipants_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1873,6 +1885,8 @@ type TeamsAPIServer interface {
 	UpdateStoryCover(context.Context, *UpdateStoryCoverRequest) (*UpdateStoryCoverResponse, error)
 	// 保存故事板草稿
 	SaveStoryboardCraft(context.Context, *SaveStoryboardCraftRequest) (*SaveStoryboardCraftResponse, error)
+	// 获取故事参与者，参与故事版创建
+	GetStoryParticipants(context.Context, *GetStoryParticipantsRequest) (*GetStoryParticipantsResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2275,6 +2289,9 @@ func (UnimplementedTeamsAPIServer) UpdateStoryCover(context.Context, *UpdateStor
 }
 func (UnimplementedTeamsAPIServer) SaveStoryboardCraft(context.Context, *SaveStoryboardCraftRequest) (*SaveStoryboardCraftResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveStoryboardCraft not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryParticipants(context.Context, *GetStoryParticipantsRequest) (*GetStoryParticipantsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryParticipants not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4665,6 +4682,24 @@ func _TeamsAPI_SaveStoryboardCraft_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetStoryParticipants_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryParticipantsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryParticipants(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryParticipants_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryParticipants(ctx, req.(*GetStoryParticipantsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5199,6 +5234,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SaveStoryboardCraft",
 			Handler:    _TeamsAPI_SaveStoryboardCraft_Handler,
+		},
+		{
+			MethodName: "GetStoryParticipants",
+			Handler:    _TeamsAPI_GetStoryParticipants_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

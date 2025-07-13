@@ -1242,6 +1242,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryParticipants:
+        post:
+            tags:
+                - TeamsAPI
+            description: 获取故事参与者，参与故事版创建
+            operationId: TeamsAPI_GetStoryParticipants
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryParticipantsRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryParticipantsResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryRoleDetail:
         post:
             tags:
@@ -3505,6 +3530,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ChatMessage'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         ChatWithStoryRoleResponse:
             type: object
             properties:
@@ -3517,6 +3546,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/ChatMessage'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         CommentInfo:
             type: object
             properties:
@@ -3978,6 +4011,10 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
+                total:
+                    type: string
         FetchGroupMembersRequest:
             type: object
             properties:
@@ -4267,6 +4304,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         GetFollowerListRequest:
             type: object
             properties:
@@ -4288,6 +4329,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         GetGroupActivesRequest:
             type: object
             properties:
@@ -4320,6 +4365,10 @@ components:
                 offset:
                     type: string
                 pageSize:
+                    type: string
+                hasMore:
+                    type: boolean
+                total:
                     type: string
         GetGroupProfileRequest:
             type: object
@@ -4409,6 +4458,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryBoardCommentRepliesRequest:
             type: object
             properties:
@@ -4438,6 +4489,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryBoardCommentsRequest:
             type: object
             properties:
@@ -4467,6 +4520,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryBoardGenerateRequest:
             type: object
             properties:
@@ -4618,6 +4673,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryCommentsRequest:
             type: object
             properties:
@@ -4647,6 +4704,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryContributorsRequest:
             type: object
             properties:
@@ -4710,6 +4769,31 @@ components:
                     $ref: '#/components/schemas/Story'
                 creator:
                     $ref: '#/components/schemas/UserInfo'
+        GetStoryParticipantsRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+        GetStoryParticipantsResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                participants:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         GetStoryRenderRequest:
             type: object
             properties:
@@ -4782,6 +4866,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryRole'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         GetStoryRoleStoriesRequest:
             type: object
             properties:
@@ -4813,6 +4901,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryRoleStoryboardsRequest:
             type: object
             properties:
@@ -4846,6 +4936,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetStoryRolesRequest:
             type: object
             properties:
@@ -4978,6 +5070,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserChatMessagesRequest:
             type: object
             properties:
@@ -5005,6 +5099,8 @@ components:
                     type: string
                 total:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserChatWithRoleRequest:
             type: object
             properties:
@@ -5026,6 +5122,10 @@ components:
                         $ref: '#/components/schemas/ChatMessage'
                 chatContext:
                     $ref: '#/components/schemas/ChatContext'
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         GetUserCreatedRolesRequest:
             type: object
             properties:
@@ -5059,6 +5159,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserCreatedStoryboardsRequest:
             type: object
             properties:
@@ -5092,6 +5194,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserProfileRequest:
             type: object
             properties:
@@ -5138,6 +5242,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserWatchStoryActiveStoryBoardsRequest:
             type: object
             properties:
@@ -5169,6 +5275,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GetUserWithRoleChatListRequest:
             type: object
             properties:
@@ -5198,6 +5306,8 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
         GoogleProtobufAny:
             type: object
             properties:
@@ -5658,6 +5768,8 @@ components:
                     type: string
                 detail:
                     $ref: '#/components/schemas/RenderStoryRoleDetail'
+                hasMore:
+                    type: boolean
         RenderStoryRoleDetail:
             type: object
             properties:
@@ -5901,6 +6013,10 @@ components:
                     type: string
                 pageSize:
                     type: string
+                hasMore:
+                    type: boolean
+                total:
+                    type: string
         SearchRolesRequest:
             type: object
             properties:
@@ -5933,6 +6049,8 @@ components:
                         $ref: '#/components/schemas/StoryRole'
                 total:
                     type: string
+                hasMore:
+                    type: boolean
         SearchStoriesRequest:
             type: object
             properties:
@@ -5963,6 +6081,8 @@ components:
                         $ref: '#/components/schemas/Story'
                 total:
                     type: string
+                hasMore:
+                    type: boolean
         SearchUserRequest:
             type: object
             properties:
@@ -6616,6 +6736,10 @@ components:
                     type: string
                 pageNumber:
                     type: string
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         TrendingStoryRoleRequest:
             type: object
             properties:
@@ -6648,6 +6772,10 @@ components:
                     type: string
                 pageNumber:
                     type: string
+                total:
+                    type: string
+                hasMore:
+                    type: boolean
         UnFollowStoryRoleRequest:
             type: object
             properties:
