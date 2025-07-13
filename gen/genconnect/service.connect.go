@@ -374,6 +374,15 @@ const (
 	// TeamsAPIUpdateStorySenceMaxNumberProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStorySenceMaxNumber RPC.
 	TeamsAPIUpdateStorySenceMaxNumberProcedure = "/common.TeamsAPI/UpdateStorySenceMaxNumber"
+	// TeamsAPIUpdateStoryAvatarProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryAvatar RPC.
+	TeamsAPIUpdateStoryAvatarProcedure = "/common.TeamsAPI/UpdateStoryAvatar"
+	// TeamsAPIUpdateStoryCoverProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryCover
+	// RPC.
+	TeamsAPIUpdateStoryCoverProcedure = "/common.TeamsAPI/UpdateStoryCover"
+	// TeamsAPISaveStoryboardCraftProcedure is the fully-qualified name of the TeamsAPI's
+	// SaveStoryboardCraft RPC.
+	TeamsAPISaveStoryboardCraftProcedure = "/common.TeamsAPI/SaveStoryboardCraft"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -623,10 +632,18 @@ type TeamsAPIClient interface {
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 	// 获取生成任务状态
 	QueryTaskStatus(context.Context, *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error)
-	// 获取生成任务状态
+	// 获取故事的风格
 	GetStoryImageStyle(context.Context, *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error)
+	// 更新故事的风格
 	UpdateStoryImageStyle(context.Context, *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error)
+	// 更新故事的场景数量
 	UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error)
+	// 更新故事头像
+	UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error)
+	// 更新故事封面
+	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
+	// 保存故事板草稿
+	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1284,6 +1301,21 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			baseURL+TeamsAPIUpdateStorySenceMaxNumberProcedure,
 			opts...,
 		),
+		updateStoryAvatar: connect.NewClient[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryAvatarProcedure,
+			opts...,
+		),
+		updateStoryCover: connect.NewClient[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryCoverProcedure,
+			opts...,
+		),
+		saveStoryboardCraft: connect.NewClient[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse](
+			httpClient,
+			baseURL+TeamsAPISaveStoryboardCraftProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1418,6 +1450,9 @@ type teamsAPIClient struct {
 	getStoryImageStyle                 *connect.Client[gen.GetStoryImageStyleRequest, gen.GetStoryImageStyleResponse]
 	updateStoryImageStyle              *connect.Client[gen.UpdateStoryImageStyleRequest, gen.UpdateStoryImageStyleResponse]
 	updateStorySenceMaxNumber          *connect.Client[gen.UpdateStorySenceMaxNumberRequest, gen.UpdateStorySenceMaxNumberResponse]
+	updateStoryAvatar                  *connect.Client[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse]
+	updateStoryCover                   *connect.Client[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse]
+	saveStoryboardCraft                *connect.Client[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2065,6 +2100,21 @@ func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, req *con
 	return c.updateStorySenceMaxNumber.CallUnary(ctx, req)
 }
 
+// UpdateStoryAvatar calls common.TeamsAPI.UpdateStoryAvatar.
+func (c *teamsAPIClient) UpdateStoryAvatar(ctx context.Context, req *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error) {
+	return c.updateStoryAvatar.CallUnary(ctx, req)
+}
+
+// UpdateStoryCover calls common.TeamsAPI.UpdateStoryCover.
+func (c *teamsAPIClient) UpdateStoryCover(ctx context.Context, req *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error) {
+	return c.updateStoryCover.CallUnary(ctx, req)
+}
+
+// SaveStoryboardCraft calls common.TeamsAPI.SaveStoryboardCraft.
+func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, req *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error) {
+	return c.saveStoryboardCraft.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
@@ -2312,10 +2362,18 @@ type TeamsAPIHandler interface {
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 	// 获取生成任务状态
 	QueryTaskStatus(context.Context, *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error)
-	// 获取生成任务状态
+	// 获取故事的风格
 	GetStoryImageStyle(context.Context, *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error)
+	// 更新故事的风格
 	UpdateStoryImageStyle(context.Context, *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error)
+	// 更新故事的场景数量
 	UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error)
+	// 更新故事头像
+	UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error)
+	// 更新故事封面
+	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
+	// 保存故事板草稿
+	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -2969,6 +3027,21 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		svc.UpdateStorySenceMaxNumber,
 		opts...,
 	)
+	teamsAPIUpdateStoryAvatarHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateStoryAvatarProcedure,
+		svc.UpdateStoryAvatar,
+		opts...,
+	)
+	teamsAPIUpdateStoryCoverHandler := connect.NewUnaryHandler(
+		TeamsAPIUpdateStoryCoverProcedure,
+		svc.UpdateStoryCover,
+		opts...,
+	)
+	teamsAPISaveStoryboardCraftHandler := connect.NewUnaryHandler(
+		TeamsAPISaveStoryboardCraftProcedure,
+		svc.SaveStoryboardCraft,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3229,6 +3302,12 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUpdateStoryImageStyleHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStorySenceMaxNumberProcedure:
 			teamsAPIUpdateStorySenceMaxNumberHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryAvatarProcedure:
+			teamsAPIUpdateStoryAvatarHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryCoverProcedure:
+			teamsAPIUpdateStoryCoverHandler.ServeHTTP(w, r)
+		case TeamsAPISaveStoryboardCraftProcedure:
+			teamsAPISaveStoryboardCraftHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3752,4 +3831,16 @@ func (UnimplementedTeamsAPIHandler) UpdateStoryImageStyle(context.Context, *conn
 
 func (UnimplementedTeamsAPIHandler) UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStorySenceMaxNumber is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryAvatar is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryCover is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("common.TeamsAPI.SaveStoryboardCraft is not implemented"))
 }

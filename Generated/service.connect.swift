@@ -1006,25 +1006,53 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     @available(iOS 13, *)
     func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Common_QueryTaskStatusResponse>
 
-    /// 获取生成任务状态
+    /// 获取故事的风格
     @discardableResult
     func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
 
-    /// 获取生成任务状态
+    /// 获取故事的风格
     @available(iOS 13, *)
     func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryImageStyleResponse>
 
+    /// 更新故事的风格
     @discardableResult
     func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
 
+    /// 更新故事的风格
     @available(iOS 13, *)
     func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryImageStyleResponse>
 
+    /// 更新故事的场景数量
     @discardableResult
     func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStorySenceMaxNumberResponse>) -> Void) -> Connect.Cancelable
 
+    /// 更新故事的场景数量
     @available(iOS 13, *)
     func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStorySenceMaxNumberResponse>
+
+    /// 更新故事头像
+    @discardableResult
+    func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新故事头像
+    @available(iOS 13, *)
+    func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryAvatarResponse>
+
+    /// 更新故事封面
+    @discardableResult
+    func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable
+
+    /// 更新故事封面
+    @available(iOS 13, *)
+    func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryCoverResponse>
+
+    /// 保存故事板草稿
+    @discardableResult
+    func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable
+
+    /// 保存故事板草稿
+    @available(iOS 13, *)
+    func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SaveStoryboardCraftResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2325,6 +2353,36 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/UpdateStorySenceMaxNumber", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryAvatarResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryCoverResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SaveStoryboardCraftResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2456,6 +2514,9 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryImageStyle = Connect.MethodSpec(name: "GetStoryImageStyle", service: "common.TeamsAPI", type: .unary)
             public static let updateStoryImageStyle = Connect.MethodSpec(name: "UpdateStoryImageStyle", service: "common.TeamsAPI", type: .unary)
             public static let updateStorySenceMaxNumber = Connect.MethodSpec(name: "UpdateStorySenceMaxNumber", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryAvatar = Connect.MethodSpec(name: "UpdateStoryAvatar", service: "common.TeamsAPI", type: .unary)
+            public static let updateStoryCover = Connect.MethodSpec(name: "UpdateStoryCover", service: "common.TeamsAPI", type: .unary)
+            public static let saveStoryboardCraft = Connect.MethodSpec(name: "SaveStoryboardCraft", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

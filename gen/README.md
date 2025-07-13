@@ -430,6 +430,8 @@
     - [ResetPasswordResponse](#common-ResetPasswordResponse)
     - [RestoreStoryboardRequest](#common-RestoreStoryboardRequest)
     - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
+    - [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest)
+    - [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse)
     - [SearchGroupRequest](#common-SearchGroupRequest)
     - [SearchGroupResponse](#common-SearchGroupResponse)
     - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
@@ -470,6 +472,10 @@
     - [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse)
     - [UpdateRolePromptRequest](#common-UpdateRolePromptRequest)
     - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
+    - [UpdateStoryAvatarRequest](#common-UpdateStoryAvatarRequest)
+    - [UpdateStoryAvatarResponse](#common-UpdateStoryAvatarResponse)
+    - [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest)
+    - [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse)
     - [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest)
     - [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse)
     - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
@@ -4393,6 +4399,9 @@ Story 表示一个完整的故事实体
 | total_boards | [int64](#int64) |  | 故事板总数 |
 | total_roles | [int64](#int64) |  | 角色总数 |
 | total_members | [int64](#int64) |  | 成员总数 |
+| cover | [string](#string) |  | 封面 |
+| sence_num | [int64](#int64) |  | 场景数量 |
+| style | [string](#string) |  | 风格 |
 | Ctime | [int64](#int64) |  | 创建时间 |
 | Mtime | [int64](#int64) |  | 修改时间 |
 
@@ -8120,6 +8129,38 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-SaveStoryboardCraftRequest"></a>
+
+### SaveStoryboardCraftRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-SaveStoryboardCraftResponse"></a>
+
+### SaveStoryboardCraftResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-SearchGroupRequest"></a>
 
 ### SearchGroupRequest
@@ -8808,6 +8849,73 @@ UpdateStoryResponse 更新故事的响应结果
 <a name="common-UpdateRolePromptResponse"></a>
 
 ### UpdateRolePromptResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryAvatarRequest"></a>
+
+### UpdateStoryAvatarRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| avatar_url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryAvatarResponse"></a>
+
+### UpdateStoryAvatarResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryCoverRequest"></a>
+
+### UpdateStoryCoverRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| cover_url | [string](#string) |  |  |
+| use_ai_cover | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="common-UpdateStoryCoverResponse"></a>
+
+### UpdateStoryCoverResponse
 
 
 
@@ -9729,9 +9837,12 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
 | UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
 | QueryTaskStatus | [QueryTaskStatusRequest](#common-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#common-QueryTaskStatusResponse) | 获取生成任务状态 |
-| GetStoryImageStyle | [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest) | [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse) | 获取生成任务状态 |
-| UpdateStoryImageStyle | [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest) | [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse) |  |
-| UpdateStorySenceMaxNumber | [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest) | [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse) |  |
+| GetStoryImageStyle | [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest) | [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse) | 获取故事的风格 |
+| UpdateStoryImageStyle | [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest) | [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse) | 更新故事的风格 |
+| UpdateStorySenceMaxNumber | [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest) | [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse) | 更新故事的场景数量 |
+| UpdateStoryAvatar | [UpdateStoryAvatarRequest](#common-UpdateStoryAvatarRequest) | [UpdateStoryAvatarResponse](#common-UpdateStoryAvatarResponse) | 更新故事头像 |
+| UpdateStoryCover | [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse) | 更新故事封面 |
+| SaveStoryboardCraft | [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse) | 保存故事板草稿 |
 
  
 

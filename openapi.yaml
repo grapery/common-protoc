@@ -1196,7 +1196,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
-            description: 获取生成任务状态
+            description: 获取故事的风格
             operationId: TeamsAPI_GetStoryImageStyle
             requestBody:
                 content:
@@ -2189,6 +2189,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/SaveStoryboardCraft:
+        post:
+            tags:
+                - TeamsAPI
+            description: 保存故事板草稿
+            operationId: TeamsAPI_SaveStoryboardCraft
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SaveStoryboardCraftRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SaveStoryboardCraftResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/SearchGroup:
         post:
             tags:
@@ -2662,6 +2687,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryAvatar:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新故事头像
+            operationId: TeamsAPI_UpdateStoryAvatar
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryAvatarRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryAvatarResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryBoardSence:
         post:
             tags:
@@ -2687,10 +2737,36 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryCover:
+        post:
+            tags:
+                - TeamsAPI
+            description: 更新故事封面
+            operationId: TeamsAPI_UpdateStoryCover
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryCoverRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryCoverResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateStoryImageStyle:
         post:
             tags:
                 - TeamsAPI
+            description: 更新故事的风格
             operationId: TeamsAPI_UpdateStoryImageStyle
             requestBody:
                 content:
@@ -2865,6 +2941,7 @@ paths:
         post:
             tags:
                 - TeamsAPI
+            description: 更新故事的场景数量
             operationId: TeamsAPI_UpdateStorySenceMaxNumber
             requestBody:
                 content:
@@ -5770,6 +5847,21 @@ components:
                     type: string
                 store:
                     $ref: '#/components/schemas/StoryboardStageStore'
+        SaveStoryboardCraftRequest:
+            type: object
+            properties:
+                storyboardId:
+                    type: string
+                userId:
+                    type: string
+        SaveStoryboardCraftResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         SearchGroupRequest:
             type: object
             properties:
@@ -6011,6 +6103,12 @@ components:
                 totalRoles:
                     type: string
                 totalMembers:
+                    type: string
+                cover:
+                    type: string
+                senceNum:
+                    type: string
+                style:
                     type: string
                 Ctime:
                     type: string
@@ -6704,6 +6802,23 @@ components:
                     format: enum
                 message:
                     type: string
+        UpdateStoryAvatarRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                avatarUrl:
+                    type: string
+        UpdateStoryAvatarResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
         UpdateStoryBoardSenceRequest:
             type: object
             properties:
@@ -6717,6 +6832,25 @@ components:
                 code:
                     type: integer
                     format: int32
+                message:
+                    type: string
+        UpdateStoryCoverRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                userId:
+                    type: string
+                coverUrl:
+                    type: string
+                useAiCover:
+                    type: boolean
+        UpdateStoryCoverResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
                 message:
                     type: string
         UpdateStoryImageStyleRequest:

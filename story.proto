@@ -109,9 +109,13 @@ message Story{
   int64 total_boards = 26;         // 故事板总数
   int64 total_roles = 27;          // 角色总数
   int64 total_members = 28;        // 成员总数
-  
-  int64 Ctime = 29;                // 创建时间
-  int64 Mtime = 30;                // 修改时间
+
+  string cover = 29;               // 封面
+  int64 sence_num = 30;            // 场景数量
+  string style = 31;               // 风格
+
+  int64 Ctime = 42;                // 创建时间
+  int64 Mtime = 43;                // 修改时间
 }
 
 // StoryParams 包含故事生成和渲染的相关参数

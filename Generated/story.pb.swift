@@ -466,6 +466,24 @@ public struct Common_Story: @unchecked Sendable {
     set {_uniqueStorage()._totalMembers = newValue}
   }
 
+  /// 封面
+  public var cover: String {
+    get {return _storage._cover}
+    set {_uniqueStorage()._cover = newValue}
+  }
+
+  /// 场景数量
+  public var senceNum: Int64 {
+    get {return _storage._senceNum}
+    set {_uniqueStorage()._senceNum = newValue}
+  }
+
+  /// 风格
+  public var style: String {
+    get {return _storage._style}
+    set {_uniqueStorage()._style = newValue}
+  }
+
   /// 创建时间
   public var ctime: Int64 {
     get {return _storage._ctime}
@@ -3633,8 +3651,11 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     26: .standard(proto: "total_boards"),
     27: .standard(proto: "total_roles"),
     28: .standard(proto: "total_members"),
-    29: .same(proto: "Ctime"),
-    30: .same(proto: "Mtime"),
+    29: .same(proto: "cover"),
+    30: .standard(proto: "sence_num"),
+    31: .same(proto: "style"),
+    42: .same(proto: "Ctime"),
+    43: .same(proto: "Mtime"),
   ]
 
   fileprivate class _StorageClass {
@@ -3665,6 +3686,9 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     var _totalBoards: Int64 = 0
     var _totalRoles: Int64 = 0
     var _totalMembers: Int64 = 0
+    var _cover: String = String()
+    var _senceNum: Int64 = 0
+    var _style: String = String()
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -3704,6 +3728,9 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       _totalBoards = source._totalBoards
       _totalRoles = source._totalRoles
       _totalMembers = source._totalMembers
+      _cover = source._cover
+      _senceNum = source._senceNum
+      _style = source._style
       _ctime = source._ctime
       _mtime = source._mtime
     }
@@ -3751,8 +3778,11 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         case 26: try { try decoder.decodeSingularInt64Field(value: &_storage._totalBoards) }()
         case 27: try { try decoder.decodeSingularInt64Field(value: &_storage._totalRoles) }()
         case 28: try { try decoder.decodeSingularInt64Field(value: &_storage._totalMembers) }()
-        case 29: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 30: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 29: try { try decoder.decodeSingularStringField(value: &_storage._cover) }()
+        case 30: try { try decoder.decodeSingularInt64Field(value: &_storage._senceNum) }()
+        case 31: try { try decoder.decodeSingularStringField(value: &_storage._style) }()
+        case 42: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 43: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
         default: break
         }
       }
@@ -3846,11 +3876,20 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       if _storage._totalMembers != 0 {
         try visitor.visitSingularInt64Field(value: _storage._totalMembers, fieldNumber: 28)
       }
+      if !_storage._cover.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._cover, fieldNumber: 29)
+      }
+      if _storage._senceNum != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._senceNum, fieldNumber: 30)
+      }
+      if !_storage._style.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._style, fieldNumber: 31)
+      }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 29)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 42)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 30)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 43)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -3888,6 +3927,9 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
         if _storage._totalBoards != rhs_storage._totalBoards {return false}
         if _storage._totalRoles != rhs_storage._totalRoles {return false}
         if _storage._totalMembers != rhs_storage._totalMembers {return false}
+        if _storage._cover != rhs_storage._cover {return false}
+        if _storage._senceNum != rhs_storage._senceNum {return false}
+        if _storage._style != rhs_storage._style {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         return true

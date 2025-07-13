@@ -1643,21 +1643,21 @@ service TeamsAPI {
     };
   }
 
-  // 获取生成任务状态
+  // 获取故事的风格
   rpc GetStoryImageStyle(GetStoryImageStyleRequest) returns (GetStoryImageStyleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryImageStyle"
       body : "*"
     };
   }
-
+  // 更新故事的风格
   rpc UpdateStoryImageStyle(UpdateStoryImageStyleRequest) returns (UpdateStoryImageStyleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryImageStyle"
       body : "*"
     };
   }
-
+  // 更新故事的场景数量
   rpc UpdateStorySenceMaxNumber(UpdateStorySenceMaxNumberRequest) returns (UpdateStorySenceMaxNumberResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStorySenceMaxNumber"
@@ -1665,6 +1665,52 @@ service TeamsAPI {
     };
   }
 
+  // 更新故事头像
+  rpc UpdateStoryAvatar(UpdateStoryAvatarRequest) returns (UpdateStoryAvatarResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryAvatar"
+      body : "*"
+    };
+  }
+
+  // 更新故事封面
+  rpc UpdateStoryCover(UpdateStoryCoverRequest) returns (UpdateStoryCoverResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryCover"
+      body : "*"
+    };
+  }
+
+  // 保存故事板草稿
+  rpc SaveStoryboardCraft(SaveStoryboardCraftRequest) returns (SaveStoryboardCraftResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/SaveStoryboardCraft"
+      body : "*"
+    };
+  }
+}
+
+message UpdateStoryAvatarRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+  string avatar_url = 3;
+}
+
+message UpdateStoryAvatarResponse {
+  ResponseCode code = 1;
+  string message = 2;
+}
+
+message UpdateStoryCoverRequest {
+  int64 story_id = 1;
+  int64 user_id = 2;
+  string cover_url = 3;
+  bool use_ai_cover = 4;
+}
+
+message UpdateStoryCoverResponse {
+  ResponseCode code = 1;
+  string message = 2;
 }
 
 message GetStoryImageStyleRequest {
@@ -2138,6 +2184,16 @@ message GetUserWatchStoryActiveStoryBoardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
+}
+
+message SaveStoryboardCraftRequest {
+  int64 storyboard_id = 1;
+  int64 user_id = 2;
+}
+
+message SaveStoryboardCraftResponse{
+  ResponseCode code = 1;
+  string message = 2;
 }
 
 message PublishStoryboardRequest {

@@ -148,6 +148,9 @@ const (
 	TeamsAPI_GetStoryImageStyle_FullMethodName                 = "/common.TeamsAPI/GetStoryImageStyle"
 	TeamsAPI_UpdateStoryImageStyle_FullMethodName              = "/common.TeamsAPI/UpdateStoryImageStyle"
 	TeamsAPI_UpdateStorySenceMaxNumber_FullMethodName          = "/common.TeamsAPI/UpdateStorySenceMaxNumber"
+	TeamsAPI_UpdateStoryAvatar_FullMethodName                  = "/common.TeamsAPI/UpdateStoryAvatar"
+	TeamsAPI_UpdateStoryCover_FullMethodName                   = "/common.TeamsAPI/UpdateStoryCover"
+	TeamsAPI_SaveStoryboardCraft_FullMethodName                = "/common.TeamsAPI/SaveStoryboardCraft"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -399,10 +402,18 @@ type TeamsAPIClient interface {
 	UpdateStoryRoleDescriptionDetail(ctx context.Context, in *UpdateStoryRoleDescriptionDetailRequest, opts ...grpc.CallOption) (*UpdateStoryRoleDescriptionDetailResponse, error)
 	// 获取生成任务状态
 	QueryTaskStatus(ctx context.Context, in *QueryTaskStatusRequest, opts ...grpc.CallOption) (*QueryTaskStatusResponse, error)
-	// 获取生成任务状态
+	// 获取故事的风格
 	GetStoryImageStyle(ctx context.Context, in *GetStoryImageStyleRequest, opts ...grpc.CallOption) (*GetStoryImageStyleResponse, error)
+	// 更新故事的风格
 	UpdateStoryImageStyle(ctx context.Context, in *UpdateStoryImageStyleRequest, opts ...grpc.CallOption) (*UpdateStoryImageStyleResponse, error)
+	// 更新故事的场景数量
 	UpdateStorySenceMaxNumber(ctx context.Context, in *UpdateStorySenceMaxNumberRequest, opts ...grpc.CallOption) (*UpdateStorySenceMaxNumberResponse, error)
+	// 更新故事头像
+	UpdateStoryAvatar(ctx context.Context, in *UpdateStoryAvatarRequest, opts ...grpc.CallOption) (*UpdateStoryAvatarResponse, error)
+	// 更新故事封面
+	UpdateStoryCover(ctx context.Context, in *UpdateStoryCoverRequest, opts ...grpc.CallOption) (*UpdateStoryCoverResponse, error)
+	// 保存故事板草稿
+	SaveStoryboardCraft(ctx context.Context, in *SaveStoryboardCraftRequest, opts ...grpc.CallOption) (*SaveStoryboardCraftResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1574,6 +1585,33 @@ func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, in *Upda
 	return out, nil
 }
 
+func (c *teamsAPIClient) UpdateStoryAvatar(ctx context.Context, in *UpdateStoryAvatarRequest, opts ...grpc.CallOption) (*UpdateStoryAvatarResponse, error) {
+	out := new(UpdateStoryAvatarResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryAvatar_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UpdateStoryCover(ctx context.Context, in *UpdateStoryCoverRequest, opts ...grpc.CallOption) (*UpdateStoryCoverResponse, error) {
+	out := new(UpdateStoryCoverResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryCover_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, in *SaveStoryboardCraftRequest, opts ...grpc.CallOption) (*SaveStoryboardCraftResponse, error) {
+	out := new(SaveStoryboardCraftResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_SaveStoryboardCraft_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1823,10 +1861,18 @@ type TeamsAPIServer interface {
 	UpdateStoryRoleDescriptionDetail(context.Context, *UpdateStoryRoleDescriptionDetailRequest) (*UpdateStoryRoleDescriptionDetailResponse, error)
 	// 获取生成任务状态
 	QueryTaskStatus(context.Context, *QueryTaskStatusRequest) (*QueryTaskStatusResponse, error)
-	// 获取生成任务状态
+	// 获取故事的风格
 	GetStoryImageStyle(context.Context, *GetStoryImageStyleRequest) (*GetStoryImageStyleResponse, error)
+	// 更新故事的风格
 	UpdateStoryImageStyle(context.Context, *UpdateStoryImageStyleRequest) (*UpdateStoryImageStyleResponse, error)
+	// 更新故事的场景数量
 	UpdateStorySenceMaxNumber(context.Context, *UpdateStorySenceMaxNumberRequest) (*UpdateStorySenceMaxNumberResponse, error)
+	// 更新故事头像
+	UpdateStoryAvatar(context.Context, *UpdateStoryAvatarRequest) (*UpdateStoryAvatarResponse, error)
+	// 更新故事封面
+	UpdateStoryCover(context.Context, *UpdateStoryCoverRequest) (*UpdateStoryCoverResponse, error)
+	// 保存故事板草稿
+	SaveStoryboardCraft(context.Context, *SaveStoryboardCraftRequest) (*SaveStoryboardCraftResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2220,6 +2266,15 @@ func (UnimplementedTeamsAPIServer) UpdateStoryImageStyle(context.Context, *Updat
 }
 func (UnimplementedTeamsAPIServer) UpdateStorySenceMaxNumber(context.Context, *UpdateStorySenceMaxNumberRequest) (*UpdateStorySenceMaxNumberResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStorySenceMaxNumber not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryAvatar(context.Context, *UpdateStoryAvatarRequest) (*UpdateStoryAvatarResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryAvatar not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryCover(context.Context, *UpdateStoryCoverRequest) (*UpdateStoryCoverResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryCover not implemented")
+}
+func (UnimplementedTeamsAPIServer) SaveStoryboardCraft(context.Context, *SaveStoryboardCraftRequest) (*SaveStoryboardCraftResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SaveStoryboardCraft not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4556,6 +4611,60 @@ func _TeamsAPI_UpdateStorySenceMaxNumber_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UpdateStoryAvatar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryAvatarRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryAvatar(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryAvatar_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryAvatar(ctx, req.(*UpdateStoryAvatarRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UpdateStoryCover_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryCoverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryCover(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryCover_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryCover(ctx, req.(*UpdateStoryCoverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_SaveStoryboardCraft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveStoryboardCraftRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).SaveStoryboardCraft(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_SaveStoryboardCraft_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).SaveStoryboardCraft(ctx, req.(*SaveStoryboardCraftRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5078,6 +5187,18 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStorySenceMaxNumber",
 			Handler:    _TeamsAPI_UpdateStorySenceMaxNumber_Handler,
+		},
+		{
+			MethodName: "UpdateStoryAvatar",
+			Handler:    _TeamsAPI_UpdateStoryAvatar_Handler,
+		},
+		{
+			MethodName: "UpdateStoryCover",
+			Handler:    _TeamsAPI_UpdateStoryCover_Handler,
+		},
+		{
+			MethodName: "SaveStoryboardCraft",
+			Handler:    _TeamsAPI_SaveStoryboardCraft_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
