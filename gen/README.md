@@ -4435,6 +4435,7 @@ StoryBoard 表示故事中的一个场景或章节
 | sences | [StoryBoardSences](#common-StoryBoardSences) |  | 场景列表 |
 | is_multi_branch | [bool](#bool) |  | 是否多分支 |
 | stage | [StoryboardStage](#common-StoryboardStage) |  | 故事板阶段 |
+| ForkNum | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  | 创建时间 |
 | Mtime | [int64](#int64) |  | 修改时间 |
 | current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |

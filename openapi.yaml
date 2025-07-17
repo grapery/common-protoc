@@ -6273,6 +6273,8 @@ components:
                 stage:
                     type: integer
                     format: enum
+                ForkNum:
+                    type: string
                 Ctime:
                     type: string
                 Mtime:

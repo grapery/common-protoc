@@ -648,6 +648,11 @@ public struct Common_StoryBoard: @unchecked Sendable {
     set {_uniqueStorage()._stage = newValue}
   }
 
+  public var forkNum: Int64 {
+    get {return _storage._forkNum}
+    set {_uniqueStorage()._forkNum = newValue}
+  }
+
   /// 创建时间
   public var ctime: Int64 {
     get {return _storage._ctime}
@@ -4045,9 +4050,10 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     16: .same(proto: "sences"),
     17: .standard(proto: "is_multi_branch"),
     18: .same(proto: "stage"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
-    21: .standard(proto: "current_user_status"),
+    19: .same(proto: "ForkNum"),
+    20: .same(proto: "Ctime"),
+    21: .same(proto: "Mtime"),
+    22: .standard(proto: "current_user_status"),
   ]
 
   fileprivate class _StorageClass {
@@ -4066,6 +4072,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     var _sences: Common_StoryBoardSences? = nil
     var _isMultiBranch: Bool = false
     var _stage: Common_StoryboardStage = .unspecified
+    var _forkNum: Int64 = 0
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
     var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
@@ -4094,6 +4101,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       _sences = source._sences
       _isMultiBranch = source._isMultiBranch
       _stage = source._stage
+      _forkNum = source._forkNum
       _ctime = source._ctime
       _mtime = source._mtime
       _currentUserStatus = source._currentUserStatus
@@ -4130,9 +4138,10 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         case 16: try { try decoder.decodeSingularMessageField(value: &_storage._sences) }()
         case 17: try { try decoder.decodeSingularBoolField(value: &_storage._isMultiBranch) }()
         case 18: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
-        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
-        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
-        case 21: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
+        case 19: try { try decoder.decodeSingularInt64Field(value: &_storage._forkNum) }()
+        case 20: try { try decoder.decodeSingularInt64Field(value: &_storage._ctime) }()
+        case 21: try { try decoder.decodeSingularInt64Field(value: &_storage._mtime) }()
+        case 22: try { try decoder.decodeSingularMessageField(value: &_storage._currentUserStatus) }()
         default: break
         }
       }
@@ -4190,14 +4199,17 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       if _storage._stage != .unspecified {
         try visitor.visitSingularEnumField(value: _storage._stage, fieldNumber: 18)
       }
+      if _storage._forkNum != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._forkNum, fieldNumber: 19)
+      }
       if _storage._ctime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 19)
+        try visitor.visitSingularInt64Field(value: _storage._ctime, fieldNumber: 20)
       }
       if _storage._mtime != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 20)
+        try visitor.visitSingularInt64Field(value: _storage._mtime, fieldNumber: 21)
       }
       try { if let v = _storage._currentUserStatus {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
       } }()
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4223,6 +4235,7 @@ extension Common_StoryBoard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         if _storage._sences != rhs_storage._sences {return false}
         if _storage._isMultiBranch != rhs_storage._isMultiBranch {return false}
         if _storage._stage != rhs_storage._stage {return false}
+        if _storage._forkNum != rhs_storage._forkNum {return false}
         if _storage._ctime != rhs_storage._ctime {return false}
         if _storage._mtime != rhs_storage._mtime {return false}
         if _storage._currentUserStatus != rhs_storage._currentUserStatus {return false}

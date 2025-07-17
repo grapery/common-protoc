@@ -149,9 +149,10 @@ message StoryBoard{
     StoryBoardSences sences = 16;   // 场景列表
     bool is_multi_branch = 17;     // 是否多分支
     StoryboardStage stage = 18;    // 故事板阶段
-    int64 Ctime = 19;              // 创建时间
-    int64 Mtime = 20;              // 修改时间
-    WhatCurrentUserStatus current_user_status = 21;  // 当前用户状态
+    int64 ForkNum = 19;
+    int64 Ctime = 20;              // 创建时间
+    int64 Mtime = 21;              // 修改时间
+    WhatCurrentUserStatus current_user_status = 22;  // 当前用户状态
 }
 
 // StoryBoardSences 包含故事板中的所有场景
