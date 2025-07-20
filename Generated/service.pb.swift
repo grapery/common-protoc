@@ -520,6 +520,10 @@ public struct Common_UserWatchingResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    public var hasMore_p: Bool = false
+
+    public var total: Int32 = 0
+
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
@@ -579,6 +583,10 @@ public struct Common_UserGroupResponse: Sendable {
 
     public var pageSize: Int32 = 0
 
+    public var total: Int32 = 0
+
+    public var hasMore_p: Bool = false
+
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
@@ -637,6 +645,10 @@ public struct Common_UserFollowingGroupResponse: Sendable {
     public var offset: Int64 = 0
 
     public var pageSize: Int64 = 0
+
+    public var total: Int32 = 0
+
+    public var hasMore_p: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -820,6 +832,10 @@ public struct Common_SearchUserResponse: Sendable {
     public var offset: Int64 = 0
 
     public var pageSize: Int64 = 0
+
+    public var total: Int32 = 0
+
+    public var hasMore_p: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1674,6 +1690,8 @@ public struct Common_FetchGroupMembersResponse: Sendable {
     public var offset: Int64 = 0
 
     public var total: Int64 = 0
+
+    public var hasMore_p: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6279,18 +6297,37 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserWatchingResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "has_more"),
+    2: .same(proto: "total"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      default: break
+      }
+    }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.hasMore_p != false {
+      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 1)
+    }
+    if self.total != 0 {
+      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UserWatchingResponse.DataMessage, rhs: Common_UserWatchingResponse.DataMessage) -> Bool {
+    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6400,6 +6437,8 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
+    4: .same(proto: "total"),
+    5: .standard(proto: "has_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6411,6 +6450,8 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
       default: break
       }
     }
@@ -6426,6 +6467,12 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     if self.pageSize != 0 {
       try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 4)
+    }
+    if self.hasMore_p != false {
+      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -6433,6 +6480,8 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.hasMore_p != rhs.hasMore_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6537,6 +6586,8 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     2: .same(proto: "list"),
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
+    5: .same(proto: "total"),
+    6: .standard(proto: "has_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6549,6 +6600,8 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
       default: break
       }
     }
@@ -6567,6 +6620,12 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 5)
+    }
+    if self.hasMore_p != false {
+      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -6575,6 +6634,8 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.hasMore_p != rhs.hasMore_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6979,6 +7040,8 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
+    4: .same(proto: "total"),
+    5: .standard(proto: "has_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6990,6 +7053,8 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
       default: break
       }
     }
@@ -7005,6 +7070,12 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 4)
+    }
+    if self.hasMore_p != false {
+      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -7012,6 +7083,8 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.hasMore_p != rhs.hasMore_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -8846,6 +8919,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .same(proto: "total"),
+    4: .standard(proto: "has_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8857,6 +8931,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
       default: break
       }
     }
@@ -8872,6 +8947,9 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 3)
     }
+    if self.hasMore_p != false {
+      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -8879,6 +8957,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.total != rhs.total {return false}
+    if lhs.hasMore_p != rhs.hasMore_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

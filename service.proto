@@ -144,6 +144,8 @@ message UserWatchingResponse {
   ResponseCode code = 1;
   string msg = 2;
   message Data {
+    bool has_more = 1;
+    int32 total = 2;
   }
   Data data = 3;
 }
@@ -167,6 +169,8 @@ message UserGroupResponse {
     repeated GroupInfo list = 1;
     int32 offset = 2;
     int32 page_size = 3;
+    int32 total = 4;
+    bool has_more = 5;
   }
   Data data = 3;
 }
@@ -185,6 +189,8 @@ message UserFollowingGroupResponse {
     repeated GroupInfo list = 2;
     int64 offset = 3;
     int64 page_size = 4;
+    int32 total = 5;
+    bool has_more = 6;
   }
   Data data = 3;
 }
@@ -240,6 +246,8 @@ message SearchUserResponse {
     repeated UserInfo list = 1;
     int64 offset = 2;
     int64 page_size = 3;
+    int32 total = 4;
+    bool has_more = 5;
   }
   Data data = 3;
 }
@@ -457,6 +465,7 @@ message FetchGroupMembersResponse {
     repeated UserInfo list = 1;
     int64 offset = 2;
     int64 total = 3;
+    bool has_more = 4;
   } Data data = 3;
 }
 

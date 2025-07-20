@@ -6066,6 +6066,7 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -8414,6 +8415,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| total | [int32](#int32) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -9458,6 +9461,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
+| total | [int32](#int32) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -9510,6 +9515,8 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
+| total | [int32](#int32) |  |  |
+| has_more | [bool](#bool) |  |  |
 
 
 
@@ -9715,6 +9722,12 @@ user ,group .project.item
 
 ### UserWatchingResponse.Data
 
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| has_more | [bool](#bool) |  |  |
+| total | [int32](#int32) |  |  |
 
 
 

@@ -4045,6 +4045,8 @@ components:
                     type: string
                 total:
                     type: string
+                hasMore:
+                    type: boolean
         FetchGroupStorysRequest:
             type: object
             properties:
@@ -6117,6 +6119,11 @@ components:
                     type: string
                 pageSize:
                     type: string
+                total:
+                    type: integer
+                    format: int32
+                hasMore:
+                    type: boolean
         ShareStoryboardRequest:
             type: object
             properties:
@@ -7325,6 +7332,11 @@ components:
                     type: string
                 pageSize:
                     type: string
+                total:
+                    type: integer
+                    format: int32
+                hasMore:
+                    type: boolean
         UserGroupRequest:
             type: object
             properties:
@@ -7362,6 +7374,11 @@ components:
                 pageSize:
                     type: integer
                     format: int32
+                total:
+                    type: integer
+                    format: int32
+                hasMore:
+                    type: boolean
         UserInfo:
             type: object
             properties:
@@ -7541,7 +7558,12 @@ components:
                     $ref: '#/components/schemas/UserWatchingResponse_Data'
         UserWatchingResponse_Data:
             type: object
-            properties: {}
+            properties:
+                hasMore:
+                    type: boolean
+                total:
+                    type: integer
+                    format: int32
         VersionResponse:
             type: object
             properties:
