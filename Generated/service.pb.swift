@@ -520,7 +520,7 @@ public struct Common_UserWatchingResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var total: Int32 = 0
 
@@ -585,7 +585,7 @@ public struct Common_UserGroupResponse: Sendable {
 
     public var total: Int32 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -648,7 +648,7 @@ public struct Common_UserFollowingGroupResponse: Sendable {
 
     public var total: Int32 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -768,7 +768,7 @@ public struct Common_FetchActivesResponse: Sendable {
 
     public var pageSize: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var total: Int64 = 0
 
@@ -835,7 +835,7 @@ public struct Common_SearchUserResponse: Sendable {
 
     public var total: Int32 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1512,7 +1512,7 @@ public struct Common_GetGroupActivesResponse: Sendable {
 
     public var pageSize: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var total: Int64 = 0
 
@@ -1691,7 +1691,7 @@ public struct Common_FetchGroupMembersResponse: Sendable {
 
     public var total: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1758,7 +1758,7 @@ public struct Common_SearchGroupResponse: Sendable {
 
     public var pageSize: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var total: Int64 = 0
 
@@ -2444,7 +2444,7 @@ public struct Common_GetStoryParticipantsResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2826,7 +2826,7 @@ public struct Common_GetFollowListResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2862,7 +2862,7 @@ public struct Common_GetFollowerListResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2976,7 +2976,7 @@ public struct Common_TrendingStoryRoleResponse: Sendable {
 
     public var total: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3039,7 +3039,7 @@ public struct Common_TrendingStoryResponse: Sendable {
 
     public var total: Int64 = 0
 
-    public var hasMore_p: Bool = false
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3086,7 +3086,7 @@ public struct Common_GetStoryRoleListResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3294,7 +3294,7 @@ public struct Common_GetStoryCommentsResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3364,7 +3364,7 @@ public struct Common_GetStoryCommentRepliesResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3481,7 +3481,7 @@ public struct Common_GetStoryBoardCommentsResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3600,7 +3600,7 @@ public struct Common_GetStoryBoardCommentRepliesResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3833,7 +3833,7 @@ public struct Common_GetUnPublishStoryboardResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3877,7 +3877,7 @@ public struct Common_GetUserWatchRoleActiveStoryBoardsResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3921,7 +3921,7 @@ public struct Common_GetUserWatchStoryActiveStoryBoardsResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4050,7 +4050,7 @@ public struct Common_RenderStoryRoleContinuouslyResponse: Sendable {
   /// Clears the value of `detail`. Subsequent reads from it will return its default value.
   public mutating func clearDetail() {self._detail = nil}
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4104,7 +4104,7 @@ public struct Common_GetNextStoryboardResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4144,7 +4144,7 @@ public struct Common_GetUserChatMessagesResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4187,7 +4187,7 @@ public struct Common_GetUserChatWithRoleResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4235,7 +4235,7 @@ public struct Common_GetStoryRoleStoryboardsResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4279,7 +4279,7 @@ public struct Common_GetStoryRoleStoriesResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4412,7 +4412,7 @@ public struct Common_ChatWithStoryRoleRequest: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4432,7 +4432,7 @@ public struct Common_ChatWithStoryRoleResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4547,7 +4547,7 @@ public struct Common_GetUserWithRoleChatListResponse: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4587,7 +4587,7 @@ public struct Common_GetUserCreatedStoryboardsResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var offset: Int64 = 0
 
@@ -4631,7 +4631,7 @@ public struct Common_GetUserCreatedRolesResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var offset: Int64 = 0
 
@@ -4797,7 +4797,7 @@ public struct Common_SearchStoriesResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4841,7 +4841,7 @@ public struct Common_SearchRolesResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore_p: Bool = false
+  public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6298,7 +6298,7 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserWatchingResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "has_more"),
+    1: .standard(proto: "have_more"),
     2: .same(proto: "total"),
   ]
 
@@ -6308,7 +6308,7 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
       default: break
       }
@@ -6316,8 +6316,8 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 1)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 1)
     }
     if self.total != 0 {
       try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 2)
@@ -6326,7 +6326,7 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 
   public static func ==(lhs: Common_UserWatchingResponse.DataMessage, rhs: Common_UserWatchingResponse.DataMessage) -> Bool {
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -6438,7 +6438,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6451,7 +6451,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -6470,8 +6470,8 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     if self.total != 0 {
       try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -6481,7 +6481,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6587,7 +6587,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
     5: .same(proto: "total"),
-    6: .standard(proto: "has_more"),
+    6: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6601,7 +6601,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       case 5: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -6623,8 +6623,8 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     if self.total != 0 {
       try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 5)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 6)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -6635,7 +6635,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -6875,7 +6875,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     2: .same(proto: "timestamp"),
     3: .same(proto: "offset"),
     4: .standard(proto: "page_size"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
     6: .same(proto: "total"),
   ]
 
@@ -6889,7 +6889,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       default: break
       }
@@ -6909,8 +6909,8 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 6)
@@ -6923,7 +6923,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -7041,7 +7041,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7054,7 +7054,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -7073,8 +7073,8 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     if self.total != 0 {
       try visitor.visitSingularInt32Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -7084,7 +7084,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -8540,7 +8540,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
-    4: .standard(proto: "has_more"),
+    4: .standard(proto: "have_more"),
     5: .same(proto: "total"),
   ]
 
@@ -8553,7 +8553,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       default: break
       }
@@ -8570,8 +8570,8 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 3)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 4)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 4)
     }
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 5)
@@ -8583,7 +8583,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -8919,7 +8919,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .same(proto: "total"),
-    4: .standard(proto: "has_more"),
+    4: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8931,7 +8931,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -8947,8 +8947,8 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 3)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 4)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -8957,7 +8957,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -9085,7 +9085,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     1: .same(proto: "list"),
     2: .same(proto: "offset"),
     3: .standard(proto: "page_size"),
-    4: .standard(proto: "has_more"),
+    4: .standard(proto: "have_more"),
     5: .same(proto: "total"),
   ]
 
@@ -9098,7 +9098,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       default: break
       }
@@ -9115,8 +9115,8 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 3)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 4)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 4)
     }
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 5)
@@ -9128,7 +9128,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -10583,7 +10583,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
     2: .same(proto: "message"),
     3: .same(proto: "participants"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10596,7 +10596,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.participants) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -10615,8 +10615,8 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -10626,7 +10626,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
     if lhs.message != rhs.message {return false}
     if lhs.participants != rhs.participants {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11571,7 +11571,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     2: .same(proto: "message"),
     3: .same(proto: "followers"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -11584,7 +11584,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.followers) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -11603,8 +11603,8 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -11614,7 +11614,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.message != rhs.message {return false}
     if lhs.followers != rhs.followers {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11671,7 +11671,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
     2: .same(proto: "message"),
     3: .same(proto: "followers"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -11684,7 +11684,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.followers) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -11703,8 +11703,8 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -11714,7 +11714,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
     if lhs.message != rhs.message {return false}
     if lhs.followers != rhs.followers {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11977,7 +11977,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
     2: .standard(proto: "page_size"),
     3: .standard(proto: "page_number"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -11990,7 +11990,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageNumber) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -12009,8 +12009,8 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12020,7 +12020,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageNumber != rhs.pageNumber {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12131,7 +12131,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
     2: .standard(proto: "page_size"),
     3: .standard(proto: "page_number"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12144,7 +12144,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.pageNumber) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -12163,8 +12163,8 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12174,7 +12174,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageNumber != rhs.pageNumber {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12249,7 +12249,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
     2: .same(proto: "message"),
     3: .same(proto: "roles"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12262,7 +12262,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -12281,8 +12281,8 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12292,7 +12292,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12749,7 +12749,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12764,7 +12764,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -12789,8 +12789,8 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12802,7 +12802,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12943,7 +12943,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12958,7 +12958,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -12983,8 +12983,8 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12996,7 +12996,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -13269,7 +13269,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13284,7 +13284,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -13309,8 +13309,8 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13322,7 +13322,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -13601,7 +13601,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13616,7 +13616,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -13641,8 +13641,8 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13654,7 +13654,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14221,7 +14221,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -14236,7 +14236,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -14261,8 +14261,8 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -14274,7 +14274,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14345,7 +14345,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -14360,7 +14360,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -14385,8 +14385,8 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -14398,7 +14398,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14469,7 +14469,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -14484,7 +14484,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -14509,8 +14509,8 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -14522,7 +14522,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14818,7 +14818,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
     1: .same(proto: "code"),
     2: .same(proto: "message"),
     3: .same(proto: "detail"),
-    4: .standard(proto: "has_more"),
+    4: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -14830,7 +14830,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._detail) }()
-      case 4: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -14850,8 +14850,8 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
     try { if let v = self._detail {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     } }()
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 4)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -14860,7 +14860,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._detail != rhs._detail {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14950,7 +14950,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     5: .same(proto: "total"),
     6: .same(proto: "offset"),
     7: .standard(proto: "page_size"),
-    8: .standard(proto: "has_more"),
+    8: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -14966,7 +14966,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 8: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -14994,8 +14994,8 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 7)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 8)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 8)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15008,7 +15008,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15072,7 +15072,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
     3: .same(proto: "messages"),
     4: .same(proto: "timestamp"),
     5: .same(proto: "total"),
-    6: .standard(proto: "has_more"),
+    6: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15086,7 +15086,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.messages) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15108,8 +15108,8 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 5)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 6)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15120,7 +15120,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.messages != rhs.messages {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15172,7 +15172,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
     3: .same(proto: "messages"),
     4: .standard(proto: "chat_context"),
     5: .same(proto: "total"),
-    6: .standard(proto: "has_more"),
+    6: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15186,7 +15186,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.messages) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._chatContext) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 6: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15212,8 +15212,8 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 5)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 6)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15224,7 +15224,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.messages != rhs.messages {return false}
     if lhs._chatContext != rhs._chatContext {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15301,7 +15301,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15316,7 +15316,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15341,8 +15341,8 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15354,7 +15354,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15425,7 +15425,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15440,7 +15440,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15465,8 +15465,8 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15478,7 +15478,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15721,7 +15721,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     2: .standard(proto: "user_id"),
     3: .same(proto: "messages"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15734,7 +15734,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.messages) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15753,8 +15753,8 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15764,7 +15764,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.userID != rhs.userID {return false}
     if lhs.messages != rhs.messages {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15777,7 +15777,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     2: .same(proto: "message"),
     3: .standard(proto: "reply_messages"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -15790,7 +15790,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.replyMessages) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -15809,8 +15809,8 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -15820,7 +15820,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     if lhs.message != rhs.message {return false}
     if lhs.replyMessages != rhs.replyMessages {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -16065,7 +16065,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     4: .same(proto: "total"),
     5: .same(proto: "offset"),
     6: .standard(proto: "page_size"),
-    7: .standard(proto: "has_more"),
+    7: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -16080,7 +16080,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
       case 5: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
-      case 7: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -16105,8 +16105,8 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 6)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 7)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -16118,7 +16118,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     if lhs.total != rhs.total {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -16187,7 +16187,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
     2: .same(proto: "message"),
     3: .same(proto: "storyboards"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
     6: .same(proto: "offset"),
     8: .standard(proto: "page_size"),
   ]
@@ -16202,7 +16202,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.storyboards) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 8: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
@@ -16223,8 +16223,8 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     if self.offset != 0 {
       try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 6)
@@ -16240,7 +16240,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
     if lhs.message != rhs.message {return false}
     if lhs.storyboards != rhs.storyboards {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16311,7 +16311,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
     2: .same(proto: "message"),
     3: .same(proto: "roles"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
     6: .same(proto: "offset"),
     8: .standard(proto: "page_size"),
   ]
@@ -16326,7 +16326,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
       case 8: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
@@ -16347,8 +16347,8 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     if self.offset != 0 {
       try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 6)
@@ -16364,7 +16364,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16769,7 +16769,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     2: .same(proto: "message"),
     3: .same(proto: "stories"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -16782,7 +16782,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.stories) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -16801,8 +16801,8 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -16812,7 +16812,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.message != rhs.message {return false}
     if lhs.stories != rhs.stories {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -16893,7 +16893,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     2: .same(proto: "message"),
     3: .same(proto: "roles"),
     4: .same(proto: "total"),
-    5: .standard(proto: "has_more"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -16906,7 +16906,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.roles) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.hasMore_p) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -16925,8 +16925,8 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.total != 0 {
       try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
     }
-    if self.hasMore_p != false {
-      try visitor.visitSingularBoolField(value: self.hasMore_p, fieldNumber: 5)
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -16936,7 +16936,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
     if lhs.total != rhs.total {return false}
-    if lhs.hasMore_p != rhs.hasMore_p {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

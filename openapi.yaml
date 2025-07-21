@@ -3532,7 +3532,7 @@ components:
                         $ref: '#/components/schemas/ChatMessage'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         ChatWithStoryRoleResponse:
             type: object
@@ -3548,7 +3548,7 @@ components:
                         $ref: '#/components/schemas/ChatMessage'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         CommentInfo:
             type: object
@@ -4011,7 +4011,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
                 total:
                     type: string
@@ -4045,7 +4045,7 @@ components:
                     type: string
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         FetchGroupStorysRequest:
             type: object
@@ -4308,7 +4308,7 @@ components:
                         $ref: '#/components/schemas/UserInfo'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetFollowerListRequest:
             type: object
@@ -4333,7 +4333,7 @@ components:
                         $ref: '#/components/schemas/UserInfo'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetGroupActivesRequest:
             type: object
@@ -4368,7 +4368,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
                 total:
                     type: string
@@ -4460,7 +4460,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryBoardCommentRepliesRequest:
             type: object
@@ -4491,7 +4491,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryBoardCommentsRequest:
             type: object
@@ -4522,7 +4522,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryBoardGenerateRequest:
             type: object
@@ -4675,7 +4675,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryCommentsRequest:
             type: object
@@ -4706,7 +4706,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryContributorsRequest:
             type: object
@@ -4794,7 +4794,7 @@ components:
                         $ref: '#/components/schemas/UserInfo'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryRenderRequest:
             type: object
@@ -4870,7 +4870,7 @@ components:
                         $ref: '#/components/schemas/StoryRole'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryRoleStoriesRequest:
             type: object
@@ -4903,7 +4903,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryRoleStoryboardsRequest:
             type: object
@@ -4938,7 +4938,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetStoryRolesRequest:
             type: object
@@ -5072,7 +5072,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetUserChatMessagesRequest:
             type: object
@@ -5101,7 +5101,7 @@ components:
                     type: string
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetUserChatWithRoleRequest:
             type: object
@@ -5126,7 +5126,7 @@ components:
                     $ref: '#/components/schemas/ChatContext'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetUserCreatedRolesRequest:
             type: object
@@ -5157,7 +5157,7 @@ components:
                         $ref: '#/components/schemas/StoryRole'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
                 offset:
                     type: string
@@ -5192,7 +5192,7 @@ components:
                         $ref: '#/components/schemas/StoryBoardActive'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
                 offset:
                     type: string
@@ -5244,7 +5244,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetUserWatchStoryActiveStoryBoardsRequest:
             type: object
@@ -5277,7 +5277,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GetUserWithRoleChatListRequest:
             type: object
@@ -5308,7 +5308,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         GoogleProtobufAny:
             type: object
@@ -5770,7 +5770,7 @@ components:
                     type: string
                 detail:
                     $ref: '#/components/schemas/RenderStoryRoleDetail'
-                hasMore:
+                haveMore:
                     type: boolean
         RenderStoryRoleDetail:
             type: object
@@ -6015,7 +6015,7 @@ components:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
                 total:
                     type: string
@@ -6051,7 +6051,7 @@ components:
                         $ref: '#/components/schemas/StoryRole'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         SearchStoriesRequest:
             type: object
@@ -6083,7 +6083,7 @@ components:
                         $ref: '#/components/schemas/Story'
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         SearchUserRequest:
             type: object
@@ -6122,7 +6122,7 @@ components:
                 total:
                     type: integer
                     format: int32
-                hasMore:
+                haveMore:
                     type: boolean
         ShareStoryboardRequest:
             type: object
@@ -6747,7 +6747,7 @@ components:
                     type: string
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         TrendingStoryRoleRequest:
             type: object
@@ -6783,7 +6783,7 @@ components:
                     type: string
                 total:
                     type: string
-                hasMore:
+                haveMore:
                     type: boolean
         UnFollowStoryRoleRequest:
             type: object
@@ -7335,7 +7335,7 @@ components:
                 total:
                     type: integer
                     format: int32
-                hasMore:
+                haveMore:
                     type: boolean
         UserGroupRequest:
             type: object
@@ -7377,7 +7377,7 @@ components:
                 total:
                     type: integer
                     format: int32
-                hasMore:
+                haveMore:
                     type: boolean
         UserInfo:
             type: object
@@ -7559,7 +7559,7 @@ components:
         UserWatchingResponse_Data:
             type: object
             properties:
-                hasMore:
+                haveMore:
                     type: boolean
                 total:
                     type: integer

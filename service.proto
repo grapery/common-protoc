@@ -144,7 +144,7 @@ message UserWatchingResponse {
   ResponseCode code = 1;
   string msg = 2;
   message Data {
-    bool has_more = 1;
+    bool have_more = 1;
     int32 total = 2;
   }
   Data data = 3;
@@ -170,7 +170,7 @@ message UserGroupResponse {
     int32 offset = 2;
     int32 page_size = 3;
     int32 total = 4;
-    bool has_more = 5;
+    bool have_more = 5;
   }
   Data data = 3;
 }
@@ -190,7 +190,7 @@ message UserFollowingGroupResponse {
     int64 offset = 3;
     int64 page_size = 4;
     int32 total = 5;
-    bool has_more = 6;
+    bool have_more = 6;
   }
   Data data = 3;
 }
@@ -226,7 +226,7 @@ message FetchActivesResponse {
     int64 timestamp = 2;
     int64 offset = 3;
     int64 page_size = 4;
-    bool has_more = 5;
+    bool have_more = 5;
     int64 total = 6;
   }
   Data data = 3;
@@ -247,7 +247,7 @@ message SearchUserResponse {
     int64 offset = 2;
     int64 page_size = 3;
     int32 total = 4;
-    bool has_more = 5;
+    bool have_more = 5;
   }
   Data data = 3;
 }
@@ -426,7 +426,7 @@ message GetGroupActivesResponse {
     repeated ActiveInfo list = 1;
     int64 offset = 2;
     int64 page_size = 3;
-    bool has_more = 4;
+    bool have_more = 4;
     int64 total = 5;
   } Data data = 3;
 }
@@ -465,7 +465,7 @@ message FetchGroupMembersResponse {
     repeated UserInfo list = 1;
     int64 offset = 2;
     int64 total = 3;
-    bool has_more = 4;
+    bool have_more = 4;
   } Data data = 3;
 }
 
@@ -486,7 +486,7 @@ message SearchGroupResponse {
     repeated GroupInfo list = 1;
     int64 offset = 2;
     int64 page_size = 3;
-    bool has_more = 4;
+    bool have_more = 4;
     int64 total = 5;
   } Data data = 3;
 }
@@ -1724,7 +1724,7 @@ message GetStoryParticipantsResponse {
   string message = 2;
   repeated UserInfo participants = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message UpdateStoryAvatarRequest {
@@ -1859,7 +1859,7 @@ message GetFollowListResponse {
   string message = 2;
   repeated UserInfo followers = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message GetFollowerListRequest {
@@ -1873,7 +1873,7 @@ message GetFollowerListResponse {
   string message = 2;
   repeated UserInfo followers = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message FollowUserRequest {
@@ -1911,7 +1911,7 @@ message TrendingStoryRoleResponse{
     int64 page_size = 2;
     int64 page_number = 3;
     int64 total = 4;
-    bool has_more = 5;
+    bool have_more = 5;
   } Data data = 3;
 }
 
@@ -1930,7 +1930,7 @@ message TrendingStoryResponse {
     int64 page_size = 2;
     int64 page_number = 3;
     int64 total = 4;
-    bool has_more = 5;
+    bool have_more = 5;
   } Data data = 3;
 }
 
@@ -1948,7 +1948,7 @@ message GetStoryRoleListResponse {
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message ArchiveStoryRequest {
@@ -2007,7 +2007,7 @@ message GetStoryCommentsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message DeleteStoryCommentRequest {
@@ -2034,7 +2034,7 @@ message GetStoryCommentRepliesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message CreateStoryCommentReplyRequest {
@@ -2074,7 +2074,7 @@ message GetStoryBoardCommentsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message CreateStoryBoardCommentRequest {
@@ -2114,7 +2114,7 @@ message GetStoryBoardCommentRepliesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message LikeCommentRequest {
@@ -2199,7 +2199,7 @@ message GetUnPublishStoryboardResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 
@@ -2219,7 +2219,7 @@ message GetUserWatchRoleActiveStoryBoardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message GetUserWatchStoryActiveStoryBoardsRequest {
@@ -2237,7 +2237,7 @@ message GetUserWatchStoryActiveStoryBoardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message SaveStoryboardCraftRequest {
@@ -2282,7 +2282,7 @@ message RenderStoryRoleContinuouslyResponse {
   ResponseCode code = 1;
   string message = 2;
   RenderStoryRoleDetail detail = 3;
-  bool has_more = 4;
+  bool have_more = 4;
 } 
 
 message GetNextStoryboardRequest {
@@ -2304,7 +2304,7 @@ message GetNextStoryboardResponse {
   int64 total = 5;
   int64 offset = 6;
   int64 page_size = 7;
-  bool has_more = 8;
+  bool have_more = 8;
 }
 
 message GetUserChatMessagesRequest {
@@ -2320,7 +2320,7 @@ message GetUserChatMessagesResponse {
   repeated ChatMessage messages = 3;
   int64 timestamp = 4;
   int64 total = 5;
-  bool has_more = 6;
+  bool have_more = 6;
 }
 
 message GetUserChatWithRoleRequest {
@@ -2334,7 +2334,7 @@ message GetUserChatWithRoleResponse {
   repeated ChatMessage messages = 3;
   ChatContext chat_context = 4;
   int64 total = 5;
-  bool has_more = 6;
+  bool have_more = 6;
 }
 
 message GetStoryRoleStoryboardsRequest {
@@ -2353,7 +2353,7 @@ message GetStoryRoleStoryboardsResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message GetStoryRoleStoriesRequest {
@@ -2371,7 +2371,7 @@ message GetStoryRoleStoriesResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message CreateStoryRoleChatRequest {
@@ -2416,7 +2416,7 @@ message ChatWithStoryRoleRequest {
   int64 user_id = 2;
   repeated ChatMessage messages = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message ChatWithStoryRoleResponse {
@@ -2424,7 +2424,7 @@ message ChatWithStoryRoleResponse {
   string message = 2;
   repeated ChatMessage reply_messages = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message UpdateStoryRoleDetailRequest {
@@ -2466,7 +2466,7 @@ message GetUserWithRoleChatListResponse {
   int64 total = 4;
   int64 offset = 5;
   int64 page_size = 6;
-  bool has_more = 7;
+  bool have_more = 7;
 }
 
 message GetUserCreatedStoryboardsRequest {
@@ -2482,7 +2482,7 @@ message GetUserCreatedStoryboardsResponse {
   string message = 2;
   repeated StoryBoardActive storyboards = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
   int64 offset = 6;
   int64 page_size = 8;
 }
@@ -2500,7 +2500,7 @@ message GetUserCreatedRolesResponse {
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
   int64 offset = 6;
   int64 page_size = 8;
 }
@@ -2563,7 +2563,7 @@ message SearchStoriesResponse{
   string message = 2;
   repeated Story stories = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message SearchRolesRequest {
@@ -2581,7 +2581,7 @@ message SearchRolesResponse{
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
-  bool has_more = 5;
+  bool have_more = 5;
 }
 
 message RestoreStoryboardRequest {

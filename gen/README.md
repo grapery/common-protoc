@@ -5339,7 +5339,7 @@ UpdateStoryResponse 更新故事的响应结果
 | user_id | [int64](#int64) |  |  |
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -5358,7 +5358,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | reply_messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6013,7 +6013,7 @@ UpdateStoryResponse 更新故事的响应结果
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 
 
@@ -6066,7 +6066,7 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [UserInfo](#common-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6329,7 +6329,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | followers | [UserInfo](#common-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6365,7 +6365,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | followers | [UserInfo](#common-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6418,7 +6418,7 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 
 
@@ -6665,7 +6665,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6835,7 +6835,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6874,7 +6874,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6913,7 +6913,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -6952,7 +6952,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7067,7 +7067,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | participants | [UserInfo](#common-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7138,7 +7138,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7178,7 +7178,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7219,7 +7219,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7257,7 +7257,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7295,7 +7295,7 @@ UpdateStoryResponse 更新故事的响应结果
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | timestamp | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7331,7 +7331,7 @@ UpdateStoryResponse 更新故事的响应结果
 | messages | [ChatMessage](#common-ChatMessage) | repeated |  |
 | chat_context | [ChatContext](#common-ChatContext) |  |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7369,7 +7369,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -7409,7 +7409,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -7535,7 +7535,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7575,7 +7575,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -7614,7 +7614,7 @@ UpdateStoryResponse 更新故事的响应结果
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8063,7 +8063,7 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8281,7 +8281,7 @@ UpdateStoryResponse 更新故事的响应结果
 | list | [GroupInfo](#common-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 
 
@@ -8322,7 +8322,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8361,7 +8361,7 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | stories | [Story](#common-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8416,7 +8416,7 @@ UpdateStoryResponse 更新故事的响应结果
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | total | [int32](#int32) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8554,7 +8554,7 @@ UpdateStoryResponse 更新故事的响应结果
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -8608,7 +8608,7 @@ UpdateStoryResponse 更新故事的响应结果
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -9462,7 +9462,7 @@ UpdateStoryResponse 更新故事的响应结果
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | total | [int32](#int32) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -9516,7 +9516,7 @@ UpdateStoryResponse 更新故事的响应结果
 | offset | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
 | total | [int32](#int32) |  |  |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
@@ -9726,7 +9726,7 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| has_more | [bool](#bool) |  |  |
+| have_more | [bool](#bool) |  |  |
 | total | [int32](#int32) |  |  |
 
 
