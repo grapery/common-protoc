@@ -2482,7 +2482,7 @@ message GetUserCreatedStoryboardsResponse {
   string message = 2;
   repeated StoryBoardActive storyboards = 3;
   int64 total = 4;
-  bool hasMore = 5;
+  bool has_more = 5;
   int64 offset = 6;
   int64 page_size = 8;
 }
@@ -2500,7 +2500,7 @@ message GetUserCreatedRolesResponse {
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
-  bool hasMore = 5;
+  bool has_more = 5;
   int64 offset = 6;
   int64 page_size = 8;
 }

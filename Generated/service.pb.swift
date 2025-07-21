@@ -4587,7 +4587,7 @@ public struct Common_GetUserCreatedStoryboardsResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore: Bool = false
+  public var hasMore_p: Bool = false
 
   public var offset: Int64 = 0
 
@@ -4631,7 +4631,7 @@ public struct Common_GetUserCreatedRolesResponse: Sendable {
 
   public var total: Int64 = 0
 
-  public var hasMore: Bool = false
+  public var hasMore_p: Bool = false
 
   public var offset: Int64 = 0
 
@@ -16187,7 +16187,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
     2: .same(proto: "message"),
     3: .same(proto: "storyboards"),
     4: .same(proto: "total"),
-    5: .same(proto: "hasMore"),
+    5: .standard(proto: "has_more"),
     6: .same(proto: "offset"),
     8: .standard(proto: "page_size"),
   ]
@@ -16311,7 +16311,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
     2: .same(proto: "message"),
     3: .same(proto: "roles"),
     4: .same(proto: "total"),
-    5: .same(proto: "hasMore"),
+    5: .standard(proto: "has_more"),
     6: .same(proto: "offset"),
     8: .standard(proto: "page_size"),
   ]
