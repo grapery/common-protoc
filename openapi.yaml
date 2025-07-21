@@ -5157,12 +5157,12 @@ components:
                         $ref: '#/components/schemas/StoryRole'
                 total:
                     type: string
+                hasMore:
+                    type: boolean
                 offset:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
-                    type: boolean
         GetUserCreatedStoryboardsRequest:
             type: object
             properties:
@@ -5192,12 +5192,12 @@ components:
                         $ref: '#/components/schemas/StoryBoardActive'
                 total:
                     type: string
+                hasMore:
+                    type: boolean
                 offset:
                     type: string
                 pageSize:
                     type: string
-                hasMore:
-                    type: boolean
         GetUserProfileRequest:
             type: object
             properties:

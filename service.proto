@@ -2482,9 +2482,9 @@ message GetUserCreatedStoryboardsResponse {
   string message = 2;
   repeated StoryBoardActive storyboards = 3;
   int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool has_more = 7;
+  bool hasMore = 5;
+  int64 offset = 6;
+  int64 page_size = 8;
 }
 
 message GetUserCreatedRolesRequest {
@@ -2500,9 +2500,9 @@ message GetUserCreatedRolesResponse {
   string message = 2;
   repeated StoryRole roles = 3;
   int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool has_more = 7;
+  bool hasMore = 5;
+  int64 offset = 6;
+  int64 page_size = 8;
 }
 
 message LikeStoryRoleRequest{

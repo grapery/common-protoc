@@ -7369,9 +7369,9 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | roles | [StoryRole](#common-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
+| hasMore | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
 
 
 
@@ -7409,9 +7409,9 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
+| hasMore | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| has_more | [bool](#bool) |  |  |
 
 
 
