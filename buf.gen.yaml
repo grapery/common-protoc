@@ -35,5 +35,10 @@ plugins:
     out: gen
     opt:
       - markdown,README.md,source_relative
-
+  - plugin: buf.build/connectrpc/kotlin
+    opt:
+      - GenerateAsyncMethods=true
+      - GenerateCallbackMethods=true
+      - Visibility=Public
+    out: Android
 
