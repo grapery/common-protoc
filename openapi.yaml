@@ -817,6 +817,56 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateStoryRoleVideo:
+        post:
+            tags:
+                - TeamsAPI
+            description: 为故事角色生成视频
+            operationId: TeamsAPI_GenerateStoryRoleVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateStoryRoleVideoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateStoryRoleVideoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateStorySceneVideo:
+        post:
+            tags:
+                - TeamsAPI
+            description: 为故事场景生成视频
+            operationId: TeamsAPI_GenerateStorySceneVideo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateStorySceneVideoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateStorySceneVideoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetFollowList:
         post:
             tags:
@@ -4284,6 +4334,73 @@ components:
                 message:
                     type: string
                 imageUrl:
+                    type: string
+        GenerateStoryRoleVideoRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                refBackgroundUrl:
+                    type: string
+        GenerateStoryRoleVideoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                detail:
+                    $ref: '#/components/schemas/GenerateStoryRoleVideoTaskDetail'
+        GenerateStoryRoleVideoTaskDetail:
+            type: object
+            properties:
+                taskId:
+                    type: string
+                taskStatus:
+                    type: string
+                videoUrl:
+                    type: string
+                videoThumbnailUrl:
+                    type: string
+        GenerateStorySceneVideoRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                senceId:
+                    type: string
+                userId:
+                    type: string
+                tokenSource:
+                    type: integer
+                    format: enum
+        GenerateStorySceneVideoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                detail:
+                    $ref: '#/components/schemas/GenerateStorySceneVideoTaskDetail'
+        GenerateStorySceneVideoTaskDetail:
+            type: object
+            properties:
+                taskId:
+                    type: string
+                taskStatus:
+                    type: string
+                videoUrl:
+                    type: string
+                videoThumbnailUrl:
                     type: string
         GetFollowListRequest:
             type: object

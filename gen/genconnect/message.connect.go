@@ -5,13 +5,12 @@
 package genconnect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
-
-	connect_go "connectrpc.com/connect"
-	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -19,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion0_1_0
 
 const (
 	// StreamMessageServiceName is the fully-qualified name of the StreamMessageService service.
@@ -41,7 +40,7 @@ const (
 
 // StreamMessageServiceClient is a client for the common.StreamMessageService service.
 type StreamMessageServiceClient interface {
-	StreamChatMessage(context.Context) *connect_go.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
+	StreamChatMessage(context.Context) *connect.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
 // NewStreamMessageServiceClient constructs a client for the common.StreamMessageService service. By
@@ -51,10 +50,10 @@ type StreamMessageServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewStreamMessageServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) StreamMessageServiceClient {
+func NewStreamMessageServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) StreamMessageServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &streamMessageServiceClient{
-		streamChatMessage: connect_go.NewClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse](
+		streamChatMessage: connect.NewClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse](
 			httpClient,
 			baseURL+StreamMessageServiceStreamChatMessageProcedure,
 			opts...,
@@ -64,17 +63,17 @@ func NewStreamMessageServiceClient(httpClient connect_go.HTTPClient, baseURL str
 
 // streamMessageServiceClient implements StreamMessageServiceClient.
 type streamMessageServiceClient struct {
-	streamChatMessage *connect_go.Client[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
+	streamChatMessage *connect.Client[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
 // StreamChatMessage calls common.StreamMessageService.StreamChatMessage.
-func (c *streamMessageServiceClient) StreamChatMessage(ctx context.Context) *connect_go.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse] {
+func (c *streamMessageServiceClient) StreamChatMessage(ctx context.Context) *connect.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse] {
 	return c.streamChatMessage.CallBidiStream(ctx)
 }
 
 // StreamMessageServiceHandler is an implementation of the common.StreamMessageService service.
 type StreamMessageServiceHandler interface {
-	StreamChatMessage(context.Context, *connect_go.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error
+	StreamChatMessage(context.Context, *connect.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error
 }
 
 // NewStreamMessageServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -82,8 +81,8 @@ type StreamMessageServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	streamMessageServiceStreamChatMessageHandler := connect_go.NewBidiStreamHandler(
+func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	streamMessageServiceStreamChatMessageHandler := connect.NewBidiStreamHandler(
 		StreamMessageServiceStreamChatMessageProcedure,
 		svc.StreamChatMessage,
 		opts...,
@@ -101,6 +100,6 @@ func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...con
 // UnimplementedStreamMessageServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedStreamMessageServiceHandler struct{}
 
-func (UnimplementedStreamMessageServiceHandler) StreamChatMessage(context.Context, *connect_go.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error {
-	return connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.StreamMessageService.StreamChatMessage is not implemented"))
+func (UnimplementedStreamMessageServiceHandler) StreamChatMessage(context.Context, *connect.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error {
+	return connect.NewError(connect.CodeUnimplemented, errors.New("common.StreamMessageService.StreamChatMessage is not implemented"))
 }

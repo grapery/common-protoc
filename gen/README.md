@@ -321,6 +321,12 @@
     - [GenerateStoryRoleParams](#common-GenerateStoryRoleParams)
     - [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest)
     - [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse)
+    - [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest)
+    - [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse)
+    - [GenerateStoryRoleVideoTaskDetail](#common-GenerateStoryRoleVideoTaskDetail)
+    - [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest)
+    - [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse)
+    - [GenerateStorySceneVideoTaskDetail](#common-GenerateStorySceneVideoTaskDetail)
     - [GetDisscusReq](#common-GetDisscusReq)
     - [GetDisscusResp](#common-GetDisscusResp)
     - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
@@ -526,6 +532,7 @@
     - [VersionResponse.Data](#common-VersionResponse-Data)
   
     - [GroupType](#common-GroupType)
+    - [TokenSource](#common-TokenSource)
   
     - [TeamsAPI](#common-TeamsAPI)
   
@@ -6263,6 +6270,113 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-GenerateStoryRoleVideoRequest"></a>
+
+### GenerateStoryRoleVideoRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| ref_background_url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStoryRoleVideoResponse"></a>
+
+### GenerateStoryRoleVideoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| detail | [GenerateStoryRoleVideoTaskDetail](#common-GenerateStoryRoleVideoTaskDetail) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStoryRoleVideoTaskDetail"></a>
+
+### GenerateStoryRoleVideoTaskDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| task_id | [string](#string) |  |  |
+| task_status | [string](#string) |  |  |
+| video_url | [string](#string) |  |  |
+| video_thumbnail_url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStorySceneVideoRequest"></a>
+
+### GenerateStorySceneVideoRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| token_source | [TokenSource](#common-TokenSource) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStorySceneVideoResponse"></a>
+
+### GenerateStorySceneVideoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| detail | [GenerateStorySceneVideoTaskDetail](#common-GenerateStorySceneVideoTaskDetail) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateStorySceneVideoTaskDetail"></a>
+
+### GenerateStorySceneVideoTaskDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| task_id | [string](#string) |  |  |
+| task_status | [string](#string) |  |  |
+| video_url | [string](#string) |  |  |
+| video_thumbnail_url | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-GetDisscusReq"></a>
 
 ### GetDisscusReq
@@ -9790,6 +9904,19 @@ user ,group .project.item
 | PRIVATE | 1 |  |
 
 
+
+<a name="common-TokenSource"></a>
+
+### TokenSource
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TOKEN_SOURCE_USER_SELF | 0 | 用户自己的token |
+| TOKEN_SOURCE_STORY_STORE | 1 | 故事存储的token |
+| TOKEN_SOURCE_THIRD_PARTY | 2 | 三方赞助的token |
+
+
  
 
  
@@ -9935,6 +10062,8 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryCover | [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse) | 更新故事封面 |
 | SaveStoryboardCraft | [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse) | 保存故事板草稿 |
 | GetStoryParticipants | [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
+| GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
+| GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
 
  
 

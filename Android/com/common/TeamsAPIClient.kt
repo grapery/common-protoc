@@ -4630,4 +4630,74 @@ public class TeamsAPIClient(
     onResult
   )
 
+
+  /**
+   *  为故事角色生成视频
+   */
+  override suspend fun generateStoryRoleVideo(request: GenerateStoryRoleVideoRequest, headers: Headers): ResponseMessage<GenerateStoryRoleVideoResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStoryRoleVideo",
+      com.common.GenerateStoryRoleVideoRequest::class,
+      com.common.GenerateStoryRoleVideoResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  /**
+   *  为故事角色生成视频
+   */
+  override fun generateStoryRoleVideo(
+    request: GenerateStoryRoleVideoRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<GenerateStoryRoleVideoResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStoryRoleVideo",
+      com.common.GenerateStoryRoleVideoRequest::class,
+      com.common.GenerateStoryRoleVideoResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  /**
+   *  为故事场景生成视频
+   */
+  override suspend fun generateStorySceneVideo(request: GenerateStorySceneVideoRequest, headers: Headers): ResponseMessage<GenerateStorySceneVideoResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStorySceneVideo",
+      com.common.GenerateStorySceneVideoRequest::class,
+      com.common.GenerateStorySceneVideoResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  /**
+   *  为故事场景生成视频
+   */
+  override fun generateStorySceneVideo(
+    request: GenerateStorySceneVideoRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<GenerateStorySceneVideoResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStorySceneVideo",
+      com.common.GenerateStorySceneVideoRequest::class,
+      com.common.GenerateStorySceneVideoResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
 }

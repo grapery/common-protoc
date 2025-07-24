@@ -15,6 +15,8 @@ import "story.proto";
 import "error.proto";
 import "message.proto";
 
+// 用户为主：创建的故事板、故事，分享的故事板、故事
+// 所关注的、创建的、加入的小组的动态：创建的故事板、故事、故事角色
 
 message ActiveInfo {
   int64 active_id = 1;
@@ -1711,6 +1713,72 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  // 为故事角色生成视频
+  rpc GenerateStoryRoleVideo(GenerateStoryRoleVideoRequest) returns (GenerateStoryRoleVideoResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GenerateStoryRoleVideo"
+      body : "*"
+    };
+  }
+
+  // 为故事场景生成视频
+  rpc GenerateStorySceneVideo(GenerateStorySceneVideoRequest) returns (GenerateStorySceneVideoResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GenerateStorySceneVideo"
+      body : "*"
+    };
+  }
+}
+
+enum TokenSource{
+  // 用户自己的token
+  TOKEN_SOURCE_USER_SELF = 0;
+  // 故事存储的token
+  TOKEN_SOURCE_STORY_STORE = 1;
+  // 三方赞助的token
+  TOKEN_SOURCE_THIRD_PARTY = 2;
+}
+
+message GenerateStorySceneVideoRequest{
+  int64 story_id = 1;
+  int64 board_id = 2;
+  int64 sence_id = 3;
+  int64 user_id = 4;
+  TokenSource token_source = 5;
+}
+
+message GenerateStorySceneVideoTaskDetail {
+  string task_id = 1;
+  string task_status = 2;
+  string video_url = 3;
+  string video_thumbnail_url = 4;
+}
+
+message GenerateStorySceneVideoResponse{
+  ResponseCode code = 1;
+  string message = 2;
+  GenerateStorySceneVideoTaskDetail detail = 3;
+}
+
+message GenerateStoryRoleVideoRequest {
+  int64 story_id = 1;
+  int64 role_id = 2;
+  int64 user_id = 3;
+  string ref_background_url = 4;
+}
+
+message GenerateStoryRoleVideoTaskDetail {
+  string task_id = 1;
+  string task_status = 2;
+  string video_url = 3;
+  string video_thumbnail_url = 4;
+}
+
+message GenerateStoryRoleVideoResponse {
+  ResponseCode code = 1;
+  string message = 2;
+  GenerateStoryRoleVideoTaskDetail detail = 3;
 }
 
 message GetStoryParticipantsRequest {

@@ -1061,6 +1061,22 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 获取故事参与者，参与故事版创建
     @available(iOS 13, *)
     func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryParticipantsResponse>
+
+    /// 为故事角色生成视频
+    @discardableResult
+    func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable
+
+    /// 为故事角色生成视频
+    @available(iOS 13, *)
+    func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStoryRoleVideoResponse>
+
+    /// 为故事场景生成视频
+    @discardableResult
+    func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable
+
+    /// 为故事场景生成视频
+    @available(iOS 13, *)
+    func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStorySceneVideoResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2401,6 +2417,26 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStoryRoleVideoResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStorySceneVideoResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2536,6 +2572,8 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let updateStoryCover = Connect.MethodSpec(name: "UpdateStoryCover", service: "common.TeamsAPI", type: .unary)
             public static let saveStoryboardCraft = Connect.MethodSpec(name: "SaveStoryboardCraft", service: "common.TeamsAPI", type: .unary)
             public static let getStoryParticipants = Connect.MethodSpec(name: "GetStoryParticipants", service: "common.TeamsAPI", type: .unary)
+            public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "common.TeamsAPI", type: .unary)
+            public static let generateStorySceneVideo = Connect.MethodSpec(name: "GenerateStorySceneVideo", service: "common.TeamsAPI", type: .unary)
         }
     }
 }
