@@ -698,6 +698,8 @@ message FetchGroupStorysResponse{
   message Data {
     repeated Story list = 1;
     repeated UserInfo creator = 3;
+    int64 total = 4;
+    bool have_more = 5;
   }Data data = 3;
 }
 

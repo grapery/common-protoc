@@ -4131,6 +4131,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: string
+                haveMore:
+                    type: boolean
         FollowStoryRoleRequest:
             type: object
             properties:

@@ -2627,6 +2627,10 @@ public struct Common_FetchGroupStorysResponse: Sendable {
 
     public var creator: [Common_UserInfo] = []
 
+    public var total: Int64 = 0
+
+    public var haveMore: Bool = false
+
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
@@ -8217,6 +8221,8 @@ extension Common_FetchGroupStorysResponse.DataMessage: SwiftProtobuf.Message, Sw
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
     3: .same(proto: "creator"),
+    4: .same(proto: "total"),
+    5: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8227,6 +8233,8 @@ extension Common_FetchGroupStorysResponse.DataMessage: SwiftProtobuf.Message, Sw
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.creator) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -8239,12 +8247,20 @@ extension Common_FetchGroupStorysResponse.DataMessage: SwiftProtobuf.Message, Sw
     if !self.creator.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.creator, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
+    }
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_FetchGroupStorysResponse.DataMessage, rhs: Common_FetchGroupStorysResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.creator != rhs.creator {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

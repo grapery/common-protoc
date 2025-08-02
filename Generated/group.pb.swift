@@ -20,21 +20,45 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+/// 群组成员类型枚举
 public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
+
+  /// 未指定的普通成员类型（默认值）
   case normalUnspecified // = 0
+
+  /// 群组创建者，拥有最高权限
   case creator // = 1
+
+  /// 群组管理员，负责群组维护和管理
   case maintainer // = 2
+
+  /// 贡献者，可以参与群组内容创作
   case contributor // = 3
+
+  /// 普通成员，可以查看和参与群组活动
   case member // = 4
+
+  /// 被禁言的成员，无法发言但可以查看内容
   case banned // = 5
+
+  /// 被邀请但尚未加入的成员
   case invited // = 6
+
+  /// 拒绝加入群组的用户
   case rejected // = 7
+
+  /// 等待审核的成员申请
   case pending // = 8
+
+  /// 主动离开群组的成员
   case leave // = 9
+
+  /// 被踢出群组的成员
   case kicked // = 10
+
+  /// 已删除的成员记录
   case deleted // = 11
-  case expired // = 12
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -55,7 +79,6 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 9: self = .leave
     case 10: self = .kicked
     case 11: self = .deleted
-    case 12: self = .expired
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -74,7 +97,6 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .leave: return 9
     case .kicked: return 10
     case .deleted: return 11
-    case .expired: return 12
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -93,7 +115,6 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
     .leave,
     .kicked,
     .deleted,
-    .expired,
   ]
 
 }
@@ -252,7 +273,6 @@ extension Common_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
     9: .same(proto: "GROUP_MEMBER_TYPE_LEAVE"),
     10: .same(proto: "GROUP_MEMBER_TYPE_KICKED"),
     11: .same(proto: "GROUP_MEMBER_TYPE_DELETED"),
-    12: .same(proto: "GROUP_MEMBER_TYPE_EXPIRED"),
   ]
 }
 

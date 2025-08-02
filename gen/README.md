@@ -2541,23 +2541,22 @@ VIP不存在 |
 <a name="common-GroupMemberType"></a>
 
 ### GroupMemberType
-
+群组成员类型枚举
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED | 0 |  |
-| GROUP_MEMBER_TYPE_CREATOR | 1 |  |
-| GROUP_MEMBER_TYPE_MAINTAINER | 2 |  |
-| GROUP_MEMBER_TYPE_CONTRIBUTOR | 3 |  |
-| GROUP_MEMBER_TYPE_MEMBER | 4 |  |
-| GROUP_MEMBER_TYPE_BANNED | 5 |  |
-| GROUP_MEMBER_TYPE_INVITED | 6 |  |
-| GROUP_MEMBER_TYPE_REJECTED | 7 |  |
-| GROUP_MEMBER_TYPE_PENDING | 8 |  |
-| GROUP_MEMBER_TYPE_LEAVE | 9 |  |
-| GROUP_MEMBER_TYPE_KICKED | 10 |  |
-| GROUP_MEMBER_TYPE_DELETED | 11 |  |
-| GROUP_MEMBER_TYPE_EXPIRED | 12 |  |
+| GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED | 0 | 未指定的普通成员类型（默认值） |
+| GROUP_MEMBER_TYPE_CREATOR | 1 | 群组创建者，拥有最高权限 |
+| GROUP_MEMBER_TYPE_MAINTAINER | 2 | 群组管理员，负责群组维护和管理 |
+| GROUP_MEMBER_TYPE_CONTRIBUTOR | 3 | 贡献者，可以参与群组内容创作 |
+| GROUP_MEMBER_TYPE_MEMBER | 4 | 普通成员，可以查看和参与群组活动 |
+| GROUP_MEMBER_TYPE_BANNED | 5 | 被禁言的成员，无法发言但可以查看内容 |
+| GROUP_MEMBER_TYPE_INVITED | 6 | 被邀请但尚未加入的成员 |
+| GROUP_MEMBER_TYPE_REJECTED | 7 | 拒绝加入群组的用户 |
+| GROUP_MEMBER_TYPE_PENDING | 8 | 等待审核的成员申请 |
+| GROUP_MEMBER_TYPE_LEAVE | 9 | 主动离开群组的成员 |
+| GROUP_MEMBER_TYPE_KICKED | 10 | 被踢出群组的成员 |
+| GROUP_MEMBER_TYPE_DELETED | 11 | 已删除的成员记录 |
 
 
  
@@ -3310,6 +3309,8 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | list | [Story](#common-Story) | repeated |  |
 | creator | [UserInfo](#common-UserInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 
