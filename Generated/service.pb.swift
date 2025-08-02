@@ -2300,6 +2300,12 @@ public struct Common_GetStoryContributorsRequest: Sendable {
 
   public var storyID: Int64 = 0
 
+  public var userID: Int64 = 0
+
+  public var offset: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2349,6 +2355,10 @@ public struct Common_GetStoryContributorsResponse: Sendable {
     // methods supported on all messages.
 
     public var list: [Common_StoryContributor] = []
+
+    public var total: Int64 = 0
+
+    public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10342,6 +10352,9 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
   public static let protoMessageName: String = _protobuf_package + ".GetStoryContributorsRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "story_id"),
+    2: .standard(proto: "user_id"),
+    3: .same(proto: "offset"),
+    4: .standard(proto: "page_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10351,6 +10364,9 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -10360,11 +10376,23 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
     if self.storyID != 0 {
       try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
     }
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 2)
+    }
+    if self.offset != 0 {
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 3)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryContributorsRequest, rhs: Common_GetStoryContributorsRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
+    if lhs.userID != rhs.userID {return false}
+    if lhs.offset != rhs.offset {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10472,6 +10500,8 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
   public static let protoMessageName: String = Common_GetStoryContributorsResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "list"),
+    2: .same(proto: "total"),
+    3: .standard(proto: "have_more"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10481,6 +10511,8 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.list) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
       default: break
       }
     }
@@ -10490,11 +10522,19 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
     if !self.list.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.list, fieldNumber: 1)
     }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 2)
+    }
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GetStoryContributorsResponse.DataMessage, rhs: Common_GetStoryContributorsResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

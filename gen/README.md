@@ -627,6 +627,9 @@
 | NewStoryBoard | 11 | 新的故事板 |
 | LikeStoryBoard | 12 | 点赞故事板 |
 | ForkStory | 13 | 分叉故事 |
+| ShareStoryBoard | 14 | 分享故事板 |
+| ShareStory | 15 | 分享故事 |
+| ShareRole | 16 | 分享角色 |
 
 
 
@@ -7083,6 +7086,9 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
 
 
 
@@ -7115,6 +7121,8 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | list | [StoryContributor](#common-StoryContributor) | repeated |  |
+| total | [int64](#int64) |  |  |
+| have_more | [bool](#bool) |  |  |
 
 
 

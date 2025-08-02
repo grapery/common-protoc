@@ -4834,6 +4834,12 @@ components:
             properties:
                 storyId:
                     type: string
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
         GetStoryContributorsResponse:
             type: object
             properties:
@@ -4851,6 +4857,10 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/StoryContributor'
+                total:
+                    type: string
+                haveMore:
+                    type: boolean
         GetStoryImageStyleRequest:
             type: object
             properties:

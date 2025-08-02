@@ -88,6 +88,12 @@ enum ActiveType {
   LikeStoryBoard = 12;
   // 分叉故事
   ForkStory = 13;
+  // 分享故事板
+  ShareStoryBoard = 14;
+  // 分享故事
+  ShareStory = 15;
+  // 分享角色
+  ShareRole = 16;
 }
 
 enum ItemType {

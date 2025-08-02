@@ -607,6 +607,9 @@ message UploadImageResponse {
 
 message GetStoryContributorsRequest{
   int64 story_id = 1;
+  int64 user_id = 2;
+  int64 offset = 3;
+  int64 page_size = 4;
 }
 
 message StoryContributor{
@@ -621,6 +624,8 @@ message GetStoryContributorsResponse{
   string message = 2;
   message Data {
     repeated StoryContributor list = 1;
+    int64 total = 2;
+    bool have_more = 3;
   }Data data = 3;
 }
 
