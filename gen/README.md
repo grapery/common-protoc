@@ -241,6 +241,7 @@
     - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
   
     - [RenderType](#common-RenderType)
+    - [StoryGenStatus](#common-StoryGenStatus)
     - [StoryboardStage](#common-StoryboardStage)
   
 - [message.proto](#message-proto)
@@ -5017,6 +5018,21 @@ UpdateStoryResponse 更新故事的响应结果
 | RENDER_TYPE_STORYBOARD | 2 | 2: 故事板 |
 | RENDER_TYPE_STORYSENCE | 3 | 3: 故事场景 |
 | RENDER_TYPE_STORYCHARACTERS | 4 | 4: 故事角色 |
+
+
+
+<a name="common-StoryGenStatus"></a>
+
+### StoryGenStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORY_GEN_STATUS_UNSPECIFIED | 0 |  |
+| STORY_GEN_STATUS_INIT | 1 |  |
+| STORY_GEN_STATUS_RUNNING | 2 |  |
+| STORY_GEN_STATUS_FINISHED | 3 |  |
+| STORY_GEN_STATUS_ERROR | 4 |  |
 
 
 

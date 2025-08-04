@@ -20,6 +20,52 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Common_StoryGenStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case init_ // = 1
+  case running // = 2
+  case finished // = 3
+  case error // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .init_
+    case 2: self = .running
+    case 3: self = .finished
+    case 4: self = .error
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .init_: return 1
+    case .running: return 2
+    case .finished: return 3
+    case .error: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_StoryGenStatus] = [
+    .unspecified,
+    .init_,
+    .running,
+    .finished,
+    .error,
+  ]
+
+}
+
 public enum Common_StoryboardStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
@@ -3460,6 +3506,16 @@ public struct Common_QueryTaskStatusResponse: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
+
+extension Common_StoryGenStatus: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STORY_GEN_STATUS_UNSPECIFIED"),
+    1: .same(proto: "STORY_GEN_STATUS_INIT"),
+    2: .same(proto: "STORY_GEN_STATUS_RUNNING"),
+    3: .same(proto: "STORY_GEN_STATUS_FINISHED"),
+    4: .same(proto: "STORY_GEN_STATUS_ERROR"),
+  ]
+}
 
 extension Common_StoryboardStage: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
