@@ -117,12 +117,6 @@ const (
 	RenderType_RENDER_TYPE_STORYSENCE RenderType = 3
 	// 4: 故事角色
 	RenderType_RENDER_TYPE_STORYCHARACTERS RenderType = 4
-	// 5: 故事动作
-	RenderType_RENDER_TYPE_STORYACTION RenderType = 5
-	// 6: 故事设置
-	RenderType_RENDER_TYPE_STORYSETTING RenderType = 6
-	// 7: 故事结局
-	RenderType_RENDER_TYPE_STORYENDING RenderType = 7
 )
 
 // Enum value maps for RenderType.
@@ -133,9 +127,6 @@ var (
 		2: "RENDER_TYPE_STORYBOARD",
 		3: "RENDER_TYPE_STORYSENCE",
 		4: "RENDER_TYPE_STORYCHARACTERS",
-		5: "RENDER_TYPE_STORYACTION",
-		6: "RENDER_TYPE_STORYSETTING",
-		7: "RENDER_TYPE_STORYENDING",
 	}
 	RenderType_value = map[string]int32{
 		"RENDER_TYPE_TEXT_UNSPECIFIED": 0,
@@ -143,9 +134,6 @@ var (
 		"RENDER_TYPE_STORYBOARD":       2,
 		"RENDER_TYPE_STORYSENCE":       3,
 		"RENDER_TYPE_STORYCHARACTERS":  4,
-		"RENDER_TYPE_STORYACTION":      5,
-		"RENDER_TYPE_STORYSETTING":     6,
-		"RENDER_TYPE_STORYENDING":      7,
 	}
 )
 
@@ -174,98 +162,6 @@ func (x RenderType) Number() protoreflect.EnumNumber {
 // Deprecated: Use RenderType.Descriptor instead.
 func (RenderType) EnumDescriptor() ([]byte, []int) {
 	return file_story_proto_rawDescGZIP(), []int{1}
-}
-
-type StoryBoardGeneratingStage int32
-
-const (
-	// 0: 未开始
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_UNSPECIFIED StoryBoardGeneratingStage = 0
-	// 1: 生成中
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_GENERATING StoryBoardGeneratingStage = 101
-	// 2: 生成完成
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_COMPLETED StoryBoardGeneratingStage = 102
-	// 3: 生成失败
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_FAILED StoryBoardGeneratingStage = 103
-	// 4: 生成图片
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES StoryBoardGeneratingStage = 201
-	// 5: 图片生成完成
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED StoryBoardGeneratingStage = 202
-	// 6: 图片生成失败
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED StoryBoardGeneratingStage = 203
-	// 7: 生成音频
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO StoryBoardGeneratingStage = 301
-	// 8: 音频生成完成
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED StoryBoardGeneratingStage = 302
-	// 9: 音频生成失败
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED StoryBoardGeneratingStage = 303
-	// 10: 生成视频
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO StoryBoardGeneratingStage = 401
-	// 11: 视频生成完成
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED StoryBoardGeneratingStage = 402
-	// 12: 视频生成失败
-	StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED StoryBoardGeneratingStage = 403
-)
-
-// Enum value maps for StoryBoardGeneratingStage.
-var (
-	StoryBoardGeneratingStage_name = map[int32]string{
-		0:   "STORY_BOARD_GENERATING_STAGE_UNSPECIFIED",
-		101: "STORY_BOARD_GENERATING_STAGE_GENERATING",
-		102: "STORY_BOARD_GENERATING_STAGE_COMPLETED",
-		103: "STORY_BOARD_GENERATING_STAGE_FAILED",
-		201: "STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES",
-		202: "STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED",
-		203: "STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED",
-		301: "STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO",
-		302: "STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED",
-		303: "STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED",
-		401: "STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO",
-		402: "STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED",
-		403: "STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED",
-	}
-	StoryBoardGeneratingStage_value = map[string]int32{
-		"STORY_BOARD_GENERATING_STAGE_UNSPECIFIED":       0,
-		"STORY_BOARD_GENERATING_STAGE_GENERATING":        101,
-		"STORY_BOARD_GENERATING_STAGE_COMPLETED":         102,
-		"STORY_BOARD_GENERATING_STAGE_FAILED":            103,
-		"STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES": 201,
-		"STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED":  202,
-		"STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED":     203,
-		"STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO":  301,
-		"STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED":   302,
-		"STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED":      303,
-		"STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO":  401,
-		"STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED":   402,
-		"STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED":      403,
-	}
-)
-
-func (x StoryBoardGeneratingStage) Enum() *StoryBoardGeneratingStage {
-	p := new(StoryBoardGeneratingStage)
-	*p = x
-	return p
-}
-
-func (x StoryBoardGeneratingStage) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (StoryBoardGeneratingStage) Descriptor() protoreflect.EnumDescriptor {
-	return file_story_proto_enumTypes[2].Descriptor()
-}
-
-func (StoryBoardGeneratingStage) Type() protoreflect.EnumType {
-	return &file_story_proto_enumTypes[2]
-}
-
-func (x StoryBoardGeneratingStage) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use StoryBoardGeneratingStage.Descriptor instead.
-func (StoryBoardGeneratingStage) EnumDescriptor() ([]byte, []int) {
-	return file_story_proto_rawDescGZIP(), []int{2}
 }
 
 // Story 表示一个完整的故事实体
@@ -8702,12 +8598,12 @@ type QueryTaskStatusResponse_Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Stage                     StoryBoardGeneratingStage `protobuf:"varint,1,opt,name=stage,proto3,enum=common.StoryBoardGeneratingStage" json:"stage,omitempty"`
-	DashscopeTaskStatus       DashScopeTaskStatus       `protobuf:"varint,2,opt,name=dashscope_task_status,json=dashscopeTaskStatus,proto3,enum=common.DashScopeTaskStatus" json:"dashscope_task_status,omitempty"`
-	RenderStoryboardDetail    *RenderStoryboardDetail   `protobuf:"bytes,3,opt,name=render_storyboard_detail,json=renderStoryboardDetail,proto3" json:"render_storyboard_detail,omitempty"`
-	RenderStoryDetail         *RenderStoryDetail        `protobuf:"bytes,4,opt,name=render_story_detail,json=renderStoryDetail,proto3" json:"render_story_detail,omitempty"`
-	RenderStoryboardSenceList []*StoryBoardSence        `protobuf:"bytes,5,rep,name=render_storyboard_sence_list,json=renderStoryboardSenceList,proto3" json:"render_storyboard_sence_list,omitempty"`
-	RenderStoryRole           *StoryRole                `protobuf:"bytes,6,opt,name=render_story_role,json=renderStoryRole,proto3" json:"render_story_role,omitempty"`
+	Stage                     StoryboardStage         `protobuf:"varint,1,opt,name=stage,proto3,enum=common.StoryboardStage" json:"stage,omitempty"`
+	DashscopeTaskStatus       DashScopeTaskStatus     `protobuf:"varint,2,opt,name=dashscope_task_status,json=dashscopeTaskStatus,proto3,enum=common.DashScopeTaskStatus" json:"dashscope_task_status,omitempty"`
+	RenderStoryboardDetail    *RenderStoryboardDetail `protobuf:"bytes,3,opt,name=render_storyboard_detail,json=renderStoryboardDetail,proto3" json:"render_storyboard_detail,omitempty"`
+	RenderStoryDetail         *RenderStoryDetail      `protobuf:"bytes,4,opt,name=render_story_detail,json=renderStoryDetail,proto3" json:"render_story_detail,omitempty"`
+	RenderStoryboardSenceList []*StoryBoardSence      `protobuf:"bytes,5,rep,name=render_storyboard_sence_list,json=renderStoryboardSenceList,proto3" json:"render_storyboard_sence_list,omitempty"`
+	RenderStoryRole           *StoryRole              `protobuf:"bytes,6,opt,name=render_story_role,json=renderStoryRole,proto3" json:"render_story_role,omitempty"`
 }
 
 func (x *QueryTaskStatusResponse_Data) Reset() {
@@ -8742,11 +8638,11 @@ func (*QueryTaskStatusResponse_Data) Descriptor() ([]byte, []int) {
 	return file_story_proto_rawDescGZIP(), []int{93, 0}
 }
 
-func (x *QueryTaskStatusResponse_Data) GetStage() StoryBoardGeneratingStage {
+func (x *QueryTaskStatusResponse_Data) GetStage() StoryboardStage {
 	if x != nil {
 		return x.Stage
 	}
-	return StoryBoardGeneratingStage_STORY_BOARD_GENERATING_STAGE_UNSPECIFIED
+	return StoryboardStage_STORYBOARD_STAGE_UNSPECIFIED
 }
 
 func (x *QueryTaskStatusResponse_Data) GetDashscopeTaskStatus() DashScopeTaskStatus {
@@ -9969,7 +9865,7 @@ var file_story_proto_rawDesc = []byte{
 	0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0a, 0x72,
 	0x65, 0x6e, 0x64, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x54, 0x61, 0x73,
 	0x6b, 0x49, 0x64, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x54, 0x61, 0x73, 0x6b, 0x49,
-	0x64, 0x22, 0xd2, 0x04, 0x0a, 0x17, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x53,
+	0x64, 0x22, 0xc8, 0x04, 0x0a, 0x17, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x53,
 	0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a,
 	0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x63, 0x6f, 0x64,
 	0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01,
@@ -9977,124 +9873,77 @@ var file_story_proto_rawDesc = []byte{
 	0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
 	0x6f, 0x6e, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74,
 	0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x52,
-	0x04, 0x64, 0x61, 0x74, 0x61, 0x1a, 0xce, 0x03, 0x0a, 0x04, 0x44, 0x61, 0x74, 0x61, 0x12, 0x37,
-	0x0a, 0x05, 0x73, 0x74, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x21, 0x2e,
-	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72,
-	0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x67, 0x65,
-	0x52, 0x05, 0x73, 0x74, 0x61, 0x67, 0x65, 0x12, 0x4f, 0x0a, 0x15, 0x64, 0x61, 0x73, 0x68, 0x73,
-	0x63, 0x6f, 0x70, 0x65, 0x5f, 0x74, 0x61, 0x73, 0x6b, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1b, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e,
-	0x44, 0x61, 0x73, 0x68, 0x53, 0x63, 0x6f, 0x70, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x52, 0x13, 0x64, 0x61, 0x73, 0x68, 0x73, 0x63, 0x6f, 0x70, 0x65, 0x54, 0x61,
-	0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x58, 0x0a, 0x18, 0x72, 0x65, 0x6e, 0x64,
-	0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x5f, 0x64, 0x65,
-	0x74, 0x61, 0x69, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x63, 0x6f, 0x6d,
-	0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62,
-	0x6f, 0x61, 0x72, 0x64, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x16, 0x72, 0x65, 0x6e, 0x64,
-	0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x44, 0x65, 0x74, 0x61,
-	0x69, 0x6c, 0x12, 0x49, 0x0a, 0x13, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f,
-	0x72, 0x79, 0x5f, 0x64, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x19, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53,
-	0x74, 0x6f, 0x72, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x11, 0x72, 0x65, 0x6e, 0x64,
-	0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x12, 0x58, 0x0a,
-	0x1c, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61,
-	0x72, 0x64, 0x5f, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x5f, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x05, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f,
-	0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x52, 0x19, 0x72, 0x65,
-	0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65,
-	0x6e, 0x63, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x3d, 0x0a, 0x11, 0x72, 0x65, 0x6e, 0x64, 0x65,
-	0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x5f, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x06, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x11, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72,
-	0x79, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x0f, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f,
-	0x72, 0x79, 0x52, 0x6f, 0x6c, 0x65, 0x2a, 0xeb, 0x02, 0x0a, 0x0f, 0x53, 0x74, 0x6f, 0x72, 0x79,
-	0x62, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x74, 0x61, 0x67, 0x65, 0x12, 0x20, 0x0a, 0x1c, 0x53, 0x54,
-	0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x55,
-	0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x1a, 0x0a, 0x16,
+	0x04, 0x64, 0x61, 0x74, 0x61, 0x1a, 0xc4, 0x03, 0x0a, 0x04, 0x44, 0x61, 0x74, 0x61, 0x12, 0x2d,
+	0x0a, 0x05, 0x73, 0x74, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x17, 0x2e,
+	0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72,
+	0x64, 0x53, 0x74, 0x61, 0x67, 0x65, 0x52, 0x05, 0x73, 0x74, 0x61, 0x67, 0x65, 0x12, 0x4f, 0x0a,
+	0x15, 0x64, 0x61, 0x73, 0x68, 0x73, 0x63, 0x6f, 0x70, 0x65, 0x5f, 0x74, 0x61, 0x73, 0x6b, 0x5f,
+	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1b, 0x2e, 0x63,
+	0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x44, 0x61, 0x73, 0x68, 0x53, 0x63, 0x6f, 0x70, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x13, 0x64, 0x61, 0x73, 0x68, 0x73,
+	0x63, 0x6f, 0x70, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x58,
+	0x0a, 0x18, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f,
+	0x61, 0x72, 0x64, 0x5f, 0x64, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1e, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72,
+	0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
+	0x52, 0x16, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61,
+	0x72, 0x64, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x12, 0x49, 0x0a, 0x13, 0x72, 0x65, 0x6e, 0x64,
+	0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x5f, 0x64, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x52,
+	0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
+	0x52, 0x11, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x12, 0x58, 0x0a, 0x1c, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x73, 0x74,
+	0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x5f, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x5f, 0x6c,
+	0x69, 0x73, 0x74, 0x18, 0x05, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e,
+	0x63, 0x65, 0x52, 0x19, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62,
+	0x6f, 0x61, 0x72, 0x64, 0x53, 0x65, 0x6e, 0x63, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x3d, 0x0a,
+	0x11, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x79, 0x5f, 0x72, 0x6f,
+	0x6c, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x0f, 0x72, 0x65, 0x6e,
+	0x64, 0x65, 0x72, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x52, 0x6f, 0x6c, 0x65, 0x2a, 0xeb, 0x02, 0x0a,
+	0x0f, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x53, 0x74, 0x61, 0x67, 0x65,
+	0x12, 0x20, 0x0a, 0x1c, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53,
+	0x54, 0x41, 0x47, 0x45, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44,
+	0x10, 0x00, 0x12, 0x1a, 0x0a, 0x16, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44,
+	0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x44, 0x52, 0x41, 0x46, 0x54, 0x10, 0x01, 0x12, 0x1c,
+	0x0a, 0x18, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41,
+	0x47, 0x45, 0x5f, 0x43, 0x52, 0x45, 0x41, 0x54, 0x45, 0x44, 0x10, 0x02, 0x12, 0x1d, 0x0a, 0x19,
 	0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45,
-	0x5f, 0x44, 0x52, 0x41, 0x46, 0x54, 0x10, 0x01, 0x12, 0x1c, 0x0a, 0x18, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x43, 0x52, 0x45,
-	0x41, 0x54, 0x45, 0x44, 0x10, 0x02, 0x12, 0x1d, 0x0a, 0x19, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42,
-	0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x52, 0x45, 0x4e, 0x44, 0x45,
-	0x52, 0x45, 0x44, 0x10, 0x03, 0x12, 0x21, 0x0a, 0x1d, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f,
-	0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52,
-	0x5f, 0x53, 0x43, 0x45, 0x4e, 0x45, 0x10, 0x04, 0x12, 0x1e, 0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e,
-	0x5f, 0x49, 0x4d, 0x41, 0x47, 0x45, 0x10, 0x05, 0x12, 0x1e, 0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e,
-	0x5f, 0x56, 0x49, 0x44, 0x45, 0x4f, 0x10, 0x06, 0x12, 0x1e, 0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e,
-	0x5f, 0x41, 0x55, 0x44, 0x49, 0x4f, 0x10, 0x07, 0x12, 0x1d, 0x0a, 0x19, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x46, 0x49, 0x4e,
-	0x49, 0x53, 0x48, 0x45, 0x44, 0x10, 0x08, 0x12, 0x1b, 0x0a, 0x17, 0x53, 0x54, 0x4f, 0x52, 0x59,
-	0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x46, 0x41, 0x49, 0x4c,
-	0x45, 0x44, 0x10, 0x09, 0x12, 0x1e, 0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41,
-	0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x50, 0x55, 0x42, 0x4c, 0x49, 0x53, 0x48,
-	0x45, 0x44, 0x10, 0x0a, 0x2a, 0x80, 0x02, 0x0a, 0x0a, 0x52, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x54,
-	0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x1c, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59,
-	0x50, 0x45, 0x5f, 0x54, 0x45, 0x58, 0x54, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46,
-	0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x1f, 0x0a, 0x1b, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f,
-	0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f,
-	0x54, 0x45, 0x58, 0x54, 0x10, 0x01, 0x12, 0x1a, 0x0a, 0x16, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52,
-	0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44,
-	0x10, 0x02, 0x12, 0x1a, 0x0a, 0x16, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50,
-	0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x53, 0x45, 0x4e, 0x43, 0x45, 0x10, 0x03, 0x12, 0x1f,
-	0x0a, 0x1b, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54,
-	0x4f, 0x52, 0x59, 0x43, 0x48, 0x41, 0x52, 0x41, 0x43, 0x54, 0x45, 0x52, 0x53, 0x10, 0x04, 0x12,
-	0x1b, 0x0a, 0x17, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53,
-	0x54, 0x4f, 0x52, 0x59, 0x41, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x05, 0x12, 0x1c, 0x0a, 0x18,
+	0x5f, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x45, 0x44, 0x10, 0x03, 0x12, 0x21, 0x0a, 0x1d, 0x53,
+	0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f,
+	0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x53, 0x43, 0x45, 0x4e, 0x45, 0x10, 0x04, 0x12, 0x1e,
+	0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41,
+	0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x5f, 0x49, 0x4d, 0x41, 0x47, 0x45, 0x10, 0x05, 0x12, 0x1e,
+	0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41,
+	0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x5f, 0x56, 0x49, 0x44, 0x45, 0x4f, 0x10, 0x06, 0x12, 0x1e,
+	0x0a, 0x1a, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41,
+	0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x5f, 0x41, 0x55, 0x44, 0x49, 0x4f, 0x10, 0x07, 0x12, 0x1d,
+	0x0a, 0x19, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41,
+	0x47, 0x45, 0x5f, 0x46, 0x49, 0x4e, 0x49, 0x53, 0x48, 0x45, 0x44, 0x10, 0x08, 0x12, 0x1b, 0x0a,
+	0x17, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47,
+	0x45, 0x5f, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x09, 0x12, 0x1e, 0x0a, 0x1a, 0x53, 0x54,
+	0x4f, 0x52, 0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x50,
+	0x55, 0x42, 0x4c, 0x49, 0x53, 0x48, 0x45, 0x44, 0x10, 0x0a, 0x2a, 0xa8, 0x01, 0x0a, 0x0a, 0x52,
+	0x65, 0x6e, 0x64, 0x65, 0x72, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x1c, 0x52, 0x45, 0x4e,
+	0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x54, 0x45, 0x58, 0x54, 0x5f, 0x55, 0x4e,
+	0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x1f, 0x0a, 0x1b, 0x52,
+	0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59,
+	0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x54, 0x45, 0x58, 0x54, 0x10, 0x01, 0x12, 0x1a, 0x0a, 0x16,
 	0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52,
-	0x59, 0x53, 0x45, 0x54, 0x54, 0x49, 0x4e, 0x47, 0x10, 0x06, 0x12, 0x1b, 0x0a, 0x17, 0x52, 0x45,
-	0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x45,
-	0x4e, 0x44, 0x49, 0x4e, 0x47, 0x10, 0x07, 0x2a, 0x93, 0x05, 0x0a, 0x19, 0x53, 0x74, 0x6f, 0x72,
-	0x79, 0x42, 0x6f, 0x61, 0x72, 0x64, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6e, 0x67,
-	0x53, 0x74, 0x61, 0x67, 0x65, 0x12, 0x2c, 0x0a, 0x28, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42,
-	0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f,
-	0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45,
-	0x44, 0x10, 0x00, 0x12, 0x2b, 0x0a, 0x27, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41,
-	0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54,
-	0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x10, 0x65,
-	0x12, 0x2a, 0x0a, 0x26, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f,
-	0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45,
-	0x5f, 0x43, 0x4f, 0x4d, 0x50, 0x4c, 0x45, 0x54, 0x45, 0x44, 0x10, 0x66, 0x12, 0x27, 0x0a, 0x23,
-	0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45,
-	0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x46, 0x41, 0x49,
-	0x4c, 0x45, 0x44, 0x10, 0x67, 0x12, 0x33, 0x0a, 0x2e, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42,
-	0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f,
-	0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47,
-	0x5f, 0x49, 0x4d, 0x41, 0x47, 0x45, 0x53, 0x10, 0xc9, 0x01, 0x12, 0x32, 0x0a, 0x2d, 0x53, 0x54,
-	0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41,
-	0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x49, 0x4d, 0x41, 0x47, 0x45,
-	0x53, 0x5f, 0x43, 0x4f, 0x4d, 0x50, 0x4c, 0x45, 0x54, 0x45, 0x44, 0x10, 0xca, 0x01, 0x12, 0x2f,
-	0x0a, 0x2a, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45,
-	0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x49,
-	0x4d, 0x41, 0x47, 0x45, 0x53, 0x5f, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0xcb, 0x01, 0x12,
-	0x32, 0x0a, 0x2d, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47,
-	0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f,
-	0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x41, 0x55, 0x44, 0x49, 0x4f,
-	0x10, 0xad, 0x02, 0x12, 0x31, 0x0a, 0x2c, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41,
-	0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54,
-	0x41, 0x47, 0x45, 0x5f, 0x41, 0x55, 0x44, 0x49, 0x4f, 0x5f, 0x43, 0x4f, 0x4d, 0x50, 0x4c, 0x45,
-	0x54, 0x45, 0x44, 0x10, 0xae, 0x02, 0x12, 0x2e, 0x0a, 0x29, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f,
-	0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47,
-	0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x41, 0x55, 0x44, 0x49, 0x4f, 0x5f, 0x46, 0x41, 0x49,
-	0x4c, 0x45, 0x44, 0x10, 0xaf, 0x02, 0x12, 0x32, 0x0a, 0x2d, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f,
-	0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47,
-	0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41, 0x54, 0x49, 0x4e,
-	0x47, 0x5f, 0x56, 0x49, 0x44, 0x45, 0x4f, 0x10, 0x91, 0x03, 0x12, 0x31, 0x0a, 0x2c, 0x53, 0x54,
-	0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e, 0x45, 0x52, 0x41,
-	0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x56, 0x49, 0x44, 0x45, 0x4f,
-	0x5f, 0x43, 0x4f, 0x4d, 0x50, 0x4c, 0x45, 0x54, 0x45, 0x44, 0x10, 0x92, 0x03, 0x12, 0x2e, 0x0a,
-	0x29, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x5f, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x5f, 0x47, 0x45, 0x4e,
-	0x45, 0x52, 0x41, 0x54, 0x49, 0x4e, 0x47, 0x5f, 0x53, 0x54, 0x41, 0x47, 0x45, 0x5f, 0x56, 0x49,
-	0x44, 0x45, 0x4f, 0x5f, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x93, 0x03, 0x42, 0x76, 0x0a,
-	0x0a, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x42, 0x0a, 0x53, 0x74, 0x6f,
-	0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x65, 0x72, 0x79, 0x2f, 0x63, 0x6f,
-	0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0xa2,
-	0x02, 0x03, 0x43, 0x58, 0x58, 0xaa, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xca, 0x02,
-	0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xe2, 0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
-	0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x06, 0x43,
-	0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x59, 0x42, 0x4f, 0x41, 0x52, 0x44, 0x10, 0x02, 0x12, 0x1a, 0x0a, 0x16, 0x52, 0x45, 0x4e, 0x44,
+	0x45, 0x52, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x53, 0x45, 0x4e,
+	0x43, 0x45, 0x10, 0x03, 0x12, 0x1f, 0x0a, 0x1b, 0x52, 0x45, 0x4e, 0x44, 0x45, 0x52, 0x5f, 0x54,
+	0x59, 0x50, 0x45, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x59, 0x43, 0x48, 0x41, 0x52, 0x41, 0x43, 0x54,
+	0x45, 0x52, 0x53, 0x10, 0x04, 0x42, 0x76, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x6f, 0x6d,
+	0x6d, 0x6f, 0x6e, 0x42, 0x0a, 0x53, 0x74, 0x6f, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,
+	0x01, 0x5a, 0x24, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x67, 0x72,
+	0x61, 0x70, 0x65, 0x72, 0x79, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0xa2, 0x02, 0x03, 0x43, 0x58, 0x58, 0xaa, 0x02, 0x06,
+	0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xca, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0xe2,
+	0x02, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -10109,235 +9958,234 @@ func file_story_proto_rawDescGZIP() []byte {
 	return file_story_proto_rawDescData
 }
 
-var file_story_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_story_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_story_proto_msgTypes = make([]protoimpl.MessageInfo, 114)
 var file_story_proto_goTypes = []interface{}{
 	(StoryboardStage)(0),                       // 0: common.StoryboardStage
 	(RenderType)(0),                            // 1: common.RenderType
-	(StoryBoardGeneratingStage)(0),             // 2: common.StoryBoardGeneratingStage
-	(*Story)(nil),                              // 3: common.Story
-	(*StoryParams)(nil),                        // 4: common.StoryParams
-	(*StoryBoard)(nil),                         // 5: common.StoryBoard
-	(*StoryBoardSences)(nil),                   // 6: common.StoryBoardSences
-	(*CharacterDetail)(nil),                    // 7: common.CharacterDetail
-	(*StoryRole)(nil),                          // 8: common.StoryRole
-	(*StoryBoardParams)(nil),                   // 9: common.StoryBoardParams
-	(*TimeLine)(nil),                           // 10: common.TimeLine
-	(*CreateStoryRequest)(nil),                 // 11: common.CreateStoryRequest
-	(*CreateStoryResponse)(nil),                // 12: common.CreateStoryResponse
-	(*UpdateStoryRequest)(nil),                 // 13: common.UpdateStoryRequest
-	(*UpdateStoryResponse)(nil),                // 14: common.UpdateStoryResponse
-	(*GetStoryInfoRequest)(nil),                // 15: common.GetStoryInfoRequest
-	(*GetStoryInfoResponse)(nil),               // 16: common.GetStoryInfoResponse
-	(*CreateStoryboardRequest)(nil),            // 17: common.CreateStoryboardRequest
-	(*CreateStoryboardResponse)(nil),           // 18: common.CreateStoryboardResponse
-	(*GetStoryboardRequest)(nil),               // 19: common.GetStoryboardRequest
-	(*GetStoryboardResponse)(nil),              // 20: common.GetStoryboardResponse
-	(*GetStoryboardsRequest)(nil),              // 21: common.GetStoryboardsRequest
-	(*StoryBoardActiveRole)(nil),               // 22: common.StoryBoardActiveRole
-	(*StoryBoardActiveUser)(nil),               // 23: common.StoryBoardActiveUser
-	(*StoryBoardActive)(nil),                   // 24: common.StoryBoardActive
-	(*StorySummaryInfo)(nil),                   // 25: common.StorySummaryInfo
-	(*GetStoryboardsResponse)(nil),             // 26: common.GetStoryboardsResponse
-	(*DelStoryboardRequest)(nil),               // 27: common.DelStoryboardRequest
-	(*DelStoryboardResponse)(nil),              // 28: common.DelStoryboardResponse
-	(*ForkStoryboardRequest)(nil),              // 29: common.ForkStoryboardRequest
-	(*ForkStoryboardResponse)(nil),             // 30: common.ForkStoryboardResponse
-	(*UpdateStoryboardRequest)(nil),            // 31: common.UpdateStoryboardRequest
-	(*UpdateStoryboardResponse)(nil),           // 32: common.UpdateStoryboardResponse
-	(*WatchStoryRequest)(nil),                  // 33: common.WatchStoryRequest
-	(*WatchStoryResponse)(nil),                 // 34: common.WatchStoryResponse
-	(*LikeStoryboardRequest)(nil),              // 35: common.LikeStoryboardRequest
-	(*LikeStoryboardResponse)(nil),             // 36: common.LikeStoryboardResponse
-	(*UnLikeStoryboardRequest)(nil),            // 37: common.UnLikeStoryboardRequest
-	(*UnLikeStoryboardResponse)(nil),           // 38: common.UnLikeStoryboardResponse
-	(*ShareStoryboardRequest)(nil),             // 39: common.ShareStoryboardRequest
-	(*ShareStoryboardResponse)(nil),            // 40: common.ShareStoryboardResponse
-	(*RenderStoryRequest)(nil),                 // 41: common.RenderStoryRequest
-	(*RenderStoryStructureValue)(nil),          // 42: common.RenderStoryStructureValue
-	(*StoryChapter)(nil),                       // 43: common.StoryChapter
-	(*ChapterSummary)(nil),                     // 44: common.ChapterSummary
-	(*ChapterDetailInformation)(nil),           // 45: common.ChapterDetailInformation
-	(*DetailScene)(nil),                        // 46: common.DetailScene
-	(*Character)(nil),                          // 47: common.Character
-	(*StoryInfo)(nil),                          // 48: common.StoryInfo
-	(*StoryNameAndTheme)(nil),                  // 49: common.StoryNameAndTheme
-	(*ChapterInfo)(nil),                        // 50: common.ChapterInfo
-	(*RenderStoryDetail)(nil),                  // 51: common.RenderStoryDetail
-	(*RenderStoryResponse)(nil),                // 52: common.RenderStoryResponse
-	(*RenderStoryboardRequest)(nil),            // 53: common.RenderStoryboardRequest
-	(*RenderStoryboardDetail)(nil),             // 54: common.RenderStoryboardDetail
-	(*RenderStoryboardResponse)(nil),           // 55: common.RenderStoryboardResponse
-	(*GenStoryboardTextRequest)(nil),           // 56: common.GenStoryboardTextRequest
-	(*GenStoryboardTextResponse)(nil),          // 57: common.GenStoryboardTextResponse
-	(*GenStoryboardImagesRequest)(nil),         // 58: common.GenStoryboardImagesRequest
-	(*GenStoryboardImagesResponse)(nil),        // 59: common.GenStoryboardImagesResponse
-	(*FetchGroupStorysRequest)(nil),            // 60: common.FetchGroupStorysRequest
-	(*FetchGroupStorysResponse)(nil),           // 61: common.FetchGroupStorysResponse
-	(*GetStoryRenderRequest)(nil),              // 62: common.GetStoryRenderRequest
-	(*GetStoryRenderResponse)(nil),             // 63: common.GetStoryRenderResponse
-	(*GetStoryBoardRenderRequest)(nil),         // 64: common.GetStoryBoardRenderRequest
-	(*GetStoryBoardRenderResponse)(nil),        // 65: common.GetStoryBoardRenderResponse
-	(*ContinueRenderStoryRequest)(nil),         // 66: common.ContinueRenderStoryRequest
-	(*ContinueRenderStoryResponse)(nil),        // 67: common.ContinueRenderStoryResponse
-	(*RenderStoryRolesRequest)(nil),            // 68: common.RenderStoryRolesRequest
-	(*RenderStoryRolesResponse)(nil),           // 69: common.RenderStoryRolesResponse
-	(*RenderStoryRoleDetailRequest)(nil),       // 70: common.RenderStoryRoleDetailRequest
-	(*RenderStoryRoleDetailResponse)(nil),      // 71: common.RenderStoryRoleDetailResponse
-	(*UpdateStoryRoleRequest)(nil),             // 72: common.UpdateStoryRoleRequest
-	(*UpdateStoryRoleResponse)(nil),            // 73: common.UpdateStoryRoleResponse
-	(*GetStoryRolesRequest)(nil),               // 74: common.GetStoryRolesRequest
-	(*GetStoryRolesResponse)(nil),              // 75: common.GetStoryRolesResponse
-	(*GetStoryBoardRolesRequest)(nil),          // 76: common.GetStoryBoardRolesRequest
-	(*GetStoryBoardRolesResponse)(nil),         // 77: common.GetStoryBoardRolesResponse
-	(*StoryBoardSence)(nil),                    // 78: common.StoryBoardSence
-	(*GetStoryBoardSencesRequest)(nil),         // 79: common.GetStoryBoardSencesRequest
-	(*GetStoryBoardSencesResponse)(nil),        // 80: common.GetStoryBoardSencesResponse
-	(*CreateStoryBoardSenceRequest)(nil),       // 81: common.CreateStoryBoardSenceRequest
-	(*CreateStoryBoardSenceResponse)(nil),      // 82: common.CreateStoryBoardSenceResponse
-	(*UpdateStoryBoardSenceRequest)(nil),       // 83: common.UpdateStoryBoardSenceRequest
-	(*UpdateStoryBoardSenceResponse)(nil),      // 84: common.UpdateStoryBoardSenceResponse
-	(*DeleteStoryBoardSenceRequest)(nil),       // 85: common.DeleteStoryBoardSenceRequest
-	(*DeleteStoryBoardSenceResponse)(nil),      // 86: common.DeleteStoryBoardSenceResponse
-	(*RenderStoryBoardSenceRequest)(nil),       // 87: common.RenderStoryBoardSenceRequest
-	(*RenderStoryBoardSenceResponse)(nil),      // 88: common.RenderStoryBoardSenceResponse
-	(*RenderStoryBoardSencesRequest)(nil),      // 89: common.RenderStoryBoardSencesRequest
-	(*RenderStoryBoardSencesResponse)(nil),     // 90: common.RenderStoryBoardSencesResponse
-	(*GetStoryBoardSenceGenerateRequest)(nil),  // 91: common.GetStoryBoardSenceGenerateRequest
-	(*GetStoryBoardSenceGenerateResponse)(nil), // 92: common.GetStoryBoardSenceGenerateResponse
-	(*GetStoryBoardGenerateRequest)(nil),       // 93: common.GetStoryBoardGenerateRequest
-	(*GetStoryBoardGenerateResponse)(nil),      // 94: common.GetStoryBoardGenerateResponse
-	(*QueryTaskStatusRequest)(nil),             // 95: common.QueryTaskStatusRequest
-	(*QueryTaskStatusResponse)(nil),            // 96: common.QueryTaskStatusResponse
-	(*CreateStoryResponse_Data)(nil),           // 97: common.CreateStoryResponse.Data
-	(*UpdateStoryResponse_Data)(nil),           // 98: common.UpdateStoryResponse.Data
-	(*GetStoryInfoResponse_Data)(nil),          // 99: common.GetStoryInfoResponse.Data
-	(*CreateStoryboardResponse_Data)(nil),      // 100: common.CreateStoryboardResponse.Data
-	(*GetStoryboardResponse_Data)(nil),         // 101: common.GetStoryboardResponse.Data
-	(*GetStoryboardsResponse_Data)(nil),        // 102: common.GetStoryboardsResponse.Data
-	(*ForkStoryboardResponse_Data)(nil),        // 103: common.ForkStoryboardResponse.Data
-	(*UpdateStoryboardResponse_Data)(nil),      // 104: common.UpdateStoryboardResponse.Data
-	(*WatchStoryResponse_Data)(nil),            // 105: common.WatchStoryResponse.Data
-	(*LikeStoryboardResponse_Data)(nil),        // 106: common.LikeStoryboardResponse.Data
-	(*ShareStoryboardResponse_Data)(nil),       // 107: common.ShareStoryboardResponse.Data
-	nil,                                        // 108: common.RenderStoryStructureValue.ExtraEntry
-	(*FetchGroupStorysResponse_Data)(nil),      // 109: common.FetchGroupStorysResponse.Data
-	(*GetStoryRenderResponse_Data)(nil),        // 110: common.GetStoryRenderResponse.Data
-	(*GetStoryBoardRenderResponse_Data)(nil),   // 111: common.GetStoryBoardRenderResponse.Data
-	(*GetStoryRolesResponse_Data)(nil),         // 112: common.GetStoryRolesResponse.Data
-	(*GetStoryBoardRolesResponse_Data)(nil),    // 113: common.GetStoryBoardRolesResponse.Data
-	(*GetStoryBoardSencesResponse_Data)(nil),   // 114: common.GetStoryBoardSencesResponse.Data
-	(*CreateStoryBoardSenceResponse_Data)(nil), // 115: common.CreateStoryBoardSenceResponse.Data
-	(*QueryTaskStatusResponse_Data)(nil),       // 116: common.QueryTaskStatusResponse.Data
-	(*Tags)(nil),                               // 117: common.Tags
-	(ScopeType)(0),                             // 118: common.ScopeType
-	(*WhatCurrentUserStatus)(nil),              // 119: common.WhatCurrentUserStatus
-	(*UserInfo)(nil),                           // 120: common.UserInfo
-	(MultiBranchOrderBy)(0),                    // 121: common.MultiBranchOrderBy
-	(DashScopeTaskStatus)(0),                   // 122: common.DashScopeTaskStatus
+	(*Story)(nil),                              // 2: common.Story
+	(*StoryParams)(nil),                        // 3: common.StoryParams
+	(*StoryBoard)(nil),                         // 4: common.StoryBoard
+	(*StoryBoardSences)(nil),                   // 5: common.StoryBoardSences
+	(*CharacterDetail)(nil),                    // 6: common.CharacterDetail
+	(*StoryRole)(nil),                          // 7: common.StoryRole
+	(*StoryBoardParams)(nil),                   // 8: common.StoryBoardParams
+	(*TimeLine)(nil),                           // 9: common.TimeLine
+	(*CreateStoryRequest)(nil),                 // 10: common.CreateStoryRequest
+	(*CreateStoryResponse)(nil),                // 11: common.CreateStoryResponse
+	(*UpdateStoryRequest)(nil),                 // 12: common.UpdateStoryRequest
+	(*UpdateStoryResponse)(nil),                // 13: common.UpdateStoryResponse
+	(*GetStoryInfoRequest)(nil),                // 14: common.GetStoryInfoRequest
+	(*GetStoryInfoResponse)(nil),               // 15: common.GetStoryInfoResponse
+	(*CreateStoryboardRequest)(nil),            // 16: common.CreateStoryboardRequest
+	(*CreateStoryboardResponse)(nil),           // 17: common.CreateStoryboardResponse
+	(*GetStoryboardRequest)(nil),               // 18: common.GetStoryboardRequest
+	(*GetStoryboardResponse)(nil),              // 19: common.GetStoryboardResponse
+	(*GetStoryboardsRequest)(nil),              // 20: common.GetStoryboardsRequest
+	(*StoryBoardActiveRole)(nil),               // 21: common.StoryBoardActiveRole
+	(*StoryBoardActiveUser)(nil),               // 22: common.StoryBoardActiveUser
+	(*StoryBoardActive)(nil),                   // 23: common.StoryBoardActive
+	(*StorySummaryInfo)(nil),                   // 24: common.StorySummaryInfo
+	(*GetStoryboardsResponse)(nil),             // 25: common.GetStoryboardsResponse
+	(*DelStoryboardRequest)(nil),               // 26: common.DelStoryboardRequest
+	(*DelStoryboardResponse)(nil),              // 27: common.DelStoryboardResponse
+	(*ForkStoryboardRequest)(nil),              // 28: common.ForkStoryboardRequest
+	(*ForkStoryboardResponse)(nil),             // 29: common.ForkStoryboardResponse
+	(*UpdateStoryboardRequest)(nil),            // 30: common.UpdateStoryboardRequest
+	(*UpdateStoryboardResponse)(nil),           // 31: common.UpdateStoryboardResponse
+	(*WatchStoryRequest)(nil),                  // 32: common.WatchStoryRequest
+	(*WatchStoryResponse)(nil),                 // 33: common.WatchStoryResponse
+	(*LikeStoryboardRequest)(nil),              // 34: common.LikeStoryboardRequest
+	(*LikeStoryboardResponse)(nil),             // 35: common.LikeStoryboardResponse
+	(*UnLikeStoryboardRequest)(nil),            // 36: common.UnLikeStoryboardRequest
+	(*UnLikeStoryboardResponse)(nil),           // 37: common.UnLikeStoryboardResponse
+	(*ShareStoryboardRequest)(nil),             // 38: common.ShareStoryboardRequest
+	(*ShareStoryboardResponse)(nil),            // 39: common.ShareStoryboardResponse
+	(*RenderStoryRequest)(nil),                 // 40: common.RenderStoryRequest
+	(*RenderStoryStructureValue)(nil),          // 41: common.RenderStoryStructureValue
+	(*StoryChapter)(nil),                       // 42: common.StoryChapter
+	(*ChapterSummary)(nil),                     // 43: common.ChapterSummary
+	(*ChapterDetailInformation)(nil),           // 44: common.ChapterDetailInformation
+	(*DetailScene)(nil),                        // 45: common.DetailScene
+	(*Character)(nil),                          // 46: common.Character
+	(*StoryInfo)(nil),                          // 47: common.StoryInfo
+	(*StoryNameAndTheme)(nil),                  // 48: common.StoryNameAndTheme
+	(*ChapterInfo)(nil),                        // 49: common.ChapterInfo
+	(*RenderStoryDetail)(nil),                  // 50: common.RenderStoryDetail
+	(*RenderStoryResponse)(nil),                // 51: common.RenderStoryResponse
+	(*RenderStoryboardRequest)(nil),            // 52: common.RenderStoryboardRequest
+	(*RenderStoryboardDetail)(nil),             // 53: common.RenderStoryboardDetail
+	(*RenderStoryboardResponse)(nil),           // 54: common.RenderStoryboardResponse
+	(*GenStoryboardTextRequest)(nil),           // 55: common.GenStoryboardTextRequest
+	(*GenStoryboardTextResponse)(nil),          // 56: common.GenStoryboardTextResponse
+	(*GenStoryboardImagesRequest)(nil),         // 57: common.GenStoryboardImagesRequest
+	(*GenStoryboardImagesResponse)(nil),        // 58: common.GenStoryboardImagesResponse
+	(*FetchGroupStorysRequest)(nil),            // 59: common.FetchGroupStorysRequest
+	(*FetchGroupStorysResponse)(nil),           // 60: common.FetchGroupStorysResponse
+	(*GetStoryRenderRequest)(nil),              // 61: common.GetStoryRenderRequest
+	(*GetStoryRenderResponse)(nil),             // 62: common.GetStoryRenderResponse
+	(*GetStoryBoardRenderRequest)(nil),         // 63: common.GetStoryBoardRenderRequest
+	(*GetStoryBoardRenderResponse)(nil),        // 64: common.GetStoryBoardRenderResponse
+	(*ContinueRenderStoryRequest)(nil),         // 65: common.ContinueRenderStoryRequest
+	(*ContinueRenderStoryResponse)(nil),        // 66: common.ContinueRenderStoryResponse
+	(*RenderStoryRolesRequest)(nil),            // 67: common.RenderStoryRolesRequest
+	(*RenderStoryRolesResponse)(nil),           // 68: common.RenderStoryRolesResponse
+	(*RenderStoryRoleDetailRequest)(nil),       // 69: common.RenderStoryRoleDetailRequest
+	(*RenderStoryRoleDetailResponse)(nil),      // 70: common.RenderStoryRoleDetailResponse
+	(*UpdateStoryRoleRequest)(nil),             // 71: common.UpdateStoryRoleRequest
+	(*UpdateStoryRoleResponse)(nil),            // 72: common.UpdateStoryRoleResponse
+	(*GetStoryRolesRequest)(nil),               // 73: common.GetStoryRolesRequest
+	(*GetStoryRolesResponse)(nil),              // 74: common.GetStoryRolesResponse
+	(*GetStoryBoardRolesRequest)(nil),          // 75: common.GetStoryBoardRolesRequest
+	(*GetStoryBoardRolesResponse)(nil),         // 76: common.GetStoryBoardRolesResponse
+	(*StoryBoardSence)(nil),                    // 77: common.StoryBoardSence
+	(*GetStoryBoardSencesRequest)(nil),         // 78: common.GetStoryBoardSencesRequest
+	(*GetStoryBoardSencesResponse)(nil),        // 79: common.GetStoryBoardSencesResponse
+	(*CreateStoryBoardSenceRequest)(nil),       // 80: common.CreateStoryBoardSenceRequest
+	(*CreateStoryBoardSenceResponse)(nil),      // 81: common.CreateStoryBoardSenceResponse
+	(*UpdateStoryBoardSenceRequest)(nil),       // 82: common.UpdateStoryBoardSenceRequest
+	(*UpdateStoryBoardSenceResponse)(nil),      // 83: common.UpdateStoryBoardSenceResponse
+	(*DeleteStoryBoardSenceRequest)(nil),       // 84: common.DeleteStoryBoardSenceRequest
+	(*DeleteStoryBoardSenceResponse)(nil),      // 85: common.DeleteStoryBoardSenceResponse
+	(*RenderStoryBoardSenceRequest)(nil),       // 86: common.RenderStoryBoardSenceRequest
+	(*RenderStoryBoardSenceResponse)(nil),      // 87: common.RenderStoryBoardSenceResponse
+	(*RenderStoryBoardSencesRequest)(nil),      // 88: common.RenderStoryBoardSencesRequest
+	(*RenderStoryBoardSencesResponse)(nil),     // 89: common.RenderStoryBoardSencesResponse
+	(*GetStoryBoardSenceGenerateRequest)(nil),  // 90: common.GetStoryBoardSenceGenerateRequest
+	(*GetStoryBoardSenceGenerateResponse)(nil), // 91: common.GetStoryBoardSenceGenerateResponse
+	(*GetStoryBoardGenerateRequest)(nil),       // 92: common.GetStoryBoardGenerateRequest
+	(*GetStoryBoardGenerateResponse)(nil),      // 93: common.GetStoryBoardGenerateResponse
+	(*QueryTaskStatusRequest)(nil),             // 94: common.QueryTaskStatusRequest
+	(*QueryTaskStatusResponse)(nil),            // 95: common.QueryTaskStatusResponse
+	(*CreateStoryResponse_Data)(nil),           // 96: common.CreateStoryResponse.Data
+	(*UpdateStoryResponse_Data)(nil),           // 97: common.UpdateStoryResponse.Data
+	(*GetStoryInfoResponse_Data)(nil),          // 98: common.GetStoryInfoResponse.Data
+	(*CreateStoryboardResponse_Data)(nil),      // 99: common.CreateStoryboardResponse.Data
+	(*GetStoryboardResponse_Data)(nil),         // 100: common.GetStoryboardResponse.Data
+	(*GetStoryboardsResponse_Data)(nil),        // 101: common.GetStoryboardsResponse.Data
+	(*ForkStoryboardResponse_Data)(nil),        // 102: common.ForkStoryboardResponse.Data
+	(*UpdateStoryboardResponse_Data)(nil),      // 103: common.UpdateStoryboardResponse.Data
+	(*WatchStoryResponse_Data)(nil),            // 104: common.WatchStoryResponse.Data
+	(*LikeStoryboardResponse_Data)(nil),        // 105: common.LikeStoryboardResponse.Data
+	(*ShareStoryboardResponse_Data)(nil),       // 106: common.ShareStoryboardResponse.Data
+	nil,                                        // 107: common.RenderStoryStructureValue.ExtraEntry
+	(*FetchGroupStorysResponse_Data)(nil),      // 108: common.FetchGroupStorysResponse.Data
+	(*GetStoryRenderResponse_Data)(nil),        // 109: common.GetStoryRenderResponse.Data
+	(*GetStoryBoardRenderResponse_Data)(nil),   // 110: common.GetStoryBoardRenderResponse.Data
+	(*GetStoryRolesResponse_Data)(nil),         // 111: common.GetStoryRolesResponse.Data
+	(*GetStoryBoardRolesResponse_Data)(nil),    // 112: common.GetStoryBoardRolesResponse.Data
+	(*GetStoryBoardSencesResponse_Data)(nil),   // 113: common.GetStoryBoardSencesResponse.Data
+	(*CreateStoryBoardSenceResponse_Data)(nil), // 114: common.CreateStoryBoardSenceResponse.Data
+	(*QueryTaskStatusResponse_Data)(nil),       // 115: common.QueryTaskStatusResponse.Data
+	(*Tags)(nil),                               // 116: common.Tags
+	(ScopeType)(0),                             // 117: common.ScopeType
+	(*WhatCurrentUserStatus)(nil),              // 118: common.WhatCurrentUserStatus
+	(*UserInfo)(nil),                           // 119: common.UserInfo
+	(MultiBranchOrderBy)(0),                    // 120: common.MultiBranchOrderBy
+	(DashScopeTaskStatus)(0),                   // 121: common.DashScopeTaskStatus
 }
 var file_story_proto_depIdxs = []int32{
-	117, // 0: common.Story.tags:type_name -> common.Tags
-	118, // 1: common.Story.visable:type_name -> common.ScopeType
-	4,   // 2: common.Story.params:type_name -> common.StoryParams
-	119, // 3: common.Story.current_user_status:type_name -> common.WhatCurrentUserStatus
-	8,   // 4: common.StoryBoard.roles:type_name -> common.StoryRole
-	9,   // 5: common.StoryBoard.params:type_name -> common.StoryBoardParams
-	6,   // 6: common.StoryBoard.sences:type_name -> common.StoryBoardSences
+	116, // 0: common.Story.tags:type_name -> common.Tags
+	117, // 1: common.Story.visable:type_name -> common.ScopeType
+	3,   // 2: common.Story.params:type_name -> common.StoryParams
+	118, // 3: common.Story.current_user_status:type_name -> common.WhatCurrentUserStatus
+	7,   // 4: common.StoryBoard.roles:type_name -> common.StoryRole
+	8,   // 5: common.StoryBoard.params:type_name -> common.StoryBoardParams
+	5,   // 6: common.StoryBoard.sences:type_name -> common.StoryBoardSences
 	0,   // 7: common.StoryBoard.stage:type_name -> common.StoryboardStage
-	119, // 8: common.StoryBoard.current_user_status:type_name -> common.WhatCurrentUserStatus
-	78,  // 9: common.StoryBoardSences.list:type_name -> common.StoryBoardSence
-	7,   // 10: common.StoryRole.character_detail:type_name -> common.CharacterDetail
-	119, // 11: common.StoryRole.current_user_status:type_name -> common.WhatCurrentUserStatus
-	120, // 12: common.StoryRole.creator:type_name -> common.UserInfo
-	25,  // 13: common.StoryRole.story:type_name -> common.StorySummaryInfo
-	4,   // 14: common.CreateStoryRequest.params:type_name -> common.StoryParams
-	8,   // 15: common.CreateStoryRequest.roles:type_name -> common.StoryRole
-	97,  // 16: common.CreateStoryResponse.data:type_name -> common.CreateStoryResponse.Data
-	4,   // 17: common.UpdateStoryRequest.params:type_name -> common.StoryParams
-	8,   // 18: common.UpdateStoryRequest.roles:type_name -> common.StoryRole
-	98,  // 19: common.UpdateStoryResponse.data:type_name -> common.UpdateStoryResponse.Data
-	99,  // 20: common.GetStoryInfoResponse.data:type_name -> common.GetStoryInfoResponse.Data
-	5,   // 21: common.CreateStoryboardRequest.board:type_name -> common.StoryBoard
-	100, // 22: common.CreateStoryboardResponse.data:type_name -> common.CreateStoryboardResponse.Data
-	101, // 23: common.GetStoryboardResponse.data:type_name -> common.GetStoryboardResponse.Data
-	121, // 24: common.GetStoryboardsRequest.order_by:type_name -> common.MultiBranchOrderBy
-	5,   // 25: common.StoryBoardActive.storyboard:type_name -> common.StoryBoard
-	23,  // 26: common.StoryBoardActive.users:type_name -> common.StoryBoardActiveUser
-	22,  // 27: common.StoryBoardActive.roles:type_name -> common.StoryBoardActiveRole
-	23,  // 28: common.StoryBoardActive.creator:type_name -> common.StoryBoardActiveUser
-	25,  // 29: common.StoryBoardActive.summary:type_name -> common.StorySummaryInfo
-	102, // 30: common.GetStoryboardsResponse.data:type_name -> common.GetStoryboardsResponse.Data
-	5,   // 31: common.ForkStoryboardRequest.board:type_name -> common.StoryBoard
-	103, // 32: common.ForkStoryboardResponse.data:type_name -> common.ForkStoryboardResponse.Data
-	9,   // 33: common.UpdateStoryboardRequest.params:type_name -> common.StoryBoardParams
-	104, // 34: common.UpdateStoryboardResponse.data:type_name -> common.UpdateStoryboardResponse.Data
-	105, // 35: common.WatchStoryResponse.data:type_name -> common.WatchStoryResponse.Data
-	106, // 36: common.LikeStoryboardResponse.data:type_name -> common.LikeStoryboardResponse.Data
-	107, // 37: common.ShareStoryboardResponse.data:type_name -> common.ShareStoryboardResponse.Data
+	118, // 8: common.StoryBoard.current_user_status:type_name -> common.WhatCurrentUserStatus
+	77,  // 9: common.StoryBoardSences.list:type_name -> common.StoryBoardSence
+	6,   // 10: common.StoryRole.character_detail:type_name -> common.CharacterDetail
+	118, // 11: common.StoryRole.current_user_status:type_name -> common.WhatCurrentUserStatus
+	119, // 12: common.StoryRole.creator:type_name -> common.UserInfo
+	24,  // 13: common.StoryRole.story:type_name -> common.StorySummaryInfo
+	3,   // 14: common.CreateStoryRequest.params:type_name -> common.StoryParams
+	7,   // 15: common.CreateStoryRequest.roles:type_name -> common.StoryRole
+	96,  // 16: common.CreateStoryResponse.data:type_name -> common.CreateStoryResponse.Data
+	3,   // 17: common.UpdateStoryRequest.params:type_name -> common.StoryParams
+	7,   // 18: common.UpdateStoryRequest.roles:type_name -> common.StoryRole
+	97,  // 19: common.UpdateStoryResponse.data:type_name -> common.UpdateStoryResponse.Data
+	98,  // 20: common.GetStoryInfoResponse.data:type_name -> common.GetStoryInfoResponse.Data
+	4,   // 21: common.CreateStoryboardRequest.board:type_name -> common.StoryBoard
+	99,  // 22: common.CreateStoryboardResponse.data:type_name -> common.CreateStoryboardResponse.Data
+	100, // 23: common.GetStoryboardResponse.data:type_name -> common.GetStoryboardResponse.Data
+	120, // 24: common.GetStoryboardsRequest.order_by:type_name -> common.MultiBranchOrderBy
+	4,   // 25: common.StoryBoardActive.storyboard:type_name -> common.StoryBoard
+	22,  // 26: common.StoryBoardActive.users:type_name -> common.StoryBoardActiveUser
+	21,  // 27: common.StoryBoardActive.roles:type_name -> common.StoryBoardActiveRole
+	22,  // 28: common.StoryBoardActive.creator:type_name -> common.StoryBoardActiveUser
+	24,  // 29: common.StoryBoardActive.summary:type_name -> common.StorySummaryInfo
+	101, // 30: common.GetStoryboardsResponse.data:type_name -> common.GetStoryboardsResponse.Data
+	4,   // 31: common.ForkStoryboardRequest.board:type_name -> common.StoryBoard
+	102, // 32: common.ForkStoryboardResponse.data:type_name -> common.ForkStoryboardResponse.Data
+	8,   // 33: common.UpdateStoryboardRequest.params:type_name -> common.StoryBoardParams
+	103, // 34: common.UpdateStoryboardResponse.data:type_name -> common.UpdateStoryboardResponse.Data
+	104, // 35: common.WatchStoryResponse.data:type_name -> common.WatchStoryResponse.Data
+	105, // 36: common.LikeStoryboardResponse.data:type_name -> common.LikeStoryboardResponse.Data
+	106, // 37: common.ShareStoryboardResponse.data:type_name -> common.ShareStoryboardResponse.Data
 	1,   // 38: common.RenderStoryRequest.render_type:type_name -> common.RenderType
-	108, // 39: common.RenderStoryStructureValue.extra:type_name -> common.RenderStoryStructureValue.ExtraEntry
-	44,  // 40: common.StoryChapter.chapter_summary:type_name -> common.ChapterSummary
-	45,  // 41: common.StoryChapter.chapter_detail_info:type_name -> common.ChapterDetailInformation
-	47,  // 42: common.ChapterSummary.characters:type_name -> common.Character
-	46,  // 43: common.ChapterDetailInformation.details:type_name -> common.DetailScene
-	47,  // 44: common.DetailScene.characters:type_name -> common.Character
-	49,  // 45: common.StoryInfo.story_name_and_theme:type_name -> common.StoryNameAndTheme
-	50,  // 46: common.StoryInfo.story_chapters:type_name -> common.ChapterInfo
+	107, // 39: common.RenderStoryStructureValue.extra:type_name -> common.RenderStoryStructureValue.ExtraEntry
+	43,  // 40: common.StoryChapter.chapter_summary:type_name -> common.ChapterSummary
+	44,  // 41: common.StoryChapter.chapter_detail_info:type_name -> common.ChapterDetailInformation
+	46,  // 42: common.ChapterSummary.characters:type_name -> common.Character
+	45,  // 43: common.ChapterDetailInformation.details:type_name -> common.DetailScene
+	46,  // 44: common.DetailScene.characters:type_name -> common.Character
+	48,  // 45: common.StoryInfo.story_name_and_theme:type_name -> common.StoryNameAndTheme
+	49,  // 46: common.StoryInfo.story_chapters:type_name -> common.ChapterInfo
 	1,   // 47: common.RenderStoryDetail.render_type:type_name -> common.RenderType
-	48,  // 48: common.RenderStoryDetail.result:type_name -> common.StoryInfo
-	51,  // 49: common.RenderStoryResponse.data:type_name -> common.RenderStoryDetail
+	47,  // 48: common.RenderStoryDetail.result:type_name -> common.StoryInfo
+	50,  // 49: common.RenderStoryResponse.data:type_name -> common.RenderStoryDetail
 	1,   // 50: common.RenderStoryboardRequest.render_type:type_name -> common.RenderType
 	1,   // 51: common.RenderStoryboardDetail.render_type:type_name -> common.RenderType
-	43,  // 52: common.RenderStoryboardDetail.result:type_name -> common.StoryChapter
-	54,  // 53: common.RenderStoryboardResponse.data:type_name -> common.RenderStoryboardDetail
+	42,  // 52: common.RenderStoryboardDetail.result:type_name -> common.StoryChapter
+	53,  // 53: common.RenderStoryboardResponse.data:type_name -> common.RenderStoryboardDetail
 	1,   // 54: common.GenStoryboardTextRequest.render_type:type_name -> common.RenderType
-	54,  // 55: common.GenStoryboardTextResponse.data:type_name -> common.RenderStoryboardDetail
+	53,  // 55: common.GenStoryboardTextResponse.data:type_name -> common.RenderStoryboardDetail
 	1,   // 56: common.GenStoryboardImagesRequest.render_type:type_name -> common.RenderType
-	54,  // 57: common.GenStoryboardImagesResponse.data:type_name -> common.RenderStoryboardDetail
-	109, // 58: common.FetchGroupStorysResponse.data:type_name -> common.FetchGroupStorysResponse.Data
-	110, // 59: common.GetStoryRenderResponse.data:type_name -> common.GetStoryRenderResponse.Data
-	111, // 60: common.GetStoryBoardRenderResponse.data:type_name -> common.GetStoryBoardRenderResponse.Data
+	53,  // 57: common.GenStoryboardImagesResponse.data:type_name -> common.RenderStoryboardDetail
+	108, // 58: common.FetchGroupStorysResponse.data:type_name -> common.FetchGroupStorysResponse.Data
+	109, // 59: common.GetStoryRenderResponse.data:type_name -> common.GetStoryRenderResponse.Data
+	110, // 60: common.GetStoryBoardRenderResponse.data:type_name -> common.GetStoryBoardRenderResponse.Data
 	1,   // 61: common.ContinueRenderStoryRequest.render_type:type_name -> common.RenderType
-	8,   // 62: common.ContinueRenderStoryRequest.roles:type_name -> common.StoryRole
-	54,  // 63: common.ContinueRenderStoryResponse.data:type_name -> common.RenderStoryboardDetail
-	8,   // 64: common.RenderStoryRolesRequest.params:type_name -> common.StoryRole
-	8,   // 65: common.RenderStoryRolesResponse.list:type_name -> common.StoryRole
-	8,   // 66: common.RenderStoryRoleDetailRequest.role:type_name -> common.StoryRole
-	8,   // 67: common.RenderStoryRoleDetailResponse.role:type_name -> common.StoryRole
-	8,   // 68: common.UpdateStoryRoleRequest.role:type_name -> common.StoryRole
-	112, // 69: common.GetStoryRolesResponse.data:type_name -> common.GetStoryRolesResponse.Data
-	113, // 70: common.GetStoryBoardRolesResponse.data:type_name -> common.GetStoryBoardRolesResponse.Data
-	114, // 71: common.GetStoryBoardSencesResponse.data:type_name -> common.GetStoryBoardSencesResponse.Data
-	78,  // 72: common.CreateStoryBoardSenceRequest.sence:type_name -> common.StoryBoardSence
-	115, // 73: common.CreateStoryBoardSenceResponse.data:type_name -> common.CreateStoryBoardSenceResponse.Data
-	78,  // 74: common.UpdateStoryBoardSenceRequest.sence:type_name -> common.StoryBoardSence
-	78,  // 75: common.RenderStoryBoardSenceResponse.data:type_name -> common.StoryBoardSence
-	78,  // 76: common.RenderStoryBoardSencesResponse.list:type_name -> common.StoryBoardSence
-	78,  // 77: common.GetStoryBoardSenceGenerateResponse.data:type_name -> common.StoryBoardSence
-	78,  // 78: common.GetStoryBoardGenerateResponse.list:type_name -> common.StoryBoardSence
+	7,   // 62: common.ContinueRenderStoryRequest.roles:type_name -> common.StoryRole
+	53,  // 63: common.ContinueRenderStoryResponse.data:type_name -> common.RenderStoryboardDetail
+	7,   // 64: common.RenderStoryRolesRequest.params:type_name -> common.StoryRole
+	7,   // 65: common.RenderStoryRolesResponse.list:type_name -> common.StoryRole
+	7,   // 66: common.RenderStoryRoleDetailRequest.role:type_name -> common.StoryRole
+	7,   // 67: common.RenderStoryRoleDetailResponse.role:type_name -> common.StoryRole
+	7,   // 68: common.UpdateStoryRoleRequest.role:type_name -> common.StoryRole
+	111, // 69: common.GetStoryRolesResponse.data:type_name -> common.GetStoryRolesResponse.Data
+	112, // 70: common.GetStoryBoardRolesResponse.data:type_name -> common.GetStoryBoardRolesResponse.Data
+	113, // 71: common.GetStoryBoardSencesResponse.data:type_name -> common.GetStoryBoardSencesResponse.Data
+	77,  // 72: common.CreateStoryBoardSenceRequest.sence:type_name -> common.StoryBoardSence
+	114, // 73: common.CreateStoryBoardSenceResponse.data:type_name -> common.CreateStoryBoardSenceResponse.Data
+	77,  // 74: common.UpdateStoryBoardSenceRequest.sence:type_name -> common.StoryBoardSence
+	77,  // 75: common.RenderStoryBoardSenceResponse.data:type_name -> common.StoryBoardSence
+	77,  // 76: common.RenderStoryBoardSencesResponse.list:type_name -> common.StoryBoardSence
+	77,  // 77: common.GetStoryBoardSenceGenerateResponse.data:type_name -> common.StoryBoardSence
+	77,  // 78: common.GetStoryBoardGenerateResponse.list:type_name -> common.StoryBoardSence
 	1,   // 79: common.QueryTaskStatusRequest.render_type:type_name -> common.RenderType
-	116, // 80: common.QueryTaskStatusResponse.data:type_name -> common.QueryTaskStatusResponse.Data
-	3,   // 81: common.GetStoryInfoResponse.Data.info:type_name -> common.Story
-	120, // 82: common.GetStoryInfoResponse.Data.creator:type_name -> common.UserInfo
-	24,  // 83: common.GetStoryboardResponse.Data.board_info:type_name -> common.StoryBoardActive
-	120, // 84: common.GetStoryboardResponse.Data.creator:type_name -> common.UserInfo
-	24,  // 85: common.GetStoryboardsResponse.Data.list:type_name -> common.StoryBoardActive
-	3,   // 86: common.FetchGroupStorysResponse.Data.list:type_name -> common.Story
-	120, // 87: common.FetchGroupStorysResponse.Data.creator:type_name -> common.UserInfo
-	51,  // 88: common.GetStoryRenderResponse.Data.list:type_name -> common.RenderStoryDetail
-	54,  // 89: common.GetStoryBoardRenderResponse.Data.list:type_name -> common.RenderStoryboardDetail
-	8,   // 90: common.GetStoryRolesResponse.Data.list:type_name -> common.StoryRole
-	120, // 91: common.GetStoryRolesResponse.Data.creator:type_name -> common.UserInfo
-	8,   // 92: common.GetStoryBoardRolesResponse.Data.list:type_name -> common.StoryRole
-	120, // 93: common.GetStoryBoardRolesResponse.Data.creator:type_name -> common.UserInfo
-	78,  // 94: common.GetStoryBoardSencesResponse.Data.list:type_name -> common.StoryBoardSence
-	2,   // 95: common.QueryTaskStatusResponse.Data.stage:type_name -> common.StoryBoardGeneratingStage
-	122, // 96: common.QueryTaskStatusResponse.Data.dashscope_task_status:type_name -> common.DashScopeTaskStatus
-	54,  // 97: common.QueryTaskStatusResponse.Data.render_storyboard_detail:type_name -> common.RenderStoryboardDetail
-	51,  // 98: common.QueryTaskStatusResponse.Data.render_story_detail:type_name -> common.RenderStoryDetail
-	78,  // 99: common.QueryTaskStatusResponse.Data.render_storyboard_sence_list:type_name -> common.StoryBoardSence
-	8,   // 100: common.QueryTaskStatusResponse.Data.render_story_role:type_name -> common.StoryRole
+	115, // 80: common.QueryTaskStatusResponse.data:type_name -> common.QueryTaskStatusResponse.Data
+	2,   // 81: common.GetStoryInfoResponse.Data.info:type_name -> common.Story
+	119, // 82: common.GetStoryInfoResponse.Data.creator:type_name -> common.UserInfo
+	23,  // 83: common.GetStoryboardResponse.Data.board_info:type_name -> common.StoryBoardActive
+	119, // 84: common.GetStoryboardResponse.Data.creator:type_name -> common.UserInfo
+	23,  // 85: common.GetStoryboardsResponse.Data.list:type_name -> common.StoryBoardActive
+	2,   // 86: common.FetchGroupStorysResponse.Data.list:type_name -> common.Story
+	119, // 87: common.FetchGroupStorysResponse.Data.creator:type_name -> common.UserInfo
+	50,  // 88: common.GetStoryRenderResponse.Data.list:type_name -> common.RenderStoryDetail
+	53,  // 89: common.GetStoryBoardRenderResponse.Data.list:type_name -> common.RenderStoryboardDetail
+	7,   // 90: common.GetStoryRolesResponse.Data.list:type_name -> common.StoryRole
+	119, // 91: common.GetStoryRolesResponse.Data.creator:type_name -> common.UserInfo
+	7,   // 92: common.GetStoryBoardRolesResponse.Data.list:type_name -> common.StoryRole
+	119, // 93: common.GetStoryBoardRolesResponse.Data.creator:type_name -> common.UserInfo
+	77,  // 94: common.GetStoryBoardSencesResponse.Data.list:type_name -> common.StoryBoardSence
+	0,   // 95: common.QueryTaskStatusResponse.Data.stage:type_name -> common.StoryboardStage
+	121, // 96: common.QueryTaskStatusResponse.Data.dashscope_task_status:type_name -> common.DashScopeTaskStatus
+	53,  // 97: common.QueryTaskStatusResponse.Data.render_storyboard_detail:type_name -> common.RenderStoryboardDetail
+	50,  // 98: common.QueryTaskStatusResponse.Data.render_story_detail:type_name -> common.RenderStoryDetail
+	77,  // 99: common.QueryTaskStatusResponse.Data.render_storyboard_sence_list:type_name -> common.StoryBoardSence
+	7,   // 100: common.QueryTaskStatusResponse.Data.render_story_role:type_name -> common.StoryRole
 	101, // [101:101] is the sub-list for method output_type
 	101, // [101:101] is the sub-list for method input_type
 	101, // [101:101] is the sub-list for extension type_name
@@ -11715,7 +11563,7 @@ func file_story_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_story_proto_rawDesc,
-			NumEnums:      3,
+			NumEnums:      2,
 			NumMessages:   114,
 			NumExtensions: 0,
 			NumServices:   0,

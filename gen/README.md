@@ -241,7 +241,6 @@
     - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
   
     - [RenderType](#common-RenderType)
-    - [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage)
     - [StoryboardStage](#common-StoryboardStage)
   
 - [message.proto](#message-proto)
@@ -4018,7 +4017,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| stage | [StoryBoardGeneratingStage](#common-StoryBoardGeneratingStage) |  |  |
+| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
 | dashscope_task_status | [DashScopeTaskStatus](#common-DashScopeTaskStatus) |  |  |
 | render_storyboard_detail | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
 | render_story_detail | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
@@ -5018,32 +5017,6 @@ UpdateStoryResponse 更新故事的响应结果
 | RENDER_TYPE_STORYBOARD | 2 | 2: 故事板 |
 | RENDER_TYPE_STORYSENCE | 3 | 3: 故事场景 |
 | RENDER_TYPE_STORYCHARACTERS | 4 | 4: 故事角色 |
-| RENDER_TYPE_STORYACTION | 5 | 5: 故事动作 |
-| RENDER_TYPE_STORYSETTING | 6 | 6: 故事设置 |
-| RENDER_TYPE_STORYENDING | 7 | 7: 故事结局 |
-
-
-
-<a name="common-StoryBoardGeneratingStage"></a>
-
-### StoryBoardGeneratingStage
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| STORY_BOARD_GENERATING_STAGE_UNSPECIFIED | 0 | 0: 未开始 |
-| STORY_BOARD_GENERATING_STAGE_GENERATING | 101 | 1: 生成中 |
-| STORY_BOARD_GENERATING_STAGE_COMPLETED | 102 | 2: 生成完成 |
-| STORY_BOARD_GENERATING_STAGE_FAILED | 103 | 3: 生成失败 |
-| STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES | 201 | 4: 生成图片 |
-| STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED | 202 | 5: 图片生成完成 |
-| STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED | 203 | 6: 图片生成失败 |
-| STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO | 301 | 7: 生成音频 |
-| STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED | 302 | 8: 音频生成完成 |
-| STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED | 303 | 9: 音频生成失败 |
-| STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO | 401 | 10: 生成视频 |
-| STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED | 402 | 11: 视频生成完成 |
-| STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED | 403 | 12: 视频生成失败 |
 
 
 

@@ -42,42 +42,8 @@ enum RenderType{
   RENDER_TYPE_STORYSENCE = 3;
   // 4: 故事角色
   RENDER_TYPE_STORYCHARACTERS = 4;
-  // 5: 故事动作
-  RENDER_TYPE_STORYACTION = 5;
-  // 6: 故事设置
-  RENDER_TYPE_STORYSETTING = 6;
-  // 7: 故事结局
-  RENDER_TYPE_STORYENDING = 7;
 }
 
-enum StoryBoardGeneratingStage{
-  // 0: 未开始
-  STORY_BOARD_GENERATING_STAGE_UNSPECIFIED = 0;
-  // 1: 生成中
-  STORY_BOARD_GENERATING_STAGE_GENERATING = 101;
-  // 2: 生成完成
-  STORY_BOARD_GENERATING_STAGE_COMPLETED = 102;
-  // 3: 生成失败
-  STORY_BOARD_GENERATING_STAGE_FAILED = 103;
-  // 4: 生成图片
-  STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES = 201;
-  // 5: 图片生成完成
-  STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED = 202;
-  // 6: 图片生成失败
-  STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED = 203;
-  // 7: 生成音频
-  STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO = 301;
-  // 8: 音频生成完成
-  STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED = 302;
-  // 9: 音频生成失败
-  STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED = 303;
-  // 10: 生成视频
-  STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO = 401;
-  // 11: 视频生成完成
-  STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED = 402;
-  // 12: 视频生成失败
-  STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED = 403;
-}
 
 // Story 表示一个完整的故事实体
 message Story{
@@ -948,7 +914,7 @@ message QueryTaskStatusResponse {
   int32 code = 1;                  // 响应码
   string message = 2;              // 响应消息
   message Data {
-    StoryBoardGeneratingStage stage = 1; 
+    StoryboardStage stage = 1; 
     DashScopeTaskStatus dashscope_task_status = 2; 
     RenderStoryboardDetail render_storyboard_detail = 3; 
     RenderStoryDetail render_story_detail = 4;

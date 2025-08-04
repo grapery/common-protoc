@@ -129,15 +129,6 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
   /// 4: 故事角色
   case storycharacters // = 4
-
-  /// 5: 故事动作
-  case storyaction // = 5
-
-  /// 6: 故事设置
-  case storysetting // = 6
-
-  /// 7: 故事结局
-  case storyending // = 7
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -151,9 +142,6 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 2: self = .storyboard
     case 3: self = .storysence
     case 4: self = .storycharacters
-    case 5: self = .storyaction
-    case 6: self = .storysetting
-    case 7: self = .storyending
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -165,9 +153,6 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .storyboard: return 2
     case .storysence: return 3
     case .storycharacters: return 4
-    case .storyaction: return 5
-    case .storysetting: return 6
-    case .storyending: return 7
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -179,113 +164,6 @@ public enum Common_RenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
     .storyboard,
     .storysence,
     .storycharacters,
-    .storyaction,
-    .storysetting,
-    .storyending,
-  ]
-
-}
-
-public enum Common_StoryBoardGeneratingStage: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-
-  /// 0: 未开始
-  case unspecified // = 0
-
-  /// 1: 生成中
-  case generating // = 101
-
-  /// 2: 生成完成
-  case completed // = 102
-
-  /// 3: 生成失败
-  case failed // = 103
-
-  /// 4: 生成图片
-  case generatingImages // = 201
-
-  /// 5: 图片生成完成
-  case imagesCompleted // = 202
-
-  /// 6: 图片生成失败
-  case imagesFailed // = 203
-
-  /// 7: 生成音频
-  case generatingAudio // = 301
-
-  /// 8: 音频生成完成
-  case audioCompleted // = 302
-
-  /// 9: 音频生成失败
-  case audioFailed // = 303
-
-  /// 10: 生成视频
-  case generatingVideo // = 401
-
-  /// 11: 视频生成完成
-  case videoCompleted // = 402
-
-  /// 12: 视频生成失败
-  case videoFailed // = 403
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .unspecified
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unspecified
-    case 101: self = .generating
-    case 102: self = .completed
-    case 103: self = .failed
-    case 201: self = .generatingImages
-    case 202: self = .imagesCompleted
-    case 203: self = .imagesFailed
-    case 301: self = .generatingAudio
-    case 302: self = .audioCompleted
-    case 303: self = .audioFailed
-    case 401: self = .generatingVideo
-    case 402: self = .videoCompleted
-    case 403: self = .videoFailed
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .unspecified: return 0
-    case .generating: return 101
-    case .completed: return 102
-    case .failed: return 103
-    case .generatingImages: return 201
-    case .imagesCompleted: return 202
-    case .imagesFailed: return 203
-    case .generatingAudio: return 301
-    case .audioCompleted: return 302
-    case .audioFailed: return 303
-    case .generatingVideo: return 401
-    case .videoCompleted: return 402
-    case .videoFailed: return 403
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_StoryBoardGeneratingStage] = [
-    .unspecified,
-    .generating,
-    .completed,
-    .failed,
-    .generatingImages,
-    .imagesCompleted,
-    .imagesFailed,
-    .generatingAudio,
-    .audioCompleted,
-    .audioFailed,
-    .generatingVideo,
-    .videoCompleted,
-    .videoFailed,
   ]
 
 }
@@ -3525,7 +3403,7 @@ public struct Common_QueryTaskStatusResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var stage: Common_StoryBoardGeneratingStage {
+    public var stage: Common_StoryboardStage {
       get {return _storage._stage}
       set {_uniqueStorage()._stage = newValue}
     }
@@ -3606,27 +3484,6 @@ extension Common_RenderType: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "RENDER_TYPE_STORYBOARD"),
     3: .same(proto: "RENDER_TYPE_STORYSENCE"),
     4: .same(proto: "RENDER_TYPE_STORYCHARACTERS"),
-    5: .same(proto: "RENDER_TYPE_STORYACTION"),
-    6: .same(proto: "RENDER_TYPE_STORYSETTING"),
-    7: .same(proto: "RENDER_TYPE_STORYENDING"),
-  ]
-}
-
-extension Common_StoryBoardGeneratingStage: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "STORY_BOARD_GENERATING_STAGE_UNSPECIFIED"),
-    101: .same(proto: "STORY_BOARD_GENERATING_STAGE_GENERATING"),
-    102: .same(proto: "STORY_BOARD_GENERATING_STAGE_COMPLETED"),
-    103: .same(proto: "STORY_BOARD_GENERATING_STAGE_FAILED"),
-    201: .same(proto: "STORY_BOARD_GENERATING_STAGE_GENERATING_IMAGES"),
-    202: .same(proto: "STORY_BOARD_GENERATING_STAGE_IMAGES_COMPLETED"),
-    203: .same(proto: "STORY_BOARD_GENERATING_STAGE_IMAGES_FAILED"),
-    301: .same(proto: "STORY_BOARD_GENERATING_STAGE_GENERATING_AUDIO"),
-    302: .same(proto: "STORY_BOARD_GENERATING_STAGE_AUDIO_COMPLETED"),
-    303: .same(proto: "STORY_BOARD_GENERATING_STAGE_AUDIO_FAILED"),
-    401: .same(proto: "STORY_BOARD_GENERATING_STAGE_GENERATING_VIDEO"),
-    402: .same(proto: "STORY_BOARD_GENERATING_STAGE_VIDEO_COMPLETED"),
-    403: .same(proto: "STORY_BOARD_GENERATING_STAGE_VIDEO_FAILED"),
   ]
 }
 
@@ -10280,7 +10137,7 @@ extension Common_QueryTaskStatusResponse.DataMessage: SwiftProtobuf.Message, Swi
   ]
 
   fileprivate class _StorageClass {
-    var _stage: Common_StoryBoardGeneratingStage = .unspecified
+    var _stage: Common_StoryboardStage = .unspecified
     var _dashscopeTaskStatus: Common_DashScopeTaskStatus = .unknown
     var _renderStoryboardDetail: Common_RenderStoryboardDetail? = nil
     var _renderStoryDetail: Common_RenderStoryDetail? = nil
