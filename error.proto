@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package common;
+import "google/protobuf/timestamp.proto";
 
 // 通用响应状态码
 enum ResponseCode {

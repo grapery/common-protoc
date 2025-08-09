@@ -3,6 +3,7 @@ syntax = "proto3";
 package common;
 
 import "base.proto";
+import "google/protobuf/timestamp.proto";
 
 message WordDetail {
   string content = 1;

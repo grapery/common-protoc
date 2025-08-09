@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package common;
 
+import "google/protobuf/timestamp.proto";
 import "base.proto";
 
 message UserPrivate {

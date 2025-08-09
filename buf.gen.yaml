@@ -41,4 +41,8 @@ plugins:
       - GenerateCallbackMethods=true
       - Visibility=Public
     out: Android
+  - plugin: buf.build/bufbuild/validate-go
+    opt:
+      - Visibility=Public
+    out: gen
 

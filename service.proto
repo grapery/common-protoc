@@ -14,6 +14,7 @@ import "comment.proto";
 import "story.proto";
 import "error.proto";
 import "message.proto";
+import "google/protobuf/timestamp.proto";
 
 // 用户为主：创建的故事板、故事，分享的故事板、故事
 // 所关注的、创建的、加入的小组的动态：创建的故事板、故事、故事角色
@@ -152,10 +153,6 @@ message UserWatchingResponse {
   Data data = 3;
 }
 
-enum GroupType {
-  PUBLIC = 0;
-  PRIVATE = 1;
-}
 
 message UserGroupRequest { 
   int64 user_id = 1; 

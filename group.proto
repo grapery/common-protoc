@@ -3,22 +3,16 @@ syntax = "proto3";
 package common;
 
 import "base.proto";
+import "google/protobuf/timestamp.proto";
 
-message GroupInfo {
-  int64 group_id = 1;
-  string name = 2;
-  string avatar = 3;
-  string desc = 4;
-  int64 creator = 5;
-  int64 owner = 6;
-  repeated Tags tags = 7;
-  string location = 8;
-  int32 status = 9;
-  GroupProfileInfo profile = 10;
-  repeated GroupMemberInfo members = 11;
-  WhatCurrentUserStatus current_user_status = 12;
-  int64 Ctime = 19;
-  int64 Mtime = 20;
+
+enum GroupType {
+  // 小组内创建，但是小组外可见但是不可以fork
+  PROTECT = 0;
+  // 小组内外可见，小组外可以操作fork
+  PUBLIC = 1;
+  // 仅小组内可见，小组外不可以fork
+  PRIVATE = 2;
 }
 
 // 群组成员类型枚举
@@ -48,6 +42,25 @@ enum GroupMemberType{
   // 已删除的成员记录
   GROUP_MEMBER_TYPE_DELETED = 11;
 }
+
+message GroupInfo {
+  int64 group_id = 1;
+  string name = 2;
+  string avatar = 3;
+  string desc = 4;
+  int64 creator = 5;
+  int64 owner = 6;
+  repeated Tags tags = 7;
+  string location = 8;
+  int32 status = 9;
+  GroupProfileInfo profile = 10;
+  repeated GroupMemberInfo members = 11;
+  WhatCurrentUserStatus current_user_status = 12;
+  int64 Ctime = 19;
+  int64 Mtime = 20;
+}
+
+
 
 message GroupMemberInfo {
   int64 user_id = 1;

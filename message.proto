@@ -9,6 +9,7 @@ import "google/api/annotations.proto";
 import "user.proto";
 import "story.proto";
 import "error.proto";
+import "google/protobuf/timestamp.proto";
 
 enum MsgType {
   TEXT = 0;

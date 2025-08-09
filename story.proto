@@ -4,6 +4,7 @@ package common;
 
 import "base.proto";
 import "user.proto";
+import "google/protobuf/timestamp.proto";
 
 
 enum StoryGenStatus {

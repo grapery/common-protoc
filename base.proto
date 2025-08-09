@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package common;
+import "google/protobuf/timestamp.proto";
 
 enum LikeType {
   // 浏览
@@ -133,16 +134,12 @@ enum AuthType {
 }
 
 enum ScopeType {
-  // 所有人可见
-  AllPublic = 0;
-  // 公开
-  Public = 1;
-  // 私密
-  Private = 2;
-  // 指定人可见
-  Someone = 3;
-  // 群组可见
-  GruopScope = 4;
+  // 小组内创建，但是小组外可见但是不可以fork
+  PROTECT_SCOPE = 0;
+  // 小组内外可见，小组外可以操作fork
+  PUBLIC_SCOPE = 1;
+  // 仅小组内可见，小组外不可以fork
+  PRIVATE_SCOPE = 2;
 }
 
 message Tags {
