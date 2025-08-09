@@ -1,6 +1,6 @@
 module github.com/grapery/common-protoc/gen
 
-go 1.21.5
+go 1.24.0
 
 require (
 	connectrpc.com/connect v1.14.0
@@ -8,6 +8,8 @@ require (
 	google.golang.org/grpc v1.59.0
 	google.golang.org/protobuf v1.32.0
 )
+
+replace github.com/bufbuild/connect-go => connectrpc.com/connect v1.14.0
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
