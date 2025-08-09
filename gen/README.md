@@ -105,6 +105,7 @@
     - [GroupProfileInfo](#common-GroupProfileInfo)
   
     - [GroupMemberType](#common-GroupMemberType)
+    - [GroupType](#common-GroupType)
   
 - [item.proto](#item-proto)
     - [ItemDetail](#common-ItemDetail)
@@ -531,7 +532,6 @@
     - [VersionResponse](#common-VersionResponse)
     - [VersionResponse.Data](#common-VersionResponse-Data)
   
-    - [GroupType](#common-GroupType)
     - [TokenSource](#common-TokenSource)
   
     - [TeamsAPI](#common-TeamsAPI)
@@ -750,11 +750,9 @@
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| AllPublic | 0 | 所有人可见 |
-| Public | 1 | 公开 |
-| Private | 2 | 私密 |
-| Someone | 3 | 指定人可见 |
-| GruopScope | 4 | 群组可见 |
+| PROTECT_SCOPE | 0 | 小组内创建，但是小组外可见但是不可以fork |
+| PUBLIC_SCOPE | 1 | 小组内外可见，小组外可以操作fork |
+| PRIVATE_SCOPE | 2 | 仅小组内可见，小组外不可以fork |
 
 
 
@@ -2560,6 +2558,19 @@ VIP不存在 |
 | GROUP_MEMBER_TYPE_LEAVE | 9 | 主动离开群组的成员 |
 | GROUP_MEMBER_TYPE_KICKED | 10 | 被踢出群组的成员 |
 | GROUP_MEMBER_TYPE_DELETED | 11 | 已删除的成员记录 |
+
+
+
+<a name="common-GroupType"></a>
+
+### GroupType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| PROTECT | 0 | 小组内创建，但是小组外可见但是不可以fork |
+| PUBLIC | 1 | 小组内外可见，小组外可以操作fork |
+| PRIVATE | 2 | 仅小组内可见，小组外不可以fork |
 
 
  
@@ -9889,18 +9900,6 @@ user ,group .project.item
 
 
  
-
-
-<a name="common-GroupType"></a>
-
-### GroupType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| PUBLIC | 0 |  |
-| PRIVATE | 1 |  |
-
 
 
 <a name="common-TokenSource"></a>

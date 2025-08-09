@@ -3588,7 +3588,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     var _creatorID: Int64 = 0
     var _ownerID: Int64 = 0
     var _tags: [Common_Tags] = []
-    var _visable: Common_ScopeType = .allPublic
+    var _visable: Common_ScopeType = .protectScope
     var _isAchieve: Bool = false
     var _isClose: Bool = false
     var _isAiGen: Bool = false
@@ -3738,7 +3738,7 @@ extension Common_Story: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
       if !_storage._tags.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._tags, fieldNumber: 7)
       }
-      if _storage._visable != .allPublic {
+      if _storage._visable != .protectScope {
         try visitor.visitSingularEnumField(value: _storage._visable, fieldNumber: 8)
       }
       if _storage._isAchieve != false {

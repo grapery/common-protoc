@@ -20,6 +20,50 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 小组内创建，但是小组外可见但是不可以fork
+  case protect // = 0
+
+  /// 小组内外可见，小组外可以操作fork
+  case `public` // = 1
+
+  /// 仅小组内可见，小组外不可以fork
+  case `private` // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .protect
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .protect
+    case 1: self = .public
+    case 2: self = .private
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .protect: return 0
+    case .public: return 1
+    case .private: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_GroupType] = [
+    .protect,
+    .public,
+    .private,
+  ]
+
+}
+
 /// 群组成员类型枚举
 public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
@@ -258,6 +302,14 @@ public struct Common_GroupProfileInfo: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
+
+extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PROTECT"),
+    1: .same(proto: "PUBLIC"),
+    2: .same(proto: "PRIVATE"),
+  ]
+}
 
 extension Common_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

@@ -21,40 +21,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case `public` // = 0
-  case `private` // = 1
-  case UNRECOGNIZED(Int)
-
-  public init() {
-    self = .public
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .public
-    case 1: self = .private
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .public: return 0
-    case .private: return 1
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_GroupType] = [
-    .public,
-    .private,
-  ]
-
-}
-
 public enum Common_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
@@ -585,7 +551,7 @@ public struct Common_UserGroupRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var gtype: Common_GroupType = .public
+  public var gtype: Common_GroupType = .protect
 
   public var offset: Int32 = 0
 
@@ -1760,7 +1726,7 @@ public struct Common_SearchGroupRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .allPublic
+  public var scope: Common_ScopeType = .protectScope
 
   public var storyID: Int64 = 0
 
@@ -4953,7 +4919,7 @@ public struct Common_SearchStoriesRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .allPublic
+  public var scope: Common_ScopeType = .protectScope
 
   public var groupID: Int64 = 0
 
@@ -4995,7 +4961,7 @@ public struct Common_SearchRolesRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .allPublic
+  public var scope: Common_ScopeType = .protectScope
 
   public var storyID: Int64 = 0
 
@@ -5421,13 +5387,6 @@ public struct Common_UnLikeStoryResponse: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "common"
-
-extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PUBLIC"),
-    1: .same(proto: "PRIVATE"),
-  ]
-}
 
 extension Common_TokenSource: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -6547,7 +6506,7 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
-    if self.gtype != .public {
+    if self.gtype != .protect {
       try visitor.visitSingularEnumField(value: self.gtype, fieldNumber: 2)
     }
     if self.offset != 0 {
@@ -9192,7 +9151,7 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
-    if self.scope != .allPublic {
+    if self.scope != .protectScope {
       try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
     }
     if self.storyID != 0 {
@@ -17259,7 +17218,7 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
-    if self.scope != .allPublic {
+    if self.scope != .protectScope {
       try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
     }
     if self.groupID != 0 {
@@ -17379,7 +17338,7 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     if self.pageSize != 0 {
       try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 4)
     }
-    if self.scope != .allPublic {
+    if self.scope != .protectScope {
       try visitor.visitSingularEnumField(value: self.scope, fieldNumber: 5)
     }
     if self.storyID != 0 {

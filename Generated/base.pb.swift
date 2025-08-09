@@ -552,55 +552,43 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
 public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
-  /// 所有人可见
-  case allPublic // = 0
+  /// 小组内创建，但是小组外可见但是不可以fork
+  case protectScope // = 0
 
-  /// 公开
-  case `public` // = 1
+  /// 小组内外可见，小组外可以操作fork
+  case publicScope // = 1
 
-  /// 私密
-  case `private` // = 2
-
-  /// 指定人可见
-  case someone // = 3
-
-  /// 群组可见
-  case gruopScope // = 4
+  /// 仅小组内可见，小组外不可以fork
+  case privateScope // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .allPublic
+    self = .protectScope
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .allPublic
-    case 1: self = .public
-    case 2: self = .private
-    case 3: self = .someone
-    case 4: self = .gruopScope
+    case 0: self = .protectScope
+    case 1: self = .publicScope
+    case 2: self = .privateScope
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .allPublic: return 0
-    case .public: return 1
-    case .private: return 2
-    case .someone: return 3
-    case .gruopScope: return 4
+    case .protectScope: return 0
+    case .publicScope: return 1
+    case .privateScope: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static let allCases: [Common_ScopeType] = [
-    .allPublic,
-    .public,
-    .private,
-    .someone,
-    .gruopScope,
+    .protectScope,
+    .publicScope,
+    .privateScope,
   ]
 
 }
@@ -1059,11 +1047,9 @@ extension Common_AuthType: SwiftProtobuf._ProtoNameProviding {
 
 extension Common_ScopeType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AllPublic"),
-    1: .same(proto: "Public"),
-    2: .same(proto: "Private"),
-    3: .same(proto: "Someone"),
-    4: .same(proto: "GruopScope"),
+    0: .same(proto: "PROTECT_SCOPE"),
+    1: .same(proto: "PUBLIC_SCOPE"),
+    2: .same(proto: "PRIVATE_SCOPE"),
   ]
 }
 
