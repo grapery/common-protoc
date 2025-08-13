@@ -236,3 +236,18 @@ enum DashScopeTaskStatus {
   DashScopeTaskStatusFailed = 4; 
   DashScopeTaskStatusCanceled = 5;
 }
+
+enum ImageRatios {
+  // 1:1
+  Ratio1_1 = 0;
+  // 4:3
+  Ratio4_3 = 1;
+  // 16:9
+  Ratio16_9 = 2;
+  // 3:2
+  Ratio3_2 = 3;
+  // 3:4
+  Ratio3_4 = 4;
+  // 2:3
+  Ratio2_3 = 5;
+}

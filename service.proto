@@ -1731,6 +1731,28 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc GenerateRoleAvatar(GenerateRoleAvatarRequest) returns (GenerateRoleAvatarResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GenerateRoleAvatar"
+      body : "*"
+    };
+  }
+}
+
+message GenerateRoleAvatarRequest{
+  int64 role_id = 1;
+  int64 user_id = 2;
+  string ref_avatar_url = 3;
+  string description = 4;
+  string style = 5;
+  ImageRatios image_ratios = 6;
+}
+
+message GenerateRoleAvatarResponse{
+  ResponseCode code = 1;
+  string message = 2;
+  string avatar_url = 3;
 }
 
 enum TokenSource{
