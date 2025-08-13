@@ -10517,6 +10517,228 @@ var _ interface {
 	ErrorName() string
 } = UpdateGroupProfileResponseValidationError{}
 
+// Validate checks the field values on GenerateRoleAvatarRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GenerateRoleAvatarRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GenerateRoleAvatarRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GenerateRoleAvatarRequestMultiError, or nil if none found.
+func (m *GenerateRoleAvatarRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GenerateRoleAvatarRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RoleId
+
+	// no validation rules for UserId
+
+	// no validation rules for RefAvatarUrl
+
+	// no validation rules for Description
+
+	// no validation rules for Style
+
+	// no validation rules for ImageRatios
+
+	if len(errors) > 0 {
+		return GenerateRoleAvatarRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GenerateRoleAvatarRequestMultiError is an error wrapping multiple validation
+// errors returned by GenerateRoleAvatarRequest.ValidateAll() if the
+// designated constraints aren't met.
+type GenerateRoleAvatarRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GenerateRoleAvatarRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GenerateRoleAvatarRequestMultiError) AllErrors() []error { return m }
+
+// GenerateRoleAvatarRequestValidationError is the validation error returned by
+// GenerateRoleAvatarRequest.Validate if the designated constraints aren't met.
+type GenerateRoleAvatarRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GenerateRoleAvatarRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GenerateRoleAvatarRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GenerateRoleAvatarRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GenerateRoleAvatarRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GenerateRoleAvatarRequestValidationError) ErrorName() string {
+	return "GenerateRoleAvatarRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GenerateRoleAvatarRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGenerateRoleAvatarRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GenerateRoleAvatarRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GenerateRoleAvatarRequestValidationError{}
+
+// Validate checks the field values on GenerateRoleAvatarResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GenerateRoleAvatarResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GenerateRoleAvatarResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GenerateRoleAvatarResponseMultiError, or nil if none found.
+func (m *GenerateRoleAvatarResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GenerateRoleAvatarResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	// no validation rules for AvatarUrl
+
+	if len(errors) > 0 {
+		return GenerateRoleAvatarResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GenerateRoleAvatarResponseMultiError is an error wrapping multiple
+// validation errors returned by GenerateRoleAvatarResponse.ValidateAll() if
+// the designated constraints aren't met.
+type GenerateRoleAvatarResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GenerateRoleAvatarResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GenerateRoleAvatarResponseMultiError) AllErrors() []error { return m }
+
+// GenerateRoleAvatarResponseValidationError is the validation error returned
+// by GenerateRoleAvatarResponse.Validate if the designated constraints aren't met.
+type GenerateRoleAvatarResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GenerateRoleAvatarResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GenerateRoleAvatarResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GenerateRoleAvatarResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GenerateRoleAvatarResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GenerateRoleAvatarResponseValidationError) ErrorName() string {
+	return "GenerateRoleAvatarResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GenerateRoleAvatarResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGenerateRoleAvatarResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GenerateRoleAvatarResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GenerateRoleAvatarResponseValidationError{}
+
 // Validate checks the field values on GenerateStorySceneVideoRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

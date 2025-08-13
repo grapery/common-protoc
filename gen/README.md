@@ -13,6 +13,7 @@
     - [DashScopeTaskStatus](#common-DashScopeTaskStatus)
     - [GenderType](#common-GenderType)
     - [GroupStatus](#common-GroupStatus)
+    - [ImageRatios](#common-ImageRatios)
     - [ItemType](#common-ItemType)
     - [LikeType](#common-LikeType)
     - [MultiBranchOrderBy](#common-MultiBranchOrderBy)
@@ -315,6 +316,8 @@
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
     - [FollowUserRequest](#common-FollowUserRequest)
     - [FollowUserResponse](#common-FollowUserResponse)
+    - [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest)
+    - [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse)
     - [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest)
     - [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse)
     - [GenerateRolePromptRequest](#common-GenerateRolePromptRequest)
@@ -691,6 +694,22 @@
 | Normal | 2 | 正常 |
 | ViewOnly | 3 | 仅查看 |
 | Abandon | 4 | 废弃 |
+
+
+
+<a name="common-ImageRatios"></a>
+
+### ImageRatios
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Ratio1_1 | 0 | 1:1 |
+| Ratio4_3 | 1 | 4:3 |
+| Ratio16_9 | 2 | 16:9 |
+| Ratio3_2 | 3 | 3:2 |
+| Ratio3_4 | 4 | 3:4 |
+| Ratio2_3 | 5 | 2:3 |
 
 
 
@@ -6149,6 +6168,43 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-GenerateRoleAvatarRequest"></a>
+
+### GenerateRoleAvatarRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| ref_avatar_url | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| style | [string](#string) |  |  |
+| image_ratios | [ImageRatios](#common-ImageRatios) |  |  |
+
+
+
+
+
+
+<a name="common-GenerateRoleAvatarResponse"></a>
+
+### GenerateRoleAvatarResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| avatar_url | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-GenerateRoleDescriptionRequest"></a>
 
 ### GenerateRoleDescriptionRequest
@@ -10061,6 +10117,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | GetStoryParticipants | [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
 | GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
 | GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
+| GenerateRoleAvatar | [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse) |  |
 
  
 

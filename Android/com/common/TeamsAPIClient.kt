@@ -4700,4 +4700,33 @@ public class TeamsAPIClient(
     onResult
   )
 
+
+  override suspend fun generateRoleAvatar(request: GenerateRoleAvatarRequest, headers: Headers): ResponseMessage<GenerateRoleAvatarResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateRoleAvatar",
+      com.common.GenerateRoleAvatarRequest::class,
+      com.common.GenerateRoleAvatarResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override fun generateRoleAvatar(
+    request: GenerateRoleAvatarRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<GenerateRoleAvatarResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateRoleAvatar",
+      com.common.GenerateRoleAvatarRequest::class,
+      com.common.GenerateRoleAvatarResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
 }

@@ -1077,6 +1077,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
     /// 为故事场景生成视频
     @available(iOS 13, *)
     func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStorySceneVideoResponse>
+
+    @discardableResult
+    func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRoleAvatarResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2437,6 +2443,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRoleAvatarResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2574,6 +2590,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let getStoryParticipants = Connect.MethodSpec(name: "GetStoryParticipants", service: "common.TeamsAPI", type: .unary)
             public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "common.TeamsAPI", type: .unary)
             public static let generateStorySceneVideo = Connect.MethodSpec(name: "GenerateStorySceneVideo", service: "common.TeamsAPI", type: .unary)
+            public static let generateRoleAvatar = Connect.MethodSpec(name: "GenerateRoleAvatar", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

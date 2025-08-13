@@ -744,6 +744,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GenerateRoleAvatar:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GenerateRoleAvatar
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GenerateRoleAvatarRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GenerateRoleAvatarResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GenerateRoleDescription:
         post:
             tags:
@@ -4261,6 +4285,32 @@ components:
                     type: string
                 data:
                     $ref: '#/components/schemas/RenderStoryboardDetail'
+        GenerateRoleAvatarRequest:
+            type: object
+            properties:
+                roleId:
+                    type: string
+                userId:
+                    type: string
+                refAvatarUrl:
+                    type: string
+                description:
+                    type: string
+                style:
+                    type: string
+                imageRatios:
+                    type: integer
+                    format: enum
+        GenerateRoleAvatarResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                avatarUrl:
+                    type: string
         GenerateRoleDescriptionRequest:
             type: object
             properties:

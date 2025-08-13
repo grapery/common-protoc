@@ -897,6 +897,68 @@ public enum Common_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+public enum Common_ImageRatios: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+
+  /// 1:1
+  case ratio11 // = 0
+
+  /// 4:3
+  case ratio43 // = 1
+
+  /// 16:9
+  case ratio169 // = 2
+
+  /// 3:2
+  case ratio32 // = 3
+
+  /// 3:4
+  case ratio34 // = 4
+
+  /// 2:3
+  case ratio23 // = 5
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .ratio11
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .ratio11
+    case 1: self = .ratio43
+    case 2: self = .ratio169
+    case 3: self = .ratio32
+    case 4: self = .ratio34
+    case 5: self = .ratio23
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .ratio11: return 0
+    case .ratio43: return 1
+    case .ratio169: return 2
+    case .ratio32: return 3
+    case .ratio34: return 4
+    case .ratio23: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Common_ImageRatios] = [
+    .ratio11,
+    .ratio43,
+    .ratio169,
+    .ratio32,
+    .ratio34,
+    .ratio23,
+  ]
+
+}
+
 public struct Common_Tags: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1106,6 +1168,17 @@ extension Common_DashScopeTaskStatus: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "DashScopeTaskStatusSucceeded"),
     4: .same(proto: "DashScopeTaskStatusFailed"),
     5: .same(proto: "DashScopeTaskStatusCanceled"),
+  ]
+}
+
+extension Common_ImageRatios: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Ratio1_1"),
+    1: .same(proto: "Ratio4_3"),
+    2: .same(proto: "Ratio16_9"),
+    3: .same(proto: "Ratio3_2"),
+    4: .same(proto: "Ratio3_4"),
+    5: .same(proto: "Ratio2_3"),
   ]
 }
 

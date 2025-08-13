@@ -154,6 +154,7 @@ const (
 	TeamsAPI_GetStoryParticipants_FullMethodName               = "/common.TeamsAPI/GetStoryParticipants"
 	TeamsAPI_GenerateStoryRoleVideo_FullMethodName             = "/common.TeamsAPI/GenerateStoryRoleVideo"
 	TeamsAPI_GenerateStorySceneVideo_FullMethodName            = "/common.TeamsAPI/GenerateStorySceneVideo"
+	TeamsAPI_GenerateRoleAvatar_FullMethodName                 = "/common.TeamsAPI/GenerateRoleAvatar"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -423,6 +424,7 @@ type TeamsAPIClient interface {
 	GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(ctx context.Context, in *GenerateStorySceneVideoRequest, opts ...grpc.CallOption) (*GenerateStorySceneVideoResponse, error)
+	GenerateRoleAvatar(ctx context.Context, in *GenerateRoleAvatarRequest, opts ...grpc.CallOption) (*GenerateRoleAvatarResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1648,6 +1650,15 @@ func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, in *Genera
 	return out, nil
 }
 
+func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, in *GenerateRoleAvatarRequest, opts ...grpc.CallOption) (*GenerateRoleAvatarResponse, error) {
+	out := new(GenerateRoleAvatarResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenerateRoleAvatar_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1915,6 +1926,7 @@ type TeamsAPIServer interface {
 	GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *GenerateStorySceneVideoRequest) (*GenerateStorySceneVideoResponse, error)
+	GenerateRoleAvatar(context.Context, *GenerateRoleAvatarRequest) (*GenerateRoleAvatarResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2326,6 +2338,9 @@ func (UnimplementedTeamsAPIServer) GenerateStoryRoleVideo(context.Context, *Gene
 }
 func (UnimplementedTeamsAPIServer) GenerateStorySceneVideo(context.Context, *GenerateStorySceneVideoRequest) (*GenerateStorySceneVideoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateStorySceneVideo not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenerateRoleAvatar(context.Context, *GenerateRoleAvatarRequest) (*GenerateRoleAvatarResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateRoleAvatar not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4770,6 +4785,24 @@ func _TeamsAPI_GenerateStorySceneVideo_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GenerateRoleAvatar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateRoleAvatarRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenerateRoleAvatar(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenerateRoleAvatar_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenerateRoleAvatar(ctx, req.(*GenerateRoleAvatarRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5316,6 +5349,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateStorySceneVideo",
 			Handler:    _TeamsAPI_GenerateStorySceneVideo_Handler,
+		},
+		{
+			MethodName: "GenerateRoleAvatar",
+			Handler:    _TeamsAPI_GenerateRoleAvatar_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -1860,4 +1860,12 @@ public interface TeamsAPIClientInterface {
     headers: Headers = emptyMap(),
     onResult: (ResponseMessage<GenerateStorySceneVideoResponse>) -> Unit,
   ): Cancelable
+
+  public suspend fun generateRoleAvatar(request: GenerateRoleAvatarRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateRoleAvatarResponse>
+
+  public fun generateRoleAvatar(
+    request: GenerateRoleAvatarRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<GenerateRoleAvatarResponse>) -> Unit,
+  ): Cancelable
 }
