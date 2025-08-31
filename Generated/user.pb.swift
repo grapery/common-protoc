@@ -176,11 +176,7 @@ fileprivate let _protobuf_package = "common"
 
 extension Common_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserPrivate"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "connect_type"),
-    10: .same(proto: "Ctime"),
-    11: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}connect_type\0\u{2}\u{9}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -220,16 +216,7 @@ extension Common_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "email"),
-    5: .same(proto: "location"),
-    6: .same(proto: "desc"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}avatar\0\u{1}email\0\u{1}location\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -294,27 +281,7 @@ extension Common_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserProfileInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "num_group"),
-    3: .standard(proto: "default_group_id"),
-    4: .standard(proto: "min_same_group"),
-    5: .same(proto: "limit"),
-    6: .standard(proto: "used_tokens"),
-    7: .same(proto: "status"),
-    8: .standard(proto: "created_group_num"),
-    9: .standard(proto: "created_story_num"),
-    10: .standard(proto: "created_role_num"),
-    11: .standard(proto: "watching_story_num"),
-    12: .standard(proto: "watching_group_num"),
-    13: .standard(proto: "contribut_story_num"),
-    14: .standard(proto: "contribut_role_num"),
-    15: .standard(proto: "background_image"),
-    16: .standard(proto: "num_followers"),
-    17: .standard(proto: "num_following"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}num_group\0\u{3}default_group_id\0\u{3}min_same_group\0\u{1}limit\0\u{3}used_tokens\0\u{1}status\0\u{3}created_group_num\0\u{3}created_story_num\0\u{3}created_role_num\0\u{3}watching_story_num\0\u{3}watching_group_num\0\u{3}contribut_story_num\0\u{3}contribut_role_num\0\u{3}background_image\0\u{3}num_followers\0\u{3}num_following\0\u{2}\u{2}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _userID: Int64 = 0

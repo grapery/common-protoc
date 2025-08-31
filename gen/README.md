@@ -6342,6 +6342,8 @@ UpdateStoryResponse 更新故事的响应结果
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | ref_background_url | [string](#string) |  |  |
+| ref_avatar_url | [string](#string) |  |  |
+| description | [string](#string) |  |  |
 
 
 
@@ -6374,9 +6376,12 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | task_id | [string](#string) |  |  |
-| task_status | [string](#string) |  |  |
+| task_status | [StoryGenStatus](#common-StoryGenStatus) |  |  |
 | video_url | [string](#string) |  |  |
 | video_thumbnail_url | [string](#string) |  |  |
+| duration | [int64](#int64) |  |  |
+| resolution | [string](#string) |  |  |
+| video_format | [string](#string) |  |  |
 
 
 
@@ -6428,7 +6433,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | task_id | [string](#string) |  |  |
-| task_status | [string](#string) |  |  |
+| task_status | [StoryGenStatus](#common-StoryGenStatus) |  |  |
 | video_url | [string](#string) |  |  |
 | video_thumbnail_url | [string](#string) |  |  |
 

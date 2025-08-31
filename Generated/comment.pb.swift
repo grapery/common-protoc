@@ -66,23 +66,7 @@ fileprivate let _protobuf_package = "common"
 
 extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CommentInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "root_comment_id"),
-    3: .standard(proto: "prev_comment_id"),
-    4: .standard(proto: "user_id"),
-    5: .standard(proto: "user_name"),
-    6: .standard(proto: "avatar_url"),
-    7: .standard(proto: "story_id"),
-    8: .standard(proto: "board_id"),
-    9: .standard(proto: "group_id"),
-    11: .same(proto: "content"),
-    12: .standard(proto: "like_count"),
-    13: .standard(proto: "reply_count"),
-    14: .standard(proto: "reply_id"),
-    15: .same(proto: "ctime"),
-    16: .same(proto: "mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}root_comment_id\0\u{3}prev_comment_id\0\u{3}user_id\0\u{3}user_name\0\u{3}avatar_url\0\u{3}story_id\0\u{3}board_id\0\u{3}group_id\0\u{2}\u{2}content\0\u{3}like_count\0\u{3}reply_count\0\u{3}reply_id\0\u{1}ctime\0\u{1}mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

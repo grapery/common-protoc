@@ -304,48 +304,16 @@ public struct Common_GroupProfileInfo: Sendable {
 fileprivate let _protobuf_package = "common"
 
 extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTECT"),
-    1: .same(proto: "PUBLIC"),
-    2: .same(proto: "PRIVATE"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTECT\0\u{1}PUBLIC\0\u{1}PRIVATE\0")
 }
 
 extension Common_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED"),
-    1: .same(proto: "GROUP_MEMBER_TYPE_CREATOR"),
-    2: .same(proto: "GROUP_MEMBER_TYPE_MAINTAINER"),
-    3: .same(proto: "GROUP_MEMBER_TYPE_CONTRIBUTOR"),
-    4: .same(proto: "GROUP_MEMBER_TYPE_MEMBER"),
-    5: .same(proto: "GROUP_MEMBER_TYPE_BANNED"),
-    6: .same(proto: "GROUP_MEMBER_TYPE_INVITED"),
-    7: .same(proto: "GROUP_MEMBER_TYPE_REJECTED"),
-    8: .same(proto: "GROUP_MEMBER_TYPE_PENDING"),
-    9: .same(proto: "GROUP_MEMBER_TYPE_LEAVE"),
-    10: .same(proto: "GROUP_MEMBER_TYPE_KICKED"),
-    11: .same(proto: "GROUP_MEMBER_TYPE_DELETED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED\0\u{1}GROUP_MEMBER_TYPE_CREATOR\0\u{1}GROUP_MEMBER_TYPE_MAINTAINER\0\u{1}GROUP_MEMBER_TYPE_CONTRIBUTOR\0\u{1}GROUP_MEMBER_TYPE_MEMBER\0\u{1}GROUP_MEMBER_TYPE_BANNED\0\u{1}GROUP_MEMBER_TYPE_INVITED\0\u{1}GROUP_MEMBER_TYPE_REJECTED\0\u{1}GROUP_MEMBER_TYPE_PENDING\0\u{1}GROUP_MEMBER_TYPE_LEAVE\0\u{1}GROUP_MEMBER_TYPE_KICKED\0\u{1}GROUP_MEMBER_TYPE_DELETED\0")
 }
 
 extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "desc"),
-    5: .same(proto: "creator"),
-    6: .same(proto: "owner"),
-    7: .same(proto: "tags"),
-    8: .same(proto: "location"),
-    9: .same(proto: "status"),
-    10: .same(proto: "profile"),
-    11: .same(proto: "members"),
-    12: .standard(proto: "current_user_status"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}name\0\u{1}avatar\0\u{1}desc\0\u{1}creator\0\u{1}owner\0\u{1}tags\0\u{1}location\0\u{1}status\0\u{1}profile\0\u{1}members\0\u{3}current_user_status\0\u{2}\u{7}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _groupID: Int64 = 0
@@ -506,13 +474,7 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
 extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupMemberInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "desc"),
-    5: .standard(proto: "member_type"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}avatar\0\u{1}desc\0\u{3}member_type\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -562,16 +524,7 @@ extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupProfileInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "group_member_num"),
-    3: .standard(proto: "group_follower_num"),
-    4: .standard(proto: "group_story_num"),
-    8: .same(proto: "description"),
-    9: .standard(proto: "backgroud_url"),
-    19: .same(proto: "Ctime"),
-    20: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}group_member_num\0\u{3}group_follower_num\0\u{3}group_story_num\0\u{2}\u{4}description\0\u{3}backgroud_url\0\u{2}\u{a}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

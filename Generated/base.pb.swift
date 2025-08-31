@@ -1014,187 +1014,68 @@ public struct Common_WhatCurrentUserStatus: Sendable {
 fileprivate let _protobuf_package = "common"
 
 extension Common_LikeType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Browser"),
-    1: .same(proto: "Left"),
-    2: .same(proto: "Middle"),
-    3: .same(proto: "Right"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Browser\0\u{1}Left\0\u{1}Middle\0\u{1}Right\0")
 }
 
 extension Common_GenderType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "None"),
-    1: .same(proto: "Man"),
-    2: .same(proto: "Women"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0None\0\u{1}Man\0\u{1}Women\0")
 }
 
 extension Common_UserStatus: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Rest"),
-    1: .same(proto: "Study"),
-    2: .same(proto: "Busy"),
-    3: .same(proto: "Working"),
-    4: .same(proto: "Invisible"),
-    5: .same(proto: "Idle"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Rest\0\u{1}Study\0\u{1}Busy\0\u{1}Working\0\u{1}Invisible\0\u{1}Idle\0")
 }
 
 extension Common_GroupStatus: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Unknow"),
-    1: .same(proto: "NotReady"),
-    2: .same(proto: "Normal"),
-    3: .same(proto: "ViewOnly"),
-    4: .same(proto: "Abandon"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unknow\0\u{1}NotReady\0\u{1}Normal\0\u{1}ViewOnly\0\u{1}Abandon\0")
 }
 
 extension Common_ActiveFlowType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AllFlowType"),
-    1: .same(proto: "StoryFlowType"),
-    2: .same(proto: "RoleFlowType"),
-    3: .same(proto: "GroupFlowType"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AllFlowType\0\u{1}StoryFlowType\0\u{1}RoleFlowType\0\u{1}GroupFlowType\0")
 }
 
 extension Common_ActiveType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NoneActive"),
-    1: .same(proto: "AllActive"),
-    2: .same(proto: "NewStory"),
-    3: .same(proto: "NewRole"),
-    4: .same(proto: "JoinGroup"),
-    5: .same(proto: "FollowRole"),
-    6: .same(proto: "LikeRole"),
-    7: .same(proto: "FollowStory"),
-    8: .same(proto: "LikeStory"),
-    9: .same(proto: "FollowGroup"),
-    10: .same(proto: "LikeGroup"),
-    11: .same(proto: "NewStoryBoard"),
-    12: .same(proto: "LikeStoryBoard"),
-    13: .same(proto: "ForkStory"),
-    14: .same(proto: "ShareStoryBoard"),
-    15: .same(proto: "ShareStory"),
-    16: .same(proto: "ShareRole"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NoneActive\0\u{1}AllActive\0\u{1}NewStory\0\u{1}NewRole\0\u{1}JoinGroup\0\u{1}FollowRole\0\u{1}LikeRole\0\u{1}FollowStory\0\u{1}LikeStory\0\u{1}FollowGroup\0\u{1}LikeGroup\0\u{1}NewStoryBoard\0\u{1}LikeStoryBoard\0\u{1}ForkStory\0\u{1}ShareStoryBoard\0\u{1}ShareStory\0\u{1}ShareRole\0")
 }
 
 extension Common_ItemType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AllItem"),
-    1: .same(proto: "ShortWord"),
-    2: .same(proto: "Paper"),
-    3: .same(proto: "Picture"),
-    4: .same(proto: "Video"),
-    5: .same(proto: "Music"),
-    6: .same(proto: "Link"),
-    7: .same(proto: "Locate"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AllItem\0\u{1}ShortWord\0\u{1}Paper\0\u{1}Picture\0\u{1}Video\0\u{1}Music\0\u{1}Link\0\u{1}Locate\0")
 }
 
 extension Common_AuthType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NotSupport"),
-    1: .same(proto: "WithPhone"),
-    2: .same(proto: "WithEmail"),
-    3: .same(proto: "WithThirdpart"),
-    4: .same(proto: "WithGmail"),
-    5: .same(proto: "WithWeChat"),
-    6: .same(proto: "WithApple"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NotSupport\0\u{1}WithPhone\0\u{1}WithEmail\0\u{1}WithThirdpart\0\u{1}WithGmail\0\u{1}WithWeChat\0\u{1}WithApple\0")
 }
 
 extension Common_ScopeType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTECT_SCOPE"),
-    1: .same(proto: "PUBLIC_SCOPE"),
-    2: .same(proto: "PRIVATE_SCOPE"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTECT_SCOPE\0\u{1}PUBLIC_SCOPE\0\u{1}PRIVATE_SCOPE\0")
 }
 
 extension Common_TaskStage: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UnknowTaskStage"),
-    1: .same(proto: "Init"),
-    2: .same(proto: "Processing"),
-    3: .same(proto: "Waiting"),
-    4: .same(proto: "Retry"),
-    5: .same(proto: "Success"),
-    6: .same(proto: "Fail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UnknowTaskStage\0\u{1}Init\0\u{1}Processing\0\u{1}Waiting\0\u{1}Retry\0\u{1}Success\0\u{1}Fail\0")
 }
 
 extension Common_TaskType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NotSpecify"),
-    1: .same(proto: "Word_Generate"),
-    2: .same(proto: "Pic_Generate"),
-    3: .same(proto: "Video_Generate"),
-    4: .same(proto: "Voice_Generate"),
-    5: .same(proto: "Music_Generate"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NotSpecify\0\u{1}Word_Generate\0\u{1}Pic_Generate\0\u{1}Video_Generate\0\u{1}Voice_Generate\0\u{1}Music_Generate\0")
 }
 
 extension Common_SortByType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SortByTime"),
-    1: .same(proto: "SortByLike"),
-    2: .same(proto: "SortByComment"),
-    3: .same(proto: "SortByShare"),
-    4: .same(proto: "SortByView"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SortByTime\0\u{1}SortByLike\0\u{1}SortByComment\0\u{1}SortByShare\0\u{1}SortByView\0")
 }
 
 extension Common_MultiBranchOrderBy: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MultiBranchOrderByUnspecified"),
-    1: .same(proto: "MultiBranchOrderByCreatedAt"),
-    2: .same(proto: "MultiBranchOrderByUpdatedAt"),
-    3: .same(proto: "MultiBranchOrderByLikes"),
-    4: .same(proto: "MultiBranchOrderByComments"),
-    5: .same(proto: "MultiBranchOrderByViews"),
-    6: .same(proto: "MultiBranchOrderByFollowRole"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MultiBranchOrderByUnspecified\0\u{1}MultiBranchOrderByCreatedAt\0\u{1}MultiBranchOrderByUpdatedAt\0\u{1}MultiBranchOrderByLikes\0\u{1}MultiBranchOrderByComments\0\u{1}MultiBranchOrderByViews\0\u{1}MultiBranchOrderByFollowRole\0")
 }
 
 extension Common_DashScopeTaskStatus: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "DashScopeTaskStatusUnknown"),
-    1: .same(proto: "DashScopeTaskStatusPending"),
-    2: .same(proto: "DashScopeTaskStatusRunning"),
-    3: .same(proto: "DashScopeTaskStatusSucceeded"),
-    4: .same(proto: "DashScopeTaskStatusFailed"),
-    5: .same(proto: "DashScopeTaskStatusCanceled"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0DashScopeTaskStatusUnknown\0\u{1}DashScopeTaskStatusPending\0\u{1}DashScopeTaskStatusRunning\0\u{1}DashScopeTaskStatusSucceeded\0\u{1}DashScopeTaskStatusFailed\0\u{1}DashScopeTaskStatusCanceled\0")
 }
 
 extension Common_ImageRatios: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Ratio1_1"),
-    1: .same(proto: "Ratio4_3"),
-    2: .same(proto: "Ratio16_9"),
-    3: .same(proto: "Ratio3_2"),
-    4: .same(proto: "Ratio3_4"),
-    5: .same(proto: "Ratio2_3"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Ratio1_1\0\u{1}Ratio4_3\0\u{1}Ratio16_9\0\u{1}Ratio3_2\0\u{1}Ratio3_4\0\u{1}Ratio2_3\0")
 }
 
 extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Tags"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "creator_id"),
-    3: .same(proto: "name"),
-    4: .same(proto: "status"),
-    5: .standard(proto: "is_global"),
-    6: .same(proto: "id"),
-    7: .standard(proto: "expired_time"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}creator_id\0\u{1}name\0\u{1}status\0\u{3}is_global\0\u{1}id\0\u{3}expired_time\0\u{2}\u{2}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1264,14 +1145,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 
 extension Common_WhatCurrentUserStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".WhatCurrentUserStatus"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "is_followed"),
-    3: .standard(proto: "is_watched"),
-    4: .standard(proto: "is_liked"),
-    5: .standard(proto: "is_joined"),
-    6: .standard(proto: "is_viewed"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}is_followed\0\u{3}is_watched\0\u{3}is_liked\0\u{3}is_joined\0\u{3}is_viewed\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

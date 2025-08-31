@@ -2204,7 +2204,7 @@ public struct Common_GetProjectWatcherResponse: Sendable {
   fileprivate var _data: Common_GetProjectWatcherResponse.DataMessage? = nil
 }
 
-public struct Common_UploadImageRequest: @unchecked Sendable {
+public struct Common_UploadImageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2500,7 +2500,7 @@ public struct Common_GenerateStorySceneVideoTaskDetail: Sendable {
 
   public var taskID: String = String()
 
-  public var taskStatus: String = String()
+  public var taskStatus: Common_StoryGenStatus = .unspecified
 
   public var videoURL: String = String()
 
@@ -2549,6 +2549,10 @@ public struct Common_GenerateStoryRoleVideoRequest: Sendable {
 
   public var refBackgroundURL: String = String()
 
+  public var refAvatarURL: String = String()
+
+  public var description_p: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2561,11 +2565,17 @@ public struct Common_GenerateStoryRoleVideoTaskDetail: Sendable {
 
   public var taskID: String = String()
 
-  public var taskStatus: String = String()
+  public var taskStatus: Common_StoryGenStatus = .unspecified
 
   public var videoURL: String = String()
 
   public var videoThumbnailURL: String = String()
+
+  public var duration: Int64 = 0
+
+  public var resolution: String = String()
+
+  public var videoFormat: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5427,27 +5437,12 @@ public struct Common_UnLikeStoryResponse: Sendable {
 fileprivate let _protobuf_package = "common"
 
 extension Common_TokenSource: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TOKEN_SOURCE_USER_SELF"),
-    1: .same(proto: "TOKEN_SOURCE_STORY_STORE"),
-    2: .same(proto: "TOKEN_SOURCE_THIRD_PARTY"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TOKEN_SOURCE_USER_SELF\0\u{1}TOKEN_SOURCE_STORY_STORE\0\u{1}TOKEN_SOURCE_THIRD_PARTY\0")
 }
 
 extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ActiveInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "active_id"),
-    2: .same(proto: "user"),
-    3: .standard(proto: "active_type"),
-    4: .standard(proto: "group_info"),
-    5: .standard(proto: "story_info"),
-    6: .standard(proto: "role_info"),
-    7: .standard(proto: "board_info"),
-    8: .same(proto: "content"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}active_id\0\u{1}user\0\u{3}active_type\0\u{3}group_info\0\u{3}story_info\0\u{3}role_info\0\u{3}board_info\0\u{1}content\0\u{1}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _activeID: Int64 = 0
@@ -5580,11 +5575,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
 extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LoginRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "account"),
-    2: .same(proto: "password"),
-    3: .standard(proto: "login_type"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}password\0\u{3}login_type\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5624,11 +5615,7 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LoginResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5672,13 +5659,7 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
 extension Common_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_LoginResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "token"),
-    3: .same(proto: "timestamp"),
-    4: .standard(proto: "expire_at"),
-    5: .same(proto: "status"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}token\0\u{1}timestamp\0\u{3}expire_at\0\u{1}status\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5728,10 +5709,7 @@ extension Common_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "token"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5766,10 +5744,7 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
 extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5804,9 +5779,7 @@ extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_RefreshTokenRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RefreshTokenRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "token"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5836,10 +5809,7 @@ extension Common_RefreshTokenRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RefreshTokenResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "token"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5874,13 +5844,7 @@ extension Common_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RegisterRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "account"),
-    2: .same(proto: "password"),
-    3: .same(proto: "name"),
-    4: .same(proto: "email"),
-    5: .same(proto: "phone"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}password\0\u{1}name\0\u{1}email\0\u{1}phone\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5930,10 +5894,7 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RegisterResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5968,9 +5929,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ConfirmRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "token"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6000,10 +5959,7 @@ extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ConfirmResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "timestamp"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{1}timestamp\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6038,11 +5994,7 @@ extension Common_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResetPasswordRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "account"),
-    2: .same(proto: "oldPwd"),
-    3: .same(proto: "newPwd"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}oldPwd\0\u{1}newPwd\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6082,11 +6034,7 @@ extension Common_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResetPasswordResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "account"),
-    2: .same(proto: "status"),
-    3: .same(proto: "timestamp"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}status\0\u{1}timestamp\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6126,10 +6074,7 @@ extension Common_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfoRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "account"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}account\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6164,11 +6109,7 @@ extension Common_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfoResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6212,10 +6153,7 @@ extension Common_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserInfoResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-    2: .same(proto: "profile"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0\u{1}profile\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6254,10 +6192,7 @@ extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAvatorRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "avatar"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}avatar\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6292,11 +6227,7 @@ extension Common_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAvatorResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6340,10 +6271,7 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UpdateUserAvatorResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-    2: .same(proto: "status"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0\u{1}status\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6382,12 +6310,7 @@ extension Common_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, Sw
 
 extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "time_stamp"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}time_stamp\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6432,11 +6355,7 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6480,10 +6399,7 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserWatchingResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "have_more"),
-    2: .same(proto: "total"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6518,12 +6434,7 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
 
 extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "gtype"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}gtype\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6568,11 +6479,7 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6616,13 +6523,7 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserGroupResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6672,11 +6573,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
 
 extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserFollowingGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6716,11 +6613,7 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserFollowingGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6764,14 +6657,7 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserFollowingGroupResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "list"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "total"),
-    6: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6826,13 +6712,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
 
 extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserUpdateRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "nickname"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "desc"),
-    5: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}nickname\0\u{1}avatar\0\u{1}desc\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6882,11 +6762,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserUpdateResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6949,13 +6825,7 @@ extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchActivesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "atype"),
-    3: .same(proto: "timestamp"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}atype\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7005,11 +6875,7 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchActivesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7053,14 +6919,7 @@ extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_FetchActivesResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "timestamp"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .standard(proto: "have_more"),
-    6: .same(proto: "total"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7115,13 +6974,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
 
 extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchUserRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "group_id"),
-    3: .standard(proto: "is_fuzzy"),
-    7: .same(proto: "offset"),
-    8: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}group_id\0\u{3}is_fuzzy\0\u{2}\u{4}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7171,11 +7024,7 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchUserResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7219,13 +7068,7 @@ extension Common_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_SearchUserResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7275,10 +7118,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInitRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "deafault_group"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}deafault_group\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7313,11 +7153,7 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInitResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7361,10 +7197,7 @@ extension Common_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UserInitResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "list"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}list\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7399,12 +7232,7 @@ extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
 
 extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7449,11 +7277,7 @@ extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7497,13 +7321,7 @@ extension Common_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetGroupItemsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .standard(proto: "group_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}group_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7553,11 +7371,7 @@ extension Common_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, Swift
 
 extension Common_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserItemsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7597,11 +7411,7 @@ extension Common_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserItemsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7645,12 +7455,7 @@ extension Common_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetUserItemsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7695,12 +7500,7 @@ extension Common_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftP
 
 extension Common_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetItemRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "item_id"),
-    4: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7745,11 +7545,7 @@ extension Common_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetItemResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "msg"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7793,9 +7589,7 @@ extension Common_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_GetItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetItemResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7829,13 +7623,7 @@ extension Common_GetItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateItemRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .same(proto: "name"),
-    4: .same(proto: "atype"),
-    5: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{1}name\0\u{1}atype\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7885,11 +7673,7 @@ extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateItemResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7933,9 +7717,7 @@ extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_CreateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_CreateItemResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7969,13 +7751,7 @@ extension Common_CreateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateItemRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "item_id"),
-    4: .same(proto: "info"),
-    5: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{1}info\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8029,11 +7805,7 @@ extension Common_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateItemResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8077,9 +7849,7 @@ extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_UpdateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UpdateItemResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8113,12 +7883,7 @@ extension Common_UpdateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteItemRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "item_id"),
-    4: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8163,11 +7928,7 @@ extension Common_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteItemResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8230,13 +7991,7 @@ extension Common_DeleteItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeItemRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "item_id"),
-    4: .standard(proto: "user_id"),
-    5: .same(proto: "islike"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0\u{1}islike\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8286,11 +8041,7 @@ extension Common_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeItemResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8353,12 +8104,7 @@ extension Common_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
 
 extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "name"),
-    3: .same(proto: "description"),
-    4: .same(proto: "avatar"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}description\0\u{1}avatar\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8403,11 +8149,7 @@ extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8451,9 +8193,7 @@ extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_CreateGroupResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8487,12 +8227,7 @@ extension Common_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "name"),
-    4: .standard(proto: "with_profile"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0\u{1}name\0\u{3}with_profile\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8537,11 +8272,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8585,9 +8316,7 @@ extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetGroupResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8621,12 +8350,7 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
 
 extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupActivesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "atype"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}atype\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8671,11 +8395,7 @@ extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupActivesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8719,13 +8439,7 @@ extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetGroupActivesResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-    4: .standard(proto: "have_more"),
-    5: .same(proto: "total"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8775,10 +8489,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
 
 extension Common_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupInfoRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8817,11 +8528,7 @@ extension Common_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupInfoResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8865,9 +8572,7 @@ extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_UpdateGroupInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UpdateGroupInfoResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8901,10 +8606,7 @@ extension Common_UpdateGroupInfoResponse.DataMessage: SwiftProtobuf.Message, Swi
 
 extension Common_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8939,11 +8641,7 @@ extension Common_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9006,11 +8704,7 @@ extension Common_DeleteGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Common_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchGroupMembersRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9050,11 +8744,7 @@ extension Common_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchGroupMembersResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9098,12 +8788,7 @@ extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_FetchGroupMembersResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .same(proto: "total"),
-    4: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9148,15 +8833,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
 
 extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "scope"),
-    6: .standard(proto: "story_id"),
-    7: .standard(proto: "group_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{3}story_id\0\u{3}group_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9216,11 +8893,7 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9264,13 +8937,7 @@ extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_SearchGroupResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-    4: .standard(proto: "have_more"),
-    5: .same(proto: "total"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9320,10 +8987,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".JoinGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9358,11 +9022,7 @@ extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".JoinGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9425,10 +9085,7 @@ extension Common_JoinGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
 
 extension Common_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LeaveGroupRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9463,11 +9120,7 @@ extension Common_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LeaveGroupResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9568,11 +9221,7 @@ extension Common_CreateDisscussReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateDisscusResp"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9654,11 +9303,7 @@ extension Common_GetDisscusReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
 extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetDisscusResp"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9740,11 +9385,7 @@ extension Common_VersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VersionResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9788,10 +9429,7 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_VersionResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_VersionResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "version"),
-    2: .standard(proto: "build_time"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}build_time\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9845,9 +9483,7 @@ extension Common_AboutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 extension Common_AboutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AboutResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "content"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}content\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9896,11 +9532,7 @@ extension Common_ExploreRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ExploreResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9963,10 +9595,7 @@ extension Common_ExploreResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectMembersRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "projectId"),
-    2: .same(proto: "userId"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}projectId\0\u{1}userId\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10001,11 +9630,7 @@ extension Common_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectMembersResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10049,11 +9674,7 @@ extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetProjectMembersResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "total"),
-    3: .same(proto: "role"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}role\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10093,9 +9714,7 @@ extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, S
 
 extension Common_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "projectId"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}projectId\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10125,11 +9744,7 @@ extension Common_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10173,11 +9788,7 @@ extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetProjectWatcherResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "total"),
-    3: .same(proto: "timestamp"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}timestamp\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10217,11 +9828,7 @@ extension Common_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, S
 
 extension Common_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadImageRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "image_data"),
-    2: .same(proto: "filename"),
-    3: .standard(proto: "content_type"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}image_data\0\u{1}filename\0\u{3}content_type\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10261,11 +9868,7 @@ extension Common_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadImageResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10309,10 +9912,7 @@ extension Common_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_UploadImageResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "file_id"),
-    2: .same(proto: "url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_id\0\u{1}url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10347,12 +9947,7 @@ extension Common_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryContributorsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10397,12 +9992,7 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryContributor"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "username"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "viplevel"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}username\0\u{1}avatar\0\u{1}viplevel\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10447,11 +10037,7 @@ extension Common_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryContributorsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10495,11 +10081,7 @@ extension Common_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProto
 
 extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetStoryContributorsResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "total"),
-    3: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10539,10 +10121,7 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
 
 extension Common_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10577,11 +10156,7 @@ extension Common_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10625,9 +10200,7 @@ extension Common_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_GetGroupProfileResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_GetGroupProfileResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10661,11 +10234,7 @@ extension Common_GetGroupProfileResponse.DataMessage: SwiftProtobuf.Message, Swi
 
 extension Common_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .same(proto: "info"),
-    3: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}info\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10709,10 +10278,7 @@ extension Common_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10747,14 +10313,7 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleAvatarRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "ref_avatar_url"),
-    4: .same(proto: "description"),
-    5: .same(proto: "style"),
-    6: .standard(proto: "image_ratios"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}ref_avatar_url\0\u{1}description\0\u{1}style\0\u{3}image_ratios\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10809,11 +10368,7 @@ extension Common_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleAvatarResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .standard(proto: "avatar_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}avatar_url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10853,13 +10408,7 @@ extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "board_id"),
-    3: .standard(proto: "sence_id"),
-    4: .standard(proto: "user_id"),
-    5: .standard(proto: "token_source"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}sence_id\0\u{3}user_id\0\u{3}token_source\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10909,12 +10458,7 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoTaskDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "task_id"),
-    2: .standard(proto: "task_status"),
-    3: .standard(proto: "video_url"),
-    4: .standard(proto: "video_thumbnail_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10923,7 +10467,7 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.taskID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.taskStatus) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.taskStatus) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.videoURL) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.videoThumbnailURL) }()
       default: break
@@ -10935,8 +10479,8 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
     if !self.taskID.isEmpty {
       try visitor.visitSingularStringField(value: self.taskID, fieldNumber: 1)
     }
-    if !self.taskStatus.isEmpty {
-      try visitor.visitSingularStringField(value: self.taskStatus, fieldNumber: 2)
+    if self.taskStatus != .unspecified {
+      try visitor.visitSingularEnumField(value: self.taskStatus, fieldNumber: 2)
     }
     if !self.videoURL.isEmpty {
       try visitor.visitSingularStringField(value: self.videoURL, fieldNumber: 3)
@@ -10959,11 +10503,7 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
 
 extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "detail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11007,12 +10547,7 @@ extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .standard(proto: "ref_background_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}ref_background_url\0\u{3}ref_avatar_url\0\u{1}description\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11024,6 +10559,8 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.refBackgroundURL) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.refAvatarURL) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
       default: break
       }
     }
@@ -11042,6 +10579,12 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
     if !self.refBackgroundURL.isEmpty {
       try visitor.visitSingularStringField(value: self.refBackgroundURL, fieldNumber: 4)
     }
+    if !self.refAvatarURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.refAvatarURL, fieldNumber: 5)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -11050,6 +10593,8 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.refBackgroundURL != rhs.refBackgroundURL {return false}
+    if lhs.refAvatarURL != rhs.refAvatarURL {return false}
+    if lhs.description_p != rhs.description_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11057,12 +10602,7 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoTaskDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "task_id"),
-    2: .standard(proto: "task_status"),
-    3: .standard(proto: "video_url"),
-    4: .standard(proto: "video_thumbnail_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0\u{1}duration\0\u{1}resolution\0\u{3}video_format\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11071,9 +10611,12 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.taskID) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.taskStatus) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.taskStatus) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.videoURL) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.videoThumbnailURL) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.duration) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.resolution) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.videoFormat) }()
       default: break
       }
     }
@@ -11083,14 +10626,23 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
     if !self.taskID.isEmpty {
       try visitor.visitSingularStringField(value: self.taskID, fieldNumber: 1)
     }
-    if !self.taskStatus.isEmpty {
-      try visitor.visitSingularStringField(value: self.taskStatus, fieldNumber: 2)
+    if self.taskStatus != .unspecified {
+      try visitor.visitSingularEnumField(value: self.taskStatus, fieldNumber: 2)
     }
     if !self.videoURL.isEmpty {
       try visitor.visitSingularStringField(value: self.videoURL, fieldNumber: 3)
     }
     if !self.videoThumbnailURL.isEmpty {
       try visitor.visitSingularStringField(value: self.videoThumbnailURL, fieldNumber: 4)
+    }
+    if self.duration != 0 {
+      try visitor.visitSingularInt64Field(value: self.duration, fieldNumber: 5)
+    }
+    if !self.resolution.isEmpty {
+      try visitor.visitSingularStringField(value: self.resolution, fieldNumber: 6)
+    }
+    if !self.videoFormat.isEmpty {
+      try visitor.visitSingularStringField(value: self.videoFormat, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -11100,6 +10652,9 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
     if lhs.taskStatus != rhs.taskStatus {return false}
     if lhs.videoURL != rhs.videoURL {return false}
     if lhs.videoThumbnailURL != rhs.videoThumbnailURL {return false}
+    if lhs.duration != rhs.duration {return false}
+    if lhs.resolution != rhs.resolution {return false}
+    if lhs.videoFormat != rhs.videoFormat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -11107,11 +10662,7 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
 
 extension Common_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "detail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11155,11 +10706,7 @@ extension Common_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryParticipantsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11199,13 +10746,7 @@ extension Common_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryParticipantsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "participants"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}participants\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11255,11 +10796,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryAvatarRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "avatar_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}avatar_url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11299,10 +10836,7 @@ extension Common_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryAvatarResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11337,12 +10871,7 @@ extension Common_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryCoverRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "cover_url"),
-    4: .standard(proto: "use_ai_cover"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}cover_url\0\u{3}use_ai_cover\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11387,10 +10916,7 @@ extension Common_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryCoverResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11425,9 +10951,7 @@ extension Common_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11457,11 +10981,7 @@ extension Common_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryStyleDesc"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "id"),
-    2: .same(proto: "style"),
-    3: .same(proto: "description"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}style\0\u{1}description\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11501,11 +11021,7 @@ extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "style"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}style\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11545,12 +11061,7 @@ extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "style_id"),
-    3: .same(proto: "style"),
-    4: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}style_id\0\u{1}style\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11595,10 +11106,7 @@ extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11633,11 +11141,7 @@ extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "max_number"),
-    3: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}max_number\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11677,10 +11181,7 @@ extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftP
 
 extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11715,12 +11216,7 @@ extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, Swift
 
 extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePromptRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "prompt"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{1}prompt\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11765,10 +11261,7 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePromptResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11803,12 +11296,7 @@ extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .standard(proto: "character_detail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}character_detail\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11857,10 +11345,7 @@ extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message,
 
 extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11895,14 +11380,7 @@ extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message
 
 extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleParams"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "origin_image_url"),
-    2: .standard(proto: "text_prompt"),
-    3: .standard(proto: "negative_prompt"),
-    4: .same(proto: "seed"),
-    5: .same(proto: "steps"),
-    6: .standard(proto: "guidance_scale"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}origin_image_url\0\u{3}text_prompt\0\u{3}negative_prompt\0\u{1}seed\0\u{1}steps\0\u{3}guidance_scale\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11957,12 +11435,7 @@ extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRolePosterRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "params"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{1}params\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12011,11 +11484,7 @@ extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRolePosterResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .standard(proto: "image_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}image_url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12055,12 +11524,7 @@ extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .standard(proto: "image_url"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}image_url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12105,10 +11569,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12143,11 +11604,7 @@ extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowListRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12187,13 +11644,7 @@ extension Common_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowListResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "followers"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}followers\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12243,11 +11694,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowerListRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12287,13 +11734,7 @@ extension Common_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowerListResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "followers"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}followers\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12343,10 +11784,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowUserRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "follower_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}follower_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12381,10 +11819,7 @@ extension Common_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowUserResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12419,10 +11854,7 @@ extension Common_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnfollowUserRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "follower_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}follower_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12457,10 +11889,7 @@ extension Common_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnfollowUserResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12495,12 +11924,7 @@ extension Common_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "start"),
-    2: .same(proto: "end"),
-    3: .standard(proto: "page_size"),
-    4: .standard(proto: "page_number"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}start\0\u{1}end\0\u{3}page_size\0\u{3}page_number\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12545,11 +11969,7 @@ extension Common_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12593,13 +12013,7 @@ extension Common_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_TrendingStoryRoleResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .standard(proto: "page_size"),
-    3: .standard(proto: "page_number"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}page_size\0\u{3}page_number\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12649,12 +12063,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
 
 extension Common_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "start"),
-    2: .same(proto: "end"),
-    3: .standard(proto: "page_size"),
-    4: .standard(proto: "page_number"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}start\0\u{1}end\0\u{3}page_size\0\u{3}page_number\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12699,11 +12108,7 @@ extension Common_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "data"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12747,13 +12152,7 @@ extension Common_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Common_TrendingStoryResponse.protoMessageName + ".Data"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .standard(proto: "page_size"),
-    3: .standard(proto: "page_number"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}page_size\0\u{3}page_number\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12803,14 +12202,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
 
 extension Common_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleListRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "board_id"),
-    4: .standard(proto: "search_key"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}board_id\0\u{3}search_key\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12865,13 +12257,7 @@ extension Common_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleListResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "roles"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12921,10 +12307,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ArchiveStoryRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12959,10 +12342,7 @@ extension Common_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ArchiveStoryResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12997,11 +12377,7 @@ extension Common_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "content"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}content\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13041,11 +12417,7 @@ extension Common_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "comment"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
     var _code: Common_ResponseCode = .ok
@@ -13129,12 +12501,7 @@ extension Common_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13179,23 +12546,7 @@ extension Common_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryComment"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "story_id"),
-    3: .standard(proto: "board_id"),
-    4: .standard(proto: "role_id"),
-    5: .standard(proto: "prev_id"),
-    6: .standard(proto: "root_comment_id"),
-    7: .standard(proto: "user_id"),
-    8: .same(proto: "content"),
-    9: .standard(proto: "created_at"),
-    10: .standard(proto: "updated_at"),
-    11: .standard(proto: "like_count"),
-    12: .standard(proto: "reply_count"),
-    13: .standard(proto: "is_liked"),
-    14: .same(proto: "creator"),
-    15: .standard(proto: "created_at_timestamp"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}story_id\0\u{3}board_id\0\u{3}role_id\0\u{3}prev_id\0\u{3}root_comment_id\0\u{3}user_id\0\u{1}content\0\u{3}created_at\0\u{3}updated_at\0\u{3}like_count\0\u{3}reply_count\0\u{3}is_liked\0\u{1}creator\0\u{3}created_at_timestamp\0")
 
   fileprivate class _StorageClass {
     var _commentID: Int64 = 0
@@ -13363,15 +12714,7 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "comments"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comments\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13431,10 +12774,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13469,10 +12809,7 @@ extension Common_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13507,12 +12844,7 @@ extension Common_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentRepliesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13557,15 +12889,7 @@ extension Common_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentRepliesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "replies"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}replies\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13625,11 +12949,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
 
 extension Common_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentReplyRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "content"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}content\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13669,11 +12989,7 @@ extension Common_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentReplyResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "comment"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
     var _code: Common_ResponseCode = .ok
@@ -13757,10 +13073,7 @@ extension Common_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentReplyRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "reply_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}reply_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13795,10 +13108,7 @@ extension Common_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentReplyResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13833,12 +13143,7 @@ extension Common_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "board_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13883,15 +13188,7 @@ extension Common_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "comments"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comments\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13951,11 +13248,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "board_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "content"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}user_id\0\u{1}content\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13995,11 +13288,7 @@ extension Common_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "comment"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
     var _code: Common_ResponseCode = .ok
@@ -14083,11 +13372,7 @@ extension Common_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "board_id"),
-    2: .standard(proto: "comment_id"),
-    3: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}comment_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14127,10 +13412,7 @@ extension Common_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14165,12 +13447,7 @@ extension Common_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentRepliesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14215,15 +13492,7 @@ extension Common_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, Swif
 
 extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentRepliesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "replies"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}replies\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14283,10 +13552,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
 
 extension Common_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14321,10 +13587,7 @@ extension Common_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14359,10 +13622,7 @@ extension Common_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DislikeCommentRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "comment_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14397,10 +13657,7 @@ extension Common_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DislikeCommentResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14435,11 +13692,7 @@ extension Common_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRolePromptRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "role_id"),
-    3: .same(proto: "prompt"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}prompt\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14479,10 +13732,7 @@ extension Common_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRolePromptResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14517,12 +13767,7 @@ extension Common_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRolePromptRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "role_id"),
-    4: .same(proto: "prompt"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}role_id\0\u{1}prompt\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14567,11 +13812,7 @@ extension Common_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRolePromptResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "prompt"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}prompt\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14611,11 +13852,7 @@ extension Common_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRoleDescriptionRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "role_id"),
-    3: .same(proto: "description"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}description\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14655,10 +13892,7 @@ extension Common_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRoleDescriptionResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14693,12 +13927,7 @@ extension Common_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleDescriptionRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "role_id"),
-    4: .same(proto: "description"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}role_id\0\u{1}description\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14743,11 +13972,7 @@ extension Common_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleDescriptionResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .standard(proto: "character_detail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}character_detail\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14791,11 +14016,7 @@ extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUnPublishStoryboardRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "offset"),
-    3: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14835,15 +14056,7 @@ extension Common_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUnPublishStoryboardResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboardactives"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboardactives\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14903,13 +14116,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchRoleActiveStoryBoardsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "role_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "filter"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}offset\0\u{3}page_size\0\u{1}filter\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14959,15 +14166,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message
 
 extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchRoleActiveStoryBoardsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15027,13 +14226,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
 
 extension Common_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchStoryActiveStoryBoardsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "story_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "filter"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0\u{1}filter\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15083,15 +14276,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Messag
 
 extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchStoryActiveStoryBoardsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15151,10 +14336,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
 
 extension Common_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SaveStoryboardCraftRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "storyboard_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15189,10 +14371,7 @@ extension Common_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SaveStoryboardCraftResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15227,10 +14406,7 @@ extension Common_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PublishStoryboardRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "storyboard_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15265,10 +14441,7 @@ extension Common_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PublishStoryboardResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15303,10 +14476,7 @@ extension Common_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CancelStoryboardRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "storyboard_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15341,10 +14511,7 @@ extension Common_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CancelStoryboardResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15379,13 +14546,7 @@ extension Common_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-    4: .same(proto: "prompt"),
-    5: .standard(proto: "reference_image"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0\u{1}prompt\0\u{3}reference_image\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15435,12 +14596,7 @@ extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, Swif
 
 extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "detail"),
-    4: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15489,16 +14645,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
 
 extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetNextStoryboardRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "storyboard_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-    4: .standard(proto: "is_multi_branch"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .same(proto: "total"),
-    8: .standard(proto: "order_by"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0\u{3}story_id\0\u{3}is_multi_branch\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}order_by\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15563,16 +14710,7 @@ extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetNextStoryboardResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
-    4: .standard(proto: "is_multi_branch"),
-    5: .same(proto: "total"),
-    6: .same(proto: "offset"),
-    7: .standard(proto: "page_size"),
-    8: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{3}is_multi_branch\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15637,12 +14775,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "chat_id"),
-    3: .standard(proto: "role_id"),
-    4: .same(proto: "timestamp"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}chat_id\0\u{3}role_id\0\u{1}timestamp\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15687,14 +14820,7 @@ extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "messages"),
-    4: .same(proto: "timestamp"),
-    5: .same(proto: "total"),
-    6: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}messages\0\u{1}timestamp\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15749,10 +14875,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatWithRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15787,14 +14910,7 @@ extension Common_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatWithRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "messages"),
-    4: .standard(proto: "chat_context"),
-    5: .same(proto: "total"),
-    6: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}messages\0\u{3}chat_context\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15853,14 +14969,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoryboardsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-    4: .same(proto: "filter"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0\u{1}filter\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15915,15 +15024,7 @@ extension Common_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoryboardsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboardactives"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboardactives\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15983,13 +15084,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoriesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "filter"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}filter\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16039,15 +15134,7 @@ extension Common_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoriesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "stories"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}stories\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16107,10 +15194,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleChatRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16145,18 +15229,7 @@ extension Common_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatContext"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "chat_id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "timestamp"),
-    5: .standard(proto: "last_update_time"),
-    6: .standard(proto: "total_tokens"),
-    7: .standard(proto: "total_messages"),
-    8: .standard(proto: "last_message"),
-    9: .same(proto: "user"),
-    10: .same(proto: "role"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}chat_id\0\u{3}role_id\0\u{3}user_id\0\u{1}timestamp\0\u{3}last_update_time\0\u{3}total_tokens\0\u{3}total_messages\0\u{3}last_message\0\u{1}user\0\u{1}role\0")
 
   fileprivate class _StorageClass {
     var _chatID: Int64 = 0
@@ -16289,11 +15362,7 @@ extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleChatResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .standard(proto: "chat_context"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}chat_context\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16337,13 +15406,7 @@ extension Common_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatWithStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "messages"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}messages\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16393,13 +15456,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatWithStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .standard(proto: "reply_messages"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}reply_messages\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16449,13 +15506,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDetailRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .same(proto: "role"),
-    3: .standard(proto: "user_id"),
-    4: .standard(proto: "need_regen"),
-    5: .standard(proto: "background_image"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}role\0\u{3}user_id\0\u{3}need_regen\0\u{3}background_image\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16509,10 +15560,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDetailResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16547,11 +15595,7 @@ extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .same(proto: "avator"),
-    3: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}avator\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16591,10 +15635,7 @@ extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16629,12 +15670,7 @@ extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProt
 
 extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWithRoleChatListRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "story_id"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16679,15 +15715,7 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWithRoleChatListResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "chats"),
-    4: .same(proto: "total"),
-    5: .same(proto: "offset"),
-    6: .standard(proto: "page_size"),
-    7: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}chats\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16747,13 +15775,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedStoryboardsRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "story_id"),
-    3: .same(proto: "stage"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}stage\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16803,15 +15825,7 @@ extension Common_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftP
 
 extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedStoryboardsResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "storyboards"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-    6: .same(proto: "offset"),
-    8: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{3}have_more\0\u{1}offset\0\u{4}\u{2}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16871,13 +15885,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
 
 extension Common_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedRolesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "story_id"),
-    3: .same(proto: "stage"),
-    4: .same(proto: "offset"),
-    5: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}stage\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16927,15 +15935,7 @@ extension Common_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedRolesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "roles"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-    6: .same(proto: "offset"),
-    8: .standard(proto: "page_size"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0\u{1}offset\0\u{4}\u{2}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16995,11 +15995,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
 
 extension Common_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17039,10 +16035,7 @@ extension Common_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17077,11 +16070,7 @@ extension Common_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17121,10 +16110,7 @@ extension Common_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17159,11 +16145,7 @@ extension Common_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17203,10 +16185,7 @@ extension Common_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17241,11 +16220,7 @@ extension Common_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnFollowStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17285,10 +16260,7 @@ extension Common_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnFollowStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17323,14 +16295,7 @@ extension Common_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchStoriesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "keyword"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "scope"),
-    7: .standard(proto: "group_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}keyword\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{4}\u{2}group_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17385,13 +16350,7 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchStoriesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "stories"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}stories\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17441,15 +16400,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchRolesRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "keyword"),
-    3: .same(proto: "offset"),
-    4: .standard(proto: "page_size"),
-    5: .same(proto: "scope"),
-    6: .standard(proto: "story_id"),
-    7: .standard(proto: "group_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}keyword\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{3}story_id\0\u{3}group_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17509,13 +16460,7 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchRolesResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "roles"),
-    4: .same(proto: "total"),
-    5: .standard(proto: "have_more"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17565,11 +16510,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RestoreStoryboardRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "storyboard_id"),
-    2: .standard(proto: "user_id"),
-    3: .standard(proto: "story_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0\u{3}story_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17609,11 +16550,7 @@ extension Common_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RestoreStoryboardResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "store"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}store\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17657,14 +16594,7 @@ extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardStageStore"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "storyboard"),
-    2: .same(proto: "sences"),
-    3: .same(proto: "stage"),
-    4: .standard(proto: "last_update_time"),
-    5: .same(proto: "version"),
-    6: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}storyboard\0\u{1}sences\0\u{1}stage\0\u{3}last_update_time\0\u{1}version\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17723,9 +16653,7 @@ extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_GetUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17755,11 +16683,7 @@ extension Common_GetUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17803,15 +16727,7 @@ extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserProfileRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "background_image"),
-    3: .same(proto: "avatar"),
-    4: .same(proto: "name"),
-    5: .same(proto: "description"),
-    6: .same(proto: "location"),
-    7: .same(proto: "email"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}background_image\0\u{1}avatar\0\u{1}name\0\u{1}description\0\u{1}location\0\u{1}email\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17871,10 +16787,7 @@ extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserProfileResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17909,10 +16822,7 @@ extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .standard(proto: "background_image"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}background_image\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17947,10 +16857,7 @@ extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftP
 
 extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17985,10 +16892,7 @@ extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, Swift
 
 extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "user_id"),
-    2: .same(proto: "role"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}role\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18027,10 +16931,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18065,9 +16966,7 @@ extension Common_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_GetStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleDetailRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18097,11 +16996,7 @@ extension Common_GetStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Common_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleDetailResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "info"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18145,12 +17040,7 @@ extension Common_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .same(proto: "prompt"),
-    3: .standard(proto: "ref_images"),
-    4: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}prompt\0\u{3}ref_images\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18195,21 +17085,7 @@ extension Common_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "gen_id"),
-    3: .standard(proto: "is_finished"),
-    4: .standard(proto: "role_description"),
-    5: .standard(proto: "role_character"),
-    6: .standard(proto: "role_behavior"),
-    7: .standard(proto: "role_goal"),
-    8: .standard(proto: "background_image"),
-    9: .standard(proto: "avatar_image"),
-    10: .same(proto: "background"),
-    11: .same(proto: "appearance"),
-    12: .same(proto: "personality"),
-    13: .standard(proto: "ability_features"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}gen_id\0\u{3}is_finished\0\u{3}role_description\0\u{3}role_character\0\u{3}role_behavior\0\u{3}role_goal\0\u{3}background_image\0\u{3}avatar_image\0\u{1}background\0\u{1}appearance\0\u{1}personality\0\u{3}ability_features\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18299,11 +17175,7 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "detail"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18347,10 +17219,7 @@ extension Common_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18385,10 +17254,7 @@ extension Common_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18423,10 +17289,7 @@ extension Common_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "story_id"),
-    2: .standard(proto: "user_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18461,10 +17324,7 @@ extension Common_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_UnLikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

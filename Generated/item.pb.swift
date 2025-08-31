@@ -358,13 +358,7 @@ fileprivate let _protobuf_package = "common"
 
 extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".WordDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "content"),
-    2: .same(proto: "length"),
-    3: .same(proto: "prompt"),
-    4: .same(proto: "title"),
-    5: .same(proto: "desc"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}content\0\u{1}length\0\u{1}prompt\0\u{1}title\0\u{1}desc\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -414,11 +408,7 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
 extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PictureInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "resource_url"),
-    2: .same(proto: "size"),
-    3: .same(proto: "num"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{1}num\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -458,13 +448,7 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PictureDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "total"),
-    3: .same(proto: "prompt"),
-    4: .same(proto: "title"),
-    5: .same(proto: "desc"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}prompt\0\u{1}title\0\u{1}desc\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -514,11 +498,7 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
 extension Common_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VideoInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "resource_url"),
-    2: .same(proto: "size"),
-    3: .standard(proto: "time_length"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{3}time_length\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -558,15 +538,7 @@ extension Common_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
 extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VideoDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "list"),
-    2: .same(proto: "num"),
-    4: .same(proto: "prompt"),
-    5: .same(proto: "title"),
-    6: .same(proto: "desc"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}num\0\u{2}\u{2}prompt\0\u{1}title\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -626,15 +598,7 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MusicShareDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "resource_url"),
-    2: .same(proto: "source"),
-    4: .same(proto: "prompt"),
-    5: .same(proto: "title"),
-    6: .same(proto: "desc"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}source\0\u{2}\u{2}prompt\0\u{1}title\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -694,13 +658,7 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VoiceDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "resource_url"),
-    2: .same(proto: "size"),
-    3: .standard(proto: "time_length"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{3}time_length\0\u{2}\u{6}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -750,12 +708,7 @@ extension Common_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ShareDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "resource_url"),
-    2: .same(proto: "source"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}source\0\u{2}\u{7}Ctime\0\u{1}Mtime\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -800,12 +753,7 @@ extension Common_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Location"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "country"),
-    2: .same(proto: "province"),
-    3: .same(proto: "city"),
-    4: .same(proto: "district"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}country\0\u{1}province\0\u{1}city\0\u{1}district\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -850,21 +798,7 @@ extension Common_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ItemDetail"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "word"),
-    2: .same(proto: "pictures"),
-    3: .same(proto: "video"),
-    4: .same(proto: "music"),
-    5: .same(proto: "voice"),
-    6: .same(proto: "share"),
-    7: .same(proto: "locate"),
-    11: .same(proto: "title"),
-    12: .same(proto: "prevId"),
-    13: .same(proto: "loc"),
-    14: .standard(proto: "is_origin"),
-    15: .same(proto: "ref"),
-    16: .standard(proto: "root_id"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}word\0\u{1}pictures\0\u{1}video\0\u{1}music\0\u{1}voice\0\u{1}share\0\u{1}locate\0\u{2}\u{4}title\0\u{1}prevId\0\u{1}loc\0\u{3}is_origin\0\u{1}ref\0\u{3}root_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1046,16 +980,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
 extension Common_ItemInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ItemInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "group_id"),
-    2: .standard(proto: "project_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "title"),
-    5: .same(proto: "content"),
-    6: .same(proto: "itype"),
-    9: .same(proto: "Ctime"),
-    10: .same(proto: "Mtime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}user_id\0\u{1}title\0\u{1}content\0\u{1}itype\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _groupID: Int64 = 0

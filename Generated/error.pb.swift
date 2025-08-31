@@ -2399,241 +2399,12 @@ public struct Common_SearchErrorMessages: Sendable {
 fileprivate let _protobuf_package = "common"
 
 extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "OK"),
-    1: .same(proto: "SYSTEM_ERROR"),
-    2: .same(proto: "INTERNAL_ERROR"),
-    3: .same(proto: "DATABASE_ERROR"),
-    4: .same(proto: "CACHE_ERROR"),
-    5: .same(proto: "NETWORK_ERROR"),
-    6: .same(proto: "TIMEOUT_ERROR"),
-    7: .same(proto: "SERVICE_UNAVAILABLE"),
-    8: .same(proto: "TOO_MANY_REQUESTS"),
-    9: .same(proto: "CONFIGURATION_ERROR"),
-    10: .same(proto: "INITIALIZATION_ERROR"),
-    100: .same(proto: "UNAUTHORIZED"),
-    101: .same(proto: "TOKEN_EXPIRED"),
-    102: .same(proto: "TOKEN_INVALID"),
-    103: .same(proto: "PERMISSION_DENIED"),
-    104: .same(proto: "ACCOUNT_NOT_FOUND"),
-    105: .same(proto: "WRONG_PASSWORD"),
-    106: .same(proto: "ACCOUNT_DISABLED"),
-    107: .same(proto: "LOGIN_REQUIRED"),
-    108: .same(proto: "TOKEN_MISSING"),
-    109: .same(proto: "SESSION_EXPIRED"),
-    110: .same(proto: "INVALID_CREDENTIALS"),
-    111: .same(proto: "ACCOUNT_LOCKED"),
-    112: .same(proto: "ACCOUNT_EXPIRED"),
-    113: .same(proto: "INVALID_LOGIN_TYPE"),
-    200: .same(proto: "INVALID_PARAMETER"),
-    201: .same(proto: "MISSING_PARAMETER"),
-    202: .same(proto: "INVALID_FORMAT"),
-    203: .same(proto: "INVALID_LENGTH"),
-    204: .same(proto: "INVALID_VALUE"),
-    205: .same(proto: "INVALID_TYPE"),
-    206: .same(proto: "INVALID_SYNTAX"),
-    207: .same(proto: "INVALID_ENCODING"),
-    208: .same(proto: "INVALID_OPERATION"),
-    209: .same(proto: "VALIDATION_FAILED"),
-    300: .same(proto: "RESOURCE_NOT_FOUND"),
-    301: .same(proto: "RESOURCE_ALREADY_EXISTS"),
-    302: .same(proto: "RESOURCE_EXPIRED"),
-    303: .same(proto: "RESOURCE_EXHAUSTED"),
-    304: .same(proto: "RESOURCE_BUSY"),
-    305: .same(proto: "RESOURCE_LOCKED"),
-    306: .same(proto: "RESOURCE_UNAVAILABLE"),
-    307: .same(proto: "RESOURCE_QUOTA_EXCEEDED"),
-    308: .same(proto: "RESOURCE_CORRUPTED"),
-    400: .same(proto: "USER_NOT_FOUND"),
-    401: .same(proto: "USER_ALREADY_EXISTS"),
-    402: .same(proto: "USER_NOT_ACTIVE"),
-    403: .same(proto: "USER_BLOCKED"),
-    404: .same(proto: "USER_PROFILE_INCOMPLETE"),
-    405: .same(proto: "USER_OPERATION_DENIED"),
-    406: .same(proto: "USER_QUOTA_EXCEEDED"),
-    407: .same(proto: "USER_STATUS_ERROR"),
-    408: .same(proto: "USER_VERIFICATION_FAILED"),
-    409: .same(proto: "USER_ROLE_INVALID"),
-    500: .same(proto: "GROUP_NOT_FOUND"),
-    501: .same(proto: "GROUP_ALREADY_EXISTS"),
-    502: .same(proto: "NOT_GROUP_MEMBER"),
-    503: .same(proto: "GROUP_PERMISSION_DENIED"),
-    504: .same(proto: "GROUP_FULL"),
-    505: .same(proto: "GROUP_CLOSED"),
-    506: .same(proto: "GROUP_OPERATION_DENIED"),
-    507: .same(proto: "GROUP_STATUS_ERROR"),
-    508: .same(proto: "GROUP_TYPE_INVALID"),
-    509: .same(proto: "GROUP_QUOTA_EXCEEDED"),
-    600: .same(proto: "PROJECT_NOT_FOUND"),
-    601: .same(proto: "PROJECT_ALREADY_EXISTS"),
-    602: .same(proto: "PROJECT_PERMISSION_DENIED"),
-    603: .same(proto: "PROJECT_CLOSED"),
-    604: .same(proto: "PROJECT_ARCHIVED"),
-    605: .same(proto: "PROJECT_FULL"),
-    606: .same(proto: "PROJECT_STATUS_ERROR"),
-    607: .same(proto: "PROJECT_TYPE_INVALID"),
-    608: .same(proto: "PROJECT_OPERATION_DENIED"),
-    609: .same(proto: "PROJECT_QUOTA_EXCEEDED"),
-    700: .same(proto: "STORY_NOT_FOUND"),
-    701: .same(proto: "STORY_ALREADY_EXISTS"),
-    702: .same(proto: "STORY_PERMISSION_DENIED"),
-    703: .same(proto: "STORY_LOCKED"),
-    704: .same(proto: "STORY_ARCHIVED"),
-    705: .same(proto: "STORY_STATUS_ERROR"),
-    706: .same(proto: "STORY_VERSION_ERROR"),
-    707: .same(proto: "STORY_CONTENT_ERROR"),
-    708: .same(proto: "STORY_OPERATION_DENIED"),
-    709: .same(proto: "STORY_GENERATION_FAILED"),
-    800: .same(proto: "STORYBOARD_NOT_FOUND"),
-    801: .same(proto: "STORYBOARD_ALREADY_EXISTS"),
-    802: .same(proto: "STORYBOARD_PERMISSION_DENIED"),
-    803: .same(proto: "STORYBOARD_RENDER_ERROR"),
-    804: .same(proto: "STORYBOARD_LOCKED"),
-    805: .same(proto: "STORYBOARD_STATUS_ERROR"),
-    806: .same(proto: "STORYBOARD_VERSION_ERROR"),
-    807: .same(proto: "STORYBOARD_SCENE_ERROR"),
-    808: .same(proto: "STORYBOARD_GENERATION_FAILED"),
-    809: .same(proto: "STORYBOARD_OPERATION_DENIED"),
-    900: .same(proto: "ROLE_NOT_FOUND"),
-    901: .same(proto: "ROLE_ALREADY_EXISTS"),
-    902: .same(proto: "ROLE_PERMISSION_DENIED"),
-    903: .same(proto: "ROLE_RENDER_ERROR"),
-    904: .same(proto: "ROLE_LOCKED"),
-    905: .same(proto: "ROLE_STATUS_ERROR"),
-    906: .same(proto: "ROLE_TYPE_INVALID"),
-    907: .same(proto: "ROLE_QUOTA_EXCEEDED"),
-    908: .same(proto: "ROLE_GENERATION_FAILED"),
-    909: .same(proto: "ROLE_OPERATION_DENIED"),
-    1000: .same(proto: "CONTENT_NOT_FOUND"),
-    1001: .same(proto: "CONTENT_ALREADY_EXISTS"),
-    1002: .same(proto: "CONTENT_PERMISSION_DENIED"),
-    1003: .same(proto: "CONTENT_TYPE_INVALID"),
-    1004: .same(proto: "CONTENT_SIZE_EXCEEDED"),
-    1005: .same(proto: "CONTENT_FORMAT_ERROR"),
-    1006: .same(proto: "CONTENT_LOCKED"),
-    1007: .same(proto: "CONTENT_EXPIRED"),
-    1008: .same(proto: "CONTENT_CORRUPTED"),
-    1009: .same(proto: "CONTENT_OPERATION_DENIED"),
-    1100: .same(proto: "OPERATION_FAILED"),
-    1101: .same(proto: "OPERATION_TIMEOUT"),
-    1102: .same(proto: "OPERATION_CANCELLED"),
-    1103: .same(proto: "OPERATION_NOT_SUPPORTED"),
-    1104: .same(proto: "OPERATION_IN_PROGRESS"),
-    1105: .same(proto: "OPERATION_ABORTED"),
-    1106: .same(proto: "OPERATION_REJECTED"),
-    1107: .same(proto: "OPERATION_INVALID"),
-    1108: .same(proto: "OPERATION_CONFLICT"),
-    1109: .same(proto: "OPERATION_TOO_FREQUENT"),
-    1200: .same(proto: "RATE_LIMIT_EXCEEDED"),
-    1201: .same(proto: "QUOTA_EXCEEDED"),
-    1202: .same(proto: "SIZE_LIMIT_EXCEEDED"),
-    1203: .same(proto: "TIME_LIMIT_EXCEEDED"),
-    1204: .same(proto: "FREQUENCY_LIMIT_EXCEEDED"),
-    1205: .same(proto: "CONCURRENT_LIMIT_EXCEEDED"),
-    1206: .same(proto: "STORAGE_LIMIT_EXCEEDED"),
-    1207: .same(proto: "BANDWIDTH_LIMIT_EXCEEDED"),
-    1208: .same(proto: "REQUEST_LIMIT_EXCEEDED"),
-    1209: .same(proto: "USER_LIMIT_EXCEEDED"),
-    1300: .same(proto: "AI_GENERATION_FAILED"),
-    1301: .same(proto: "AI_SERVICE_UNAVAILABLE"),
-    1302: .same(proto: "AI_QUOTA_EXCEEDED"),
-    1303: .same(proto: "AI_MODEL_ERROR"),
-    1304: .same(proto: "AI_PARAMETER_ERROR"),
-    1305: .same(proto: "AI_CONTENT_ERROR"),
-    1306: .same(proto: "AI_TIMEOUT"),
-    1307: .same(proto: "AI_RATE_LIMITED"),
-    1308: .same(proto: "AI_CONTEXT_ERROR"),
-    1309: .same(proto: "AI_RESPONSE_ERROR"),
-    1400: .same(proto: "COMMENT_NOT_FOUND"),
-    1401: .same(proto: "COMMENT_ALREADY_EXISTS"),
-    1402: .same(proto: "COMMENT_PERMISSION_DENIED"),
-    1403: .same(proto: "COMMENT_LOCKED"),
-    1404: .same(proto: "COMMENT_STATUS_ERROR"),
-    1500: .same(proto: "LIKE_NOT_FOUND"),
-    1501: .same(proto: "LIKE_ALREADY_EXISTS"),
-    1502: .same(proto: "LIKE_PERMISSION_DENIED"),
-    1503: .same(proto: "LIKE_LOCKED"),
-    1504: .same(proto: "LIKE_STATUS_ERROR"),
-    1600: .same(proto: "VIP_NOT_FOUND"),
-    1601: .same(proto: "VIP_ALREADY_EXISTS"),
-    1602: .same(proto: "VIP_PERMISSION_DENIED"),
-    1603: .same(proto: "VIP_LOCKED"),
-    1604: .same(proto: "VIP_STATUS_ERROR"),
-    1700: .same(proto: "PAYMENT_NOT_FOUND"),
-    1701: .same(proto: "PAYMENT_ALREADY_EXISTS"),
-    1702: .same(proto: "PAYMENT_PERMISSION_DENIED"),
-    1703: .same(proto: "PAYMENT_LOCKED"),
-    1704: .same(proto: "PAYMENT_STATUS_ERROR"),
-    1800: .same(proto: "ORDER_NOT_FOUND"),
-    1801: .same(proto: "ORDER_ALREADY_EXISTS"),
-    1802: .same(proto: "ORDER_PERMISSION_DENIED"),
-    1803: .same(proto: "ORDER_LOCKED"),
-    1804: .same(proto: "ORDER_STATUS_ERROR"),
-    1900: .same(proto: "MESSAGE_NOT_FOUND"),
-    1901: .same(proto: "MESSAGE_ALREADY_EXISTS"),
-    1902: .same(proto: "MESSAGE_PERMISSION_DENIED"),
-    1903: .same(proto: "MESSAGE_LOCKED"),
-    1904: .same(proto: "MESSAGE_STATUS_ERROR"),
-    2000: .same(proto: "CHAT_NOT_FOUND"),
-    2001: .same(proto: "CHAT_ALREADY_EXISTS"),
-    2002: .same(proto: "CHAT_PERMISSION_DENIED"),
-    2003: .same(proto: "CHAT_LOCKED"),
-    2004: .same(proto: "CHAT_STATUS_ERROR"),
-    2005: .same(proto: "CHAT_MESSAGE_ERROR"),
-    2006: .same(proto: "CHAT_CONTEXT_ERROR"),
-    2007: .same(proto: "CHAT_STREAM_ERROR"),
-    2008: .same(proto: "CHAT_TIMEOUT"),
-    2009: .same(proto: "CHAT_RATE_LIMITED"),
-    2100: .same(proto: "UPLOAD_FAILED"),
-    2101: .same(proto: "UPLOAD_SIZE_EXCEEDED"),
-    2102: .same(proto: "UPLOAD_FORMAT_ERROR"),
-    2103: .same(proto: "UPLOAD_PERMISSION_DENIED"),
-    2104: .same(proto: "UPLOAD_QUOTA_EXCEEDED"),
-    2105: .same(proto: "UPLOAD_TYPE_INVALID"),
-    2106: .same(proto: "UPLOAD_TIMEOUT"),
-    2107: .same(proto: "UPLOAD_CORRUPTED"),
-    2108: .same(proto: "UPLOAD_STORAGE_ERROR"),
-    2109: .same(proto: "UPLOAD_PROCESSING_ERROR"),
-    2200: .same(proto: "SEARCH_FAILED"),
-    2201: .same(proto: "SEARCH_PARAMETER_ERROR"),
-    2202: .same(proto: "SEARCH_TIMEOUT"),
-    2203: .same(proto: "SEARCH_PERMISSION_DENIED"),
-    2204: .same(proto: "SEARCH_QUOTA_EXCEEDED"),
-    2205: .same(proto: "SEARCH_INDEX_ERROR"),
-    2206: .same(proto: "SEARCH_RESULT_ERROR"),
-    2207: .same(proto: "SEARCH_FILTER_ERROR"),
-    2208: .same(proto: "SEARCH_SORT_ERROR"),
-    2209: .same(proto: "SEARCH_SCOPE_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OK\0\u{1}SYSTEM_ERROR\0\u{1}INTERNAL_ERROR\0\u{1}DATABASE_ERROR\0\u{1}CACHE_ERROR\0\u{1}NETWORK_ERROR\0\u{1}TIMEOUT_ERROR\0\u{1}SERVICE_UNAVAILABLE\0\u{1}TOO_MANY_REQUESTS\0\u{1}CONFIGURATION_ERROR\0\u{1}INITIALIZATION_ERROR\0\u{2}Z\u{1}UNAUTHORIZED\0\u{1}TOKEN_EXPIRED\0\u{1}TOKEN_INVALID\0\u{1}PERMISSION_DENIED\0\u{1}ACCOUNT_NOT_FOUND\0\u{1}WRONG_PASSWORD\0\u{1}ACCOUNT_DISABLED\0\u{1}LOGIN_REQUIRED\0\u{1}TOKEN_MISSING\0\u{1}SESSION_EXPIRED\0\u{1}INVALID_CREDENTIALS\0\u{1}ACCOUNT_LOCKED\0\u{1}ACCOUNT_EXPIRED\0\u{1}INVALID_LOGIN_TYPE\0\u{2}W\u{1}INVALID_PARAMETER\0\u{1}MISSING_PARAMETER\0\u{1}INVALID_FORMAT\0\u{1}INVALID_LENGTH\0\u{1}INVALID_VALUE\0\u{1}INVALID_TYPE\0\u{1}INVALID_SYNTAX\0\u{1}INVALID_ENCODING\0\u{1}INVALID_OPERATION\0\u{1}VALIDATION_FAILED\0\u{2}[\u{1}RESOURCE_NOT_FOUND\0\u{1}RESOURCE_ALREADY_EXISTS\0\u{1}RESOURCE_EXPIRED\0\u{1}RESOURCE_EXHAUSTED\0\u{1}RESOURCE_BUSY\0\u{1}RESOURCE_LOCKED\0\u{1}RESOURCE_UNAVAILABLE\0\u{1}RESOURCE_QUOTA_EXCEEDED\0\u{1}RESOURCE_CORRUPTED\0\u{2}\\\u{1}USER_NOT_FOUND\0\u{1}USER_ALREADY_EXISTS\0\u{1}USER_NOT_ACTIVE\0\u{1}USER_BLOCKED\0\u{1}USER_PROFILE_INCOMPLETE\0\u{1}USER_OPERATION_DENIED\0\u{1}USER_QUOTA_EXCEEDED\0\u{1}USER_STATUS_ERROR\0\u{1}USER_VERIFICATION_FAILED\0\u{1}USER_ROLE_INVALID\0\u{2}[\u{1}GROUP_NOT_FOUND\0\u{1}GROUP_ALREADY_EXISTS\0\u{1}NOT_GROUP_MEMBER\0\u{1}GROUP_PERMISSION_DENIED\0\u{1}GROUP_FULL\0\u{1}GROUP_CLOSED\0\u{1}GROUP_OPERATION_DENIED\0\u{1}GROUP_STATUS_ERROR\0\u{1}GROUP_TYPE_INVALID\0\u{1}GROUP_QUOTA_EXCEEDED\0\u{2}[\u{1}PROJECT_NOT_FOUND\0\u{1}PROJECT_ALREADY_EXISTS\0\u{1}PROJECT_PERMISSION_DENIED\0\u{1}PROJECT_CLOSED\0\u{1}PROJECT_ARCHIVED\0\u{1}PROJECT_FULL\0\u{1}PROJECT_STATUS_ERROR\0\u{1}PROJECT_TYPE_INVALID\0\u{1}PROJECT_OPERATION_DENIED\0\u{1}PROJECT_QUOTA_EXCEEDED\0\u{2}[\u{1}STORY_NOT_FOUND\0\u{1}STORY_ALREADY_EXISTS\0\u{1}STORY_PERMISSION_DENIED\0\u{1}STORY_LOCKED\0\u{1}STORY_ARCHIVED\0\u{1}STORY_STATUS_ERROR\0\u{1}STORY_VERSION_ERROR\0\u{1}STORY_CONTENT_ERROR\0\u{1}STORY_OPERATION_DENIED\0\u{1}STORY_GENERATION_FAILED\0\u{2}[\u{1}STORYBOARD_NOT_FOUND\0\u{1}STORYBOARD_ALREADY_EXISTS\0\u{1}STORYBOARD_PERMISSION_DENIED\0\u{1}STORYBOARD_RENDER_ERROR\0\u{1}STORYBOARD_LOCKED\0\u{1}STORYBOARD_STATUS_ERROR\0\u{1}STORYBOARD_VERSION_ERROR\0\u{1}STORYBOARD_SCENE_ERROR\0\u{1}STORYBOARD_GENERATION_FAILED\0\u{1}STORYBOARD_OPERATION_DENIED\0\u{2}[\u{1}ROLE_NOT_FOUND\0\u{1}ROLE_ALREADY_EXISTS\0\u{1}ROLE_PERMISSION_DENIED\0\u{1}ROLE_RENDER_ERROR\0\u{1}ROLE_LOCKED\0\u{1}ROLE_STATUS_ERROR\0\u{1}ROLE_TYPE_INVALID\0\u{1}ROLE_QUOTA_EXCEEDED\0\u{1}ROLE_GENERATION_FAILED\0\u{1}ROLE_OPERATION_DENIED\0\u{2}[\u{1}CONTENT_NOT_FOUND\0\u{1}CONTENT_ALREADY_EXISTS\0\u{1}CONTENT_PERMISSION_DENIED\0\u{1}CONTENT_TYPE_INVALID\0\u{1}CONTENT_SIZE_EXCEEDED\0\u{1}CONTENT_FORMAT_ERROR\0\u{1}CONTENT_LOCKED\0\u{1}CONTENT_EXPIRED\0\u{1}CONTENT_CORRUPTED\0\u{1}CONTENT_OPERATION_DENIED\0\u{2}[\u{1}OPERATION_FAILED\0\u{1}OPERATION_TIMEOUT\0\u{1}OPERATION_CANCELLED\0\u{1}OPERATION_NOT_SUPPORTED\0\u{1}OPERATION_IN_PROGRESS\0\u{1}OPERATION_ABORTED\0\u{1}OPERATION_REJECTED\0\u{1}OPERATION_INVALID\0\u{1}OPERATION_CONFLICT\0\u{1}OPERATION_TOO_FREQUENT\0\u{2}[\u{1}RATE_LIMIT_EXCEEDED\0\u{1}QUOTA_EXCEEDED\0\u{1}SIZE_LIMIT_EXCEEDED\0\u{1}TIME_LIMIT_EXCEEDED\0\u{1}FREQUENCY_LIMIT_EXCEEDED\0\u{1}CONCURRENT_LIMIT_EXCEEDED\0\u{1}STORAGE_LIMIT_EXCEEDED\0\u{1}BANDWIDTH_LIMIT_EXCEEDED\0\u{1}REQUEST_LIMIT_EXCEEDED\0\u{1}USER_LIMIT_EXCEEDED\0\u{2}[\u{1}AI_GENERATION_FAILED\0\u{1}AI_SERVICE_UNAVAILABLE\0\u{1}AI_QUOTA_EXCEEDED\0\u{1}AI_MODEL_ERROR\0\u{1}AI_PARAMETER_ERROR\0\u{1}AI_CONTENT_ERROR\0\u{1}AI_TIMEOUT\0\u{1}AI_RATE_LIMITED\0\u{1}AI_CONTEXT_ERROR\0\u{1}AI_RESPONSE_ERROR\0\u{2}[\u{1}COMMENT_NOT_FOUND\0\u{1}COMMENT_ALREADY_EXISTS\0\u{1}COMMENT_PERMISSION_DENIED\0\u{1}COMMENT_LOCKED\0\u{1}COMMENT_STATUS_ERROR\0\u{2}`\u{1}LIKE_NOT_FOUND\0\u{1}LIKE_ALREADY_EXISTS\0\u{1}LIKE_PERMISSION_DENIED\0\u{1}LIKE_LOCKED\0\u{1}LIKE_STATUS_ERROR\0\u{2}`\u{1}VIP_NOT_FOUND\0\u{1}VIP_ALREADY_EXISTS\0\u{1}VIP_PERMISSION_DENIED\0\u{1}VIP_LOCKED\0\u{1}VIP_STATUS_ERROR\0\u{2}`\u{1}PAYMENT_NOT_FOUND\0\u{1}PAYMENT_ALREADY_EXISTS\0\u{1}PAYMENT_PERMISSION_DENIED\0\u{1}PAYMENT_LOCKED\0\u{1}PAYMENT_STATUS_ERROR\0\u{2}`\u{1}ORDER_NOT_FOUND\0\u{1}ORDER_ALREADY_EXISTS\0\u{1}ORDER_PERMISSION_DENIED\0\u{1}ORDER_LOCKED\0\u{1}ORDER_STATUS_ERROR\0\u{2}`\u{1}MESSAGE_NOT_FOUND\0\u{1}MESSAGE_ALREADY_EXISTS\0\u{1}MESSAGE_PERMISSION_DENIED\0\u{1}MESSAGE_LOCKED\0\u{1}MESSAGE_STATUS_ERROR\0\u{2}`\u{1}CHAT_NOT_FOUND\0\u{1}CHAT_ALREADY_EXISTS\0\u{1}CHAT_PERMISSION_DENIED\0\u{1}CHAT_LOCKED\0\u{1}CHAT_STATUS_ERROR\0\u{1}CHAT_MESSAGE_ERROR\0\u{1}CHAT_CONTEXT_ERROR\0\u{1}CHAT_STREAM_ERROR\0\u{1}CHAT_TIMEOUT\0\u{1}CHAT_RATE_LIMITED\0\u{2}[\u{1}UPLOAD_FAILED\0\u{1}UPLOAD_SIZE_EXCEEDED\0\u{1}UPLOAD_FORMAT_ERROR\0\u{1}UPLOAD_PERMISSION_DENIED\0\u{1}UPLOAD_QUOTA_EXCEEDED\0\u{1}UPLOAD_TYPE_INVALID\0\u{1}UPLOAD_TIMEOUT\0\u{1}UPLOAD_CORRUPTED\0\u{1}UPLOAD_STORAGE_ERROR\0\u{1}UPLOAD_PROCESSING_ERROR\0\u{2}[\u{1}SEARCH_FAILED\0\u{1}SEARCH_PARAMETER_ERROR\0\u{1}SEARCH_TIMEOUT\0\u{1}SEARCH_PERMISSION_DENIED\0\u{1}SEARCH_QUOTA_EXCEEDED\0\u{1}SEARCH_INDEX_ERROR\0\u{1}SEARCH_RESULT_ERROR\0\u{1}SEARCH_FILTER_ERROR\0\u{1}SEARCH_SORT_ERROR\0\u{1}SEARCH_SCOPE_ERROR\0")
 }
 
 extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ErrorDescription"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "system_errors"),
-    2: .standard(proto: "auth_errors"),
-    3: .standard(proto: "validation_errors"),
-    4: .standard(proto: "resource_errors"),
-    5: .standard(proto: "user_errors"),
-    6: .standard(proto: "group_errors"),
-    7: .standard(proto: "project_errors"),
-    8: .standard(proto: "story_errors"),
-    9: .standard(proto: "storyboard_errors"),
-    10: .standard(proto: "role_errors"),
-    11: .standard(proto: "content_errors"),
-    12: .standard(proto: "operation_errors"),
-    13: .standard(proto: "limit_errors"),
-    14: .standard(proto: "ai_errors"),
-    15: .standard(proto: "comment_errors"),
-    16: .standard(proto: "like_errors"),
-    17: .standard(proto: "vip_errors"),
-    18: .standard(proto: "payment_errors"),
-    19: .standard(proto: "order_errors"),
-    20: .standard(proto: "message_errors"),
-    21: .standard(proto: "chat_errors"),
-    22: .standard(proto: "upload_errors"),
-    23: .standard(proto: "search_errors"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}system_errors\0\u{3}auth_errors\0\u{3}validation_errors\0\u{3}resource_errors\0\u{3}user_errors\0\u{3}group_errors\0\u{3}project_errors\0\u{3}story_errors\0\u{3}storyboard_errors\0\u{3}role_errors\0\u{3}content_errors\0\u{3}operation_errors\0\u{3}limit_errors\0\u{3}ai_errors\0\u{3}comment_errors\0\u{3}like_errors\0\u{3}vip_errors\0\u{3}payment_errors\0\u{3}order_errors\0\u{3}message_errors\0\u{3}chat_errors\0\u{3}upload_errors\0\u{3}search_errors\0")
 
   fileprivate class _StorageClass {
     var _systemErrors: Dictionary<Int32,String> = [:]
@@ -2853,31 +2624,7 @@ extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ErrorDescriptions"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "system_errors"),
-    2: .standard(proto: "auth_errors"),
-    3: .standard(proto: "validation_errors"),
-    4: .standard(proto: "resource_errors"),
-    5: .standard(proto: "user_errors"),
-    6: .standard(proto: "group_errors"),
-    7: .standard(proto: "project_errors"),
-    8: .standard(proto: "story_errors"),
-    9: .standard(proto: "storyboard_errors"),
-    10: .standard(proto: "role_errors"),
-    11: .standard(proto: "content_errors"),
-    12: .standard(proto: "operation_errors"),
-    13: .standard(proto: "limit_errors"),
-    14: .standard(proto: "ai_errors"),
-    15: .standard(proto: "comment_errors"),
-    16: .standard(proto: "like_errors"),
-    17: .standard(proto: "vip_errors"),
-    18: .standard(proto: "payment_errors"),
-    19: .standard(proto: "order_errors"),
-    20: .standard(proto: "message_errors"),
-    21: .standard(proto: "chat_errors"),
-    22: .standard(proto: "upload_errors"),
-    23: .standard(proto: "search_errors"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}system_errors\0\u{3}auth_errors\0\u{3}validation_errors\0\u{3}resource_errors\0\u{3}user_errors\0\u{3}group_errors\0\u{3}project_errors\0\u{3}story_errors\0\u{3}storyboard_errors\0\u{3}role_errors\0\u{3}content_errors\0\u{3}operation_errors\0\u{3}limit_errors\0\u{3}ai_errors\0\u{3}comment_errors\0\u{3}like_errors\0\u{3}vip_errors\0\u{3}payment_errors\0\u{3}order_errors\0\u{3}message_errors\0\u{3}chat_errors\0\u{3}upload_errors\0\u{3}search_errors\0")
 
   fileprivate class _StorageClass {
     var _systemErrors: Dictionary<Int32,String> = [:]
@@ -3097,18 +2844,7 @@ extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SystemErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "SYSTEM_ERROR"),
-    2: .standard(proto: "INTERNAL_ERROR"),
-    3: .standard(proto: "DATABASE_ERROR"),
-    4: .standard(proto: "CACHE_ERROR"),
-    5: .standard(proto: "NETWORK_ERROR"),
-    6: .standard(proto: "TIMEOUT_ERROR"),
-    7: .standard(proto: "SERVICE_UNAVAILABLE"),
-    8: .standard(proto: "TOO_MANY_REQUESTS"),
-    9: .standard(proto: "CONFIGURATION_ERROR"),
-    10: .standard(proto: "INITIALIZATION_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}SYSTEM_ERROR\0\u{3}INTERNAL_ERROR\0\u{3}DATABASE_ERROR\0\u{3}CACHE_ERROR\0\u{3}NETWORK_ERROR\0\u{3}TIMEOUT_ERROR\0\u{3}SERVICE_UNAVAILABLE\0\u{3}TOO_MANY_REQUESTS\0\u{3}CONFIGURATION_ERROR\0\u{3}INITIALIZATION_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3183,22 +2919,7 @@ extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AuthErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UNAUTHORIZED"),
-    2: .standard(proto: "TOKEN_EXPIRED"),
-    3: .standard(proto: "TOKEN_INVALID"),
-    4: .standard(proto: "PERMISSION_DENIED"),
-    5: .standard(proto: "ACCOUNT_NOT_FOUND"),
-    6: .standard(proto: "WRONG_PASSWORD"),
-    7: .standard(proto: "ACCOUNT_DISABLED"),
-    8: .standard(proto: "LOGIN_REQUIRED"),
-    9: .standard(proto: "TOKEN_MISSING"),
-    10: .standard(proto: "SESSION_EXPIRED"),
-    11: .standard(proto: "INVALID_CREDENTIALS"),
-    12: .standard(proto: "ACCOUNT_LOCKED"),
-    13: .standard(proto: "ACCOUNT_EXPIRED"),
-    14: .standard(proto: "INVALID_LOGIN_TYPE"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UNAUTHORIZED\0\u{3}TOKEN_EXPIRED\0\u{3}TOKEN_INVALID\0\u{3}PERMISSION_DENIED\0\u{3}ACCOUNT_NOT_FOUND\0\u{3}WRONG_PASSWORD\0\u{3}ACCOUNT_DISABLED\0\u{3}LOGIN_REQUIRED\0\u{3}TOKEN_MISSING\0\u{3}SESSION_EXPIRED\0\u{3}INVALID_CREDENTIALS\0\u{3}ACCOUNT_LOCKED\0\u{3}ACCOUNT_EXPIRED\0\u{3}INVALID_LOGIN_TYPE\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3293,18 +3014,7 @@ extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ValidationErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "INVALID_PARAMETER"),
-    2: .standard(proto: "MISSING_PARAMETER"),
-    3: .standard(proto: "INVALID_FORMAT"),
-    4: .standard(proto: "INVALID_LENGTH"),
-    5: .standard(proto: "INVALID_VALUE"),
-    6: .standard(proto: "INVALID_TYPE"),
-    7: .standard(proto: "INVALID_SYNTAX"),
-    8: .standard(proto: "INVALID_ENCODING"),
-    9: .standard(proto: "INVALID_OPERATION"),
-    10: .standard(proto: "VALIDATION_FAILED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}INVALID_PARAMETER\0\u{3}MISSING_PARAMETER\0\u{3}INVALID_FORMAT\0\u{3}INVALID_LENGTH\0\u{3}INVALID_VALUE\0\u{3}INVALID_TYPE\0\u{3}INVALID_SYNTAX\0\u{3}INVALID_ENCODING\0\u{3}INVALID_OPERATION\0\u{3}VALIDATION_FAILED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3379,17 +3089,7 @@ extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResourceErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "RESOURCE_NOT_FOUND"),
-    2: .standard(proto: "RESOURCE_ALREADY_EXISTS"),
-    3: .standard(proto: "RESOURCE_EXPIRED"),
-    4: .standard(proto: "RESOURCE_EXHAUSTED"),
-    5: .standard(proto: "RESOURCE_BUSY"),
-    6: .standard(proto: "RESOURCE_LOCKED"),
-    7: .standard(proto: "RESOURCE_UNAVAILABLE"),
-    8: .standard(proto: "RESOURCE_QUOTA_EXCEEDED"),
-    9: .standard(proto: "RESOURCE_CORRUPTED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}RESOURCE_NOT_FOUND\0\u{3}RESOURCE_ALREADY_EXISTS\0\u{3}RESOURCE_EXPIRED\0\u{3}RESOURCE_EXHAUSTED\0\u{3}RESOURCE_BUSY\0\u{3}RESOURCE_LOCKED\0\u{3}RESOURCE_UNAVAILABLE\0\u{3}RESOURCE_QUOTA_EXCEEDED\0\u{3}RESOURCE_CORRUPTED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3459,18 +3159,7 @@ extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "USER_NOT_FOUND"),
-    2: .standard(proto: "USER_ALREADY_EXISTS"),
-    3: .standard(proto: "USER_NOT_ACTIVE"),
-    4: .standard(proto: "USER_BLOCKED"),
-    5: .standard(proto: "USER_PROFILE_INCOMPLETE"),
-    6: .standard(proto: "USER_OPERATION_DENIED"),
-    7: .standard(proto: "USER_QUOTA_EXCEEDED"),
-    8: .standard(proto: "USER_STATUS_ERROR"),
-    9: .standard(proto: "USER_VERIFICATION_FAILED"),
-    10: .standard(proto: "USER_ROLE_INVALID"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}USER_NOT_FOUND\0\u{3}USER_ALREADY_EXISTS\0\u{3}USER_NOT_ACTIVE\0\u{3}USER_BLOCKED\0\u{3}USER_PROFILE_INCOMPLETE\0\u{3}USER_OPERATION_DENIED\0\u{3}USER_QUOTA_EXCEEDED\0\u{3}USER_STATUS_ERROR\0\u{3}USER_VERIFICATION_FAILED\0\u{3}USER_ROLE_INVALID\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3545,18 +3234,7 @@ extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "GROUP_NOT_FOUND"),
-    2: .standard(proto: "GROUP_ALREADY_EXISTS"),
-    3: .standard(proto: "NOT_GROUP_MEMBER"),
-    4: .standard(proto: "GROUP_PERMISSION_DENIED"),
-    5: .standard(proto: "GROUP_FULL"),
-    6: .standard(proto: "GROUP_CLOSED"),
-    7: .standard(proto: "GROUP_OPERATION_DENIED"),
-    8: .standard(proto: "GROUP_STATUS_ERROR"),
-    9: .standard(proto: "GROUP_TYPE_INVALID"),
-    10: .standard(proto: "GROUP_QUOTA_EXCEEDED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}GROUP_NOT_FOUND\0\u{3}GROUP_ALREADY_EXISTS\0\u{3}NOT_GROUP_MEMBER\0\u{3}GROUP_PERMISSION_DENIED\0\u{3}GROUP_FULL\0\u{3}GROUP_CLOSED\0\u{3}GROUP_OPERATION_DENIED\0\u{3}GROUP_STATUS_ERROR\0\u{3}GROUP_TYPE_INVALID\0\u{3}GROUP_QUOTA_EXCEEDED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3631,18 +3309,7 @@ extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "STORY_NOT_FOUND"),
-    2: .standard(proto: "STORY_ALREADY_EXISTS"),
-    3: .standard(proto: "STORY_PERMISSION_DENIED"),
-    4: .standard(proto: "STORY_LOCKED"),
-    5: .standard(proto: "STORY_ARCHIVED"),
-    6: .standard(proto: "STORY_STATUS_ERROR"),
-    7: .standard(proto: "STORY_VERSION_ERROR"),
-    8: .standard(proto: "STORY_CONTENT_ERROR"),
-    9: .standard(proto: "STORY_OPERATION_DENIED"),
-    10: .standard(proto: "STORY_GENERATION_FAILED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}STORY_NOT_FOUND\0\u{3}STORY_ALREADY_EXISTS\0\u{3}STORY_PERMISSION_DENIED\0\u{3}STORY_LOCKED\0\u{3}STORY_ARCHIVED\0\u{3}STORY_STATUS_ERROR\0\u{3}STORY_VERSION_ERROR\0\u{3}STORY_CONTENT_ERROR\0\u{3}STORY_OPERATION_DENIED\0\u{3}STORY_GENERATION_FAILED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3717,18 +3384,7 @@ extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "STORYBOARD_NOT_FOUND"),
-    2: .standard(proto: "STORYBOARD_ALREADY_EXISTS"),
-    3: .standard(proto: "STORYBOARD_PERMISSION_DENIED"),
-    4: .standard(proto: "STORYBOARD_RENDER_ERROR"),
-    5: .standard(proto: "STORYBOARD_LOCKED"),
-    6: .standard(proto: "STORYBOARD_STATUS_ERROR"),
-    7: .standard(proto: "STORYBOARD_VERSION_ERROR"),
-    8: .standard(proto: "STORYBOARD_SCENE_ERROR"),
-    9: .standard(proto: "STORYBOARD_GENERATION_FAILED"),
-    10: .standard(proto: "STORYBOARD_OPERATION_DENIED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}STORYBOARD_NOT_FOUND\0\u{3}STORYBOARD_ALREADY_EXISTS\0\u{3}STORYBOARD_PERMISSION_DENIED\0\u{3}STORYBOARD_RENDER_ERROR\0\u{3}STORYBOARD_LOCKED\0\u{3}STORYBOARD_STATUS_ERROR\0\u{3}STORYBOARD_VERSION_ERROR\0\u{3}STORYBOARD_SCENE_ERROR\0\u{3}STORYBOARD_GENERATION_FAILED\0\u{3}STORYBOARD_OPERATION_DENIED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3803,18 +3459,7 @@ extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RoleErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "ROLE_NOT_FOUND"),
-    2: .standard(proto: "ROLE_ALREADY_EXISTS"),
-    3: .standard(proto: "ROLE_PERMISSION_DENIED"),
-    4: .standard(proto: "ROLE_RENDER_ERROR"),
-    5: .standard(proto: "ROLE_LOCKED"),
-    6: .standard(proto: "ROLE_STATUS_ERROR"),
-    7: .standard(proto: "ROLE_TYPE_INVALID"),
-    8: .standard(proto: "ROLE_QUOTA_EXCEEDED"),
-    9: .standard(proto: "ROLE_GENERATION_FAILED"),
-    10: .standard(proto: "ROLE_OPERATION_DENIED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ROLE_NOT_FOUND\0\u{3}ROLE_ALREADY_EXISTS\0\u{3}ROLE_PERMISSION_DENIED\0\u{3}ROLE_RENDER_ERROR\0\u{3}ROLE_LOCKED\0\u{3}ROLE_STATUS_ERROR\0\u{3}ROLE_TYPE_INVALID\0\u{3}ROLE_QUOTA_EXCEEDED\0\u{3}ROLE_GENERATION_FAILED\0\u{3}ROLE_OPERATION_DENIED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3889,18 +3534,7 @@ extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ContentErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "CONTENT_NOT_FOUND"),
-    2: .standard(proto: "CONTENT_ALREADY_EXISTS"),
-    3: .standard(proto: "CONTENT_PERMISSION_DENIED"),
-    4: .standard(proto: "CONTENT_TYPE_INVALID"),
-    5: .standard(proto: "CONTENT_SIZE_EXCEEDED"),
-    6: .standard(proto: "CONTENT_FORMAT_ERROR"),
-    7: .standard(proto: "CONTENT_LOCKED"),
-    8: .standard(proto: "CONTENT_EXPIRED"),
-    9: .standard(proto: "CONTENT_CORRUPTED"),
-    10: .standard(proto: "CONTENT_OPERATION_DENIED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}CONTENT_NOT_FOUND\0\u{3}CONTENT_ALREADY_EXISTS\0\u{3}CONTENT_PERMISSION_DENIED\0\u{3}CONTENT_TYPE_INVALID\0\u{3}CONTENT_SIZE_EXCEEDED\0\u{3}CONTENT_FORMAT_ERROR\0\u{3}CONTENT_LOCKED\0\u{3}CONTENT_EXPIRED\0\u{3}CONTENT_CORRUPTED\0\u{3}CONTENT_OPERATION_DENIED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3975,18 +3609,7 @@ extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".OperationErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "OPERATION_FAILED"),
-    2: .standard(proto: "OPERATION_TIMEOUT"),
-    3: .standard(proto: "OPERATION_CANCELLED"),
-    4: .standard(proto: "OPERATION_NOT_SUPPORTED"),
-    5: .standard(proto: "OPERATION_IN_PROGRESS"),
-    6: .standard(proto: "OPERATION_ABORTED"),
-    7: .standard(proto: "OPERATION_REJECTED"),
-    8: .standard(proto: "OPERATION_INVALID"),
-    9: .standard(proto: "OPERATION_CONFLICT"),
-    10: .standard(proto: "OPERATION_TOO_FREQUENT"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}OPERATION_FAILED\0\u{3}OPERATION_TIMEOUT\0\u{3}OPERATION_CANCELLED\0\u{3}OPERATION_NOT_SUPPORTED\0\u{3}OPERATION_IN_PROGRESS\0\u{3}OPERATION_ABORTED\0\u{3}OPERATION_REJECTED\0\u{3}OPERATION_INVALID\0\u{3}OPERATION_CONFLICT\0\u{3}OPERATION_TOO_FREQUENT\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4061,18 +3684,7 @@ extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LimitErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "RATE_LIMIT_EXCEEDED"),
-    2: .standard(proto: "QUOTA_EXCEEDED"),
-    3: .standard(proto: "SIZE_LIMIT_EXCEEDED"),
-    4: .standard(proto: "TIME_LIMIT_EXCEEDED"),
-    5: .standard(proto: "FREQUENCY_LIMIT_EXCEEDED"),
-    6: .standard(proto: "CONCURRENT_LIMIT_EXCEEDED"),
-    7: .standard(proto: "STORAGE_LIMIT_EXCEEDED"),
-    8: .standard(proto: "BANDWIDTH_LIMIT_EXCEEDED"),
-    9: .standard(proto: "REQUEST_LIMIT_EXCEEDED"),
-    10: .standard(proto: "USER_LIMIT_EXCEEDED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}RATE_LIMIT_EXCEEDED\0\u{3}QUOTA_EXCEEDED\0\u{3}SIZE_LIMIT_EXCEEDED\0\u{3}TIME_LIMIT_EXCEEDED\0\u{3}FREQUENCY_LIMIT_EXCEEDED\0\u{3}CONCURRENT_LIMIT_EXCEEDED\0\u{3}STORAGE_LIMIT_EXCEEDED\0\u{3}BANDWIDTH_LIMIT_EXCEEDED\0\u{3}REQUEST_LIMIT_EXCEEDED\0\u{3}USER_LIMIT_EXCEEDED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4147,18 +3759,7 @@ extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AIErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "AI_GENERATION_FAILED"),
-    2: .standard(proto: "AI_SERVICE_UNAVAILABLE"),
-    3: .standard(proto: "AI_QUOTA_EXCEEDED"),
-    4: .standard(proto: "AI_MODEL_ERROR"),
-    5: .standard(proto: "AI_PARAMETER_ERROR"),
-    6: .standard(proto: "AI_CONTENT_ERROR"),
-    7: .standard(proto: "AI_TIMEOUT"),
-    8: .standard(proto: "AI_RATE_LIMITED"),
-    9: .standard(proto: "AI_CONTEXT_ERROR"),
-    10: .standard(proto: "AI_RESPONSE_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}AI_GENERATION_FAILED\0\u{3}AI_SERVICE_UNAVAILABLE\0\u{3}AI_QUOTA_EXCEEDED\0\u{3}AI_MODEL_ERROR\0\u{3}AI_PARAMETER_ERROR\0\u{3}AI_CONTENT_ERROR\0\u{3}AI_TIMEOUT\0\u{3}AI_RATE_LIMITED\0\u{3}AI_CONTEXT_ERROR\0\u{3}AI_RESPONSE_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4233,13 +3834,7 @@ extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CommentErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "COMMENT_NOT_FOUND"),
-    2: .standard(proto: "COMMENT_ALREADY_EXISTS"),
-    3: .standard(proto: "COMMENT_PERMISSION_DENIED"),
-    4: .standard(proto: "COMMENT_LOCKED"),
-    5: .standard(proto: "COMMENT_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}COMMENT_NOT_FOUND\0\u{3}COMMENT_ALREADY_EXISTS\0\u{3}COMMENT_PERMISSION_DENIED\0\u{3}COMMENT_LOCKED\0\u{3}COMMENT_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4289,13 +3884,7 @@ extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "LIKE_NOT_FOUND"),
-    2: .standard(proto: "LIKE_ALREADY_EXISTS"),
-    3: .standard(proto: "LIKE_PERMISSION_DENIED"),
-    4: .standard(proto: "LIKE_LOCKED"),
-    5: .standard(proto: "LIKE_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}LIKE_NOT_FOUND\0\u{3}LIKE_ALREADY_EXISTS\0\u{3}LIKE_PERMISSION_DENIED\0\u{3}LIKE_LOCKED\0\u{3}LIKE_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4345,13 +3934,7 @@ extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VIPErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "VIP_NOT_FOUND"),
-    2: .standard(proto: "VIP_ALREADY_EXISTS"),
-    3: .standard(proto: "VIP_PERMISSION_DENIED"),
-    4: .standard(proto: "VIP_LOCKED"),
-    5: .standard(proto: "VIP_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}VIP_NOT_FOUND\0\u{3}VIP_ALREADY_EXISTS\0\u{3}VIP_PERMISSION_DENIED\0\u{3}VIP_LOCKED\0\u{3}VIP_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4401,13 +3984,7 @@ extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PaymentErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "PAYMENT_NOT_FOUND"),
-    2: .standard(proto: "PAYMENT_ALREADY_EXISTS"),
-    3: .standard(proto: "PAYMENT_PERMISSION_DENIED"),
-    4: .standard(proto: "PAYMENT_LOCKED"),
-    5: .standard(proto: "PAYMENT_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}PAYMENT_NOT_FOUND\0\u{3}PAYMENT_ALREADY_EXISTS\0\u{3}PAYMENT_PERMISSION_DENIED\0\u{3}PAYMENT_LOCKED\0\u{3}PAYMENT_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4457,13 +4034,7 @@ extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".OrderErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "ORDER_NOT_FOUND"),
-    2: .standard(proto: "ORDER_ALREADY_EXISTS"),
-    3: .standard(proto: "ORDER_PERMISSION_DENIED"),
-    4: .standard(proto: "ORDER_LOCKED"),
-    5: .standard(proto: "ORDER_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ORDER_NOT_FOUND\0\u{3}ORDER_ALREADY_EXISTS\0\u{3}ORDER_PERMISSION_DENIED\0\u{3}ORDER_LOCKED\0\u{3}ORDER_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4513,13 +4084,7 @@ extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MessageErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "MESSAGE_NOT_FOUND"),
-    2: .standard(proto: "MESSAGE_ALREADY_EXISTS"),
-    3: .standard(proto: "MESSAGE_PERMISSION_DENIED"),
-    4: .standard(proto: "MESSAGE_LOCKED"),
-    5: .standard(proto: "MESSAGE_STATUS_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}MESSAGE_NOT_FOUND\0\u{3}MESSAGE_ALREADY_EXISTS\0\u{3}MESSAGE_PERMISSION_DENIED\0\u{3}MESSAGE_LOCKED\0\u{3}MESSAGE_STATUS_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4569,18 +4134,7 @@ extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "CHAT_NOT_FOUND"),
-    2: .standard(proto: "CHAT_ALREADY_EXISTS"),
-    3: .standard(proto: "CHAT_PERMISSION_DENIED"),
-    4: .standard(proto: "CHAT_LOCKED"),
-    5: .standard(proto: "CHAT_STATUS_ERROR"),
-    6: .standard(proto: "CHAT_MESSAGE_ERROR"),
-    7: .standard(proto: "CHAT_CONTEXT_ERROR"),
-    8: .standard(proto: "CHAT_STREAM_ERROR"),
-    9: .standard(proto: "CHAT_TIMEOUT"),
-    10: .standard(proto: "CHAT_RATE_LIMITED"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}CHAT_NOT_FOUND\0\u{3}CHAT_ALREADY_EXISTS\0\u{3}CHAT_PERMISSION_DENIED\0\u{3}CHAT_LOCKED\0\u{3}CHAT_STATUS_ERROR\0\u{3}CHAT_MESSAGE_ERROR\0\u{3}CHAT_CONTEXT_ERROR\0\u{3}CHAT_STREAM_ERROR\0\u{3}CHAT_TIMEOUT\0\u{3}CHAT_RATE_LIMITED\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4655,18 +4209,7 @@ extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "UPLOAD_FAILED"),
-    2: .standard(proto: "UPLOAD_SIZE_EXCEEDED"),
-    3: .standard(proto: "UPLOAD_FORMAT_ERROR"),
-    4: .standard(proto: "UPLOAD_PERMISSION_DENIED"),
-    5: .standard(proto: "UPLOAD_QUOTA_EXCEEDED"),
-    6: .standard(proto: "UPLOAD_TYPE_INVALID"),
-    7: .standard(proto: "UPLOAD_TIMEOUT"),
-    8: .standard(proto: "UPLOAD_CORRUPTED"),
-    9: .standard(proto: "UPLOAD_STORAGE_ERROR"),
-    10: .standard(proto: "UPLOAD_PROCESSING_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}UPLOAD_FAILED\0\u{3}UPLOAD_SIZE_EXCEEDED\0\u{3}UPLOAD_FORMAT_ERROR\0\u{3}UPLOAD_PERMISSION_DENIED\0\u{3}UPLOAD_QUOTA_EXCEEDED\0\u{3}UPLOAD_TYPE_INVALID\0\u{3}UPLOAD_TIMEOUT\0\u{3}UPLOAD_CORRUPTED\0\u{3}UPLOAD_STORAGE_ERROR\0\u{3}UPLOAD_PROCESSING_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4741,18 +4284,7 @@ extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Common_SearchErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchErrorMessages"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "SEARCH_FAILED"),
-    2: .standard(proto: "SEARCH_PARAMETER_ERROR"),
-    3: .standard(proto: "SEARCH_TIMEOUT"),
-    4: .standard(proto: "SEARCH_PERMISSION_DENIED"),
-    5: .standard(proto: "SEARCH_QUOTA_EXCEEDED"),
-    6: .standard(proto: "SEARCH_INDEX_ERROR"),
-    7: .standard(proto: "SEARCH_RESULT_ERROR"),
-    8: .standard(proto: "SEARCH_FILTER_ERROR"),
-    9: .standard(proto: "SEARCH_SORT_ERROR"),
-    10: .standard(proto: "SEARCH_SCOPE_ERROR"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}SEARCH_FAILED\0\u{3}SEARCH_PARAMETER_ERROR\0\u{3}SEARCH_TIMEOUT\0\u{3}SEARCH_PERMISSION_DENIED\0\u{3}SEARCH_QUOTA_EXCEEDED\0\u{3}SEARCH_INDEX_ERROR\0\u{3}SEARCH_RESULT_ERROR\0\u{3}SEARCH_FILTER_ERROR\0\u{3}SEARCH_SORT_ERROR\0\u{3}SEARCH_SCOPE_ERROR\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

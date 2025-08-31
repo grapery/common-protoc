@@ -204,29 +204,12 @@ public struct Common_StreamChatMessageResponse: Sendable {
 fileprivate let _protobuf_package = "common"
 
 extension Common_MsgType: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEXT"),
-    1: .same(proto: "IMAGE"),
-    2: .same(proto: "VIDEO"),
-    3: .same(proto: "AUDIO"),
-    4: .same(proto: "SYSTEM"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEXT\0\u{1}IMAGE\0\u{1}VIDEO\0\u{1}AUDIO\0\u{1}SYSTEM\0")
 }
 
 extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatMessage"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "id"),
-    2: .standard(proto: "role_id"),
-    3: .standard(proto: "user_id"),
-    4: .same(proto: "sender"),
-    5: .same(proto: "message"),
-    6: .standard(proto: "chat_id"),
-    7: .same(proto: "timestamp"),
-    8: .same(proto: "user"),
-    9: .same(proto: "role"),
-    10: .same(proto: "uuid"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}role_id\0\u{3}user_id\0\u{1}sender\0\u{1}message\0\u{3}chat_id\0\u{1}timestamp\0\u{1}user\0\u{1}role\0\u{1}uuid\0")
 
   fileprivate class _StorageClass {
     var _id: Int64 = 0
@@ -359,11 +342,7 @@ extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
 extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessage"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "role_id"),
-    2: .standard(proto: "user_id"),
-    3: .same(proto: "messages"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}messages\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -403,12 +382,7 @@ extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
-    2: .same(proto: "timestamp"),
-    3: .standard(proto: "request_id"),
-    4: .same(proto: "token"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}message\0\u{1}timestamp\0\u{3}request_id\0\u{1}token\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -457,13 +431,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "code"),
-    2: .same(proto: "message"),
-    3: .same(proto: "timestamp"),
-    4: .standard(proto: "request_id"),
-    5: .standard(proto: "reply_messages"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}timestamp\0\u{3}request_id\0\u{3}reply_messages\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

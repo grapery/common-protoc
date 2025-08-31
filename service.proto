@@ -1774,7 +1774,7 @@ message GenerateStorySceneVideoRequest{
 
 message GenerateStorySceneVideoTaskDetail {
   string task_id = 1;
-  string task_status = 2;
+  StoryGenStatus task_status = 2;
   string video_url = 3;
   string video_thumbnail_url = 4;
 }
@@ -1790,13 +1790,18 @@ message GenerateStoryRoleVideoRequest {
   int64 role_id = 2;
   int64 user_id = 3;
   string ref_background_url = 4;
+  string ref_avatar_url = 5;
+  string description = 6;
 }
 
 message GenerateStoryRoleVideoTaskDetail {
   string task_id = 1;
-  string task_status = 2;
+  StoryGenStatus task_status = 2;
   string video_url = 3;
   string video_thumbnail_url = 4;
+  int64 duration = 5;
+  string resolution = 6;
+  string video_format = 7;
 }
 
 message GenerateStoryRoleVideoResponse {

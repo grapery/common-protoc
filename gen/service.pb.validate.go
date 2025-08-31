@@ -11131,6 +11131,10 @@ func (m *GenerateStoryRoleVideoRequest) validate(all bool) error {
 
 	// no validation rules for RefBackgroundUrl
 
+	// no validation rules for RefAvatarUrl
+
+	// no validation rules for Description
+
 	if len(errors) > 0 {
 		return GenerateStoryRoleVideoRequestMultiError(errors)
 	}
@@ -11242,6 +11246,12 @@ func (m *GenerateStoryRoleVideoTaskDetail) validate(all bool) error {
 	// no validation rules for VideoUrl
 
 	// no validation rules for VideoThumbnailUrl
+
+	// no validation rules for Duration
+
+	// no validation rules for Resolution
+
+	// no validation rules for VideoFormat
 
 	if len(errors) > 0 {
 		return GenerateStoryRoleVideoTaskDetailMultiError(errors)
