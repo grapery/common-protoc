@@ -6401,6 +6401,8 @@ UpdateStoryResponse 更新故事的响应结果
 | sence_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | token_source | [TokenSource](#common-TokenSource) |  |  |
+| prompt | [string](#string) |  |  |
+| negative_prompt | [string](#string) |  |  |
 
 
 
@@ -6436,6 +6438,9 @@ UpdateStoryResponse 更新故事的响应结果
 | task_status | [StoryGenStatus](#common-StoryGenStatus) |  |  |
 | video_url | [string](#string) |  |  |
 | video_thumbnail_url | [string](#string) |  |  |
+| duration | [int64](#int64) |  |  |
+| resolution | [string](#string) |  |  |
+| video_format | [string](#string) |  |  |
 
 
 

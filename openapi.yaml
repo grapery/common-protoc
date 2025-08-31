@@ -4446,6 +4446,10 @@ components:
                 tokenSource:
                     type: integer
                     format: enum
+                prompt:
+                    type: string
+                negativePrompt:
+                    type: string
         GenerateStorySceneVideoResponse:
             type: object
             properties:
@@ -4467,6 +4471,12 @@ components:
                 videoUrl:
                     type: string
                 videoThumbnailUrl:
+                    type: string
+                duration:
+                    type: string
+                resolution:
+                    type: string
+                videoFormat:
                     type: string
         GetFollowListRequest:
             type: object

@@ -10771,6 +10771,10 @@ func (m *GenerateStorySceneVideoRequest) validate(all bool) error {
 
 	// no validation rules for TokenSource
 
+	// no validation rules for Prompt
+
+	// no validation rules for NegativePrompt
+
 	if len(errors) > 0 {
 		return GenerateStorySceneVideoRequestMultiError(errors)
 	}
@@ -10882,6 +10886,12 @@ func (m *GenerateStorySceneVideoTaskDetail) validate(all bool) error {
 	// no validation rules for VideoUrl
 
 	// no validation rules for VideoThumbnailUrl
+
+	// no validation rules for Duration
+
+	// no validation rules for Resolution
+
+	// no validation rules for VideoFormat
 
 	if len(errors) > 0 {
 		return GenerateStorySceneVideoTaskDetailMultiError(errors)

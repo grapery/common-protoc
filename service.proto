@@ -1770,6 +1770,8 @@ message GenerateStorySceneVideoRequest{
   int64 sence_id = 3;
   int64 user_id = 4;
   TokenSource token_source = 5;
+  string prompt = 6;
+  string negative_prompt = 7;
 }
 
 message GenerateStorySceneVideoTaskDetail {
@@ -1777,6 +1779,9 @@ message GenerateStorySceneVideoTaskDetail {
   StoryGenStatus task_status = 2;
   string video_url = 3;
   string video_thumbnail_url = 4;
+  int64 duration = 5;
+  string resolution = 6;
+  string video_format = 7;
 }
 
 message GenerateStorySceneVideoResponse{

@@ -2488,6 +2488,10 @@ public struct Common_GenerateStorySceneVideoRequest: Sendable {
 
   public var tokenSource: Common_TokenSource = .userSelf
 
+  public var prompt: String = String()
+
+  public var negativePrompt: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2505,6 +2509,12 @@ public struct Common_GenerateStorySceneVideoTaskDetail: Sendable {
   public var videoURL: String = String()
 
   public var videoThumbnailURL: String = String()
+
+  public var duration: Int64 = 0
+
+  public var resolution: String = String()
+
+  public var videoFormat: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10408,7 +10418,7 @@ extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobu
 
 extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}sence_id\0\u{3}user_id\0\u{3}token_source\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}sence_id\0\u{3}user_id\0\u{3}token_source\0\u{1}prompt\0\u{3}negative_prompt\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10421,6 +10431,8 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.tokenSource) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.negativePrompt) }()
       default: break
       }
     }
@@ -10442,6 +10454,12 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
     if self.tokenSource != .userSelf {
       try visitor.visitSingularEnumField(value: self.tokenSource, fieldNumber: 5)
     }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 6)
+    }
+    if !self.negativePrompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.negativePrompt, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10451,6 +10469,8 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
     if lhs.senceID != rhs.senceID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.tokenSource != rhs.tokenSource {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.negativePrompt != rhs.negativePrompt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10458,7 +10478,7 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
 
 extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoTaskDetail"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0\u{1}duration\0\u{1}resolution\0\u{3}video_format\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -10470,6 +10490,9 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
       case 2: try { try decoder.decodeSingularEnumField(value: &self.taskStatus) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.videoURL) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.videoThumbnailURL) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.duration) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.resolution) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.videoFormat) }()
       default: break
       }
     }
@@ -10488,6 +10511,15 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
     if !self.videoThumbnailURL.isEmpty {
       try visitor.visitSingularStringField(value: self.videoThumbnailURL, fieldNumber: 4)
     }
+    if self.duration != 0 {
+      try visitor.visitSingularInt64Field(value: self.duration, fieldNumber: 5)
+    }
+    if !self.resolution.isEmpty {
+      try visitor.visitSingularStringField(value: self.resolution, fieldNumber: 6)
+    }
+    if !self.videoFormat.isEmpty {
+      try visitor.visitSingularStringField(value: self.videoFormat, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -10496,6 +10528,9 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
     if lhs.taskStatus != rhs.taskStatus {return false}
     if lhs.videoURL != rhs.videoURL {return false}
     if lhs.videoThumbnailURL != rhs.videoThumbnailURL {return false}
+    if lhs.duration != rhs.duration {return false}
+    if lhs.resolution != rhs.resolution {return false}
+    if lhs.videoFormat != rhs.videoFormat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

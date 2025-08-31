@@ -21,13 +21,13 @@ plugins:
       - paths=source_relative
   - plugin: openapi
     out: .
-  - plugin: buf.build/connectrpc/swift
+  - plugin: buf.build/connectrpc/swift:v1.1.0
     opt:
       - GenerateAsyncMethods=true
       - GenerateCallbackMethods=true
       - Visibility=Public
     out: Generated
-  - plugin: buf.build/apple/swift
+  - plugin: buf.build/apple/swift:v1.31.0
     opt:
       - Visibility=Public
     out: Generated
