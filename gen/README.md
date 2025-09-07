@@ -312,6 +312,8 @@
     - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
     - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
     - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
+    - [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest)
+    - [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse)
     - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
     - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
     - [FollowUserRequest](#common-FollowUserRequest)
@@ -456,6 +458,7 @@
     - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
     - [StoryComment](#common-StoryComment)
     - [StoryContributor](#common-StoryContributor)
+    - [StoryGentaskDetail](#common-StoryGentaskDetail)
     - [StoryStyleDesc](#common-StoryStyleDesc)
     - [StoryboardStageStore](#common-StoryboardStageStore)
     - [TrendingStoryRequest](#common-TrendingStoryRequest)
@@ -515,6 +518,7 @@
     - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
     - [UserFollowingGroupResponse](#common-UserFollowingGroupResponse)
     - [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data)
+    - [UserGenTaskStatus](#common-UserGenTaskStatus)
     - [UserGroupRequest](#common-UserGroupRequest)
     - [UserGroupResponse](#common-UserGroupResponse)
     - [UserGroupResponse.Data](#common-UserGroupResponse-Data)
@@ -6106,6 +6110,44 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-FetchUserGenTaskStatusRequest"></a>
+
+### FetchUserGenTaskStatusRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| task_id | [string](#string) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-FetchUserGenTaskStatusResponse"></a>
+
+### FetchUserGenTaskStatusResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| tasks | [UserGenTaskStatus](#common-UserGenTaskStatus) | repeated |  |
+| total | [int64](#int64) |  |  |
+| have_more | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="common-FollowStoryRoleRequest"></a>
 
 ### FollowStoryRoleRequest
@@ -8662,6 +8704,33 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-StoryGentaskDetail"></a>
+
+### StoryGentaskDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| storyboard_desc | [string](#string) |  |  |
+| sence_id | [int64](#int64) |  |  |
+| sence_desc | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
+| task_type | [int64](#int64) |  |  |
+| task_stage | [int64](#int64) |  |  |
+| start_image_url | [string](#string) |  |  |
+| end_image_url | [string](#string) |  |  |
+| video_url | [string](#string) |  |  |
+| reg_image_url | [string](#string) |  |  |
+| style | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="common-StoryStyleDesc"></a>
 
 ### StoryStyleDesc
@@ -9661,6 +9730,26 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-UserGenTaskStatus"></a>
+
+### UserGenTaskStatus
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| task_id | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
+| status | [string](#string) |  |  |
+| detail | [StoryGentaskDetail](#common-StoryGentaskDetail) |  |  |
+| create_time | [int64](#int64) |  |  |
+| update_time | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-UserGroupRequest"></a>
 
 ### UserGroupRequest
@@ -10131,6 +10220,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
 | GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
 | GenerateRoleAvatar | [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse) |  |
+| FetchUserGenTaskStatus | [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest) | [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse) |  |
 
  
 

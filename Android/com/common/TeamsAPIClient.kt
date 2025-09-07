@@ -4729,4 +4729,33 @@ public class TeamsAPIClient(
     onResult
   )
 
+
+  override suspend fun fetchUserGenTaskStatus(request: FetchUserGenTaskStatusRequest, headers: Headers): ResponseMessage<FetchUserGenTaskStatusResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/FetchUserGenTaskStatus",
+      com.common.FetchUserGenTaskStatusRequest::class,
+      com.common.FetchUserGenTaskStatusResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override fun fetchUserGenTaskStatus(
+    request: FetchUserGenTaskStatusRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<FetchUserGenTaskStatusResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/FetchUserGenTaskStatus",
+      com.common.FetchUserGenTaskStatusRequest::class,
+      com.common.FetchUserGenTaskStatusResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
 }

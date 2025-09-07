@@ -1868,4 +1868,12 @@ public interface TeamsAPIClientInterface {
     headers: Headers = emptyMap(),
     onResult: (ResponseMessage<GenerateRoleAvatarResponse>) -> Unit,
   ): Cancelable
+
+  public suspend fun fetchUserGenTaskStatus(request: FetchUserGenTaskStatusRequest, headers: Headers = emptyMap()): ResponseMessage<FetchUserGenTaskStatusResponse>
+
+  public fun fetchUserGenTaskStatus(
+    request: FetchUserGenTaskStatusRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<FetchUserGenTaskStatusResponse>) -> Unit,
+  ): Cancelable
 }

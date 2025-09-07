@@ -1963,6 +1963,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/QueryGenTaskStatus:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_FetchUserGenTaskStatus
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FetchUserGenTaskStatusRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FetchUserGenTaskStatusResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/QueryTaskStatus:
         post:
             tags:
@@ -4161,6 +4185,35 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
+                total:
+                    type: string
+                haveMore:
+                    type: boolean
+        FetchUserGenTaskStatusRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                taskId:
+                    type: string
+                timestamp:
+                    type: string
+                pageNum:
+                    type: string
+                pageSize:
+                    type: string
+        FetchUserGenTaskStatusResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                tasks:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserGenTaskStatus'
                 total:
                     type: string
                 haveMore:
@@ -6700,6 +6753,35 @@ components:
                     type: string
                 viplevel:
                     type: string
+        StoryGentaskDetail:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                boardId:
+                    type: string
+                storyboardDesc:
+                    type: string
+                senceId:
+                    type: string
+                senceDesc:
+                    type: string
+                prompt:
+                    type: string
+                taskType:
+                    type: string
+                taskStage:
+                    type: string
+                startImageUrl:
+                    type: string
+                endImageUrl:
+                    type: string
+                videoUrl:
+                    type: string
+                regImageUrl:
+                    type: string
+                style:
+                    type: string
         StoryInfo:
             type: object
             properties:
@@ -7546,6 +7628,21 @@ components:
                     format: int32
                 haveMore:
                     type: boolean
+        UserGenTaskStatus:
+            type: object
+            properties:
+                taskId:
+                    type: string
+                userId:
+                    type: string
+                status:
+                    type: string
+                detail:
+                    $ref: '#/components/schemas/StoryGentaskDetail'
+                createTime:
+                    type: string
+                updateTime:
+                    type: string
         UserGroupRequest:
             type: object
             properties:

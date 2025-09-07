@@ -7,6 +7,7 @@ package genconnect
 import (
 	context "context"
 	errors "errors"
+
 	http "net/http"
 	strings "strings"
 
@@ -396,6 +397,9 @@ const (
 	// TeamsAPIGenerateRoleAvatarProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateRoleAvatar RPC.
 	TeamsAPIGenerateRoleAvatarProcedure = "/common.TeamsAPI/GenerateRoleAvatar"
+	// TeamsAPIFetchUserGenTaskStatusProcedure is the fully-qualified name of the TeamsAPI's
+	// FetchUserGenTaskStatus RPC.
+	TeamsAPIFetchUserGenTaskStatusProcedure = "/common.TeamsAPI/FetchUserGenTaskStatus"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -664,6 +668,7 @@ type TeamsAPIClient interface {
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1356,6 +1361,11 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIGenerateRoleAvatarProcedure,
 			opts...,
 		),
+		fetchUserGenTaskStatus: connect_go.NewClient[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse](
+			httpClient,
+			baseURL+TeamsAPIFetchUserGenTaskStatusProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1497,6 +1507,7 @@ type teamsAPIClient struct {
 	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
 	generateStorySceneVideo            *connect_go.Client[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse]
 	generateRoleAvatar                 *connect_go.Client[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse]
+	fetchUserGenTaskStatus             *connect_go.Client[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2179,6 +2190,11 @@ func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, req *connect_go
 	return c.generateRoleAvatar.CallUnary(ctx, req)
 }
 
+// FetchUserGenTaskStatus calls common.TeamsAPI.FetchUserGenTaskStatus.
+func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, req *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
+	return c.fetchUserGenTaskStatus.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
@@ -2445,6 +2461,7 @@ type TeamsAPIHandler interface {
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3133,6 +3150,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.GenerateRoleAvatar,
 		opts...,
 	)
+	teamsAPIFetchUserGenTaskStatusHandler := connect_go.NewUnaryHandler(
+		TeamsAPIFetchUserGenTaskStatusProcedure,
+		svc.FetchUserGenTaskStatus,
+		opts...,
+	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3407,6 +3429,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIGenerateStorySceneVideoHandler.ServeHTTP(w, r)
 		case TeamsAPIGenerateRoleAvatarProcedure:
 			teamsAPIGenerateRoleAvatarHandler.ServeHTTP(w, r)
+		case TeamsAPIFetchUserGenTaskStatusProcedure:
+			teamsAPIFetchUserGenTaskStatusHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3958,4 +3982,8 @@ func (UnimplementedTeamsAPIHandler) GenerateStorySceneVideo(context.Context, *co
 
 func (UnimplementedTeamsAPIHandler) GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRoleAvatar is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
 }

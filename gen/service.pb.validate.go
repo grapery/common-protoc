@@ -10523,6 +10523,533 @@ var _ interface {
 	ErrorName() string
 } = UpdateGroupProfileResponseValidationError{}
 
+// Validate checks the field values on FetchUserGenTaskStatusRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *FetchUserGenTaskStatusRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on FetchUserGenTaskStatusRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// FetchUserGenTaskStatusRequestMultiError, or nil if none found.
+func (m *FetchUserGenTaskStatusRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *FetchUserGenTaskStatusRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for TaskId
+
+	// no validation rules for Timestamp
+
+	// no validation rules for PageNum
+
+	// no validation rules for PageSize
+
+	if len(errors) > 0 {
+		return FetchUserGenTaskStatusRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// FetchUserGenTaskStatusRequestMultiError is an error wrapping multiple
+// validation errors returned by FetchUserGenTaskStatusRequest.ValidateAll()
+// if the designated constraints aren't met.
+type FetchUserGenTaskStatusRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FetchUserGenTaskStatusRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FetchUserGenTaskStatusRequestMultiError) AllErrors() []error { return m }
+
+// FetchUserGenTaskStatusRequestValidationError is the validation error
+// returned by FetchUserGenTaskStatusRequest.Validate if the designated
+// constraints aren't met.
+type FetchUserGenTaskStatusRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FetchUserGenTaskStatusRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FetchUserGenTaskStatusRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FetchUserGenTaskStatusRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FetchUserGenTaskStatusRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FetchUserGenTaskStatusRequestValidationError) ErrorName() string {
+	return "FetchUserGenTaskStatusRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FetchUserGenTaskStatusRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFetchUserGenTaskStatusRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FetchUserGenTaskStatusRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FetchUserGenTaskStatusRequestValidationError{}
+
+// Validate checks the field values on StoryGentaskDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *StoryGentaskDetail) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on StoryGentaskDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// StoryGentaskDetailMultiError, or nil if none found.
+func (m *StoryGentaskDetail) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *StoryGentaskDetail) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StoryId
+
+	// no validation rules for BoardId
+
+	// no validation rules for StoryboardDesc
+
+	// no validation rules for SenceId
+
+	// no validation rules for SenceDesc
+
+	// no validation rules for Prompt
+
+	// no validation rules for TaskType
+
+	// no validation rules for TaskStage
+
+	// no validation rules for StartImageUrl
+
+	// no validation rules for EndImageUrl
+
+	// no validation rules for VideoUrl
+
+	// no validation rules for RegImageUrl
+
+	// no validation rules for Style
+
+	if len(errors) > 0 {
+		return StoryGentaskDetailMultiError(errors)
+	}
+
+	return nil
+}
+
+// StoryGentaskDetailMultiError is an error wrapping multiple validation errors
+// returned by StoryGentaskDetail.ValidateAll() if the designated constraints
+// aren't met.
+type StoryGentaskDetailMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StoryGentaskDetailMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StoryGentaskDetailMultiError) AllErrors() []error { return m }
+
+// StoryGentaskDetailValidationError is the validation error returned by
+// StoryGentaskDetail.Validate if the designated constraints aren't met.
+type StoryGentaskDetailValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StoryGentaskDetailValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StoryGentaskDetailValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StoryGentaskDetailValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StoryGentaskDetailValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StoryGentaskDetailValidationError) ErrorName() string {
+	return "StoryGentaskDetailValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StoryGentaskDetailValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStoryGentaskDetail.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StoryGentaskDetailValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StoryGentaskDetailValidationError{}
+
+// Validate checks the field values on UserGenTaskStatus with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *UserGenTaskStatus) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserGenTaskStatus with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UserGenTaskStatusMultiError, or nil if none found.
+func (m *UserGenTaskStatus) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserGenTaskStatus) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TaskId
+
+	// no validation rules for UserId
+
+	// no validation rules for Status
+
+	if all {
+		switch v := interface{}(m.GetDetail()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UserGenTaskStatusValidationError{
+					field:  "Detail",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UserGenTaskStatusValidationError{
+					field:  "Detail",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetDetail()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UserGenTaskStatusValidationError{
+				field:  "Detail",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for CreateTime
+
+	// no validation rules for UpdateTime
+
+	if len(errors) > 0 {
+		return UserGenTaskStatusMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserGenTaskStatusMultiError is an error wrapping multiple validation errors
+// returned by UserGenTaskStatus.ValidateAll() if the designated constraints
+// aren't met.
+type UserGenTaskStatusMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserGenTaskStatusMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserGenTaskStatusMultiError) AllErrors() []error { return m }
+
+// UserGenTaskStatusValidationError is the validation error returned by
+// UserGenTaskStatus.Validate if the designated constraints aren't met.
+type UserGenTaskStatusValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserGenTaskStatusValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserGenTaskStatusValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserGenTaskStatusValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserGenTaskStatusValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserGenTaskStatusValidationError) ErrorName() string {
+	return "UserGenTaskStatusValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserGenTaskStatusValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserGenTaskStatus.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserGenTaskStatusValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserGenTaskStatusValidationError{}
+
+// Validate checks the field values on FetchUserGenTaskStatusResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *FetchUserGenTaskStatusResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on FetchUserGenTaskStatusResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// FetchUserGenTaskStatusResponseMultiError, or nil if none found.
+func (m *FetchUserGenTaskStatusResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *FetchUserGenTaskStatusResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetTasks() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, FetchUserGenTaskStatusResponseValidationError{
+						field:  fmt.Sprintf("Tasks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, FetchUserGenTaskStatusResponseValidationError{
+						field:  fmt.Sprintf("Tasks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return FetchUserGenTaskStatusResponseValidationError{
+					field:  fmt.Sprintf("Tasks[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for Total
+
+	// no validation rules for HaveMore
+
+	if len(errors) > 0 {
+		return FetchUserGenTaskStatusResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// FetchUserGenTaskStatusResponseMultiError is an error wrapping multiple
+// validation errors returned by FetchUserGenTaskStatusResponse.ValidateAll()
+// if the designated constraints aren't met.
+type FetchUserGenTaskStatusResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FetchUserGenTaskStatusResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FetchUserGenTaskStatusResponseMultiError) AllErrors() []error { return m }
+
+// FetchUserGenTaskStatusResponseValidationError is the validation error
+// returned by FetchUserGenTaskStatusResponse.Validate if the designated
+// constraints aren't met.
+type FetchUserGenTaskStatusResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FetchUserGenTaskStatusResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FetchUserGenTaskStatusResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FetchUserGenTaskStatusResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FetchUserGenTaskStatusResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FetchUserGenTaskStatusResponseValidationError) ErrorName() string {
+	return "FetchUserGenTaskStatusResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FetchUserGenTaskStatusResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFetchUserGenTaskStatusResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FetchUserGenTaskStatusResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FetchUserGenTaskStatusResponseValidationError{}
+
 // Validate checks the field values on GenerateRoleAvatarRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

@@ -2441,6 +2441,128 @@ public struct Common_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
+public struct Common_FetchUserGenTaskStatusRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var userID: Int64 = 0
+
+  public var taskID: String = String()
+
+  public var timestamp: Int64 = 0
+
+  public var pageNum: Int64 = 0
+
+  public var pageSize: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_StoryGentaskDetail: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var storyID: Int64 = 0
+
+  public var boardID: Int64 = 0
+
+  public var storyboardDesc: String = String()
+
+  public var senceID: Int64 = 0
+
+  public var senceDesc: String = String()
+
+  public var prompt: String = String()
+
+  public var taskType: Int64 = 0
+
+  public var taskStage: Int64 = 0
+
+  public var startImageURL: String = String()
+
+  public var endImageURL: String = String()
+
+  public var videoURL: String = String()
+
+  public var regImageURL: String = String()
+
+  public var style: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct Common_UserGenTaskStatus: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var taskID: String {
+    get {return _storage._taskID}
+    set {_uniqueStorage()._taskID = newValue}
+  }
+
+  public var userID: Int64 {
+    get {return _storage._userID}
+    set {_uniqueStorage()._userID = newValue}
+  }
+
+  public var status: String {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
+  }
+
+  public var detail: Common_StoryGentaskDetail {
+    get {return _storage._detail ?? Common_StoryGentaskDetail()}
+    set {_uniqueStorage()._detail = newValue}
+  }
+  /// Returns true if `detail` has been explicitly set.
+  public var hasDetail: Bool {return _storage._detail != nil}
+  /// Clears the value of `detail`. Subsequent reads from it will return its default value.
+  public mutating func clearDetail() {_uniqueStorage()._detail = nil}
+
+  public var createTime: Int64 {
+    get {return _storage._createTime}
+    set {_uniqueStorage()._createTime = newValue}
+  }
+
+  public var updateTime: Int64 {
+    get {return _storage._updateTime}
+    set {_uniqueStorage()._updateTime = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct Common_FetchUserGenTaskStatusResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var code: Common_ResponseCode = .ok
+
+  public var message: String = String()
+
+  public var tasks: [Common_UserGenTaskStatus] = []
+
+  public var total: Int64 = 0
+
+  public var haveMore: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct Common_GenerateRoleAvatarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -10337,6 +10459,301 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
   public static func ==(lhs: Common_UpdateGroupProfileResponse, rhs: Common_UpdateGroupProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_FetchUserGenTaskStatusRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchUserGenTaskStatusRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}task_id\0\u{1}timestamp\0\u{3}page_num\0\u{3}page_size\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.taskID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.pageNum) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.userID != 0 {
+      try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
+    }
+    if !self.taskID.isEmpty {
+      try visitor.visitSingularStringField(value: self.taskID, fieldNumber: 2)
+    }
+    if self.timestamp != 0 {
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+    }
+    if self.pageNum != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageNum, fieldNumber: 4)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_FetchUserGenTaskStatusRequest, rhs: Common_FetchUserGenTaskStatusRequest) -> Bool {
+    if lhs.userID != rhs.userID {return false}
+    if lhs.taskID != rhs.taskID {return false}
+    if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.pageNum != rhs.pageNum {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_StoryGentaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".StoryGentaskDetail"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}storyboard_desc\0\u{3}sence_id\0\u{3}sence_desc\0\u{1}prompt\0\u{3}task_type\0\u{3}task_stage\0\u{3}start_image_url\0\u{3}end_image_url\0\u{3}video_url\0\u{3}reg_image_url\0\u{1}style\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.storyboardDesc) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.senceID) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.senceDesc) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.prompt) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.taskType) }()
+      case 8: try { try decoder.decodeSingularInt64Field(value: &self.taskStage) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.startImageURL) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.endImageURL) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.videoURL) }()
+      case 12: try { try decoder.decodeSingularStringField(value: &self.regImageURL) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self.style) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 1)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 2)
+    }
+    if !self.storyboardDesc.isEmpty {
+      try visitor.visitSingularStringField(value: self.storyboardDesc, fieldNumber: 3)
+    }
+    if self.senceID != 0 {
+      try visitor.visitSingularInt64Field(value: self.senceID, fieldNumber: 4)
+    }
+    if !self.senceDesc.isEmpty {
+      try visitor.visitSingularStringField(value: self.senceDesc, fieldNumber: 5)
+    }
+    if !self.prompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.prompt, fieldNumber: 6)
+    }
+    if self.taskType != 0 {
+      try visitor.visitSingularInt64Field(value: self.taskType, fieldNumber: 7)
+    }
+    if self.taskStage != 0 {
+      try visitor.visitSingularInt64Field(value: self.taskStage, fieldNumber: 8)
+    }
+    if !self.startImageURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.startImageURL, fieldNumber: 9)
+    }
+    if !self.endImageURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.endImageURL, fieldNumber: 10)
+    }
+    if !self.videoURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.videoURL, fieldNumber: 11)
+    }
+    if !self.regImageURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.regImageURL, fieldNumber: 12)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 13)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_StoryGentaskDetail, rhs: Common_StoryGentaskDetail) -> Bool {
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
+    if lhs.storyboardDesc != rhs.storyboardDesc {return false}
+    if lhs.senceID != rhs.senceID {return false}
+    if lhs.senceDesc != rhs.senceDesc {return false}
+    if lhs.prompt != rhs.prompt {return false}
+    if lhs.taskType != rhs.taskType {return false}
+    if lhs.taskStage != rhs.taskStage {return false}
+    if lhs.startImageURL != rhs.startImageURL {return false}
+    if lhs.endImageURL != rhs.endImageURL {return false}
+    if lhs.videoURL != rhs.videoURL {return false}
+    if lhs.regImageURL != rhs.regImageURL {return false}
+    if lhs.style != rhs.style {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UserGenTaskStatus"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}user_id\0\u{1}status\0\u{1}detail\0\u{3}create_time\0\u{3}update_time\0")
+
+  fileprivate class _StorageClass {
+    var _taskID: String = String()
+    var _userID: Int64 = 0
+    var _status: String = String()
+    var _detail: Common_StoryGentaskDetail? = nil
+    var _createTime: Int64 = 0
+    var _updateTime: Int64 = 0
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _taskID = source._taskID
+      _userID = source._userID
+      _status = source._status
+      _detail = source._detail
+      _createTime = source._createTime
+      _updateTime = source._updateTime
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._taskID) }()
+        case 2: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._status) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._detail) }()
+        case 5: try { try decoder.decodeSingularInt64Field(value: &_storage._createTime) }()
+        case 6: try { try decoder.decodeSingularInt64Field(value: &_storage._updateTime) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._taskID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._taskID, fieldNumber: 1)
+      }
+      if _storage._userID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 2)
+      }
+      if !_storage._status.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._status, fieldNumber: 3)
+      }
+      try { if let v = _storage._detail {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      if _storage._createTime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._createTime, fieldNumber: 5)
+      }
+      if _storage._updateTime != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._updateTime, fieldNumber: 6)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_UserGenTaskStatus, rhs: Common_UserGenTaskStatus) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._taskID != rhs_storage._taskID {return false}
+        if _storage._userID != rhs_storage._userID {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._detail != rhs_storage._detail {return false}
+        if _storage._createTime != rhs_storage._createTime {return false}
+        if _storage._updateTime != rhs_storage._updateTime {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Common_FetchUserGenTaskStatusResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".FetchUserGenTaskStatusResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}tasks\0\u{1}total\0\u{3}have_more\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.tasks) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.total) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.haveMore) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.code != .ok {
+      try visitor.visitSingularEnumField(value: self.code, fieldNumber: 1)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
+    }
+    if !self.tasks.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.tasks, fieldNumber: 3)
+    }
+    if self.total != 0 {
+      try visitor.visitSingularInt64Field(value: self.total, fieldNumber: 4)
+    }
+    if self.haveMore != false {
+      try visitor.visitSingularBoolField(value: self.haveMore, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Common_FetchUserGenTaskStatusResponse, rhs: Common_FetchUserGenTaskStatusResponse) -> Bool {
+    if lhs.code != rhs.code {return false}
+    if lhs.message != rhs.message {return false}
+    if lhs.tasks != rhs.tasks {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.haveMore != rhs.haveMore {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

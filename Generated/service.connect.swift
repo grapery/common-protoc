@@ -1083,6 +1083,12 @@ public protocol Common_TeamsApiClientInterface: Sendable {
 
     @available(iOS 13, *)
     func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRoleAvatarResponse>
+
+    @discardableResult
+    func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchUserGenTaskStatusResponse>
 }
 
 /// Concrete implementation of `Common_TeamsApiClientInterface`.
@@ -2453,6 +2459,16 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
         return await self.client.unary(path: "/common.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/common.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchUserGenTaskStatusResponse> {
+        return await self.client.unary(path: "/common.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
@@ -2591,6 +2607,7 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
             public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "common.TeamsAPI", type: .unary)
             public static let generateStorySceneVideo = Connect.MethodSpec(name: "GenerateStorySceneVideo", service: "common.TeamsAPI", type: .unary)
             public static let generateRoleAvatar = Connect.MethodSpec(name: "GenerateRoleAvatar", service: "common.TeamsAPI", type: .unary)
+            public static let fetchUserGenTaskStatus = Connect.MethodSpec(name: "FetchUserGenTaskStatus", service: "common.TeamsAPI", type: .unary)
         }
     }
 }

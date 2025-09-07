@@ -155,6 +155,7 @@ const (
 	TeamsAPI_GenerateStoryRoleVideo_FullMethodName             = "/common.TeamsAPI/GenerateStoryRoleVideo"
 	TeamsAPI_GenerateStorySceneVideo_FullMethodName            = "/common.TeamsAPI/GenerateStorySceneVideo"
 	TeamsAPI_GenerateRoleAvatar_FullMethodName                 = "/common.TeamsAPI/GenerateRoleAvatar"
+	TeamsAPI_FetchUserGenTaskStatus_FullMethodName             = "/common.TeamsAPI/FetchUserGenTaskStatus"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -425,6 +426,7 @@ type TeamsAPIClient interface {
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(ctx context.Context, in *GenerateStorySceneVideoRequest, opts ...grpc.CallOption) (*GenerateStorySceneVideoResponse, error)
 	GenerateRoleAvatar(ctx context.Context, in *GenerateRoleAvatarRequest, opts ...grpc.CallOption) (*GenerateRoleAvatarResponse, error)
+	FetchUserGenTaskStatus(ctx context.Context, in *FetchUserGenTaskStatusRequest, opts ...grpc.CallOption) (*FetchUserGenTaskStatusResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1659,6 +1661,15 @@ func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, in *GenerateRol
 	return out, nil
 }
 
+func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, in *FetchUserGenTaskStatusRequest, opts ...grpc.CallOption) (*FetchUserGenTaskStatusResponse, error) {
+	out := new(FetchUserGenTaskStatusResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_FetchUserGenTaskStatus_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1927,6 +1938,7 @@ type TeamsAPIServer interface {
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *GenerateStorySceneVideoRequest) (*GenerateStorySceneVideoResponse, error)
 	GenerateRoleAvatar(context.Context, *GenerateRoleAvatarRequest) (*GenerateRoleAvatarResponse, error)
+	FetchUserGenTaskStatus(context.Context, *FetchUserGenTaskStatusRequest) (*FetchUserGenTaskStatusResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2341,6 +2353,9 @@ func (UnimplementedTeamsAPIServer) GenerateStorySceneVideo(context.Context, *Gen
 }
 func (UnimplementedTeamsAPIServer) GenerateRoleAvatar(context.Context, *GenerateRoleAvatarRequest) (*GenerateRoleAvatarResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateRoleAvatar not implemented")
+}
+func (UnimplementedTeamsAPIServer) FetchUserGenTaskStatus(context.Context, *FetchUserGenTaskStatusRequest) (*FetchUserGenTaskStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchUserGenTaskStatus not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4803,6 +4818,24 @@ func _TeamsAPI_GenerateRoleAvatar_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_FetchUserGenTaskStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchUserGenTaskStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).FetchUserGenTaskStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_FetchUserGenTaskStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).FetchUserGenTaskStatus(ctx, req.(*FetchUserGenTaskStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5353,6 +5386,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateRoleAvatar",
 			Handler:    _TeamsAPI_GenerateRoleAvatar_Handler,
+		},
+		{
+			MethodName: "FetchUserGenTaskStatus",
+			Handler:    _TeamsAPI_FetchUserGenTaskStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
