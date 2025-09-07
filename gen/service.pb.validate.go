@@ -3061,6 +3061,12 @@ func (m *FetchActivesRequest) validate(all bool) error {
 
 	// no validation rules for UserId
 
+	// no validation rules for GroupId
+
+	// no validation rules for StoryId
+
+	// no validation rules for BoardId
+
 	// no validation rules for Atype
 
 	// no validation rules for Timestamp

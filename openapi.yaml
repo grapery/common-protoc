@@ -4053,6 +4053,12 @@ components:
             properties:
                 userId:
                     type: string
+                groupId:
+                    type: string
+                storyId:
+                    type: string
+                boardId:
+                    type: string
                 atype:
                     type: integer
                     format: enum

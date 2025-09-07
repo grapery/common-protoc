@@ -211,10 +211,13 @@ message UserUpdateResponse {
 
 message FetchActivesRequest {
   int64 user_id = 1;
-  ActiveFlowType atype = 2;
-  int64 timestamp = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  int64 group_id = 2;
+  int64 story_id = 3;
+  int64 board_id = 4;
+  ActiveFlowType atype = 5;
+  int64 timestamp = 6;
+  int64 offset = 7;
+  int64 page_size = 8;
 }
 
 message FetchActivesResponse {

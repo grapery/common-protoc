@@ -6004,6 +6004,9 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
 | atype | [ActiveFlowType](#common-ActiveFlowType) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |

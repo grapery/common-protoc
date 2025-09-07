@@ -732,6 +732,12 @@ public struct Common_FetchActivesRequest: Sendable {
 
   public var userID: Int64 = 0
 
+  public var groupID: Int64 = 0
+
+  public var storyID: Int64 = 0
+
+  public var boardID: Int64 = 0
+
   public var atype: Common_ActiveFlowType = .allFlowType
 
   public var timestamp: Int64 = 0
@@ -6835,7 +6841,7 @@ extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
 
 extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchActivesRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}atype\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}group_id\0\u{3}story_id\0\u{3}board_id\0\u{1}atype\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6844,10 +6850,13 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self.atype) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.groupID) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.boardID) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.atype) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
+      case 7: try { try decoder.decodeSingularInt64Field(value: &self.offset) }()
+      case 8: try { try decoder.decodeSingularInt64Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -6857,23 +6866,35 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 1)
     }
+    if self.groupID != 0 {
+      try visitor.visitSingularInt64Field(value: self.groupID, fieldNumber: 2)
+    }
+    if self.storyID != 0 {
+      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 3)
+    }
+    if self.boardID != 0 {
+      try visitor.visitSingularInt64Field(value: self.boardID, fieldNumber: 4)
+    }
     if self.atype != .allFlowType {
-      try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 2)
+      try visitor.visitSingularEnumField(value: self.atype, fieldNumber: 5)
     }
     if self.timestamp != 0 {
-      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
+      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 6)
     }
     if self.offset != 0 {
-      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 4)
+      try visitor.visitSingularInt64Field(value: self.offset, fieldNumber: 7)
     }
     if self.pageSize != 0 {
-      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 5)
+      try visitor.visitSingularInt64Field(value: self.pageSize, fieldNumber: 8)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_FetchActivesRequest, rhs: Common_FetchActivesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
+    if lhs.groupID != rhs.groupID {return false}
+    if lhs.storyID != rhs.storyID {return false}
+    if lhs.boardID != rhs.boardID {return false}
     if lhs.atype != rhs.atype {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.offset != rhs.offset {return false}
