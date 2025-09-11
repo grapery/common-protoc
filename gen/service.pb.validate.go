@@ -10523,6 +10523,850 @@ var _ interface {
 	ErrorName() string
 } = UpdateGroupProfileResponseValidationError{}
 
+// Validate checks the field values on GetStoryRolePosterListRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetStoryRolePosterListRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetStoryRolePosterListRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetStoryRolePosterListRequestMultiError, or nil if none found.
+func (m *GetStoryRolePosterListRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetStoryRolePosterListRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StoryId
+
+	// no validation rules for RoleId
+
+	// no validation rules for UserId
+
+	// no validation rules for Offset
+
+	// no validation rules for PageSize
+
+	if len(errors) > 0 {
+		return GetStoryRolePosterListRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetStoryRolePosterListRequestMultiError is an error wrapping multiple
+// validation errors returned by GetStoryRolePosterListRequest.ValidateAll()
+// if the designated constraints aren't met.
+type GetStoryRolePosterListRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetStoryRolePosterListRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetStoryRolePosterListRequestMultiError) AllErrors() []error { return m }
+
+// GetStoryRolePosterListRequestValidationError is the validation error
+// returned by GetStoryRolePosterListRequest.Validate if the designated
+// constraints aren't met.
+type GetStoryRolePosterListRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetStoryRolePosterListRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetStoryRolePosterListRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetStoryRolePosterListRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetStoryRolePosterListRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetStoryRolePosterListRequestValidationError) ErrorName() string {
+	return "GetStoryRolePosterListRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetStoryRolePosterListRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetStoryRolePosterListRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetStoryRolePosterListRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetStoryRolePosterListRequestValidationError{}
+
+// Validate checks the field values on RolePosterDetail with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *RolePosterDetail) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on RolePosterDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// RolePosterDetailMultiError, or nil if none found.
+func (m *RolePosterDetail) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *RolePosterDetail) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Id
+
+	// no validation rules for StoryId
+
+	// no validation rules for RoleId
+
+	// no validation rules for PosterUrl
+
+	// no validation rules for Prompt
+
+	// no validation rules for LikeCount
+
+	// no validation rules for IsLikedByUser
+
+	if all {
+		switch v := interface{}(m.GetCreator()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, RolePosterDetailValidationError{
+					field:  "Creator",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, RolePosterDetailValidationError{
+					field:  "Creator",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreator()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return RolePosterDetailValidationError{
+				field:  "Creator",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for CreatedAt
+
+	// no validation rules for UpdatedAt
+
+	if len(errors) > 0 {
+		return RolePosterDetailMultiError(errors)
+	}
+
+	return nil
+}
+
+// RolePosterDetailMultiError is an error wrapping multiple validation errors
+// returned by RolePosterDetail.ValidateAll() if the designated constraints
+// aren't met.
+type RolePosterDetailMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RolePosterDetailMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RolePosterDetailMultiError) AllErrors() []error { return m }
+
+// RolePosterDetailValidationError is the validation error returned by
+// RolePosterDetail.Validate if the designated constraints aren't met.
+type RolePosterDetailValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RolePosterDetailValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RolePosterDetailValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RolePosterDetailValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RolePosterDetailValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RolePosterDetailValidationError) ErrorName() string { return "RolePosterDetailValidationError" }
+
+// Error satisfies the builtin error interface
+func (e RolePosterDetailValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRolePosterDetail.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RolePosterDetailValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RolePosterDetailValidationError{}
+
+// Validate checks the field values on GetStoryRolePosterListResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetStoryRolePosterListResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetStoryRolePosterListResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetStoryRolePosterListResponseMultiError, or nil if none found.
+func (m *GetStoryRolePosterListResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetStoryRolePosterListResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetPosters() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetStoryRolePosterListResponseValidationError{
+						field:  fmt.Sprintf("Posters[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetStoryRolePosterListResponseValidationError{
+						field:  fmt.Sprintf("Posters[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetStoryRolePosterListResponseValidationError{
+					field:  fmt.Sprintf("Posters[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for Total
+
+	// no validation rules for HaveMore
+
+	if len(errors) > 0 {
+		return GetStoryRolePosterListResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetStoryRolePosterListResponseMultiError is an error wrapping multiple
+// validation errors returned by GetStoryRolePosterListResponse.ValidateAll()
+// if the designated constraints aren't met.
+type GetStoryRolePosterListResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetStoryRolePosterListResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetStoryRolePosterListResponseMultiError) AllErrors() []error { return m }
+
+// GetStoryRolePosterListResponseValidationError is the validation error
+// returned by GetStoryRolePosterListResponse.Validate if the designated
+// constraints aren't met.
+type GetStoryRolePosterListResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetStoryRolePosterListResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetStoryRolePosterListResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetStoryRolePosterListResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetStoryRolePosterListResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetStoryRolePosterListResponseValidationError) ErrorName() string {
+	return "GetStoryRolePosterListResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetStoryRolePosterListResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetStoryRolePosterListResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetStoryRolePosterListResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetStoryRolePosterListResponseValidationError{}
+
+// Validate checks the field values on LikeStoryRolePosterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *LikeStoryRolePosterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on LikeStoryRolePosterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// LikeStoryRolePosterRequestMultiError, or nil if none found.
+func (m *LikeStoryRolePosterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *LikeStoryRolePosterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StoryId
+
+	// no validation rules for RoleId
+
+	// no validation rules for UserId
+
+	// no validation rules for PosterId
+
+	if len(errors) > 0 {
+		return LikeStoryRolePosterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// LikeStoryRolePosterRequestMultiError is an error wrapping multiple
+// validation errors returned by LikeStoryRolePosterRequest.ValidateAll() if
+// the designated constraints aren't met.
+type LikeStoryRolePosterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m LikeStoryRolePosterRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m LikeStoryRolePosterRequestMultiError) AllErrors() []error { return m }
+
+// LikeStoryRolePosterRequestValidationError is the validation error returned
+// by LikeStoryRolePosterRequest.Validate if the designated constraints aren't met.
+type LikeStoryRolePosterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e LikeStoryRolePosterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e LikeStoryRolePosterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e LikeStoryRolePosterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e LikeStoryRolePosterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e LikeStoryRolePosterRequestValidationError) ErrorName() string {
+	return "LikeStoryRolePosterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e LikeStoryRolePosterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLikeStoryRolePosterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = LikeStoryRolePosterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = LikeStoryRolePosterRequestValidationError{}
+
+// Validate checks the field values on LikeStoryRolePosterResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *LikeStoryRolePosterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on LikeStoryRolePosterResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// LikeStoryRolePosterResponseMultiError, or nil if none found.
+func (m *LikeStoryRolePosterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *LikeStoryRolePosterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	// no validation rules for CurrentLikeCount
+
+	if len(errors) > 0 {
+		return LikeStoryRolePosterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// LikeStoryRolePosterResponseMultiError is an error wrapping multiple
+// validation errors returned by LikeStoryRolePosterResponse.ValidateAll() if
+// the designated constraints aren't met.
+type LikeStoryRolePosterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m LikeStoryRolePosterResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m LikeStoryRolePosterResponseMultiError) AllErrors() []error { return m }
+
+// LikeStoryRolePosterResponseValidationError is the validation error returned
+// by LikeStoryRolePosterResponse.Validate if the designated constraints
+// aren't met.
+type LikeStoryRolePosterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e LikeStoryRolePosterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e LikeStoryRolePosterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e LikeStoryRolePosterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e LikeStoryRolePosterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e LikeStoryRolePosterResponseValidationError) ErrorName() string {
+	return "LikeStoryRolePosterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e LikeStoryRolePosterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLikeStoryRolePosterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = LikeStoryRolePosterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = LikeStoryRolePosterResponseValidationError{}
+
+// Validate checks the field values on UnLikeStoryRolePosterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UnLikeStoryRolePosterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UnLikeStoryRolePosterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UnLikeStoryRolePosterRequestMultiError, or nil if none found.
+func (m *UnLikeStoryRolePosterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UnLikeStoryRolePosterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StoryId
+
+	// no validation rules for RoleId
+
+	// no validation rules for UserId
+
+	// no validation rules for PosterId
+
+	if len(errors) > 0 {
+		return UnLikeStoryRolePosterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UnLikeStoryRolePosterRequestMultiError is an error wrapping multiple
+// validation errors returned by UnLikeStoryRolePosterRequest.ValidateAll() if
+// the designated constraints aren't met.
+type UnLikeStoryRolePosterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UnLikeStoryRolePosterRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UnLikeStoryRolePosterRequestMultiError) AllErrors() []error { return m }
+
+// UnLikeStoryRolePosterRequestValidationError is the validation error returned
+// by UnLikeStoryRolePosterRequest.Validate if the designated constraints
+// aren't met.
+type UnLikeStoryRolePosterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UnLikeStoryRolePosterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UnLikeStoryRolePosterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UnLikeStoryRolePosterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UnLikeStoryRolePosterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UnLikeStoryRolePosterRequestValidationError) ErrorName() string {
+	return "UnLikeStoryRolePosterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UnLikeStoryRolePosterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUnLikeStoryRolePosterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UnLikeStoryRolePosterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UnLikeStoryRolePosterRequestValidationError{}
+
+// Validate checks the field values on UnLikeStoryRolePosterResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UnLikeStoryRolePosterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UnLikeStoryRolePosterResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UnLikeStoryRolePosterResponseMultiError, or nil if none found.
+func (m *UnLikeStoryRolePosterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UnLikeStoryRolePosterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	// no validation rules for CurrentLikeCount
+
+	if len(errors) > 0 {
+		return UnLikeStoryRolePosterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UnLikeStoryRolePosterResponseMultiError is an error wrapping multiple
+// validation errors returned by UnLikeStoryRolePosterResponse.ValidateAll()
+// if the designated constraints aren't met.
+type UnLikeStoryRolePosterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UnLikeStoryRolePosterResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UnLikeStoryRolePosterResponseMultiError) AllErrors() []error { return m }
+
+// UnLikeStoryRolePosterResponseValidationError is the validation error
+// returned by UnLikeStoryRolePosterResponse.Validate if the designated
+// constraints aren't met.
+type UnLikeStoryRolePosterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UnLikeStoryRolePosterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UnLikeStoryRolePosterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UnLikeStoryRolePosterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UnLikeStoryRolePosterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UnLikeStoryRolePosterResponseValidationError) ErrorName() string {
+	return "UnLikeStoryRolePosterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UnLikeStoryRolePosterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUnLikeStoryRolePosterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UnLikeStoryRolePosterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UnLikeStoryRolePosterResponseValidationError{}
+
 // Validate checks the field values on FetchUserGenTaskStatusRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

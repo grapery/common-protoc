@@ -4212,76 +4212,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  生成角色的海报图片
-   */
-  override suspend fun generateStoryRolePoster(request: GenerateStoryRolePosterRequest, headers: Headers): ResponseMessage<GenerateStoryRolePosterResponse> = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "common.TeamsAPI/GenerateStoryRolePoster",
-      com.common.GenerateStoryRolePosterRequest::class,
-      com.common.GenerateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-  )
-
-
-  /**
-   *  生成角色的海报图片
-   */
-  override fun generateStoryRolePoster(
-    request: GenerateStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "common.TeamsAPI/GenerateStoryRolePoster",
-      com.common.GenerateStoryRolePosterRequest::class,
-      com.common.GenerateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
-   *  更新角色的海报图片
-   */
-  override suspend fun updateStoryRolePoster(request: UpdateStoryRolePosterRequest, headers: Headers): ResponseMessage<UpdateStoryRolePosterResponse> = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePoster",
-      com.common.UpdateStoryRolePosterRequest::class,
-      com.common.UpdateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-  )
-
-
-  /**
-   *  更新角色的海报图片
-   */
-  override fun updateStoryRolePoster(
-    request: UpdateStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePoster",
-      com.common.UpdateStoryRolePosterRequest::class,
-      com.common.UpdateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新角色的提示词
    */
   override suspend fun updateStoryRolePrompt(request: UpdateStoryRolePromptRequest, headers: Headers): ResponseMessage<UpdateStoryRolePromptResponse> = client.unary(
@@ -4753,6 +4683,163 @@ public class TeamsAPIClient(
     "common.TeamsAPI/FetchUserGenTaskStatus",
       com.common.FetchUserGenTaskStatusRequest::class,
       com.common.FetchUserGenTaskStatusResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  /**
+   *  生成角色的海报图片
+   */
+  override suspend fun generateStoryRolePoster(request: GenerateStoryRolePosterRequest, headers: Headers): ResponseMessage<GenerateStoryRolePosterResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStoryRolePoster",
+      com.common.GenerateStoryRolePosterRequest::class,
+      com.common.GenerateStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  /**
+   *  生成角色的海报图片
+   */
+  override fun generateStoryRolePoster(
+    request: GenerateStoryRolePosterRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<GenerateStoryRolePosterResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GenerateStoryRolePoster",
+      com.common.GenerateStoryRolePosterRequest::class,
+      com.common.GenerateStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  /**
+   *  更新角色的海报图片
+   */
+  override suspend fun updateStoryRolePoster(request: UpdateStoryRolePosterRequest, headers: Headers): ResponseMessage<UpdateStoryRolePosterResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/UpdateStoryRolePoster",
+      com.common.UpdateStoryRolePosterRequest::class,
+      com.common.UpdateStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  /**
+   *  更新角色的海报图片
+   */
+  override fun updateStoryRolePoster(
+    request: UpdateStoryRolePosterRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<UpdateStoryRolePosterResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/UpdateStoryRolePoster",
+      com.common.UpdateStoryRolePosterRequest::class,
+      com.common.UpdateStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  override suspend fun likeStoryRolePoster(request: LikeStoryRolePosterRequest, headers: Headers): ResponseMessage<LikeStoryRolePosterResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/LikeStoryRolePoster",
+      com.common.LikeStoryRolePosterRequest::class,
+      com.common.LikeStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override fun likeStoryRolePoster(
+    request: LikeStoryRolePosterRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<LikeStoryRolePosterResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/LikeStoryRolePoster",
+      com.common.LikeStoryRolePosterRequest::class,
+      com.common.LikeStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  override suspend fun unLikeStoryRolePoster(request: UnLikeStoryRolePosterRequest, headers: Headers): ResponseMessage<UnLikeStoryRolePosterResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/UnLikeStoryRolePoster",
+      com.common.UnLikeStoryRolePosterRequest::class,
+      com.common.UnLikeStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override fun unLikeStoryRolePoster(
+    request: UnLikeStoryRolePosterRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<UnLikeStoryRolePosterResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/UnLikeStoryRolePoster",
+      com.common.UnLikeStoryRolePosterRequest::class,
+      com.common.UnLikeStoryRolePosterResponse::class,
+      StreamType.UNARY,
+    ),
+    onResult
+  )
+
+
+  override suspend fun getStoryRolePosterList(request: GetStoryRolePosterListRequest, headers: Headers): ResponseMessage<GetStoryRolePosterListResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GetStoryRolePosterList",
+      com.common.GetStoryRolePosterListRequest::class,
+      com.common.GetStoryRolePosterListResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override fun getStoryRolePosterList(
+    request: GetStoryRolePosterListRequest,
+    headers: Headers,
+    onResult: (ResponseMessage<GetStoryRolePosterListResponse>) -> Unit,
+  ): Cancelable = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "common.TeamsAPI/GetStoryRolePosterList",
+      com.common.GetStoryRolePosterListRequest::class,
+      com.common.GetStoryRolePosterListResponse::class,
       StreamType.UNARY,
     ),
     onResult

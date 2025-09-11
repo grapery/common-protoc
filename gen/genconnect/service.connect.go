@@ -7,7 +7,6 @@ package genconnect
 import (
 	context "context"
 	errors "errors"
-
 	http "net/http"
 	strings "strings"
 
@@ -352,12 +351,6 @@ const (
 	// TeamsAPIGetFollowerListProcedure is the fully-qualified name of the TeamsAPI's GetFollowerList
 	// RPC.
 	TeamsAPIGetFollowerListProcedure = "/common.TeamsAPI/GetFollowerList"
-	// TeamsAPIGenerateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
-	// GenerateStoryRolePoster RPC.
-	TeamsAPIGenerateStoryRolePosterProcedure = "/common.TeamsAPI/GenerateStoryRolePoster"
-	// TeamsAPIUpdateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
-	// UpdateStoryRolePoster RPC.
-	TeamsAPIUpdateStoryRolePosterProcedure = "/common.TeamsAPI/UpdateStoryRolePoster"
 	// TeamsAPIUpdateStoryRolePromptProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRolePrompt RPC.
 	TeamsAPIUpdateStoryRolePromptProcedure = "/common.TeamsAPI/UpdateStoryRolePrompt"
@@ -400,6 +393,21 @@ const (
 	// TeamsAPIFetchUserGenTaskStatusProcedure is the fully-qualified name of the TeamsAPI's
 	// FetchUserGenTaskStatus RPC.
 	TeamsAPIFetchUserGenTaskStatusProcedure = "/common.TeamsAPI/FetchUserGenTaskStatus"
+	// TeamsAPIGenerateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// GenerateStoryRolePoster RPC.
+	TeamsAPIGenerateStoryRolePosterProcedure = "/common.TeamsAPI/GenerateStoryRolePoster"
+	// TeamsAPIUpdateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryRolePoster RPC.
+	TeamsAPIUpdateStoryRolePosterProcedure = "/common.TeamsAPI/UpdateStoryRolePoster"
+	// TeamsAPILikeStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// LikeStoryRolePoster RPC.
+	TeamsAPILikeStoryRolePosterProcedure = "/common.TeamsAPI/LikeStoryRolePoster"
+	// TeamsAPIUnLikeStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
+	// UnLikeStoryRolePoster RPC.
+	TeamsAPIUnLikeStoryRolePosterProcedure = "/common.TeamsAPI/UnLikeStoryRolePoster"
+	// TeamsAPIGetStoryRolePosterListProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryRolePosterList RPC.
+	TeamsAPIGetStoryRolePosterListProcedure = "/common.TeamsAPI/GetStoryRolePosterList"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -639,10 +647,6 @@ type TeamsAPIClient interface {
 	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
 	// 获取粉丝列表
 	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
-	// 生成角色的海报图片
-	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
-	// 更新角色的海报图片
-	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
@@ -669,6 +673,13 @@ type TeamsAPIClient interface {
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
 	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1286,16 +1297,6 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIGetFollowerListProcedure,
 			opts...,
 		),
-		generateStoryRolePoster: connect_go.NewClient[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse](
-			httpClient,
-			baseURL+TeamsAPIGenerateStoryRolePosterProcedure,
-			opts...,
-		),
-		updateStoryRolePoster: connect_go.NewClient[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse](
-			httpClient,
-			baseURL+TeamsAPIUpdateStoryRolePosterProcedure,
-			opts...,
-		),
 		updateStoryRolePrompt: connect_go.NewClient[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRolePromptProcedure,
@@ -1364,6 +1365,31 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 		fetchUserGenTaskStatus: connect_go.NewClient[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchUserGenTaskStatusProcedure,
+			opts...,
+		),
+		generateStoryRolePoster: connect_go.NewClient[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPIGenerateStoryRolePosterProcedure,
+			opts...,
+		),
+		updateStoryRolePoster: connect_go.NewClient[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryRolePosterProcedure,
+			opts...,
+		),
+		likeStoryRolePoster: connect_go.NewClient[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPILikeStoryRolePosterProcedure,
+			opts...,
+		),
+		unLikeStoryRolePoster: connect_go.NewClient[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse](
+			httpClient,
+			baseURL+TeamsAPIUnLikeStoryRolePosterProcedure,
+			opts...,
+		),
+		getStoryRolePosterList: connect_go.NewClient[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryRolePosterListProcedure,
 			opts...,
 		),
 	}
@@ -1492,8 +1518,6 @@ type teamsAPIClient struct {
 	unfollowUser                       *connect_go.Client[gen.UnfollowUserRequest, gen.UnfollowUserResponse]
 	getFollowList                      *connect_go.Client[gen.GetFollowListRequest, gen.GetFollowListResponse]
 	getFollowerList                    *connect_go.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
-	generateStoryRolePoster            *connect_go.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
-	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
 	updateStoryRolePrompt              *connect_go.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
 	updateStoryRoleDescriptionDetail   *connect_go.Client[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse]
 	queryTaskStatus                    *connect_go.Client[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse]
@@ -1508,6 +1532,11 @@ type teamsAPIClient struct {
 	generateStorySceneVideo            *connect_go.Client[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse]
 	generateRoleAvatar                 *connect_go.Client[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse]
 	fetchUserGenTaskStatus             *connect_go.Client[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse]
+	generateStoryRolePoster            *connect_go.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
+	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
+	likeStoryRolePoster                *connect_go.Client[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse]
+	unLikeStoryRolePoster              *connect_go.Client[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse]
+	getStoryRolePosterList             *connect_go.Client[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2115,16 +2144,6 @@ func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect_go.Re
 	return c.getFollowerList.CallUnary(ctx, req)
 }
 
-// GenerateStoryRolePoster calls common.TeamsAPI.GenerateStoryRolePoster.
-func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
-	return c.generateStoryRolePoster.CallUnary(ctx, req)
-}
-
-// UpdateStoryRolePoster calls common.TeamsAPI.UpdateStoryRolePoster.
-func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
-	return c.updateStoryRolePoster.CallUnary(ctx, req)
-}
-
 // UpdateStoryRolePrompt calls common.TeamsAPI.UpdateStoryRolePrompt.
 func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
 	return c.updateStoryRolePrompt.CallUnary(ctx, req)
@@ -2193,6 +2212,31 @@ func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, req *connect_go
 // FetchUserGenTaskStatus calls common.TeamsAPI.FetchUserGenTaskStatus.
 func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, req *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
 	return c.fetchUserGenTaskStatus.CallUnary(ctx, req)
+}
+
+// GenerateStoryRolePoster calls common.TeamsAPI.GenerateStoryRolePoster.
+func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
+	return c.generateStoryRolePoster.CallUnary(ctx, req)
+}
+
+// UpdateStoryRolePoster calls common.TeamsAPI.UpdateStoryRolePoster.
+func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
+	return c.updateStoryRolePoster.CallUnary(ctx, req)
+}
+
+// LikeStoryRolePoster calls common.TeamsAPI.LikeStoryRolePoster.
+func (c *teamsAPIClient) LikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
+	return c.likeStoryRolePoster.CallUnary(ctx, req)
+}
+
+// UnLikeStoryRolePoster calls common.TeamsAPI.UnLikeStoryRolePoster.
+func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
+	return c.unLikeStoryRolePoster.CallUnary(ctx, req)
+}
+
+// GetStoryRolePosterList calls common.TeamsAPI.GetStoryRolePosterList.
+func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, req *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
+	return c.getStoryRolePosterList.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
@@ -2432,10 +2476,6 @@ type TeamsAPIHandler interface {
 	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
 	// 获取粉丝列表
 	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
-	// 生成角色的海报图片
-	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
-	// 更新角色的海报图片
-	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
 	// 更新角色的提示词
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
 	// 更新角色的描述
@@ -2462,6 +2502,13 @@ type TeamsAPIHandler interface {
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
 	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
+	// 生成角色的海报图片
+	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
+	// 更新角色的海报图片
+	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3075,16 +3122,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.GetFollowerList,
 		opts...,
 	)
-	teamsAPIGenerateStoryRolePosterHandler := connect_go.NewUnaryHandler(
-		TeamsAPIGenerateStoryRolePosterProcedure,
-		svc.GenerateStoryRolePoster,
-		opts...,
-	)
-	teamsAPIUpdateStoryRolePosterHandler := connect_go.NewUnaryHandler(
-		TeamsAPIUpdateStoryRolePosterProcedure,
-		svc.UpdateStoryRolePoster,
-		opts...,
-	)
 	teamsAPIUpdateStoryRolePromptHandler := connect_go.NewUnaryHandler(
 		TeamsAPIUpdateStoryRolePromptProcedure,
 		svc.UpdateStoryRolePrompt,
@@ -3153,6 +3190,31 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 	teamsAPIFetchUserGenTaskStatusHandler := connect_go.NewUnaryHandler(
 		TeamsAPIFetchUserGenTaskStatusProcedure,
 		svc.FetchUserGenTaskStatus,
+		opts...,
+	)
+	teamsAPIGenerateStoryRolePosterHandler := connect_go.NewUnaryHandler(
+		TeamsAPIGenerateStoryRolePosterProcedure,
+		svc.GenerateStoryRolePoster,
+		opts...,
+	)
+	teamsAPIUpdateStoryRolePosterHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUpdateStoryRolePosterProcedure,
+		svc.UpdateStoryRolePoster,
+		opts...,
+	)
+	teamsAPILikeStoryRolePosterHandler := connect_go.NewUnaryHandler(
+		TeamsAPILikeStoryRolePosterProcedure,
+		svc.LikeStoryRolePoster,
+		opts...,
+	)
+	teamsAPIUnLikeStoryRolePosterHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUnLikeStoryRolePosterProcedure,
+		svc.UnLikeStoryRolePoster,
+		opts...,
+	)
+	teamsAPIGetStoryRolePosterListHandler := connect_go.NewUnaryHandler(
+		TeamsAPIGetStoryRolePosterListProcedure,
+		svc.GetStoryRolePosterList,
 		opts...,
 	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -3399,10 +3461,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIGetFollowListHandler.ServeHTTP(w, r)
 		case TeamsAPIGetFollowerListProcedure:
 			teamsAPIGetFollowerListHandler.ServeHTTP(w, r)
-		case TeamsAPIGenerateStoryRolePosterProcedure:
-			teamsAPIGenerateStoryRolePosterHandler.ServeHTTP(w, r)
-		case TeamsAPIUpdateStoryRolePosterProcedure:
-			teamsAPIUpdateStoryRolePosterHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRolePromptProcedure:
 			teamsAPIUpdateStoryRolePromptHandler.ServeHTTP(w, r)
 		case TeamsAPIUpdateStoryRoleDescriptionDetailProcedure:
@@ -3431,6 +3489,16 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIGenerateRoleAvatarHandler.ServeHTTP(w, r)
 		case TeamsAPIFetchUserGenTaskStatusProcedure:
 			teamsAPIFetchUserGenTaskStatusHandler.ServeHTTP(w, r)
+		case TeamsAPIGenerateStoryRolePosterProcedure:
+			teamsAPIGenerateStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryRolePosterProcedure:
+			teamsAPIUpdateStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPILikeStoryRolePosterProcedure:
+			teamsAPILikeStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPIUnLikeStoryRolePosterProcedure:
+			teamsAPIUnLikeStoryRolePosterHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryRolePosterListProcedure:
+			teamsAPIGetStoryRolePosterListHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -3924,14 +3992,6 @@ func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect_go
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowerList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRolePoster is not implemented"))
-}
-
-func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePoster is not implemented"))
-}
-
 func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
 }
@@ -3986,4 +4046,24 @@ func (UnimplementedTeamsAPIHandler) GenerateRoleAvatar(context.Context, *connect
 
 func (UnimplementedTeamsAPIHandler) FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryRolePoster is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRolePosterList is not implemented"))
 }

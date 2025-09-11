@@ -1666,34 +1666,6 @@ public interface TeamsAPIClientInterface {
   ): Cancelable
 
   /**
-   *  生成角色的海报图片
-   */
-  public suspend fun generateStoryRolePoster(request: GenerateStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStoryRolePosterResponse>
-
-  /**
-   *  生成角色的海报图片
-   */
-  public fun generateStoryRolePoster(
-    request: GenerateStoryRolePosterRequest,
-    headers: Headers = emptyMap(),
-    onResult: (ResponseMessage<GenerateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable
-
-  /**
-   *  更新角色的海报图片
-   */
-  public suspend fun updateStoryRolePoster(request: UpdateStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<UpdateStoryRolePosterResponse>
-
-  /**
-   *  更新角色的海报图片
-   */
-  public fun updateStoryRolePoster(
-    request: UpdateStoryRolePosterRequest,
-    headers: Headers = emptyMap(),
-    onResult: (ResponseMessage<UpdateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable
-
-  /**
    *  更新角色的提示词
    */
   public suspend fun updateStoryRolePrompt(request: UpdateStoryRolePromptRequest, headers: Headers = emptyMap()): ResponseMessage<UpdateStoryRolePromptResponse>
@@ -1875,5 +1847,57 @@ public interface TeamsAPIClientInterface {
     request: FetchUserGenTaskStatusRequest,
     headers: Headers = emptyMap(),
     onResult: (ResponseMessage<FetchUserGenTaskStatusResponse>) -> Unit,
+  ): Cancelable
+
+  /**
+   *  生成角色的海报图片
+   */
+  public suspend fun generateStoryRolePoster(request: GenerateStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStoryRolePosterResponse>
+
+  /**
+   *  生成角色的海报图片
+   */
+  public fun generateStoryRolePoster(
+    request: GenerateStoryRolePosterRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<GenerateStoryRolePosterResponse>) -> Unit,
+  ): Cancelable
+
+  /**
+   *  更新角色的海报图片
+   */
+  public suspend fun updateStoryRolePoster(request: UpdateStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<UpdateStoryRolePosterResponse>
+
+  /**
+   *  更新角色的海报图片
+   */
+  public fun updateStoryRolePoster(
+    request: UpdateStoryRolePosterRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<UpdateStoryRolePosterResponse>) -> Unit,
+  ): Cancelable
+
+  public suspend fun likeStoryRolePoster(request: LikeStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<LikeStoryRolePosterResponse>
+
+  public fun likeStoryRolePoster(
+    request: LikeStoryRolePosterRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<LikeStoryRolePosterResponse>) -> Unit,
+  ): Cancelable
+
+  public suspend fun unLikeStoryRolePoster(request: UnLikeStoryRolePosterRequest, headers: Headers = emptyMap()): ResponseMessage<UnLikeStoryRolePosterResponse>
+
+  public fun unLikeStoryRolePoster(
+    request: UnLikeStoryRolePosterRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<UnLikeStoryRolePosterResponse>) -> Unit,
+  ): Cancelable
+
+  public suspend fun getStoryRolePosterList(request: GetStoryRolePosterListRequest, headers: Headers = emptyMap()): ResponseMessage<GetStoryRolePosterListResponse>
+
+  public fun getStoryRolePosterList(
+    request: GetStoryRolePosterListRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<GetStoryRolePosterListResponse>) -> Unit,
   ): Cancelable
 }

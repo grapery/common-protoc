@@ -384,6 +384,8 @@
     - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
     - [GetStoryRoleListRequest](#common-GetStoryRoleListRequest)
     - [GetStoryRoleListResponse](#common-GetStoryRoleListResponse)
+    - [GetStoryRolePosterListRequest](#common-GetStoryRolePosterListRequest)
+    - [GetStoryRolePosterListResponse](#common-GetStoryRolePosterListResponse)
     - [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest)
     - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
@@ -422,6 +424,8 @@
     - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
     - [LikeStoryRequest](#common-LikeStoryRequest)
     - [LikeStoryResponse](#common-LikeStoryResponse)
+    - [LikeStoryRolePosterRequest](#common-LikeStoryRolePosterRequest)
+    - [LikeStoryRolePosterResponse](#common-LikeStoryRolePosterResponse)
     - [LikeStoryRoleRequest](#common-LikeStoryRoleRequest)
     - [LikeStoryRoleResponse](#common-LikeStoryRoleResponse)
     - [LoginRequest](#common-LoginRequest)
@@ -444,6 +448,7 @@
     - [ResetPasswordResponse](#common-ResetPasswordResponse)
     - [RestoreStoryboardRequest](#common-RestoreStoryboardRequest)
     - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
+    - [RolePosterDetail](#common-RolePosterDetail)
     - [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest)
     - [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse)
     - [SearchGroupRequest](#common-SearchGroupRequest)
@@ -471,6 +476,8 @@
     - [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse)
     - [UnLikeStoryRequest](#common-UnLikeStoryRequest)
     - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
+    - [UnLikeStoryRolePosterRequest](#common-UnLikeStoryRolePosterRequest)
+    - [UnLikeStoryRolePosterResponse](#common-UnLikeStoryRolePosterResponse)
     - [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest)
     - [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse)
     - [UnfollowUserRequest](#common-UnfollowUserRequest)
@@ -7379,6 +7386,44 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-GetStoryRolePosterListRequest"></a>
+
+### GetStoryRolePosterListRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| offset | [int64](#int64) |  |  |
+| page_size | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-GetStoryRolePosterListResponse"></a>
+
+### GetStoryRolePosterListResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| posters | [RolePosterDetail](#common-RolePosterDetail) | repeated |  |
+| total | [int64](#int64) |  |  |
+| have_more | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="common-GetStoryRoleStoriesRequest"></a>
 
 ### GetStoryRoleStoriesRequest
@@ -8051,6 +8096,41 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="common-LikeStoryRolePosterRequest"></a>
+
+### LikeStoryRolePosterRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| poster_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-LikeStoryRolePosterResponse"></a>
+
+### LikeStoryRolePosterResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| current_like_count | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="common-LikeStoryRoleRequest"></a>
 
 ### LikeStoryRoleRequest
@@ -8428,6 +8508,30 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | store | [StoryboardStageStore](#common-StoryboardStageStore) |  |  |
+
+
+
+
+
+
+<a name="common-RolePosterDetail"></a>
+
+### RolePosterDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| poster_url | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
+| like_count | [int64](#int64) |  |  |
+| is_liked_by_user | [bool](#bool) |  |  |
+| creator | [UserInfo](#common-UserInfo) |  |  |
+| created_at | [int64](#int64) |  |  |
+| updated_at | [int64](#int64) |  |  |
 
 
 
@@ -8935,6 +9039,41 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryRolePosterRequest"></a>
+
+### UnLikeStoryRolePosterRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| poster_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="common-UnLikeStoryRolePosterResponse"></a>
+
+### UnLikeStoryRolePosterResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#common-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| current_like_count | [int64](#int64) |  |  |
 
 
 
@@ -10205,8 +10344,6 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UnfollowUser | [UnfollowUserRequest](#common-UnfollowUserRequest) | [UnfollowUserResponse](#common-UnfollowUserResponse) | 取消关注另一个用户 |
 | GetFollowList | [GetFollowListRequest](#common-GetFollowListRequest) | [GetFollowListResponse](#common-GetFollowListResponse) | 获取关注列表 |
 | GetFollowerList | [GetFollowerListRequest](#common-GetFollowerListRequest) | [GetFollowerListResponse](#common-GetFollowerListResponse) | 获取粉丝列表 |
-| GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
-| UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
 | UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
 | UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
 | QueryTaskStatus | [QueryTaskStatusRequest](#common-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#common-QueryTaskStatusResponse) | 获取生成任务状态 |
@@ -10221,6 +10358,11 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
 | GenerateRoleAvatar | [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse) |  |
 | FetchUserGenTaskStatus | [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest) | [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse) |  |
+| GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
+| UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
+| LikeStoryRolePoster | [LikeStoryRolePosterRequest](#common-LikeStoryRolePosterRequest) | [LikeStoryRolePosterResponse](#common-LikeStoryRolePosterResponse) |  |
+| UnLikeStoryRolePoster | [UnLikeStoryRolePosterRequest](#common-UnLikeStoryRolePosterRequest) | [UnLikeStoryRolePosterResponse](#common-UnLikeStoryRolePosterResponse) |  |
+| GetStoryRolePosterList | [GetStoryRolePosterListRequest](#common-GetStoryRolePosterListRequest) | [GetStoryRolePosterListResponse](#common-GetStoryRolePosterListResponse) |  |
 
  
 
