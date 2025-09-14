@@ -4489,15 +4489,15 @@ components:
             properties:
                 originImageUrl:
                     type: string
+                additionalImageUrls:
+                    type: array
+                    items:
+                        type: string
                 textPrompt:
                     type: string
                 negativePrompt:
                     type: string
-                seed:
-                    type: string
-                steps:
-                    type: string
-                guidanceScale:
+                style:
                     type: string
         GenerateStoryRolePosterRequest:
             type: object
@@ -4529,11 +4529,18 @@ components:
                     type: string
                 userId:
                     type: string
+                posterId:
+                    type: string
                 refBackgroundUrl:
                     type: string
                 refAvatarUrl:
                     type: string
-                description:
+                textPrompt:
+                    type: string
+                imageRatios:
+                    type: integer
+                    format: enum
+                style:
                     type: string
         GenerateStoryRoleVideoResponse:
             type: object
@@ -7576,6 +7583,8 @@ components:
                     type: string
                 imageUrl:
                     type: string
+                isPublic:
+                    type: boolean
         UpdateStoryRolePosterResponse:
             type: object
             properties:
@@ -7583,6 +7592,8 @@ components:
                     type: integer
                     format: enum
                 message:
+                    type: string
+                posterId:
                     type: string
         UpdateStoryRolePromptRequest:
             type: object

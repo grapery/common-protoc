@@ -2859,11 +2859,17 @@ public struct Common_GenerateStoryRoleVideoRequest: Sendable {
 
   public var userID: Int64 = 0
 
+  public var posterID: Int64 = 0
+
   public var refBackgroundURL: String = String()
 
   public var refAvatarURL: String = String()
 
-  public var description_p: String = String()
+  public var textPrompt: String = String()
+
+  public var imageRatios: Common_ImageRatios = .ratio11
+
+  public var style: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3211,15 +3217,13 @@ public struct Common_GenerateStoryRoleParams: Sendable {
 
   public var originImageURL: String = String()
 
+  public var additionalImageUrls: [String] = []
+
   public var textPrompt: String = String()
 
   public var negativePrompt: String = String()
 
-  public var seed: Int64 = 0
-
-  public var steps: Int64 = 0
-
-  public var guidanceScale: Int64 = 0
+  public var style: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3282,6 +3286,8 @@ public struct Common_UpdateStoryRolePosterRequest: Sendable {
 
   public var imageURL: String = String()
 
+  public var isPublic: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -3295,6 +3301,8 @@ public struct Common_UpdateStoryRolePosterResponse: Sendable {
   public var code: Common_ResponseCode = .ok
 
   public var message: String = String()
+
+  public var posterID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11597,7 +11605,7 @@ extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}ref_background_url\0\u{3}ref_avatar_url\0\u{1}description\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}poster_id\0\u{3}ref_background_url\0\u{3}ref_avatar_url\0\u{3}text_prompt\0\u{3}image_ratios\0\u{1}style\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -11608,9 +11616,12 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
       case 1: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.refBackgroundURL) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.refAvatarURL) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.posterID) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.refBackgroundURL) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.refAvatarURL) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.textPrompt) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self.imageRatios) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.style) }()
       default: break
       }
     }
@@ -11626,14 +11637,23 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
     if self.userID != 0 {
       try visitor.visitSingularInt64Field(value: self.userID, fieldNumber: 3)
     }
+    if self.posterID != 0 {
+      try visitor.visitSingularInt64Field(value: self.posterID, fieldNumber: 4)
+    }
     if !self.refBackgroundURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.refBackgroundURL, fieldNumber: 4)
+      try visitor.visitSingularStringField(value: self.refBackgroundURL, fieldNumber: 5)
     }
     if !self.refAvatarURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.refAvatarURL, fieldNumber: 5)
+      try visitor.visitSingularStringField(value: self.refAvatarURL, fieldNumber: 6)
     }
-    if !self.description_p.isEmpty {
-      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 6)
+    if !self.textPrompt.isEmpty {
+      try visitor.visitSingularStringField(value: self.textPrompt, fieldNumber: 7)
+    }
+    if self.imageRatios != .ratio11 {
+      try visitor.visitSingularEnumField(value: self.imageRatios, fieldNumber: 8)
+    }
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 9)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -11642,9 +11662,12 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
+    if lhs.posterID != rhs.posterID {return false}
     if lhs.refBackgroundURL != rhs.refBackgroundURL {return false}
     if lhs.refAvatarURL != rhs.refAvatarURL {return false}
-    if lhs.description_p != rhs.description_p {return false}
+    if lhs.textPrompt != rhs.textPrompt {return false}
+    if lhs.imageRatios != rhs.imageRatios {return false}
+    if lhs.style != rhs.style {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12430,7 +12453,7 @@ extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message
 
 extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleParams"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}origin_image_url\0\u{3}text_prompt\0\u{3}negative_prompt\0\u{1}seed\0\u{1}steps\0\u{3}guidance_scale\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}origin_image_url\0\u{3}additional_image_urls\0\u{3}text_prompt\0\u{3}negative_prompt\0\u{1}style\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12439,11 +12462,10 @@ extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.originImageURL) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.textPrompt) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.negativePrompt) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.seed) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.steps) }()
-      case 6: try { try decoder.decodeSingularInt64Field(value: &self.guidanceScale) }()
+      case 2: try { try decoder.decodeRepeatedStringField(value: &self.additionalImageUrls) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.textPrompt) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.negativePrompt) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.style) }()
       default: break
       }
     }
@@ -12453,31 +12475,27 @@ extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._
     if !self.originImageURL.isEmpty {
       try visitor.visitSingularStringField(value: self.originImageURL, fieldNumber: 1)
     }
+    if !self.additionalImageUrls.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.additionalImageUrls, fieldNumber: 2)
+    }
     if !self.textPrompt.isEmpty {
-      try visitor.visitSingularStringField(value: self.textPrompt, fieldNumber: 2)
+      try visitor.visitSingularStringField(value: self.textPrompt, fieldNumber: 3)
     }
     if !self.negativePrompt.isEmpty {
-      try visitor.visitSingularStringField(value: self.negativePrompt, fieldNumber: 3)
+      try visitor.visitSingularStringField(value: self.negativePrompt, fieldNumber: 4)
     }
-    if self.seed != 0 {
-      try visitor.visitSingularInt64Field(value: self.seed, fieldNumber: 4)
-    }
-    if self.steps != 0 {
-      try visitor.visitSingularInt64Field(value: self.steps, fieldNumber: 5)
-    }
-    if self.guidanceScale != 0 {
-      try visitor.visitSingularInt64Field(value: self.guidanceScale, fieldNumber: 6)
+    if !self.style.isEmpty {
+      try visitor.visitSingularStringField(value: self.style, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_GenerateStoryRoleParams, rhs: Common_GenerateStoryRoleParams) -> Bool {
     if lhs.originImageURL != rhs.originImageURL {return false}
+    if lhs.additionalImageUrls != rhs.additionalImageUrls {return false}
     if lhs.textPrompt != rhs.textPrompt {return false}
     if lhs.negativePrompt != rhs.negativePrompt {return false}
-    if lhs.seed != rhs.seed {return false}
-    if lhs.steps != rhs.steps {return false}
-    if lhs.guidanceScale != rhs.guidanceScale {return false}
+    if lhs.style != rhs.style {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12574,7 +12592,7 @@ extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftPr
 
 extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}image_url\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}image_url\0\u{3}is_public\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12586,6 +12604,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
       case 2: try { try decoder.decodeSingularInt64Field(value: &self.roleID) }()
       case 3: try { try decoder.decodeSingularInt64Field(value: &self.userID) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.imageURL) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self.isPublic) }()
       default: break
       }
     }
@@ -12604,6 +12623,9 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
     if !self.imageURL.isEmpty {
       try visitor.visitSingularStringField(value: self.imageURL, fieldNumber: 4)
     }
+    if self.isPublic != false {
+      try visitor.visitSingularBoolField(value: self.isPublic, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -12612,6 +12634,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.imageURL != rhs.imageURL {return false}
+    if lhs.isPublic != rhs.isPublic {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12619,7 +12642,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}poster_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12629,6 +12652,7 @@ extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.code) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.message) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.posterID) }()
       default: break
       }
     }
@@ -12641,12 +12665,16 @@ extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
     if !self.message.isEmpty {
       try visitor.visitSingularStringField(value: self.message, fieldNumber: 2)
     }
+    if self.posterID != 0 {
+      try visitor.visitSingularInt64Field(value: self.posterID, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Common_UpdateStoryRolePosterResponse, rhs: Common_UpdateStoryRolePosterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
+    if lhs.posterID != rhs.posterID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

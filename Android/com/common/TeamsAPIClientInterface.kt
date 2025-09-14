@@ -1806,20 +1806,6 @@ public interface TeamsAPIClientInterface {
   ): Cancelable
 
   /**
-   *  为故事角色生成视频
-   */
-  public suspend fun generateStoryRoleVideo(request: GenerateStoryRoleVideoRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStoryRoleVideoResponse>
-
-  /**
-   *  为故事角色生成视频
-   */
-  public fun generateStoryRoleVideo(
-    request: GenerateStoryRoleVideoRequest,
-    headers: Headers = emptyMap(),
-    onResult: (ResponseMessage<GenerateStoryRoleVideoResponse>) -> Unit,
-  ): Cancelable
-
-  /**
    *  为故事场景生成视频
    */
   public suspend fun generateStorySceneVideo(request: GenerateStorySceneVideoRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStorySceneVideoResponse>
@@ -1899,5 +1885,19 @@ public interface TeamsAPIClientInterface {
     request: GetStoryRolePosterListRequest,
     headers: Headers = emptyMap(),
     onResult: (ResponseMessage<GetStoryRolePosterListResponse>) -> Unit,
+  ): Cancelable
+
+  /**
+   *  为故事角色生成视频
+   */
+  public suspend fun generateStoryRoleVideo(request: GenerateStoryRoleVideoRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStoryRoleVideoResponse>
+
+  /**
+   *  为故事角色生成视频
+   */
+  public fun generateStoryRoleVideo(
+    request: GenerateStoryRoleVideoRequest,
+    headers: Headers = emptyMap(),
+    onResult: (ResponseMessage<GenerateStoryRoleVideoResponse>) -> Unit,
   ): Cancelable
 }

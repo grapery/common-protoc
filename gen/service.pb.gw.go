@@ -4437,40 +4437,6 @@ func local_request_TeamsAPI_GetStoryParticipants_0(ctx context.Context, marshale
 
 }
 
-func request_TeamsAPI_GenerateStoryRoleVideo_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GenerateStoryRoleVideoRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.GenerateStoryRoleVideo(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_TeamsAPI_GenerateStoryRoleVideo_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GenerateStoryRoleVideoRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.GenerateStoryRoleVideo(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 func request_TeamsAPI_GenerateStorySceneVideo_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GenerateStorySceneVideoRequest
 	var metadata runtime.ServerMetadata
@@ -4739,6 +4705,40 @@ func local_request_TeamsAPI_GetStoryRolePosterList_0(ctx context.Context, marsha
 	}
 
 	msg, err := server.GetStoryRolePosterList(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+func request_TeamsAPI_GenerateStoryRoleVideo_0(ctx context.Context, marshaler runtime.Marshaler, client TeamsAPIClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GenerateStoryRoleVideoRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.GenerateStoryRoleVideo(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_TeamsAPI_GenerateStoryRoleVideo_0(ctx context.Context, marshaler runtime.Marshaler, server TeamsAPIServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GenerateStoryRoleVideoRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.GenerateStoryRoleVideo(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -8024,31 +8024,6 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 
 	})
 
-	mux.Handle("POST", pattern_TeamsAPI_GenerateStoryRoleVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
 	mux.Handle("POST", pattern_TeamsAPI_GenerateStorySceneVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -8246,6 +8221,31 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		}
 
 		forward_TeamsAPI_GetStoryRolePosterList_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_TeamsAPI_GenerateStoryRoleVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -11172,28 +11172,6 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 
 	})
 
-	mux.Handle("POST", pattern_TeamsAPI_GenerateStoryRoleVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		var err error
-		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, inboundMarshaler, client, req, pathParams)
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
 	mux.Handle("POST", pattern_TeamsAPI_GenerateStorySceneVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -11367,6 +11345,28 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		}
 
 		forward_TeamsAPI_GetStoryRolePosterList_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_TeamsAPI_GenerateStoryRoleVideo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_TeamsAPI_GenerateStoryRoleVideo_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -11636,8 +11636,6 @@ var (
 
 	pattern_TeamsAPI_GetStoryParticipants_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GetStoryParticipants"}, ""))
 
-	pattern_TeamsAPI_GenerateStoryRoleVideo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GenerateStoryRoleVideo"}, ""))
-
 	pattern_TeamsAPI_GenerateStorySceneVideo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GenerateStorySceneVideo"}, ""))
 
 	pattern_TeamsAPI_GenerateRoleAvatar_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GenerateRoleAvatar"}, ""))
@@ -11653,6 +11651,8 @@ var (
 	pattern_TeamsAPI_UnLikeStoryRolePoster_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "UnLikeStoryRolePoster"}, ""))
 
 	pattern_TeamsAPI_GetStoryRolePosterList_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GetStoryRolePosterList"}, ""))
+
+	pattern_TeamsAPI_GenerateStoryRoleVideo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"common.TeamsAPI", "GenerateStoryRoleVideo"}, ""))
 )
 
 var (
@@ -11918,8 +11918,6 @@ var (
 
 	forward_TeamsAPI_GetStoryParticipants_0 = runtime.ForwardResponseMessage
 
-	forward_TeamsAPI_GenerateStoryRoleVideo_0 = runtime.ForwardResponseMessage
-
 	forward_TeamsAPI_GenerateStorySceneVideo_0 = runtime.ForwardResponseMessage
 
 	forward_TeamsAPI_GenerateRoleAvatar_0 = runtime.ForwardResponseMessage
@@ -11935,4 +11933,6 @@ var (
 	forward_TeamsAPI_UnLikeStoryRolePoster_0 = runtime.ForwardResponseMessage
 
 	forward_TeamsAPI_GetStoryRolePosterList_0 = runtime.ForwardResponseMessage
+
+	forward_TeamsAPI_GenerateStoryRoleVideo_0 = runtime.ForwardResponseMessage
 )

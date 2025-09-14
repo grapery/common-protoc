@@ -381,9 +381,6 @@ const (
 	// TeamsAPIGetStoryParticipantsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryParticipants RPC.
 	TeamsAPIGetStoryParticipantsProcedure = "/common.TeamsAPI/GetStoryParticipants"
-	// TeamsAPIGenerateStoryRoleVideoProcedure is the fully-qualified name of the TeamsAPI's
-	// GenerateStoryRoleVideo RPC.
-	TeamsAPIGenerateStoryRoleVideoProcedure = "/common.TeamsAPI/GenerateStoryRoleVideo"
 	// TeamsAPIGenerateStorySceneVideoProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateStorySceneVideo RPC.
 	TeamsAPIGenerateStorySceneVideoProcedure = "/common.TeamsAPI/GenerateStorySceneVideo"
@@ -408,6 +405,9 @@ const (
 	// TeamsAPIGetStoryRolePosterListProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryRolePosterList RPC.
 	TeamsAPIGetStoryRolePosterListProcedure = "/common.TeamsAPI/GetStoryRolePosterList"
+	// TeamsAPIGenerateStoryRoleVideoProcedure is the fully-qualified name of the TeamsAPI's
+	// GenerateStoryRoleVideo RPC.
+	TeamsAPIGenerateStoryRoleVideoProcedure = "/common.TeamsAPI/GenerateStoryRoleVideo"
 )
 
 // TeamsAPIClient is a client for the common.TeamsAPI service.
@@ -667,8 +667,6 @@ type TeamsAPIClient interface {
 	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
 	// 获取故事参与者，参与故事版创建
 	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
-	// 为故事角色生成视频
-	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
@@ -680,6 +678,8 @@ type TeamsAPIClient interface {
 	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
 	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
+	// 为故事角色生成视频
+	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
@@ -1347,11 +1347,6 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIGetStoryParticipantsProcedure,
 			opts...,
 		),
-		generateStoryRoleVideo: connect_go.NewClient[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse](
-			httpClient,
-			baseURL+TeamsAPIGenerateStoryRoleVideoProcedure,
-			opts...,
-		),
 		generateStorySceneVideo: connect_go.NewClient[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateStorySceneVideoProcedure,
@@ -1390,6 +1385,11 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 		getStoryRolePosterList: connect_go.NewClient[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRolePosterListProcedure,
+			opts...,
+		),
+		generateStoryRoleVideo: connect_go.NewClient[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse](
+			httpClient,
+			baseURL+TeamsAPIGenerateStoryRoleVideoProcedure,
 			opts...,
 		),
 	}
@@ -1528,7 +1528,6 @@ type teamsAPIClient struct {
 	updateStoryCover                   *connect_go.Client[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse]
 	saveStoryboardCraft                *connect_go.Client[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse]
 	getStoryParticipants               *connect_go.Client[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse]
-	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
 	generateStorySceneVideo            *connect_go.Client[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse]
 	generateRoleAvatar                 *connect_go.Client[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse]
 	fetchUserGenTaskStatus             *connect_go.Client[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse]
@@ -1537,6 +1536,7 @@ type teamsAPIClient struct {
 	likeStoryRolePoster                *connect_go.Client[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse]
 	unLikeStoryRolePoster              *connect_go.Client[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse]
 	getStoryRolePosterList             *connect_go.Client[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse]
+	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
 }
 
 // Explore calls common.TeamsAPI.Explore.
@@ -2194,11 +2194,6 @@ func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, req *connect_
 	return c.getStoryParticipants.CallUnary(ctx, req)
 }
 
-// GenerateStoryRoleVideo calls common.TeamsAPI.GenerateStoryRoleVideo.
-func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
-	return c.generateStoryRoleVideo.CallUnary(ctx, req)
-}
-
 // GenerateStorySceneVideo calls common.TeamsAPI.GenerateStorySceneVideo.
 func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
 	return c.generateStorySceneVideo.CallUnary(ctx, req)
@@ -2237,6 +2232,11 @@ func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, req *connect
 // GetStoryRolePosterList calls common.TeamsAPI.GetStoryRolePosterList.
 func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, req *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
 	return c.getStoryRolePosterList.CallUnary(ctx, req)
+}
+
+// GenerateStoryRoleVideo calls common.TeamsAPI.GenerateStoryRoleVideo.
+func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
+	return c.generateStoryRoleVideo.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the common.TeamsAPI service.
@@ -2496,8 +2496,6 @@ type TeamsAPIHandler interface {
 	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
 	// 获取故事参与者，参与故事版创建
 	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
-	// 为故事角色生成视频
-	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
@@ -2509,6 +2507,8 @@ type TeamsAPIHandler interface {
 	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
 	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
+	// 为故事角色生成视频
+	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3172,11 +3172,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.GetStoryParticipants,
 		opts...,
 	)
-	teamsAPIGenerateStoryRoleVideoHandler := connect_go.NewUnaryHandler(
-		TeamsAPIGenerateStoryRoleVideoProcedure,
-		svc.GenerateStoryRoleVideo,
-		opts...,
-	)
 	teamsAPIGenerateStorySceneVideoHandler := connect_go.NewUnaryHandler(
 		TeamsAPIGenerateStorySceneVideoProcedure,
 		svc.GenerateStorySceneVideo,
@@ -3215,6 +3210,11 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 	teamsAPIGetStoryRolePosterListHandler := connect_go.NewUnaryHandler(
 		TeamsAPIGetStoryRolePosterListProcedure,
 		svc.GetStoryRolePosterList,
+		opts...,
+	)
+	teamsAPIGenerateStoryRoleVideoHandler := connect_go.NewUnaryHandler(
+		TeamsAPIGenerateStoryRoleVideoProcedure,
+		svc.GenerateStoryRoleVideo,
 		opts...,
 	)
 	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -3481,8 +3481,6 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPISaveStoryboardCraftHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryParticipantsProcedure:
 			teamsAPIGetStoryParticipantsHandler.ServeHTTP(w, r)
-		case TeamsAPIGenerateStoryRoleVideoProcedure:
-			teamsAPIGenerateStoryRoleVideoHandler.ServeHTTP(w, r)
 		case TeamsAPIGenerateStorySceneVideoProcedure:
 			teamsAPIGenerateStorySceneVideoHandler.ServeHTTP(w, r)
 		case TeamsAPIGenerateRoleAvatarProcedure:
@@ -3499,6 +3497,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIUnLikeStoryRolePosterHandler.ServeHTTP(w, r)
 		case TeamsAPIGetStoryRolePosterListProcedure:
 			teamsAPIGetStoryRolePosterListHandler.ServeHTTP(w, r)
+		case TeamsAPIGenerateStoryRoleVideoProcedure:
+			teamsAPIGenerateStoryRoleVideoHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4032,10 +4032,6 @@ func (UnimplementedTeamsAPIHandler) GetStoryParticipants(context.Context, *conne
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryParticipants is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
-}
-
 func (UnimplementedTeamsAPIHandler) GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStorySceneVideo is not implemented"))
 }
@@ -4066,4 +4062,8 @@ func (UnimplementedTeamsAPIHandler) UnLikeStoryRolePoster(context.Context, *conn
 
 func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRolePosterList is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
 }

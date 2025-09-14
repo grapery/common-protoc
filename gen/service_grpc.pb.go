@@ -150,7 +150,6 @@ const (
 	TeamsAPI_UpdateStoryCover_FullMethodName                   = "/common.TeamsAPI/UpdateStoryCover"
 	TeamsAPI_SaveStoryboardCraft_FullMethodName                = "/common.TeamsAPI/SaveStoryboardCraft"
 	TeamsAPI_GetStoryParticipants_FullMethodName               = "/common.TeamsAPI/GetStoryParticipants"
-	TeamsAPI_GenerateStoryRoleVideo_FullMethodName             = "/common.TeamsAPI/GenerateStoryRoleVideo"
 	TeamsAPI_GenerateStorySceneVideo_FullMethodName            = "/common.TeamsAPI/GenerateStorySceneVideo"
 	TeamsAPI_GenerateRoleAvatar_FullMethodName                 = "/common.TeamsAPI/GenerateRoleAvatar"
 	TeamsAPI_FetchUserGenTaskStatus_FullMethodName             = "/common.TeamsAPI/FetchUserGenTaskStatus"
@@ -159,6 +158,7 @@ const (
 	TeamsAPI_LikeStoryRolePoster_FullMethodName                = "/common.TeamsAPI/LikeStoryRolePoster"
 	TeamsAPI_UnLikeStoryRolePoster_FullMethodName              = "/common.TeamsAPI/UnLikeStoryRolePoster"
 	TeamsAPI_GetStoryRolePosterList_FullMethodName             = "/common.TeamsAPI/GetStoryRolePosterList"
+	TeamsAPI_GenerateStoryRoleVideo_FullMethodName             = "/common.TeamsAPI/GenerateStoryRoleVideo"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -420,8 +420,6 @@ type TeamsAPIClient interface {
 	SaveStoryboardCraft(ctx context.Context, in *SaveStoryboardCraftRequest, opts ...grpc.CallOption) (*SaveStoryboardCraftResponse, error)
 	// 获取故事参与者，参与故事版创建
 	GetStoryParticipants(ctx context.Context, in *GetStoryParticipantsRequest, opts ...grpc.CallOption) (*GetStoryParticipantsResponse, error)
-	// 为故事角色生成视频
-	GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(ctx context.Context, in *GenerateStorySceneVideoRequest, opts ...grpc.CallOption) (*GenerateStorySceneVideoResponse, error)
 	GenerateRoleAvatar(ctx context.Context, in *GenerateRoleAvatarRequest, opts ...grpc.CallOption) (*GenerateRoleAvatarResponse, error)
@@ -433,6 +431,8 @@ type TeamsAPIClient interface {
 	LikeStoryRolePoster(ctx context.Context, in *LikeStoryRolePosterRequest, opts ...grpc.CallOption) (*LikeStoryRolePosterResponse, error)
 	UnLikeStoryRolePoster(ctx context.Context, in *UnLikeStoryRolePosterRequest, opts ...grpc.CallOption) (*UnLikeStoryRolePosterResponse, error)
 	GetStoryRolePosterList(ctx context.Context, in *GetStoryRolePosterListRequest, opts ...grpc.CallOption) (*GetStoryRolePosterListResponse, error)
+	// 为故事角色生成视频
+	GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1622,15 +1622,6 @@ func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, in *GetStoryP
 	return out, nil
 }
 
-func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error) {
-	out := new(GenerateStoryRoleVideoResponse)
-	err := c.cc.Invoke(ctx, TeamsAPI_GenerateStoryRoleVideo_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, in *GenerateStorySceneVideoRequest, opts ...grpc.CallOption) (*GenerateStorySceneVideoResponse, error) {
 	out := new(GenerateStorySceneVideoResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GenerateStorySceneVideo_FullMethodName, in, out, opts...)
@@ -1697,6 +1688,15 @@ func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, in *UnLikeSt
 func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, in *GetStoryRolePosterListRequest, opts ...grpc.CallOption) (*GetStoryRolePosterListResponse, error) {
 	out := new(GetStoryRolePosterListResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryRolePosterList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error) {
+	out := new(GenerateStoryRoleVideoResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GenerateStoryRoleVideo_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1962,8 +1962,6 @@ type TeamsAPIServer interface {
 	SaveStoryboardCraft(context.Context, *SaveStoryboardCraftRequest) (*SaveStoryboardCraftResponse, error)
 	// 获取故事参与者，参与故事版创建
 	GetStoryParticipants(context.Context, *GetStoryParticipantsRequest) (*GetStoryParticipantsResponse, error)
-	// 为故事角色生成视频
-	GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error)
 	// 为故事场景生成视频
 	GenerateStorySceneVideo(context.Context, *GenerateStorySceneVideoRequest) (*GenerateStorySceneVideoResponse, error)
 	GenerateRoleAvatar(context.Context, *GenerateRoleAvatarRequest) (*GenerateRoleAvatarResponse, error)
@@ -1975,6 +1973,8 @@ type TeamsAPIServer interface {
 	LikeStoryRolePoster(context.Context, *LikeStoryRolePosterRequest) (*LikeStoryRolePosterResponse, error)
 	UnLikeStoryRolePoster(context.Context, *UnLikeStoryRolePosterRequest) (*UnLikeStoryRolePosterResponse, error)
 	GetStoryRolePosterList(context.Context, *GetStoryRolePosterListRequest) (*GetStoryRolePosterListResponse, error)
+	// 为故事角色生成视频
+	GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2375,9 +2375,6 @@ func (UnimplementedTeamsAPIServer) SaveStoryboardCraft(context.Context, *SaveSto
 func (UnimplementedTeamsAPIServer) GetStoryParticipants(context.Context, *GetStoryParticipantsRequest) (*GetStoryParticipantsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryParticipants not implemented")
 }
-func (UnimplementedTeamsAPIServer) GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateStoryRoleVideo not implemented")
-}
 func (UnimplementedTeamsAPIServer) GenerateStorySceneVideo(context.Context, *GenerateStorySceneVideoRequest) (*GenerateStorySceneVideoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateStorySceneVideo not implemented")
 }
@@ -2401,6 +2398,9 @@ func (UnimplementedTeamsAPIServer) UnLikeStoryRolePoster(context.Context, *UnLik
 }
 func (UnimplementedTeamsAPIServer) GetStoryRolePosterList(context.Context, *GetStoryRolePosterListRequest) (*GetStoryRolePosterListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStoryRolePosterList not implemented")
+}
+func (UnimplementedTeamsAPIServer) GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateStoryRoleVideo not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4773,24 +4773,6 @@ func _TeamsAPI_GetStoryParticipants_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TeamsAPI_GenerateStoryRoleVideo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GenerateStoryRoleVideoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TeamsAPIServer).GenerateStoryRoleVideo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TeamsAPI_GenerateStoryRoleVideo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TeamsAPIServer).GenerateStoryRoleVideo(ctx, req.(*GenerateStoryRoleVideoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _TeamsAPI_GenerateStorySceneVideo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenerateStorySceneVideoRequest)
 	if err := dec(in); err != nil {
@@ -4931,6 +4913,24 @@ func _TeamsAPI_GetStoryRolePosterList_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TeamsAPIServer).GetStoryRolePosterList(ctx, req.(*GetStoryRolePosterListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GenerateStoryRoleVideo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateStoryRoleVideoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GenerateStoryRoleVideo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GenerateStoryRoleVideo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GenerateStoryRoleVideo(ctx, req.(*GenerateStoryRoleVideoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5467,10 +5467,6 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TeamsAPI_GetStoryParticipants_Handler,
 		},
 		{
-			MethodName: "GenerateStoryRoleVideo",
-			Handler:    _TeamsAPI_GenerateStoryRoleVideo_Handler,
-		},
-		{
 			MethodName: "GenerateStorySceneVideo",
 			Handler:    _TeamsAPI_GenerateStorySceneVideo_Handler,
 		},
@@ -5501,6 +5497,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStoryRolePosterList",
 			Handler:    _TeamsAPI_GetStoryRolePosterList_Handler,
+		},
+		{
+			MethodName: "GenerateStoryRoleVideo",
+			Handler:    _TeamsAPI_GenerateStoryRoleVideo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

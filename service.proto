@@ -1703,14 +1703,6 @@ service TeamsAPI {
     };
   }
 
-  // 为故事角色生成视频
-  rpc GenerateStoryRoleVideo(GenerateStoryRoleVideoRequest) returns (GenerateStoryRoleVideoResponse) {
-    option (google.api.http) = {
-      post : "/common.TeamsAPI/GenerateStoryRoleVideo"
-      body : "*"
-    };
-  }
-
   // 为故事场景生成视频
   rpc GenerateStorySceneVideo(GenerateStorySceneVideoRequest) returns (GenerateStorySceneVideoResponse) {
     option (google.api.http) = {
@@ -1766,6 +1758,14 @@ service TeamsAPI {
   rpc GetStoryRolePosterList(GetStoryRolePosterListRequest) returns (GetStoryRolePosterListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryRolePosterList"
+      body : "*"
+    };
+  }
+
+  // 为故事角色生成视频
+  rpc GenerateStoryRoleVideo(GenerateStoryRoleVideoRequest) returns (GenerateStoryRoleVideoResponse) {
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GenerateStoryRoleVideo"
       body : "*"
     };
   }
@@ -1924,9 +1924,13 @@ message GenerateStoryRoleVideoRequest {
   int64 story_id = 1;
   int64 role_id = 2;
   int64 user_id = 3;
-  string ref_background_url = 4;
-  string ref_avatar_url = 5;
-  string description = 6;
+  int64 poster_id = 4;
+  string ref_background_url = 5;
+  string ref_avatar_url = 6;
+  string text_prompt = 7;
+
+  ImageRatios image_ratios = 8;
+  string style = 9;
 }
 
 message GenerateStoryRoleVideoTaskDetail {
@@ -2048,11 +2052,10 @@ message UpdateStoryRoleDescriptionDetailResponse {
 
 message GenerateStoryRoleParams{
   string origin_image_url = 1;
-  string text_prompt = 2;
-  string negative_prompt = 3;
-  int64 seed = 4;
-  int64 steps = 5;
-  int64 guidance_scale = 6;
+  repeated string additional_image_urls = 2;
+  string text_prompt = 3;
+  string negative_prompt = 4;
+  string style = 5;
 }
 
 message GenerateStoryRolePosterRequest {
@@ -2073,11 +2076,13 @@ message UpdateStoryRolePosterRequest {
   int64 role_id = 2;
   int64 user_id = 3;
   string image_url = 4;
+  bool is_public = 5;
 }
 
 message UpdateStoryRolePosterResponse {
   ResponseCode code = 1;
   string message = 2;
+  int64 poster_id = 3;
 }
 
 message GetFollowListRequest {

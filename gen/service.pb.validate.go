@@ -12516,11 +12516,17 @@ func (m *GenerateStoryRoleVideoRequest) validate(all bool) error {
 
 	// no validation rules for UserId
 
+	// no validation rules for PosterId
+
 	// no validation rules for RefBackgroundUrl
 
 	// no validation rules for RefAvatarUrl
 
-	// no validation rules for Description
+	// no validation rules for TextPrompt
+
+	// no validation rules for ImageRatios
+
+	// no validation rules for Style
 
 	if len(errors) > 0 {
 		return GenerateStoryRoleVideoRequestMultiError(errors)
@@ -14827,11 +14833,7 @@ func (m *GenerateStoryRoleParams) validate(all bool) error {
 
 	// no validation rules for NegativePrompt
 
-	// no validation rules for Seed
-
-	// no validation rules for Steps
-
-	// no validation rules for GuidanceScale
+	// no validation rules for Style
 
 	if len(errors) > 0 {
 		return GenerateStoryRoleParamsMultiError(errors)
@@ -15190,6 +15192,8 @@ func (m *UpdateStoryRolePosterRequest) validate(all bool) error {
 
 	// no validation rules for ImageUrl
 
+	// no validation rules for IsPublic
+
 	if len(errors) > 0 {
 		return UpdateStoryRolePosterRequestMultiError(errors)
 	}
@@ -15296,6 +15300,8 @@ func (m *UpdateStoryRolePosterResponse) validate(all bool) error {
 	// no validation rules for Code
 
 	// no validation rules for Message
+
+	// no validation rules for PosterId
 
 	if len(errors) > 0 {
 		return UpdateStoryRolePosterResponseMultiError(errors)

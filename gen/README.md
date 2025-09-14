@@ -6336,11 +6336,10 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | origin_image_url | [string](#string) |  |  |
+| additional_image_urls | [string](#string) | repeated |  |
 | text_prompt | [string](#string) |  |  |
 | negative_prompt | [string](#string) |  |  |
-| seed | [int64](#int64) |  |  |
-| steps | [int64](#int64) |  |  |
-| guidance_scale | [int64](#int64) |  |  |
+| style | [string](#string) |  |  |
 
 
 
@@ -6393,9 +6392,12 @@ UpdateStoryResponse 更新故事的响应结果
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
+| poster_id | [int64](#int64) |  |  |
 | ref_background_url | [string](#string) |  |  |
 | ref_avatar_url | [string](#string) |  |  |
-| description | [string](#string) |  |  |
+| text_prompt | [string](#string) |  |  |
+| image_ratios | [ImageRatios](#common-ImageRatios) |  |  |
+| style | [string](#string) |  |  |
 
 
 
@@ -9558,6 +9560,7 @@ UpdateStoryResponse 更新故事的响应结果
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | image_url | [string](#string) |  |  |
+| is_public | [bool](#bool) |  |  |
 
 
 
@@ -9574,6 +9577,7 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
+| poster_id | [int64](#int64) |  |  |
 
 
 
@@ -10354,7 +10358,6 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UpdateStoryCover | [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse) | 更新故事封面 |
 | SaveStoryboardCraft | [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse) | 保存故事板草稿 |
 | GetStoryParticipants | [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
-| GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
 | GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
 | GenerateRoleAvatar | [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse) |  |
 | FetchUserGenTaskStatus | [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest) | [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse) |  |
@@ -10363,6 +10366,7 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | LikeStoryRolePoster | [LikeStoryRolePosterRequest](#common-LikeStoryRolePosterRequest) | [LikeStoryRolePosterResponse](#common-LikeStoryRolePosterResponse) |  |
 | UnLikeStoryRolePoster | [UnLikeStoryRolePosterRequest](#common-UnLikeStoryRolePosterRequest) | [UnLikeStoryRolePosterResponse](#common-UnLikeStoryRolePosterResponse) |  |
 | GetStoryRolePosterList | [GetStoryRolePosterListRequest](#common-GetStoryRolePosterListRequest) | [GetStoryRolePosterListResponse](#common-GetStoryRolePosterListResponse) |  |
+| GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
 
  
 
