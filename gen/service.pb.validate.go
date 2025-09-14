@@ -15081,6 +15081,8 @@ func (m *GenerateStoryRolePosterResponse) validate(all bool) error {
 
 	// no validation rules for ImageUrl
 
+	// no validation rules for PosterId
+
 	if len(errors) > 0 {
 		return GenerateStoryRolePosterResponseMultiError(errors)
 	}
@@ -15189,6 +15191,8 @@ func (m *UpdateStoryRolePosterRequest) validate(all bool) error {
 	// no validation rules for RoleId
 
 	// no validation rules for UserId
+
+	// no validation rules for PosterId
 
 	// no validation rules for ImageUrl
 

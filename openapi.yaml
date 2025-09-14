@@ -4520,6 +4520,8 @@ components:
                     type: string
                 imageUrl:
                     type: string
+                posterId:
+                    type: string
         GenerateStoryRoleVideoRequest:
             type: object
             properties:
@@ -7580,6 +7582,8 @@ components:
                 roleId:
                     type: string
                 userId:
+                    type: string
+                posterId:
                     type: string
                 imageUrl:
                     type: string

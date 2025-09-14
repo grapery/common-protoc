@@ -2069,14 +2069,16 @@ message GenerateStoryRolePosterResponse {
   ResponseCode code = 1;
   string message = 2;
   string image_url = 3;
+  int64 poster_id = 4;
 }
 
 message UpdateStoryRolePosterRequest {
   int64 story_id = 1;
   int64 role_id = 2;
   int64 user_id = 3;
-  string image_url = 4;
-  bool is_public = 5;
+  int64 poster_id = 4;
+  string image_url = 5;
+  bool is_public = 6;
 }
 
 message UpdateStoryRolePosterResponse {

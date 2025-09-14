@@ -6375,6 +6375,7 @@ UpdateStoryResponse 更新故事的响应结果
 | code | [ResponseCode](#common-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | image_url | [string](#string) |  |  |
+| poster_id | [int64](#int64) |  |  |
 
 
 
@@ -9559,6 +9560,7 @@ UpdateStoryResponse 更新故事的响应结果
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
+| poster_id | [int64](#int64) |  |  |
 | image_url | [string](#string) |  |  |
 | is_public | [bool](#bool) |  |  |
 
