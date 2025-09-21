@@ -26,21 +26,19 @@ plugins:
       - GenerateAsyncMethods=true
       - GenerateCallbackMethods=true
       - Visibility=Public
-    out: Generated
+    out: ios
   - plugin: buf.build/apple/swift:v1.31.0
     opt:
       - Visibility=Public
-    out: Generated
+    out: ios
   - plugin: buf.build/community/pseudomuto-doc:v1.5.1
     out: gen
     opt:
       - markdown,README.md,source_relative
   - plugin: buf.build/connectrpc/kotlin
-    opt:
-      - GenerateAsyncMethods=true
-      - GenerateCallbackMethods=true
-      - Visibility=Public
-    out: Android
+    out: android
+  - plugin: buf.build/protocolbuffers/java:v32.1
+    out: android
   - plugin: buf.build/bufbuild/validate-go
     opt:
       - paths=source_relative

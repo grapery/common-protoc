@@ -9,8 +9,6 @@ import com.connectrpc.MethodSpec
 import com.connectrpc.ProtocolClientInterface
 import com.connectrpc.ResponseMessage
 import com.connectrpc.StreamType
-import com.connectrpc.http.Cancelable
-import kotlin.Unit
 
 /**
  *  TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
@@ -34,26 +32,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  Explore returns trending and recommended content for users to discover
-   */
-  override fun explore(
-    request: ExploreRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ExploreResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/Explore",
-      com.rankquantity.voyager.api.ExploreRequest::class,
-      com.rankquantity.voyager.api.ExploreResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  Version returns the current API version and build information
    */
   override suspend fun version(request: VersionRequest, headers: Headers): ResponseMessage<VersionResponse> = client.unary(
@@ -65,26 +43,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.VersionResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  Version returns the current API version and build information
-   */
-  override fun version(
-    request: VersionRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<VersionResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/Version",
-      com.rankquantity.voyager.api.VersionRequest::class,
-      com.rankquantity.voyager.api.VersionResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -104,26 +62,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  About returns information about the service
-   */
-  override fun about(
-    request: AboutRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<AboutResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/About",
-      com.rankquantity.voyager.api.AboutRequest::class,
-      com.rankquantity.voyager.api.AboutResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  Login authenticates a user and returns a session token
    */
   override suspend fun login(request: LoginRequest, headers: Headers): ResponseMessage<LoginResponse> = client.unary(
@@ -135,26 +73,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.LoginResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  Login authenticates a user and returns a session token
-   */
-  override fun login(
-    request: LoginRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LoginResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/Login",
-      com.rankquantity.voyager.api.LoginRequest::class,
-      com.rankquantity.voyager.api.LoginResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -174,26 +92,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  Logout invalidates the user's current session token
-   */
-  override fun logout(
-    request: LogoutRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LogoutResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/Logout",
-      com.rankquantity.voyager.api.LogoutRequest::class,
-      com.rankquantity.voyager.api.LogoutResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  RefreshToken generates a new session token using the current valid token
    */
   override suspend fun refreshToken(request: RefreshTokenRequest, headers: Headers): ResponseMessage<RefreshTokenResponse> = client.unary(
@@ -205,26 +103,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.RefreshTokenResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  RefreshToken generates a new session token using the current valid token
-   */
-  override fun refreshToken(
-    request: RefreshTokenRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RefreshTokenResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RefreshToken",
-      com.rankquantity.voyager.api.RefreshTokenRequest::class,
-      com.rankquantity.voyager.api.RefreshTokenResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -244,26 +122,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  Register creates a new user account
-   */
-  override fun register(
-    request: RegisterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RegisterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/Register",
-      com.rankquantity.voyager.api.RegisterRequest::class,
-      com.rankquantity.voyager.api.RegisterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  ResetPwd allows users to reset their password
    */
   override suspend fun resetPwd(request: ResetPasswordRequest, headers: Headers): ResponseMessage<ResetPasswordResponse> = client.unary(
@@ -275,26 +133,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.ResetPasswordResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  ResetPwd allows users to reset their password
-   */
-  override fun resetPwd(
-    request: ResetPasswordRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ResetPasswordResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ResetPwd",
-      com.rankquantity.voyager.api.ResetPasswordRequest::class,
-      com.rankquantity.voyager.api.ResetPasswordResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -314,26 +152,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  UserInit performs initial setup for a new user
-   */
-  override fun userInit(
-    request: UserInitRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserInitResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserInit",
-      com.rankquantity.voyager.api.UserInitRequest::class,
-      com.rankquantity.voyager.api.UserInitResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  UserInfo retrieves detailed information about a user
    */
   override suspend fun userInfo(request: UserInfoRequest, headers: Headers): ResponseMessage<UserInfoResponse> = client.unary(
@@ -345,26 +163,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UserInfoResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  UserInfo retrieves detailed information about a user
-   */
-  override fun userInfo(
-    request: UserInfoRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserInfoResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserInfo",
-      com.rankquantity.voyager.api.UserInfoRequest::class,
-      com.rankquantity.voyager.api.UserInfoResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -384,26 +182,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  UpdateUserAvator updates the user's profile picture
-   */
-  override fun updateUserAvator(
-    request: UpdateUserAvatorRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateUserAvatorResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateUserAvator",
-      com.rankquantity.voyager.api.UpdateUserAvatorRequest::class,
-      com.rankquantity.voyager.api.UpdateUserAvatorResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  UserWatching returns a list of projects the user is following
    */
   override suspend fun userWatching(request: UserWatchingRequest, headers: Headers): ResponseMessage<UserWatchingResponse> = client.unary(
@@ -415,26 +193,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UserWatchingResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  UserWatching returns a list of projects the user is following
-   */
-  override fun userWatching(
-    request: UserWatchingRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserWatchingResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserWatching",
-      com.rankquantity.voyager.api.UserWatchingRequest::class,
-      com.rankquantity.voyager.api.UserWatchingResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -454,26 +212,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  UserGroup returns a list of groups the user belongs to
-   */
-  override fun userGroup(
-    request: UserGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserGroup",
-      com.rankquantity.voyager.api.UserGroupRequest::class,
-      com.rankquantity.voyager.api.UserGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  UserFollowingGroup returns a list of groups the user is following
    */
   override suspend fun userFollowingGroup(request: UserFollowingGroupRequest, headers: Headers): ResponseMessage<UserFollowingGroupResponse> = client.unary(
@@ -485,26 +223,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UserFollowingGroupResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  UserFollowingGroup returns a list of groups the user is following
-   */
-  override fun userFollowingGroup(
-    request: UserFollowingGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserFollowingGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserFollowingGroup",
-      com.rankquantity.voyager.api.UserFollowingGroupRequest::class,
-      com.rankquantity.voyager.api.UserFollowingGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -524,26 +242,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  UserUpdate updates the user's profile information
-   */
-  override fun userUpdate(
-    request: UserUpdateRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UserUpdateResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UserUpdate",
-      com.rankquantity.voyager.api.UserUpdateRequest::class,
-      com.rankquantity.voyager.api.UserUpdateResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  SearchUser searches for users based on specified criteria
    */
   override suspend fun searchUser(request: SearchUserRequest, headers: Headers): ResponseMessage<SearchUserResponse> = client.unary(
@@ -555,26 +253,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.SearchUserResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  SearchUser searches for users based on specified criteria
-   */
-  override fun searchUser(
-    request: SearchUserRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<SearchUserResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/SearchUser",
-      com.rankquantity.voyager.api.SearchUserRequest::class,
-      com.rankquantity.voyager.api.SearchUserResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -594,26 +272,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  CreateGroup creates a new group
-   */
-  override fun createGroup(
-    request: CreateGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateGroup",
-      com.rankquantity.voyager.api.CreateGroupRequest::class,
-      com.rankquantity.voyager.api.CreateGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  GetGroup retrieves information about a specific group
    */
   override suspend fun getGroup(request: GetGroupRequest, headers: Headers): ResponseMessage<GetGroupResponse> = client.unary(
@@ -625,26 +283,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetGroupResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  GetGroup retrieves information about a specific group
-   */
-  override fun getGroup(
-    request: GetGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetGroup",
-      com.rankquantity.voyager.api.GetGroupRequest::class,
-      com.rankquantity.voyager.api.GetGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -664,26 +302,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  GetGroupActives returns recent activities within a group
-   */
-  override fun getGroupActives(
-    request: GetGroupActivesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetGroupActivesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetGroupActives",
-      com.rankquantity.voyager.api.GetGroupActivesRequest::class,
-      com.rankquantity.voyager.api.GetGroupActivesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  UpdateGroupInfo updates the group's information
    */
   override suspend fun updateGroupInfo(request: UpdateGroupInfoRequest, headers: Headers): ResponseMessage<UpdateGroupInfoResponse> = client.unary(
@@ -695,26 +313,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateGroupInfoResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  UpdateGroupInfo updates the group's information
-   */
-  override fun updateGroupInfo(
-    request: UpdateGroupInfoRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateGroupInfoResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo",
-      com.rankquantity.voyager.api.UpdateGroupInfoRequest::class,
-      com.rankquantity.voyager.api.UpdateGroupInfoResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -734,26 +332,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  GetGroupProfile retrieves the group's profile information
-   */
-  override fun getGroupProfile(
-    request: GetGroupProfileRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetGroupProfileResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetGroupProfile",
-      com.rankquantity.voyager.api.GetGroupProfileRequest::class,
-      com.rankquantity.voyager.api.GetGroupProfileResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  UpdateGroupProfile updates the group's profile information
    */
   override suspend fun updateGroupProfile(request: UpdateGroupProfileRequest, headers: Headers): ResponseMessage<UpdateGroupProfileResponse> = client.unary(
@@ -765,26 +343,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateGroupProfileResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  UpdateGroupProfile updates the group's profile information
-   */
-  override fun updateGroupProfile(
-    request: UpdateGroupProfileRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateGroupProfileResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile",
-      com.rankquantity.voyager.api.UpdateGroupProfileRequest::class,
-      com.rankquantity.voyager.api.UpdateGroupProfileResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -804,26 +362,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  DeleteGroup removes a group
-   */
-  override fun deleteGroup(
-    request: DeleteGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DeleteGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DeleteGroup",
-      com.rankquantity.voyager.api.DeleteGroupRequest::class,
-      com.rankquantity.voyager.api.DeleteGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  FetchGroupMembers retrieves the list of members in a group
    */
   override suspend fun fetchGroupMembers(request: FetchGroupMembersRequest, headers: Headers): ResponseMessage<FetchGroupMembersResponse> = client.unary(
@@ -835,26 +373,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.FetchGroupMembersResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  FetchGroupMembers retrieves the list of members in a group
-   */
-  override fun fetchGroupMembers(
-    request: FetchGroupMembersRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FetchGroupMembersResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FetchGroupMembers",
-      com.rankquantity.voyager.api.FetchGroupMembersRequest::class,
-      com.rankquantity.voyager.api.FetchGroupMembersResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -874,26 +392,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  JoinGroup adds a user to a group
-   */
-  override fun joinGroup(
-    request: JoinGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<JoinGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/JoinGroup",
-      com.rankquantity.voyager.api.JoinGroupRequest::class,
-      com.rankquantity.voyager.api.JoinGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  LeaveGroup removes a user from a group
    */
   override suspend fun leaveGroup(request: LeaveGroupRequest, headers: Headers): ResponseMessage<LeaveGroupResponse> = client.unary(
@@ -905,26 +403,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.LeaveGroupResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  LeaveGroup removes a user from a group
-   */
-  override fun leaveGroup(
-    request: LeaveGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LeaveGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LeaveGroup",
-      com.rankquantity.voyager.api.LeaveGroupRequest::class,
-      com.rankquantity.voyager.api.LeaveGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -944,26 +422,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建故事
-   */
-  override fun createStory(
-    request: CreateStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStory",
-      com.rankquantity.voyager.api.CreateStoryRequest::class,
-      com.rankquantity.voyager.api.CreateStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事信息
    */
   override suspend fun getStoryInfo(request: GetStoryInfoRequest, headers: Headers): ResponseMessage<GetStoryInfoResponse> = client.unary(
@@ -975,26 +433,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryInfoResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事信息
-   */
-  override fun getStoryInfo(
-    request: GetStoryInfoRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryInfoResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryInfo",
-      com.rankquantity.voyager.api.GetStoryInfoRequest::class,
-      com.rankquantity.voyager.api.GetStoryInfoResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1014,26 +452,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  渲染故事
-   */
-  override fun renderStory(
-    request: RenderStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStory",
-      com.rankquantity.voyager.api.RenderStoryRequest::class,
-      com.rankquantity.voyager.api.RenderStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新故事
    */
   override suspend fun updateStory(request: UpdateStoryRequest, headers: Headers): ResponseMessage<UpdateStoryResponse> = client.unary(
@@ -1045,26 +463,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新故事
-   */
-  override fun updateStory(
-    request: UpdateStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStory",
-      com.rankquantity.voyager.api.UpdateStoryRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1084,26 +482,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  关注故事
-   */
-  override fun watchStory(
-    request: WatchStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<WatchStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/WatchStory",
-      com.rankquantity.voyager.api.WatchStoryRequest::class,
-      com.rankquantity.voyager.api.WatchStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  收藏故事
    */
   override suspend fun archiveStory(request: ArchiveStoryRequest, headers: Headers): ResponseMessage<ArchiveStoryResponse> = client.unary(
@@ -1115,26 +493,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.ArchiveStoryResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  收藏故事
-   */
-  override fun archiveStory(
-    request: ArchiveStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ArchiveStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ArchiveStory",
-      com.rankquantity.voyager.api.ArchiveStoryRequest::class,
-      com.rankquantity.voyager.api.ArchiveStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1154,26 +512,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建故事板
-   */
-  override fun createStoryboard(
-    request: CreateStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryboard",
-      com.rankquantity.voyager.api.CreateStoryboardRequest::class,
-      com.rankquantity.voyager.api.CreateStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事板
    */
   override suspend fun getStoryboard(request: GetStoryboardRequest, headers: Headers): ResponseMessage<GetStoryboardResponse> = client.unary(
@@ -1185,26 +523,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事板
-   */
-  override fun getStoryboard(
-    request: GetStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryboard",
-      com.rankquantity.voyager.api.GetStoryboardRequest::class,
-      com.rankquantity.voyager.api.GetStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1224,26 +542,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  渲染故事板
-   */
-  override fun renderStoryboard(
-    request: RenderStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryboard",
-      com.rankquantity.voyager.api.RenderStoryboardRequest::class,
-      com.rankquantity.voyager.api.RenderStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  生成故事板文本
    */
   override suspend fun genStoryboardText(request: GenStoryboardTextRequest, headers: Headers): ResponseMessage<GenStoryboardTextResponse> = client.unary(
@@ -1255,26 +553,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GenStoryboardTextResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  生成故事板文本
-   */
-  override fun genStoryboardText(
-    request: GenStoryboardTextRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenStoryboardTextResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenStoryboardText",
-      com.rankquantity.voyager.api.GenStoryboardTextRequest::class,
-      com.rankquantity.voyager.api.GenStoryboardTextResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1294,26 +572,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  生成故事板图片
-   */
-  override fun genStoryboardImages(
-    request: GenStoryboardImagesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenStoryboardImagesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenStoryboardImages",
-      com.rankquantity.voyager.api.GenStoryboardImagesRequest::class,
-      com.rankquantity.voyager.api.GenStoryboardImagesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事板
    */
   override suspend fun getStoryboards(request: GetStoryboardsRequest, headers: Headers): ResponseMessage<GetStoryboardsResponse> = client.unary(
@@ -1325,26 +583,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryboardsResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事板
-   */
-  override fun getStoryboards(
-    request: GetStoryboardsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryboardsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryboards",
-      com.rankquantity.voyager.api.GetStoryboardsRequest::class,
-      com.rankquantity.voyager.api.GetStoryboardsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1364,26 +602,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
-   */
-  override fun delStoryboard(
-    request: DelStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DelStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DelStoryboard",
-      com.rankquantity.voyager.api.DelStoryboardRequest::class,
-      com.rankquantity.voyager.api.DelStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  复制故事板
    */
   override suspend fun forkStoryboard(request: ForkStoryboardRequest, headers: Headers): ResponseMessage<ForkStoryboardResponse> = client.unary(
@@ -1395,26 +613,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.ForkStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  复制故事板
-   */
-  override fun forkStoryboard(
-    request: ForkStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ForkStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ForkStoryboard",
-      com.rankquantity.voyager.api.ForkStoryboardRequest::class,
-      com.rankquantity.voyager.api.ForkStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1434,26 +632,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新故事板
-   */
-  override fun updateStoryboard(
-    request: UpdateStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryboard",
-      com.rankquantity.voyager.api.UpdateStoryboardRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  喜欢故事板
    */
   override suspend fun likeStoryboard(request: LikeStoryboardRequest, headers: Headers): ResponseMessage<LikeStoryboardResponse> = client.unary(
@@ -1465,26 +643,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.LikeStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  喜欢故事板
-   */
-  override fun likeStoryboard(
-    request: LikeStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LikeStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LikeStoryboard",
-      com.rankquantity.voyager.api.LikeStoryboardRequest::class,
-      com.rankquantity.voyager.api.LikeStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1504,26 +662,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  取消喜欢故事板
-   */
-  override fun unLikeStoryboard(
-    request: UnLikeStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnLikeStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard",
-      com.rankquantity.voyager.api.UnLikeStoryboardRequest::class,
-      com.rankquantity.voyager.api.UnLikeStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  分享故事板
    */
   override suspend fun shareStoryboard(request: ShareStoryboardRequest, headers: Headers): ResponseMessage<ShareStoryboardResponse> = client.unary(
@@ -1535,26 +673,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.ShareStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  分享故事板
-   */
-  override fun shareStoryboard(
-    request: ShareStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ShareStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ShareStoryboard",
-      com.rankquantity.voyager.api.ShareStoryboardRequest::class,
-      com.rankquantity.voyager.api.ShareStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1574,26 +692,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取组织故事
-   */
-  override fun fetchGroupStorys(
-    request: FetchGroupStorysRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FetchGroupStorysResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FetchGroupStorys",
-      com.rankquantity.voyager.api.FetchGroupStorysRequest::class,
-      com.rankquantity.voyager.api.FetchGroupStorysResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  用来上传文件的proto 接口
    */
   override suspend fun uploadImageFile(request: UploadImageRequest, headers: Headers): ResponseMessage<UploadImageResponse> = client.unary(
@@ -1605,26 +703,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UploadImageResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  用来上传文件的proto 接口
-   */
-  override fun uploadImageFile(
-    request: UploadImageRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UploadImageResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UploadImageFile",
-      com.rankquantity.voyager.api.UploadImageRequest::class,
-      com.rankquantity.voyager.api.UploadImageResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1644,26 +722,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
-   */
-  override fun getStoryRender(
-    request: GetStoryRenderRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRenderResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRender",
-      com.rankquantity.voyager.api.GetStoryRenderRequest::class,
-      com.rankquantity.voyager.api.GetStoryRenderResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
    */
   override suspend fun getStoryBoardRender(request: GetStoryBoardRenderRequest, headers: Headers): ResponseMessage<GetStoryBoardRenderResponse> = client.unary(
@@ -1675,26 +733,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryBoardRenderResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
-   */
-  override fun getStoryBoardRender(
-    request: GetStoryBoardRenderRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardRenderResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender",
-      com.rankquantity.voyager.api.GetStoryBoardRenderRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardRenderResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1714,26 +752,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事的贡献者
-   */
-  override fun getStoryContributors(
-    request: GetStoryContributorsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryContributorsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryContributors",
-      com.rankquantity.voyager.api.GetStoryContributorsRequest::class,
-      com.rankquantity.voyager.api.GetStoryContributorsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  继续渲染故事
    */
   override suspend fun continueRenderStory(request: ContinueRenderStoryRequest, headers: Headers): ResponseMessage<ContinueRenderStoryResponse> = client.unary(
@@ -1745,26 +763,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.ContinueRenderStoryResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  继续渲染故事
-   */
-  override fun continueRenderStory(
-    request: ContinueRenderStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ContinueRenderStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ContinueRenderStory",
-      com.rankquantity.voyager.api.ContinueRenderStoryRequest::class,
-      com.rankquantity.voyager.api.ContinueRenderStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1784,26 +782,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  渲���故事角色
-   */
-  override fun renderStoryRoles(
-    request: RenderStoryRolesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryRolesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoles",
-      com.rankquantity.voyager.api.RenderStoryRolesRequest::class,
-      com.rankquantity.voyager.api.RenderStoryRolesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新 story role
    */
   override suspend fun updateStoryRole(request: UpdateStoryRoleRequest, headers: Headers): ResponseMessage<UpdateStoryRoleResponse> = client.unary(
@@ -1815,26 +793,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryRoleResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新 story role
-   */
-  override fun updateStoryRole(
-    request: UpdateStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRole",
-      com.rankquantity.voyager.api.UpdateStoryRoleRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1854,26 +812,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  渲染故事角色详情
-   */
-  override fun renderStoryRoleDetail(
-    request: RenderStoryRoleDetailRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryRoleDetailResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail",
-      com.rankquantity.voyager.api.RenderStoryRoleDetailRequest::class,
-      com.rankquantity.voyager.api.RenderStoryRoleDetailResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取 story roles 的列表
    */
   override suspend fun getStoryRoles(request: GetStoryRolesRequest, headers: Headers): ResponseMessage<GetStoryRolesResponse> = client.unary(
@@ -1885,26 +823,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryRolesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取 story roles 的列表
-   */
-  override fun getStoryRoles(
-    request: GetStoryRolesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRolesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRoles",
-      com.rankquantity.voyager.api.GetStoryRolesRequest::class,
-      com.rankquantity.voyager.api.GetStoryRolesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1924,26 +842,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取 story board roles 的列表
-   */
-  override fun getStoryBoardRoles(
-    request: GetStoryBoardRolesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardRolesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles",
-      com.rankquantity.voyager.api.GetStoryBoardRolesRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardRolesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取用户的 profile
    */
   override suspend fun getUserProfile(request: GetUserProfileRequest, headers: Headers): ResponseMessage<GetUserProfileResponse> = client.unary(
@@ -1955,26 +853,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUserProfileResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取用户的 profile
-   */
-  override fun getUserProfile(
-    request: GetUserProfileRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserProfileResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserProfile",
-      com.rankquantity.voyager.api.GetUserProfileRequest::class,
-      com.rankquantity.voyager.api.GetUserProfileResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -1994,26 +872,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新用户的 profile
-   */
-  override fun updateUserProfile(
-    request: UpdateUserProfileRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateUserProfileResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateUserProfile",
-      com.rankquantity.voyager.api.UpdateUserProfileRequest::class,
-      com.rankquantity.voyager.api.UpdateUserProfileResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新用户的背景图片
    */
   override suspend fun updateUserBackgroundImage(request: UpdateUserBackgroundImageRequest, headers: Headers): ResponseMessage<UpdateUserBackgroundImageResponse> = client.unary(
@@ -2025,26 +883,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateUserBackgroundImageResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新用户的背景图片
-   */
-  override fun updateUserBackgroundImage(
-    request: UpdateUserBackgroundImageRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateUserBackgroundImageResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage",
-      com.rankquantity.voyager.api.UpdateUserBackgroundImageRequest::class,
-      com.rankquantity.voyager.api.UpdateUserBackgroundImageResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2064,26 +902,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建新的故事角色
-   */
-  override fun createStoryRole(
-    request: CreateStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryRole",
-      com.rankquantity.voyager.api.CreateStoryRoleRequest::class,
-      com.rankquantity.voyager.api.CreateStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取角色详情
    */
   override suspend fun getStoryRoleDetail(request: GetStoryRoleDetailRequest, headers: Headers): ResponseMessage<GetStoryRoleDetailResponse> = client.unary(
@@ -2095,26 +913,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取角色详情
-   */
-  override fun getStoryRoleDetail(
-    request: GetStoryRoleDetailRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRoleDetailResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail",
-      com.rankquantity.voyager.api.GetStoryRoleDetailRequest::class,
-      com.rankquantity.voyager.api.GetStoryRoleDetailResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2134,26 +932,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  生成角色的图片
-   */
-  override fun renderStoryRole(
-    request: RenderStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryRole",
-      com.rankquantity.voyager.api.RenderStoryRoleRequest::class,
-      com.rankquantity.voyager.api.RenderStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  喜欢故事
    */
   override suspend fun likeStory(request: LikeStoryRequest, headers: Headers): ResponseMessage<LikeStoryResponse> = client.unary(
@@ -2165,26 +943,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.LikeStoryResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  喜欢故事
-   */
-  override fun likeStory(
-    request: LikeStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LikeStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LikeStory",
-      com.rankquantity.voyager.api.LikeStoryRequest::class,
-      com.rankquantity.voyager.api.LikeStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2204,26 +962,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  取消喜欢故事
-   */
-  override fun unLikeStory(
-    request: UnLikeStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnLikeStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnLikeStory",
-      com.rankquantity.voyager.api.UnLikeStoryRequest::class,
-      com.rankquantity.voyager.api.UnLikeStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事板场景
    */
   override suspend fun getStoryBoardSences(request: GetStoryBoardSencesRequest, headers: Headers): ResponseMessage<GetStoryBoardSencesResponse> = client.unary(
@@ -2235,26 +973,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryBoardSencesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事板场景
-   */
-  override fun getStoryBoardSences(
-    request: GetStoryBoardSencesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardSencesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences",
-      com.rankquantity.voyager.api.GetStoryBoardSencesRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardSencesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2274,26 +992,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建故事板场景
-   */
-  override fun createStoryBoardSence(
-    request: CreateStoryBoardSenceRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryBoardSenceResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence",
-      com.rankquantity.voyager.api.CreateStoryBoardSenceRequest::class,
-      com.rankquantity.voyager.api.CreateStoryBoardSenceResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新故事板场景
    */
   override suspend fun updateStoryBoardSence(request: UpdateStoryBoardSenceRequest, headers: Headers): ResponseMessage<UpdateStoryBoardSenceResponse> = client.unary(
@@ -2305,26 +1003,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新故事板场景
-   */
-  override fun updateStoryBoardSence(
-    request: UpdateStoryBoardSenceRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryBoardSenceResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence",
-      com.rankquantity.voyager.api.UpdateStoryBoardSenceRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryBoardSenceResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2344,26 +1022,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  删除故事板场景
-   */
-  override fun deleteStoryBoardSence(
-    request: DeleteStoryBoardSenceRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DeleteStoryBoardSenceResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence",
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest::class,
-      com.rankquantity.voyager.api.DeleteStoryBoardSenceResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  渲染故事板指定场景
    */
   override suspend fun renderStoryBoardSence(request: RenderStoryBoardSenceRequest, headers: Headers): ResponseMessage<RenderStoryBoardSenceResponse> = client.unary(
@@ -2375,26 +1033,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.RenderStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  渲染故事板指定场景
-   */
-  override fun renderStoryBoardSence(
-    request: RenderStoryBoardSenceRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryBoardSenceResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence",
-      com.rankquantity.voyager.api.RenderStoryBoardSenceRequest::class,
-      com.rankquantity.voyager.api.RenderStoryBoardSenceResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2414,26 +1052,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  渲染故事板的所有场景
-   */
-  override fun renderStoryBoardSences(
-    request: RenderStoryBoardSencesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryBoardSencesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences",
-      com.rankquantity.voyager.api.RenderStoryBoardSencesRequest::class,
-      com.rankquantity.voyager.api.RenderStoryBoardSencesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事板场景生成状态
    */
   override suspend fun getStoryBoardSenceGenerate(request: GetStoryBoardSenceGenerateRequest, headers: Headers): ResponseMessage<GetStoryBoardSenceGenerateResponse> = client.unary(
@@ -2445,26 +1063,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryBoardSenceGenerateResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事板场景生成状态
-   */
-  override fun getStoryBoardSenceGenerate(
-    request: GetStoryBoardSenceGenerateRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardSenceGenerateResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate",
-      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2484,26 +1082,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事板生成状态
-   */
-  override fun getStoryBoardGenerate(
-    request: GetStoryBoardGenerateRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardGenerateResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate",
-      com.rankquantity.voyager.api.GetStoryBoardGenerateRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardGenerateResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  点赞故事角色
    */
   override suspend fun likeStoryRole(request: LikeStoryRoleRequest, headers: Headers): ResponseMessage<LikeStoryRoleResponse> = client.unary(
@@ -2515,26 +1093,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.LikeStoryRoleResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  点赞故事角色
-   */
-  override fun likeStoryRole(
-    request: LikeStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LikeStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LikeStoryRole",
-      com.rankquantity.voyager.api.LikeStoryRoleRequest::class,
-      com.rankquantity.voyager.api.LikeStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2554,26 +1112,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  取消点赞故事角色
-   */
-  override fun unLikeStoryRole(
-    request: UnLikeStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnLikeStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole",
-      com.rankquantity.voyager.api.UnLikeStoryRoleRequest::class,
-      com.rankquantity.voyager.api.UnLikeStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  关注故事角色
    */
   override suspend fun followStoryRole(request: FollowStoryRoleRequest, headers: Headers): ResponseMessage<FollowStoryRoleResponse> = client.unary(
@@ -2585,26 +1123,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.FollowStoryRoleResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  关注故事角色
-   */
-  override fun followStoryRole(
-    request: FollowStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FollowStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FollowStoryRole",
-      com.rankquantity.voyager.api.FollowStoryRoleRequest::class,
-      com.rankquantity.voyager.api.FollowStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2624,26 +1142,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  取消关注故事角色
-   */
-  override fun unFollowStoryRole(
-    request: UnFollowStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnFollowStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole",
-      com.rankquantity.voyager.api.UnFollowStoryRoleRequest::class,
-      com.rankquantity.voyager.api.UnFollowStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  根据关键字查询故事
    */
   override suspend fun searchStories(request: SearchStoriesRequest, headers: Headers): ResponseMessage<SearchStoriesResponse> = client.unary(
@@ -2655,26 +1153,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.SearchStoriesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  根据关键字查询故事
-   */
-  override fun searchStories(
-    request: SearchStoriesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<SearchStoriesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/SearchStories",
-      com.rankquantity.voyager.api.SearchStoriesRequest::class,
-      com.rankquantity.voyager.api.SearchStoriesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2694,26 +1172,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  搜索组织
-   */
-  override fun searchGroup(
-    request: SearchGroupRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<SearchGroupResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/SearchGroup",
-      com.rankquantity.voyager.api.SearchGroupRequest::class,
-      com.rankquantity.voyager.api.SearchGroupResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  搜索角色
    */
   override suspend fun searchRoles(request: SearchRolesRequest, headers: Headers): ResponseMessage<SearchRolesResponse> = client.unary(
@@ -2725,26 +1183,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.SearchRolesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  搜索角色
-   */
-  override fun searchRoles(
-    request: SearchRolesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<SearchRolesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/SearchRoles",
-      com.rankquantity.voyager.api.SearchRolesRequest::class,
-      com.rankquantity.voyager.api.SearchRolesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2764,26 +1202,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  恢复故事板的状态
-   */
-  override fun restoreStoryboard(
-    request: RestoreStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RestoreStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RestoreStoryboard",
-      com.rankquantity.voyager.api.RestoreStoryboardRequest::class,
-      com.rankquantity.voyager.api.RestoreStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取用户创建的故事板
    */
   override suspend fun getUserCreatedStoryboards(request: GetUserCreatedStoryboardsRequest, headers: Headers): ResponseMessage<GetUserCreatedStoryboardsResponse> = client.unary(
@@ -2795,26 +1213,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUserCreatedStoryboardsResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取用户创建的故事板
-   */
-  override fun getUserCreatedStoryboards(
-    request: GetUserCreatedStoryboardsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserCreatedStoryboardsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards",
-      com.rankquantity.voyager.api.GetUserCreatedStoryboardsRequest::class,
-      com.rankquantity.voyager.api.GetUserCreatedStoryboardsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2834,26 +1232,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取用户创建的角色
-   */
-  override fun getUserCreatedRoles(
-    request: GetUserCreatedRolesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserCreatedRolesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles",
-      com.rankquantity.voyager.api.GetUserCreatedRolesRequest::class,
-      com.rankquantity.voyager.api.GetUserCreatedRolesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取角色参与的故事板
    */
   override suspend fun getStoryRoleStoryboards(request: GetStoryRoleStoryboardsRequest, headers: Headers): ResponseMessage<GetStoryRoleStoryboardsResponse> = client.unary(
@@ -2865,26 +1243,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryRoleStoryboardsResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取角色参与的故事板
-   */
-  override fun getStoryRoleStoryboards(
-    request: GetStoryRoleStoryboardsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRoleStoryboardsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards",
-      com.rankquantity.voyager.api.GetStoryRoleStoryboardsRequest::class,
-      com.rankquantity.voyager.api.GetStoryRoleStoryboardsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2904,26 +1262,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取角色参与的故事
-   */
-  override fun getStoryRoleStories(
-    request: GetStoryRoleStoriesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRoleStoriesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories",
-      com.rankquantity.voyager.api.GetStoryRoleStoriesRequest::class,
-      com.rankquantity.voyager.api.GetStoryRoleStoriesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  创建与角色的对话
    */
   override suspend fun createStoryRoleChat(request: CreateStoryRoleChatRequest, headers: Headers): ResponseMessage<CreateStoryRoleChatResponse> = client.unary(
@@ -2935,26 +1273,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.CreateStoryRoleChatResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  创建与角色的对话
-   */
-  override fun createStoryRoleChat(
-    request: CreateStoryRoleChatRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryRoleChatResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat",
-      com.rankquantity.voyager.api.CreateStoryRoleChatRequest::class,
-      com.rankquantity.voyager.api.CreateStoryRoleChatResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -2974,26 +1292,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  与角色聊天
-   */
-  override fun chatWithStoryRole(
-    request: ChatWithStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<ChatWithStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole",
-      com.rankquantity.voyager.api.ChatWithStoryRoleRequest::class,
-      com.rankquantity.voyager.api.ChatWithStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新角色头像
    */
   override suspend fun updateStoryRoleAvator(request: UpdateStoryRoleAvatorRequest, headers: Headers): ResponseMessage<UpdateStoryRoleAvatorResponse> = client.unary(
@@ -3005,26 +1303,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryRoleAvatorResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新角色头像
-   */
-  override fun updateStoryRoleAvator(
-    request: UpdateStoryRoleAvatorRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRoleAvatorResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator",
-      com.rankquantity.voyager.api.UpdateStoryRoleAvatorRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRoleAvatorResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3044,26 +1322,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新角色详情
-   */
-  override fun updateStoryRoleDetail(
-    request: UpdateStoryRoleDetailRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRoleDetailResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail",
-      com.rankquantity.voyager.api.UpdateStoryRoleDetailRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRoleDetailResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取用户的对话列表
    */
   override suspend fun getUserWithRoleChatList(request: GetUserWithRoleChatListRequest, headers: Headers): ResponseMessage<GetUserWithRoleChatListResponse> = client.unary(
@@ -3075,26 +1333,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUserWithRoleChatListResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取用户的对话列表
-   */
-  override fun getUserWithRoleChatList(
-    request: GetUserWithRoleChatListRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserWithRoleChatListResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList",
-      com.rankquantity.voyager.api.GetUserWithRoleChatListRequest::class,
-      com.rankquantity.voyager.api.GetUserWithRoleChatListResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3114,26 +1352,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取用户与角色的对话
-   */
-  override fun getUserChatWithRole(
-    request: GetUserChatWithRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserChatWithRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole",
-      com.rankquantity.voyager.api.GetUserChatWithRoleRequest::class,
-      com.rankquantity.voyager.api.GetUserChatWithRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取用户的消息
    */
   override suspend fun getUserChatMessages(request: GetUserChatMessagesRequest, headers: Headers): ResponseMessage<GetUserChatMessagesResponse> = client.unary(
@@ -3145,26 +1363,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUserChatMessagesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取用户的消息
-   */
-  override fun getUserChatMessages(
-    request: GetUserChatMessagesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserChatMessagesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserChatMessages",
-      com.rankquantity.voyager.api.GetUserChatMessagesRequest::class,
-      com.rankquantity.voyager.api.GetUserChatMessagesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3184,26 +1382,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  活动信息
-   */
-  override fun fetchActives(
-    request: FetchActivesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FetchActivesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FetchActives",
-      com.rankquantity.voyager.api.FetchActivesRequest::class,
-      com.rankquantity.voyager.api.FetchActivesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
    */
   override suspend fun getNextStoryboard(request: GetNextStoryboardRequest, headers: Headers): ResponseMessage<GetNextStoryboardResponse> = client.unary(
@@ -3215,26 +1393,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetNextStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
-   */
-  override fun getNextStoryboard(
-    request: GetNextStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetNextStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetNextStoryboard",
-      com.rankquantity.voyager.api.GetNextStoryboardRequest::class,
-      com.rankquantity.voyager.api.GetNextStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3254,26 +1412,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  持续渲染故事角色
-   */
-  override fun renderStoryRoleContinuously(
-    request: RenderStoryRoleContinuouslyRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<RenderStoryRoleContinuouslyResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously",
-      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyRequest::class,
-      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  发布故事板
    */
   override suspend fun publishStoryboard(request: PublishStoryboardRequest, headers: Headers): ResponseMessage<PublishStoryboardResponse> = client.unary(
@@ -3285,26 +1423,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.PublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  发布故事板
-   */
-  override fun publishStoryboard(
-    request: PublishStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<PublishStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/PublishStoryboard",
-      com.rankquantity.voyager.api.PublishStoryboardRequest::class,
-      com.rankquantity.voyager.api.PublishStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3323,26 +1441,6 @@ public class TeamsAPIClient(
   )
 
 
-  /**
-   *  撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
-   */
-  override fun cancelStoryboard(
-    request: CancelStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CancelStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CancelStoryboard",
-      com.rankquantity.voyager.api.CancelStoryboardRequest::class,
-      com.rankquantity.voyager.api.CancelStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun getUserWatchStoryActiveStoryBoards(request: GetUserWatchStoryActiveStoryBoardsRequest, headers: Headers): ResponseMessage<GetUserWatchStoryActiveStoryBoardsResponse> = client.unary(
     request,
     headers,
@@ -3352,23 +1450,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun getUserWatchStoryActiveStoryBoards(
-    request: GetUserWatchStoryActiveStoryBoardsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserWatchStoryActiveStoryBoardsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards",
-      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsRequest::class,
-      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3384,23 +1465,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun getUserWatchRoleActiveStoryBoards(
-    request: GetUserWatchRoleActiveStoryBoardsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUserWatchRoleActiveStoryBoardsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards",
-      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsRequest::class,
-      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun getUnPublishStoryboard(request: GetUnPublishStoryboardRequest, headers: Headers): ResponseMessage<GetUnPublishStoryboardResponse> = client.unary(
     request,
     headers,
@@ -3410,23 +1474,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetUnPublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun getUnPublishStoryboard(
-    request: GetUnPublishStoryboardRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetUnPublishStoryboardResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard",
-      com.rankquantity.voyager.api.GetUnPublishStoryboardRequest::class,
-      com.rankquantity.voyager.api.GetUnPublishStoryboardResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3442,23 +1489,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun generateRoleDescription(
-    request: GenerateRoleDescriptionRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateRoleDescriptionResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription",
-      com.rankquantity.voyager.api.GenerateRoleDescriptionRequest::class,
-      com.rankquantity.voyager.api.GenerateRoleDescriptionResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun updateRoleDescription(request: UpdateRoleDescriptionRequest, headers: Headers): ResponseMessage<UpdateRoleDescriptionResponse> = client.unary(
     request,
     headers,
@@ -3468,23 +1498,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateRoleDescriptionResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun updateRoleDescription(
-    request: UpdateRoleDescriptionRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateRoleDescriptionResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription",
-      com.rankquantity.voyager.api.UpdateRoleDescriptionRequest::class,
-      com.rankquantity.voyager.api.UpdateRoleDescriptionResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3500,23 +1513,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun generateRolePrompt(
-    request: GenerateRolePromptRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateRolePromptResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt",
-      com.rankquantity.voyager.api.GenerateRolePromptRequest::class,
-      com.rankquantity.voyager.api.GenerateRolePromptResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun updateRolePrompt(request: UpdateRolePromptRequest, headers: Headers): ResponseMessage<UpdateRolePromptResponse> = client.unary(
     request,
     headers,
@@ -3526,23 +1522,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateRolePromptResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun updateRolePrompt(
-    request: UpdateRolePromptRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateRolePromptResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt",
-      com.rankquantity.voyager.api.UpdateRolePromptRequest::class,
-      com.rankquantity.voyager.api.UpdateRolePromptResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3562,26 +1541,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建故事评论
-   */
-  override fun createStoryComment(
-    request: CreateStoryCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryComment",
-      com.rankquantity.voyager.api.CreateStoryCommentRequest::class,
-      com.rankquantity.voyager.api.CreateStoryCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事评论
    */
   override suspend fun getStoryComments(request: GetStoryCommentsRequest, headers: Headers): ResponseMessage<GetStoryCommentsResponse> = client.unary(
@@ -3593,26 +1552,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryCommentsResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事评论
-   */
-  override fun getStoryComments(
-    request: GetStoryCommentsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryCommentsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryComments",
-      com.rankquantity.voyager.api.GetStoryCommentsRequest::class,
-      com.rankquantity.voyager.api.GetStoryCommentsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3632,26 +1571,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  删除故事评论
-   */
-  override fun deleteStoryComment(
-    request: DeleteStoryCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DeleteStoryCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DeleteStoryComment",
-      com.rankquantity.voyager.api.DeleteStoryCommentRequest::class,
-      com.rankquantity.voyager.api.DeleteStoryCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事评论回复
    */
   override suspend fun getStoryCommentReplies(request: GetStoryCommentRepliesRequest, headers: Headers): ResponseMessage<GetStoryCommentRepliesResponse> = client.unary(
@@ -3663,26 +1582,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事评论回复
-   */
-  override fun getStoryCommentReplies(
-    request: GetStoryCommentRepliesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryCommentRepliesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies",
-      com.rankquantity.voyager.api.GetStoryCommentRepliesRequest::class,
-      com.rankquantity.voyager.api.GetStoryCommentRepliesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3702,26 +1601,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  创建故事评论回复
-   */
-  override fun createStoryCommentReply(
-    request: CreateStoryCommentReplyRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryCommentReplyResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply",
-      com.rankquantity.voyager.api.CreateStoryCommentReplyRequest::class,
-      com.rankquantity.voyager.api.CreateStoryCommentReplyResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  删除故事评论回复
    */
   override suspend fun deleteStoryCommentReply(request: DeleteStoryCommentReplyRequest, headers: Headers): ResponseMessage<DeleteStoryCommentReplyResponse> = client.unary(
@@ -3733,26 +1612,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.DeleteStoryCommentReplyResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  删除故事评论回复
-   */
-  override fun deleteStoryCommentReply(
-    request: DeleteStoryCommentReplyRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DeleteStoryCommentReplyResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply",
-      com.rankquantity.voyager.api.DeleteStoryCommentReplyRequest::class,
-      com.rankquantity.voyager.api.DeleteStoryCommentReplyResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3772,26 +1631,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事板评论
-   */
-  override fun getStoryBoardComments(
-    request: GetStoryBoardCommentsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardCommentsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments",
-      com.rankquantity.voyager.api.GetStoryBoardCommentsRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardCommentsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  创建故事板评论
    */
   override suspend fun createStoryBoardComment(request: CreateStoryBoardCommentRequest, headers: Headers): ResponseMessage<CreateStoryBoardCommentResponse> = client.unary(
@@ -3803,26 +1642,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.CreateStoryBoardCommentResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  创建故事板评论
-   */
-  override fun createStoryBoardComment(
-    request: CreateStoryBoardCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<CreateStoryBoardCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment",
-      com.rankquantity.voyager.api.CreateStoryBoardCommentRequest::class,
-      com.rankquantity.voyager.api.CreateStoryBoardCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3842,26 +1661,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  删除故事板评论
-   */
-  override fun deleteStoryBoardComment(
-    request: DeleteStoryBoardCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DeleteStoryBoardCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment",
-      com.rankquantity.voyager.api.DeleteStoryBoardCommentRequest::class,
-      com.rankquantity.voyager.api.DeleteStoryBoardCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取故事板评论回复
    */
   override suspend fun getStoryBoardCommentReplies(request: GetStoryBoardCommentRepliesRequest, headers: Headers): ResponseMessage<GetStoryBoardCommentRepliesResponse> = client.unary(
@@ -3873,26 +1672,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetStoryBoardCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取故事板评论回复
-   */
-  override fun getStoryBoardCommentReplies(
-    request: GetStoryBoardCommentRepliesRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryBoardCommentRepliesResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies",
-      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesRequest::class,
-      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3912,26 +1691,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  点赞故事评论
-   */
-  override fun likeComment(
-    request: LikeCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LikeCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LikeComment",
-      com.rankquantity.voyager.api.LikeCommentRequest::class,
-      com.rankquantity.voyager.api.LikeCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  取消点赞故事评论
    */
   override suspend fun dislikeComment(request: DislikeCommentRequest, headers: Headers): ResponseMessage<DislikeCommentResponse> = client.unary(
@@ -3943,26 +1702,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.DislikeCommentResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  取消点赞故事评论
-   */
-  override fun dislikeComment(
-    request: DislikeCommentRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<DislikeCommentResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/DislikeComment",
-      com.rankquantity.voyager.api.DislikeCommentRequest::class,
-      com.rankquantity.voyager.api.DislikeCommentResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -3982,26 +1721,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事角色列表
-   */
-  override fun getStoryRoleList(
-    request: GetStoryRoleListRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRoleListResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleList",
-      com.rankquantity.voyager.api.GetStoryRoleListRequest::class,
-      com.rankquantity.voyager.api.GetStoryRoleListResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  热门故事
    */
   override suspend fun trendingStory(request: TrendingStoryRequest, headers: Headers): ResponseMessage<TrendingStoryResponse> = client.unary(
@@ -4013,26 +1732,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.TrendingStoryResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  热门故事
-   */
-  override fun trendingStory(
-    request: TrendingStoryRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<TrendingStoryResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/TrendingStory",
-      com.rankquantity.voyager.api.TrendingStoryRequest::class,
-      com.rankquantity.voyager.api.TrendingStoryResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4052,26 +1751,6 @@ public class TeamsAPIClient(
 
 
   /**
-   * 热门角色
-   */
-  override fun trendingStoryRole(
-    request: TrendingStoryRoleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<TrendingStoryRoleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/TrendingStoryRole",
-      com.rankquantity.voyager.api.TrendingStoryRoleRequest::class,
-      com.rankquantity.voyager.api.TrendingStoryRoleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  关注另一个用户
    */
   override suspend fun followUser(request: FollowUserRequest, headers: Headers): ResponseMessage<FollowUserResponse> = client.unary(
@@ -4083,26 +1762,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.FollowUserResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  关注另一个用户
-   */
-  override fun followUser(
-    request: FollowUserRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FollowUserResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FollowUser",
-      com.rankquantity.voyager.api.FollowUserRequest::class,
-      com.rankquantity.voyager.api.FollowUserResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4122,26 +1781,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  取消关注另一个用户
-   */
-  override fun unfollowUser(
-    request: UnfollowUserRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnfollowUserResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnfollowUser",
-      com.rankquantity.voyager.api.UnfollowUserRequest::class,
-      com.rankquantity.voyager.api.UnfollowUserResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取关注列表
    */
   override suspend fun getFollowList(request: GetFollowListRequest, headers: Headers): ResponseMessage<GetFollowListResponse> = client.unary(
@@ -4153,26 +1792,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GetFollowListResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取关注列表
-   */
-  override fun getFollowList(
-    request: GetFollowListRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetFollowListResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetFollowList",
-      com.rankquantity.voyager.api.GetFollowListRequest::class,
-      com.rankquantity.voyager.api.GetFollowListResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4192,26 +1811,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取粉丝列表
-   */
-  override fun getFollowerList(
-    request: GetFollowerListRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetFollowerListResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetFollowerList",
-      com.rankquantity.voyager.api.GetFollowerListRequest::class,
-      com.rankquantity.voyager.api.GetFollowerListResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新角色的提示词
    */
   override suspend fun updateStoryRolePrompt(request: UpdateStoryRolePromptRequest, headers: Headers): ResponseMessage<UpdateStoryRolePromptResponse> = client.unary(
@@ -4223,26 +1822,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryRolePromptResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新角色的提示词
-   */
-  override fun updateStoryRolePrompt(
-    request: UpdateStoryRolePromptRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRolePromptResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt",
-      com.rankquantity.voyager.api.UpdateStoryRolePromptRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRolePromptResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4262,26 +1841,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新角色的描述
-   */
-  override fun updateStoryRoleDescriptionDetail(
-    request: UpdateStoryRoleDescriptionDetailRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRoleDescriptionDetailResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail",
-      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  获取生成任务状态
    */
   override suspend fun queryTaskStatus(request: QueryTaskStatusRequest, headers: Headers): ResponseMessage<QueryTaskStatusResponse> = client.unary(
@@ -4293,26 +1852,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.QueryTaskStatusResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  获取生成任务状态
-   */
-  override fun queryTaskStatus(
-    request: QueryTaskStatusRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<QueryTaskStatusResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/QueryTaskStatus",
-      com.rankquantity.voyager.api.QueryTaskStatusRequest::class,
-      com.rankquantity.voyager.api.QueryTaskStatusResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4332,26 +1871,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事的风格
-   */
-  override fun getStoryImageStyle(
-    request: GetStoryImageStyleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryImageStyleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle",
-      com.rankquantity.voyager.api.GetStoryImageStyleRequest::class,
-      com.rankquantity.voyager.api.GetStoryImageStyleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新故事的风格
    */
   override suspend fun updateStoryImageStyle(request: UpdateStoryImageStyleRequest, headers: Headers): ResponseMessage<UpdateStoryImageStyleResponse> = client.unary(
@@ -4363,26 +1882,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryImageStyleResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新故事的风格
-   */
-  override fun updateStoryImageStyle(
-    request: UpdateStoryImageStyleRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryImageStyleResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle",
-      com.rankquantity.voyager.api.UpdateStoryImageStyleRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryImageStyleResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4402,26 +1901,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新故事的场景数量
-   */
-  override fun updateStorySenceMaxNumber(
-    request: UpdateStorySenceMaxNumberRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStorySenceMaxNumberResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber",
-      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberRequest::class,
-      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新故事头像
    */
   override suspend fun updateStoryAvatar(request: UpdateStoryAvatarRequest, headers: Headers): ResponseMessage<UpdateStoryAvatarResponse> = client.unary(
@@ -4433,26 +1912,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryAvatarResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新故事头像
-   */
-  override fun updateStoryAvatar(
-    request: UpdateStoryAvatarRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryAvatarResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar",
-      com.rankquantity.voyager.api.UpdateStoryAvatarRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryAvatarResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4472,26 +1931,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  更新故事封面
-   */
-  override fun updateStoryCover(
-    request: UpdateStoryCoverRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryCoverResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryCover",
-      com.rankquantity.voyager.api.UpdateStoryCoverRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryCoverResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  保存故事板草稿
    */
   override suspend fun saveStoryboardCraft(request: SaveStoryboardCraftRequest, headers: Headers): ResponseMessage<SaveStoryboardCraftResponse> = client.unary(
@@ -4503,26 +1942,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.SaveStoryboardCraftResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  保存故事板草稿
-   */
-  override fun saveStoryboardCraft(
-    request: SaveStoryboardCraftRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<SaveStoryboardCraftResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft",
-      com.rankquantity.voyager.api.SaveStoryboardCraftRequest::class,
-      com.rankquantity.voyager.api.SaveStoryboardCraftResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4542,26 +1961,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  获取故事参与者，参与故事版创建
-   */
-  override fun getStoryParticipants(
-    request: GetStoryParticipantsRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryParticipantsResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryParticipants",
-      com.rankquantity.voyager.api.GetStoryParticipantsRequest::class,
-      com.rankquantity.voyager.api.GetStoryParticipantsResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  为故事场景生成视频
    */
   override suspend fun generateStorySceneVideo(request: GenerateStorySceneVideoRequest, headers: Headers): ResponseMessage<GenerateStorySceneVideoResponse> = client.unary(
@@ -4573,26 +1972,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GenerateStorySceneVideoResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  为故事场景生成视频
-   */
-  override fun generateStorySceneVideo(
-    request: GenerateStorySceneVideoRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateStorySceneVideoResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo",
-      com.rankquantity.voyager.api.GenerateStorySceneVideoRequest::class,
-      com.rankquantity.voyager.api.GenerateStorySceneVideoResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4608,23 +1987,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun generateRoleAvatar(
-    request: GenerateRoleAvatarRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateRoleAvatarResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar",
-      com.rankquantity.voyager.api.GenerateRoleAvatarRequest::class,
-      com.rankquantity.voyager.api.GenerateRoleAvatarResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun fetchUserGenTaskStatus(request: FetchUserGenTaskStatusRequest, headers: Headers): ResponseMessage<FetchUserGenTaskStatusResponse> = client.unary(
     request,
     headers,
@@ -4634,23 +1996,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.FetchUserGenTaskStatusResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun fetchUserGenTaskStatus(
-    request: FetchUserGenTaskStatusRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<FetchUserGenTaskStatusResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus",
-      com.rankquantity.voyager.api.FetchUserGenTaskStatusRequest::class,
-      com.rankquantity.voyager.api.FetchUserGenTaskStatusResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4670,26 +2015,6 @@ public class TeamsAPIClient(
 
 
   /**
-   *  生成角色的海报图片
-   */
-  override fun generateStoryRolePoster(
-    request: GenerateStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster",
-      com.rankquantity.voyager.api.GenerateStoryRolePosterRequest::class,
-      com.rankquantity.voyager.api.GenerateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
-  /**
    *  更新角色的海报图片
    */
   override suspend fun updateStoryRolePoster(request: UpdateStoryRolePosterRequest, headers: Headers): ResponseMessage<UpdateStoryRolePosterResponse> = client.unary(
@@ -4701,26 +2026,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UpdateStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  更新角色的海报图片
-   */
-  override fun updateStoryRolePoster(
-    request: UpdateStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UpdateStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster",
-      com.rankquantity.voyager.api.UpdateStoryRolePosterRequest::class,
-      com.rankquantity.voyager.api.UpdateStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4736,23 +2041,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun likeStoryRolePoster(
-    request: LikeStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<LikeStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster",
-      com.rankquantity.voyager.api.LikeStoryRolePosterRequest::class,
-      com.rankquantity.voyager.api.LikeStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   override suspend fun unLikeStoryRolePoster(request: UnLikeStoryRolePosterRequest, headers: Headers): ResponseMessage<UnLikeStoryRolePosterResponse> = client.unary(
     request,
     headers,
@@ -4762,23 +2050,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.UnLikeStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  override fun unLikeStoryRolePoster(
-    request: UnLikeStoryRolePosterRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<UnLikeStoryRolePosterResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster",
-      com.rankquantity.voyager.api.UnLikeStoryRolePosterRequest::class,
-      com.rankquantity.voyager.api.UnLikeStoryRolePosterResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 
@@ -4794,23 +2065,6 @@ public class TeamsAPIClient(
   )
 
 
-  override fun getStoryRolePosterList(
-    request: GetStoryRolePosterListRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GetStoryRolePosterListResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList",
-      com.rankquantity.voyager.api.GetStoryRolePosterListRequest::class,
-      com.rankquantity.voyager.api.GetStoryRolePosterListResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
-  )
-
-
   /**
    *  为故事角色生成视频
    */
@@ -4823,26 +2077,6 @@ public class TeamsAPIClient(
       com.rankquantity.voyager.api.GenerateStoryRoleVideoResponse::class,
       StreamType.UNARY,
     ),
-  )
-
-
-  /**
-   *  为故事角色生成视频
-   */
-  override fun generateStoryRoleVideo(
-    request: GenerateStoryRoleVideoRequest,
-    headers: Headers,
-    onResult: (ResponseMessage<GenerateStoryRoleVideoResponse>) -> Unit,
-  ): Cancelable = client.unary(
-    request,
-    headers,
-    MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo",
-      com.rankquantity.voyager.api.GenerateStoryRoleVideoRequest::class,
-      com.rankquantity.voyager.api.GenerateStoryRoleVideoResponse::class,
-      StreamType.UNARY,
-    ),
-    onResult
   )
 
 }
