@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 浏览
@@ -61,7 +61,7 @@ public enum Common_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_LikeType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_LikeType] = [
     .browser,
     .left,
     .middle,
@@ -70,7 +70,7 @@ public enum Common_LikeType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不公开性别
@@ -102,7 +102,7 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_GenderType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_GenderType] = [
     .none,
     .man,
     .women,
@@ -110,7 +110,7 @@ public enum Common_GenderType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 休息
@@ -161,7 +161,7 @@ public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_UserStatus] = [
+  public static let allCases: [Rankquantity_Voyager_Api_UserStatus] = [
     .rest,
     .study,
     .busy,
@@ -172,7 +172,7 @@ public enum Common_UserStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 未知
@@ -218,7 +218,7 @@ public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_GroupStatus] = [
+  public static let allCases: [Rankquantity_Voyager_Api_GroupStatus] = [
     .unknow,
     .notReady,
     .normal,
@@ -228,7 +228,7 @@ public enum Common_GroupStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_ActiveFlowType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ActiveFlowType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 所有
@@ -269,7 +269,7 @@ public enum Common_ActiveFlowType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ActiveFlowType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ActiveFlowType] = [
     .allFlowType,
     .storyFlowType,
     .roleFlowType,
@@ -279,7 +279,7 @@ public enum Common_ActiveFlowType: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// 不公开互动
-public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不公开互动
@@ -385,7 +385,7 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ActiveType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ActiveType] = [
     .noneActive,
     .allActive,
     .newStory,
@@ -407,7 +407,7 @@ public enum Common_ActiveType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 所有内容
@@ -468,7 +468,7 @@ public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ItemType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ItemType] = [
     .allItem,
     .shortWord,
     .paper,
@@ -481,7 +481,7 @@ public enum Common_ItemType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不支持
@@ -537,7 +537,7 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_AuthType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_AuthType] = [
     .notSupport,
     .withPhone,
     .withEmail,
@@ -549,7 +549,7 @@ public enum Common_AuthType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 小组内创建，但是小组外可见但是不可以fork
@@ -585,7 +585,7 @@ public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ScopeType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ScopeType] = [
     .protectScope,
     .publicScope,
     .privateScope,
@@ -593,7 +593,7 @@ public enum Common_ScopeType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 未知
@@ -649,7 +649,7 @@ public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_TaskStage] = [
+  public static let allCases: [Rankquantity_Voyager_Api_TaskStage] = [
     .unknowTaskStage,
     .init_,
     .processing,
@@ -661,7 +661,7 @@ public enum Common_TaskStage: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不指定
@@ -712,7 +712,7 @@ public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_TaskType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_TaskType] = [
     .notSpecify,
     .wordGenerate,
     .picGenerate,
@@ -723,7 +723,7 @@ public enum Common_TaskType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 时间排序
@@ -769,7 +769,7 @@ public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_SortByType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_SortByType] = [
     .sortByTime,
     .sortByLike,
     .sortByComment,
@@ -779,7 +779,7 @@ public enum Common_SortByType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 不指定
@@ -835,7 +835,7 @@ public enum Common_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_MultiBranchOrderBy] = [
+  public static let allCases: [Rankquantity_Voyager_Api_MultiBranchOrderBy] = [
     .unspecified,
     .createdAt,
     .updatedAt,
@@ -847,7 +847,7 @@ public enum Common_MultiBranchOrderBy: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unknown // = 0
   case pending // = 1
@@ -886,7 +886,7 @@ public enum Common_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_DashScopeTaskStatus] = [
+  public static let allCases: [Rankquantity_Voyager_Api_DashScopeTaskStatus] = [
     .unknown,
     .pending,
     .running,
@@ -897,7 +897,7 @@ public enum Common_DashScopeTaskStatus: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum Common_ImageRatios: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ImageRatios: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 1:1
@@ -948,7 +948,7 @@ public enum Common_ImageRatios: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ImageRatios] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ImageRatios] = [
     .ratio11,
     .ratio43,
     .ratio169,
@@ -959,7 +959,7 @@ public enum Common_ImageRatios: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct Common_Tags: Sendable {
+public struct Rankquantity_Voyager_Api_Tags: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -987,7 +987,7 @@ public struct Common_Tags: Sendable {
   public init() {}
 }
 
-public struct Common_WhatCurrentUserStatus: Sendable {
+public struct Rankquantity_Voyager_Api_WhatCurrentUserStatus: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1011,69 +1011,69 @@ public struct Common_WhatCurrentUserStatus: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_LikeType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Browser\0\u{1}Left\0\u{1}Middle\0\u{1}Right\0")
 }
 
-extension Common_GenderType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenderType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0None\0\u{1}Man\0\u{1}Women\0")
 }
 
-extension Common_UserStatus: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserStatus: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Rest\0\u{1}Study\0\u{1}Busy\0\u{1}Working\0\u{1}Invisible\0\u{1}Idle\0")
 }
 
-extension Common_GroupStatus: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupStatus: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Unknow\0\u{1}NotReady\0\u{1}Normal\0\u{1}ViewOnly\0\u{1}Abandon\0")
 }
 
-extension Common_ActiveFlowType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ActiveFlowType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AllFlowType\0\u{1}StoryFlowType\0\u{1}RoleFlowType\0\u{1}GroupFlowType\0")
 }
 
-extension Common_ActiveType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ActiveType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NoneActive\0\u{1}AllActive\0\u{1}NewStory\0\u{1}NewRole\0\u{1}JoinGroup\0\u{1}FollowRole\0\u{1}LikeRole\0\u{1}FollowStory\0\u{1}LikeStory\0\u{1}FollowGroup\0\u{1}LikeGroup\0\u{1}NewStoryBoard\0\u{1}LikeStoryBoard\0\u{1}ForkStory\0\u{1}ShareStoryBoard\0\u{1}ShareStory\0\u{1}ShareRole\0")
 }
 
-extension Common_ItemType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ItemType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AllItem\0\u{1}ShortWord\0\u{1}Paper\0\u{1}Picture\0\u{1}Video\0\u{1}Music\0\u{1}Link\0\u{1}Locate\0")
 }
 
-extension Common_AuthType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_AuthType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NotSupport\0\u{1}WithPhone\0\u{1}WithEmail\0\u{1}WithThirdpart\0\u{1}WithGmail\0\u{1}WithWeChat\0\u{1}WithApple\0")
 }
 
-extension Common_ScopeType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ScopeType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTECT_SCOPE\0\u{1}PUBLIC_SCOPE\0\u{1}PRIVATE_SCOPE\0")
 }
 
-extension Common_TaskStage: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TaskStage: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UnknowTaskStage\0\u{1}Init\0\u{1}Processing\0\u{1}Waiting\0\u{1}Retry\0\u{1}Success\0\u{1}Fail\0")
 }
 
-extension Common_TaskType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TaskType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NotSpecify\0\u{1}Word_Generate\0\u{1}Pic_Generate\0\u{1}Video_Generate\0\u{1}Voice_Generate\0\u{1}Music_Generate\0")
 }
 
-extension Common_SortByType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SortByType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SortByTime\0\u{1}SortByLike\0\u{1}SortByComment\0\u{1}SortByShare\0\u{1}SortByView\0")
 }
 
-extension Common_MultiBranchOrderBy: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_MultiBranchOrderBy: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MultiBranchOrderByUnspecified\0\u{1}MultiBranchOrderByCreatedAt\0\u{1}MultiBranchOrderByUpdatedAt\0\u{1}MultiBranchOrderByLikes\0\u{1}MultiBranchOrderByComments\0\u{1}MultiBranchOrderByViews\0\u{1}MultiBranchOrderByFollowRole\0")
 }
 
-extension Common_DashScopeTaskStatus: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DashScopeTaskStatus: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0DashScopeTaskStatusUnknown\0\u{1}DashScopeTaskStatusPending\0\u{1}DashScopeTaskStatusRunning\0\u{1}DashScopeTaskStatusSucceeded\0\u{1}DashScopeTaskStatusFailed\0\u{1}DashScopeTaskStatusCanceled\0")
 }
 
-extension Common_ImageRatios: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ImageRatios: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Ratio1_1\0\u{1}Ratio4_3\0\u{1}Ratio16_9\0\u{1}Ratio3_2\0\u{1}Ratio3_4\0\u{1}Ratio2_3\0")
 }
 
-extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Tags"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}creator_id\0\u{1}name\0\u{1}status\0\u{3}is_global\0\u{1}id\0\u{3}expired_time\0\u{2}\u{2}Ctime\0\u{1}Mtime\0")
 
@@ -1128,7 +1128,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_Tags, rhs: Common_Tags) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_Tags, rhs: Rankquantity_Voyager_Api_Tags) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.creatorID != rhs.creatorID {return false}
     if lhs.name != rhs.name {return false}
@@ -1143,7 +1143,7 @@ extension Common_Tags: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   }
 }
 
-extension Common_WhatCurrentUserStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_WhatCurrentUserStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".WhatCurrentUserStatus"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}is_followed\0\u{3}is_watched\0\u{3}is_liked\0\u{3}is_joined\0\u{3}is_viewed\0")
 
@@ -1186,7 +1186,7 @@ extension Common_WhatCurrentUserStatus: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_WhatCurrentUserStatus, rhs: Common_WhatCurrentUserStatus) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_WhatCurrentUserStatus, rhs: Rankquantity_Voyager_Api_WhatCurrentUserStatus) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.isFollowed != rhs.isFollowed {return false}
     if lhs.isWatched != rhs.isWatched {return false}

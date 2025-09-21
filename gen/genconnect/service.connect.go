@@ -23,7 +23,7 @@ const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// TeamsAPIName is the fully-qualified name of the TeamsAPI service.
-	TeamsAPIName = "common.TeamsAPI"
+	TeamsAPIName = "rankquantity.voyager.api.TeamsAPI"
 )
 
 // These constants are the fully-qualified names of the RPCs defined in this package. They're
@@ -35,382 +35,382 @@ const (
 // period.
 const (
 	// TeamsAPIExploreProcedure is the fully-qualified name of the TeamsAPI's Explore RPC.
-	TeamsAPIExploreProcedure = "/common.TeamsAPI/Explore"
+	TeamsAPIExploreProcedure = "/rankquantity.voyager.api.TeamsAPI/Explore"
 	// TeamsAPIVersionProcedure is the fully-qualified name of the TeamsAPI's Version RPC.
-	TeamsAPIVersionProcedure = "/common.TeamsAPI/Version"
+	TeamsAPIVersionProcedure = "/rankquantity.voyager.api.TeamsAPI/Version"
 	// TeamsAPIAboutProcedure is the fully-qualified name of the TeamsAPI's About RPC.
-	TeamsAPIAboutProcedure = "/common.TeamsAPI/About"
+	TeamsAPIAboutProcedure = "/rankquantity.voyager.api.TeamsAPI/About"
 	// TeamsAPILoginProcedure is the fully-qualified name of the TeamsAPI's Login RPC.
-	TeamsAPILoginProcedure = "/common.TeamsAPI/Login"
+	TeamsAPILoginProcedure = "/rankquantity.voyager.api.TeamsAPI/Login"
 	// TeamsAPILogoutProcedure is the fully-qualified name of the TeamsAPI's Logout RPC.
-	TeamsAPILogoutProcedure = "/common.TeamsAPI/Logout"
+	TeamsAPILogoutProcedure = "/rankquantity.voyager.api.TeamsAPI/Logout"
 	// TeamsAPIRefreshTokenProcedure is the fully-qualified name of the TeamsAPI's RefreshToken RPC.
-	TeamsAPIRefreshTokenProcedure = "/common.TeamsAPI/RefreshToken"
+	TeamsAPIRefreshTokenProcedure = "/rankquantity.voyager.api.TeamsAPI/RefreshToken"
 	// TeamsAPIRegisterProcedure is the fully-qualified name of the TeamsAPI's Register RPC.
-	TeamsAPIRegisterProcedure = "/common.TeamsAPI/Register"
+	TeamsAPIRegisterProcedure = "/rankquantity.voyager.api.TeamsAPI/Register"
 	// TeamsAPIResetPwdProcedure is the fully-qualified name of the TeamsAPI's ResetPwd RPC.
-	TeamsAPIResetPwdProcedure = "/common.TeamsAPI/ResetPwd"
+	TeamsAPIResetPwdProcedure = "/rankquantity.voyager.api.TeamsAPI/ResetPwd"
 	// TeamsAPIUserInitProcedure is the fully-qualified name of the TeamsAPI's UserInit RPC.
-	TeamsAPIUserInitProcedure = "/common.TeamsAPI/UserInit"
+	TeamsAPIUserInitProcedure = "/rankquantity.voyager.api.TeamsAPI/UserInit"
 	// TeamsAPIUserInfoProcedure is the fully-qualified name of the TeamsAPI's UserInfo RPC.
-	TeamsAPIUserInfoProcedure = "/common.TeamsAPI/UserInfo"
+	TeamsAPIUserInfoProcedure = "/rankquantity.voyager.api.TeamsAPI/UserInfo"
 	// TeamsAPIUpdateUserAvatorProcedure is the fully-qualified name of the TeamsAPI's UpdateUserAvator
 	// RPC.
-	TeamsAPIUpdateUserAvatorProcedure = "/common.TeamsAPI/UpdateUserAvator"
+	TeamsAPIUpdateUserAvatorProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateUserAvator"
 	// TeamsAPIUserWatchingProcedure is the fully-qualified name of the TeamsAPI's UserWatching RPC.
-	TeamsAPIUserWatchingProcedure = "/common.TeamsAPI/UserWatching"
+	TeamsAPIUserWatchingProcedure = "/rankquantity.voyager.api.TeamsAPI/UserWatching"
 	// TeamsAPIUserGroupProcedure is the fully-qualified name of the TeamsAPI's UserGroup RPC.
-	TeamsAPIUserGroupProcedure = "/common.TeamsAPI/UserGroup"
+	TeamsAPIUserGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/UserGroup"
 	// TeamsAPIUserFollowingGroupProcedure is the fully-qualified name of the TeamsAPI's
 	// UserFollowingGroup RPC.
-	TeamsAPIUserFollowingGroupProcedure = "/common.TeamsAPI/UserFollowingGroup"
+	TeamsAPIUserFollowingGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/UserFollowingGroup"
 	// TeamsAPIUserUpdateProcedure is the fully-qualified name of the TeamsAPI's UserUpdate RPC.
-	TeamsAPIUserUpdateProcedure = "/common.TeamsAPI/UserUpdate"
+	TeamsAPIUserUpdateProcedure = "/rankquantity.voyager.api.TeamsAPI/UserUpdate"
 	// TeamsAPISearchUserProcedure is the fully-qualified name of the TeamsAPI's SearchUser RPC.
-	TeamsAPISearchUserProcedure = "/common.TeamsAPI/SearchUser"
+	TeamsAPISearchUserProcedure = "/rankquantity.voyager.api.TeamsAPI/SearchUser"
 	// TeamsAPICreateGroupProcedure is the fully-qualified name of the TeamsAPI's CreateGroup RPC.
-	TeamsAPICreateGroupProcedure = "/common.TeamsAPI/CreateGroup"
+	TeamsAPICreateGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateGroup"
 	// TeamsAPIGetGroupProcedure is the fully-qualified name of the TeamsAPI's GetGroup RPC.
-	TeamsAPIGetGroupProcedure = "/common.TeamsAPI/GetGroup"
+	TeamsAPIGetGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/GetGroup"
 	// TeamsAPIGetGroupActivesProcedure is the fully-qualified name of the TeamsAPI's GetGroupActives
 	// RPC.
-	TeamsAPIGetGroupActivesProcedure = "/common.TeamsAPI/GetGroupActives"
+	TeamsAPIGetGroupActivesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetGroupActives"
 	// TeamsAPIUpdateGroupInfoProcedure is the fully-qualified name of the TeamsAPI's UpdateGroupInfo
 	// RPC.
-	TeamsAPIUpdateGroupInfoProcedure = "/common.TeamsAPI/UpdateGroupInfo"
+	TeamsAPIUpdateGroupInfoProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo"
 	// TeamsAPIGetGroupProfileProcedure is the fully-qualified name of the TeamsAPI's GetGroupProfile
 	// RPC.
-	TeamsAPIGetGroupProfileProcedure = "/common.TeamsAPI/GetGroupProfile"
+	TeamsAPIGetGroupProfileProcedure = "/rankquantity.voyager.api.TeamsAPI/GetGroupProfile"
 	// TeamsAPIUpdateGroupProfileProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateGroupProfile RPC.
-	TeamsAPIUpdateGroupProfileProcedure = "/common.TeamsAPI/UpdateGroupProfile"
+	TeamsAPIUpdateGroupProfileProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile"
 	// TeamsAPIDeleteGroupProcedure is the fully-qualified name of the TeamsAPI's DeleteGroup RPC.
-	TeamsAPIDeleteGroupProcedure = "/common.TeamsAPI/DeleteGroup"
+	TeamsAPIDeleteGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteGroup"
 	// TeamsAPIFetchGroupMembersProcedure is the fully-qualified name of the TeamsAPI's
 	// FetchGroupMembers RPC.
-	TeamsAPIFetchGroupMembersProcedure = "/common.TeamsAPI/FetchGroupMembers"
+	TeamsAPIFetchGroupMembersProcedure = "/rankquantity.voyager.api.TeamsAPI/FetchGroupMembers"
 	// TeamsAPIJoinGroupProcedure is the fully-qualified name of the TeamsAPI's JoinGroup RPC.
-	TeamsAPIJoinGroupProcedure = "/common.TeamsAPI/JoinGroup"
+	TeamsAPIJoinGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/JoinGroup"
 	// TeamsAPILeaveGroupProcedure is the fully-qualified name of the TeamsAPI's LeaveGroup RPC.
-	TeamsAPILeaveGroupProcedure = "/common.TeamsAPI/LeaveGroup"
+	TeamsAPILeaveGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/LeaveGroup"
 	// TeamsAPICreateStoryProcedure is the fully-qualified name of the TeamsAPI's CreateStory RPC.
-	TeamsAPICreateStoryProcedure = "/common.TeamsAPI/CreateStory"
+	TeamsAPICreateStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStory"
 	// TeamsAPIGetStoryInfoProcedure is the fully-qualified name of the TeamsAPI's GetStoryInfo RPC.
-	TeamsAPIGetStoryInfoProcedure = "/common.TeamsAPI/GetStoryInfo"
+	TeamsAPIGetStoryInfoProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryInfo"
 	// TeamsAPIRenderStoryProcedure is the fully-qualified name of the TeamsAPI's RenderStory RPC.
-	TeamsAPIRenderStoryProcedure = "/common.TeamsAPI/RenderStory"
+	TeamsAPIRenderStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStory"
 	// TeamsAPIUpdateStoryProcedure is the fully-qualified name of the TeamsAPI's UpdateStory RPC.
-	TeamsAPIUpdateStoryProcedure = "/common.TeamsAPI/UpdateStory"
+	TeamsAPIUpdateStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStory"
 	// TeamsAPIWatchStoryProcedure is the fully-qualified name of the TeamsAPI's WatchStory RPC.
-	TeamsAPIWatchStoryProcedure = "/common.TeamsAPI/WatchStory"
+	TeamsAPIWatchStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/WatchStory"
 	// TeamsAPIArchiveStoryProcedure is the fully-qualified name of the TeamsAPI's ArchiveStory RPC.
-	TeamsAPIArchiveStoryProcedure = "/common.TeamsAPI/ArchiveStory"
+	TeamsAPIArchiveStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/ArchiveStory"
 	// TeamsAPICreateStoryboardProcedure is the fully-qualified name of the TeamsAPI's CreateStoryboard
 	// RPC.
-	TeamsAPICreateStoryboardProcedure = "/common.TeamsAPI/CreateStoryboard"
+	TeamsAPICreateStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard"
 	// TeamsAPIGetStoryboardProcedure is the fully-qualified name of the TeamsAPI's GetStoryboard RPC.
-	TeamsAPIGetStoryboardProcedure = "/common.TeamsAPI/GetStoryboard"
+	TeamsAPIGetStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryboard"
 	// TeamsAPIRenderStoryboardProcedure is the fully-qualified name of the TeamsAPI's RenderStoryboard
 	// RPC.
-	TeamsAPIRenderStoryboardProcedure = "/common.TeamsAPI/RenderStoryboard"
+	TeamsAPIRenderStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryboard"
 	// TeamsAPIGenStoryboardTextProcedure is the fully-qualified name of the TeamsAPI's
 	// GenStoryboardText RPC.
-	TeamsAPIGenStoryboardTextProcedure = "/common.TeamsAPI/GenStoryboardText"
+	TeamsAPIGenStoryboardTextProcedure = "/rankquantity.voyager.api.TeamsAPI/GenStoryboardText"
 	// TeamsAPIGenStoryboardImagesProcedure is the fully-qualified name of the TeamsAPI's
 	// GenStoryboardImages RPC.
-	TeamsAPIGenStoryboardImagesProcedure = "/common.TeamsAPI/GenStoryboardImages"
+	TeamsAPIGenStoryboardImagesProcedure = "/rankquantity.voyager.api.TeamsAPI/GenStoryboardImages"
 	// TeamsAPIGetStoryboardsProcedure is the fully-qualified name of the TeamsAPI's GetStoryboards RPC.
-	TeamsAPIGetStoryboardsProcedure = "/common.TeamsAPI/GetStoryboards"
+	TeamsAPIGetStoryboardsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryboards"
 	// TeamsAPIDelStoryboardProcedure is the fully-qualified name of the TeamsAPI's DelStoryboard RPC.
-	TeamsAPIDelStoryboardProcedure = "/common.TeamsAPI/DelStoryboard"
+	TeamsAPIDelStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/DelStoryboard"
 	// TeamsAPIForkStoryboardProcedure is the fully-qualified name of the TeamsAPI's ForkStoryboard RPC.
-	TeamsAPIForkStoryboardProcedure = "/common.TeamsAPI/ForkStoryboard"
+	TeamsAPIForkStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/ForkStoryboard"
 	// TeamsAPIUpdateStoryboardProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryboard
 	// RPC.
-	TeamsAPIUpdateStoryboardProcedure = "/common.TeamsAPI/UpdateStoryboard"
+	TeamsAPIUpdateStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboard"
 	// TeamsAPILikeStoryboardProcedure is the fully-qualified name of the TeamsAPI's LikeStoryboard RPC.
-	TeamsAPILikeStoryboardProcedure = "/common.TeamsAPI/LikeStoryboard"
+	TeamsAPILikeStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/LikeStoryboard"
 	// TeamsAPIUnLikeStoryboardProcedure is the fully-qualified name of the TeamsAPI's UnLikeStoryboard
 	// RPC.
-	TeamsAPIUnLikeStoryboardProcedure = "/common.TeamsAPI/UnLikeStoryboard"
+	TeamsAPIUnLikeStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard"
 	// TeamsAPIShareStoryboardProcedure is the fully-qualified name of the TeamsAPI's ShareStoryboard
 	// RPC.
-	TeamsAPIShareStoryboardProcedure = "/common.TeamsAPI/ShareStoryboard"
+	TeamsAPIShareStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/ShareStoryboard"
 	// TeamsAPIFetchGroupStorysProcedure is the fully-qualified name of the TeamsAPI's FetchGroupStorys
 	// RPC.
-	TeamsAPIFetchGroupStorysProcedure = "/common.TeamsAPI/FetchGroupStorys"
+	TeamsAPIFetchGroupStorysProcedure = "/rankquantity.voyager.api.TeamsAPI/FetchGroupStorys"
 	// TeamsAPIUploadImageFileProcedure is the fully-qualified name of the TeamsAPI's UploadImageFile
 	// RPC.
-	TeamsAPIUploadImageFileProcedure = "/common.TeamsAPI/UploadImageFile"
+	TeamsAPIUploadImageFileProcedure = "/rankquantity.voyager.api.TeamsAPI/UploadImageFile"
 	// TeamsAPIGetStoryRenderProcedure is the fully-qualified name of the TeamsAPI's GetStoryRender RPC.
-	TeamsAPIGetStoryRenderProcedure = "/common.TeamsAPI/GetStoryRender"
+	TeamsAPIGetStoryRenderProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRender"
 	// TeamsAPIGetStoryBoardRenderProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardRender RPC.
-	TeamsAPIGetStoryBoardRenderProcedure = "/common.TeamsAPI/GetStoryBoardRender"
+	TeamsAPIGetStoryBoardRenderProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender"
 	// TeamsAPIGetStoryContributorsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryContributors RPC.
-	TeamsAPIGetStoryContributorsProcedure = "/common.TeamsAPI/GetStoryContributors"
+	TeamsAPIGetStoryContributorsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryContributors"
 	// TeamsAPIContinueRenderStoryProcedure is the fully-qualified name of the TeamsAPI's
 	// ContinueRenderStory RPC.
-	TeamsAPIContinueRenderStoryProcedure = "/common.TeamsAPI/ContinueRenderStory"
+	TeamsAPIContinueRenderStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/ContinueRenderStory"
 	// TeamsAPIRenderStoryRolesProcedure is the fully-qualified name of the TeamsAPI's RenderStoryRoles
 	// RPC.
-	TeamsAPIRenderStoryRolesProcedure = "/common.TeamsAPI/RenderStoryRoles"
+	TeamsAPIRenderStoryRolesProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoles"
 	// TeamsAPIUpdateStoryRoleProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryRole
 	// RPC.
-	TeamsAPIUpdateStoryRoleProcedure = "/common.TeamsAPI/UpdateStoryRole"
+	TeamsAPIUpdateStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRole"
 	// TeamsAPIRenderStoryRoleDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// RenderStoryRoleDetail RPC.
-	TeamsAPIRenderStoryRoleDetailProcedure = "/common.TeamsAPI/RenderStoryRoleDetail"
+	TeamsAPIRenderStoryRoleDetailProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail"
 	// TeamsAPIGetStoryRolesProcedure is the fully-qualified name of the TeamsAPI's GetStoryRoles RPC.
-	TeamsAPIGetStoryRolesProcedure = "/common.TeamsAPI/GetStoryRoles"
+	TeamsAPIGetStoryRolesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRoles"
 	// TeamsAPIGetStoryBoardRolesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardRoles RPC.
-	TeamsAPIGetStoryBoardRolesProcedure = "/common.TeamsAPI/GetStoryBoardRoles"
+	TeamsAPIGetStoryBoardRolesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles"
 	// TeamsAPIGetUserProfileProcedure is the fully-qualified name of the TeamsAPI's GetUserProfile RPC.
-	TeamsAPIGetUserProfileProcedure = "/common.TeamsAPI/GetUserProfile"
+	TeamsAPIGetUserProfileProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserProfile"
 	// TeamsAPIUpdateUserProfileProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateUserProfile RPC.
-	TeamsAPIUpdateUserProfileProcedure = "/common.TeamsAPI/UpdateUserProfile"
+	TeamsAPIUpdateUserProfileProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateUserProfile"
 	// TeamsAPIUpdateUserBackgroundImageProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateUserBackgroundImage RPC.
-	TeamsAPIUpdateUserBackgroundImageProcedure = "/common.TeamsAPI/UpdateUserBackgroundImage"
+	TeamsAPIUpdateUserBackgroundImageProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage"
 	// TeamsAPICreateStoryRoleProcedure is the fully-qualified name of the TeamsAPI's CreateStoryRole
 	// RPC.
-	TeamsAPICreateStoryRoleProcedure = "/common.TeamsAPI/CreateStoryRole"
+	TeamsAPICreateStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryRole"
 	// TeamsAPIGetStoryRoleDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryRoleDetail RPC.
-	TeamsAPIGetStoryRoleDetailProcedure = "/common.TeamsAPI/GetStoryRoleDetail"
+	TeamsAPIGetStoryRoleDetailProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail"
 	// TeamsAPIRenderStoryRoleProcedure is the fully-qualified name of the TeamsAPI's RenderStoryRole
 	// RPC.
-	TeamsAPIRenderStoryRoleProcedure = "/common.TeamsAPI/RenderStoryRole"
+	TeamsAPIRenderStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryRole"
 	// TeamsAPILikeStoryProcedure is the fully-qualified name of the TeamsAPI's LikeStory RPC.
-	TeamsAPILikeStoryProcedure = "/common.TeamsAPI/LikeStory"
+	TeamsAPILikeStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/LikeStory"
 	// TeamsAPIUnLikeStoryProcedure is the fully-qualified name of the TeamsAPI's UnLikeStory RPC.
-	TeamsAPIUnLikeStoryProcedure = "/common.TeamsAPI/UnLikeStory"
+	TeamsAPIUnLikeStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/UnLikeStory"
 	// TeamsAPIGetStoryBoardSencesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardSences RPC.
-	TeamsAPIGetStoryBoardSencesProcedure = "/common.TeamsAPI/GetStoryBoardSences"
+	TeamsAPIGetStoryBoardSencesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences"
 	// TeamsAPICreateStoryBoardSenceProcedure is the fully-qualified name of the TeamsAPI's
 	// CreateStoryBoardSence RPC.
-	TeamsAPICreateStoryBoardSenceProcedure = "/common.TeamsAPI/CreateStoryBoardSence"
+	TeamsAPICreateStoryBoardSenceProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence"
 	// TeamsAPIUpdateStoryBoardSenceProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryBoardSence RPC.
-	TeamsAPIUpdateStoryBoardSenceProcedure = "/common.TeamsAPI/UpdateStoryBoardSence"
+	TeamsAPIUpdateStoryBoardSenceProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence"
 	// TeamsAPIDeleteStoryBoardSenceProcedure is the fully-qualified name of the TeamsAPI's
 	// DeleteStoryBoardSence RPC.
-	TeamsAPIDeleteStoryBoardSenceProcedure = "/common.TeamsAPI/DeleteStoryBoardSence"
+	TeamsAPIDeleteStoryBoardSenceProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence"
 	// TeamsAPIRenderStoryBoardSenceProcedure is the fully-qualified name of the TeamsAPI's
 	// RenderStoryBoardSence RPC.
-	TeamsAPIRenderStoryBoardSenceProcedure = "/common.TeamsAPI/RenderStoryBoardSence"
+	TeamsAPIRenderStoryBoardSenceProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence"
 	// TeamsAPIRenderStoryBoardSencesProcedure is the fully-qualified name of the TeamsAPI's
 	// RenderStoryBoardSences RPC.
-	TeamsAPIRenderStoryBoardSencesProcedure = "/common.TeamsAPI/RenderStoryBoardSences"
+	TeamsAPIRenderStoryBoardSencesProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences"
 	// TeamsAPIGetStoryBoardSenceGenerateProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardSenceGenerate RPC.
-	TeamsAPIGetStoryBoardSenceGenerateProcedure = "/common.TeamsAPI/GetStoryBoardSenceGenerate"
+	TeamsAPIGetStoryBoardSenceGenerateProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate"
 	// TeamsAPIGetStoryBoardGenerateProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardGenerate RPC.
-	TeamsAPIGetStoryBoardGenerateProcedure = "/common.TeamsAPI/GetStoryBoardGenerate"
+	TeamsAPIGetStoryBoardGenerateProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate"
 	// TeamsAPILikeStoryRoleProcedure is the fully-qualified name of the TeamsAPI's LikeStoryRole RPC.
-	TeamsAPILikeStoryRoleProcedure = "/common.TeamsAPI/LikeStoryRole"
+	TeamsAPILikeStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/LikeStoryRole"
 	// TeamsAPIUnLikeStoryRoleProcedure is the fully-qualified name of the TeamsAPI's UnLikeStoryRole
 	// RPC.
-	TeamsAPIUnLikeStoryRoleProcedure = "/common.TeamsAPI/UnLikeStoryRole"
+	TeamsAPIUnLikeStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole"
 	// TeamsAPIFollowStoryRoleProcedure is the fully-qualified name of the TeamsAPI's FollowStoryRole
 	// RPC.
-	TeamsAPIFollowStoryRoleProcedure = "/common.TeamsAPI/FollowStoryRole"
+	TeamsAPIFollowStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/FollowStoryRole"
 	// TeamsAPIUnFollowStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// UnFollowStoryRole RPC.
-	TeamsAPIUnFollowStoryRoleProcedure = "/common.TeamsAPI/UnFollowStoryRole"
+	TeamsAPIUnFollowStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole"
 	// TeamsAPISearchStoriesProcedure is the fully-qualified name of the TeamsAPI's SearchStories RPC.
-	TeamsAPISearchStoriesProcedure = "/common.TeamsAPI/SearchStories"
+	TeamsAPISearchStoriesProcedure = "/rankquantity.voyager.api.TeamsAPI/SearchStories"
 	// TeamsAPISearchGroupProcedure is the fully-qualified name of the TeamsAPI's SearchGroup RPC.
-	TeamsAPISearchGroupProcedure = "/common.TeamsAPI/SearchGroup"
+	TeamsAPISearchGroupProcedure = "/rankquantity.voyager.api.TeamsAPI/SearchGroup"
 	// TeamsAPISearchRolesProcedure is the fully-qualified name of the TeamsAPI's SearchRoles RPC.
-	TeamsAPISearchRolesProcedure = "/common.TeamsAPI/SearchRoles"
+	TeamsAPISearchRolesProcedure = "/rankquantity.voyager.api.TeamsAPI/SearchRoles"
 	// TeamsAPIRestoreStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// RestoreStoryboard RPC.
-	TeamsAPIRestoreStoryboardProcedure = "/common.TeamsAPI/RestoreStoryboard"
+	TeamsAPIRestoreStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/RestoreStoryboard"
 	// TeamsAPIGetUserCreatedStoryboardsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserCreatedStoryboards RPC.
-	TeamsAPIGetUserCreatedStoryboardsProcedure = "/common.TeamsAPI/GetUserCreatedStoryboards"
+	TeamsAPIGetUserCreatedStoryboardsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards"
 	// TeamsAPIGetUserCreatedRolesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserCreatedRoles RPC.
-	TeamsAPIGetUserCreatedRolesProcedure = "/common.TeamsAPI/GetUserCreatedRoles"
+	TeamsAPIGetUserCreatedRolesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles"
 	// TeamsAPIGetStoryRoleStoryboardsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryRoleStoryboards RPC.
-	TeamsAPIGetStoryRoleStoryboardsProcedure = "/common.TeamsAPI/GetStoryRoleStoryboards"
+	TeamsAPIGetStoryRoleStoryboardsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards"
 	// TeamsAPIGetStoryRoleStoriesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryRoleStories RPC.
-	TeamsAPIGetStoryRoleStoriesProcedure = "/common.TeamsAPI/GetStoryRoleStories"
+	TeamsAPIGetStoryRoleStoriesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories"
 	// TeamsAPICreateStoryRoleChatProcedure is the fully-qualified name of the TeamsAPI's
 	// CreateStoryRoleChat RPC.
-	TeamsAPICreateStoryRoleChatProcedure = "/common.TeamsAPI/CreateStoryRoleChat"
+	TeamsAPICreateStoryRoleChatProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat"
 	// TeamsAPIChatWithStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// ChatWithStoryRole RPC.
-	TeamsAPIChatWithStoryRoleProcedure = "/common.TeamsAPI/ChatWithStoryRole"
+	TeamsAPIChatWithStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole"
 	// TeamsAPIUpdateStoryRoleAvatorProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRoleAvator RPC.
-	TeamsAPIUpdateStoryRoleAvatorProcedure = "/common.TeamsAPI/UpdateStoryRoleAvator"
+	TeamsAPIUpdateStoryRoleAvatorProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator"
 	// TeamsAPIUpdateStoryRoleDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRoleDetail RPC.
-	TeamsAPIUpdateStoryRoleDetailProcedure = "/common.TeamsAPI/UpdateStoryRoleDetail"
+	TeamsAPIUpdateStoryRoleDetailProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail"
 	// TeamsAPIGetUserWithRoleChatListProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserWithRoleChatList RPC.
-	TeamsAPIGetUserWithRoleChatListProcedure = "/common.TeamsAPI/GetUserWithRoleChatList"
+	TeamsAPIGetUserWithRoleChatListProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList"
 	// TeamsAPIGetUserChatWithRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserChatWithRole RPC.
-	TeamsAPIGetUserChatWithRoleProcedure = "/common.TeamsAPI/GetUserChatWithRole"
+	TeamsAPIGetUserChatWithRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole"
 	// TeamsAPIGetUserChatMessagesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserChatMessages RPC.
-	TeamsAPIGetUserChatMessagesProcedure = "/common.TeamsAPI/GetUserChatMessages"
+	TeamsAPIGetUserChatMessagesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserChatMessages"
 	// TeamsAPIFetchActivesProcedure is the fully-qualified name of the TeamsAPI's FetchActives RPC.
-	TeamsAPIFetchActivesProcedure = "/common.TeamsAPI/FetchActives"
+	TeamsAPIFetchActivesProcedure = "/rankquantity.voyager.api.TeamsAPI/FetchActives"
 	// TeamsAPIGetNextStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// GetNextStoryboard RPC.
-	TeamsAPIGetNextStoryboardProcedure = "/common.TeamsAPI/GetNextStoryboard"
+	TeamsAPIGetNextStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/GetNextStoryboard"
 	// TeamsAPIRenderStoryRoleContinuouslyProcedure is the fully-qualified name of the TeamsAPI's
 	// RenderStoryRoleContinuously RPC.
-	TeamsAPIRenderStoryRoleContinuouslyProcedure = "/common.TeamsAPI/RenderStoryRoleContinuously"
+	TeamsAPIRenderStoryRoleContinuouslyProcedure = "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously"
 	// TeamsAPIPublishStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// PublishStoryboard RPC.
-	TeamsAPIPublishStoryboardProcedure = "/common.TeamsAPI/PublishStoryboard"
+	TeamsAPIPublishStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/PublishStoryboard"
 	// TeamsAPICancelStoryboardProcedure is the fully-qualified name of the TeamsAPI's CancelStoryboard
 	// RPC.
-	TeamsAPICancelStoryboardProcedure = "/common.TeamsAPI/CancelStoryboard"
+	TeamsAPICancelStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/CancelStoryboard"
 	// TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserWatchStoryActiveStoryBoards RPC.
-	TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure = "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
+	TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
 	// TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUserWatchRoleActiveStoryBoards RPC.
-	TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure = "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
+	TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
 	// TeamsAPIGetUnPublishStoryboardProcedure is the fully-qualified name of the TeamsAPI's
 	// GetUnPublishStoryboard RPC.
-	TeamsAPIGetUnPublishStoryboardProcedure = "/common.TeamsAPI/GetUnPublishStoryboard"
+	TeamsAPIGetUnPublishStoryboardProcedure = "/rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard"
 	// TeamsAPIGenerateRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateRoleDescription RPC.
-	TeamsAPIGenerateRoleDescriptionProcedure = "/common.TeamsAPI/GenerateRoleDescription"
+	TeamsAPIGenerateRoleDescriptionProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription"
 	// TeamsAPIUpdateRoleDescriptionProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateRoleDescription RPC.
-	TeamsAPIUpdateRoleDescriptionProcedure = "/common.TeamsAPI/UpdateRoleDescription"
+	TeamsAPIUpdateRoleDescriptionProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription"
 	// TeamsAPIGenerateRolePromptProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateRolePrompt RPC.
-	TeamsAPIGenerateRolePromptProcedure = "/common.TeamsAPI/GenerateRolePrompt"
+	TeamsAPIGenerateRolePromptProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt"
 	// TeamsAPIUpdateRolePromptProcedure is the fully-qualified name of the TeamsAPI's UpdateRolePrompt
 	// RPC.
-	TeamsAPIUpdateRolePromptProcedure = "/common.TeamsAPI/UpdateRolePrompt"
+	TeamsAPIUpdateRolePromptProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt"
 	// TeamsAPICreateStoryCommentProcedure is the fully-qualified name of the TeamsAPI's
 	// CreateStoryComment RPC.
-	TeamsAPICreateStoryCommentProcedure = "/common.TeamsAPI/CreateStoryComment"
+	TeamsAPICreateStoryCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryComment"
 	// TeamsAPIGetStoryCommentsProcedure is the fully-qualified name of the TeamsAPI's GetStoryComments
 	// RPC.
-	TeamsAPIGetStoryCommentsProcedure = "/common.TeamsAPI/GetStoryComments"
+	TeamsAPIGetStoryCommentsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryComments"
 	// TeamsAPIDeleteStoryCommentProcedure is the fully-qualified name of the TeamsAPI's
 	// DeleteStoryComment RPC.
-	TeamsAPIDeleteStoryCommentProcedure = "/common.TeamsAPI/DeleteStoryComment"
+	TeamsAPIDeleteStoryCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteStoryComment"
 	// TeamsAPIGetStoryCommentRepliesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryCommentReplies RPC.
-	TeamsAPIGetStoryCommentRepliesProcedure = "/common.TeamsAPI/GetStoryCommentReplies"
+	TeamsAPIGetStoryCommentRepliesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies"
 	// TeamsAPICreateStoryCommentReplyProcedure is the fully-qualified name of the TeamsAPI's
 	// CreateStoryCommentReply RPC.
-	TeamsAPICreateStoryCommentReplyProcedure = "/common.TeamsAPI/CreateStoryCommentReply"
+	TeamsAPICreateStoryCommentReplyProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply"
 	// TeamsAPIDeleteStoryCommentReplyProcedure is the fully-qualified name of the TeamsAPI's
 	// DeleteStoryCommentReply RPC.
-	TeamsAPIDeleteStoryCommentReplyProcedure = "/common.TeamsAPI/DeleteStoryCommentReply"
+	TeamsAPIDeleteStoryCommentReplyProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply"
 	// TeamsAPIGetStoryBoardCommentsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardComments RPC.
-	TeamsAPIGetStoryBoardCommentsProcedure = "/common.TeamsAPI/GetStoryBoardComments"
+	TeamsAPIGetStoryBoardCommentsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments"
 	// TeamsAPICreateStoryBoardCommentProcedure is the fully-qualified name of the TeamsAPI's
 	// CreateStoryBoardComment RPC.
-	TeamsAPICreateStoryBoardCommentProcedure = "/common.TeamsAPI/CreateStoryBoardComment"
+	TeamsAPICreateStoryBoardCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment"
 	// TeamsAPIDeleteStoryBoardCommentProcedure is the fully-qualified name of the TeamsAPI's
 	// DeleteStoryBoardComment RPC.
-	TeamsAPIDeleteStoryBoardCommentProcedure = "/common.TeamsAPI/DeleteStoryBoardComment"
+	TeamsAPIDeleteStoryBoardCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment"
 	// TeamsAPIGetStoryBoardCommentRepliesProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryBoardCommentReplies RPC.
-	TeamsAPIGetStoryBoardCommentRepliesProcedure = "/common.TeamsAPI/GetStoryBoardCommentReplies"
+	TeamsAPIGetStoryBoardCommentRepliesProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies"
 	// TeamsAPILikeCommentProcedure is the fully-qualified name of the TeamsAPI's LikeComment RPC.
-	TeamsAPILikeCommentProcedure = "/common.TeamsAPI/LikeComment"
+	TeamsAPILikeCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/LikeComment"
 	// TeamsAPIDislikeCommentProcedure is the fully-qualified name of the TeamsAPI's DislikeComment RPC.
-	TeamsAPIDislikeCommentProcedure = "/common.TeamsAPI/DislikeComment"
+	TeamsAPIDislikeCommentProcedure = "/rankquantity.voyager.api.TeamsAPI/DislikeComment"
 	// TeamsAPIGetStoryRoleListProcedure is the fully-qualified name of the TeamsAPI's GetStoryRoleList
 	// RPC.
-	TeamsAPIGetStoryRoleListProcedure = "/common.TeamsAPI/GetStoryRoleList"
+	TeamsAPIGetStoryRoleListProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleList"
 	// TeamsAPITrendingStoryProcedure is the fully-qualified name of the TeamsAPI's TrendingStory RPC.
-	TeamsAPITrendingStoryProcedure = "/common.TeamsAPI/TrendingStory"
+	TeamsAPITrendingStoryProcedure = "/rankquantity.voyager.api.TeamsAPI/TrendingStory"
 	// TeamsAPITrendingStoryRoleProcedure is the fully-qualified name of the TeamsAPI's
 	// TrendingStoryRole RPC.
-	TeamsAPITrendingStoryRoleProcedure = "/common.TeamsAPI/TrendingStoryRole"
+	TeamsAPITrendingStoryRoleProcedure = "/rankquantity.voyager.api.TeamsAPI/TrendingStoryRole"
 	// TeamsAPIFollowUserProcedure is the fully-qualified name of the TeamsAPI's FollowUser RPC.
-	TeamsAPIFollowUserProcedure = "/common.TeamsAPI/FollowUser"
+	TeamsAPIFollowUserProcedure = "/rankquantity.voyager.api.TeamsAPI/FollowUser"
 	// TeamsAPIUnfollowUserProcedure is the fully-qualified name of the TeamsAPI's UnfollowUser RPC.
-	TeamsAPIUnfollowUserProcedure = "/common.TeamsAPI/UnfollowUser"
+	TeamsAPIUnfollowUserProcedure = "/rankquantity.voyager.api.TeamsAPI/UnfollowUser"
 	// TeamsAPIGetFollowListProcedure is the fully-qualified name of the TeamsAPI's GetFollowList RPC.
-	TeamsAPIGetFollowListProcedure = "/common.TeamsAPI/GetFollowList"
+	TeamsAPIGetFollowListProcedure = "/rankquantity.voyager.api.TeamsAPI/GetFollowList"
 	// TeamsAPIGetFollowerListProcedure is the fully-qualified name of the TeamsAPI's GetFollowerList
 	// RPC.
-	TeamsAPIGetFollowerListProcedure = "/common.TeamsAPI/GetFollowerList"
+	TeamsAPIGetFollowerListProcedure = "/rankquantity.voyager.api.TeamsAPI/GetFollowerList"
 	// TeamsAPIUpdateStoryRolePromptProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRolePrompt RPC.
-	TeamsAPIUpdateStoryRolePromptProcedure = "/common.TeamsAPI/UpdateStoryRolePrompt"
+	TeamsAPIUpdateStoryRolePromptProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt"
 	// TeamsAPIUpdateStoryRoleDescriptionDetailProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRoleDescriptionDetail RPC.
-	TeamsAPIUpdateStoryRoleDescriptionDetailProcedure = "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
+	TeamsAPIUpdateStoryRoleDescriptionDetailProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail"
 	// TeamsAPIQueryTaskStatusProcedure is the fully-qualified name of the TeamsAPI's QueryTaskStatus
 	// RPC.
-	TeamsAPIQueryTaskStatusProcedure = "/common.TeamsAPI/QueryTaskStatus"
+	TeamsAPIQueryTaskStatusProcedure = "/rankquantity.voyager.api.TeamsAPI/QueryTaskStatus"
 	// TeamsAPIGetStoryImageStyleProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryImageStyle RPC.
-	TeamsAPIGetStoryImageStyleProcedure = "/common.TeamsAPI/GetStoryImageStyle"
+	TeamsAPIGetStoryImageStyleProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle"
 	// TeamsAPIUpdateStoryImageStyleProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryImageStyle RPC.
-	TeamsAPIUpdateStoryImageStyleProcedure = "/common.TeamsAPI/UpdateStoryImageStyle"
+	TeamsAPIUpdateStoryImageStyleProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle"
 	// TeamsAPIUpdateStorySenceMaxNumberProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStorySenceMaxNumber RPC.
-	TeamsAPIUpdateStorySenceMaxNumberProcedure = "/common.TeamsAPI/UpdateStorySenceMaxNumber"
+	TeamsAPIUpdateStorySenceMaxNumberProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber"
 	// TeamsAPIUpdateStoryAvatarProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryAvatar RPC.
-	TeamsAPIUpdateStoryAvatarProcedure = "/common.TeamsAPI/UpdateStoryAvatar"
+	TeamsAPIUpdateStoryAvatarProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar"
 	// TeamsAPIUpdateStoryCoverProcedure is the fully-qualified name of the TeamsAPI's UpdateStoryCover
 	// RPC.
-	TeamsAPIUpdateStoryCoverProcedure = "/common.TeamsAPI/UpdateStoryCover"
+	TeamsAPIUpdateStoryCoverProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryCover"
 	// TeamsAPISaveStoryboardCraftProcedure is the fully-qualified name of the TeamsAPI's
 	// SaveStoryboardCraft RPC.
-	TeamsAPISaveStoryboardCraftProcedure = "/common.TeamsAPI/SaveStoryboardCraft"
+	TeamsAPISaveStoryboardCraftProcedure = "/rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft"
 	// TeamsAPIGetStoryParticipantsProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryParticipants RPC.
-	TeamsAPIGetStoryParticipantsProcedure = "/common.TeamsAPI/GetStoryParticipants"
+	TeamsAPIGetStoryParticipantsProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryParticipants"
 	// TeamsAPIGenerateStorySceneVideoProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateStorySceneVideo RPC.
-	TeamsAPIGenerateStorySceneVideoProcedure = "/common.TeamsAPI/GenerateStorySceneVideo"
+	TeamsAPIGenerateStorySceneVideoProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo"
 	// TeamsAPIGenerateRoleAvatarProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateRoleAvatar RPC.
-	TeamsAPIGenerateRoleAvatarProcedure = "/common.TeamsAPI/GenerateRoleAvatar"
+	TeamsAPIGenerateRoleAvatarProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar"
 	// TeamsAPIFetchUserGenTaskStatusProcedure is the fully-qualified name of the TeamsAPI's
 	// FetchUserGenTaskStatus RPC.
-	TeamsAPIFetchUserGenTaskStatusProcedure = "/common.TeamsAPI/FetchUserGenTaskStatus"
+	TeamsAPIFetchUserGenTaskStatusProcedure = "/rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus"
 	// TeamsAPIGenerateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateStoryRolePoster RPC.
-	TeamsAPIGenerateStoryRolePosterProcedure = "/common.TeamsAPI/GenerateStoryRolePoster"
+	TeamsAPIGenerateStoryRolePosterProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster"
 	// TeamsAPIUpdateStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
 	// UpdateStoryRolePoster RPC.
-	TeamsAPIUpdateStoryRolePosterProcedure = "/common.TeamsAPI/UpdateStoryRolePoster"
+	TeamsAPIUpdateStoryRolePosterProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster"
 	// TeamsAPILikeStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
 	// LikeStoryRolePoster RPC.
-	TeamsAPILikeStoryRolePosterProcedure = "/common.TeamsAPI/LikeStoryRolePoster"
+	TeamsAPILikeStoryRolePosterProcedure = "/rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster"
 	// TeamsAPIUnLikeStoryRolePosterProcedure is the fully-qualified name of the TeamsAPI's
 	// UnLikeStoryRolePoster RPC.
-	TeamsAPIUnLikeStoryRolePosterProcedure = "/common.TeamsAPI/UnLikeStoryRolePoster"
+	TeamsAPIUnLikeStoryRolePosterProcedure = "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster"
 	// TeamsAPIGetStoryRolePosterListProcedure is the fully-qualified name of the TeamsAPI's
 	// GetStoryRolePosterList RPC.
-	TeamsAPIGetStoryRolePosterListProcedure = "/common.TeamsAPI/GetStoryRolePosterList"
+	TeamsAPIGetStoryRolePosterListProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList"
 	// TeamsAPIGenerateStoryRoleVideoProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateStoryRoleVideo RPC.
-	TeamsAPIGenerateStoryRoleVideoProcedure = "/common.TeamsAPI/GenerateStoryRoleVideo"
+	TeamsAPIGenerateStoryRoleVideoProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo"
 )
 
-// TeamsAPIClient is a client for the common.TeamsAPI service.
+// TeamsAPIClient is a client for the rankquantity.voyager.api.TeamsAPI service.
 type TeamsAPIClient interface {
 	// Explore returns trending and recommended content for users to discover
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
@@ -682,10 +682,10 @@ type TeamsAPIClient interface {
 	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
 }
 
-// NewTeamsAPIClient constructs a client for the common.TeamsAPI service. By default, it uses the
-// Connect protocol with the binary Protobuf Codec, asks for gzipped responses, and sends
-// uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the connect.WithGRPC() or
-// connect.WithGRPCWeb() options.
+// NewTeamsAPIClient constructs a client for the rankquantity.voyager.api.TeamsAPI service. By
+// default, it uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses,
+// and sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the
+// connect.WithGRPC() or connect.WithGRPCWeb() options.
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
@@ -1539,707 +1539,710 @@ type teamsAPIClient struct {
 	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
 }
 
-// Explore calls common.TeamsAPI.Explore.
+// Explore calls rankquantity.voyager.api.TeamsAPI.Explore.
 func (c *teamsAPIClient) Explore(ctx context.Context, req *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
 	return c.explore.CallUnary(ctx, req)
 }
 
-// Version calls common.TeamsAPI.Version.
+// Version calls rankquantity.voyager.api.TeamsAPI.Version.
 func (c *teamsAPIClient) Version(ctx context.Context, req *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
 	return c.version.CallUnary(ctx, req)
 }
 
-// About calls common.TeamsAPI.About.
+// About calls rankquantity.voyager.api.TeamsAPI.About.
 func (c *teamsAPIClient) About(ctx context.Context, req *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
 	return c.about.CallUnary(ctx, req)
 }
 
-// Login calls common.TeamsAPI.Login.
+// Login calls rankquantity.voyager.api.TeamsAPI.Login.
 func (c *teamsAPIClient) Login(ctx context.Context, req *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
 	return c.login.CallUnary(ctx, req)
 }
 
-// Logout calls common.TeamsAPI.Logout.
+// Logout calls rankquantity.voyager.api.TeamsAPI.Logout.
 func (c *teamsAPIClient) Logout(ctx context.Context, req *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
 	return c.logout.CallUnary(ctx, req)
 }
 
-// RefreshToken calls common.TeamsAPI.RefreshToken.
+// RefreshToken calls rankquantity.voyager.api.TeamsAPI.RefreshToken.
 func (c *teamsAPIClient) RefreshToken(ctx context.Context, req *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error) {
 	return c.refreshToken.CallUnary(ctx, req)
 }
 
-// Register calls common.TeamsAPI.Register.
+// Register calls rankquantity.voyager.api.TeamsAPI.Register.
 func (c *teamsAPIClient) Register(ctx context.Context, req *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
 	return c.register.CallUnary(ctx, req)
 }
 
-// ResetPwd calls common.TeamsAPI.ResetPwd.
+// ResetPwd calls rankquantity.voyager.api.TeamsAPI.ResetPwd.
 func (c *teamsAPIClient) ResetPwd(ctx context.Context, req *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
 	return c.resetPwd.CallUnary(ctx, req)
 }
 
-// UserInit calls common.TeamsAPI.UserInit.
+// UserInit calls rankquantity.voyager.api.TeamsAPI.UserInit.
 func (c *teamsAPIClient) UserInit(ctx context.Context, req *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
 	return c.userInit.CallUnary(ctx, req)
 }
 
-// UserInfo calls common.TeamsAPI.UserInfo.
+// UserInfo calls rankquantity.voyager.api.TeamsAPI.UserInfo.
 func (c *teamsAPIClient) UserInfo(ctx context.Context, req *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
 	return c.userInfo.CallUnary(ctx, req)
 }
 
-// UpdateUserAvator calls common.TeamsAPI.UpdateUserAvator.
+// UpdateUserAvator calls rankquantity.voyager.api.TeamsAPI.UpdateUserAvator.
 func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, req *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
 	return c.updateUserAvator.CallUnary(ctx, req)
 }
 
-// UserWatching calls common.TeamsAPI.UserWatching.
+// UserWatching calls rankquantity.voyager.api.TeamsAPI.UserWatching.
 func (c *teamsAPIClient) UserWatching(ctx context.Context, req *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
 	return c.userWatching.CallUnary(ctx, req)
 }
 
-// UserGroup calls common.TeamsAPI.UserGroup.
+// UserGroup calls rankquantity.voyager.api.TeamsAPI.UserGroup.
 func (c *teamsAPIClient) UserGroup(ctx context.Context, req *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
 	return c.userGroup.CallUnary(ctx, req)
 }
 
-// UserFollowingGroup calls common.TeamsAPI.UserFollowingGroup.
+// UserFollowingGroup calls rankquantity.voyager.api.TeamsAPI.UserFollowingGroup.
 func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
 	return c.userFollowingGroup.CallUnary(ctx, req)
 }
 
-// UserUpdate calls common.TeamsAPI.UserUpdate.
+// UserUpdate calls rankquantity.voyager.api.TeamsAPI.UserUpdate.
 func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
 	return c.userUpdate.CallUnary(ctx, req)
 }
 
-// SearchUser calls common.TeamsAPI.SearchUser.
+// SearchUser calls rankquantity.voyager.api.TeamsAPI.SearchUser.
 func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
 	return c.searchUser.CallUnary(ctx, req)
 }
 
-// CreateGroup calls common.TeamsAPI.CreateGroup.
+// CreateGroup calls rankquantity.voyager.api.TeamsAPI.CreateGroup.
 func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error) {
 	return c.createGroup.CallUnary(ctx, req)
 }
 
-// GetGroup calls common.TeamsAPI.GetGroup.
+// GetGroup calls rankquantity.voyager.api.TeamsAPI.GetGroup.
 func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error) {
 	return c.getGroup.CallUnary(ctx, req)
 }
 
-// GetGroupActives calls common.TeamsAPI.GetGroupActives.
+// GetGroupActives calls rankquantity.voyager.api.TeamsAPI.GetGroupActives.
 func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
 	return c.getGroupActives.CallUnary(ctx, req)
 }
 
-// UpdateGroupInfo calls common.TeamsAPI.UpdateGroupInfo.
+// UpdateGroupInfo calls rankquantity.voyager.api.TeamsAPI.UpdateGroupInfo.
 func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
 	return c.updateGroupInfo.CallUnary(ctx, req)
 }
 
-// GetGroupProfile calls common.TeamsAPI.GetGroupProfile.
+// GetGroupProfile calls rankquantity.voyager.api.TeamsAPI.GetGroupProfile.
 func (c *teamsAPIClient) GetGroupProfile(ctx context.Context, req *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error) {
 	return c.getGroupProfile.CallUnary(ctx, req)
 }
 
-// UpdateGroupProfile calls common.TeamsAPI.UpdateGroupProfile.
+// UpdateGroupProfile calls rankquantity.voyager.api.TeamsAPI.UpdateGroupProfile.
 func (c *teamsAPIClient) UpdateGroupProfile(ctx context.Context, req *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error) {
 	return c.updateGroupProfile.CallUnary(ctx, req)
 }
 
-// DeleteGroup calls common.TeamsAPI.DeleteGroup.
+// DeleteGroup calls rankquantity.voyager.api.TeamsAPI.DeleteGroup.
 func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
 	return c.deleteGroup.CallUnary(ctx, req)
 }
 
-// FetchGroupMembers calls common.TeamsAPI.FetchGroupMembers.
+// FetchGroupMembers calls rankquantity.voyager.api.TeamsAPI.FetchGroupMembers.
 func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
 	return c.fetchGroupMembers.CallUnary(ctx, req)
 }
 
-// JoinGroup calls common.TeamsAPI.JoinGroup.
+// JoinGroup calls rankquantity.voyager.api.TeamsAPI.JoinGroup.
 func (c *teamsAPIClient) JoinGroup(ctx context.Context, req *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
 	return c.joinGroup.CallUnary(ctx, req)
 }
 
-// LeaveGroup calls common.TeamsAPI.LeaveGroup.
+// LeaveGroup calls rankquantity.voyager.api.TeamsAPI.LeaveGroup.
 func (c *teamsAPIClient) LeaveGroup(ctx context.Context, req *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
 	return c.leaveGroup.CallUnary(ctx, req)
 }
 
-// CreateStory calls common.TeamsAPI.CreateStory.
+// CreateStory calls rankquantity.voyager.api.TeamsAPI.CreateStory.
 func (c *teamsAPIClient) CreateStory(ctx context.Context, req *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error) {
 	return c.createStory.CallUnary(ctx, req)
 }
 
-// GetStoryInfo calls common.TeamsAPI.GetStoryInfo.
+// GetStoryInfo calls rankquantity.voyager.api.TeamsAPI.GetStoryInfo.
 func (c *teamsAPIClient) GetStoryInfo(ctx context.Context, req *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error) {
 	return c.getStoryInfo.CallUnary(ctx, req)
 }
 
-// RenderStory calls common.TeamsAPI.RenderStory.
+// RenderStory calls rankquantity.voyager.api.TeamsAPI.RenderStory.
 func (c *teamsAPIClient) RenderStory(ctx context.Context, req *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error) {
 	return c.renderStory.CallUnary(ctx, req)
 }
 
-// UpdateStory calls common.TeamsAPI.UpdateStory.
+// UpdateStory calls rankquantity.voyager.api.TeamsAPI.UpdateStory.
 func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error) {
 	return c.updateStory.CallUnary(ctx, req)
 }
 
-// WatchStory calls common.TeamsAPI.WatchStory.
+// WatchStory calls rankquantity.voyager.api.TeamsAPI.WatchStory.
 func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error) {
 	return c.watchStory.CallUnary(ctx, req)
 }
 
-// ArchiveStory calls common.TeamsAPI.ArchiveStory.
+// ArchiveStory calls rankquantity.voyager.api.TeamsAPI.ArchiveStory.
 func (c *teamsAPIClient) ArchiveStory(ctx context.Context, req *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error) {
 	return c.archiveStory.CallUnary(ctx, req)
 }
 
-// CreateStoryboard calls common.TeamsAPI.CreateStoryboard.
+// CreateStoryboard calls rankquantity.voyager.api.TeamsAPI.CreateStoryboard.
 func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, req *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error) {
 	return c.createStoryboard.CallUnary(ctx, req)
 }
 
-// GetStoryboard calls common.TeamsAPI.GetStoryboard.
+// GetStoryboard calls rankquantity.voyager.api.TeamsAPI.GetStoryboard.
 func (c *teamsAPIClient) GetStoryboard(ctx context.Context, req *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error) {
 	return c.getStoryboard.CallUnary(ctx, req)
 }
 
-// RenderStoryboard calls common.TeamsAPI.RenderStoryboard.
+// RenderStoryboard calls rankquantity.voyager.api.TeamsAPI.RenderStoryboard.
 func (c *teamsAPIClient) RenderStoryboard(ctx context.Context, req *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error) {
 	return c.renderStoryboard.CallUnary(ctx, req)
 }
 
-// GenStoryboardText calls common.TeamsAPI.GenStoryboardText.
+// GenStoryboardText calls rankquantity.voyager.api.TeamsAPI.GenStoryboardText.
 func (c *teamsAPIClient) GenStoryboardText(ctx context.Context, req *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error) {
 	return c.genStoryboardText.CallUnary(ctx, req)
 }
 
-// GenStoryboardImages calls common.TeamsAPI.GenStoryboardImages.
+// GenStoryboardImages calls rankquantity.voyager.api.TeamsAPI.GenStoryboardImages.
 func (c *teamsAPIClient) GenStoryboardImages(ctx context.Context, req *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error) {
 	return c.genStoryboardImages.CallUnary(ctx, req)
 }
 
-// GetStoryboards calls common.TeamsAPI.GetStoryboards.
+// GetStoryboards calls rankquantity.voyager.api.TeamsAPI.GetStoryboards.
 func (c *teamsAPIClient) GetStoryboards(ctx context.Context, req *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error) {
 	return c.getStoryboards.CallUnary(ctx, req)
 }
 
-// DelStoryboard calls common.TeamsAPI.DelStoryboard.
+// DelStoryboard calls rankquantity.voyager.api.TeamsAPI.DelStoryboard.
 func (c *teamsAPIClient) DelStoryboard(ctx context.Context, req *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error) {
 	return c.delStoryboard.CallUnary(ctx, req)
 }
 
-// ForkStoryboard calls common.TeamsAPI.ForkStoryboard.
+// ForkStoryboard calls rankquantity.voyager.api.TeamsAPI.ForkStoryboard.
 func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, req *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error) {
 	return c.forkStoryboard.CallUnary(ctx, req)
 }
 
-// UpdateStoryboard calls common.TeamsAPI.UpdateStoryboard.
+// UpdateStoryboard calls rankquantity.voyager.api.TeamsAPI.UpdateStoryboard.
 func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, req *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error) {
 	return c.updateStoryboard.CallUnary(ctx, req)
 }
 
-// LikeStoryboard calls common.TeamsAPI.LikeStoryboard.
+// LikeStoryboard calls rankquantity.voyager.api.TeamsAPI.LikeStoryboard.
 func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, req *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error) {
 	return c.likeStoryboard.CallUnary(ctx, req)
 }
 
-// UnLikeStoryboard calls common.TeamsAPI.UnLikeStoryboard.
+// UnLikeStoryboard calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryboard.
 func (c *teamsAPIClient) UnLikeStoryboard(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error) {
 	return c.unLikeStoryboard.CallUnary(ctx, req)
 }
 
-// ShareStoryboard calls common.TeamsAPI.ShareStoryboard.
+// ShareStoryboard calls rankquantity.voyager.api.TeamsAPI.ShareStoryboard.
 func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error) {
 	return c.shareStoryboard.CallUnary(ctx, req)
 }
 
-// FetchGroupStorys calls common.TeamsAPI.FetchGroupStorys.
+// FetchGroupStorys calls rankquantity.voyager.api.TeamsAPI.FetchGroupStorys.
 func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error) {
 	return c.fetchGroupStorys.CallUnary(ctx, req)
 }
 
-// UploadImageFile calls common.TeamsAPI.UploadImageFile.
+// UploadImageFile calls rankquantity.voyager.api.TeamsAPI.UploadImageFile.
 func (c *teamsAPIClient) UploadImageFile(ctx context.Context, req *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error) {
 	return c.uploadImageFile.CallUnary(ctx, req)
 }
 
-// GetStoryRender calls common.TeamsAPI.GetStoryRender.
+// GetStoryRender calls rankquantity.voyager.api.TeamsAPI.GetStoryRender.
 func (c *teamsAPIClient) GetStoryRender(ctx context.Context, req *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error) {
 	return c.getStoryRender.CallUnary(ctx, req)
 }
 
-// GetStoryBoardRender calls common.TeamsAPI.GetStoryBoardRender.
+// GetStoryBoardRender calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardRender.
 func (c *teamsAPIClient) GetStoryBoardRender(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error) {
 	return c.getStoryBoardRender.CallUnary(ctx, req)
 }
 
-// GetStoryContributors calls common.TeamsAPI.GetStoryContributors.
+// GetStoryContributors calls rankquantity.voyager.api.TeamsAPI.GetStoryContributors.
 func (c *teamsAPIClient) GetStoryContributors(ctx context.Context, req *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error) {
 	return c.getStoryContributors.CallUnary(ctx, req)
 }
 
-// ContinueRenderStory calls common.TeamsAPI.ContinueRenderStory.
+// ContinueRenderStory calls rankquantity.voyager.api.TeamsAPI.ContinueRenderStory.
 func (c *teamsAPIClient) ContinueRenderStory(ctx context.Context, req *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error) {
 	return c.continueRenderStory.CallUnary(ctx, req)
 }
 
-// RenderStoryRoles calls common.TeamsAPI.RenderStoryRoles.
+// RenderStoryRoles calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoles.
 func (c *teamsAPIClient) RenderStoryRoles(ctx context.Context, req *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error) {
 	return c.renderStoryRoles.CallUnary(ctx, req)
 }
 
-// UpdateStoryRole calls common.TeamsAPI.UpdateStoryRole.
+// UpdateStoryRole calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRole.
 func (c *teamsAPIClient) UpdateStoryRole(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error) {
 	return c.updateStoryRole.CallUnary(ctx, req)
 }
 
-// RenderStoryRoleDetail calls common.TeamsAPI.RenderStoryRoleDetail.
+// RenderStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoleDetail.
 func (c *teamsAPIClient) RenderStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error) {
 	return c.renderStoryRoleDetail.CallUnary(ctx, req)
 }
 
-// GetStoryRoles calls common.TeamsAPI.GetStoryRoles.
+// GetStoryRoles calls rankquantity.voyager.api.TeamsAPI.GetStoryRoles.
 func (c *teamsAPIClient) GetStoryRoles(ctx context.Context, req *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error) {
 	return c.getStoryRoles.CallUnary(ctx, req)
 }
 
-// GetStoryBoardRoles calls common.TeamsAPI.GetStoryBoardRoles.
+// GetStoryBoardRoles calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardRoles.
 func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error) {
 	return c.getStoryBoardRoles.CallUnary(ctx, req)
 }
 
-// GetUserProfile calls common.TeamsAPI.GetUserProfile.
+// GetUserProfile calls rankquantity.voyager.api.TeamsAPI.GetUserProfile.
 func (c *teamsAPIClient) GetUserProfile(ctx context.Context, req *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error) {
 	return c.getUserProfile.CallUnary(ctx, req)
 }
 
-// UpdateUserProfile calls common.TeamsAPI.UpdateUserProfile.
+// UpdateUserProfile calls rankquantity.voyager.api.TeamsAPI.UpdateUserProfile.
 func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, req *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error) {
 	return c.updateUserProfile.CallUnary(ctx, req)
 }
 
-// UpdateUserBackgroundImage calls common.TeamsAPI.UpdateUserBackgroundImage.
+// UpdateUserBackgroundImage calls rankquantity.voyager.api.TeamsAPI.UpdateUserBackgroundImage.
 func (c *teamsAPIClient) UpdateUserBackgroundImage(ctx context.Context, req *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error) {
 	return c.updateUserBackgroundImage.CallUnary(ctx, req)
 }
 
-// CreateStoryRole calls common.TeamsAPI.CreateStoryRole.
+// CreateStoryRole calls rankquantity.voyager.api.TeamsAPI.CreateStoryRole.
 func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, req *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error) {
 	return c.createStoryRole.CallUnary(ctx, req)
 }
 
-// GetStoryRoleDetail calls common.TeamsAPI.GetStoryRoleDetail.
+// GetStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleDetail.
 func (c *teamsAPIClient) GetStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error) {
 	return c.getStoryRoleDetail.CallUnary(ctx, req)
 }
 
-// RenderStoryRole calls common.TeamsAPI.RenderStoryRole.
+// RenderStoryRole calls rankquantity.voyager.api.TeamsAPI.RenderStoryRole.
 func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error) {
 	return c.renderStoryRole.CallUnary(ctx, req)
 }
 
-// LikeStory calls common.TeamsAPI.LikeStory.
+// LikeStory calls rankquantity.voyager.api.TeamsAPI.LikeStory.
 func (c *teamsAPIClient) LikeStory(ctx context.Context, req *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error) {
 	return c.likeStory.CallUnary(ctx, req)
 }
 
-// UnLikeStory calls common.TeamsAPI.UnLikeStory.
+// UnLikeStory calls rankquantity.voyager.api.TeamsAPI.UnLikeStory.
 func (c *teamsAPIClient) UnLikeStory(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error) {
 	return c.unLikeStory.CallUnary(ctx, req)
 }
 
-// GetStoryBoardSences calls common.TeamsAPI.GetStoryBoardSences.
+// GetStoryBoardSences calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardSences.
 func (c *teamsAPIClient) GetStoryBoardSences(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error) {
 	return c.getStoryBoardSences.CallUnary(ctx, req)
 }
 
-// CreateStoryBoardSence calls common.TeamsAPI.CreateStoryBoardSence.
+// CreateStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.CreateStoryBoardSence.
 func (c *teamsAPIClient) CreateStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error) {
 	return c.createStoryBoardSence.CallUnary(ctx, req)
 }
 
-// UpdateStoryBoardSence calls common.TeamsAPI.UpdateStoryBoardSence.
+// UpdateStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.UpdateStoryBoardSence.
 func (c *teamsAPIClient) UpdateStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error) {
 	return c.updateStoryBoardSence.CallUnary(ctx, req)
 }
 
-// DeleteStoryBoardSence calls common.TeamsAPI.DeleteStoryBoardSence.
+// DeleteStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardSence.
 func (c *teamsAPIClient) DeleteStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error) {
 	return c.deleteStoryBoardSence.CallUnary(ctx, req)
 }
 
-// RenderStoryBoardSence calls common.TeamsAPI.RenderStoryBoardSence.
+// RenderStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSence.
 func (c *teamsAPIClient) RenderStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error) {
 	return c.renderStoryBoardSence.CallUnary(ctx, req)
 }
 
-// RenderStoryBoardSences calls common.TeamsAPI.RenderStoryBoardSences.
+// RenderStoryBoardSences calls rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSences.
 func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, req *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error) {
 	return c.renderStoryBoardSences.CallUnary(ctx, req)
 }
 
-// GetStoryBoardSenceGenerate calls common.TeamsAPI.GetStoryBoardSenceGenerate.
+// GetStoryBoardSenceGenerate calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardSenceGenerate.
 func (c *teamsAPIClient) GetStoryBoardSenceGenerate(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
 	return c.getStoryBoardSenceGenerate.CallUnary(ctx, req)
 }
 
-// GetStoryBoardGenerate calls common.TeamsAPI.GetStoryBoardGenerate.
+// GetStoryBoardGenerate calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardGenerate.
 func (c *teamsAPIClient) GetStoryBoardGenerate(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error) {
 	return c.getStoryBoardGenerate.CallUnary(ctx, req)
 }
 
-// LikeStoryRole calls common.TeamsAPI.LikeStoryRole.
+// LikeStoryRole calls rankquantity.voyager.api.TeamsAPI.LikeStoryRole.
 func (c *teamsAPIClient) LikeStoryRole(ctx context.Context, req *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error) {
 	return c.likeStoryRole.CallUnary(ctx, req)
 }
 
-// UnLikeStoryRole calls common.TeamsAPI.UnLikeStoryRole.
+// UnLikeStoryRole calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryRole.
 func (c *teamsAPIClient) UnLikeStoryRole(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error) {
 	return c.unLikeStoryRole.CallUnary(ctx, req)
 }
 
-// FollowStoryRole calls common.TeamsAPI.FollowStoryRole.
+// FollowStoryRole calls rankquantity.voyager.api.TeamsAPI.FollowStoryRole.
 func (c *teamsAPIClient) FollowStoryRole(ctx context.Context, req *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error) {
 	return c.followStoryRole.CallUnary(ctx, req)
 }
 
-// UnFollowStoryRole calls common.TeamsAPI.UnFollowStoryRole.
+// UnFollowStoryRole calls rankquantity.voyager.api.TeamsAPI.UnFollowStoryRole.
 func (c *teamsAPIClient) UnFollowStoryRole(ctx context.Context, req *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error) {
 	return c.unFollowStoryRole.CallUnary(ctx, req)
 }
 
-// SearchStories calls common.TeamsAPI.SearchStories.
+// SearchStories calls rankquantity.voyager.api.TeamsAPI.SearchStories.
 func (c *teamsAPIClient) SearchStories(ctx context.Context, req *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error) {
 	return c.searchStories.CallUnary(ctx, req)
 }
 
-// SearchGroup calls common.TeamsAPI.SearchGroup.
+// SearchGroup calls rankquantity.voyager.api.TeamsAPI.SearchGroup.
 func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error) {
 	return c.searchGroup.CallUnary(ctx, req)
 }
 
-// SearchRoles calls common.TeamsAPI.SearchRoles.
+// SearchRoles calls rankquantity.voyager.api.TeamsAPI.SearchRoles.
 func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error) {
 	return c.searchRoles.CallUnary(ctx, req)
 }
 
-// RestoreStoryboard calls common.TeamsAPI.RestoreStoryboard.
+// RestoreStoryboard calls rankquantity.voyager.api.TeamsAPI.RestoreStoryboard.
 func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, req *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error) {
 	return c.restoreStoryboard.CallUnary(ctx, req)
 }
 
-// GetUserCreatedStoryboards calls common.TeamsAPI.GetUserCreatedStoryboards.
+// GetUserCreatedStoryboards calls rankquantity.voyager.api.TeamsAPI.GetUserCreatedStoryboards.
 func (c *teamsAPIClient) GetUserCreatedStoryboards(ctx context.Context, req *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error) {
 	return c.getUserCreatedStoryboards.CallUnary(ctx, req)
 }
 
-// GetUserCreatedRoles calls common.TeamsAPI.GetUserCreatedRoles.
+// GetUserCreatedRoles calls rankquantity.voyager.api.TeamsAPI.GetUserCreatedRoles.
 func (c *teamsAPIClient) GetUserCreatedRoles(ctx context.Context, req *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error) {
 	return c.getUserCreatedRoles.CallUnary(ctx, req)
 }
 
-// GetStoryRoleStoryboards calls common.TeamsAPI.GetStoryRoleStoryboards.
+// GetStoryRoleStoryboards calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleStoryboards.
 func (c *teamsAPIClient) GetStoryRoleStoryboards(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error) {
 	return c.getStoryRoleStoryboards.CallUnary(ctx, req)
 }
 
-// GetStoryRoleStories calls common.TeamsAPI.GetStoryRoleStories.
+// GetStoryRoleStories calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleStories.
 func (c *teamsAPIClient) GetStoryRoleStories(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error) {
 	return c.getStoryRoleStories.CallUnary(ctx, req)
 }
 
-// CreateStoryRoleChat calls common.TeamsAPI.CreateStoryRoleChat.
+// CreateStoryRoleChat calls rankquantity.voyager.api.TeamsAPI.CreateStoryRoleChat.
 func (c *teamsAPIClient) CreateStoryRoleChat(ctx context.Context, req *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error) {
 	return c.createStoryRoleChat.CallUnary(ctx, req)
 }
 
-// ChatWithStoryRole calls common.TeamsAPI.ChatWithStoryRole.
+// ChatWithStoryRole calls rankquantity.voyager.api.TeamsAPI.ChatWithStoryRole.
 func (c *teamsAPIClient) ChatWithStoryRole(ctx context.Context, req *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error) {
 	return c.chatWithStoryRole.CallUnary(ctx, req)
 }
 
-// UpdateStoryRoleAvator calls common.TeamsAPI.UpdateStoryRoleAvator.
+// UpdateStoryRoleAvator calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleAvator.
 func (c *teamsAPIClient) UpdateStoryRoleAvator(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error) {
 	return c.updateStoryRoleAvator.CallUnary(ctx, req)
 }
 
-// UpdateStoryRoleDetail calls common.TeamsAPI.UpdateStoryRoleDetail.
+// UpdateStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDetail.
 func (c *teamsAPIClient) UpdateStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error) {
 	return c.updateStoryRoleDetail.CallUnary(ctx, req)
 }
 
-// GetUserWithRoleChatList calls common.TeamsAPI.GetUserWithRoleChatList.
+// GetUserWithRoleChatList calls rankquantity.voyager.api.TeamsAPI.GetUserWithRoleChatList.
 func (c *teamsAPIClient) GetUserWithRoleChatList(ctx context.Context, req *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error) {
 	return c.getUserWithRoleChatList.CallUnary(ctx, req)
 }
 
-// GetUserChatWithRole calls common.TeamsAPI.GetUserChatWithRole.
+// GetUserChatWithRole calls rankquantity.voyager.api.TeamsAPI.GetUserChatWithRole.
 func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, req *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error) {
 	return c.getUserChatWithRole.CallUnary(ctx, req)
 }
 
-// GetUserChatMessages calls common.TeamsAPI.GetUserChatMessages.
+// GetUserChatMessages calls rankquantity.voyager.api.TeamsAPI.GetUserChatMessages.
 func (c *teamsAPIClient) GetUserChatMessages(ctx context.Context, req *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error) {
 	return c.getUserChatMessages.CallUnary(ctx, req)
 }
 
-// FetchActives calls common.TeamsAPI.FetchActives.
+// FetchActives calls rankquantity.voyager.api.TeamsAPI.FetchActives.
 func (c *teamsAPIClient) FetchActives(ctx context.Context, req *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error) {
 	return c.fetchActives.CallUnary(ctx, req)
 }
 
-// GetNextStoryboard calls common.TeamsAPI.GetNextStoryboard.
+// GetNextStoryboard calls rankquantity.voyager.api.TeamsAPI.GetNextStoryboard.
 func (c *teamsAPIClient) GetNextStoryboard(ctx context.Context, req *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error) {
 	return c.getNextStoryboard.CallUnary(ctx, req)
 }
 
-// RenderStoryRoleContinuously calls common.TeamsAPI.RenderStoryRoleContinuously.
+// RenderStoryRoleContinuously calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoleContinuously.
 func (c *teamsAPIClient) RenderStoryRoleContinuously(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
 	return c.renderStoryRoleContinuously.CallUnary(ctx, req)
 }
 
-// PublishStoryboard calls common.TeamsAPI.PublishStoryboard.
+// PublishStoryboard calls rankquantity.voyager.api.TeamsAPI.PublishStoryboard.
 func (c *teamsAPIClient) PublishStoryboard(ctx context.Context, req *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error) {
 	return c.publishStoryboard.CallUnary(ctx, req)
 }
 
-// CancelStoryboard calls common.TeamsAPI.CancelStoryboard.
+// CancelStoryboard calls rankquantity.voyager.api.TeamsAPI.CancelStoryboard.
 func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, req *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error) {
 	return c.cancelStoryboard.CallUnary(ctx, req)
 }
 
-// GetUserWatchStoryActiveStoryBoards calls common.TeamsAPI.GetUserWatchStoryActiveStoryBoards.
+// GetUserWatchStoryActiveStoryBoards calls
+// rankquantity.voyager.api.TeamsAPI.GetUserWatchStoryActiveStoryBoards.
 func (c *teamsAPIClient) GetUserWatchStoryActiveStoryBoards(ctx context.Context, req *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
 	return c.getUserWatchStoryActiveStoryBoards.CallUnary(ctx, req)
 }
 
-// GetUserWatchRoleActiveStoryBoards calls common.TeamsAPI.GetUserWatchRoleActiveStoryBoards.
+// GetUserWatchRoleActiveStoryBoards calls
+// rankquantity.voyager.api.TeamsAPI.GetUserWatchRoleActiveStoryBoards.
 func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, req *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
 	return c.getUserWatchRoleActiveStoryBoards.CallUnary(ctx, req)
 }
 
-// GetUnPublishStoryboard calls common.TeamsAPI.GetUnPublishStoryboard.
+// GetUnPublishStoryboard calls rankquantity.voyager.api.TeamsAPI.GetUnPublishStoryboard.
 func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, req *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error) {
 	return c.getUnPublishStoryboard.CallUnary(ctx, req)
 }
 
-// GenerateRoleDescription calls common.TeamsAPI.GenerateRoleDescription.
+// GenerateRoleDescription calls rankquantity.voyager.api.TeamsAPI.GenerateRoleDescription.
 func (c *teamsAPIClient) GenerateRoleDescription(ctx context.Context, req *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error) {
 	return c.generateRoleDescription.CallUnary(ctx, req)
 }
 
-// UpdateRoleDescription calls common.TeamsAPI.UpdateRoleDescription.
+// UpdateRoleDescription calls rankquantity.voyager.api.TeamsAPI.UpdateRoleDescription.
 func (c *teamsAPIClient) UpdateRoleDescription(ctx context.Context, req *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error) {
 	return c.updateRoleDescription.CallUnary(ctx, req)
 }
 
-// GenerateRolePrompt calls common.TeamsAPI.GenerateRolePrompt.
+// GenerateRolePrompt calls rankquantity.voyager.api.TeamsAPI.GenerateRolePrompt.
 func (c *teamsAPIClient) GenerateRolePrompt(ctx context.Context, req *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error) {
 	return c.generateRolePrompt.CallUnary(ctx, req)
 }
 
-// UpdateRolePrompt calls common.TeamsAPI.UpdateRolePrompt.
+// UpdateRolePrompt calls rankquantity.voyager.api.TeamsAPI.UpdateRolePrompt.
 func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error) {
 	return c.updateRolePrompt.CallUnary(ctx, req)
 }
 
-// CreateStoryComment calls common.TeamsAPI.CreateStoryComment.
+// CreateStoryComment calls rankquantity.voyager.api.TeamsAPI.CreateStoryComment.
 func (c *teamsAPIClient) CreateStoryComment(ctx context.Context, req *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error) {
 	return c.createStoryComment.CallUnary(ctx, req)
 }
 
-// GetStoryComments calls common.TeamsAPI.GetStoryComments.
+// GetStoryComments calls rankquantity.voyager.api.TeamsAPI.GetStoryComments.
 func (c *teamsAPIClient) GetStoryComments(ctx context.Context, req *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error) {
 	return c.getStoryComments.CallUnary(ctx, req)
 }
 
-// DeleteStoryComment calls common.TeamsAPI.DeleteStoryComment.
+// DeleteStoryComment calls rankquantity.voyager.api.TeamsAPI.DeleteStoryComment.
 func (c *teamsAPIClient) DeleteStoryComment(ctx context.Context, req *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error) {
 	return c.deleteStoryComment.CallUnary(ctx, req)
 }
 
-// GetStoryCommentReplies calls common.TeamsAPI.GetStoryCommentReplies.
+// GetStoryCommentReplies calls rankquantity.voyager.api.TeamsAPI.GetStoryCommentReplies.
 func (c *teamsAPIClient) GetStoryCommentReplies(ctx context.Context, req *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error) {
 	return c.getStoryCommentReplies.CallUnary(ctx, req)
 }
 
-// CreateStoryCommentReply calls common.TeamsAPI.CreateStoryCommentReply.
+// CreateStoryCommentReply calls rankquantity.voyager.api.TeamsAPI.CreateStoryCommentReply.
 func (c *teamsAPIClient) CreateStoryCommentReply(ctx context.Context, req *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error) {
 	return c.createStoryCommentReply.CallUnary(ctx, req)
 }
 
-// DeleteStoryCommentReply calls common.TeamsAPI.DeleteStoryCommentReply.
+// DeleteStoryCommentReply calls rankquantity.voyager.api.TeamsAPI.DeleteStoryCommentReply.
 func (c *teamsAPIClient) DeleteStoryCommentReply(ctx context.Context, req *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error) {
 	return c.deleteStoryCommentReply.CallUnary(ctx, req)
 }
 
-// GetStoryBoardComments calls common.TeamsAPI.GetStoryBoardComments.
+// GetStoryBoardComments calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardComments.
 func (c *teamsAPIClient) GetStoryBoardComments(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error) {
 	return c.getStoryBoardComments.CallUnary(ctx, req)
 }
 
-// CreateStoryBoardComment calls common.TeamsAPI.CreateStoryBoardComment.
+// CreateStoryBoardComment calls rankquantity.voyager.api.TeamsAPI.CreateStoryBoardComment.
 func (c *teamsAPIClient) CreateStoryBoardComment(ctx context.Context, req *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error) {
 	return c.createStoryBoardComment.CallUnary(ctx, req)
 }
 
-// DeleteStoryBoardComment calls common.TeamsAPI.DeleteStoryBoardComment.
+// DeleteStoryBoardComment calls rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardComment.
 func (c *teamsAPIClient) DeleteStoryBoardComment(ctx context.Context, req *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error) {
 	return c.deleteStoryBoardComment.CallUnary(ctx, req)
 }
 
-// GetStoryBoardCommentReplies calls common.TeamsAPI.GetStoryBoardCommentReplies.
+// GetStoryBoardCommentReplies calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardCommentReplies.
 func (c *teamsAPIClient) GetStoryBoardCommentReplies(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
 	return c.getStoryBoardCommentReplies.CallUnary(ctx, req)
 }
 
-// LikeComment calls common.TeamsAPI.LikeComment.
+// LikeComment calls rankquantity.voyager.api.TeamsAPI.LikeComment.
 func (c *teamsAPIClient) LikeComment(ctx context.Context, req *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error) {
 	return c.likeComment.CallUnary(ctx, req)
 }
 
-// DislikeComment calls common.TeamsAPI.DislikeComment.
+// DislikeComment calls rankquantity.voyager.api.TeamsAPI.DislikeComment.
 func (c *teamsAPIClient) DislikeComment(ctx context.Context, req *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error) {
 	return c.dislikeComment.CallUnary(ctx, req)
 }
 
-// GetStoryRoleList calls common.TeamsAPI.GetStoryRoleList.
+// GetStoryRoleList calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleList.
 func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error) {
 	return c.getStoryRoleList.CallUnary(ctx, req)
 }
 
-// TrendingStory calls common.TeamsAPI.TrendingStory.
+// TrendingStory calls rankquantity.voyager.api.TeamsAPI.TrendingStory.
 func (c *teamsAPIClient) TrendingStory(ctx context.Context, req *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error) {
 	return c.trendingStory.CallUnary(ctx, req)
 }
 
-// TrendingStoryRole calls common.TeamsAPI.TrendingStoryRole.
+// TrendingStoryRole calls rankquantity.voyager.api.TeamsAPI.TrendingStoryRole.
 func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, req *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error) {
 	return c.trendingStoryRole.CallUnary(ctx, req)
 }
 
-// FollowUser calls common.TeamsAPI.FollowUser.
+// FollowUser calls rankquantity.voyager.api.TeamsAPI.FollowUser.
 func (c *teamsAPIClient) FollowUser(ctx context.Context, req *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error) {
 	return c.followUser.CallUnary(ctx, req)
 }
 
-// UnfollowUser calls common.TeamsAPI.UnfollowUser.
+// UnfollowUser calls rankquantity.voyager.api.TeamsAPI.UnfollowUser.
 func (c *teamsAPIClient) UnfollowUser(ctx context.Context, req *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error) {
 	return c.unfollowUser.CallUnary(ctx, req)
 }
 
-// GetFollowList calls common.TeamsAPI.GetFollowList.
+// GetFollowList calls rankquantity.voyager.api.TeamsAPI.GetFollowList.
 func (c *teamsAPIClient) GetFollowList(ctx context.Context, req *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error) {
 	return c.getFollowList.CallUnary(ctx, req)
 }
 
-// GetFollowerList calls common.TeamsAPI.GetFollowerList.
+// GetFollowerList calls rankquantity.voyager.api.TeamsAPI.GetFollowerList.
 func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error) {
 	return c.getFollowerList.CallUnary(ctx, req)
 }
 
-// UpdateStoryRolePrompt calls common.TeamsAPI.UpdateStoryRolePrompt.
+// UpdateStoryRolePrompt calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePrompt.
 func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
 	return c.updateStoryRolePrompt.CallUnary(ctx, req)
 }
 
-// UpdateStoryRoleDescriptionDetail calls common.TeamsAPI.UpdateStoryRoleDescriptionDetail.
+// UpdateStoryRoleDescriptionDetail calls
+// rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDescriptionDetail.
 func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
 	return c.updateStoryRoleDescriptionDetail.CallUnary(ctx, req)
 }
 
-// QueryTaskStatus calls common.TeamsAPI.QueryTaskStatus.
+// QueryTaskStatus calls rankquantity.voyager.api.TeamsAPI.QueryTaskStatus.
 func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, req *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
 	return c.queryTaskStatus.CallUnary(ctx, req)
 }
 
-// GetStoryImageStyle calls common.TeamsAPI.GetStoryImageStyle.
+// GetStoryImageStyle calls rankquantity.voyager.api.TeamsAPI.GetStoryImageStyle.
 func (c *teamsAPIClient) GetStoryImageStyle(ctx context.Context, req *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error) {
 	return c.getStoryImageStyle.CallUnary(ctx, req)
 }
 
-// UpdateStoryImageStyle calls common.TeamsAPI.UpdateStoryImageStyle.
+// UpdateStoryImageStyle calls rankquantity.voyager.api.TeamsAPI.UpdateStoryImageStyle.
 func (c *teamsAPIClient) UpdateStoryImageStyle(ctx context.Context, req *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error) {
 	return c.updateStoryImageStyle.CallUnary(ctx, req)
 }
 
-// UpdateStorySenceMaxNumber calls common.TeamsAPI.UpdateStorySenceMaxNumber.
+// UpdateStorySenceMaxNumber calls rankquantity.voyager.api.TeamsAPI.UpdateStorySenceMaxNumber.
 func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, req *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
 	return c.updateStorySenceMaxNumber.CallUnary(ctx, req)
 }
 
-// UpdateStoryAvatar calls common.TeamsAPI.UpdateStoryAvatar.
+// UpdateStoryAvatar calls rankquantity.voyager.api.TeamsAPI.UpdateStoryAvatar.
 func (c *teamsAPIClient) UpdateStoryAvatar(ctx context.Context, req *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error) {
 	return c.updateStoryAvatar.CallUnary(ctx, req)
 }
 
-// UpdateStoryCover calls common.TeamsAPI.UpdateStoryCover.
+// UpdateStoryCover calls rankquantity.voyager.api.TeamsAPI.UpdateStoryCover.
 func (c *teamsAPIClient) UpdateStoryCover(ctx context.Context, req *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error) {
 	return c.updateStoryCover.CallUnary(ctx, req)
 }
 
-// SaveStoryboardCraft calls common.TeamsAPI.SaveStoryboardCraft.
+// SaveStoryboardCraft calls rankquantity.voyager.api.TeamsAPI.SaveStoryboardCraft.
 func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, req *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error) {
 	return c.saveStoryboardCraft.CallUnary(ctx, req)
 }
 
-// GetStoryParticipants calls common.TeamsAPI.GetStoryParticipants.
+// GetStoryParticipants calls rankquantity.voyager.api.TeamsAPI.GetStoryParticipants.
 func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, req *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error) {
 	return c.getStoryParticipants.CallUnary(ctx, req)
 }
 
-// GenerateStorySceneVideo calls common.TeamsAPI.GenerateStorySceneVideo.
+// GenerateStorySceneVideo calls rankquantity.voyager.api.TeamsAPI.GenerateStorySceneVideo.
 func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
 	return c.generateStorySceneVideo.CallUnary(ctx, req)
 }
 
-// GenerateRoleAvatar calls common.TeamsAPI.GenerateRoleAvatar.
+// GenerateRoleAvatar calls rankquantity.voyager.api.TeamsAPI.GenerateRoleAvatar.
 func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, req *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error) {
 	return c.generateRoleAvatar.CallUnary(ctx, req)
 }
 
-// FetchUserGenTaskStatus calls common.TeamsAPI.FetchUserGenTaskStatus.
+// FetchUserGenTaskStatus calls rankquantity.voyager.api.TeamsAPI.FetchUserGenTaskStatus.
 func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, req *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
 	return c.fetchUserGenTaskStatus.CallUnary(ctx, req)
 }
 
-// GenerateStoryRolePoster calls common.TeamsAPI.GenerateStoryRolePoster.
+// GenerateStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.GenerateStoryRolePoster.
 func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
 	return c.generateStoryRolePoster.CallUnary(ctx, req)
 }
 
-// UpdateStoryRolePoster calls common.TeamsAPI.UpdateStoryRolePoster.
+// UpdateStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePoster.
 func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
 	return c.updateStoryRolePoster.CallUnary(ctx, req)
 }
 
-// LikeStoryRolePoster calls common.TeamsAPI.LikeStoryRolePoster.
+// LikeStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.LikeStoryRolePoster.
 func (c *teamsAPIClient) LikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
 	return c.likeStoryRolePoster.CallUnary(ctx, req)
 }
 
-// UnLikeStoryRolePoster calls common.TeamsAPI.UnLikeStoryRolePoster.
+// UnLikeStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryRolePoster.
 func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
 	return c.unLikeStoryRolePoster.CallUnary(ctx, req)
 }
 
-// GetStoryRolePosterList calls common.TeamsAPI.GetStoryRolePosterList.
+// GetStoryRolePosterList calls rankquantity.voyager.api.TeamsAPI.GetStoryRolePosterList.
 func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, req *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
 	return c.getStoryRolePosterList.CallUnary(ctx, req)
 }
 
-// GenerateStoryRoleVideo calls common.TeamsAPI.GenerateStoryRoleVideo.
+// GenerateStoryRoleVideo calls rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo.
 func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
 	return c.generateStoryRoleVideo.CallUnary(ctx, req)
 }
 
-// TeamsAPIHandler is an implementation of the common.TeamsAPI service.
+// TeamsAPIHandler is an implementation of the rankquantity.voyager.api.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
@@ -3217,7 +3220,7 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.GenerateStoryRoleVideo,
 		opts...,
 	)
-	return "/common.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	return "/rankquantity.voyager.api.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
 			teamsAPIExploreHandler.ServeHTTP(w, r)
@@ -3509,561 +3512,561 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 type UnimplementedTeamsAPIHandler struct{}
 
 func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Explore is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Explore is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Version is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Version is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.About is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.About is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Login is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Login is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Logout is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Logout is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RefreshToken is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RefreshToken is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.Register is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Register is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ResetPwd is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ResetPwd is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserInit is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInit is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserInfo is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInfo is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserAvator is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserAvator is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserWatching is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserWatching is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserFollowingGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserFollowingGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UserUpdate is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserUpdate is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchUser is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchUser is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupActives is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupActives is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupInfo is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupInfo is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetGroupProfile is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupProfile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateGroupProfile is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupProfile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupMembers is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupMembers is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.JoinGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.JoinGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LeaveGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LeaveGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryInfo is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryInfo is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.WatchStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.WatchStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ArchiveStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ArchiveStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenStoryboardText is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardText is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenStoryboardImages is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardImages is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryboards is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboards is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DelStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DelStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ForkStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ForkStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ShareStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ShareStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchGroupStorys is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupStorys is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UploadImageFile is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UploadImageFile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRender is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRender is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardRender is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRender is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryContributors is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryContributors is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ContinueRenderStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ContinueRenderStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRoles is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoles is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRoleDetail is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleDetail is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoles is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoles is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardRoles is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRoles is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserProfile is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserProfile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserProfile is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserProfile is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateUserBackgroundImage is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserBackgroundImage is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleDetail is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleDetail is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardSences is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSences is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryBoardSence is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardSence is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryBoardSence is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryBoardSence is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryBoardSence is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardSence is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryBoardSence is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSence is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryBoardSences is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSences is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardSenceGenerate is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSenceGenerate is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardGenerate is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardGenerate is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FollowStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnFollowStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnFollowStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchStories is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchStories is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchGroup is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchGroup is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SearchRoles is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchRoles is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RestoreStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RestoreStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserCreatedStoryboards is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedStoryboards is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserCreatedRoles(context.Context, *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserCreatedRoles is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedRoles is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleStoryboards is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStoryboards is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleStories is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStories is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryRoleChat is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRoleChat is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.ChatWithStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ChatWithStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleAvator is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleAvator is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDetail is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDetail is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWithRoleChatList is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWithRoleChatList is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserChatWithRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatWithRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserChatMessages is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatMessages is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchActives is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchActives is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetNextStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetNextStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.RenderStoryRoleContinuously is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleContinuously is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.PublishStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.PublishStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CancelStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CancelStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWatchStoryActiveStoryBoards is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchStoryActiveStoryBoards is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetUnPublishStoryboard is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUnPublishStoryboard is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRoleDescription is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleDescription is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateRoleDescription is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRoleDescription is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRolePrompt is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRolePrompt is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateRolePrompt is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRolePrompt is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryComments is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryComments is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryCommentReplies is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryCommentReplies is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryCommentReply is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryCommentReply is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryCommentReply is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryCommentReply is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardComments is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardComments is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) CreateStoryBoardComment(context.Context, *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.CreateStoryBoardComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DeleteStoryBoardComment(context.Context, *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DeleteStoryBoardComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryBoardCommentReplies(context.Context, *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryBoardCommentReplies is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardCommentReplies is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.DislikeComment is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DislikeComment is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRoleList is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleList is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.TrendingStory is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStory is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.TrendingStoryRole is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStoryRole is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FollowUser is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowUser is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnfollowUser is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnfollowUser is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowList is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowList is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetFollowerList is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowerList is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.QueryTaskStatus is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.QueryTaskStatus is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryImageStyle is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryImageStyle is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryImageStyle is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryImageStyle is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStorySenceMaxNumber is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStorySenceMaxNumber is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryAvatar is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryAvatar is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryCover is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryCover is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.SaveStoryboardCraft is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SaveStoryboardCraft is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryParticipants is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryParticipants is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStorySceneVideo is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStorySceneVideo is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateRoleAvatar is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleAvatar is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRolePoster is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRolePoster is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UpdateStoryRolePoster is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePoster is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.LikeStoryRolePoster is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRolePoster is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.UnLikeStoryRolePoster is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRolePoster is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GetStoryRolePosterList is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRolePosterList is not implemented"))
 }
 
 func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
 }

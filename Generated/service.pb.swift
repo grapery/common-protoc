@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 用户自己的token
@@ -57,7 +57,7 @@ public enum Common_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_TokenSource] = [
+  public static let allCases: [Rankquantity_Voyager_Api_TokenSource] = [
     .userSelf,
     .storyStore,
     .thirdParty,
@@ -65,7 +65,7 @@ public enum Common_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct Common_ActiveInfo: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ActiveInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -75,8 +75,8 @@ public struct Common_ActiveInfo: @unchecked Sendable {
     set {_uniqueStorage()._activeID = newValue}
   }
 
-  public var user: Common_UserInfo {
-    get {return _storage._user ?? Common_UserInfo()}
+  public var user: Rankquantity_Voyager_Api_UserInfo {
+    get {return _storage._user ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._user = newValue}
   }
   /// Returns true if `user` has been explicitly set.
@@ -84,13 +84,13 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
   public mutating func clearUser() {_uniqueStorage()._user = nil}
 
-  public var activeType: Common_ActiveType {
+  public var activeType: Rankquantity_Voyager_Api_ActiveType {
     get {return _storage._activeType}
     set {_uniqueStorage()._activeType = newValue}
   }
 
-  public var groupInfo: Common_GroupInfo {
-    get {return _storage._groupInfo ?? Common_GroupInfo()}
+  public var groupInfo: Rankquantity_Voyager_Api_GroupInfo {
+    get {return _storage._groupInfo ?? Rankquantity_Voyager_Api_GroupInfo()}
     set {_uniqueStorage()._groupInfo = newValue}
   }
   /// Returns true if `groupInfo` has been explicitly set.
@@ -98,8 +98,8 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   /// Clears the value of `groupInfo`. Subsequent reads from it will return its default value.
   public mutating func clearGroupInfo() {_uniqueStorage()._groupInfo = nil}
 
-  public var storyInfo: Common_Story {
-    get {return _storage._storyInfo ?? Common_Story()}
+  public var storyInfo: Rankquantity_Voyager_Api_Story {
+    get {return _storage._storyInfo ?? Rankquantity_Voyager_Api_Story()}
     set {_uniqueStorage()._storyInfo = newValue}
   }
   /// Returns true if `storyInfo` has been explicitly set.
@@ -107,8 +107,8 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   /// Clears the value of `storyInfo`. Subsequent reads from it will return its default value.
   public mutating func clearStoryInfo() {_uniqueStorage()._storyInfo = nil}
 
-  public var roleInfo: Common_StoryRole {
-    get {return _storage._roleInfo ?? Common_StoryRole()}
+  public var roleInfo: Rankquantity_Voyager_Api_StoryRole {
+    get {return _storage._roleInfo ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_uniqueStorage()._roleInfo = newValue}
   }
   /// Returns true if `roleInfo` has been explicitly set.
@@ -116,8 +116,8 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   /// Clears the value of `roleInfo`. Subsequent reads from it will return its default value.
   public mutating func clearRoleInfo() {_uniqueStorage()._roleInfo = nil}
 
-  public var boardInfo: Common_StoryBoard {
-    get {return _storage._boardInfo ?? Common_StoryBoard()}
+  public var boardInfo: Rankquantity_Voyager_Api_StoryBoard {
+    get {return _storage._boardInfo ?? Rankquantity_Voyager_Api_StoryBoard()}
     set {_uniqueStorage()._boardInfo = newValue}
   }
   /// Returns true if `boardInfo` has been explicitly set.
@@ -147,7 +147,7 @@ public struct Common_ActiveInfo: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_LoginRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LoginRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -163,17 +163,17 @@ public struct Common_LoginRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LoginResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LoginResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_LoginResponse.DataMessage {
-    get {return _data ?? Common_LoginResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_LoginResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_LoginResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -205,10 +205,10 @@ public struct Common_LoginResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_LoginResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_LoginResponse.DataMessage? = nil
 }
 
-public struct Common_LogoutRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LogoutRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -222,12 +222,12 @@ public struct Common_LogoutRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LogoutResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LogoutResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
@@ -236,7 +236,7 @@ public struct Common_LogoutResponse: Sendable {
   public init() {}
 }
 
-public struct Common_RefreshTokenRequest: Sendable {
+public struct Rankquantity_Voyager_Api_RefreshTokenRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -248,7 +248,7 @@ public struct Common_RefreshTokenRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RefreshTokenResponse: Sendable {
+public struct Rankquantity_Voyager_Api_RefreshTokenResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -262,7 +262,7 @@ public struct Common_RefreshTokenResponse: Sendable {
   public init() {}
 }
 
-public struct Common_RegisterRequest: Sendable {
+public struct Rankquantity_Voyager_Api_RegisterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -282,12 +282,12 @@ public struct Common_RegisterRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RegisterResponse: Sendable {
+public struct Rankquantity_Voyager_Api_RegisterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
@@ -296,7 +296,7 @@ public struct Common_RegisterResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ConfirmRequest: Sendable {
+public struct Rankquantity_Voyager_Api_ConfirmRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -308,7 +308,7 @@ public struct Common_ConfirmRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ConfirmResponse: Sendable {
+public struct Rankquantity_Voyager_Api_ConfirmResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -322,7 +322,7 @@ public struct Common_ConfirmResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ResetPasswordRequest: Sendable {
+public struct Rankquantity_Voyager_Api_ResetPasswordRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -338,7 +338,7 @@ public struct Common_ResetPasswordRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ResetPasswordResponse: Sendable {
+public struct Rankquantity_Voyager_Api_ResetPasswordResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -355,7 +355,7 @@ public struct Common_ResetPasswordResponse: Sendable {
 }
 
 /// user ,group .project.item
-public struct Common_UserInfoRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -369,17 +369,17 @@ public struct Common_UserInfoRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserInfoResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UserInfoResponse.DataMessage {
-    get {return _data ?? Common_UserInfoResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserInfoResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserInfoResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -394,8 +394,8 @@ public struct Common_UserInfoResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_UserInfo {
-      get {return _info ?? Common_UserInfo()}
+    public var info: Rankquantity_Voyager_Api_UserInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_UserInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -403,8 +403,8 @@ public struct Common_UserInfoResponse: Sendable {
     /// Clears the value of `info`. Subsequent reads from it will return its default value.
     public mutating func clearInfo() {self._info = nil}
 
-    public var profile: Common_UserProfileInfo {
-      get {return _profile ?? Common_UserProfileInfo()}
+    public var profile: Rankquantity_Voyager_Api_UserProfileInfo {
+      get {return _profile ?? Rankquantity_Voyager_Api_UserProfileInfo()}
       set {_profile = newValue}
     }
     /// Returns true if `profile` has been explicitly set.
@@ -416,16 +416,16 @@ public struct Common_UserInfoResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_UserInfo? = nil
-    fileprivate var _profile: Common_UserProfileInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_UserInfo? = nil
+    fileprivate var _profile: Rankquantity_Voyager_Api_UserProfileInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_UserInfoResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserInfoResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateUserAvatorRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserAvatorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -439,17 +439,17 @@ public struct Common_UpdateUserAvatorRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateUserAvatorResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserAvatorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UpdateUserAvatorResponse.DataMessage {
-    get {return _data ?? Common_UpdateUserAvatorResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -464,8 +464,8 @@ public struct Common_UpdateUserAvatorResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_UserInfo {
-      get {return _info ?? Common_UserInfo()}
+    public var info: Rankquantity_Voyager_Api_UserInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_UserInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -479,15 +479,15 @@ public struct Common_UpdateUserAvatorResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_UserInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_UserInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_UpdateUserAvatorResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage? = nil
 }
 
-public struct Common_UserWatchingRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserWatchingRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -505,17 +505,17 @@ public struct Common_UserWatchingRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserWatchingResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserWatchingResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UserWatchingResponse.DataMessage {
-    get {return _data ?? Common_UserWatchingResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -541,17 +541,17 @@ public struct Common_UserWatchingResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UserWatchingResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage? = nil
 }
 
-public struct Common_UserGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var userID: Int64 = 0
 
-  public var gtype: Common_GroupType = .protect
+  public var gtype: Rankquantity_Voyager_Api_GroupType = .protect
 
   public var offset: Int32 = 0
 
@@ -562,17 +562,17 @@ public struct Common_UserGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UserGroupResponse.DataMessage {
-    get {return _data ?? Common_UserGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -587,7 +587,7 @@ public struct Common_UserGroupResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_GroupInfo] = []
+    public var list: [Rankquantity_Voyager_Api_GroupInfo] = []
 
     public var offset: Int32 = 0
 
@@ -604,10 +604,10 @@ public struct Common_UserGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UserGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserGroupResponse.DataMessage? = nil
 }
 
-public struct Common_UserFollowingGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserFollowingGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -623,17 +623,17 @@ public struct Common_UserFollowingGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserFollowingGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserFollowingGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UserFollowingGroupResponse.DataMessage {
-    get {return _data ?? Common_UserFollowingGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -650,7 +650,7 @@ public struct Common_UserFollowingGroupResponse: Sendable {
 
     public var userID: Int64 = 0
 
-    public var list: [Common_GroupInfo] = []
+    public var list: [Rankquantity_Voyager_Api_GroupInfo] = []
 
     public var offset: Int64 = 0
 
@@ -667,10 +667,10 @@ public struct Common_UserFollowingGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UserFollowingGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage? = nil
 }
 
-public struct Common_UserUpdateRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserUpdateRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -690,17 +690,17 @@ public struct Common_UserUpdateRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserUpdateResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserUpdateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_UserUpdateResponse.DataMessage {
-    get {return _data ?? Common_UserUpdateResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -722,10 +722,10 @@ public struct Common_UserUpdateResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UserUpdateResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage? = nil
 }
 
-public struct Common_FetchActivesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_FetchActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -738,7 +738,7 @@ public struct Common_FetchActivesRequest: Sendable {
 
   public var boardID: Int64 = 0
 
-  public var atype: Common_ActiveFlowType = .allFlowType
+  public var atype: Rankquantity_Voyager_Api_ActiveFlowType = .allFlowType
 
   public var timestamp: Int64 = 0
 
@@ -751,17 +751,17 @@ public struct Common_FetchActivesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_FetchActivesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_FetchActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_FetchActivesResponse.DataMessage {
-    get {return _data ?? Common_FetchActivesResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -776,7 +776,7 @@ public struct Common_FetchActivesResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_ActiveInfo] = []
+    public var list: [Rankquantity_Voyager_Api_ActiveInfo] = []
 
     public var timestamp: Int64 = 0
 
@@ -795,10 +795,10 @@ public struct Common_FetchActivesResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_FetchActivesResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage? = nil
 }
 
-public struct Common_SearchUserRequest: Sendable {
+public struct Rankquantity_Voyager_Api_SearchUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -818,17 +818,17 @@ public struct Common_SearchUserRequest: Sendable {
   public init() {}
 }
 
-public struct Common_SearchUserResponse: Sendable {
+public struct Rankquantity_Voyager_Api_SearchUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_SearchUserResponse.DataMessage {
-    get {return _data ?? Common_SearchUserResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_SearchUserResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_SearchUserResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -843,7 +843,7 @@ public struct Common_SearchUserResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_UserInfo] = []
+    public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
     public var offset: Int64 = 0
 
@@ -860,10 +860,10 @@ public struct Common_SearchUserResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_SearchUserResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_SearchUserResponse.DataMessage? = nil
 }
 
-public struct Common_UserInitRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UserInitRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -877,17 +877,17 @@ public struct Common_UserInitRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UserInitResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UserInitResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_UserInitResponse.DataMessage {
-    get {return _data ?? Common_UserInitResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UserInitResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UserInitResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -904,7 +904,7 @@ public struct Common_UserInitResponse: Sendable {
 
     public var userID: Int64 = 0
 
-    public var list: [Common_GroupInfo] = []
+    public var list: [Rankquantity_Voyager_Api_GroupInfo] = []
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -913,10 +913,10 @@ public struct Common_UserInitResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UserInitResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UserInitResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupItemsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupItemsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -934,17 +934,17 @@ public struct Common_GetGroupItemsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetGroupItemsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupItemsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_GetGroupItemsResponse.DataMessage {
-    get {return _data ?? Common_GetGroupItemsResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -959,7 +959,7 @@ public struct Common_GetGroupItemsResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_ItemInfo] = []
+    public var list: [Rankquantity_Voyager_Api_ItemInfo] = []
 
     public var groupID: Int64 = 0
 
@@ -976,10 +976,10 @@ public struct Common_GetGroupItemsResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetGroupItemsResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage? = nil
 }
 
-public struct Common_GetUserItemsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserItemsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -995,17 +995,17 @@ public struct Common_GetUserItemsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserItemsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserItemsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_GetUserItemsResponse.DataMessage {
-    get {return _data ?? Common_GetUserItemsResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1020,7 +1020,7 @@ public struct Common_GetUserItemsResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_ItemInfo] = []
+    public var list: [Rankquantity_Voyager_Api_ItemInfo] = []
 
     public var userID: Int64 = 0
 
@@ -1035,10 +1035,10 @@ public struct Common_GetUserItemsResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetUserItemsResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage? = nil
 }
 
-public struct Common_GetItemRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1056,17 +1056,17 @@ public struct Common_GetItemRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetItemResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var msg: String = String()
 
-  public var data: Common_GetItemResponse.DataMessage {
-    get {return _data ?? Common_GetItemResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetItemResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetItemResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1081,8 +1081,8 @@ public struct Common_GetItemResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_ItemInfo {
-      get {return _info ?? Common_ItemInfo()}
+    public var info: Rankquantity_Voyager_Api_ItemInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_ItemInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1094,15 +1094,15 @@ public struct Common_GetItemResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_ItemInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_ItemInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_GetItemResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetItemResponse.DataMessage? = nil
 }
 
-public struct Common_CreateItemRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1113,7 +1113,7 @@ public struct Common_CreateItemRequest: Sendable {
 
   public var name: String = String()
 
-  public var atype: Common_ActiveType = .noneActive
+  public var atype: Rankquantity_Voyager_Api_ActiveType = .noneActive
 
   public var userID: Int64 = 0
 
@@ -1122,17 +1122,17 @@ public struct Common_CreateItemRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CreateItemResponse: Sendable {
+public struct Rankquantity_Voyager_Api_CreateItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_CreateItemResponse.DataMessage {
-    get {return _data ?? Common_CreateItemResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_CreateItemResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_CreateItemResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1147,8 +1147,8 @@ public struct Common_CreateItemResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_ItemInfo {
-      get {return _info ?? Common_ItemInfo()}
+    public var info: Rankquantity_Voyager_Api_ItemInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_ItemInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1160,15 +1160,15 @@ public struct Common_CreateItemResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_ItemInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_ItemInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_CreateItemResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_CreateItemResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateItemRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1179,8 +1179,8 @@ public struct Common_UpdateItemRequest: Sendable {
 
   public var itemID: Int64 = 0
 
-  public var info: Common_ItemInfo {
-    get {return _info ?? Common_ItemInfo()}
+  public var info: Rankquantity_Voyager_Api_ItemInfo {
+    get {return _info ?? Rankquantity_Voyager_Api_ItemInfo()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -1194,20 +1194,20 @@ public struct Common_UpdateItemRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_ItemInfo? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_ItemInfo? = nil
 }
 
-public struct Common_UpdateItemResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_UpdateItemResponse.DataMessage {
-    get {return _data ?? Common_UpdateItemResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1222,8 +1222,8 @@ public struct Common_UpdateItemResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_ItemInfo {
-      get {return _info ?? Common_ItemInfo()}
+    public var info: Rankquantity_Voyager_Api_ItemInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_ItemInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1235,15 +1235,15 @@ public struct Common_UpdateItemResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_ItemInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_ItemInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_UpdateItemResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage? = nil
 }
 
-public struct Common_DeleteItemRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1261,17 +1261,17 @@ public struct Common_DeleteItemRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteItemResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_DeleteItemResponse.DataMessage {
-    get {return _data ?? Common_DeleteItemResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1293,10 +1293,10 @@ public struct Common_DeleteItemResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_DeleteItemResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage? = nil
 }
 
-public struct Common_LikeItemRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LikeItemRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1316,17 +1316,17 @@ public struct Common_LikeItemRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LikeItemResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LikeItemResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_LikeItemResponse.DataMessage {
-    get {return _data ?? Common_LikeItemResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_LikeItemResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_LikeItemResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1348,10 +1348,10 @@ public struct Common_LikeItemResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_LikeItemResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_LikeItemResponse.DataMessage? = nil
 }
 
-public struct Common_CreateGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1369,17 +1369,17 @@ public struct Common_CreateGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CreateGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_CreateGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_CreateGroupResponse.DataMessage {
-    get {return _data ?? Common_CreateGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1394,8 +1394,8 @@ public struct Common_CreateGroupResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_GroupInfo {
-      get {return _info ?? Common_GroupInfo()}
+    public var info: Rankquantity_Voyager_Api_GroupInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_GroupInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1407,15 +1407,15 @@ public struct Common_CreateGroupResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_GroupInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_GroupInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_CreateGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1433,17 +1433,17 @@ public struct Common_GetGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetGroupResponse.DataMessage {
-    get {return _data ?? Common_GetGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1458,8 +1458,8 @@ public struct Common_GetGroupResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_GroupInfo {
-      get {return _info ?? Common_GroupInfo()}
+    public var info: Rankquantity_Voyager_Api_GroupInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_GroupInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1471,22 +1471,22 @@ public struct Common_GetGroupResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_GroupInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_GroupInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_GetGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetGroupResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupActivesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var groupID: Int64 = 0
 
-  public var atype: Common_ActiveType = .noneActive
+  public var atype: Rankquantity_Voyager_Api_ActiveType = .noneActive
 
   public var offset: Int64 = 0
 
@@ -1497,17 +1497,17 @@ public struct Common_GetGroupActivesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetGroupActivesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetGroupActivesResponse.DataMessage {
-    get {return _data ?? Common_GetGroupActivesResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1522,7 +1522,7 @@ public struct Common_GetGroupActivesResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_ActiveInfo] = []
+    public var list: [Rankquantity_Voyager_Api_ActiveInfo] = []
 
     public var offset: Int64 = 0
 
@@ -1539,18 +1539,18 @@ public struct Common_GetGroupActivesResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetGroupActivesResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateGroupInfoRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateGroupInfoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var groupID: Int64 = 0
 
-  public var info: Common_GroupInfo {
-    get {return _info ?? Common_GroupInfo()}
+  public var info: Rankquantity_Voyager_Api_GroupInfo {
+    get {return _info ?? Rankquantity_Voyager_Api_GroupInfo()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -1562,20 +1562,20 @@ public struct Common_UpdateGroupInfoRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_GroupInfo? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_GroupInfo? = nil
 }
 
-public struct Common_UpdateGroupInfoResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateGroupInfoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_UpdateGroupInfoResponse.DataMessage {
-    get {return _data ?? Common_UpdateGroupInfoResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1590,8 +1590,8 @@ public struct Common_UpdateGroupInfoResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_GroupInfo {
-      get {return _info ?? Common_GroupInfo()}
+    public var info: Rankquantity_Voyager_Api_GroupInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_GroupInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -1603,15 +1603,15 @@ public struct Common_UpdateGroupInfoResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_GroupInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_GroupInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_UpdateGroupInfoResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage? = nil
 }
 
-public struct Common_DeleteGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1625,17 +1625,17 @@ public struct Common_DeleteGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_DeleteGroupResponse.DataMessage {
-    get {return _data ?? Common_DeleteGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1657,10 +1657,10 @@ public struct Common_DeleteGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_DeleteGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage? = nil
 }
 
-public struct Common_FetchGroupMembersRequest: Sendable {
+public struct Rankquantity_Voyager_Api_FetchGroupMembersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1676,17 +1676,17 @@ public struct Common_FetchGroupMembersRequest: Sendable {
   public init() {}
 }
 
-public struct Common_FetchGroupMembersResponse: Sendable {
+public struct Rankquantity_Voyager_Api_FetchGroupMembersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_FetchGroupMembersResponse.DataMessage {
-    get {return _data ?? Common_FetchGroupMembersResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1701,7 +1701,7 @@ public struct Common_FetchGroupMembersResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_UserInfo] = []
+    public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
     public var offset: Int64 = 0
 
@@ -1716,10 +1716,10 @@ public struct Common_FetchGroupMembersResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_FetchGroupMembersResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage? = nil
 }
 
-public struct Common_SearchGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_SearchGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1732,7 +1732,7 @@ public struct Common_SearchGroupRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .protectScope
+  public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
   public var storyID: Int64 = 0
 
@@ -1743,17 +1743,17 @@ public struct Common_SearchGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_SearchGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_SearchGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_SearchGroupResponse.DataMessage {
-    get {return _data ?? Common_SearchGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1768,7 +1768,7 @@ public struct Common_SearchGroupResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_GroupInfo] = []
+    public var list: [Rankquantity_Voyager_Api_GroupInfo] = []
 
     public var offset: Int64 = 0
 
@@ -1785,10 +1785,10 @@ public struct Common_SearchGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_SearchGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage? = nil
 }
 
-public struct Common_JoinGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_JoinGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1802,17 +1802,17 @@ public struct Common_JoinGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_JoinGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_JoinGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_JoinGroupResponse.DataMessage {
-    get {return _data ?? Common_JoinGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1834,10 +1834,10 @@ public struct Common_JoinGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_JoinGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage? = nil
 }
 
-public struct Common_LeaveGroupRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LeaveGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1851,17 +1851,17 @@ public struct Common_LeaveGroupRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LeaveGroupResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LeaveGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_LeaveGroupResponse.DataMessage {
-    get {return _data ?? Common_LeaveGroupResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1883,10 +1883,10 @@ public struct Common_LeaveGroupResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_LeaveGroupResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage? = nil
 }
 
-public struct Common_DisscussParams: Sendable {
+public struct Rankquantity_Voyager_Api_DisscussParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1896,7 +1896,7 @@ public struct Common_DisscussParams: Sendable {
   public init() {}
 }
 
-public struct Common_CreateDisscussReq: Sendable {
+public struct Rankquantity_Voyager_Api_CreateDisscussReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1906,17 +1906,17 @@ public struct Common_CreateDisscussReq: Sendable {
   public init() {}
 }
 
-public struct Common_CreateDisscusResp: Sendable {
+public struct Rankquantity_Voyager_Api_CreateDisscusResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_CreateDisscusResp.DataMessage {
-    get {return _data ?? Common_CreateDisscusResp.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1938,10 +1938,10 @@ public struct Common_CreateDisscusResp: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_CreateDisscusResp.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage? = nil
 }
 
-public struct Common_GetDisscusReq: Sendable {
+public struct Rankquantity_Voyager_Api_GetDisscusReq: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1951,17 +1951,17 @@ public struct Common_GetDisscusReq: Sendable {
   public init() {}
 }
 
-public struct Common_GetDisscusResp: Sendable {
+public struct Rankquantity_Voyager_Api_GetDisscusResp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetDisscusResp.DataMessage {
-    get {return _data ?? Common_GetDisscusResp.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetDisscusResp.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetDisscusResp.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -1983,10 +1983,10 @@ public struct Common_GetDisscusResp: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetDisscusResp.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetDisscusResp.DataMessage? = nil
 }
 
-public struct Common_VersionRequest: Sendable {
+public struct Rankquantity_Voyager_Api_VersionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1996,17 +1996,17 @@ public struct Common_VersionRequest: Sendable {
   public init() {}
 }
 
-public struct Common_VersionResponse: Sendable {
+public struct Rankquantity_Voyager_Api_VersionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_VersionResponse.DataMessage {
-    get {return _data ?? Common_VersionResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_VersionResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_VersionResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2032,10 +2032,10 @@ public struct Common_VersionResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_VersionResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_VersionResponse.DataMessage? = nil
 }
 
-public struct Common_AboutRequest: Sendable {
+public struct Rankquantity_Voyager_Api_AboutRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2045,7 +2045,7 @@ public struct Common_AboutRequest: Sendable {
   public init() {}
 }
 
-public struct Common_AboutResponse: Sendable {
+public struct Rankquantity_Voyager_Api_AboutResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2057,7 +2057,7 @@ public struct Common_AboutResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ExploreRequest: Sendable {
+public struct Rankquantity_Voyager_Api_ExploreRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2067,17 +2067,17 @@ public struct Common_ExploreRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ExploreResponse: Sendable {
+public struct Rankquantity_Voyager_Api_ExploreResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_ExploreResponse.DataMessage {
-    get {return _data ?? Common_ExploreResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_ExploreResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_ExploreResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2099,10 +2099,10 @@ public struct Common_ExploreResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_ExploreResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_ExploreResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectMembersRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetProjectMembersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2116,17 +2116,17 @@ public struct Common_GetProjectMembersRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetProjectMembersResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetProjectMembersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetProjectMembersResponse.DataMessage {
-    get {return _data ?? Common_GetProjectMembersResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2141,7 +2141,7 @@ public struct Common_GetProjectMembersResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_UserInfo] = []
+    public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
     public var total: Int32 = 0
 
@@ -2154,10 +2154,10 @@ public struct Common_GetProjectMembersResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetProjectMembersResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage? = nil
 }
 
-public struct Common_GetProjectWatcherRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetProjectWatcherRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2169,17 +2169,17 @@ public struct Common_GetProjectWatcherRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetProjectWatcherResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetProjectWatcherResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetProjectWatcherResponse.DataMessage {
-    get {return _data ?? Common_GetProjectWatcherResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2194,7 +2194,7 @@ public struct Common_GetProjectWatcherResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_UserInfo] = []
+    public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
     public var total: Int32 = 0
 
@@ -2207,10 +2207,10 @@ public struct Common_GetProjectWatcherResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetProjectWatcherResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage? = nil
 }
 
-public struct Common_UploadImageRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UploadImageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2226,17 +2226,17 @@ public struct Common_UploadImageRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UploadImageResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UploadImageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_UploadImageResponse.DataMessage {
-    get {return _data ?? Common_UploadImageResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_UploadImageResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2262,10 +2262,10 @@ public struct Common_UploadImageResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_UploadImageResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage? = nil
 }
 
-public struct Common_GetStoryContributorsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryContributorsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2283,7 +2283,7 @@ public struct Common_GetStoryContributorsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_StoryContributor: Sendable {
+public struct Rankquantity_Voyager_Api_StoryContributor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2301,17 +2301,17 @@ public struct Common_StoryContributor: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryContributorsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryContributorsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetStoryContributorsResponse.DataMessage {
-    get {return _data ?? Common_GetStoryContributorsResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2326,7 +2326,7 @@ public struct Common_GetStoryContributorsResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_StoryContributor] = []
+    public var list: [Rankquantity_Voyager_Api_StoryContributor] = []
 
     public var total: Int64 = 0
 
@@ -2339,10 +2339,10 @@ public struct Common_GetStoryContributorsResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_GetStoryContributorsResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage? = nil
 }
 
-public struct Common_GetGroupProfileRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2356,17 +2356,17 @@ public struct Common_GetGroupProfileRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetGroupProfileResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetGroupProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_GetGroupProfileResponse.DataMessage {
-    get {return _data ?? Common_GetGroupProfileResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -2381,8 +2381,8 @@ public struct Common_GetGroupProfileResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var info: Common_GroupProfileInfo {
-      get {return _info ?? Common_GroupProfileInfo()}
+    public var info: Rankquantity_Voyager_Api_GroupProfileInfo {
+      get {return _info ?? Rankquantity_Voyager_Api_GroupProfileInfo()}
       set {_info = newValue}
     }
     /// Returns true if `info` has been explicitly set.
@@ -2394,23 +2394,23 @@ public struct Common_GetGroupProfileResponse: Sendable {
 
     public init() {}
 
-    fileprivate var _info: Common_GroupProfileInfo? = nil
+    fileprivate var _info: Rankquantity_Voyager_Api_GroupProfileInfo? = nil
   }
 
   public init() {}
 
-  fileprivate var _data: Common_GetGroupProfileResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage? = nil
 }
 
-public struct Common_UpdateGroupProfileRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateGroupProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var groupID: Int64 = 0
 
-  public var info: Common_GroupProfileInfo {
-    get {return _info ?? Common_GroupProfileInfo()}
+  public var info: Rankquantity_Voyager_Api_GroupProfileInfo {
+    get {return _info ?? Rankquantity_Voyager_Api_GroupProfileInfo()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -2424,15 +2424,15 @@ public struct Common_UpdateGroupProfileRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_GroupProfileInfo? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_GroupProfileInfo? = nil
 }
 
-public struct Common_UpdateGroupProfileResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateGroupProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -2441,7 +2441,7 @@ public struct Common_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRolePosterListRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRolePosterListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2461,7 +2461,7 @@ public struct Common_GetStoryRolePosterListRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RolePosterDetail: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_RolePosterDetail: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2501,8 +2501,8 @@ public struct Common_RolePosterDetail: @unchecked Sendable {
     set {_uniqueStorage()._isLikedByUser = newValue}
   }
 
-  public var creator: Common_UserInfo {
-    get {return _storage._creator ?? Common_UserInfo()}
+  public var creator: Rankquantity_Voyager_Api_UserInfo {
+    get {return _storage._creator ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._creator = newValue}
   }
   /// Returns true if `creator` has been explicitly set.
@@ -2527,16 +2527,16 @@ public struct Common_RolePosterDetail: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_GetStoryRolePosterListResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRolePosterListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var posters: [Common_RolePosterDetail] = []
+  public var posters: [Rankquantity_Voyager_Api_RolePosterDetail] = []
 
   public var total: Int64 = 0
 
@@ -2547,7 +2547,7 @@ public struct Common_GetStoryRolePosterListResponse: Sendable {
   public init() {}
 }
 
-public struct Common_LikeStoryRolePosterRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2565,12 +2565,12 @@ public struct Common_LikeStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LikeStoryRolePosterResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -2581,7 +2581,7 @@ public struct Common_LikeStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryRolePosterRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2599,12 +2599,12 @@ public struct Common_UnLikeStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryRolePosterResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -2615,7 +2615,7 @@ public struct Common_UnLikeStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
-public struct Common_FetchUserGenTaskStatusRequest: Sendable {
+public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2635,7 +2635,7 @@ public struct Common_FetchUserGenTaskStatusRequest: Sendable {
   public init() {}
 }
 
-public struct Common_StoryGentaskDetail: Sendable {
+public struct Rankquantity_Voyager_Api_StoryGentaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2671,7 +2671,7 @@ public struct Common_StoryGentaskDetail: Sendable {
   public init() {}
 }
 
-public struct Common_UserGenTaskStatus: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_UserGenTaskStatus: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2691,8 +2691,8 @@ public struct Common_UserGenTaskStatus: @unchecked Sendable {
     set {_uniqueStorage()._status = newValue}
   }
 
-  public var detail: Common_StoryGentaskDetail {
-    get {return _storage._detail ?? Common_StoryGentaskDetail()}
+  public var detail: Rankquantity_Voyager_Api_StoryGentaskDetail {
+    get {return _storage._detail ?? Rankquantity_Voyager_Api_StoryGentaskDetail()}
     set {_uniqueStorage()._detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
@@ -2717,16 +2717,16 @@ public struct Common_UserGenTaskStatus: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_FetchUserGenTaskStatusResponse: Sendable {
+public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var tasks: [Common_UserGenTaskStatus] = []
+  public var tasks: [Rankquantity_Voyager_Api_UserGenTaskStatus] = []
 
   public var total: Int64 = 0
 
@@ -2737,7 +2737,7 @@ public struct Common_FetchUserGenTaskStatusResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateRoleAvatarRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRoleAvatarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2752,19 +2752,19 @@ public struct Common_GenerateRoleAvatarRequest: Sendable {
 
   public var style: String = String()
 
-  public var imageRatios: Common_ImageRatios = .ratio11
+  public var imageRatios: Rankquantity_Voyager_Api_ImageRatios = .ratio11
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_GenerateRoleAvatarResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRoleAvatarResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -2775,7 +2775,7 @@ public struct Common_GenerateRoleAvatarResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStorySceneVideoRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2788,7 +2788,7 @@ public struct Common_GenerateStorySceneVideoRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var tokenSource: Common_TokenSource = .userSelf
+  public var tokenSource: Rankquantity_Voyager_Api_TokenSource = .userSelf
 
   public var prompt: String = String()
 
@@ -2799,14 +2799,14 @@ public struct Common_GenerateStorySceneVideoRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStorySceneVideoTaskDetail: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var taskID: String = String()
 
-  public var taskStatus: Common_StoryGenStatus = .unspecified
+  public var taskStatus: Rankquantity_Voyager_Api_StoryGenStatus = .unspecified
 
   public var videoURL: String = String()
 
@@ -2823,17 +2823,17 @@ public struct Common_GenerateStorySceneVideoTaskDetail: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStorySceneVideoResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var detail: Common_GenerateStorySceneVideoTaskDetail {
-    get {return _detail ?? Common_GenerateStorySceneVideoTaskDetail()}
+  public var detail: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail {
+    get {return _detail ?? Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail()}
     set {_detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
@@ -2845,10 +2845,10 @@ public struct Common_GenerateStorySceneVideoResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _detail: Common_GenerateStorySceneVideoTaskDetail? = nil
+  fileprivate var _detail: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail? = nil
 }
 
-public struct Common_GenerateStoryRoleVideoRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2867,7 +2867,7 @@ public struct Common_GenerateStoryRoleVideoRequest: Sendable {
 
   public var textPrompt: String = String()
 
-  public var imageRatios: Common_ImageRatios = .ratio11
+  public var imageRatios: Rankquantity_Voyager_Api_ImageRatios = .ratio11
 
   public var style: String = String()
 
@@ -2876,14 +2876,14 @@ public struct Common_GenerateStoryRoleVideoRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStoryRoleVideoTaskDetail: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var taskID: String = String()
 
-  public var taskStatus: Common_StoryGenStatus = .unspecified
+  public var taskStatus: Rankquantity_Voyager_Api_StoryGenStatus = .unspecified
 
   public var videoURL: String = String()
 
@@ -2900,17 +2900,17 @@ public struct Common_GenerateStoryRoleVideoTaskDetail: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStoryRoleVideoResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var detail: Common_GenerateStoryRoleVideoTaskDetail {
-    get {return _detail ?? Common_GenerateStoryRoleVideoTaskDetail()}
+  public var detail: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail {
+    get {return _detail ?? Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail()}
     set {_detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
@@ -2922,10 +2922,10 @@ public struct Common_GenerateStoryRoleVideoResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _detail: Common_GenerateStoryRoleVideoTaskDetail? = nil
+  fileprivate var _detail: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail? = nil
 }
 
-public struct Common_GetStoryParticipantsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryParticipantsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2941,16 +2941,16 @@ public struct Common_GetStoryParticipantsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryParticipantsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryParticipantsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var participants: [Common_UserInfo] = []
+  public var participants: [Rankquantity_Voyager_Api_UserInfo] = []
 
   public var total: Int64 = 0
 
@@ -2961,7 +2961,7 @@ public struct Common_GetStoryParticipantsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryAvatarRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryAvatarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2977,12 +2977,12 @@ public struct Common_UpdateStoryAvatarRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryAvatarResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryAvatarResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -2991,7 +2991,7 @@ public struct Common_UpdateStoryAvatarResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryCoverRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryCoverRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3009,12 +3009,12 @@ public struct Common_UpdateStoryCoverRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryCoverResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryCoverResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3023,7 +3023,7 @@ public struct Common_UpdateStoryCoverResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryImageStyleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryImageStyleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3035,7 +3035,7 @@ public struct Common_GetStoryImageStyleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_StoryStyleDesc: Sendable {
+public struct Rankquantity_Voyager_Api_StoryStyleDesc: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3054,23 +3054,23 @@ public struct Common_StoryStyleDesc: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryImageStyleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryImageStyleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var style: [Common_StoryStyleDesc] = []
+  public var style: [Rankquantity_Voyager_Api_StoryStyleDesc] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_UpdateStoryImageStyleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3091,12 +3091,12 @@ public struct Common_UpdateStoryImageStyleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryImageStyleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3105,7 +3105,7 @@ public struct Common_UpdateStoryImageStyleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStorySenceMaxNumberRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3123,12 +3123,12 @@ public struct Common_UpdateStorySenceMaxNumberRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStorySenceMaxNumberResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3137,7 +3137,7 @@ public struct Common_UpdateStorySenceMaxNumberResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRolePromptRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3155,12 +3155,12 @@ public struct Common_UpdateStoryRolePromptRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRolePromptResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3169,7 +3169,7 @@ public struct Common_UpdateStoryRolePromptResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRoleDescriptionDetailRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3180,8 +3180,8 @@ public struct Common_UpdateStoryRoleDescriptionDetailRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var characterDetail: Common_CharacterDetail {
-    get {return _characterDetail ?? Common_CharacterDetail()}
+  public var characterDetail: Rankquantity_Voyager_Api_CharacterDetail {
+    get {return _characterDetail ?? Rankquantity_Voyager_Api_CharacterDetail()}
     set {_characterDetail = newValue}
   }
   /// Returns true if `characterDetail` has been explicitly set.
@@ -3193,15 +3193,15 @@ public struct Common_UpdateStoryRoleDescriptionDetailRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _characterDetail: Common_CharacterDetail? = nil
+  fileprivate var _characterDetail: Rankquantity_Voyager_Api_CharacterDetail? = nil
 }
 
-public struct Common_UpdateStoryRoleDescriptionDetailResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3210,7 +3210,7 @@ public struct Common_UpdateStoryRoleDescriptionDetailResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStoryRoleParams: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRoleParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3230,7 +3230,7 @@ public struct Common_GenerateStoryRoleParams: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateStoryRolePosterRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3241,8 +3241,8 @@ public struct Common_GenerateStoryRolePosterRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var params: Common_GenerateStoryRoleParams {
-    get {return _params ?? Common_GenerateStoryRoleParams()}
+  public var params: Rankquantity_Voyager_Api_GenerateStoryRoleParams {
+    get {return _params ?? Rankquantity_Voyager_Api_GenerateStoryRoleParams()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
@@ -3254,15 +3254,15 @@ public struct Common_GenerateStoryRolePosterRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _params: Common_GenerateStoryRoleParams? = nil
+  fileprivate var _params: Rankquantity_Voyager_Api_GenerateStoryRoleParams? = nil
 }
 
-public struct Common_GenerateStoryRolePosterResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3275,7 +3275,7 @@ public struct Common_GenerateStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRolePosterRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3297,12 +3297,12 @@ public struct Common_UpdateStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRolePosterResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3313,7 +3313,7 @@ public struct Common_UpdateStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetFollowListRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetFollowListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3329,16 +3329,16 @@ public struct Common_GetFollowListRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetFollowListResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetFollowListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var followers: [Common_UserInfo] = []
+  public var followers: [Rankquantity_Voyager_Api_UserInfo] = []
 
   public var total: Int64 = 0
 
@@ -3349,7 +3349,7 @@ public struct Common_GetFollowListResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetFollowerListRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetFollowerListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3365,16 +3365,16 @@ public struct Common_GetFollowerListRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetFollowerListResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetFollowerListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var followers: [Common_UserInfo] = []
+  public var followers: [Rankquantity_Voyager_Api_UserInfo] = []
 
   public var total: Int64 = 0
 
@@ -3385,7 +3385,7 @@ public struct Common_GetFollowerListResponse: Sendable {
   public init() {}
 }
 
-public struct Common_FollowUserRequest: Sendable {
+public struct Rankquantity_Voyager_Api_FollowUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3399,12 +3399,12 @@ public struct Common_FollowUserRequest: Sendable {
   public init() {}
 }
 
-public struct Common_FollowUserResponse: Sendable {
+public struct Rankquantity_Voyager_Api_FollowUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3413,7 +3413,7 @@ public struct Common_FollowUserResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UnfollowUserRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UnfollowUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3427,12 +3427,12 @@ public struct Common_UnfollowUserRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UnfollowUserResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UnfollowUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3441,7 +3441,7 @@ public struct Common_UnfollowUserResponse: Sendable {
   public init() {}
 }
 
-public struct Common_TrendingStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_TrendingStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3459,17 +3459,17 @@ public struct Common_TrendingStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_TrendingStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_TrendingStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_TrendingStoryRoleResponse.DataMessage {
-    get {return _data ?? Common_TrendingStoryRoleResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -3484,7 +3484,7 @@ public struct Common_TrendingStoryRoleResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_StoryRole] = []
+    public var list: [Rankquantity_Voyager_Api_StoryRole] = []
 
     public var pageSize: Int64 = 0
 
@@ -3501,10 +3501,10 @@ public struct Common_TrendingStoryRoleResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_TrendingStoryRoleResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage? = nil
 }
 
-public struct Common_TrendingStoryRequest: Sendable {
+public struct Rankquantity_Voyager_Api_TrendingStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3522,17 +3522,17 @@ public struct Common_TrendingStoryRequest: Sendable {
   public init() {}
 }
 
-public struct Common_TrendingStoryResponse: Sendable {
+public struct Rankquantity_Voyager_Api_TrendingStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var data: Common_TrendingStoryResponse.DataMessage {
-    get {return _data ?? Common_TrendingStoryResponse.DataMessage()}
+  public var data: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage {
+    get {return _data ?? Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -3547,7 +3547,7 @@ public struct Common_TrendingStoryResponse: Sendable {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var list: [Common_Story] = []
+    public var list: [Rankquantity_Voyager_Api_Story] = []
 
     public var pageSize: Int64 = 0
 
@@ -3564,10 +3564,10 @@ public struct Common_TrendingStoryResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _data: Common_TrendingStoryResponse.DataMessage? = nil
+  fileprivate var _data: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage? = nil
 }
 
-public struct Common_GetStoryRoleListRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3589,16 +3589,16 @@ public struct Common_GetStoryRoleListRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleListResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var roles: [Common_StoryRole] = []
+  public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
   public var total: Int64 = 0
 
@@ -3609,7 +3609,7 @@ public struct Common_GetStoryRoleListResponse: Sendable {
   public init() {}
 }
 
-public struct Common_ArchiveStoryRequest: Sendable {
+public struct Rankquantity_Voyager_Api_ArchiveStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3623,12 +3623,12 @@ public struct Common_ArchiveStoryRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ArchiveStoryResponse: Sendable {
+public struct Rankquantity_Voyager_Api_ArchiveStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3637,7 +3637,7 @@ public struct Common_ArchiveStoryResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3653,12 +3653,12 @@ public struct Common_CreateStoryCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryCommentResponse: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryCommentResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode {
+  public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
@@ -3668,8 +3668,8 @@ public struct Common_CreateStoryCommentResponse: @unchecked Sendable {
     set {_uniqueStorage()._message = newValue}
   }
 
-  public var comment: Common_CommentInfo {
-    get {return _storage._comment ?? Common_CommentInfo()}
+  public var comment: Rankquantity_Voyager_Api_CommentInfo {
+    get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
   }
   /// Returns true if `comment` has been explicitly set.
@@ -3684,7 +3684,7 @@ public struct Common_CreateStoryCommentResponse: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_GetStoryCommentsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryCommentsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3702,7 +3702,7 @@ public struct Common_GetStoryCommentsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_StoryComment: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_StoryComment: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3772,8 +3772,8 @@ public struct Common_StoryComment: @unchecked Sendable {
     set {_uniqueStorage()._isLiked = newValue}
   }
 
-  public var creator: Common_UserInfo {
-    get {return _storage._creator ?? Common_UserInfo()}
+  public var creator: Rankquantity_Voyager_Api_UserInfo {
+    get {return _storage._creator ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._creator = newValue}
   }
   /// Returns true if `creator` has been explicitly set.
@@ -3793,16 +3793,16 @@ public struct Common_StoryComment: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_GetStoryCommentsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryCommentsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var comments: [Common_StoryComment] = []
+  public var comments: [Rankquantity_Voyager_Api_StoryComment] = []
 
   public var total: Int64 = 0
 
@@ -3817,7 +3817,7 @@ public struct Common_GetStoryCommentsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteStoryCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3831,12 +3831,12 @@ public struct Common_DeleteStoryCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteStoryCommentResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3845,7 +3845,7 @@ public struct Common_DeleteStoryCommentResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryCommentRepliesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3863,16 +3863,16 @@ public struct Common_GetStoryCommentRepliesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryCommentRepliesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var replies: [Common_StoryComment] = []
+  public var replies: [Rankquantity_Voyager_Api_StoryComment] = []
 
   public var total: Int64 = 0
 
@@ -3887,7 +3887,7 @@ public struct Common_GetStoryCommentRepliesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryCommentReplyRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3903,12 +3903,12 @@ public struct Common_CreateStoryCommentReplyRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryCommentReplyResponse: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode {
+  public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
@@ -3918,8 +3918,8 @@ public struct Common_CreateStoryCommentReplyResponse: @unchecked Sendable {
     set {_uniqueStorage()._message = newValue}
   }
 
-  public var comment: Common_CommentInfo {
-    get {return _storage._comment ?? Common_CommentInfo()}
+  public var comment: Rankquantity_Voyager_Api_CommentInfo {
+    get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
   }
   /// Returns true if `comment` has been explicitly set.
@@ -3934,7 +3934,7 @@ public struct Common_CreateStoryCommentReplyResponse: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_DeleteStoryCommentReplyRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3948,12 +3948,12 @@ public struct Common_DeleteStoryCommentReplyRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteStoryCommentReplyResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -3962,7 +3962,7 @@ public struct Common_DeleteStoryCommentReplyResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardCommentsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3980,16 +3980,16 @@ public struct Common_GetStoryBoardCommentsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardCommentsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var comments: [Common_StoryComment] = []
+  public var comments: [Rankquantity_Voyager_Api_StoryComment] = []
 
   public var total: Int64 = 0
 
@@ -4004,7 +4004,7 @@ public struct Common_GetStoryBoardCommentsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryBoardCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4020,12 +4020,12 @@ public struct Common_CreateStoryBoardCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryBoardCommentResponse: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode {
+  public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
@@ -4035,8 +4035,8 @@ public struct Common_CreateStoryBoardCommentResponse: @unchecked Sendable {
     set {_uniqueStorage()._message = newValue}
   }
 
-  public var comment: Common_CommentInfo {
-    get {return _storage._comment ?? Common_CommentInfo()}
+  public var comment: Rankquantity_Voyager_Api_CommentInfo {
+    get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
   }
   /// Returns true if `comment` has been explicitly set.
@@ -4051,7 +4051,7 @@ public struct Common_CreateStoryBoardCommentResponse: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_DeleteStoryBoardCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4067,12 +4067,12 @@ public struct Common_DeleteStoryBoardCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DeleteStoryBoardCommentResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4081,7 +4081,7 @@ public struct Common_DeleteStoryBoardCommentResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardCommentRepliesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4099,16 +4099,16 @@ public struct Common_GetStoryBoardCommentRepliesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryBoardCommentRepliesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var replies: [Common_StoryComment] = []
+  public var replies: [Rankquantity_Voyager_Api_StoryComment] = []
 
   public var total: Int64 = 0
 
@@ -4123,7 +4123,7 @@ public struct Common_GetStoryBoardCommentRepliesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_LikeCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LikeCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4137,12 +4137,12 @@ public struct Common_LikeCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LikeCommentResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LikeCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4151,7 +4151,7 @@ public struct Common_LikeCommentResponse: Sendable {
   public init() {}
 }
 
-public struct Common_DislikeCommentRequest: Sendable {
+public struct Rankquantity_Voyager_Api_DislikeCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4165,12 +4165,12 @@ public struct Common_DislikeCommentRequest: Sendable {
   public init() {}
 }
 
-public struct Common_DislikeCommentResponse: Sendable {
+public struct Rankquantity_Voyager_Api_DislikeCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4179,7 +4179,7 @@ public struct Common_DislikeCommentResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateRolePromptRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4195,12 +4195,12 @@ public struct Common_UpdateRolePromptRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateRolePromptResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4209,7 +4209,7 @@ public struct Common_UpdateRolePromptResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateRolePromptRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4227,12 +4227,12 @@ public struct Common_GenerateRolePromptRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateRolePromptResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4243,7 +4243,7 @@ public struct Common_GenerateRolePromptResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateRoleDescriptionRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4259,12 +4259,12 @@ public struct Common_UpdateRoleDescriptionRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateRoleDescriptionResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4273,7 +4273,7 @@ public struct Common_UpdateRoleDescriptionResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateRoleDescriptionRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4291,17 +4291,17 @@ public struct Common_GenerateRoleDescriptionRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GenerateRoleDescriptionResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var characterDetail: Common_CharacterDetail {
-    get {return _characterDetail ?? Common_CharacterDetail()}
+  public var characterDetail: Rankquantity_Voyager_Api_CharacterDetail {
+    get {return _characterDetail ?? Rankquantity_Voyager_Api_CharacterDetail()}
     set {_characterDetail = newValue}
   }
   /// Returns true if `characterDetail` has been explicitly set.
@@ -4313,10 +4313,10 @@ public struct Common_GenerateRoleDescriptionResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _characterDetail: Common_CharacterDetail? = nil
+  fileprivate var _characterDetail: Rankquantity_Voyager_Api_CharacterDetail? = nil
 }
 
-public struct Common_GetUnPublishStoryboardRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4332,16 +4332,16 @@ public struct Common_GetUnPublishStoryboardRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUnPublishStoryboardResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboardactives: [Common_StoryBoardActive] = []
+  public var storyboardactives: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -4356,7 +4356,7 @@ public struct Common_GetUnPublishStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWatchRoleActiveStoryBoardsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4376,16 +4376,16 @@ public struct Common_GetUserWatchRoleActiveStoryBoardsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWatchRoleActiveStoryBoardsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoardActive] = []
+  public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -4400,7 +4400,7 @@ public struct Common_GetUserWatchRoleActiveStoryBoardsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWatchStoryActiveStoryBoardsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4420,16 +4420,16 @@ public struct Common_GetUserWatchStoryActiveStoryBoardsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWatchStoryActiveStoryBoardsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoardActive] = []
+  public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -4444,7 +4444,7 @@ public struct Common_GetUserWatchStoryActiveStoryBoardsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_SaveStoryboardCraftRequest: Sendable {
+public struct Rankquantity_Voyager_Api_SaveStoryboardCraftRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4458,12 +4458,12 @@ public struct Common_SaveStoryboardCraftRequest: Sendable {
   public init() {}
 }
 
-public struct Common_SaveStoryboardCraftResponse: Sendable {
+public struct Rankquantity_Voyager_Api_SaveStoryboardCraftResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4472,7 +4472,7 @@ public struct Common_SaveStoryboardCraftResponse: Sendable {
   public init() {}
 }
 
-public struct Common_PublishStoryboardRequest: Sendable {
+public struct Rankquantity_Voyager_Api_PublishStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4486,12 +4486,12 @@ public struct Common_PublishStoryboardRequest: Sendable {
   public init() {}
 }
 
-public struct Common_PublishStoryboardResponse: Sendable {
+public struct Rankquantity_Voyager_Api_PublishStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4500,7 +4500,7 @@ public struct Common_PublishStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CancelStoryboardRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CancelStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4514,12 +4514,12 @@ public struct Common_CancelStoryboardRequest: Sendable {
   public init() {}
 }
 
-public struct Common_CancelStoryboardResponse: Sendable {
+public struct Rankquantity_Voyager_Api_CancelStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4528,7 +4528,7 @@ public struct Common_CancelStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryRoleContinuouslyRequest: Sendable {
+public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4548,17 +4548,17 @@ public struct Common_RenderStoryRoleContinuouslyRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryRoleContinuouslyResponse: Sendable {
+public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var detail: Common_RenderStoryRoleDetail {
-    get {return _detail ?? Common_RenderStoryRoleDetail()}
+  public var detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail {
+    get {return _detail ?? Rankquantity_Voyager_Api_RenderStoryRoleDetail()}
     set {_detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
@@ -4572,10 +4572,10 @@ public struct Common_RenderStoryRoleContinuouslyResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _detail: Common_RenderStoryRoleDetail? = nil
+  fileprivate var _detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail? = nil
 }
 
-public struct Common_GetNextStoryboardRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetNextStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4594,23 +4594,23 @@ public struct Common_GetNextStoryboardRequest: Sendable {
 
   public var total: Int64 = 0
 
-  public var orderBy: Common_MultiBranchOrderBy = .unspecified
+  public var orderBy: Rankquantity_Voyager_Api_MultiBranchOrderBy = .unspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_GetNextStoryboardResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetNextStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoardActive] = []
+  public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var isMultiBranch: Bool = false
 
@@ -4627,7 +4627,7 @@ public struct Common_GetNextStoryboardResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserChatMessagesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserChatMessagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4645,16 +4645,16 @@ public struct Common_GetUserChatMessagesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserChatMessagesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserChatMessagesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var messages: [Common_ChatMessage] = []
+  public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
   public var timestamp: Int64 = 0
 
@@ -4667,7 +4667,7 @@ public struct Common_GetUserChatMessagesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserChatWithRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserChatWithRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4681,19 +4681,19 @@ public struct Common_GetUserChatWithRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserChatWithRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserChatWithRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var messages: [Common_ChatMessage] = []
+  public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
-  public var chatContext: Common_ChatContext {
-    get {return _chatContext ?? Common_ChatContext()}
+  public var chatContext: Rankquantity_Voyager_Api_ChatContext {
+    get {return _chatContext ?? Rankquantity_Voyager_Api_ChatContext()}
     set {_chatContext = newValue}
   }
   /// Returns true if `chatContext` has been explicitly set.
@@ -4709,10 +4709,10 @@ public struct Common_GetUserChatWithRoleResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _chatContext: Common_ChatContext? = nil
+  fileprivate var _chatContext: Rankquantity_Voyager_Api_ChatContext? = nil
 }
 
-public struct Common_GetStoryRoleStoryboardsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4734,16 +4734,16 @@ public struct Common_GetStoryRoleStoryboardsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleStoryboardsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboardactives: [Common_StoryBoardActive] = []
+  public var storyboardactives: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -4758,7 +4758,7 @@ public struct Common_GetStoryRoleStoryboardsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleStoriesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4778,16 +4778,16 @@ public struct Common_GetStoryRoleStoriesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleStoriesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var stories: [Common_Story] = []
+  public var stories: [Rankquantity_Voyager_Api_Story] = []
 
   public var total: Int64 = 0
 
@@ -4802,7 +4802,7 @@ public struct Common_GetStoryRoleStoriesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryRoleChatRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryRoleChatRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4816,7 +4816,7 @@ public struct Common_CreateStoryRoleChatRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ChatContext: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ChatContext: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4856,8 +4856,8 @@ public struct Common_ChatContext: @unchecked Sendable {
     set {_uniqueStorage()._totalMessages = newValue}
   }
 
-  public var lastMessage: Common_ChatMessage {
-    get {return _storage._lastMessage ?? Common_ChatMessage()}
+  public var lastMessage: Rankquantity_Voyager_Api_ChatMessage {
+    get {return _storage._lastMessage ?? Rankquantity_Voyager_Api_ChatMessage()}
     set {_uniqueStorage()._lastMessage = newValue}
   }
   /// Returns true if `lastMessage` has been explicitly set.
@@ -4865,8 +4865,8 @@ public struct Common_ChatContext: @unchecked Sendable {
   /// Clears the value of `lastMessage`. Subsequent reads from it will return its default value.
   public mutating func clearLastMessage() {_uniqueStorage()._lastMessage = nil}
 
-  public var user: Common_UserInfo {
-    get {return _storage._user ?? Common_UserInfo()}
+  public var user: Rankquantity_Voyager_Api_UserInfo {
+    get {return _storage._user ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._user = newValue}
   }
   /// Returns true if `user` has been explicitly set.
@@ -4874,8 +4874,8 @@ public struct Common_ChatContext: @unchecked Sendable {
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
   public mutating func clearUser() {_uniqueStorage()._user = nil}
 
-  public var role: Common_StoryRole {
-    get {return _storage._role ?? Common_StoryRole()}
+  public var role: Rankquantity_Voyager_Api_StoryRole {
+    get {return _storage._role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_uniqueStorage()._role = newValue}
   }
   /// Returns true if `role` has been explicitly set.
@@ -4890,17 +4890,17 @@ public struct Common_ChatContext: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_CreateStoryRoleChatResponse: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryRoleChatResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var chatContext: Common_ChatContext {
-    get {return _chatContext ?? Common_ChatContext()}
+  public var chatContext: Rankquantity_Voyager_Api_ChatContext {
+    get {return _chatContext ?? Rankquantity_Voyager_Api_ChatContext()}
     set {_chatContext = newValue}
   }
   /// Returns true if `chatContext` has been explicitly set.
@@ -4912,10 +4912,10 @@ public struct Common_CreateStoryRoleChatResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _chatContext: Common_ChatContext? = nil
+  fileprivate var _chatContext: Rankquantity_Voyager_Api_ChatContext? = nil
 }
 
-public struct Common_ChatWithStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_ChatWithStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4924,7 +4924,7 @@ public struct Common_ChatWithStoryRoleRequest: Sendable {
 
   public var userID: Int64 = 0
 
-  public var messages: [Common_ChatMessage] = []
+  public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
   public var total: Int64 = 0
 
@@ -4935,16 +4935,16 @@ public struct Common_ChatWithStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_ChatWithStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_ChatWithStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var replyMessages: [Common_ChatMessage] = []
+  public var replyMessages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
   public var total: Int64 = 0
 
@@ -4955,15 +4955,15 @@ public struct Common_ChatWithStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRoleDetailRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var roleID: Int64 = 0
 
-  public var role: Common_StoryRole {
-    get {return _role ?? Common_StoryRole()}
+  public var role: Rankquantity_Voyager_Api_StoryRole {
+    get {return _role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_role = newValue}
   }
   /// Returns true if `role` has been explicitly set.
@@ -4981,15 +4981,15 @@ public struct Common_UpdateStoryRoleDetailRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _role: Common_StoryRole? = nil
+  fileprivate var _role: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
-public struct Common_UpdateStoryRoleDetailResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -4998,7 +4998,7 @@ public struct Common_UpdateStoryRoleDetailResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRoleAvatorRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5014,12 +5014,12 @@ public struct Common_UpdateStoryRoleAvatorRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateStoryRoleAvatorResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5028,7 +5028,7 @@ public struct Common_UpdateStoryRoleAvatorResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWithRoleChatListRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5046,16 +5046,16 @@ public struct Common_GetUserWithRoleChatListRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserWithRoleChatListResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var chats: [Common_ChatContext] = []
+  public var chats: [Rankquantity_Voyager_Api_ChatContext] = []
 
   public var total: Int64 = 0
 
@@ -5070,7 +5070,7 @@ public struct Common_GetUserWithRoleChatListResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserCreatedStoryboardsRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5090,16 +5090,16 @@ public struct Common_GetUserCreatedStoryboardsRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserCreatedStoryboardsResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var storyboards: [Common_StoryBoardActive] = []
+  public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
   public var total: Int64 = 0
 
@@ -5114,7 +5114,7 @@ public struct Common_GetUserCreatedStoryboardsResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserCreatedRolesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserCreatedRolesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5134,16 +5134,16 @@ public struct Common_GetUserCreatedRolesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserCreatedRolesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserCreatedRolesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var roles: [Common_StoryRole] = []
+  public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
   public var total: Int64 = 0
 
@@ -5158,7 +5158,7 @@ public struct Common_GetUserCreatedRolesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_LikeStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5174,12 +5174,12 @@ public struct Common_LikeStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LikeStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5188,7 +5188,7 @@ public struct Common_LikeStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5204,12 +5204,12 @@ public struct Common_UnLikeStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5218,7 +5218,7 @@ public struct Common_UnLikeStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_FollowStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_FollowStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5234,12 +5234,12 @@ public struct Common_FollowStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_FollowStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_FollowStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5248,7 +5248,7 @@ public struct Common_FollowStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UnFollowStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UnFollowStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5264,12 +5264,12 @@ public struct Common_UnFollowStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UnFollowStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UnFollowStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5278,7 +5278,7 @@ public struct Common_UnFollowStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_SearchStoriesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_SearchStoriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5291,7 +5291,7 @@ public struct Common_SearchStoriesRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .protectScope
+  public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
   public var groupID: Int64 = 0
 
@@ -5300,16 +5300,16 @@ public struct Common_SearchStoriesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_SearchStoriesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_SearchStoriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var stories: [Common_Story] = []
+  public var stories: [Rankquantity_Voyager_Api_Story] = []
 
   public var total: Int64 = 0
 
@@ -5320,7 +5320,7 @@ public struct Common_SearchStoriesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_SearchRolesRequest: Sendable {
+public struct Rankquantity_Voyager_Api_SearchRolesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5333,7 +5333,7 @@ public struct Common_SearchRolesRequest: Sendable {
 
   public var pageSize: Int64 = 0
 
-  public var scope: Common_ScopeType = .protectScope
+  public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
   public var storyID: Int64 = 0
 
@@ -5344,16 +5344,16 @@ public struct Common_SearchRolesRequest: Sendable {
   public init() {}
 }
 
-public struct Common_SearchRolesResponse: Sendable {
+public struct Rankquantity_Voyager_Api_SearchRolesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var roles: [Common_StoryRole] = []
+  public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
   public var total: Int64 = 0
 
@@ -5364,7 +5364,7 @@ public struct Common_SearchRolesResponse: Sendable {
   public init() {}
 }
 
-public struct Common_RestoreStoryboardRequest: Sendable {
+public struct Rankquantity_Voyager_Api_RestoreStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5380,17 +5380,17 @@ public struct Common_RestoreStoryboardRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RestoreStoryboardResponse: Sendable {
+public struct Rankquantity_Voyager_Api_RestoreStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var store: Common_StoryboardStageStore {
-    get {return _store ?? Common_StoryboardStageStore()}
+  public var store: Rankquantity_Voyager_Api_StoryboardStageStore {
+    get {return _store ?? Rankquantity_Voyager_Api_StoryboardStageStore()}
     set {_store = newValue}
   }
   /// Returns true if `store` has been explicitly set.
@@ -5402,16 +5402,16 @@ public struct Common_RestoreStoryboardResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _store: Common_StoryboardStageStore? = nil
+  fileprivate var _store: Rankquantity_Voyager_Api_StoryboardStageStore? = nil
 }
 
-public struct Common_StoryboardStageStore: Sendable {
+public struct Rankquantity_Voyager_Api_StoryboardStageStore: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var storyboard: Common_StoryBoard {
-    get {return _storyboard ?? Common_StoryBoard()}
+  public var storyboard: Rankquantity_Voyager_Api_StoryBoard {
+    get {return _storyboard ?? Rankquantity_Voyager_Api_StoryBoard()}
     set {_storyboard = newValue}
   }
   /// Returns true if `storyboard` has been explicitly set.
@@ -5419,8 +5419,8 @@ public struct Common_StoryboardStageStore: Sendable {
   /// Clears the value of `storyboard`. Subsequent reads from it will return its default value.
   public mutating func clearStoryboard() {self._storyboard = nil}
 
-  public var sences: Common_StoryBoardSences {
-    get {return _sences ?? Common_StoryBoardSences()}
+  public var sences: Rankquantity_Voyager_Api_StoryBoardSences {
+    get {return _sences ?? Rankquantity_Voyager_Api_StoryBoardSences()}
     set {_sences = newValue}
   }
   /// Returns true if `sences` has been explicitly set.
@@ -5428,7 +5428,7 @@ public struct Common_StoryboardStageStore: Sendable {
   /// Clears the value of `sences`. Subsequent reads from it will return its default value.
   public mutating func clearSences() {self._sences = nil}
 
-  public var stage: Common_StoryboardStage = .unspecified
+  public var stage: Rankquantity_Voyager_Api_StoryboardStage = .unspecified
 
   public var lastUpdateTime: Int64 = 0
 
@@ -5440,11 +5440,11 @@ public struct Common_StoryboardStageStore: Sendable {
 
   public init() {}
 
-  fileprivate var _storyboard: Common_StoryBoard? = nil
-  fileprivate var _sences: Common_StoryBoardSences? = nil
+  fileprivate var _storyboard: Rankquantity_Voyager_Api_StoryBoard? = nil
+  fileprivate var _sences: Rankquantity_Voyager_Api_StoryBoardSences? = nil
 }
 
-public struct Common_GetUserProfileRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5456,17 +5456,17 @@ public struct Common_GetUserProfileRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetUserProfileResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetUserProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var info: Common_UserProfileInfo {
-    get {return _info ?? Common_UserProfileInfo()}
+  public var info: Rankquantity_Voyager_Api_UserProfileInfo {
+    get {return _info ?? Rankquantity_Voyager_Api_UserProfileInfo()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -5478,10 +5478,10 @@ public struct Common_GetUserProfileResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_UserProfileInfo? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_UserProfileInfo? = nil
 }
 
-public struct Common_UpdateUserProfileRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5505,12 +5505,12 @@ public struct Common_UpdateUserProfileRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateUserProfileResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5519,7 +5519,7 @@ public struct Common_UpdateUserProfileResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateUserBackgroundImageRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5533,12 +5533,12 @@ public struct Common_UpdateUserBackgroundImageRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UpdateUserBackgroundImageResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5547,15 +5547,15 @@ public struct Common_UpdateUserBackgroundImageResponse: Sendable {
   public init() {}
 }
 
-public struct Common_CreateStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var userID: Int64 = 0
 
-  public var role: Common_StoryRole {
-    get {return _role ?? Common_StoryRole()}
+  public var role: Rankquantity_Voyager_Api_StoryRole {
+    get {return _role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_role = newValue}
   }
   /// Returns true if `role` has been explicitly set.
@@ -5567,15 +5567,15 @@ public struct Common_CreateStoryRoleRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _role: Common_StoryRole? = nil
+  fileprivate var _role: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
-public struct Common_CreateStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_CreateStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5584,7 +5584,7 @@ public struct Common_CreateStoryRoleResponse: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleDetailRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5596,17 +5596,17 @@ public struct Common_GetStoryRoleDetailRequest: Sendable {
   public init() {}
 }
 
-public struct Common_GetStoryRoleDetailResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryRoleDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var info: Common_StoryRole {
-    get {return _info ?? Common_StoryRole()}
+  public var info: Rankquantity_Voyager_Api_StoryRole {
+    get {return _info ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_info = newValue}
   }
   /// Returns true if `info` has been explicitly set.
@@ -5618,10 +5618,10 @@ public struct Common_GetStoryRoleDetailResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _info: Common_StoryRole? = nil
+  fileprivate var _info: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
-public struct Common_RenderStoryRoleRequest: Sendable {
+public struct Rankquantity_Voyager_Api_RenderStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5639,7 +5639,7 @@ public struct Common_RenderStoryRoleRequest: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryRoleDetail: Sendable {
+public struct Rankquantity_Voyager_Api_RenderStoryRoleDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5675,17 +5675,17 @@ public struct Common_RenderStoryRoleDetail: Sendable {
   public init() {}
 }
 
-public struct Common_RenderStoryRoleResponse: Sendable {
+public struct Rankquantity_Voyager_Api_RenderStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
-  public var detail: Common_RenderStoryRoleDetail {
-    get {return _detail ?? Common_RenderStoryRoleDetail()}
+  public var detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail {
+    get {return _detail ?? Rankquantity_Voyager_Api_RenderStoryRoleDetail()}
     set {_detail = newValue}
   }
   /// Returns true if `detail` has been explicitly set.
@@ -5697,10 +5697,10 @@ public struct Common_RenderStoryRoleResponse: Sendable {
 
   public init() {}
 
-  fileprivate var _detail: Common_RenderStoryRoleDetail? = nil
+  fileprivate var _detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail? = nil
 }
 
-public struct Common_LikeStoryRequest: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5714,12 +5714,12 @@ public struct Common_LikeStoryRequest: Sendable {
   public init() {}
 }
 
-public struct Common_LikeStoryResponse: Sendable {
+public struct Rankquantity_Voyager_Api_LikeStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5728,7 +5728,7 @@ public struct Common_LikeStoryResponse: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryRequest: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5742,12 +5742,12 @@ public struct Common_UnLikeStoryRequest: Sendable {
   public init() {}
 }
 
-public struct Common_UnLikeStoryResponse: Sendable {
+public struct Rankquantity_Voyager_Api_UnLikeStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -5758,24 +5758,24 @@ public struct Common_UnLikeStoryResponse: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_TokenSource: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TokenSource: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TOKEN_SOURCE_USER_SELF\0\u{1}TOKEN_SOURCE_STORY_STORE\0\u{1}TOKEN_SOURCE_THIRD_PARTY\0")
 }
 
-extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ActiveInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}active_id\0\u{1}user\0\u{3}active_type\0\u{3}group_info\0\u{3}story_info\0\u{3}role_info\0\u{3}board_info\0\u{1}content\0\u{1}Ctime\0\u{1}Mtime\0")
 
   fileprivate class _StorageClass {
     var _activeID: Int64 = 0
-    var _user: Common_UserInfo? = nil
-    var _activeType: Common_ActiveType = .noneActive
-    var _groupInfo: Common_GroupInfo? = nil
-    var _storyInfo: Common_Story? = nil
-    var _roleInfo: Common_StoryRole? = nil
-    var _boardInfo: Common_StoryBoard? = nil
+    var _user: Rankquantity_Voyager_Api_UserInfo? = nil
+    var _activeType: Rankquantity_Voyager_Api_ActiveType = .noneActive
+    var _groupInfo: Rankquantity_Voyager_Api_GroupInfo? = nil
+    var _storyInfo: Rankquantity_Voyager_Api_Story? = nil
+    var _roleInfo: Rankquantity_Voyager_Api_StoryRole? = nil
+    var _boardInfo: Rankquantity_Voyager_Api_StoryBoard? = nil
     var _content: String = String()
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
@@ -5873,7 +5873,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ActiveInfo, rhs: Common_ActiveInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ActiveInfo, rhs: Rankquantity_Voyager_Api_ActiveInfo) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -5897,7 +5897,7 @@ extension Common_ActiveInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LoginRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}password\0\u{3}login_type\0")
 
@@ -5928,7 +5928,7 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LoginRequest, rhs: Common_LoginRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LoginRequest, rhs: Rankquantity_Voyager_Api_LoginRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.password != rhs.password {return false}
     if lhs.loginType != rhs.loginType {return false}
@@ -5937,7 +5937,7 @@ extension Common_LoginRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LoginResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -5972,7 +5972,7 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LoginResponse, rhs: Common_LoginResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LoginResponse, rhs: Rankquantity_Voyager_Api_LoginResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -5981,8 +5981,8 @@ extension Common_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension Common_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_LoginResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_LoginResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}token\0\u{1}timestamp\0\u{3}expire_at\0\u{1}status\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6020,7 +6020,7 @@ extension Common_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LoginResponse.DataMessage, rhs: Common_LoginResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LoginResponse.DataMessage, rhs: Rankquantity_Voyager_Api_LoginResponse.DataMessage) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.token != rhs.token {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -6031,7 +6031,7 @@ extension Common_LoginResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0\u{3}user_id\0")
 
@@ -6058,7 +6058,7 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LogoutRequest, rhs: Common_LogoutRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LogoutRequest, rhs: Rankquantity_Voyager_Api_LogoutRequest) -> Bool {
     if lhs.token != rhs.token {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6066,7 +6066,7 @@ extension Common_LogoutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LogoutResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0")
 
@@ -6093,7 +6093,7 @@ extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LogoutResponse, rhs: Common_LogoutResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LogoutResponse, rhs: Rankquantity_Voyager_Api_LogoutResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6101,7 +6101,7 @@ extension Common_LogoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Common_RefreshTokenRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RefreshTokenRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RefreshTokenRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0")
 
@@ -6124,14 +6124,14 @@ extension Common_RefreshTokenRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RefreshTokenRequest, rhs: Common_RefreshTokenRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RefreshTokenRequest, rhs: Rankquantity_Voyager_Api_RefreshTokenRequest) -> Bool {
     if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RefreshTokenResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0\u{3}user_id\0")
 
@@ -6158,7 +6158,7 @@ extension Common_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RefreshTokenResponse, rhs: Common_RefreshTokenResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RefreshTokenResponse, rhs: Rankquantity_Voyager_Api_RefreshTokenResponse) -> Bool {
     if lhs.token != rhs.token {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6166,7 +6166,7 @@ extension Common_RefreshTokenResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RegisterRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}password\0\u{1}name\0\u{1}email\0\u{1}phone\0")
 
@@ -6205,7 +6205,7 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RegisterRequest, rhs: Common_RegisterRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RegisterRequest, rhs: Rankquantity_Voyager_Api_RegisterRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.password != rhs.password {return false}
     if lhs.name != rhs.name {return false}
@@ -6216,7 +6216,7 @@ extension Common_RegisterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RegisterResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0")
 
@@ -6243,7 +6243,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RegisterResponse, rhs: Common_RegisterResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RegisterResponse, rhs: Rankquantity_Voyager_Api_RegisterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6251,7 +6251,7 @@ extension Common_RegisterResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ConfirmRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}token\0")
 
@@ -6274,14 +6274,14 @@ extension Common_ConfirmRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ConfirmRequest, rhs: Common_ConfirmRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ConfirmRequest, rhs: Rankquantity_Voyager_Api_ConfirmRequest) -> Bool {
     if lhs.token != rhs.token {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ConfirmResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{1}timestamp\0")
 
@@ -6308,7 +6308,7 @@ extension Common_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ConfirmResponse, rhs: Common_ConfirmResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ConfirmResponse, rhs: Rankquantity_Voyager_Api_ConfirmResponse) -> Bool {
     if lhs.status != rhs.status {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6316,7 +6316,7 @@ extension Common_ConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResetPasswordRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}oldPwd\0\u{1}newPwd\0")
 
@@ -6347,7 +6347,7 @@ extension Common_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ResetPasswordRequest, rhs: Common_ResetPasswordRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ResetPasswordRequest, rhs: Rankquantity_Voyager_Api_ResetPasswordRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.oldPwd != rhs.oldPwd {return false}
     if lhs.newPwd != rhs.newPwd {return false}
@@ -6356,7 +6356,7 @@ extension Common_ResetPasswordRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResetPasswordResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}account\0\u{1}status\0\u{1}timestamp\0")
 
@@ -6387,7 +6387,7 @@ extension Common_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ResetPasswordResponse, rhs: Common_ResetPasswordResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ResetPasswordResponse, rhs: Rankquantity_Voyager_Api_ResetPasswordResponse) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.status != rhs.status {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -6396,7 +6396,7 @@ extension Common_ResetPasswordResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfoRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}account\0")
 
@@ -6423,7 +6423,7 @@ extension Common_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInfoRequest, rhs: Common_UserInfoRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInfoRequest, rhs: Rankquantity_Voyager_Api_UserInfoRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.account != rhs.account {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6431,7 +6431,7 @@ extension Common_UserInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfoResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -6466,7 +6466,7 @@ extension Common_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInfoResponse, rhs: Common_UserInfoResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInfoResponse, rhs: Rankquantity_Voyager_Api_UserInfoResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -6475,8 +6475,8 @@ extension Common_UserInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserInfoResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserInfoResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0\u{1}profile\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6506,7 +6506,7 @@ extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInfoResponse.DataMessage, rhs: Common_UserInfoResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInfoResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserInfoResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs._profile != rhs._profile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6514,7 +6514,7 @@ extension Common_UserInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAvatorRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}avatar\0")
 
@@ -6541,7 +6541,7 @@ extension Common_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserAvatorRequest, rhs: Common_UpdateUserAvatorRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserAvatorRequest, rhs: Rankquantity_Voyager_Api_UpdateUserAvatorRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.avatar != rhs.avatar {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6549,7 +6549,7 @@ extension Common_UpdateUserAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserAvatorResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -6584,7 +6584,7 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserAvatorResponse, rhs: Common_UpdateUserAvatorResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserAvatorResponse, rhs: Rankquantity_Voyager_Api_UpdateUserAvatorResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -6593,8 +6593,8 @@ extension Common_UpdateUserAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UpdateUserAvatorResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UpdateUserAvatorResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0\u{1}status\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6624,7 +6624,7 @@ extension Common_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserAvatorResponse.DataMessage, rhs: Common_UpdateUserAvatorResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UpdateUserAvatorResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6632,7 +6632,7 @@ extension Common_UpdateUserAvatorResponse.DataMessage: SwiftProtobuf.Message, Sw
   }
 }
 
-extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}time_stamp\0\u{1}offset\0\u{3}page_size\0")
 
@@ -6667,7 +6667,7 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserWatchingRequest, rhs: Common_UserWatchingRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserWatchingRequest, rhs: Rankquantity_Voyager_Api_UserWatchingRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.timeStamp != rhs.timeStamp {return false}
     if lhs.offset != rhs.offset {return false}
@@ -6677,7 +6677,7 @@ extension Common_UserWatchingRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserWatchingResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -6712,7 +6712,7 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserWatchingResponse, rhs: Common_UserWatchingResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserWatchingResponse, rhs: Rankquantity_Voyager_Api_UserWatchingResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -6721,8 +6721,8 @@ extension Common_UserWatchingResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserWatchingResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserWatchingResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6748,7 +6748,7 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserWatchingResponse.DataMessage, rhs: Common_UserWatchingResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserWatchingResponse.DataMessage) -> Bool {
     if lhs.haveMore != rhs.haveMore {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -6756,7 +6756,7 @@ extension Common_UserWatchingResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}gtype\0\u{1}offset\0\u{3}page_size\0")
 
@@ -6791,7 +6791,7 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserGroupRequest, rhs: Common_UserGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserGroupRequest, rhs: Rankquantity_Voyager_Api_UserGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.gtype != rhs.gtype {return false}
     if lhs.offset != rhs.offset {return false}
@@ -6801,7 +6801,7 @@ extension Common_UserGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -6836,7 +6836,7 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserGroupResponse, rhs: Common_UserGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserGroupResponse, rhs: Rankquantity_Voyager_Api_UserGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -6845,8 +6845,8 @@ extension Common_UserGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -6884,7 +6884,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserGroupResponse.DataMessage, rhs: Common_UserGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserGroupResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -6895,7 +6895,7 @@ extension Common_UserGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserFollowingGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -6926,7 +6926,7 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserFollowingGroupRequest, rhs: Common_UserFollowingGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserFollowingGroupRequest, rhs: Rankquantity_Voyager_Api_UserFollowingGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -6935,7 +6935,7 @@ extension Common_UserFollowingGroupRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserFollowingGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -6970,7 +6970,7 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserFollowingGroupResponse, rhs: Common_UserFollowingGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserFollowingGroupResponse, rhs: Rankquantity_Voyager_Api_UserFollowingGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -6979,8 +6979,8 @@ extension Common_UserFollowingGroupResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserFollowingGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserFollowingGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7022,7 +7022,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserFollowingGroupResponse.DataMessage, rhs: Common_UserFollowingGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserFollowingGroupResponse.DataMessage) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
@@ -7034,7 +7034,7 @@ extension Common_UserFollowingGroupResponse.DataMessage: SwiftProtobuf.Message, 
   }
 }
 
-extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserUpdateRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}nickname\0\u{1}avatar\0\u{1}desc\0\u{1}data\0")
 
@@ -7073,7 +7073,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserUpdateRequest, rhs: Common_UserUpdateRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserUpdateRequest, rhs: Rankquantity_Voyager_Api_UserUpdateRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.nickname != rhs.nickname {return false}
     if lhs.avatar != rhs.avatar {return false}
@@ -7084,7 +7084,7 @@ extension Common_UserUpdateRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserUpdateResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -7119,7 +7119,7 @@ extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserUpdateResponse, rhs: Common_UserUpdateResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserUpdateResponse, rhs: Rankquantity_Voyager_Api_UserUpdateResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -7128,8 +7128,8 @@ extension Common_UserUpdateResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserUpdateResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserUpdateResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7141,13 +7141,13 @@ extension Common_UserUpdateResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserUpdateResponse.DataMessage, rhs: Common_UserUpdateResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchActivesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}group_id\0\u{3}story_id\0\u{3}board_id\0\u{1}atype\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0")
 
@@ -7198,7 +7198,7 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchActivesRequest, rhs: Common_FetchActivesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchActivesRequest, rhs: Rankquantity_Voyager_Api_FetchActivesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -7212,7 +7212,7 @@ extension Common_FetchActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchActivesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7247,7 +7247,7 @@ extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchActivesResponse, rhs: Common_FetchActivesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchActivesResponse, rhs: Rankquantity_Voyager_Api_FetchActivesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7256,8 +7256,8 @@ extension Common_FetchActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_FetchActivesResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_FetchActivesResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}timestamp\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7299,7 +7299,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchActivesResponse.DataMessage, rhs: Common_FetchActivesResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage, rhs: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.offset != rhs.offset {return false}
@@ -7311,7 +7311,7 @@ extension Common_FetchActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchUserRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}group_id\0\u{3}is_fuzzy\0\u{2}\u{4}offset\0\u{3}page_size\0")
 
@@ -7350,7 +7350,7 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchUserRequest, rhs: Common_SearchUserRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchUserRequest, rhs: Rankquantity_Voyager_Api_SearchUserRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.isFuzzy != rhs.isFuzzy {return false}
@@ -7361,7 +7361,7 @@ extension Common_SearchUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchUserResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7396,7 +7396,7 @@ extension Common_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchUserResponse, rhs: Common_SearchUserResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchUserResponse, rhs: Rankquantity_Voyager_Api_SearchUserResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7405,8 +7405,8 @@ extension Common_SearchUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_SearchUserResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_SearchUserResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7444,7 +7444,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchUserResponse.DataMessage, rhs: Common_SearchUserResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchUserResponse.DataMessage, rhs: Rankquantity_Voyager_Api_SearchUserResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -7455,7 +7455,7 @@ extension Common_SearchUserResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInitRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}deafault_group\0")
 
@@ -7482,7 +7482,7 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInitRequest, rhs: Common_UserInitRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInitRequest, rhs: Rankquantity_Voyager_Api_UserInitRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.deafaultGroup != rhs.deafaultGroup {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -7490,7 +7490,7 @@ extension Common_UserInitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInitResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7525,7 +7525,7 @@ extension Common_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInitResponse, rhs: Common_UserInitResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInitResponse, rhs: Rankquantity_Voyager_Api_UserInitResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7534,8 +7534,8 @@ extension Common_UserInitResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UserInitResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UserInitResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}list\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7561,7 +7561,7 @@ extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInitResponse.DataMessage, rhs: Common_UserInitResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInitResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UserInitResponse.DataMessage) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.list != rhs.list {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -7569,7 +7569,7 @@ extension Common_UserInitResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -7604,7 +7604,7 @@ extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupItemsRequest, rhs: Common_GetGroupItemsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupItemsRequest, rhs: Rankquantity_Voyager_Api_GetGroupItemsRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -7614,7 +7614,7 @@ extension Common_GetGroupItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupItemsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7649,7 +7649,7 @@ extension Common_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupItemsResponse, rhs: Common_GetGroupItemsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupItemsResponse, rhs: Rankquantity_Voyager_Api_GetGroupItemsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7658,8 +7658,8 @@ extension Common_GetGroupItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetGroupItemsResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetGroupItemsResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}group_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7697,7 +7697,7 @@ extension Common_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupItemsResponse.DataMessage, rhs: Common_GetGroupItemsResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetGroupItemsResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -7708,7 +7708,7 @@ extension Common_GetGroupItemsResponse.DataMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserItemsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -7739,7 +7739,7 @@ extension Common_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserItemsRequest, rhs: Common_GetUserItemsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserItemsRequest, rhs: Rankquantity_Voyager_Api_GetUserItemsRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -7748,7 +7748,7 @@ extension Common_GetUserItemsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserItemsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7783,7 +7783,7 @@ extension Common_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserItemsResponse, rhs: Common_GetUserItemsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserItemsResponse, rhs: Rankquantity_Voyager_Api_GetUserItemsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7792,8 +7792,8 @@ extension Common_GetUserItemsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetUserItemsResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetUserItemsResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7827,7 +7827,7 @@ extension Common_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserItemsResponse.DataMessage, rhs: Common_GetUserItemsResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetUserItemsResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -7837,7 +7837,7 @@ extension Common_GetUserItemsResponse.DataMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetItemRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0")
 
@@ -7872,7 +7872,7 @@ extension Common_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetItemRequest, rhs: Common_GetItemRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetItemRequest, rhs: Rankquantity_Voyager_Api_GetItemRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.itemID != rhs.itemID {return false}
@@ -7882,7 +7882,7 @@ extension Common_GetItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Common_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetItemResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}msg\0\u{1}data\0")
 
@@ -7917,7 +7917,7 @@ extension Common_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetItemResponse, rhs: Common_GetItemResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetItemResponse, rhs: Rankquantity_Voyager_Api_GetItemResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.msg != rhs.msg {return false}
     if lhs._data != rhs._data {return false}
@@ -7926,8 +7926,8 @@ extension Common_GetItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_GetItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetItemResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetItemResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -7953,14 +7953,14 @@ extension Common_GetItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetItemResponse.DataMessage, rhs: Common_GetItemResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetItemResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetItemResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateItemRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{1}name\0\u{1}atype\0\u{3}user_id\0")
 
@@ -7999,7 +7999,7 @@ extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateItemRequest, rhs: Common_CreateItemRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateItemRequest, rhs: Rankquantity_Voyager_Api_CreateItemRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.name != rhs.name {return false}
@@ -8010,7 +8010,7 @@ extension Common_CreateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateItemResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8045,7 +8045,7 @@ extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateItemResponse, rhs: Common_CreateItemResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateItemResponse, rhs: Rankquantity_Voyager_Api_CreateItemResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8054,8 +8054,8 @@ extension Common_CreateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_CreateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_CreateItemResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_CreateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_CreateItemResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8081,14 +8081,14 @@ extension Common_CreateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateItemResponse.DataMessage, rhs: Common_CreateItemResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateItemResponse.DataMessage, rhs: Rankquantity_Voyager_Api_CreateItemResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateItemRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{1}info\0\u{3}user_id\0")
 
@@ -8131,7 +8131,7 @@ extension Common_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateItemRequest, rhs: Common_UpdateItemRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateItemRequest, rhs: Rankquantity_Voyager_Api_UpdateItemRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.itemID != rhs.itemID {return false}
@@ -8142,7 +8142,7 @@ extension Common_UpdateItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateItemResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8177,7 +8177,7 @@ extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateItemResponse, rhs: Common_UpdateItemResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateItemResponse, rhs: Rankquantity_Voyager_Api_UpdateItemResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8186,8 +8186,8 @@ extension Common_UpdateItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UpdateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UpdateItemResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UpdateItemResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8213,14 +8213,14 @@ extension Common_UpdateItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateItemResponse.DataMessage, rhs: Common_UpdateItemResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UpdateItemResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteItemRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0")
 
@@ -8255,7 +8255,7 @@ extension Common_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteItemRequest, rhs: Common_DeleteItemRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteItemRequest, rhs: Rankquantity_Voyager_Api_DeleteItemRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.itemID != rhs.itemID {return false}
@@ -8265,7 +8265,7 @@ extension Common_DeleteItemRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteItemResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8300,7 +8300,7 @@ extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteItemResponse, rhs: Common_DeleteItemResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteItemResponse, rhs: Rankquantity_Voyager_Api_DeleteItemResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8309,8 +8309,8 @@ extension Common_DeleteItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_DeleteItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_DeleteItemResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_DeleteItemResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8322,13 +8322,13 @@ extension Common_DeleteItemResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteItemResponse.DataMessage, rhs: Common_DeleteItemResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage, rhs: Rankquantity_Voyager_Api_DeleteItemResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeItemRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}item_id\0\u{3}user_id\0\u{1}islike\0")
 
@@ -8367,7 +8367,7 @@ extension Common_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeItemRequest, rhs: Common_LikeItemRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeItemRequest, rhs: Rankquantity_Voyager_Api_LikeItemRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.projectID != rhs.projectID {return false}
     if lhs.itemID != rhs.itemID {return false}
@@ -8378,7 +8378,7 @@ extension Common_LikeItemRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeItemResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8413,7 +8413,7 @@ extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeItemResponse, rhs: Common_LikeItemResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeItemResponse, rhs: Rankquantity_Voyager_Api_LikeItemResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8422,8 +8422,8 @@ extension Common_LikeItemResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_LikeItemResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_LikeItemResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8435,13 +8435,13 @@ extension Common_LikeItemResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeItemResponse.DataMessage, rhs: Common_LikeItemResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeItemResponse.DataMessage, rhs: Rankquantity_Voyager_Api_LikeItemResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}description\0\u{1}avatar\0")
 
@@ -8476,7 +8476,7 @@ extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateGroupRequest, rhs: Common_CreateGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateGroupRequest, rhs: Rankquantity_Voyager_Api_CreateGroupRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.description_p != rhs.description_p {return false}
@@ -8486,7 +8486,7 @@ extension Common_CreateGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8521,7 +8521,7 @@ extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateGroupResponse, rhs: Common_CreateGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateGroupResponse, rhs: Rankquantity_Voyager_Api_CreateGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8530,8 +8530,8 @@ extension Common_CreateGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_CreateGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_CreateGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8557,14 +8557,14 @@ extension Common_CreateGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateGroupResponse.DataMessage, rhs: Common_CreateGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0\u{1}name\0\u{3}with_profile\0")
 
@@ -8599,7 +8599,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupRequest, rhs: Common_GetGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupRequest, rhs: Rankquantity_Voyager_Api_GetGroupRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
@@ -8609,7 +8609,7 @@ extension Common_GetGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8644,7 +8644,7 @@ extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupResponse, rhs: Common_GetGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupResponse, rhs: Rankquantity_Voyager_Api_GetGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8653,8 +8653,8 @@ extension Common_GetGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8680,14 +8680,14 @@ extension Common_GetGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupResponse.DataMessage, rhs: Common_GetGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetGroupResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupActivesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}atype\0\u{1}offset\0\u{3}page_size\0")
 
@@ -8722,7 +8722,7 @@ extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupActivesRequest, rhs: Common_GetGroupActivesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupActivesRequest, rhs: Rankquantity_Voyager_Api_GetGroupActivesRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.atype != rhs.atype {return false}
     if lhs.offset != rhs.offset {return false}
@@ -8732,7 +8732,7 @@ extension Common_GetGroupActivesRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupActivesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8767,7 +8767,7 @@ extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupActivesResponse, rhs: Common_GetGroupActivesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupActivesResponse, rhs: Rankquantity_Voyager_Api_GetGroupActivesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8776,8 +8776,8 @@ extension Common_GetGroupActivesResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetGroupActivesResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetGroupActivesResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8815,7 +8815,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupActivesResponse.DataMessage, rhs: Common_GetGroupActivesResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetGroupActivesResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -8826,7 +8826,7 @@ extension Common_GetGroupActivesResponse.DataMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Common_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupInfoRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}info\0")
 
@@ -8857,7 +8857,7 @@ extension Common_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateGroupInfoRequest, rhs: Common_UpdateGroupInfoRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupInfoRequest, rhs: Rankquantity_Voyager_Api_UpdateGroupInfoRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -8865,7 +8865,7 @@ extension Common_UpdateGroupInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupInfoResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -8900,7 +8900,7 @@ extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateGroupInfoResponse, rhs: Common_UpdateGroupInfoResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupInfoResponse, rhs: Rankquantity_Voyager_Api_UpdateGroupInfoResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -8909,8 +8909,8 @@ extension Common_UpdateGroupInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_UpdateGroupInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UpdateGroupInfoResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UpdateGroupInfoResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -8936,14 +8936,14 @@ extension Common_UpdateGroupInfoResponse.DataMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateGroupInfoResponse.DataMessage, rhs: Common_UpdateGroupInfoResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UpdateGroupInfoResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
@@ -8970,7 +8970,7 @@ extension Common_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteGroupRequest, rhs: Common_DeleteGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteGroupRequest, rhs: Rankquantity_Voyager_Api_DeleteGroupRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -8978,7 +8978,7 @@ extension Common_DeleteGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9013,7 +9013,7 @@ extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteGroupResponse, rhs: Common_DeleteGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteGroupResponse, rhs: Rankquantity_Voyager_Api_DeleteGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9022,8 +9022,8 @@ extension Common_DeleteGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_DeleteGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_DeleteGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_DeleteGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9035,13 +9035,13 @@ extension Common_DeleteGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteGroupResponse.DataMessage, rhs: Common_DeleteGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchGroupMembersRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -9072,7 +9072,7 @@ extension Common_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchGroupMembersRequest, rhs: Common_FetchGroupMembersRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchGroupMembersRequest, rhs: Rankquantity_Voyager_Api_FetchGroupMembersRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -9081,7 +9081,7 @@ extension Common_FetchGroupMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchGroupMembersResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9116,7 +9116,7 @@ extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchGroupMembersResponse, rhs: Common_FetchGroupMembersResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchGroupMembersResponse, rhs: Rankquantity_Voyager_Api_FetchGroupMembersResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9125,8 +9125,8 @@ extension Common_FetchGroupMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_FetchGroupMembersResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_FetchGroupMembersResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9160,7 +9160,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchGroupMembersResponse.DataMessage, rhs: Common_FetchGroupMembersResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage, rhs: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.total != rhs.total {return false}
@@ -9170,7 +9170,7 @@ extension Common_FetchGroupMembersResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{3}story_id\0\u{3}group_id\0")
 
@@ -9217,7 +9217,7 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchGroupRequest, rhs: Common_SearchGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchGroupRequest, rhs: Rankquantity_Voyager_Api_SearchGroupRequest) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -9230,7 +9230,7 @@ extension Common_SearchGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9265,7 +9265,7 @@ extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchGroupResponse, rhs: Common_SearchGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchGroupResponse, rhs: Rankquantity_Voyager_Api_SearchGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9274,8 +9274,8 @@ extension Common_SearchGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_SearchGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_SearchGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0\u{1}total\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9313,7 +9313,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchGroupResponse.DataMessage, rhs: Common_SearchGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -9324,7 +9324,7 @@ extension Common_SearchGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".JoinGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
@@ -9351,7 +9351,7 @@ extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_JoinGroupRequest, rhs: Common_JoinGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_JoinGroupRequest, rhs: Rankquantity_Voyager_Api_JoinGroupRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -9359,7 +9359,7 @@ extension Common_JoinGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".JoinGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9394,7 +9394,7 @@ extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_JoinGroupResponse, rhs: Common_JoinGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_JoinGroupResponse, rhs: Rankquantity_Voyager_Api_JoinGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9403,8 +9403,8 @@ extension Common_JoinGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_JoinGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_JoinGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_JoinGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9416,13 +9416,13 @@ extension Common_JoinGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_JoinGroupResponse.DataMessage, rhs: Common_JoinGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LeaveGroupRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
@@ -9449,7 +9449,7 @@ extension Common_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LeaveGroupRequest, rhs: Common_LeaveGroupRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LeaveGroupRequest, rhs: Rankquantity_Voyager_Api_LeaveGroupRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -9457,7 +9457,7 @@ extension Common_LeaveGroupRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LeaveGroupResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9492,7 +9492,7 @@ extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LeaveGroupResponse, rhs: Common_LeaveGroupResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LeaveGroupResponse, rhs: Rankquantity_Voyager_Api_LeaveGroupResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9501,8 +9501,8 @@ extension Common_LeaveGroupResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_LeaveGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_LeaveGroupResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_LeaveGroupResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9514,13 +9514,13 @@ extension Common_LeaveGroupResponse.DataMessage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LeaveGroupResponse.DataMessage, rhs: Common_LeaveGroupResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage, rhs: Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_DisscussParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DisscussParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DisscussParams"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9533,13 +9533,13 @@ extension Common_DisscussParams: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DisscussParams, rhs: Common_DisscussParams) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DisscussParams, rhs: Rankquantity_Voyager_Api_DisscussParams) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_CreateDisscussReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateDisscussReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateDisscussReq"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9552,13 +9552,13 @@ extension Common_CreateDisscussReq: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateDisscussReq, rhs: Common_CreateDisscussReq) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateDisscussReq, rhs: Rankquantity_Voyager_Api_CreateDisscussReq) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateDisscusResp"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9593,7 +9593,7 @@ extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateDisscusResp, rhs: Common_CreateDisscusResp) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateDisscusResp, rhs: Rankquantity_Voyager_Api_CreateDisscusResp) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9602,8 +9602,8 @@ extension Common_CreateDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_CreateDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_CreateDisscusResp.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_CreateDisscusResp.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9615,13 +9615,13 @@ extension Common_CreateDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateDisscusResp.DataMessage, rhs: Common_CreateDisscusResp.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage, rhs: Rankquantity_Voyager_Api_CreateDisscusResp.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetDisscusReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetDisscusReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetDisscusReq"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9634,13 +9634,13 @@ extension Common_GetDisscusReq: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetDisscusReq, rhs: Common_GetDisscusReq) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetDisscusReq, rhs: Rankquantity_Voyager_Api_GetDisscusReq) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetDisscusResp"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9675,7 +9675,7 @@ extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetDisscusResp, rhs: Common_GetDisscusResp) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetDisscusResp, rhs: Rankquantity_Voyager_Api_GetDisscusResp) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9684,8 +9684,8 @@ extension Common_GetDisscusResp: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Common_GetDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetDisscusResp.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetDisscusResp.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9697,13 +9697,13 @@ extension Common_GetDisscusResp.DataMessage: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetDisscusResp.DataMessage, rhs: Common_GetDisscusResp.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetDisscusResp.DataMessage, rhs: Rankquantity_Voyager_Api_GetDisscusResp.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_VersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VersionRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9716,13 +9716,13 @@ extension Common_VersionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VersionRequest, rhs: Common_VersionRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VersionRequest, rhs: Rankquantity_Voyager_Api_VersionRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VersionResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9757,7 +9757,7 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VersionResponse, rhs: Common_VersionResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VersionResponse, rhs: Rankquantity_Voyager_Api_VersionResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9766,8 +9766,8 @@ extension Common_VersionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_VersionResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_VersionResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_VersionResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_VersionResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0\u{3}build_time\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9793,7 +9793,7 @@ extension Common_VersionResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VersionResponse.DataMessage, rhs: Common_VersionResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VersionResponse.DataMessage, rhs: Rankquantity_Voyager_Api_VersionResponse.DataMessage) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.buildTime != rhs.buildTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -9801,7 +9801,7 @@ extension Common_VersionResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_AboutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_AboutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AboutRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9814,13 +9814,13 @@ extension Common_AboutRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_AboutRequest, rhs: Common_AboutRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_AboutRequest, rhs: Rankquantity_Voyager_Api_AboutRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_AboutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_AboutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AboutResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}content\0")
 
@@ -9843,14 +9843,14 @@ extension Common_AboutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_AboutResponse, rhs: Common_AboutResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_AboutResponse, rhs: Rankquantity_Voyager_Api_AboutResponse) -> Bool {
     if lhs.content != rhs.content {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_ExploreRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ExploreRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ExploreRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -9863,13 +9863,13 @@ extension Common_ExploreRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ExploreRequest, rhs: Common_ExploreRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ExploreRequest, rhs: Rankquantity_Voyager_Api_ExploreRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ExploreResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -9904,7 +9904,7 @@ extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ExploreResponse, rhs: Common_ExploreResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ExploreResponse, rhs: Rankquantity_Voyager_Api_ExploreResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -9913,8 +9913,8 @@ extension Common_ExploreResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_ExploreResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_ExploreResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_ExploreResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_ExploreResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -9926,13 +9926,13 @@ extension Common_ExploreResponse.DataMessage: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ExploreResponse.DataMessage, rhs: Common_ExploreResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ExploreResponse.DataMessage, rhs: Rankquantity_Voyager_Api_ExploreResponse.DataMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectMembersRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}projectId\0\u{1}userId\0")
 
@@ -9959,7 +9959,7 @@ extension Common_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectMembersRequest, rhs: Common_GetProjectMembersRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectMembersRequest, rhs: Rankquantity_Voyager_Api_GetProjectMembersRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -9967,7 +9967,7 @@ extension Common_GetProjectMembersRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectMembersResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -10002,7 +10002,7 @@ extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectMembersResponse, rhs: Common_GetProjectMembersResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectMembersResponse, rhs: Rankquantity_Voyager_Api_GetProjectMembersResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -10011,8 +10011,8 @@ extension Common_GetProjectMembersResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectMembersResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetProjectMembersResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}role\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10042,7 +10042,7 @@ extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectMembersResponse.DataMessage, rhs: Common_GetProjectMembersResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetProjectMembersResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.total != rhs.total {return false}
     if lhs.role != rhs.role {return false}
@@ -10051,7 +10051,7 @@ extension Common_GetProjectMembersResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}projectId\0")
 
@@ -10074,14 +10074,14 @@ extension Common_GetProjectWatcherRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectWatcherRequest, rhs: Common_GetProjectWatcherRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectWatcherRequest, rhs: Rankquantity_Voyager_Api_GetProjectWatcherRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetProjectWatcherResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -10116,7 +10116,7 @@ extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectWatcherResponse, rhs: Common_GetProjectWatcherResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectWatcherResponse, rhs: Rankquantity_Voyager_Api_GetProjectWatcherResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -10125,8 +10125,8 @@ extension Common_GetProjectWatcherResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetProjectWatcherResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetProjectWatcherResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}timestamp\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10156,7 +10156,7 @@ extension Common_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetProjectWatcherResponse.DataMessage, rhs: Common_GetProjectWatcherResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.total != rhs.total {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -10165,7 +10165,7 @@ extension Common_GetProjectWatcherResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadImageRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}image_data\0\u{1}filename\0\u{3}content_type\0")
 
@@ -10196,7 +10196,7 @@ extension Common_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UploadImageRequest, rhs: Common_UploadImageRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UploadImageRequest, rhs: Rankquantity_Voyager_Api_UploadImageRequest) -> Bool {
     if lhs.imageData != rhs.imageData {return false}
     if lhs.filename != rhs.filename {return false}
     if lhs.contentType != rhs.contentType {return false}
@@ -10205,7 +10205,7 @@ extension Common_UploadImageRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadImageResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -10240,7 +10240,7 @@ extension Common_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UploadImageResponse, rhs: Common_UploadImageResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UploadImageResponse, rhs: Rankquantity_Voyager_Api_UploadImageResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -10249,8 +10249,8 @@ extension Common_UploadImageResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_UploadImageResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_UploadImageResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_id\0\u{1}url\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10276,7 +10276,7 @@ extension Common_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UploadImageResponse.DataMessage, rhs: Common_UploadImageResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage, rhs: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage) -> Bool {
     if lhs.fileID != rhs.fileID {return false}
     if lhs.url != rhs.url {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -10284,7 +10284,7 @@ extension Common_UploadImageResponse.DataMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryContributorsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -10319,7 +10319,7 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryContributorsRequest, rhs: Common_GetStoryContributorsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryContributorsRequest, rhs: Rankquantity_Voyager_Api_GetStoryContributorsRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -10329,7 +10329,7 @@ extension Common_GetStoryContributorsRequest: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryContributor"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}username\0\u{1}avatar\0\u{1}viplevel\0")
 
@@ -10364,7 +10364,7 @@ extension Common_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryContributor, rhs: Common_StoryContributor) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryContributor, rhs: Rankquantity_Voyager_Api_StoryContributor) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.username != rhs.username {return false}
     if lhs.avatar != rhs.avatar {return false}
@@ -10374,7 +10374,7 @@ extension Common_StoryContributor: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryContributorsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -10409,7 +10409,7 @@ extension Common_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryContributorsResponse, rhs: Common_GetStoryContributorsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryContributorsResponse, rhs: Rankquantity_Voyager_Api_GetStoryContributorsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -10418,8 +10418,8 @@ extension Common_GetStoryContributorsResponse: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetStoryContributorsResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetStoryContributorsResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10449,7 +10449,7 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryContributorsResponse.DataMessage, rhs: Common_GetStoryContributorsResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.total != rhs.total {return false}
     if lhs.haveMore != rhs.haveMore {return false}
@@ -10458,7 +10458,7 @@ extension Common_GetStoryContributorsResponse.DataMessage: SwiftProtobuf.Message
   }
 }
 
-extension Common_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupProfileRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}user_id\0")
 
@@ -10485,7 +10485,7 @@ extension Common_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupProfileRequest, rhs: Common_GetGroupProfileRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupProfileRequest, rhs: Rankquantity_Voyager_Api_GetGroupProfileRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -10493,7 +10493,7 @@ extension Common_GetGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetGroupProfileResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -10528,7 +10528,7 @@ extension Common_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupProfileResponse, rhs: Common_GetGroupProfileResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupProfileResponse, rhs: Rankquantity_Voyager_Api_GetGroupProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -10537,8 +10537,8 @@ extension Common_GetGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_GetGroupProfileResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_GetGroupProfileResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_GetGroupProfileResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}info\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10564,14 +10564,14 @@ extension Common_GetGroupProfileResponse.DataMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetGroupProfileResponse.DataMessage, rhs: Common_GetGroupProfileResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage, rhs: Rankquantity_Voyager_Api_GetGroupProfileResponse.DataMessage) -> Bool {
     if lhs._info != rhs._info {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupProfileRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}info\0\u{3}user_id\0")
 
@@ -10606,7 +10606,7 @@ extension Common_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateGroupProfileRequest, rhs: Common_UpdateGroupProfileRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupProfileRequest, rhs: Rankquantity_Voyager_Api_UpdateGroupProfileRequest) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs._info != rhs._info {return false}
     if lhs.userID != rhs.userID {return false}
@@ -10615,7 +10615,7 @@ extension Common_UpdateGroupProfileRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateGroupProfileResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -10642,7 +10642,7 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateGroupProfileResponse, rhs: Common_UpdateGroupProfileResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateGroupProfileResponse, rhs: Rankquantity_Voyager_Api_UpdateGroupProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -10650,7 +10650,7 @@ extension Common_UpdateGroupProfileResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetStoryRolePosterListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRolePosterListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRolePosterListRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -10689,7 +10689,7 @@ extension Common_GetStoryRolePosterListRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRolePosterListRequest, rhs: Common_GetStoryRolePosterListRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest, rhs: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -10700,7 +10700,7 @@ extension Common_GetStoryRolePosterListRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_RolePosterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RolePosterDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RolePosterDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}story_id\0\u{3}role_id\0\u{3}poster_url\0\u{1}prompt\0\u{3}like_count\0\u{3}is_liked_by_user\0\u{1}creator\0\u{3}created_at\0\u{3}updated_at\0")
 
@@ -10712,7 +10712,7 @@ extension Common_RolePosterDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
     var _prompt: String = String()
     var _likeCount: Int64 = 0
     var _isLikedByUser: Bool = false
-    var _creator: Common_UserInfo? = nil
+    var _creator: Rankquantity_Voyager_Api_UserInfo? = nil
     var _createdAt: Int64 = 0
     var _updatedAt: Int64 = 0
 
@@ -10809,7 +10809,7 @@ extension Common_RolePosterDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RolePosterDetail, rhs: Common_RolePosterDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RolePosterDetail, rhs: Rankquantity_Voyager_Api_RolePosterDetail) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -10833,7 +10833,7 @@ extension Common_RolePosterDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_GetStoryRolePosterListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRolePosterListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRolePosterListResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}posters\0\u{1}total\0\u{3}have_more\0")
 
@@ -10872,7 +10872,7 @@ extension Common_GetStoryRolePosterListResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRolePosterListResponse, rhs: Common_GetStoryRolePosterListResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRolePosterListResponse, rhs: Rankquantity_Voyager_Api_GetStoryRolePosterListResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.posters != rhs.posters {return false}
@@ -10883,7 +10883,7 @@ extension Common_GetStoryRolePosterListResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_LikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRolePosterRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}poster_id\0")
 
@@ -10918,7 +10918,7 @@ extension Common_LikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryRolePosterRequest, rhs: Common_LikeStoryRolePosterRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest, rhs: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -10928,7 +10928,7 @@ extension Common_LikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_LikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRolePosterResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}current_like_count\0")
 
@@ -10959,7 +10959,7 @@ extension Common_LikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryRolePosterResponse, rhs: Common_LikeStoryRolePosterResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryRolePosterResponse, rhs: Rankquantity_Voyager_Api_LikeStoryRolePosterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.currentLikeCount != rhs.currentLikeCount {return false}
@@ -10968,7 +10968,7 @@ extension Common_LikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_UnLikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRolePosterRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}poster_id\0")
 
@@ -11003,7 +11003,7 @@ extension Common_UnLikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryRolePosterRequest, rhs: Common_UnLikeStoryRolePosterRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest, rhs: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -11013,7 +11013,7 @@ extension Common_UnLikeStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UnLikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRolePosterResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}current_like_count\0")
 
@@ -11044,7 +11044,7 @@ extension Common_UnLikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryRolePosterResponse, rhs: Common_UnLikeStoryRolePosterResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse, rhs: Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.currentLikeCount != rhs.currentLikeCount {return false}
@@ -11053,7 +11053,7 @@ extension Common_UnLikeStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_FetchUserGenTaskStatusRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchUserGenTaskStatusRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}task_id\0\u{1}timestamp\0\u{3}page_num\0\u{3}page_size\0")
 
@@ -11092,7 +11092,7 @@ extension Common_FetchUserGenTaskStatusRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchUserGenTaskStatusRequest, rhs: Common_FetchUserGenTaskStatusRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest, rhs: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.taskID != rhs.taskID {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -11103,7 +11103,7 @@ extension Common_FetchUserGenTaskStatusRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_StoryGentaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryGentaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryGentaskDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}storyboard_desc\0\u{3}sence_id\0\u{3}sence_desc\0\u{1}prompt\0\u{3}task_type\0\u{3}task_stage\0\u{3}start_image_url\0\u{3}end_image_url\0\u{3}video_url\0\u{3}reg_image_url\0\u{1}style\0")
 
@@ -11174,7 +11174,7 @@ extension Common_StoryGentaskDetail: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryGentaskDetail, rhs: Common_StoryGentaskDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryGentaskDetail, rhs: Rankquantity_Voyager_Api_StoryGentaskDetail) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.boardID != rhs.boardID {return false}
     if lhs.storyboardDesc != rhs.storyboardDesc {return false}
@@ -11193,7 +11193,7 @@ extension Common_StoryGentaskDetail: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserGenTaskStatus"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}user_id\0\u{1}status\0\u{1}detail\0\u{3}create_time\0\u{3}update_time\0")
 
@@ -11201,7 +11201,7 @@ extension Common_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._Messag
     var _taskID: String = String()
     var _userID: Int64 = 0
     var _status: String = String()
-    var _detail: Common_StoryGentaskDetail? = nil
+    var _detail: Rankquantity_Voyager_Api_StoryGentaskDetail? = nil
     var _createTime: Int64 = 0
     var _updateTime: Int64 = 0
 
@@ -11278,7 +11278,7 @@ extension Common_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserGenTaskStatus, rhs: Common_UserGenTaskStatus) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserGenTaskStatus, rhs: Rankquantity_Voyager_Api_UserGenTaskStatus) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -11298,7 +11298,7 @@ extension Common_UserGenTaskStatus: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_FetchUserGenTaskStatusResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FetchUserGenTaskStatusResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}tasks\0\u{1}total\0\u{3}have_more\0")
 
@@ -11337,7 +11337,7 @@ extension Common_FetchUserGenTaskStatusResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FetchUserGenTaskStatusResponse, rhs: Common_FetchUserGenTaskStatusResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse, rhs: Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.tasks != rhs.tasks {return false}
@@ -11348,7 +11348,7 @@ extension Common_FetchUserGenTaskStatusResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleAvatarRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}ref_avatar_url\0\u{1}description\0\u{1}style\0\u{3}image_ratios\0")
 
@@ -11391,7 +11391,7 @@ extension Common_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRoleAvatarRequest, rhs: Common_GenerateRoleAvatarRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest, rhs: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.refAvatarURL != rhs.refAvatarURL {return false}
@@ -11403,7 +11403,7 @@ extension Common_GenerateRoleAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleAvatarResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}avatar_url\0")
 
@@ -11434,7 +11434,7 @@ extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRoleAvatarResponse, rhs: Common_GenerateRoleAvatarResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRoleAvatarResponse, rhs: Rankquantity_Voyager_Api_GenerateRoleAvatarResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.avatarURL != rhs.avatarURL {return false}
@@ -11443,7 +11443,7 @@ extension Common_GenerateRoleAvatarResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}board_id\0\u{3}sence_id\0\u{3}user_id\0\u{3}token_source\0\u{1}prompt\0\u{3}negative_prompt\0")
 
@@ -11490,7 +11490,7 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStorySceneVideoRequest, rhs: Common_GenerateStorySceneVideoRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest, rhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.boardID != rhs.boardID {return false}
     if lhs.senceID != rhs.senceID {return false}
@@ -11503,7 +11503,7 @@ extension Common_GenerateStorySceneVideoRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoTaskDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0\u{1}duration\0\u{1}resolution\0\u{3}video_format\0")
 
@@ -11550,7 +11550,7 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStorySceneVideoTaskDetail, rhs: Common_GenerateStorySceneVideoTaskDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail, rhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail) -> Bool {
     if lhs.taskID != rhs.taskID {return false}
     if lhs.taskStatus != rhs.taskStatus {return false}
     if lhs.videoURL != rhs.videoURL {return false}
@@ -11563,7 +11563,7 @@ extension Common_GenerateStorySceneVideoTaskDetail: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStorySceneVideoResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
@@ -11598,7 +11598,7 @@ extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStorySceneVideoResponse, rhs: Common_GenerateStorySceneVideoResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse, rhs: Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._detail != rhs._detail {return false}
@@ -11607,7 +11607,7 @@ extension Common_GenerateStorySceneVideoResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}poster_id\0\u{3}ref_background_url\0\u{3}ref_avatar_url\0\u{3}text_prompt\0\u{3}image_ratios\0\u{1}style\0")
 
@@ -11662,7 +11662,7 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRoleVideoRequest, rhs: Common_GenerateStoryRoleVideoRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, rhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -11677,7 +11677,7 @@ extension Common_GenerateStoryRoleVideoRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoTaskDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}task_id\0\u{3}task_status\0\u{3}video_url\0\u{3}video_thumbnail_url\0\u{1}duration\0\u{1}resolution\0\u{3}video_format\0")
 
@@ -11724,7 +11724,7 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRoleVideoTaskDetail, rhs: Common_GenerateStoryRoleVideoTaskDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail, rhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail) -> Bool {
     if lhs.taskID != rhs.taskID {return false}
     if lhs.taskStatus != rhs.taskStatus {return false}
     if lhs.videoURL != rhs.videoURL {return false}
@@ -11737,7 +11737,7 @@ extension Common_GenerateStoryRoleVideoTaskDetail: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleVideoResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
@@ -11772,7 +11772,7 @@ extension Common_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRoleVideoResponse, rhs: Common_GenerateStoryRoleVideoResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse, rhs: Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._detail != rhs._detail {return false}
@@ -11781,7 +11781,7 @@ extension Common_GenerateStoryRoleVideoResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryParticipantsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -11812,7 +11812,7 @@ extension Common_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryParticipantsRequest, rhs: Common_GetStoryParticipantsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryParticipantsRequest, rhs: Rankquantity_Voyager_Api_GetStoryParticipantsRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -11821,7 +11821,7 @@ extension Common_GetStoryParticipantsRequest: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryParticipantsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}participants\0\u{1}total\0\u{3}have_more\0")
 
@@ -11860,7 +11860,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryParticipantsResponse, rhs: Common_GetStoryParticipantsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryParticipantsResponse, rhs: Rankquantity_Voyager_Api_GetStoryParticipantsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.participants != rhs.participants {return false}
@@ -11871,7 +11871,7 @@ extension Common_GetStoryParticipantsResponse: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryAvatarRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}avatar_url\0")
 
@@ -11902,7 +11902,7 @@ extension Common_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryAvatarRequest, rhs: Common_UpdateStoryAvatarRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.avatarURL != rhs.avatarURL {return false}
@@ -11911,7 +11911,7 @@ extension Common_UpdateStoryAvatarRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryAvatarResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -11938,7 +11938,7 @@ extension Common_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryAvatarResponse, rhs: Common_UpdateStoryAvatarResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryAvatarResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryAvatarResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -11946,7 +11946,7 @@ extension Common_UpdateStoryAvatarResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryCoverRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}cover_url\0\u{3}use_ai_cover\0")
 
@@ -11981,7 +11981,7 @@ extension Common_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryCoverRequest, rhs: Common_UpdateStoryCoverRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryCoverRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryCoverRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.coverURL != rhs.coverURL {return false}
@@ -11991,7 +11991,7 @@ extension Common_UpdateStoryCoverRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryCoverResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12018,7 +12018,7 @@ extension Common_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryCoverResponse, rhs: Common_UpdateStoryCoverResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryCoverResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryCoverResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12026,7 +12026,7 @@ extension Common_UpdateStoryCoverResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0")
 
@@ -12049,14 +12049,14 @@ extension Common_GetStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryImageStyleRequest, rhs: Common_GetStoryImageStyleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryImageStyleRequest, rhs: Rankquantity_Voyager_Api_GetStoryImageStyleRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryStyleDesc"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}style\0\u{1}description\0")
 
@@ -12087,7 +12087,7 @@ extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryStyleDesc, rhs: Common_StoryStyleDesc) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryStyleDesc, rhs: Rankquantity_Voyager_Api_StoryStyleDesc) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.style != rhs.style {return false}
     if lhs.description_p != rhs.description_p {return false}
@@ -12096,7 +12096,7 @@ extension Common_StoryStyleDesc: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryImageStyleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}style\0")
 
@@ -12127,7 +12127,7 @@ extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryImageStyleResponse, rhs: Common_GetStoryImageStyleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryImageStyleResponse, rhs: Rankquantity_Voyager_Api_GetStoryImageStyleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.style != rhs.style {return false}
@@ -12136,7 +12136,7 @@ extension Common_GetStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}style_id\0\u{1}style\0\u{3}user_id\0")
 
@@ -12171,7 +12171,7 @@ extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryImageStyleRequest, rhs: Common_UpdateStoryImageStyleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.styleID != rhs.styleID {return false}
     if lhs.style != rhs.style {return false}
@@ -12181,7 +12181,7 @@ extension Common_UpdateStoryImageStyleRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryImageStyleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12208,7 +12208,7 @@ extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryImageStyleResponse, rhs: Common_UpdateStoryImageStyleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12216,7 +12216,7 @@ extension Common_UpdateStoryImageStyleResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}max_number\0\u{3}user_id\0")
 
@@ -12247,7 +12247,7 @@ extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStorySenceMaxNumberRequest, rhs: Common_UpdateStorySenceMaxNumberRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest, rhs: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.maxNumber != rhs.maxNumber {return false}
     if lhs.userID != rhs.userID {return false}
@@ -12256,7 +12256,7 @@ extension Common_UpdateStorySenceMaxNumberRequest: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStorySenceMaxNumberResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12283,7 +12283,7 @@ extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStorySenceMaxNumberResponse, rhs: Common_UpdateStorySenceMaxNumberResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse, rhs: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12291,7 +12291,7 @@ extension Common_UpdateStorySenceMaxNumberResponse: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePromptRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{1}prompt\0")
 
@@ -12326,7 +12326,7 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRolePromptRequest, rhs: Common_UpdateStoryRolePromptRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -12336,7 +12336,7 @@ extension Common_UpdateStoryRolePromptRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePromptResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12363,7 +12363,7 @@ extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRolePromptResponse, rhs: Common_UpdateStoryRolePromptResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12371,7 +12371,7 @@ extension Common_UpdateStoryRolePromptResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}character_detail\0")
 
@@ -12410,7 +12410,7 @@ extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDescriptionDetailRequest, rhs: Common_UpdateStoryRoleDescriptionDetailRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -12420,7 +12420,7 @@ extension Common_UpdateStoryRoleDescriptionDetailRequest: SwiftProtobuf.Message,
   }
 }
 
-extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDescriptionDetailResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12447,7 +12447,7 @@ extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDescriptionDetailResponse, rhs: Common_UpdateStoryRoleDescriptionDetailResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12455,7 +12455,7 @@ extension Common_UpdateStoryRoleDescriptionDetailResponse: SwiftProtobuf.Message
   }
 }
 
-extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRoleParams"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}origin_image_url\0\u{3}additional_image_urls\0\u{3}text_prompt\0\u{3}negative_prompt\0\u{1}style\0")
 
@@ -12494,7 +12494,7 @@ extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRoleParams, rhs: Common_GenerateStoryRoleParams) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRoleParams, rhs: Rankquantity_Voyager_Api_GenerateStoryRoleParams) -> Bool {
     if lhs.originImageURL != rhs.originImageURL {return false}
     if lhs.additionalImageUrls != rhs.additionalImageUrls {return false}
     if lhs.textPrompt != rhs.textPrompt {return false}
@@ -12505,7 +12505,7 @@ extension Common_GenerateStoryRoleParams: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRolePosterRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{1}params\0")
 
@@ -12544,7 +12544,7 @@ extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRolePosterRequest, rhs: Common_GenerateStoryRolePosterRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest, rhs: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -12554,7 +12554,7 @@ extension Common_GenerateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateStoryRolePosterResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}image_url\0\u{3}poster_id\0")
 
@@ -12589,7 +12589,7 @@ extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateStoryRolePosterResponse, rhs: Common_GenerateStoryRolePosterResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse, rhs: Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.imageURL != rhs.imageURL {return false}
@@ -12599,7 +12599,7 @@ extension Common_GenerateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}role_id\0\u{3}user_id\0\u{3}poster_id\0\u{3}image_url\0\u{3}is_public\0")
 
@@ -12642,7 +12642,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRolePosterRequest, rhs: Common_UpdateStoryRolePosterRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -12654,7 +12654,7 @@ extension Common_UpdateStoryRolePosterRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRolePosterResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}poster_id\0")
 
@@ -12685,7 +12685,7 @@ extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRolePosterResponse, rhs: Common_UpdateStoryRolePosterResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.posterID != rhs.posterID {return false}
@@ -12694,7 +12694,7 @@ extension Common_UpdateStoryRolePosterResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowListRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -12725,7 +12725,7 @@ extension Common_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetFollowListRequest, rhs: Common_GetFollowListRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetFollowListRequest, rhs: Rankquantity_Voyager_Api_GetFollowListRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -12734,7 +12734,7 @@ extension Common_GetFollowListRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowListResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}followers\0\u{1}total\0\u{3}have_more\0")
 
@@ -12773,7 +12773,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetFollowListResponse, rhs: Common_GetFollowListResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetFollowListResponse, rhs: Rankquantity_Voyager_Api_GetFollowListResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.followers != rhs.followers {return false}
@@ -12784,7 +12784,7 @@ extension Common_GetFollowListResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowerListRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -12815,7 +12815,7 @@ extension Common_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetFollowerListRequest, rhs: Common_GetFollowerListRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetFollowerListRequest, rhs: Rankquantity_Voyager_Api_GetFollowerListRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -12824,7 +12824,7 @@ extension Common_GetFollowerListRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetFollowerListResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}followers\0\u{1}total\0\u{3}have_more\0")
 
@@ -12863,7 +12863,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetFollowerListResponse, rhs: Common_GetFollowerListResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetFollowerListResponse, rhs: Rankquantity_Voyager_Api_GetFollowerListResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.followers != rhs.followers {return false}
@@ -12874,7 +12874,7 @@ extension Common_GetFollowerListResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowUserRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}follower_id\0")
 
@@ -12901,7 +12901,7 @@ extension Common_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FollowUserRequest, rhs: Common_FollowUserRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FollowUserRequest, rhs: Rankquantity_Voyager_Api_FollowUserRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.followerID != rhs.followerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12909,7 +12909,7 @@ extension Common_FollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowUserResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -12936,7 +12936,7 @@ extension Common_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FollowUserResponse, rhs: Common_FollowUserResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FollowUserResponse, rhs: Rankquantity_Voyager_Api_FollowUserResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12944,7 +12944,7 @@ extension Common_FollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnfollowUserRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}follower_id\0")
 
@@ -12971,7 +12971,7 @@ extension Common_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnfollowUserRequest, rhs: Common_UnfollowUserRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnfollowUserRequest, rhs: Rankquantity_Voyager_Api_UnfollowUserRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.followerID != rhs.followerID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -12979,7 +12979,7 @@ extension Common_UnfollowUserRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnfollowUserResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -13006,7 +13006,7 @@ extension Common_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnfollowUserResponse, rhs: Common_UnfollowUserResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnfollowUserResponse, rhs: Rankquantity_Voyager_Api_UnfollowUserResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -13014,7 +13014,7 @@ extension Common_UnfollowUserResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}start\0\u{1}end\0\u{3}page_size\0\u{3}page_number\0")
 
@@ -13049,7 +13049,7 @@ extension Common_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryRoleRequest, rhs: Common_TrendingStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryRoleRequest, rhs: Rankquantity_Voyager_Api_TrendingStoryRoleRequest) -> Bool {
     if lhs.start != rhs.start {return false}
     if lhs.end != rhs.end {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -13059,7 +13059,7 @@ extension Common_TrendingStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -13094,7 +13094,7 @@ extension Common_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryRoleResponse, rhs: Common_TrendingStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryRoleResponse, rhs: Rankquantity_Voyager_Api_TrendingStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -13103,8 +13103,8 @@ extension Common_TrendingStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_TrendingStoryRoleResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_TrendingStoryRoleResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}page_size\0\u{3}page_number\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13142,7 +13142,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryRoleResponse.DataMessage, rhs: Common_TrendingStoryRoleResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage, rhs: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageNumber != rhs.pageNumber {return false}
@@ -13153,7 +13153,7 @@ extension Common_TrendingStoryRoleResponse.DataMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension Common_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}start\0\u{1}end\0\u{3}page_size\0\u{3}page_number\0")
 
@@ -13188,7 +13188,7 @@ extension Common_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryRequest, rhs: Common_TrendingStoryRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryRequest, rhs: Rankquantity_Voyager_Api_TrendingStoryRequest) -> Bool {
     if lhs.start != rhs.start {return false}
     if lhs.end != rhs.end {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -13198,7 +13198,7 @@ extension Common_TrendingStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".TrendingStoryResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
@@ -13233,7 +13233,7 @@ extension Common_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryResponse, rhs: Common_TrendingStoryResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryResponse, rhs: Rankquantity_Voyager_Api_TrendingStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}
@@ -13242,8 +13242,8 @@ extension Common_TrendingStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Common_TrendingStoryResponse.protoMessageName + ".Data"
+extension Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Rankquantity_Voyager_Api_TrendingStoryResponse.protoMessageName + ".Data"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{3}page_size\0\u{3}page_number\0\u{1}total\0\u{3}have_more\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -13281,7 +13281,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_TrendingStoryResponse.DataMessage, rhs: Common_TrendingStoryResponse.DataMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage, rhs: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageNumber != rhs.pageNumber {return false}
@@ -13292,7 +13292,7 @@ extension Common_TrendingStoryResponse.DataMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleListRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}board_id\0\u{3}search_key\0\u{1}offset\0\u{3}page_size\0")
 
@@ -13335,7 +13335,7 @@ extension Common_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleListRequest, rhs: Common_GetStoryRoleListRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleListRequest, rhs: Rankquantity_Voyager_Api_GetStoryRoleListRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.boardID != rhs.boardID {return false}
@@ -13347,7 +13347,7 @@ extension Common_GetStoryRoleListRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleListResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0")
 
@@ -13386,7 +13386,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleListResponse, rhs: Common_GetStoryRoleListResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleListResponse, rhs: Rankquantity_Voyager_Api_GetStoryRoleListResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
@@ -13397,7 +13397,7 @@ extension Common_GetStoryRoleListResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ArchiveStoryRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
@@ -13424,7 +13424,7 @@ extension Common_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ArchiveStoryRequest, rhs: Common_ArchiveStoryRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ArchiveStoryRequest, rhs: Rankquantity_Voyager_Api_ArchiveStoryRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -13432,7 +13432,7 @@ extension Common_ArchiveStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ArchiveStoryResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -13459,7 +13459,7 @@ extension Common_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ArchiveStoryResponse, rhs: Common_ArchiveStoryResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ArchiveStoryResponse, rhs: Rankquantity_Voyager_Api_ArchiveStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -13467,7 +13467,7 @@ extension Common_ArchiveStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}content\0")
 
@@ -13498,7 +13498,7 @@ extension Common_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryCommentRequest, rhs: Common_CreateStoryCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryCommentRequest, rhs: Rankquantity_Voyager_Api_CreateStoryCommentRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.content != rhs.content {return false}
@@ -13507,14 +13507,14 @@ extension Common_CreateStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
-    var _code: Common_ResponseCode = .ok
+    var _code: Rankquantity_Voyager_Api_ResponseCode = .ok
     var _message: String = String()
-    var _comment: Common_CommentInfo? = nil
+    var _comment: Rankquantity_Voyager_Api_CommentInfo? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -13574,7 +13574,7 @@ extension Common_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryCommentResponse, rhs: Common_CreateStoryCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryCommentResponse, rhs: Rankquantity_Voyager_Api_CreateStoryCommentResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -13591,7 +13591,7 @@ extension Common_CreateStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -13626,7 +13626,7 @@ extension Common_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryCommentsRequest, rhs: Common_GetStoryCommentsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryCommentsRequest, rhs: Rankquantity_Voyager_Api_GetStoryCommentsRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -13636,7 +13636,7 @@ extension Common_GetStoryCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryComment"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}story_id\0\u{3}board_id\0\u{3}role_id\0\u{3}prev_id\0\u{3}root_comment_id\0\u{3}user_id\0\u{1}content\0\u{3}created_at\0\u{3}updated_at\0\u{3}like_count\0\u{3}reply_count\0\u{3}is_liked\0\u{1}creator\0\u{3}created_at_timestamp\0")
 
@@ -13654,7 +13654,7 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     var _likeCount: Int64 = 0
     var _replyCount: Int64 = 0
     var _isLiked: Int64 = 0
-    var _creator: Common_UserInfo? = nil
+    var _creator: Rankquantity_Voyager_Api_UserInfo? = nil
     var _createdAtTimestamp: Int64 = 0
 
       // This property is used as the initial default value for new instances of the type.
@@ -13775,7 +13775,7 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryComment, rhs: Common_StoryComment) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryComment, rhs: Rankquantity_Voyager_Api_StoryComment) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -13804,7 +13804,7 @@ extension Common_StoryComment: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comments\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -13851,7 +13851,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryCommentsResponse, rhs: Common_GetStoryCommentsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryCommentsResponse, rhs: Rankquantity_Voyager_Api_GetStoryCommentsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.comments != rhs.comments {return false}
@@ -13864,7 +13864,7 @@ extension Common_GetStoryCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
@@ -13891,7 +13891,7 @@ extension Common_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryCommentRequest, rhs: Common_DeleteStoryCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryCommentRequest, rhs: Rankquantity_Voyager_Api_DeleteStoryCommentRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -13899,7 +13899,7 @@ extension Common_DeleteStoryCommentRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -13926,7 +13926,7 @@ extension Common_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryCommentResponse, rhs: Common_DeleteStoryCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryCommentResponse, rhs: Rankquantity_Voyager_Api_DeleteStoryCommentResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -13934,7 +13934,7 @@ extension Common_DeleteStoryCommentResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentRepliesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -13969,7 +13969,7 @@ extension Common_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryCommentRepliesRequest, rhs: Common_GetStoryCommentRepliesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest, rhs: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -13979,7 +13979,7 @@ extension Common_GetStoryCommentRepliesRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryCommentRepliesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}replies\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -14026,7 +14026,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryCommentRepliesResponse, rhs: Common_GetStoryCommentRepliesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse, rhs: Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.replies != rhs.replies {return false}
@@ -14039,7 +14039,7 @@ extension Common_GetStoryCommentRepliesResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentReplyRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}content\0")
 
@@ -14070,7 +14070,7 @@ extension Common_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryCommentReplyRequest, rhs: Common_CreateStoryCommentReplyRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest, rhs: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.content != rhs.content {return false}
@@ -14079,14 +14079,14 @@ extension Common_CreateStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryCommentReplyResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
-    var _code: Common_ResponseCode = .ok
+    var _code: Rankquantity_Voyager_Api_ResponseCode = .ok
     var _message: String = String()
-    var _comment: Common_CommentInfo? = nil
+    var _comment: Rankquantity_Voyager_Api_CommentInfo? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -14146,7 +14146,7 @@ extension Common_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryCommentReplyResponse, rhs: Common_CreateStoryCommentReplyResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse, rhs: Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -14163,7 +14163,7 @@ extension Common_CreateStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentReplyRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}reply_id\0\u{3}user_id\0")
 
@@ -14190,7 +14190,7 @@ extension Common_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryCommentReplyRequest, rhs: Common_DeleteStoryCommentReplyRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest, rhs: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest) -> Bool {
     if lhs.replyID != rhs.replyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14198,7 +14198,7 @@ extension Common_DeleteStoryCommentReplyRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryCommentReplyResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -14225,7 +14225,7 @@ extension Common_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryCommentReplyResponse, rhs: Common_DeleteStoryCommentReplyResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse, rhs: Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14233,7 +14233,7 @@ extension Common_DeleteStoryCommentReplyResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -14268,7 +14268,7 @@ extension Common_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryBoardCommentsRequest, rhs: Common_GetStoryBoardCommentsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest, rhs: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -14278,7 +14278,7 @@ extension Common_GetStoryBoardCommentsRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comments\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -14325,7 +14325,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryBoardCommentsResponse, rhs: Common_GetStoryBoardCommentsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse, rhs: Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.comments != rhs.comments {return false}
@@ -14338,7 +14338,7 @@ extension Common_GetStoryBoardCommentsResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}user_id\0\u{1}content\0")
 
@@ -14369,7 +14369,7 @@ extension Common_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryBoardCommentRequest, rhs: Common_CreateStoryBoardCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest, rhs: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.content != rhs.content {return false}
@@ -14378,14 +14378,14 @@ extension Common_CreateStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryBoardCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}comment\0")
 
   fileprivate class _StorageClass {
-    var _code: Common_ResponseCode = .ok
+    var _code: Rankquantity_Voyager_Api_ResponseCode = .ok
     var _message: String = String()
-    var _comment: Common_CommentInfo? = nil
+    var _comment: Rankquantity_Voyager_Api_CommentInfo? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -14445,7 +14445,7 @@ extension Common_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryBoardCommentResponse, rhs: Common_CreateStoryBoardCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse, rhs: Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -14462,7 +14462,7 @@ extension Common_CreateStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}board_id\0\u{3}comment_id\0\u{3}user_id\0")
 
@@ -14493,7 +14493,7 @@ extension Common_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryBoardCommentRequest, rhs: Common_DeleteStoryBoardCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest, rhs: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest) -> Bool {
     if lhs.boardID != rhs.boardID {return false}
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
@@ -14502,7 +14502,7 @@ extension Common_DeleteStoryBoardCommentRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DeleteStoryBoardCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -14529,7 +14529,7 @@ extension Common_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DeleteStoryBoardCommentResponse, rhs: Common_DeleteStoryBoardCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse, rhs: Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14537,7 +14537,7 @@ extension Common_DeleteStoryBoardCommentResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentRepliesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -14572,7 +14572,7 @@ extension Common_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryBoardCommentRepliesRequest, rhs: Common_GetStoryBoardCommentRepliesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest, rhs: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -14582,7 +14582,7 @@ extension Common_GetStoryBoardCommentRepliesRequest: SwiftProtobuf.Message, Swif
   }
 }
 
-extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryBoardCommentRepliesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}replies\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -14629,7 +14629,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryBoardCommentRepliesResponse, rhs: Common_GetStoryBoardCommentRepliesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse, rhs: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.replies != rhs.replies {return false}
@@ -14642,7 +14642,7 @@ extension Common_GetStoryBoardCommentRepliesResponse: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Common_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
@@ -14669,7 +14669,7 @@ extension Common_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeCommentRequest, rhs: Common_LikeCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeCommentRequest, rhs: Rankquantity_Voyager_Api_LikeCommentRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14677,7 +14677,7 @@ extension Common_LikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -14704,7 +14704,7 @@ extension Common_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeCommentResponse, rhs: Common_LikeCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeCommentResponse, rhs: Rankquantity_Voyager_Api_LikeCommentResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14712,7 +14712,7 @@ extension Common_LikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DislikeCommentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}user_id\0")
 
@@ -14739,7 +14739,7 @@ extension Common_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DislikeCommentRequest, rhs: Common_DislikeCommentRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DislikeCommentRequest, rhs: Rankquantity_Voyager_Api_DislikeCommentRequest) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14747,7 +14747,7 @@ extension Common_DislikeCommentRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DislikeCommentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -14774,7 +14774,7 @@ extension Common_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_DislikeCommentResponse, rhs: Common_DislikeCommentResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_DislikeCommentResponse, rhs: Rankquantity_Voyager_Api_DislikeCommentResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14782,7 +14782,7 @@ extension Common_DislikeCommentResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRolePromptRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}prompt\0")
 
@@ -14813,7 +14813,7 @@ extension Common_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateRolePromptRequest, rhs: Common_UpdateRolePromptRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateRolePromptRequest, rhs: Rankquantity_Voyager_Api_UpdateRolePromptRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -14822,7 +14822,7 @@ extension Common_UpdateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRolePromptResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -14849,7 +14849,7 @@ extension Common_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateRolePromptResponse, rhs: Common_UpdateRolePromptResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateRolePromptResponse, rhs: Rankquantity_Voyager_Api_UpdateRolePromptResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -14857,7 +14857,7 @@ extension Common_UpdateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRolePromptRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}role_id\0\u{1}prompt\0")
 
@@ -14892,7 +14892,7 @@ extension Common_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRolePromptRequest, rhs: Common_GenerateRolePromptRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRolePromptRequest, rhs: Rankquantity_Voyager_Api_GenerateRolePromptRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.roleID != rhs.roleID {return false}
@@ -14902,7 +14902,7 @@ extension Common_GenerateRolePromptRequest: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRolePromptResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}prompt\0")
 
@@ -14933,7 +14933,7 @@ extension Common_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRolePromptResponse, rhs: Common_GenerateRolePromptResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRolePromptResponse, rhs: Rankquantity_Voyager_Api_GenerateRolePromptResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -14942,7 +14942,7 @@ extension Common_GenerateRolePromptResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRoleDescriptionRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}description\0")
 
@@ -14973,7 +14973,7 @@ extension Common_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateRoleDescriptionRequest, rhs: Common_UpdateRoleDescriptionRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest, rhs: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.description_p != rhs.description_p {return false}
@@ -14982,7 +14982,7 @@ extension Common_UpdateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateRoleDescriptionResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -15009,7 +15009,7 @@ extension Common_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateRoleDescriptionResponse, rhs: Common_UpdateRoleDescriptionResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse, rhs: Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15017,7 +15017,7 @@ extension Common_UpdateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleDescriptionRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}role_id\0\u{1}description\0")
 
@@ -15052,7 +15052,7 @@ extension Common_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRoleDescriptionRequest, rhs: Common_GenerateRoleDescriptionRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest, rhs: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.roleID != rhs.roleID {return false}
@@ -15062,7 +15062,7 @@ extension Common_GenerateRoleDescriptionRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GenerateRoleDescriptionResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}character_detail\0")
 
@@ -15097,7 +15097,7 @@ extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GenerateRoleDescriptionResponse, rhs: Common_GenerateRoleDescriptionResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse, rhs: Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._characterDetail != rhs._characterDetail {return false}
@@ -15106,7 +15106,7 @@ extension Common_GenerateRoleDescriptionResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUnPublishStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -15137,7 +15137,7 @@ extension Common_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUnPublishStoryboardRequest, rhs: Common_GetUnPublishStoryboardRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest, rhs: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.offset != rhs.offset {return false}
     if lhs.pageSize != rhs.pageSize {return false}
@@ -15146,7 +15146,7 @@ extension Common_GetUnPublishStoryboardRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUnPublishStoryboardResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboardactives\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -15193,7 +15193,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUnPublishStoryboardResponse, rhs: Common_GetUnPublishStoryboardResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse, rhs: Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboardactives != rhs.storyboardactives {return false}
@@ -15206,7 +15206,7 @@ extension Common_GetUnPublishStoryboardResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchRoleActiveStoryBoardsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}role_id\0\u{1}offset\0\u{3}page_size\0\u{1}filter\0")
 
@@ -15245,7 +15245,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWatchRoleActiveStoryBoardsRequest, rhs: Common_GetUserWatchRoleActiveStoryBoardsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest, rhs: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.roleID != rhs.roleID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -15256,7 +15256,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsRequest: SwiftProtobuf.Message
   }
 }
 
-extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchRoleActiveStoryBoardsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -15303,7 +15303,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWatchRoleActiveStoryBoardsResponse, rhs: Common_GetUserWatchRoleActiveStoryBoardsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse, rhs: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboards != rhs.storyboards {return false}
@@ -15316,7 +15316,7 @@ extension Common_GetUserWatchRoleActiveStoryBoardsResponse: SwiftProtobuf.Messag
   }
 }
 
-extension Common_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchStoryActiveStoryBoardsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0\u{1}filter\0")
 
@@ -15355,7 +15355,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWatchStoryActiveStoryBoardsRequest, rhs: Common_GetUserWatchStoryActiveStoryBoardsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest, rhs: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -15366,7 +15366,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsRequest: SwiftProtobuf.Messag
   }
 }
 
-extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWatchStoryActiveStoryBoardsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -15413,7 +15413,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWatchStoryActiveStoryBoardsResponse, rhs: Common_GetUserWatchStoryActiveStoryBoardsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse, rhs: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboards != rhs.storyboards {return false}
@@ -15426,7 +15426,7 @@ extension Common_GetUserWatchStoryActiveStoryBoardsResponse: SwiftProtobuf.Messa
   }
 }
 
-extension Common_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SaveStoryboardCraftRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
@@ -15453,7 +15453,7 @@ extension Common_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SaveStoryboardCraftRequest, rhs: Common_SaveStoryboardCraftRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest, rhs: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest) -> Bool {
     if lhs.storyboardID != rhs.storyboardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15461,7 +15461,7 @@ extension Common_SaveStoryboardCraftRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SaveStoryboardCraftResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -15488,7 +15488,7 @@ extension Common_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SaveStoryboardCraftResponse, rhs: Common_SaveStoryboardCraftResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SaveStoryboardCraftResponse, rhs: Rankquantity_Voyager_Api_SaveStoryboardCraftResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15496,7 +15496,7 @@ extension Common_SaveStoryboardCraftResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PublishStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
@@ -15523,7 +15523,7 @@ extension Common_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_PublishStoryboardRequest, rhs: Common_PublishStoryboardRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_PublishStoryboardRequest, rhs: Rankquantity_Voyager_Api_PublishStoryboardRequest) -> Bool {
     if lhs.storyboardID != rhs.storyboardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15531,7 +15531,7 @@ extension Common_PublishStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PublishStoryboardResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -15558,7 +15558,7 @@ extension Common_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_PublishStoryboardResponse, rhs: Common_PublishStoryboardResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_PublishStoryboardResponse, rhs: Rankquantity_Voyager_Api_PublishStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15566,7 +15566,7 @@ extension Common_PublishStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CancelStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0")
 
@@ -15593,7 +15593,7 @@ extension Common_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CancelStoryboardRequest, rhs: Common_CancelStoryboardRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CancelStoryboardRequest, rhs: Rankquantity_Voyager_Api_CancelStoryboardRequest) -> Bool {
     if lhs.storyboardID != rhs.storyboardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15601,7 +15601,7 @@ extension Common_CancelStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CancelStoryboardResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -15628,7 +15628,7 @@ extension Common_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CancelStoryboardResponse, rhs: Common_CancelStoryboardResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CancelStoryboardResponse, rhs: Rankquantity_Voyager_Api_CancelStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -15636,7 +15636,7 @@ extension Common_CancelStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0\u{1}prompt\0\u{3}reference_image\0")
 
@@ -15675,7 +15675,7 @@ extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryRoleContinuouslyRequest, rhs: Common_RenderStoryRoleContinuouslyRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest, rhs: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -15686,7 +15686,7 @@ extension Common_RenderStoryRoleContinuouslyRequest: SwiftProtobuf.Message, Swif
   }
 }
 
-extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleContinuouslyResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0\u{3}have_more\0")
 
@@ -15725,7 +15725,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryRoleContinuouslyResponse, rhs: Common_RenderStoryRoleContinuouslyResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse, rhs: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._detail != rhs._detail {return false}
@@ -15735,7 +15735,7 @@ extension Common_RenderStoryRoleContinuouslyResponse: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetNextStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0\u{3}story_id\0\u{3}is_multi_branch\0\u{1}offset\0\u{3}page_size\0\u{1}total\0\u{3}order_by\0")
 
@@ -15786,7 +15786,7 @@ extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetNextStoryboardRequest, rhs: Common_GetNextStoryboardRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetNextStoryboardRequest, rhs: Rankquantity_Voyager_Api_GetNextStoryboardRequest) -> Bool {
     if lhs.storyboardID != rhs.storyboardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -15800,7 +15800,7 @@ extension Common_GetNextStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetNextStoryboardResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{3}is_multi_branch\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -15851,7 +15851,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetNextStoryboardResponse, rhs: Common_GetNextStoryboardResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetNextStoryboardResponse, rhs: Rankquantity_Voyager_Api_GetNextStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboards != rhs.storyboards {return false}
@@ -15865,7 +15865,7 @@ extension Common_GetNextStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}chat_id\0\u{3}role_id\0\u{1}timestamp\0")
 
@@ -15900,7 +15900,7 @@ extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserChatMessagesRequest, rhs: Common_GetUserChatMessagesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserChatMessagesRequest, rhs: Rankquantity_Voyager_Api_GetUserChatMessagesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.chatID != rhs.chatID {return false}
     if lhs.roleID != rhs.roleID {return false}
@@ -15910,7 +15910,7 @@ extension Common_GetUserChatMessagesRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatMessagesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}messages\0\u{1}timestamp\0\u{1}total\0\u{3}have_more\0")
 
@@ -15953,7 +15953,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserChatMessagesResponse, rhs: Common_GetUserChatMessagesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserChatMessagesResponse, rhs: Rankquantity_Voyager_Api_GetUserChatMessagesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.messages != rhs.messages {return false}
@@ -15965,7 +15965,7 @@ extension Common_GetUserChatMessagesResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatWithRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0")
 
@@ -15992,7 +15992,7 @@ extension Common_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserChatWithRoleRequest, rhs: Common_GetUserChatWithRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest, rhs: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16000,7 +16000,7 @@ extension Common_GetUserChatWithRoleRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserChatWithRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}messages\0\u{3}chat_context\0\u{1}total\0\u{3}have_more\0")
 
@@ -16047,7 +16047,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserChatWithRoleResponse, rhs: Common_GetUserChatWithRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserChatWithRoleResponse, rhs: Rankquantity_Voyager_Api_GetUserChatWithRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.messages != rhs.messages {return false}
@@ -16059,7 +16059,7 @@ extension Common_GetUserChatWithRoleResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoryboardsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0\u{1}filter\0\u{1}offset\0\u{3}page_size\0")
 
@@ -16102,7 +16102,7 @@ extension Common_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleStoryboardsRequest, rhs: Common_GetStoryRoleStoryboardsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest, rhs: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -16114,7 +16114,7 @@ extension Common_GetStoryRoleStoryboardsRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoryboardsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboardactives\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -16161,7 +16161,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleStoryboardsResponse, rhs: Common_GetStoryRoleStoryboardsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse, rhs: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboardactives != rhs.storyboardactives {return false}
@@ -16174,7 +16174,7 @@ extension Common_GetStoryRoleStoryboardsResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoriesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}filter\0\u{1}offset\0\u{3}page_size\0")
 
@@ -16213,7 +16213,7 @@ extension Common_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleStoriesRequest, rhs: Common_GetStoryRoleStoriesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest, rhs: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.filter != rhs.filter {return false}
@@ -16224,7 +16224,7 @@ extension Common_GetStoryRoleStoriesRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleStoriesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}stories\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -16271,7 +16271,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleStoriesResponse, rhs: Common_GetStoryRoleStoriesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse, rhs: Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.stories != rhs.stories {return false}
@@ -16284,7 +16284,7 @@ extension Common_GetStoryRoleStoriesResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleChatRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0")
 
@@ -16311,7 +16311,7 @@ extension Common_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryRoleChatRequest, rhs: Common_CreateStoryRoleChatRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest, rhs: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16319,7 +16319,7 @@ extension Common_CreateStoryRoleChatRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatContext"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}chat_id\0\u{3}role_id\0\u{3}user_id\0\u{1}timestamp\0\u{3}last_update_time\0\u{3}total_tokens\0\u{3}total_messages\0\u{3}last_message\0\u{1}user\0\u{1}role\0")
 
@@ -16331,9 +16331,9 @@ extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     var _lastUpdateTime: Int64 = 0
     var _totalTokens: Int64 = 0
     var _totalMessages: Int64 = 0
-    var _lastMessage: Common_ChatMessage? = nil
-    var _user: Common_UserInfo? = nil
-    var _role: Common_StoryRole? = nil
+    var _lastMessage: Rankquantity_Voyager_Api_ChatMessage? = nil
+    var _user: Rankquantity_Voyager_Api_UserInfo? = nil
+    var _role: Rankquantity_Voyager_Api_StoryRole? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -16428,7 +16428,7 @@ extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ChatContext, rhs: Common_ChatContext) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ChatContext, rhs: Rankquantity_Voyager_Api_ChatContext) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -16452,7 +16452,7 @@ extension Common_ChatContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleChatResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}chat_context\0")
 
@@ -16487,7 +16487,7 @@ extension Common_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryRoleChatResponse, rhs: Common_CreateStoryRoleChatResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryRoleChatResponse, rhs: Rankquantity_Voyager_Api_CreateStoryRoleChatResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._chatContext != rhs._chatContext {return false}
@@ -16496,7 +16496,7 @@ extension Common_CreateStoryRoleChatResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatWithStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}messages\0\u{1}total\0\u{3}have_more\0")
 
@@ -16535,7 +16535,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ChatWithStoryRoleRequest, rhs: Common_ChatWithStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest, rhs: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.messages != rhs.messages {return false}
@@ -16546,7 +16546,7 @@ extension Common_ChatWithStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatWithStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{3}reply_messages\0\u{1}total\0\u{3}have_more\0")
 
@@ -16585,7 +16585,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ChatWithStoryRoleResponse, rhs: Common_ChatWithStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ChatWithStoryRoleResponse, rhs: Rankquantity_Voyager_Api_ChatWithStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.replyMessages != rhs.replyMessages {return false}
@@ -16596,7 +16596,7 @@ extension Common_ChatWithStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDetailRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}role\0\u{3}user_id\0\u{3}need_regen\0\u{3}background_image\0")
 
@@ -16639,7 +16639,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDetailRequest, rhs: Common_UpdateStoryRoleDetailRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs._role != rhs._role {return false}
     if lhs.userID != rhs.userID {return false}
@@ -16650,7 +16650,7 @@ extension Common_UpdateStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleDetailResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -16677,7 +16677,7 @@ extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleDetailResponse, rhs: Common_UpdateStoryRoleDetailResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16685,7 +16685,7 @@ extension Common_UpdateStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}avator\0\u{3}user_id\0")
 
@@ -16716,7 +16716,7 @@ extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleAvatorRequest, rhs: Common_UpdateStoryRoleAvatorRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.avator != rhs.avator {return false}
     if lhs.userID != rhs.userID {return false}
@@ -16725,7 +16725,7 @@ extension Common_UpdateStoryRoleAvatorRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateStoryRoleAvatorResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -16752,7 +16752,7 @@ extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateStoryRoleAvatorResponse, rhs: Common_UpdateStoryRoleAvatorResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse, rhs: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16760,7 +16760,7 @@ extension Common_UpdateStoryRoleAvatorResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWithRoleChatListRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}offset\0\u{3}page_size\0")
 
@@ -16795,7 +16795,7 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWithRoleChatListRequest, rhs: Common_GetUserWithRoleChatListRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest, rhs: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.offset != rhs.offset {return false}
@@ -16805,7 +16805,7 @@ extension Common_GetUserWithRoleChatListRequest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserWithRoleChatListResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}chats\0\u{1}total\0\u{1}offset\0\u{3}page_size\0\u{3}have_more\0")
 
@@ -16852,7 +16852,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserWithRoleChatListResponse, rhs: Common_GetUserWithRoleChatListResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse, rhs: Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.chats != rhs.chats {return false}
@@ -16865,7 +16865,7 @@ extension Common_GetUserWithRoleChatListResponse: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Common_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedStoryboardsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}stage\0\u{1}offset\0\u{3}page_size\0")
 
@@ -16904,7 +16904,7 @@ extension Common_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserCreatedStoryboardsRequest, rhs: Common_GetUserCreatedStoryboardsRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest, rhs: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.stage != rhs.stage {return false}
@@ -16915,7 +16915,7 @@ extension Common_GetUserCreatedStoryboardsRequest: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedStoryboardsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}storyboards\0\u{1}total\0\u{3}have_more\0\u{1}offset\0\u{4}\u{2}page_size\0")
 
@@ -16962,7 +16962,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserCreatedStoryboardsResponse, rhs: Common_GetUserCreatedStoryboardsResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse, rhs: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.storyboards != rhs.storyboards {return false}
@@ -16975,7 +16975,7 @@ extension Common_GetUserCreatedStoryboardsResponse: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedRolesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}story_id\0\u{1}stage\0\u{1}offset\0\u{3}page_size\0")
 
@@ -17014,7 +17014,7 @@ extension Common_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserCreatedRolesRequest, rhs: Common_GetUserCreatedRolesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest, rhs: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
     if lhs.stage != rhs.stage {return false}
@@ -17025,7 +17025,7 @@ extension Common_GetUserCreatedRolesRequest: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserCreatedRolesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0\u{1}offset\0\u{4}\u{2}page_size\0")
 
@@ -17072,7 +17072,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserCreatedRolesResponse, rhs: Common_GetUserCreatedRolesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserCreatedRolesResponse, rhs: Rankquantity_Voyager_Api_GetUserCreatedRolesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
@@ -17085,7 +17085,7 @@ extension Common_GetUserCreatedRolesResponse: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Common_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
@@ -17116,7 +17116,7 @@ extension Common_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryRoleRequest, rhs: Common_LikeStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryRoleRequest, rhs: Rankquantity_Voyager_Api_LikeStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -17125,7 +17125,7 @@ extension Common_LikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17152,7 +17152,7 @@ extension Common_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryRoleResponse, rhs: Common_LikeStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryRoleResponse, rhs: Rankquantity_Voyager_Api_LikeStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17160,7 +17160,7 @@ extension Common_LikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
@@ -17191,7 +17191,7 @@ extension Common_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryRoleRequest, rhs: Common_UnLikeStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest, rhs: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -17200,7 +17200,7 @@ extension Common_UnLikeStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17227,7 +17227,7 @@ extension Common_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryRoleResponse, rhs: Common_UnLikeStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryRoleResponse, rhs: Rankquantity_Voyager_Api_UnLikeStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17235,7 +17235,7 @@ extension Common_UnLikeStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
@@ -17266,7 +17266,7 @@ extension Common_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FollowStoryRoleRequest, rhs: Common_FollowStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FollowStoryRoleRequest, rhs: Rankquantity_Voyager_Api_FollowStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -17275,7 +17275,7 @@ extension Common_FollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FollowStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17302,7 +17302,7 @@ extension Common_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_FollowStoryRoleResponse, rhs: Common_FollowStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_FollowStoryRoleResponse, rhs: Rankquantity_Voyager_Api_FollowStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17310,7 +17310,7 @@ extension Common_FollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnFollowStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{3}story_id\0")
 
@@ -17341,7 +17341,7 @@ extension Common_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnFollowStoryRoleRequest, rhs: Common_UnFollowStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest, rhs: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -17350,7 +17350,7 @@ extension Common_UnFollowStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnFollowStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17377,7 +17377,7 @@ extension Common_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnFollowStoryRoleResponse, rhs: Common_UnFollowStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnFollowStoryRoleResponse, rhs: Rankquantity_Voyager_Api_UnFollowStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17385,7 +17385,7 @@ extension Common_UnFollowStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchStoriesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}keyword\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{4}\u{2}group_id\0")
 
@@ -17428,7 +17428,7 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchStoriesRequest, rhs: Common_SearchStoriesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchStoriesRequest, rhs: Rankquantity_Voyager_Api_SearchStoriesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.keyword != rhs.keyword {return false}
     if lhs.offset != rhs.offset {return false}
@@ -17440,7 +17440,7 @@ extension Common_SearchStoriesRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchStoriesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}stories\0\u{1}total\0\u{3}have_more\0")
 
@@ -17479,7 +17479,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchStoriesResponse, rhs: Common_SearchStoriesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchStoriesResponse, rhs: Rankquantity_Voyager_Api_SearchStoriesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.stories != rhs.stories {return false}
@@ -17490,7 +17490,7 @@ extension Common_SearchStoriesResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchRolesRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}keyword\0\u{1}offset\0\u{3}page_size\0\u{1}scope\0\u{3}story_id\0\u{3}group_id\0")
 
@@ -17537,7 +17537,7 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchRolesRequest, rhs: Common_SearchRolesRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchRolesRequest, rhs: Rankquantity_Voyager_Api_SearchRolesRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.keyword != rhs.keyword {return false}
     if lhs.offset != rhs.offset {return false}
@@ -17550,7 +17550,7 @@ extension Common_SearchRolesRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchRolesResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}roles\0\u{1}total\0\u{3}have_more\0")
 
@@ -17589,7 +17589,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchRolesResponse, rhs: Common_SearchRolesResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchRolesResponse, rhs: Rankquantity_Voyager_Api_SearchRolesResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.roles != rhs.roles {return false}
@@ -17600,7 +17600,7 @@ extension Common_SearchRolesResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RestoreStoryboardRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}storyboard_id\0\u{3}user_id\0\u{3}story_id\0")
 
@@ -17631,7 +17631,7 @@ extension Common_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RestoreStoryboardRequest, rhs: Common_RestoreStoryboardRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RestoreStoryboardRequest, rhs: Rankquantity_Voyager_Api_RestoreStoryboardRequest) -> Bool {
     if lhs.storyboardID != rhs.storyboardID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyID != rhs.storyID {return false}
@@ -17640,7 +17640,7 @@ extension Common_RestoreStoryboardRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RestoreStoryboardResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}store\0")
 
@@ -17675,7 +17675,7 @@ extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RestoreStoryboardResponse, rhs: Common_RestoreStoryboardResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RestoreStoryboardResponse, rhs: Rankquantity_Voyager_Api_RestoreStoryboardResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._store != rhs._store {return false}
@@ -17684,7 +17684,7 @@ extension Common_RestoreStoryboardResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardStageStore"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}storyboard\0\u{1}sences\0\u{1}stage\0\u{3}last_update_time\0\u{1}version\0\u{3}user_id\0")
 
@@ -17731,7 +17731,7 @@ extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryboardStageStore, rhs: Common_StoryboardStageStore) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryboardStageStore, rhs: Rankquantity_Voyager_Api_StoryboardStageStore) -> Bool {
     if lhs._storyboard != rhs._storyboard {return false}
     if lhs._sences != rhs._sences {return false}
     if lhs.stage != rhs.stage {return false}
@@ -17743,7 +17743,7 @@ extension Common_StoryboardStageStore: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_GetUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserProfileRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0")
 
@@ -17766,14 +17766,14 @@ extension Common_GetUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserProfileRequest, rhs: Common_GetUserProfileRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserProfileRequest, rhs: Rankquantity_Voyager_Api_GetUserProfileRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetUserProfileResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}info\0")
 
@@ -17808,7 +17808,7 @@ extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetUserProfileResponse, rhs: Common_GetUserProfileResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetUserProfileResponse, rhs: Rankquantity_Voyager_Api_GetUserProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._info != rhs._info {return false}
@@ -17817,7 +17817,7 @@ extension Common_GetUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserProfileRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}background_image\0\u{1}avatar\0\u{1}name\0\u{1}description\0\u{1}location\0\u{1}email\0")
 
@@ -17864,7 +17864,7 @@ extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserProfileRequest, rhs: Common_UpdateUserProfileRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserProfileRequest, rhs: Rankquantity_Voyager_Api_UpdateUserProfileRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.backgroundImage != rhs.backgroundImage {return false}
     if lhs.avatar != rhs.avatar {return false}
@@ -17877,7 +17877,7 @@ extension Common_UpdateUserProfileRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserProfileResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17904,7 +17904,7 @@ extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserProfileResponse, rhs: Common_UpdateUserProfileResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserProfileResponse, rhs: Rankquantity_Voyager_Api_UpdateUserProfileResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17912,7 +17912,7 @@ extension Common_UpdateUserProfileResponse: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}background_image\0")
 
@@ -17939,7 +17939,7 @@ extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserBackgroundImageRequest, rhs: Common_UpdateUserBackgroundImageRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest, rhs: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.backgroundImage != rhs.backgroundImage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17947,7 +17947,7 @@ extension Common_UpdateUserBackgroundImageRequest: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UpdateUserBackgroundImageResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -17974,7 +17974,7 @@ extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UpdateUserBackgroundImageResponse, rhs: Common_UpdateUserBackgroundImageResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse, rhs: Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17982,7 +17982,7 @@ extension Common_UpdateUserBackgroundImageResponse: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}role\0")
 
@@ -18013,7 +18013,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryRoleRequest, rhs: Common_CreateStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryRoleRequest, rhs: Rankquantity_Voyager_Api_CreateStoryRoleRequest) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs._role != rhs._role {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18021,7 +18021,7 @@ extension Common_CreateStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CreateStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -18048,7 +18048,7 @@ extension Common_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CreateStoryRoleResponse, rhs: Common_CreateStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CreateStoryRoleResponse, rhs: Rankquantity_Voyager_Api_CreateStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18056,7 +18056,7 @@ extension Common_CreateStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_GetStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleDetailRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0")
 
@@ -18079,14 +18079,14 @@ extension Common_GetStoryRoleDetailRequest: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleDetailRequest, rhs: Common_GetStoryRoleDetailRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest, rhs: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Common_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GetStoryRoleDetailResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}info\0")
 
@@ -18121,7 +18121,7 @@ extension Common_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GetStoryRoleDetailResponse, rhs: Common_GetStoryRoleDetailResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryRoleDetailResponse, rhs: Rankquantity_Voyager_Api_GetStoryRoleDetailResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._info != rhs._info {return false}
@@ -18130,7 +18130,7 @@ extension Common_GetStoryRoleDetailResponse: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Common_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{1}prompt\0\u{3}ref_images\0\u{3}user_id\0")
 
@@ -18165,7 +18165,7 @@ extension Common_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryRoleRequest, rhs: Common_RenderStoryRoleRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RenderStoryRoleRequest, rhs: Rankquantity_Voyager_Api_RenderStoryRoleRequest) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.prompt != rhs.prompt {return false}
     if lhs.refImages != rhs.refImages {return false}
@@ -18175,7 +18175,7 @@ extension Common_RenderStoryRoleRequest: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}gen_id\0\u{3}is_finished\0\u{3}role_description\0\u{3}role_character\0\u{3}role_behavior\0\u{3}role_goal\0\u{3}background_image\0\u{3}avatar_image\0\u{1}background\0\u{1}appearance\0\u{1}personality\0\u{3}ability_features\0")
 
@@ -18246,7 +18246,7 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryRoleDetail, rhs: Common_RenderStoryRoleDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RenderStoryRoleDetail, rhs: Rankquantity_Voyager_Api_RenderStoryRoleDetail) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.genID != rhs.genID {return false}
     if lhs.isFinished != rhs.isFinished {return false}
@@ -18265,7 +18265,7 @@ extension Common_RenderStoryRoleDetail: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RenderStoryRoleResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}detail\0")
 
@@ -18300,7 +18300,7 @@ extension Common_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RenderStoryRoleResponse, rhs: Common_RenderStoryRoleResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RenderStoryRoleResponse, rhs: Rankquantity_Voyager_Api_RenderStoryRoleResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._detail != rhs._detail {return false}
@@ -18309,7 +18309,7 @@ extension Common_RenderStoryRoleResponse: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
@@ -18336,7 +18336,7 @@ extension Common_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryRequest, rhs: Common_LikeStoryRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryRequest, rhs: Rankquantity_Voyager_Api_LikeStoryRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18344,7 +18344,7 @@ extension Common_LikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeStoryResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -18371,7 +18371,7 @@ extension Common_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeStoryResponse, rhs: Common_LikeStoryResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeStoryResponse, rhs: Rankquantity_Voyager_Api_LikeStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18379,7 +18379,7 @@ extension Common_LikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0")
 
@@ -18406,7 +18406,7 @@ extension Common_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryRequest, rhs: Common_UnLikeStoryRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryRequest, rhs: Rankquantity_Voyager_Api_UnLikeStoryRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -18414,7 +18414,7 @@ extension Common_UnLikeStoryRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_UnLikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UnLikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UnLikeStoryResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0")
 
@@ -18441,7 +18441,7 @@ extension Common_UnLikeStoryResponse: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UnLikeStoryResponse, rhs: Common_UnLikeStoryResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UnLikeStoryResponse, rhs: Rankquantity_Voyager_Api_UnLikeStoryResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

@@ -2,7 +2,7 @@
 //
 // Source: service.proto
 //
-package com.common
+package com.rankquantity.voyager.api
 
 import com.connectrpc.Headers
 import com.connectrpc.MethodSpec
@@ -25,9 +25,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Explore",
-      com.common.ExploreRequest::class,
-      com.common.ExploreResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Explore",
+      com.rankquantity.voyager.api.ExploreRequest::class,
+      com.rankquantity.voyager.api.ExploreResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -44,9 +44,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Explore",
-      com.common.ExploreRequest::class,
-      com.common.ExploreResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Explore",
+      com.rankquantity.voyager.api.ExploreRequest::class,
+      com.rankquantity.voyager.api.ExploreResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -60,9 +60,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Version",
-      com.common.VersionRequest::class,
-      com.common.VersionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Version",
+      com.rankquantity.voyager.api.VersionRequest::class,
+      com.rankquantity.voyager.api.VersionResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -79,9 +79,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Version",
-      com.common.VersionRequest::class,
-      com.common.VersionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Version",
+      com.rankquantity.voyager.api.VersionRequest::class,
+      com.rankquantity.voyager.api.VersionResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -95,9 +95,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/About",
-      com.common.AboutRequest::class,
-      com.common.AboutResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/About",
+      com.rankquantity.voyager.api.AboutRequest::class,
+      com.rankquantity.voyager.api.AboutResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -114,9 +114,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/About",
-      com.common.AboutRequest::class,
-      com.common.AboutResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/About",
+      com.rankquantity.voyager.api.AboutRequest::class,
+      com.rankquantity.voyager.api.AboutResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -130,9 +130,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Login",
-      com.common.LoginRequest::class,
-      com.common.LoginResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Login",
+      com.rankquantity.voyager.api.LoginRequest::class,
+      com.rankquantity.voyager.api.LoginResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -149,9 +149,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Login",
-      com.common.LoginRequest::class,
-      com.common.LoginResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Login",
+      com.rankquantity.voyager.api.LoginRequest::class,
+      com.rankquantity.voyager.api.LoginResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -165,9 +165,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Logout",
-      com.common.LogoutRequest::class,
-      com.common.LogoutResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Logout",
+      com.rankquantity.voyager.api.LogoutRequest::class,
+      com.rankquantity.voyager.api.LogoutResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -184,9 +184,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Logout",
-      com.common.LogoutRequest::class,
-      com.common.LogoutResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Logout",
+      com.rankquantity.voyager.api.LogoutRequest::class,
+      com.rankquantity.voyager.api.LogoutResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -200,9 +200,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RefreshToken",
-      com.common.RefreshTokenRequest::class,
-      com.common.RefreshTokenResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RefreshToken",
+      com.rankquantity.voyager.api.RefreshTokenRequest::class,
+      com.rankquantity.voyager.api.RefreshTokenResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -219,9 +219,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RefreshToken",
-      com.common.RefreshTokenRequest::class,
-      com.common.RefreshTokenResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RefreshToken",
+      com.rankquantity.voyager.api.RefreshTokenRequest::class,
+      com.rankquantity.voyager.api.RefreshTokenResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -235,9 +235,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Register",
-      com.common.RegisterRequest::class,
-      com.common.RegisterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Register",
+      com.rankquantity.voyager.api.RegisterRequest::class,
+      com.rankquantity.voyager.api.RegisterResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -254,9 +254,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/Register",
-      com.common.RegisterRequest::class,
-      com.common.RegisterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/Register",
+      com.rankquantity.voyager.api.RegisterRequest::class,
+      com.rankquantity.voyager.api.RegisterResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -270,9 +270,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ResetPwd",
-      com.common.ResetPasswordRequest::class,
-      com.common.ResetPasswordResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ResetPwd",
+      com.rankquantity.voyager.api.ResetPasswordRequest::class,
+      com.rankquantity.voyager.api.ResetPasswordResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -289,9 +289,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ResetPwd",
-      com.common.ResetPasswordRequest::class,
-      com.common.ResetPasswordResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ResetPwd",
+      com.rankquantity.voyager.api.ResetPasswordRequest::class,
+      com.rankquantity.voyager.api.ResetPasswordResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -305,9 +305,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserInit",
-      com.common.UserInitRequest::class,
-      com.common.UserInitResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserInit",
+      com.rankquantity.voyager.api.UserInitRequest::class,
+      com.rankquantity.voyager.api.UserInitResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -324,9 +324,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserInit",
-      com.common.UserInitRequest::class,
-      com.common.UserInitResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserInit",
+      com.rankquantity.voyager.api.UserInitRequest::class,
+      com.rankquantity.voyager.api.UserInitResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -340,9 +340,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserInfo",
-      com.common.UserInfoRequest::class,
-      com.common.UserInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserInfo",
+      com.rankquantity.voyager.api.UserInfoRequest::class,
+      com.rankquantity.voyager.api.UserInfoResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -359,9 +359,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserInfo",
-      com.common.UserInfoRequest::class,
-      com.common.UserInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserInfo",
+      com.rankquantity.voyager.api.UserInfoRequest::class,
+      com.rankquantity.voyager.api.UserInfoResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -375,9 +375,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserAvator",
-      com.common.UpdateUserAvatorRequest::class,
-      com.common.UpdateUserAvatorResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserAvator",
+      com.rankquantity.voyager.api.UpdateUserAvatorRequest::class,
+      com.rankquantity.voyager.api.UpdateUserAvatorResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -394,9 +394,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserAvator",
-      com.common.UpdateUserAvatorRequest::class,
-      com.common.UpdateUserAvatorResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserAvator",
+      com.rankquantity.voyager.api.UpdateUserAvatorRequest::class,
+      com.rankquantity.voyager.api.UpdateUserAvatorResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -410,9 +410,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserWatching",
-      com.common.UserWatchingRequest::class,
-      com.common.UserWatchingResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserWatching",
+      com.rankquantity.voyager.api.UserWatchingRequest::class,
+      com.rankquantity.voyager.api.UserWatchingResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -429,9 +429,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserWatching",
-      com.common.UserWatchingRequest::class,
-      com.common.UserWatchingResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserWatching",
+      com.rankquantity.voyager.api.UserWatchingRequest::class,
+      com.rankquantity.voyager.api.UserWatchingResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -445,9 +445,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserGroup",
-      com.common.UserGroupRequest::class,
-      com.common.UserGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserGroup",
+      com.rankquantity.voyager.api.UserGroupRequest::class,
+      com.rankquantity.voyager.api.UserGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -464,9 +464,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserGroup",
-      com.common.UserGroupRequest::class,
-      com.common.UserGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserGroup",
+      com.rankquantity.voyager.api.UserGroupRequest::class,
+      com.rankquantity.voyager.api.UserGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -480,9 +480,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserFollowingGroup",
-      com.common.UserFollowingGroupRequest::class,
-      com.common.UserFollowingGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserFollowingGroup",
+      com.rankquantity.voyager.api.UserFollowingGroupRequest::class,
+      com.rankquantity.voyager.api.UserFollowingGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -499,9 +499,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserFollowingGroup",
-      com.common.UserFollowingGroupRequest::class,
-      com.common.UserFollowingGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserFollowingGroup",
+      com.rankquantity.voyager.api.UserFollowingGroupRequest::class,
+      com.rankquantity.voyager.api.UserFollowingGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -515,9 +515,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserUpdate",
-      com.common.UserUpdateRequest::class,
-      com.common.UserUpdateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserUpdate",
+      com.rankquantity.voyager.api.UserUpdateRequest::class,
+      com.rankquantity.voyager.api.UserUpdateResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -534,9 +534,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UserUpdate",
-      com.common.UserUpdateRequest::class,
-      com.common.UserUpdateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UserUpdate",
+      com.rankquantity.voyager.api.UserUpdateRequest::class,
+      com.rankquantity.voyager.api.UserUpdateResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -550,9 +550,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchUser",
-      com.common.SearchUserRequest::class,
-      com.common.SearchUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchUser",
+      com.rankquantity.voyager.api.SearchUserRequest::class,
+      com.rankquantity.voyager.api.SearchUserResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -569,9 +569,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchUser",
-      com.common.SearchUserRequest::class,
-      com.common.SearchUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchUser",
+      com.rankquantity.voyager.api.SearchUserRequest::class,
+      com.rankquantity.voyager.api.SearchUserResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -585,9 +585,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateGroup",
-      com.common.CreateGroupRequest::class,
-      com.common.CreateGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateGroup",
+      com.rankquantity.voyager.api.CreateGroupRequest::class,
+      com.rankquantity.voyager.api.CreateGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -604,9 +604,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateGroup",
-      com.common.CreateGroupRequest::class,
-      com.common.CreateGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateGroup",
+      com.rankquantity.voyager.api.CreateGroupRequest::class,
+      com.rankquantity.voyager.api.CreateGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -620,9 +620,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroup",
-      com.common.GetGroupRequest::class,
-      com.common.GetGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroup",
+      com.rankquantity.voyager.api.GetGroupRequest::class,
+      com.rankquantity.voyager.api.GetGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -639,9 +639,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroup",
-      com.common.GetGroupRequest::class,
-      com.common.GetGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroup",
+      com.rankquantity.voyager.api.GetGroupRequest::class,
+      com.rankquantity.voyager.api.GetGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -655,9 +655,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroupActives",
-      com.common.GetGroupActivesRequest::class,
-      com.common.GetGroupActivesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroupActives",
+      com.rankquantity.voyager.api.GetGroupActivesRequest::class,
+      com.rankquantity.voyager.api.GetGroupActivesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -674,9 +674,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroupActives",
-      com.common.GetGroupActivesRequest::class,
-      com.common.GetGroupActivesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroupActives",
+      com.rankquantity.voyager.api.GetGroupActivesRequest::class,
+      com.rankquantity.voyager.api.GetGroupActivesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -690,9 +690,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateGroupInfo",
-      com.common.UpdateGroupInfoRequest::class,
-      com.common.UpdateGroupInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo",
+      com.rankquantity.voyager.api.UpdateGroupInfoRequest::class,
+      com.rankquantity.voyager.api.UpdateGroupInfoResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -709,9 +709,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateGroupInfo",
-      com.common.UpdateGroupInfoRequest::class,
-      com.common.UpdateGroupInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo",
+      com.rankquantity.voyager.api.UpdateGroupInfoRequest::class,
+      com.rankquantity.voyager.api.UpdateGroupInfoResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -725,9 +725,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroupProfile",
-      com.common.GetGroupProfileRequest::class,
-      com.common.GetGroupProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroupProfile",
+      com.rankquantity.voyager.api.GetGroupProfileRequest::class,
+      com.rankquantity.voyager.api.GetGroupProfileResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -744,9 +744,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetGroupProfile",
-      com.common.GetGroupProfileRequest::class,
-      com.common.GetGroupProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetGroupProfile",
+      com.rankquantity.voyager.api.GetGroupProfileRequest::class,
+      com.rankquantity.voyager.api.GetGroupProfileResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -760,9 +760,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateGroupProfile",
-      com.common.UpdateGroupProfileRequest::class,
-      com.common.UpdateGroupProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile",
+      com.rankquantity.voyager.api.UpdateGroupProfileRequest::class,
+      com.rankquantity.voyager.api.UpdateGroupProfileResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -779,9 +779,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateGroupProfile",
-      com.common.UpdateGroupProfileRequest::class,
-      com.common.UpdateGroupProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile",
+      com.rankquantity.voyager.api.UpdateGroupProfileRequest::class,
+      com.rankquantity.voyager.api.UpdateGroupProfileResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -795,9 +795,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteGroup",
-      com.common.DeleteGroupRequest::class,
-      com.common.DeleteGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteGroup",
+      com.rankquantity.voyager.api.DeleteGroupRequest::class,
+      com.rankquantity.voyager.api.DeleteGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -814,9 +814,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteGroup",
-      com.common.DeleteGroupRequest::class,
-      com.common.DeleteGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteGroup",
+      com.rankquantity.voyager.api.DeleteGroupRequest::class,
+      com.rankquantity.voyager.api.DeleteGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -830,9 +830,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchGroupMembers",
-      com.common.FetchGroupMembersRequest::class,
-      com.common.FetchGroupMembersResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchGroupMembers",
+      com.rankquantity.voyager.api.FetchGroupMembersRequest::class,
+      com.rankquantity.voyager.api.FetchGroupMembersResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -849,9 +849,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchGroupMembers",
-      com.common.FetchGroupMembersRequest::class,
-      com.common.FetchGroupMembersResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchGroupMembers",
+      com.rankquantity.voyager.api.FetchGroupMembersRequest::class,
+      com.rankquantity.voyager.api.FetchGroupMembersResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -865,9 +865,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/JoinGroup",
-      com.common.JoinGroupRequest::class,
-      com.common.JoinGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/JoinGroup",
+      com.rankquantity.voyager.api.JoinGroupRequest::class,
+      com.rankquantity.voyager.api.JoinGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -884,9 +884,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/JoinGroup",
-      com.common.JoinGroupRequest::class,
-      com.common.JoinGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/JoinGroup",
+      com.rankquantity.voyager.api.JoinGroupRequest::class,
+      com.rankquantity.voyager.api.JoinGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -900,9 +900,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LeaveGroup",
-      com.common.LeaveGroupRequest::class,
-      com.common.LeaveGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LeaveGroup",
+      com.rankquantity.voyager.api.LeaveGroupRequest::class,
+      com.rankquantity.voyager.api.LeaveGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -919,9 +919,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LeaveGroup",
-      com.common.LeaveGroupRequest::class,
-      com.common.LeaveGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LeaveGroup",
+      com.rankquantity.voyager.api.LeaveGroupRequest::class,
+      com.rankquantity.voyager.api.LeaveGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -935,9 +935,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStory",
-      com.common.CreateStoryRequest::class,
-      com.common.CreateStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStory",
+      com.rankquantity.voyager.api.CreateStoryRequest::class,
+      com.rankquantity.voyager.api.CreateStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -954,9 +954,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStory",
-      com.common.CreateStoryRequest::class,
-      com.common.CreateStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStory",
+      com.rankquantity.voyager.api.CreateStoryRequest::class,
+      com.rankquantity.voyager.api.CreateStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -970,9 +970,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryInfo",
-      com.common.GetStoryInfoRequest::class,
-      com.common.GetStoryInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryInfo",
+      com.rankquantity.voyager.api.GetStoryInfoRequest::class,
+      com.rankquantity.voyager.api.GetStoryInfoResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -989,9 +989,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryInfo",
-      com.common.GetStoryInfoRequest::class,
-      com.common.GetStoryInfoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryInfo",
+      com.rankquantity.voyager.api.GetStoryInfoRequest::class,
+      com.rankquantity.voyager.api.GetStoryInfoResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1005,9 +1005,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStory",
-      com.common.RenderStoryRequest::class,
-      com.common.RenderStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStory",
+      com.rankquantity.voyager.api.RenderStoryRequest::class,
+      com.rankquantity.voyager.api.RenderStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1024,9 +1024,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStory",
-      com.common.RenderStoryRequest::class,
-      com.common.RenderStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStory",
+      com.rankquantity.voyager.api.RenderStoryRequest::class,
+      com.rankquantity.voyager.api.RenderStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1040,9 +1040,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStory",
-      com.common.UpdateStoryRequest::class,
-      com.common.UpdateStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStory",
+      com.rankquantity.voyager.api.UpdateStoryRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1059,9 +1059,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStory",
-      com.common.UpdateStoryRequest::class,
-      com.common.UpdateStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStory",
+      com.rankquantity.voyager.api.UpdateStoryRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1075,9 +1075,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/WatchStory",
-      com.common.WatchStoryRequest::class,
-      com.common.WatchStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/WatchStory",
+      com.rankquantity.voyager.api.WatchStoryRequest::class,
+      com.rankquantity.voyager.api.WatchStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1094,9 +1094,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/WatchStory",
-      com.common.WatchStoryRequest::class,
-      com.common.WatchStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/WatchStory",
+      com.rankquantity.voyager.api.WatchStoryRequest::class,
+      com.rankquantity.voyager.api.WatchStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1110,9 +1110,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ArchiveStory",
-      com.common.ArchiveStoryRequest::class,
-      com.common.ArchiveStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ArchiveStory",
+      com.rankquantity.voyager.api.ArchiveStoryRequest::class,
+      com.rankquantity.voyager.api.ArchiveStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1129,9 +1129,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ArchiveStory",
-      com.common.ArchiveStoryRequest::class,
-      com.common.ArchiveStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ArchiveStory",
+      com.rankquantity.voyager.api.ArchiveStoryRequest::class,
+      com.rankquantity.voyager.api.ArchiveStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1145,9 +1145,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryboard",
-      com.common.CreateStoryboardRequest::class,
-      com.common.CreateStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryboard",
+      com.rankquantity.voyager.api.CreateStoryboardRequest::class,
+      com.rankquantity.voyager.api.CreateStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1164,9 +1164,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryboard",
-      com.common.CreateStoryboardRequest::class,
-      com.common.CreateStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryboard",
+      com.rankquantity.voyager.api.CreateStoryboardRequest::class,
+      com.rankquantity.voyager.api.CreateStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1180,9 +1180,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryboard",
-      com.common.GetStoryboardRequest::class,
-      com.common.GetStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryboard",
+      com.rankquantity.voyager.api.GetStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1199,9 +1199,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryboard",
-      com.common.GetStoryboardRequest::class,
-      com.common.GetStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryboard",
+      com.rankquantity.voyager.api.GetStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1215,9 +1215,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryboard",
-      com.common.RenderStoryboardRequest::class,
-      com.common.RenderStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryboard",
+      com.rankquantity.voyager.api.RenderStoryboardRequest::class,
+      com.rankquantity.voyager.api.RenderStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1234,9 +1234,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryboard",
-      com.common.RenderStoryboardRequest::class,
-      com.common.RenderStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryboard",
+      com.rankquantity.voyager.api.RenderStoryboardRequest::class,
+      com.rankquantity.voyager.api.RenderStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1250,9 +1250,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenStoryboardText",
-      com.common.GenStoryboardTextRequest::class,
-      com.common.GenStoryboardTextResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenStoryboardText",
+      com.rankquantity.voyager.api.GenStoryboardTextRequest::class,
+      com.rankquantity.voyager.api.GenStoryboardTextResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1269,9 +1269,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenStoryboardText",
-      com.common.GenStoryboardTextRequest::class,
-      com.common.GenStoryboardTextResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenStoryboardText",
+      com.rankquantity.voyager.api.GenStoryboardTextRequest::class,
+      com.rankquantity.voyager.api.GenStoryboardTextResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1285,9 +1285,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenStoryboardImages",
-      com.common.GenStoryboardImagesRequest::class,
-      com.common.GenStoryboardImagesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenStoryboardImages",
+      com.rankquantity.voyager.api.GenStoryboardImagesRequest::class,
+      com.rankquantity.voyager.api.GenStoryboardImagesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1304,9 +1304,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenStoryboardImages",
-      com.common.GenStoryboardImagesRequest::class,
-      com.common.GenStoryboardImagesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenStoryboardImages",
+      com.rankquantity.voyager.api.GenStoryboardImagesRequest::class,
+      com.rankquantity.voyager.api.GenStoryboardImagesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1320,9 +1320,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryboards",
-      com.common.GetStoryboardsRequest::class,
-      com.common.GetStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryboards",
+      com.rankquantity.voyager.api.GetStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetStoryboardsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1339,9 +1339,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryboards",
-      com.common.GetStoryboardsRequest::class,
-      com.common.GetStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryboards",
+      com.rankquantity.voyager.api.GetStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetStoryboardsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1355,9 +1355,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DelStoryboard",
-      com.common.DelStoryboardRequest::class,
-      com.common.DelStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DelStoryboard",
+      com.rankquantity.voyager.api.DelStoryboardRequest::class,
+      com.rankquantity.voyager.api.DelStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1374,9 +1374,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DelStoryboard",
-      com.common.DelStoryboardRequest::class,
-      com.common.DelStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DelStoryboard",
+      com.rankquantity.voyager.api.DelStoryboardRequest::class,
+      com.rankquantity.voyager.api.DelStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1390,9 +1390,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ForkStoryboard",
-      com.common.ForkStoryboardRequest::class,
-      com.common.ForkStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ForkStoryboard",
+      com.rankquantity.voyager.api.ForkStoryboardRequest::class,
+      com.rankquantity.voyager.api.ForkStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1409,9 +1409,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ForkStoryboard",
-      com.common.ForkStoryboardRequest::class,
-      com.common.ForkStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ForkStoryboard",
+      com.rankquantity.voyager.api.ForkStoryboardRequest::class,
+      com.rankquantity.voyager.api.ForkStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1425,9 +1425,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryboard",
-      com.common.UpdateStoryboardRequest::class,
-      com.common.UpdateStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryboard",
+      com.rankquantity.voyager.api.UpdateStoryboardRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1444,9 +1444,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryboard",
-      com.common.UpdateStoryboardRequest::class,
-      com.common.UpdateStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryboard",
+      com.rankquantity.voyager.api.UpdateStoryboardRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1460,9 +1460,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryboard",
-      com.common.LikeStoryboardRequest::class,
-      com.common.LikeStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryboard",
+      com.rankquantity.voyager.api.LikeStoryboardRequest::class,
+      com.rankquantity.voyager.api.LikeStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1479,9 +1479,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryboard",
-      com.common.LikeStoryboardRequest::class,
-      com.common.LikeStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryboard",
+      com.rankquantity.voyager.api.LikeStoryboardRequest::class,
+      com.rankquantity.voyager.api.LikeStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1495,9 +1495,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryboard",
-      com.common.UnLikeStoryboardRequest::class,
-      com.common.UnLikeStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard",
+      com.rankquantity.voyager.api.UnLikeStoryboardRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1514,9 +1514,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryboard",
-      com.common.UnLikeStoryboardRequest::class,
-      com.common.UnLikeStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard",
+      com.rankquantity.voyager.api.UnLikeStoryboardRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1530,9 +1530,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ShareStoryboard",
-      com.common.ShareStoryboardRequest::class,
-      com.common.ShareStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ShareStoryboard",
+      com.rankquantity.voyager.api.ShareStoryboardRequest::class,
+      com.rankquantity.voyager.api.ShareStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1549,9 +1549,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ShareStoryboard",
-      com.common.ShareStoryboardRequest::class,
-      com.common.ShareStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ShareStoryboard",
+      com.rankquantity.voyager.api.ShareStoryboardRequest::class,
+      com.rankquantity.voyager.api.ShareStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1565,9 +1565,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchGroupStorys",
-      com.common.FetchGroupStorysRequest::class,
-      com.common.FetchGroupStorysResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchGroupStorys",
+      com.rankquantity.voyager.api.FetchGroupStorysRequest::class,
+      com.rankquantity.voyager.api.FetchGroupStorysResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1584,9 +1584,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchGroupStorys",
-      com.common.FetchGroupStorysRequest::class,
-      com.common.FetchGroupStorysResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchGroupStorys",
+      com.rankquantity.voyager.api.FetchGroupStorysRequest::class,
+      com.rankquantity.voyager.api.FetchGroupStorysResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1600,9 +1600,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UploadImageFile",
-      com.common.UploadImageRequest::class,
-      com.common.UploadImageResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UploadImageFile",
+      com.rankquantity.voyager.api.UploadImageRequest::class,
+      com.rankquantity.voyager.api.UploadImageResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1619,9 +1619,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UploadImageFile",
-      com.common.UploadImageRequest::class,
-      com.common.UploadImageResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UploadImageFile",
+      com.rankquantity.voyager.api.UploadImageRequest::class,
+      com.rankquantity.voyager.api.UploadImageResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1635,9 +1635,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRender",
-      com.common.GetStoryRenderRequest::class,
-      com.common.GetStoryRenderResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRender",
+      com.rankquantity.voyager.api.GetStoryRenderRequest::class,
+      com.rankquantity.voyager.api.GetStoryRenderResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1654,9 +1654,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRender",
-      com.common.GetStoryRenderRequest::class,
-      com.common.GetStoryRenderResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRender",
+      com.rankquantity.voyager.api.GetStoryRenderRequest::class,
+      com.rankquantity.voyager.api.GetStoryRenderResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1670,9 +1670,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardRender",
-      com.common.GetStoryBoardRenderRequest::class,
-      com.common.GetStoryBoardRenderResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender",
+      com.rankquantity.voyager.api.GetStoryBoardRenderRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardRenderResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1689,9 +1689,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardRender",
-      com.common.GetStoryBoardRenderRequest::class,
-      com.common.GetStoryBoardRenderResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender",
+      com.rankquantity.voyager.api.GetStoryBoardRenderRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardRenderResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1705,9 +1705,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryContributors",
-      com.common.GetStoryContributorsRequest::class,
-      com.common.GetStoryContributorsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryContributors",
+      com.rankquantity.voyager.api.GetStoryContributorsRequest::class,
+      com.rankquantity.voyager.api.GetStoryContributorsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1724,9 +1724,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryContributors",
-      com.common.GetStoryContributorsRequest::class,
-      com.common.GetStoryContributorsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryContributors",
+      com.rankquantity.voyager.api.GetStoryContributorsRequest::class,
+      com.rankquantity.voyager.api.GetStoryContributorsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1740,9 +1740,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ContinueRenderStory",
-      com.common.ContinueRenderStoryRequest::class,
-      com.common.ContinueRenderStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ContinueRenderStory",
+      com.rankquantity.voyager.api.ContinueRenderStoryRequest::class,
+      com.rankquantity.voyager.api.ContinueRenderStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1759,9 +1759,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ContinueRenderStory",
-      com.common.ContinueRenderStoryRequest::class,
-      com.common.ContinueRenderStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ContinueRenderStory",
+      com.rankquantity.voyager.api.ContinueRenderStoryRequest::class,
+      com.rankquantity.voyager.api.ContinueRenderStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1775,9 +1775,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoles",
-      com.common.RenderStoryRolesRequest::class,
-      com.common.RenderStoryRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoles",
+      com.rankquantity.voyager.api.RenderStoryRolesRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRolesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1794,9 +1794,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoles",
-      com.common.RenderStoryRolesRequest::class,
-      com.common.RenderStoryRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoles",
+      com.rankquantity.voyager.api.RenderStoryRolesRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRolesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1810,9 +1810,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRole",
-      com.common.UpdateStoryRoleRequest::class,
-      com.common.UpdateStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRole",
+      com.rankquantity.voyager.api.UpdateStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1829,9 +1829,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRole",
-      com.common.UpdateStoryRoleRequest::class,
-      com.common.UpdateStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRole",
+      com.rankquantity.voyager.api.UpdateStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1845,9 +1845,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoleDetail",
-      com.common.RenderStoryRoleDetailRequest::class,
-      com.common.RenderStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail",
+      com.rankquantity.voyager.api.RenderStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1864,9 +1864,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoleDetail",
-      com.common.RenderStoryRoleDetailRequest::class,
-      com.common.RenderStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail",
+      com.rankquantity.voyager.api.RenderStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1880,9 +1880,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoles",
-      com.common.GetStoryRolesRequest::class,
-      com.common.GetStoryRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoles",
+      com.rankquantity.voyager.api.GetStoryRolesRequest::class,
+      com.rankquantity.voyager.api.GetStoryRolesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1899,9 +1899,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoles",
-      com.common.GetStoryRolesRequest::class,
-      com.common.GetStoryRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoles",
+      com.rankquantity.voyager.api.GetStoryRolesRequest::class,
+      com.rankquantity.voyager.api.GetStoryRolesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1915,9 +1915,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardRoles",
-      com.common.GetStoryBoardRolesRequest::class,
-      com.common.GetStoryBoardRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles",
+      com.rankquantity.voyager.api.GetStoryBoardRolesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardRolesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1934,9 +1934,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardRoles",
-      com.common.GetStoryBoardRolesRequest::class,
-      com.common.GetStoryBoardRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles",
+      com.rankquantity.voyager.api.GetStoryBoardRolesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardRolesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1950,9 +1950,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserProfile",
-      com.common.GetUserProfileRequest::class,
-      com.common.GetUserProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserProfile",
+      com.rankquantity.voyager.api.GetUserProfileRequest::class,
+      com.rankquantity.voyager.api.GetUserProfileResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -1969,9 +1969,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserProfile",
-      com.common.GetUserProfileRequest::class,
-      com.common.GetUserProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserProfile",
+      com.rankquantity.voyager.api.GetUserProfileRequest::class,
+      com.rankquantity.voyager.api.GetUserProfileResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -1985,9 +1985,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserProfile",
-      com.common.UpdateUserProfileRequest::class,
-      com.common.UpdateUserProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserProfile",
+      com.rankquantity.voyager.api.UpdateUserProfileRequest::class,
+      com.rankquantity.voyager.api.UpdateUserProfileResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2004,9 +2004,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserProfile",
-      com.common.UpdateUserProfileRequest::class,
-      com.common.UpdateUserProfileResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserProfile",
+      com.rankquantity.voyager.api.UpdateUserProfileRequest::class,
+      com.rankquantity.voyager.api.UpdateUserProfileResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2020,9 +2020,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserBackgroundImage",
-      com.common.UpdateUserBackgroundImageRequest::class,
-      com.common.UpdateUserBackgroundImageResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage",
+      com.rankquantity.voyager.api.UpdateUserBackgroundImageRequest::class,
+      com.rankquantity.voyager.api.UpdateUserBackgroundImageResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2039,9 +2039,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateUserBackgroundImage",
-      com.common.UpdateUserBackgroundImageRequest::class,
-      com.common.UpdateUserBackgroundImageResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage",
+      com.rankquantity.voyager.api.UpdateUserBackgroundImageRequest::class,
+      com.rankquantity.voyager.api.UpdateUserBackgroundImageResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2055,9 +2055,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryRole",
-      com.common.CreateStoryRoleRequest::class,
-      com.common.CreateStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryRole",
+      com.rankquantity.voyager.api.CreateStoryRoleRequest::class,
+      com.rankquantity.voyager.api.CreateStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2074,9 +2074,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryRole",
-      com.common.CreateStoryRoleRequest::class,
-      com.common.CreateStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryRole",
+      com.rankquantity.voyager.api.CreateStoryRoleRequest::class,
+      com.rankquantity.voyager.api.CreateStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2090,9 +2090,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleDetail",
-      com.common.GetStoryRoleDetailRequest::class,
-      com.common.GetStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail",
+      com.rankquantity.voyager.api.GetStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2109,9 +2109,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleDetail",
-      com.common.GetStoryRoleDetailRequest::class,
-      com.common.GetStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail",
+      com.rankquantity.voyager.api.GetStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2125,9 +2125,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRole",
-      com.common.RenderStoryRoleRequest::class,
-      com.common.RenderStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRole",
+      com.rankquantity.voyager.api.RenderStoryRoleRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2144,9 +2144,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRole",
-      com.common.RenderStoryRoleRequest::class,
-      com.common.RenderStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRole",
+      com.rankquantity.voyager.api.RenderStoryRoleRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2160,9 +2160,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStory",
-      com.common.LikeStoryRequest::class,
-      com.common.LikeStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStory",
+      com.rankquantity.voyager.api.LikeStoryRequest::class,
+      com.rankquantity.voyager.api.LikeStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2179,9 +2179,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStory",
-      com.common.LikeStoryRequest::class,
-      com.common.LikeStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStory",
+      com.rankquantity.voyager.api.LikeStoryRequest::class,
+      com.rankquantity.voyager.api.LikeStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2195,9 +2195,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStory",
-      com.common.UnLikeStoryRequest::class,
-      com.common.UnLikeStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStory",
+      com.rankquantity.voyager.api.UnLikeStoryRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2214,9 +2214,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStory",
-      com.common.UnLikeStoryRequest::class,
-      com.common.UnLikeStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStory",
+      com.rankquantity.voyager.api.UnLikeStoryRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2230,9 +2230,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardSences",
-      com.common.GetStoryBoardSencesRequest::class,
-      com.common.GetStoryBoardSencesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences",
+      com.rankquantity.voyager.api.GetStoryBoardSencesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardSencesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2249,9 +2249,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardSences",
-      com.common.GetStoryBoardSencesRequest::class,
-      com.common.GetStoryBoardSencesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences",
+      com.rankquantity.voyager.api.GetStoryBoardSencesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardSencesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2265,9 +2265,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryBoardSence",
-      com.common.CreateStoryBoardSenceRequest::class,
-      com.common.CreateStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence",
+      com.rankquantity.voyager.api.CreateStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.CreateStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2284,9 +2284,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryBoardSence",
-      com.common.CreateStoryBoardSenceRequest::class,
-      com.common.CreateStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence",
+      com.rankquantity.voyager.api.CreateStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.CreateStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2300,9 +2300,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryBoardSence",
-      com.common.UpdateStoryBoardSenceRequest::class,
-      com.common.UpdateStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence",
+      com.rankquantity.voyager.api.UpdateStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2319,9 +2319,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryBoardSence",
-      com.common.UpdateStoryBoardSenceRequest::class,
-      com.common.UpdateStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence",
+      com.rankquantity.voyager.api.UpdateStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2335,9 +2335,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryBoardSence",
-      com.common.DeleteStoryBoardSenceRequest::class,
-      com.common.DeleteStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence",
+      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2354,9 +2354,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryBoardSence",
-      com.common.DeleteStoryBoardSenceRequest::class,
-      com.common.DeleteStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence",
+      com.rankquantity.voyager.api.DeleteStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2370,9 +2370,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryBoardSence",
-      com.common.RenderStoryBoardSenceRequest::class,
-      com.common.RenderStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence",
+      com.rankquantity.voyager.api.RenderStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.RenderStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2389,9 +2389,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryBoardSence",
-      com.common.RenderStoryBoardSenceRequest::class,
-      com.common.RenderStoryBoardSenceResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence",
+      com.rankquantity.voyager.api.RenderStoryBoardSenceRequest::class,
+      com.rankquantity.voyager.api.RenderStoryBoardSenceResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2405,9 +2405,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryBoardSences",
-      com.common.RenderStoryBoardSencesRequest::class,
-      com.common.RenderStoryBoardSencesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences",
+      com.rankquantity.voyager.api.RenderStoryBoardSencesRequest::class,
+      com.rankquantity.voyager.api.RenderStoryBoardSencesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2424,9 +2424,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryBoardSences",
-      com.common.RenderStoryBoardSencesRequest::class,
-      com.common.RenderStoryBoardSencesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences",
+      com.rankquantity.voyager.api.RenderStoryBoardSencesRequest::class,
+      com.rankquantity.voyager.api.RenderStoryBoardSencesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2440,9 +2440,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardSenceGenerate",
-      com.common.GetStoryBoardSenceGenerateRequest::class,
-      com.common.GetStoryBoardSenceGenerateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate",
+      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2459,9 +2459,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardSenceGenerate",
-      com.common.GetStoryBoardSenceGenerateRequest::class,
-      com.common.GetStoryBoardSenceGenerateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate",
+      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardSenceGenerateResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2475,9 +2475,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardGenerate",
-      com.common.GetStoryBoardGenerateRequest::class,
-      com.common.GetStoryBoardGenerateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate",
+      com.rankquantity.voyager.api.GetStoryBoardGenerateRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardGenerateResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2494,9 +2494,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardGenerate",
-      com.common.GetStoryBoardGenerateRequest::class,
-      com.common.GetStoryBoardGenerateResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate",
+      com.rankquantity.voyager.api.GetStoryBoardGenerateRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardGenerateResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2510,9 +2510,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryRole",
-      com.common.LikeStoryRoleRequest::class,
-      com.common.LikeStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryRole",
+      com.rankquantity.voyager.api.LikeStoryRoleRequest::class,
+      com.rankquantity.voyager.api.LikeStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2529,9 +2529,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryRole",
-      com.common.LikeStoryRoleRequest::class,
-      com.common.LikeStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryRole",
+      com.rankquantity.voyager.api.LikeStoryRoleRequest::class,
+      com.rankquantity.voyager.api.LikeStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2545,9 +2545,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryRole",
-      com.common.UnLikeStoryRoleRequest::class,
-      com.common.UnLikeStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole",
+      com.rankquantity.voyager.api.UnLikeStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2564,9 +2564,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryRole",
-      com.common.UnLikeStoryRoleRequest::class,
-      com.common.UnLikeStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole",
+      com.rankquantity.voyager.api.UnLikeStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2580,9 +2580,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FollowStoryRole",
-      com.common.FollowStoryRoleRequest::class,
-      com.common.FollowStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FollowStoryRole",
+      com.rankquantity.voyager.api.FollowStoryRoleRequest::class,
+      com.rankquantity.voyager.api.FollowStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2599,9 +2599,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FollowStoryRole",
-      com.common.FollowStoryRoleRequest::class,
-      com.common.FollowStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FollowStoryRole",
+      com.rankquantity.voyager.api.FollowStoryRoleRequest::class,
+      com.rankquantity.voyager.api.FollowStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2615,9 +2615,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnFollowStoryRole",
-      com.common.UnFollowStoryRoleRequest::class,
-      com.common.UnFollowStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole",
+      com.rankquantity.voyager.api.UnFollowStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UnFollowStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2634,9 +2634,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnFollowStoryRole",
-      com.common.UnFollowStoryRoleRequest::class,
-      com.common.UnFollowStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole",
+      com.rankquantity.voyager.api.UnFollowStoryRoleRequest::class,
+      com.rankquantity.voyager.api.UnFollowStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2650,9 +2650,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchStories",
-      com.common.SearchStoriesRequest::class,
-      com.common.SearchStoriesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchStories",
+      com.rankquantity.voyager.api.SearchStoriesRequest::class,
+      com.rankquantity.voyager.api.SearchStoriesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2669,9 +2669,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchStories",
-      com.common.SearchStoriesRequest::class,
-      com.common.SearchStoriesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchStories",
+      com.rankquantity.voyager.api.SearchStoriesRequest::class,
+      com.rankquantity.voyager.api.SearchStoriesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2685,9 +2685,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchGroup",
-      com.common.SearchGroupRequest::class,
-      com.common.SearchGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchGroup",
+      com.rankquantity.voyager.api.SearchGroupRequest::class,
+      com.rankquantity.voyager.api.SearchGroupResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2704,9 +2704,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchGroup",
-      com.common.SearchGroupRequest::class,
-      com.common.SearchGroupResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchGroup",
+      com.rankquantity.voyager.api.SearchGroupRequest::class,
+      com.rankquantity.voyager.api.SearchGroupResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2720,9 +2720,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchRoles",
-      com.common.SearchRolesRequest::class,
-      com.common.SearchRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchRoles",
+      com.rankquantity.voyager.api.SearchRolesRequest::class,
+      com.rankquantity.voyager.api.SearchRolesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2739,9 +2739,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SearchRoles",
-      com.common.SearchRolesRequest::class,
-      com.common.SearchRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SearchRoles",
+      com.rankquantity.voyager.api.SearchRolesRequest::class,
+      com.rankquantity.voyager.api.SearchRolesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2755,9 +2755,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RestoreStoryboard",
-      com.common.RestoreStoryboardRequest::class,
-      com.common.RestoreStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RestoreStoryboard",
+      com.rankquantity.voyager.api.RestoreStoryboardRequest::class,
+      com.rankquantity.voyager.api.RestoreStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2774,9 +2774,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RestoreStoryboard",
-      com.common.RestoreStoryboardRequest::class,
-      com.common.RestoreStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RestoreStoryboard",
+      com.rankquantity.voyager.api.RestoreStoryboardRequest::class,
+      com.rankquantity.voyager.api.RestoreStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2790,9 +2790,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserCreatedStoryboards",
-      com.common.GetUserCreatedStoryboardsRequest::class,
-      com.common.GetUserCreatedStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards",
+      com.rankquantity.voyager.api.GetUserCreatedStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetUserCreatedStoryboardsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2809,9 +2809,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserCreatedStoryboards",
-      com.common.GetUserCreatedStoryboardsRequest::class,
-      com.common.GetUserCreatedStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards",
+      com.rankquantity.voyager.api.GetUserCreatedStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetUserCreatedStoryboardsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2825,9 +2825,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserCreatedRoles",
-      com.common.GetUserCreatedRolesRequest::class,
-      com.common.GetUserCreatedRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles",
+      com.rankquantity.voyager.api.GetUserCreatedRolesRequest::class,
+      com.rankquantity.voyager.api.GetUserCreatedRolesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2844,9 +2844,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserCreatedRoles",
-      com.common.GetUserCreatedRolesRequest::class,
-      com.common.GetUserCreatedRolesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles",
+      com.rankquantity.voyager.api.GetUserCreatedRolesRequest::class,
+      com.rankquantity.voyager.api.GetUserCreatedRolesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2860,9 +2860,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleStoryboards",
-      com.common.GetStoryRoleStoryboardsRequest::class,
-      com.common.GetStoryRoleStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards",
+      com.rankquantity.voyager.api.GetStoryRoleStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleStoryboardsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2879,9 +2879,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleStoryboards",
-      com.common.GetStoryRoleStoryboardsRequest::class,
-      com.common.GetStoryRoleStoryboardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards",
+      com.rankquantity.voyager.api.GetStoryRoleStoryboardsRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleStoryboardsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2895,9 +2895,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleStories",
-      com.common.GetStoryRoleStoriesRequest::class,
-      com.common.GetStoryRoleStoriesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories",
+      com.rankquantity.voyager.api.GetStoryRoleStoriesRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleStoriesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2914,9 +2914,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleStories",
-      com.common.GetStoryRoleStoriesRequest::class,
-      com.common.GetStoryRoleStoriesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories",
+      com.rankquantity.voyager.api.GetStoryRoleStoriesRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleStoriesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2930,9 +2930,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryRoleChat",
-      com.common.CreateStoryRoleChatRequest::class,
-      com.common.CreateStoryRoleChatResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat",
+      com.rankquantity.voyager.api.CreateStoryRoleChatRequest::class,
+      com.rankquantity.voyager.api.CreateStoryRoleChatResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2949,9 +2949,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryRoleChat",
-      com.common.CreateStoryRoleChatRequest::class,
-      com.common.CreateStoryRoleChatResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat",
+      com.rankquantity.voyager.api.CreateStoryRoleChatRequest::class,
+      com.rankquantity.voyager.api.CreateStoryRoleChatResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -2965,9 +2965,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ChatWithStoryRole",
-      com.common.ChatWithStoryRoleRequest::class,
-      com.common.ChatWithStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole",
+      com.rankquantity.voyager.api.ChatWithStoryRoleRequest::class,
+      com.rankquantity.voyager.api.ChatWithStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -2984,9 +2984,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/ChatWithStoryRole",
-      com.common.ChatWithStoryRoleRequest::class,
-      com.common.ChatWithStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole",
+      com.rankquantity.voyager.api.ChatWithStoryRoleRequest::class,
+      com.rankquantity.voyager.api.ChatWithStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3000,9 +3000,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleAvator",
-      com.common.UpdateStoryRoleAvatorRequest::class,
-      com.common.UpdateStoryRoleAvatorResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator",
+      com.rankquantity.voyager.api.UpdateStoryRoleAvatorRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleAvatorResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3019,9 +3019,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleAvator",
-      com.common.UpdateStoryRoleAvatorRequest::class,
-      com.common.UpdateStoryRoleAvatorResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator",
+      com.rankquantity.voyager.api.UpdateStoryRoleAvatorRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleAvatorResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3035,9 +3035,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleDetail",
-      com.common.UpdateStoryRoleDetailRequest::class,
-      com.common.UpdateStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail",
+      com.rankquantity.voyager.api.UpdateStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3054,9 +3054,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleDetail",
-      com.common.UpdateStoryRoleDetailRequest::class,
-      com.common.UpdateStoryRoleDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail",
+      com.rankquantity.voyager.api.UpdateStoryRoleDetailRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleDetailResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3070,9 +3070,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWithRoleChatList",
-      com.common.GetUserWithRoleChatListRequest::class,
-      com.common.GetUserWithRoleChatListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList",
+      com.rankquantity.voyager.api.GetUserWithRoleChatListRequest::class,
+      com.rankquantity.voyager.api.GetUserWithRoleChatListResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3089,9 +3089,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWithRoleChatList",
-      com.common.GetUserWithRoleChatListRequest::class,
-      com.common.GetUserWithRoleChatListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList",
+      com.rankquantity.voyager.api.GetUserWithRoleChatListRequest::class,
+      com.rankquantity.voyager.api.GetUserWithRoleChatListResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3105,9 +3105,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserChatWithRole",
-      com.common.GetUserChatWithRoleRequest::class,
-      com.common.GetUserChatWithRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole",
+      com.rankquantity.voyager.api.GetUserChatWithRoleRequest::class,
+      com.rankquantity.voyager.api.GetUserChatWithRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3124,9 +3124,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserChatWithRole",
-      com.common.GetUserChatWithRoleRequest::class,
-      com.common.GetUserChatWithRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole",
+      com.rankquantity.voyager.api.GetUserChatWithRoleRequest::class,
+      com.rankquantity.voyager.api.GetUserChatWithRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3140,9 +3140,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserChatMessages",
-      com.common.GetUserChatMessagesRequest::class,
-      com.common.GetUserChatMessagesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserChatMessages",
+      com.rankquantity.voyager.api.GetUserChatMessagesRequest::class,
+      com.rankquantity.voyager.api.GetUserChatMessagesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3159,9 +3159,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserChatMessages",
-      com.common.GetUserChatMessagesRequest::class,
-      com.common.GetUserChatMessagesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserChatMessages",
+      com.rankquantity.voyager.api.GetUserChatMessagesRequest::class,
+      com.rankquantity.voyager.api.GetUserChatMessagesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3175,9 +3175,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchActives",
-      com.common.FetchActivesRequest::class,
-      com.common.FetchActivesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchActives",
+      com.rankquantity.voyager.api.FetchActivesRequest::class,
+      com.rankquantity.voyager.api.FetchActivesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3194,9 +3194,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchActives",
-      com.common.FetchActivesRequest::class,
-      com.common.FetchActivesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchActives",
+      com.rankquantity.voyager.api.FetchActivesRequest::class,
+      com.rankquantity.voyager.api.FetchActivesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3210,9 +3210,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetNextStoryboard",
-      com.common.GetNextStoryboardRequest::class,
-      com.common.GetNextStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetNextStoryboard",
+      com.rankquantity.voyager.api.GetNextStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetNextStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3229,9 +3229,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetNextStoryboard",
-      com.common.GetNextStoryboardRequest::class,
-      com.common.GetNextStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetNextStoryboard",
+      com.rankquantity.voyager.api.GetNextStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetNextStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3245,9 +3245,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoleContinuously",
-      com.common.RenderStoryRoleContinuouslyRequest::class,
-      com.common.RenderStoryRoleContinuouslyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously",
+      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3264,9 +3264,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/RenderStoryRoleContinuously",
-      com.common.RenderStoryRoleContinuouslyRequest::class,
-      com.common.RenderStoryRoleContinuouslyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously",
+      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyRequest::class,
+      com.rankquantity.voyager.api.RenderStoryRoleContinuouslyResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3280,9 +3280,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/PublishStoryboard",
-      com.common.PublishStoryboardRequest::class,
-      com.common.PublishStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/PublishStoryboard",
+      com.rankquantity.voyager.api.PublishStoryboardRequest::class,
+      com.rankquantity.voyager.api.PublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3299,9 +3299,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/PublishStoryboard",
-      com.common.PublishStoryboardRequest::class,
-      com.common.PublishStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/PublishStoryboard",
+      com.rankquantity.voyager.api.PublishStoryboardRequest::class,
+      com.rankquantity.voyager.api.PublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3315,9 +3315,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CancelStoryboard",
-      com.common.CancelStoryboardRequest::class,
-      com.common.CancelStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CancelStoryboard",
+      com.rankquantity.voyager.api.CancelStoryboardRequest::class,
+      com.rankquantity.voyager.api.CancelStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3334,9 +3334,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CancelStoryboard",
-      com.common.CancelStoryboardRequest::class,
-      com.common.CancelStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CancelStoryboard",
+      com.rankquantity.voyager.api.CancelStoryboardRequest::class,
+      com.rankquantity.voyager.api.CancelStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3347,9 +3347,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWatchStoryActiveStoryBoards",
-      com.common.GetUserWatchStoryActiveStoryBoardsRequest::class,
-      com.common.GetUserWatchStoryActiveStoryBoardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards",
+      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsRequest::class,
+      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3363,9 +3363,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWatchStoryActiveStoryBoards",
-      com.common.GetUserWatchStoryActiveStoryBoardsRequest::class,
-      com.common.GetUserWatchStoryActiveStoryBoardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards",
+      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsRequest::class,
+      com.rankquantity.voyager.api.GetUserWatchStoryActiveStoryBoardsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3376,9 +3376,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWatchRoleActiveStoryBoards",
-      com.common.GetUserWatchRoleActiveStoryBoardsRequest::class,
-      com.common.GetUserWatchRoleActiveStoryBoardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards",
+      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsRequest::class,
+      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3392,9 +3392,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUserWatchRoleActiveStoryBoards",
-      com.common.GetUserWatchRoleActiveStoryBoardsRequest::class,
-      com.common.GetUserWatchRoleActiveStoryBoardsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards",
+      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsRequest::class,
+      com.rankquantity.voyager.api.GetUserWatchRoleActiveStoryBoardsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3405,9 +3405,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUnPublishStoryboard",
-      com.common.GetUnPublishStoryboardRequest::class,
-      com.common.GetUnPublishStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard",
+      com.rankquantity.voyager.api.GetUnPublishStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetUnPublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3421,9 +3421,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetUnPublishStoryboard",
-      com.common.GetUnPublishStoryboardRequest::class,
-      com.common.GetUnPublishStoryboardResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard",
+      com.rankquantity.voyager.api.GetUnPublishStoryboardRequest::class,
+      com.rankquantity.voyager.api.GetUnPublishStoryboardResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3434,9 +3434,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRoleDescription",
-      com.common.GenerateRoleDescriptionRequest::class,
-      com.common.GenerateRoleDescriptionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription",
+      com.rankquantity.voyager.api.GenerateRoleDescriptionRequest::class,
+      com.rankquantity.voyager.api.GenerateRoleDescriptionResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3450,9 +3450,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRoleDescription",
-      com.common.GenerateRoleDescriptionRequest::class,
-      com.common.GenerateRoleDescriptionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription",
+      com.rankquantity.voyager.api.GenerateRoleDescriptionRequest::class,
+      com.rankquantity.voyager.api.GenerateRoleDescriptionResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3463,9 +3463,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateRoleDescription",
-      com.common.UpdateRoleDescriptionRequest::class,
-      com.common.UpdateRoleDescriptionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription",
+      com.rankquantity.voyager.api.UpdateRoleDescriptionRequest::class,
+      com.rankquantity.voyager.api.UpdateRoleDescriptionResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3479,9 +3479,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateRoleDescription",
-      com.common.UpdateRoleDescriptionRequest::class,
-      com.common.UpdateRoleDescriptionResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription",
+      com.rankquantity.voyager.api.UpdateRoleDescriptionRequest::class,
+      com.rankquantity.voyager.api.UpdateRoleDescriptionResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3492,9 +3492,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRolePrompt",
-      com.common.GenerateRolePromptRequest::class,
-      com.common.GenerateRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt",
+      com.rankquantity.voyager.api.GenerateRolePromptRequest::class,
+      com.rankquantity.voyager.api.GenerateRolePromptResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3508,9 +3508,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRolePrompt",
-      com.common.GenerateRolePromptRequest::class,
-      com.common.GenerateRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt",
+      com.rankquantity.voyager.api.GenerateRolePromptRequest::class,
+      com.rankquantity.voyager.api.GenerateRolePromptResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3521,9 +3521,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateRolePrompt",
-      com.common.UpdateRolePromptRequest::class,
-      com.common.UpdateRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt",
+      com.rankquantity.voyager.api.UpdateRolePromptRequest::class,
+      com.rankquantity.voyager.api.UpdateRolePromptResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3537,9 +3537,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateRolePrompt",
-      com.common.UpdateRolePromptRequest::class,
-      com.common.UpdateRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt",
+      com.rankquantity.voyager.api.UpdateRolePromptRequest::class,
+      com.rankquantity.voyager.api.UpdateRolePromptResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3553,9 +3553,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryComment",
-      com.common.CreateStoryCommentRequest::class,
-      com.common.CreateStoryCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryComment",
+      com.rankquantity.voyager.api.CreateStoryCommentRequest::class,
+      com.rankquantity.voyager.api.CreateStoryCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3572,9 +3572,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryComment",
-      com.common.CreateStoryCommentRequest::class,
-      com.common.CreateStoryCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryComment",
+      com.rankquantity.voyager.api.CreateStoryCommentRequest::class,
+      com.rankquantity.voyager.api.CreateStoryCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3588,9 +3588,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryComments",
-      com.common.GetStoryCommentsRequest::class,
-      com.common.GetStoryCommentsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryComments",
+      com.rankquantity.voyager.api.GetStoryCommentsRequest::class,
+      com.rankquantity.voyager.api.GetStoryCommentsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3607,9 +3607,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryComments",
-      com.common.GetStoryCommentsRequest::class,
-      com.common.GetStoryCommentsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryComments",
+      com.rankquantity.voyager.api.GetStoryCommentsRequest::class,
+      com.rankquantity.voyager.api.GetStoryCommentsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3623,9 +3623,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryComment",
-      com.common.DeleteStoryCommentRequest::class,
-      com.common.DeleteStoryCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryComment",
+      com.rankquantity.voyager.api.DeleteStoryCommentRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3642,9 +3642,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryComment",
-      com.common.DeleteStoryCommentRequest::class,
-      com.common.DeleteStoryCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryComment",
+      com.rankquantity.voyager.api.DeleteStoryCommentRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3658,9 +3658,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryCommentReplies",
-      com.common.GetStoryCommentRepliesRequest::class,
-      com.common.GetStoryCommentRepliesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies",
+      com.rankquantity.voyager.api.GetStoryCommentRepliesRequest::class,
+      com.rankquantity.voyager.api.GetStoryCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3677,9 +3677,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryCommentReplies",
-      com.common.GetStoryCommentRepliesRequest::class,
-      com.common.GetStoryCommentRepliesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies",
+      com.rankquantity.voyager.api.GetStoryCommentRepliesRequest::class,
+      com.rankquantity.voyager.api.GetStoryCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3693,9 +3693,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryCommentReply",
-      com.common.CreateStoryCommentReplyRequest::class,
-      com.common.CreateStoryCommentReplyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply",
+      com.rankquantity.voyager.api.CreateStoryCommentReplyRequest::class,
+      com.rankquantity.voyager.api.CreateStoryCommentReplyResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3712,9 +3712,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryCommentReply",
-      com.common.CreateStoryCommentReplyRequest::class,
-      com.common.CreateStoryCommentReplyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply",
+      com.rankquantity.voyager.api.CreateStoryCommentReplyRequest::class,
+      com.rankquantity.voyager.api.CreateStoryCommentReplyResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3728,9 +3728,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryCommentReply",
-      com.common.DeleteStoryCommentReplyRequest::class,
-      com.common.DeleteStoryCommentReplyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply",
+      com.rankquantity.voyager.api.DeleteStoryCommentReplyRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryCommentReplyResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3747,9 +3747,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryCommentReply",
-      com.common.DeleteStoryCommentReplyRequest::class,
-      com.common.DeleteStoryCommentReplyResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply",
+      com.rankquantity.voyager.api.DeleteStoryCommentReplyRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryCommentReplyResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3763,9 +3763,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardComments",
-      com.common.GetStoryBoardCommentsRequest::class,
-      com.common.GetStoryBoardCommentsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments",
+      com.rankquantity.voyager.api.GetStoryBoardCommentsRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardCommentsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3782,9 +3782,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardComments",
-      com.common.GetStoryBoardCommentsRequest::class,
-      com.common.GetStoryBoardCommentsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments",
+      com.rankquantity.voyager.api.GetStoryBoardCommentsRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardCommentsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3798,9 +3798,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryBoardComment",
-      com.common.CreateStoryBoardCommentRequest::class,
-      com.common.CreateStoryBoardCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment",
+      com.rankquantity.voyager.api.CreateStoryBoardCommentRequest::class,
+      com.rankquantity.voyager.api.CreateStoryBoardCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3817,9 +3817,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/CreateStoryBoardComment",
-      com.common.CreateStoryBoardCommentRequest::class,
-      com.common.CreateStoryBoardCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment",
+      com.rankquantity.voyager.api.CreateStoryBoardCommentRequest::class,
+      com.rankquantity.voyager.api.CreateStoryBoardCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3833,9 +3833,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryBoardComment",
-      com.common.DeleteStoryBoardCommentRequest::class,
-      com.common.DeleteStoryBoardCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment",
+      com.rankquantity.voyager.api.DeleteStoryBoardCommentRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryBoardCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3852,9 +3852,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DeleteStoryBoardComment",
-      com.common.DeleteStoryBoardCommentRequest::class,
-      com.common.DeleteStoryBoardCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment",
+      com.rankquantity.voyager.api.DeleteStoryBoardCommentRequest::class,
+      com.rankquantity.voyager.api.DeleteStoryBoardCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3868,9 +3868,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardCommentReplies",
-      com.common.GetStoryBoardCommentRepliesRequest::class,
-      com.common.GetStoryBoardCommentRepliesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies",
+      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3887,9 +3887,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryBoardCommentReplies",
-      com.common.GetStoryBoardCommentRepliesRequest::class,
-      com.common.GetStoryBoardCommentRepliesResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies",
+      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesRequest::class,
+      com.rankquantity.voyager.api.GetStoryBoardCommentRepliesResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3903,9 +3903,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeComment",
-      com.common.LikeCommentRequest::class,
-      com.common.LikeCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeComment",
+      com.rankquantity.voyager.api.LikeCommentRequest::class,
+      com.rankquantity.voyager.api.LikeCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3922,9 +3922,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeComment",
-      com.common.LikeCommentRequest::class,
-      com.common.LikeCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeComment",
+      com.rankquantity.voyager.api.LikeCommentRequest::class,
+      com.rankquantity.voyager.api.LikeCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3938,9 +3938,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DislikeComment",
-      com.common.DislikeCommentRequest::class,
-      com.common.DislikeCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DislikeComment",
+      com.rankquantity.voyager.api.DislikeCommentRequest::class,
+      com.rankquantity.voyager.api.DislikeCommentResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3957,9 +3957,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/DislikeComment",
-      com.common.DislikeCommentRequest::class,
-      com.common.DislikeCommentResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/DislikeComment",
+      com.rankquantity.voyager.api.DislikeCommentRequest::class,
+      com.rankquantity.voyager.api.DislikeCommentResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -3973,9 +3973,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleList",
-      com.common.GetStoryRoleListRequest::class,
-      com.common.GetStoryRoleListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleList",
+      com.rankquantity.voyager.api.GetStoryRoleListRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleListResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -3992,9 +3992,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRoleList",
-      com.common.GetStoryRoleListRequest::class,
-      com.common.GetStoryRoleListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRoleList",
+      com.rankquantity.voyager.api.GetStoryRoleListRequest::class,
+      com.rankquantity.voyager.api.GetStoryRoleListResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4008,9 +4008,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/TrendingStory",
-      com.common.TrendingStoryRequest::class,
-      com.common.TrendingStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/TrendingStory",
+      com.rankquantity.voyager.api.TrendingStoryRequest::class,
+      com.rankquantity.voyager.api.TrendingStoryResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4027,9 +4027,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/TrendingStory",
-      com.common.TrendingStoryRequest::class,
-      com.common.TrendingStoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/TrendingStory",
+      com.rankquantity.voyager.api.TrendingStoryRequest::class,
+      com.rankquantity.voyager.api.TrendingStoryResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4043,9 +4043,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/TrendingStoryRole",
-      com.common.TrendingStoryRoleRequest::class,
-      com.common.TrendingStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/TrendingStoryRole",
+      com.rankquantity.voyager.api.TrendingStoryRoleRequest::class,
+      com.rankquantity.voyager.api.TrendingStoryRoleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4062,9 +4062,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/TrendingStoryRole",
-      com.common.TrendingStoryRoleRequest::class,
-      com.common.TrendingStoryRoleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/TrendingStoryRole",
+      com.rankquantity.voyager.api.TrendingStoryRoleRequest::class,
+      com.rankquantity.voyager.api.TrendingStoryRoleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4078,9 +4078,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FollowUser",
-      com.common.FollowUserRequest::class,
-      com.common.FollowUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FollowUser",
+      com.rankquantity.voyager.api.FollowUserRequest::class,
+      com.rankquantity.voyager.api.FollowUserResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4097,9 +4097,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FollowUser",
-      com.common.FollowUserRequest::class,
-      com.common.FollowUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FollowUser",
+      com.rankquantity.voyager.api.FollowUserRequest::class,
+      com.rankquantity.voyager.api.FollowUserResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4113,9 +4113,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnfollowUser",
-      com.common.UnfollowUserRequest::class,
-      com.common.UnfollowUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnfollowUser",
+      com.rankquantity.voyager.api.UnfollowUserRequest::class,
+      com.rankquantity.voyager.api.UnfollowUserResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4132,9 +4132,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnfollowUser",
-      com.common.UnfollowUserRequest::class,
-      com.common.UnfollowUserResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnfollowUser",
+      com.rankquantity.voyager.api.UnfollowUserRequest::class,
+      com.rankquantity.voyager.api.UnfollowUserResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4148,9 +4148,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetFollowList",
-      com.common.GetFollowListRequest::class,
-      com.common.GetFollowListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetFollowList",
+      com.rankquantity.voyager.api.GetFollowListRequest::class,
+      com.rankquantity.voyager.api.GetFollowListResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4167,9 +4167,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetFollowList",
-      com.common.GetFollowListRequest::class,
-      com.common.GetFollowListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetFollowList",
+      com.rankquantity.voyager.api.GetFollowListRequest::class,
+      com.rankquantity.voyager.api.GetFollowListResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4183,9 +4183,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetFollowerList",
-      com.common.GetFollowerListRequest::class,
-      com.common.GetFollowerListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetFollowerList",
+      com.rankquantity.voyager.api.GetFollowerListRequest::class,
+      com.rankquantity.voyager.api.GetFollowerListResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4202,9 +4202,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetFollowerList",
-      com.common.GetFollowerListRequest::class,
-      com.common.GetFollowerListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetFollowerList",
+      com.rankquantity.voyager.api.GetFollowerListRequest::class,
+      com.rankquantity.voyager.api.GetFollowerListResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4218,9 +4218,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePrompt",
-      com.common.UpdateStoryRolePromptRequest::class,
-      com.common.UpdateStoryRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt",
+      com.rankquantity.voyager.api.UpdateStoryRolePromptRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRolePromptResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4237,9 +4237,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePrompt",
-      com.common.UpdateStoryRolePromptRequest::class,
-      com.common.UpdateStoryRolePromptResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt",
+      com.rankquantity.voyager.api.UpdateStoryRolePromptRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRolePromptResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4253,9 +4253,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleDescriptionDetail",
-      com.common.UpdateStoryRoleDescriptionDetailRequest::class,
-      com.common.UpdateStoryRoleDescriptionDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail",
+      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4272,9 +4272,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRoleDescriptionDetail",
-      com.common.UpdateStoryRoleDescriptionDetailRequest::class,
-      com.common.UpdateStoryRoleDescriptionDetailResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail",
+      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4288,9 +4288,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/QueryTaskStatus",
-      com.common.QueryTaskStatusRequest::class,
-      com.common.QueryTaskStatusResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/QueryTaskStatus",
+      com.rankquantity.voyager.api.QueryTaskStatusRequest::class,
+      com.rankquantity.voyager.api.QueryTaskStatusResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4307,9 +4307,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/QueryTaskStatus",
-      com.common.QueryTaskStatusRequest::class,
-      com.common.QueryTaskStatusResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/QueryTaskStatus",
+      com.rankquantity.voyager.api.QueryTaskStatusRequest::class,
+      com.rankquantity.voyager.api.QueryTaskStatusResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4323,9 +4323,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryImageStyle",
-      com.common.GetStoryImageStyleRequest::class,
-      com.common.GetStoryImageStyleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle",
+      com.rankquantity.voyager.api.GetStoryImageStyleRequest::class,
+      com.rankquantity.voyager.api.GetStoryImageStyleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4342,9 +4342,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryImageStyle",
-      com.common.GetStoryImageStyleRequest::class,
-      com.common.GetStoryImageStyleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle",
+      com.rankquantity.voyager.api.GetStoryImageStyleRequest::class,
+      com.rankquantity.voyager.api.GetStoryImageStyleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4358,9 +4358,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryImageStyle",
-      com.common.UpdateStoryImageStyleRequest::class,
-      com.common.UpdateStoryImageStyleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle",
+      com.rankquantity.voyager.api.UpdateStoryImageStyleRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryImageStyleResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4377,9 +4377,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryImageStyle",
-      com.common.UpdateStoryImageStyleRequest::class,
-      com.common.UpdateStoryImageStyleResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle",
+      com.rankquantity.voyager.api.UpdateStoryImageStyleRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryImageStyleResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4393,9 +4393,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStorySenceMaxNumber",
-      com.common.UpdateStorySenceMaxNumberRequest::class,
-      com.common.UpdateStorySenceMaxNumberResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber",
+      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberRequest::class,
+      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4412,9 +4412,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStorySenceMaxNumber",
-      com.common.UpdateStorySenceMaxNumberRequest::class,
-      com.common.UpdateStorySenceMaxNumberResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber",
+      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberRequest::class,
+      com.rankquantity.voyager.api.UpdateStorySenceMaxNumberResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4428,9 +4428,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryAvatar",
-      com.common.UpdateStoryAvatarRequest::class,
-      com.common.UpdateStoryAvatarResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar",
+      com.rankquantity.voyager.api.UpdateStoryAvatarRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryAvatarResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4447,9 +4447,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryAvatar",
-      com.common.UpdateStoryAvatarRequest::class,
-      com.common.UpdateStoryAvatarResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar",
+      com.rankquantity.voyager.api.UpdateStoryAvatarRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryAvatarResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4463,9 +4463,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryCover",
-      com.common.UpdateStoryCoverRequest::class,
-      com.common.UpdateStoryCoverResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryCover",
+      com.rankquantity.voyager.api.UpdateStoryCoverRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryCoverResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4482,9 +4482,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryCover",
-      com.common.UpdateStoryCoverRequest::class,
-      com.common.UpdateStoryCoverResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryCover",
+      com.rankquantity.voyager.api.UpdateStoryCoverRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryCoverResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4498,9 +4498,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SaveStoryboardCraft",
-      com.common.SaveStoryboardCraftRequest::class,
-      com.common.SaveStoryboardCraftResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft",
+      com.rankquantity.voyager.api.SaveStoryboardCraftRequest::class,
+      com.rankquantity.voyager.api.SaveStoryboardCraftResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4517,9 +4517,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/SaveStoryboardCraft",
-      com.common.SaveStoryboardCraftRequest::class,
-      com.common.SaveStoryboardCraftResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft",
+      com.rankquantity.voyager.api.SaveStoryboardCraftRequest::class,
+      com.rankquantity.voyager.api.SaveStoryboardCraftResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4533,9 +4533,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryParticipants",
-      com.common.GetStoryParticipantsRequest::class,
-      com.common.GetStoryParticipantsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryParticipants",
+      com.rankquantity.voyager.api.GetStoryParticipantsRequest::class,
+      com.rankquantity.voyager.api.GetStoryParticipantsResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4552,9 +4552,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryParticipants",
-      com.common.GetStoryParticipantsRequest::class,
-      com.common.GetStoryParticipantsResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryParticipants",
+      com.rankquantity.voyager.api.GetStoryParticipantsRequest::class,
+      com.rankquantity.voyager.api.GetStoryParticipantsResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4568,9 +4568,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStorySceneVideo",
-      com.common.GenerateStorySceneVideoRequest::class,
-      com.common.GenerateStorySceneVideoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo",
+      com.rankquantity.voyager.api.GenerateStorySceneVideoRequest::class,
+      com.rankquantity.voyager.api.GenerateStorySceneVideoResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4587,9 +4587,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStorySceneVideo",
-      com.common.GenerateStorySceneVideoRequest::class,
-      com.common.GenerateStorySceneVideoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo",
+      com.rankquantity.voyager.api.GenerateStorySceneVideoRequest::class,
+      com.rankquantity.voyager.api.GenerateStorySceneVideoResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4600,9 +4600,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRoleAvatar",
-      com.common.GenerateRoleAvatarRequest::class,
-      com.common.GenerateRoleAvatarResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar",
+      com.rankquantity.voyager.api.GenerateRoleAvatarRequest::class,
+      com.rankquantity.voyager.api.GenerateRoleAvatarResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4616,9 +4616,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateRoleAvatar",
-      com.common.GenerateRoleAvatarRequest::class,
-      com.common.GenerateRoleAvatarResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar",
+      com.rankquantity.voyager.api.GenerateRoleAvatarRequest::class,
+      com.rankquantity.voyager.api.GenerateRoleAvatarResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4629,9 +4629,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchUserGenTaskStatus",
-      com.common.FetchUserGenTaskStatusRequest::class,
-      com.common.FetchUserGenTaskStatusResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus",
+      com.rankquantity.voyager.api.FetchUserGenTaskStatusRequest::class,
+      com.rankquantity.voyager.api.FetchUserGenTaskStatusResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4645,9 +4645,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/FetchUserGenTaskStatus",
-      com.common.FetchUserGenTaskStatusRequest::class,
-      com.common.FetchUserGenTaskStatusResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus",
+      com.rankquantity.voyager.api.FetchUserGenTaskStatusRequest::class,
+      com.rankquantity.voyager.api.FetchUserGenTaskStatusResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4661,9 +4661,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStoryRolePoster",
-      com.common.GenerateStoryRolePosterRequest::class,
-      com.common.GenerateStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster",
+      com.rankquantity.voyager.api.GenerateStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.GenerateStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4680,9 +4680,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStoryRolePoster",
-      com.common.GenerateStoryRolePosterRequest::class,
-      com.common.GenerateStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster",
+      com.rankquantity.voyager.api.GenerateStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.GenerateStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4696,9 +4696,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePoster",
-      com.common.UpdateStoryRolePosterRequest::class,
-      com.common.UpdateStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster",
+      com.rankquantity.voyager.api.UpdateStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4715,9 +4715,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UpdateStoryRolePoster",
-      com.common.UpdateStoryRolePosterRequest::class,
-      com.common.UpdateStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster",
+      com.rankquantity.voyager.api.UpdateStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4728,9 +4728,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryRolePoster",
-      com.common.LikeStoryRolePosterRequest::class,
-      com.common.LikeStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster",
+      com.rankquantity.voyager.api.LikeStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.LikeStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4744,9 +4744,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/LikeStoryRolePoster",
-      com.common.LikeStoryRolePosterRequest::class,
-      com.common.LikeStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster",
+      com.rankquantity.voyager.api.LikeStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.LikeStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4757,9 +4757,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryRolePoster",
-      com.common.UnLikeStoryRolePosterRequest::class,
-      com.common.UnLikeStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster",
+      com.rankquantity.voyager.api.UnLikeStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4773,9 +4773,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/UnLikeStoryRolePoster",
-      com.common.UnLikeStoryRolePosterRequest::class,
-      com.common.UnLikeStoryRolePosterResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster",
+      com.rankquantity.voyager.api.UnLikeStoryRolePosterRequest::class,
+      com.rankquantity.voyager.api.UnLikeStoryRolePosterResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4786,9 +4786,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRolePosterList",
-      com.common.GetStoryRolePosterListRequest::class,
-      com.common.GetStoryRolePosterListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList",
+      com.rankquantity.voyager.api.GetStoryRolePosterListRequest::class,
+      com.rankquantity.voyager.api.GetStoryRolePosterListResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4802,9 +4802,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GetStoryRolePosterList",
-      com.common.GetStoryRolePosterListRequest::class,
-      com.common.GetStoryRolePosterListResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList",
+      com.rankquantity.voyager.api.GetStoryRolePosterListRequest::class,
+      com.rankquantity.voyager.api.GetStoryRolePosterListResponse::class,
       StreamType.UNARY,
     ),
     onResult
@@ -4818,9 +4818,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStoryRoleVideo",
-      com.common.GenerateStoryRoleVideoRequest::class,
-      com.common.GenerateStoryRoleVideoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo",
+      com.rankquantity.voyager.api.GenerateStoryRoleVideoRequest::class,
+      com.rankquantity.voyager.api.GenerateStoryRoleVideoResponse::class,
       StreamType.UNARY,
     ),
   )
@@ -4837,9 +4837,9 @@ public class TeamsAPIClient(
     request,
     headers,
     MethodSpec(
-    "common.TeamsAPI/GenerateStoryRoleVideo",
-      com.common.GenerateStoryRoleVideoRequest::class,
-      com.common.GenerateStoryRoleVideoResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo",
+      com.rankquantity.voyager.api.GenerateStoryRoleVideoRequest::class,
+      com.rankquantity.voyager.api.GenerateStoryRoleVideoResponse::class,
       StreamType.UNARY,
     ),
     onResult

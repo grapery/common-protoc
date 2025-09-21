@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_UserPrivate: Sendable {
+public struct Rankquantity_Voyager_Api_UserPrivate: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -36,7 +36,7 @@ public struct Common_UserPrivate: Sendable {
   public init() {}
 }
 
-public struct Common_UserInfo: Sendable {
+public struct Rankquantity_Voyager_Api_UserInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -63,7 +63,7 @@ public struct Common_UserInfo: Sendable {
 }
 
 /// 用户的 profile
-public struct Common_UserProfileInfo: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_UserProfileInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -172,9 +172,9 @@ public struct Common_UserProfileInfo: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserPrivate"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}connect_type\0\u{2}\u{9}Ctime\0\u{1}Mtime\0")
 
@@ -205,7 +205,7 @@ extension Common_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserPrivate, rhs: Common_UserPrivate) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserPrivate, rhs: Rankquantity_Voyager_Api_UserPrivate) -> Bool {
     if lhs.connectType != rhs.connectType {return false}
     if lhs.ctime != rhs.ctime {return false}
     if lhs.mtime != rhs.mtime {return false}
@@ -214,7 +214,7 @@ extension Common_UserPrivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}avatar\0\u{1}email\0\u{1}location\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
@@ -265,7 +265,7 @@ extension Common_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserInfo, rhs: Common_UserInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserInfo, rhs: Rankquantity_Voyager_Api_UserInfo) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.avatar != rhs.avatar {return false}
@@ -279,7 +279,7 @@ extension Common_UserInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserProfileInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{3}num_group\0\u{3}default_group_id\0\u{3}min_same_group\0\u{1}limit\0\u{3}used_tokens\0\u{1}status\0\u{3}created_group_num\0\u{3}created_story_num\0\u{3}created_role_num\0\u{3}watching_story_num\0\u{3}watching_group_num\0\u{3}contribut_story_num\0\u{3}contribut_role_num\0\u{3}background_image\0\u{3}num_followers\0\u{3}num_following\0\u{2}\u{2}Ctime\0\u{1}Mtime\0")
 
@@ -438,7 +438,7 @@ extension Common_UserProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserProfileInfo, rhs: Common_UserProfileInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserProfileInfo, rhs: Rankquantity_Voyager_Api_UserProfileInfo) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

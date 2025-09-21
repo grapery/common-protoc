@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_WordDetail: Sendable {
+public struct Rankquantity_Voyager_Api_WordDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ public struct Common_WordDetail: Sendable {
   public init() {}
 }
 
-public struct Common_PictureInfo: Sendable {
+public struct Rankquantity_Voyager_Api_PictureInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -56,12 +56,12 @@ public struct Common_PictureInfo: Sendable {
   public init() {}
 }
 
-public struct Common_PictureDetail: Sendable {
+public struct Rankquantity_Voyager_Api_PictureDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var list: [Common_PictureInfo] = []
+  public var list: [Rankquantity_Voyager_Api_PictureInfo] = []
 
   public var total: Int64 = 0
 
@@ -76,7 +76,7 @@ public struct Common_PictureDetail: Sendable {
   public init() {}
 }
 
-public struct Common_VideoInfo: Sendable {
+public struct Rankquantity_Voyager_Api_VideoInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,12 +92,12 @@ public struct Common_VideoInfo: Sendable {
   public init() {}
 }
 
-public struct Common_VideoDetail: Sendable {
+public struct Rankquantity_Voyager_Api_VideoDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var list: [Common_VideoInfo] = []
+  public var list: [Rankquantity_Voyager_Api_VideoInfo] = []
 
   public var num: Int64 = 0
 
@@ -116,7 +116,7 @@ public struct Common_VideoDetail: Sendable {
   public init() {}
 }
 
-public struct Common_MusicShareDetail: Sendable {
+public struct Rankquantity_Voyager_Api_MusicShareDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -140,7 +140,7 @@ public struct Common_MusicShareDetail: Sendable {
   public init() {}
 }
 
-public struct Common_VoiceDetail: Sendable {
+public struct Rankquantity_Voyager_Api_VoiceDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -160,7 +160,7 @@ public struct Common_VoiceDetail: Sendable {
   public init() {}
 }
 
-public struct Common_ShareDetail: Sendable {
+public struct Rankquantity_Voyager_Api_ShareDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,7 +178,7 @@ public struct Common_ShareDetail: Sendable {
   public init() {}
 }
 
-public struct Common_Location: Sendable {
+public struct Rankquantity_Voyager_Api_Location: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -196,65 +196,65 @@ public struct Common_Location: Sendable {
   public init() {}
 }
 
-public struct Common_ItemDetail: Sendable {
+public struct Rankquantity_Voyager_Api_ItemDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var detail: Common_ItemDetail.OneOf_Detail? = nil
+  public var detail: Rankquantity_Voyager_Api_ItemDetail.OneOf_Detail? = nil
 
-  public var word: Common_WordDetail {
+  public var word: Rankquantity_Voyager_Api_WordDetail {
     get {
       if case .word(let v)? = detail {return v}
-      return Common_WordDetail()
+      return Rankquantity_Voyager_Api_WordDetail()
     }
     set {detail = .word(newValue)}
   }
 
-  public var pictures: Common_PictureDetail {
+  public var pictures: Rankquantity_Voyager_Api_PictureDetail {
     get {
       if case .pictures(let v)? = detail {return v}
-      return Common_PictureDetail()
+      return Rankquantity_Voyager_Api_PictureDetail()
     }
     set {detail = .pictures(newValue)}
   }
 
-  public var video: Common_VideoDetail {
+  public var video: Rankquantity_Voyager_Api_VideoDetail {
     get {
       if case .video(let v)? = detail {return v}
-      return Common_VideoDetail()
+      return Rankquantity_Voyager_Api_VideoDetail()
     }
     set {detail = .video(newValue)}
   }
 
-  public var music: Common_MusicShareDetail {
+  public var music: Rankquantity_Voyager_Api_MusicShareDetail {
     get {
       if case .music(let v)? = detail {return v}
-      return Common_MusicShareDetail()
+      return Rankquantity_Voyager_Api_MusicShareDetail()
     }
     set {detail = .music(newValue)}
   }
 
-  public var voice: Common_VoiceDetail {
+  public var voice: Rankquantity_Voyager_Api_VoiceDetail {
     get {
       if case .voice(let v)? = detail {return v}
-      return Common_VoiceDetail()
+      return Rankquantity_Voyager_Api_VoiceDetail()
     }
     set {detail = .voice(newValue)}
   }
 
-  public var share: Common_ShareDetail {
+  public var share: Rankquantity_Voyager_Api_ShareDetail {
     get {
       if case .share(let v)? = detail {return v}
-      return Common_ShareDetail()
+      return Rankquantity_Voyager_Api_ShareDetail()
     }
     set {detail = .share(newValue)}
   }
 
-  public var locate: Common_Location {
+  public var locate: Rankquantity_Voyager_Api_Location {
     get {
       if case .locate(let v)? = detail {return v}
-      return Common_Location()
+      return Rankquantity_Voyager_Api_Location()
     }
     set {detail = .locate(newValue)}
   }
@@ -263,8 +263,8 @@ public struct Common_ItemDetail: Sendable {
 
   public var prevID: String = String()
 
-  public var loc: Common_Location {
-    get {return _loc ?? Common_Location()}
+  public var loc: Rankquantity_Voyager_Api_Location {
+    get {return _loc ?? Rankquantity_Voyager_Api_Location()}
     set {_loc = newValue}
   }
   /// Returns true if `loc` has been explicitly set.
@@ -281,22 +281,22 @@ public struct Common_ItemDetail: Sendable {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Detail: Equatable, Sendable {
-    case word(Common_WordDetail)
-    case pictures(Common_PictureDetail)
-    case video(Common_VideoDetail)
-    case music(Common_MusicShareDetail)
-    case voice(Common_VoiceDetail)
-    case share(Common_ShareDetail)
-    case locate(Common_Location)
+    case word(Rankquantity_Voyager_Api_WordDetail)
+    case pictures(Rankquantity_Voyager_Api_PictureDetail)
+    case video(Rankquantity_Voyager_Api_VideoDetail)
+    case music(Rankquantity_Voyager_Api_MusicShareDetail)
+    case voice(Rankquantity_Voyager_Api_VoiceDetail)
+    case share(Rankquantity_Voyager_Api_ShareDetail)
+    case locate(Rankquantity_Voyager_Api_Location)
 
   }
 
   public init() {}
 
-  fileprivate var _loc: Common_Location? = nil
+  fileprivate var _loc: Rankquantity_Voyager_Api_Location? = nil
 }
 
-public struct Common_ItemInfo: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ItemInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -321,8 +321,8 @@ public struct Common_ItemInfo: @unchecked Sendable {
     set {_uniqueStorage()._title = newValue}
   }
 
-  public var content: Common_ItemDetail {
-    get {return _storage._content ?? Common_ItemDetail()}
+  public var content: Rankquantity_Voyager_Api_ItemDetail {
+    get {return _storage._content ?? Rankquantity_Voyager_Api_ItemDetail()}
     set {_uniqueStorage()._content = newValue}
   }
   /// Returns true if `content` has been explicitly set.
@@ -330,7 +330,7 @@ public struct Common_ItemInfo: @unchecked Sendable {
   /// Clears the value of `content`. Subsequent reads from it will return its default value.
   public mutating func clearContent() {_uniqueStorage()._content = nil}
 
-  public var itype: Common_ItemType {
+  public var itype: Rankquantity_Voyager_Api_ItemType {
     get {return _storage._itype}
     set {_uniqueStorage()._itype = newValue}
   }
@@ -354,9 +354,9 @@ public struct Common_ItemInfo: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".WordDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}content\0\u{1}length\0\u{1}prompt\0\u{1}title\0\u{1}desc\0")
 
@@ -395,7 +395,7 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_WordDetail, rhs: Common_WordDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_WordDetail, rhs: Rankquantity_Voyager_Api_WordDetail) -> Bool {
     if lhs.content != rhs.content {return false}
     if lhs.length != rhs.length {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -406,7 +406,7 @@ extension Common_WordDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PictureInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{1}num\0")
 
@@ -437,7 +437,7 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_PictureInfo, rhs: Common_PictureInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_PictureInfo, rhs: Rankquantity_Voyager_Api_PictureInfo) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.size != rhs.size {return false}
     if lhs.num != rhs.num {return false}
@@ -446,7 +446,7 @@ extension Common_PictureInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PictureDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}total\0\u{1}prompt\0\u{1}title\0\u{1}desc\0")
 
@@ -485,7 +485,7 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_PictureDetail, rhs: Common_PictureDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_PictureDetail, rhs: Rankquantity_Voyager_Api_PictureDetail) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.total != rhs.total {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -496,7 +496,7 @@ extension Common_PictureDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension Common_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VideoInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{3}time_length\0")
 
@@ -527,7 +527,7 @@ extension Common_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VideoInfo, rhs: Common_VideoInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VideoInfo, rhs: Rankquantity_Voyager_Api_VideoInfo) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.size != rhs.size {return false}
     if lhs.timeLength != rhs.timeLength {return false}
@@ -536,7 +536,7 @@ extension Common_VideoInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VideoDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0\u{1}num\0\u{2}\u{2}prompt\0\u{1}title\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
@@ -583,7 +583,7 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VideoDetail, rhs: Common_VideoDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VideoDetail, rhs: Rankquantity_Voyager_Api_VideoDetail) -> Bool {
     if lhs.list != rhs.list {return false}
     if lhs.num != rhs.num {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -596,7 +596,7 @@ extension Common_VideoDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MusicShareDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}source\0\u{2}\u{2}prompt\0\u{1}title\0\u{1}desc\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
@@ -643,7 +643,7 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_MusicShareDetail, rhs: Common_MusicShareDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_MusicShareDetail, rhs: Rankquantity_Voyager_Api_MusicShareDetail) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.source != rhs.source {return false}
     if lhs.prompt != rhs.prompt {return false}
@@ -656,7 +656,7 @@ extension Common_MusicShareDetail: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VoiceDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}size\0\u{3}time_length\0\u{2}\u{6}Ctime\0\u{1}Mtime\0")
 
@@ -695,7 +695,7 @@ extension Common_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VoiceDetail, rhs: Common_VoiceDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VoiceDetail, rhs: Rankquantity_Voyager_Api_VoiceDetail) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.size != rhs.size {return false}
     if lhs.timeLength != rhs.timeLength {return false}
@@ -706,7 +706,7 @@ extension Common_VoiceDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ShareDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}resource_url\0\u{1}source\0\u{2}\u{7}Ctime\0\u{1}Mtime\0")
 
@@ -741,7 +741,7 @@ extension Common_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ShareDetail, rhs: Common_ShareDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ShareDetail, rhs: Rankquantity_Voyager_Api_ShareDetail) -> Bool {
     if lhs.resourceURL != rhs.resourceURL {return false}
     if lhs.source != rhs.source {return false}
     if lhs.ctime != rhs.ctime {return false}
@@ -751,7 +751,7 @@ extension Common_ShareDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Location"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}country\0\u{1}province\0\u{1}city\0\u{1}district\0")
 
@@ -786,7 +786,7 @@ extension Common_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_Location, rhs: Common_Location) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_Location, rhs: Rankquantity_Voyager_Api_Location) -> Bool {
     if lhs.country != rhs.country {return false}
     if lhs.province != rhs.province {return false}
     if lhs.city != rhs.city {return false}
@@ -796,7 +796,7 @@ extension Common_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ItemDetail"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}word\0\u{1}pictures\0\u{1}video\0\u{1}music\0\u{1}voice\0\u{1}share\0\u{1}locate\0\u{2}\u{4}title\0\u{1}prevId\0\u{1}loc\0\u{3}is_origin\0\u{1}ref\0\u{3}root_id\0")
 
@@ -807,7 +807,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        var v: Common_WordDetail?
+        var v: Rankquantity_Voyager_Api_WordDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -820,7 +820,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 2: try {
-        var v: Common_PictureDetail?
+        var v: Rankquantity_Voyager_Api_PictureDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -833,7 +833,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 3: try {
-        var v: Common_VideoDetail?
+        var v: Rankquantity_Voyager_Api_VideoDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -846,7 +846,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 4: try {
-        var v: Common_MusicShareDetail?
+        var v: Rankquantity_Voyager_Api_MusicShareDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -859,7 +859,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 5: try {
-        var v: Common_VoiceDetail?
+        var v: Rankquantity_Voyager_Api_VoiceDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -872,7 +872,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 6: try {
-        var v: Common_ShareDetail?
+        var v: Rankquantity_Voyager_Api_ShareDetail?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -885,7 +885,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
         }
       }()
       case 7: try {
-        var v: Common_Location?
+        var v: Rankquantity_Voyager_Api_Location?
         var hadOneofValue = false
         if let current = self.detail {
           hadOneofValue = true
@@ -965,7 +965,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ItemDetail, rhs: Common_ItemDetail) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ItemDetail, rhs: Rankquantity_Voyager_Api_ItemDetail) -> Bool {
     if lhs.detail != rhs.detail {return false}
     if lhs.title != rhs.title {return false}
     if lhs.prevID != rhs.prevID {return false}
@@ -978,7 +978,7 @@ extension Common_ItemDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension Common_ItemInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ItemInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ItemInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}project_id\0\u{3}user_id\0\u{1}title\0\u{1}content\0\u{1}itype\0\u{2}\u{3}Ctime\0\u{1}Mtime\0")
 
@@ -987,8 +987,8 @@ extension Common_ItemInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _projectID: Int64 = 0
     var _userID: Int64 = 0
     var _title: String = String()
-    var _content: Common_ItemDetail? = nil
-    var _itype: Common_ItemType = .allItem
+    var _content: Rankquantity_Voyager_Api_ItemDetail? = nil
+    var _itype: Rankquantity_Voyager_Api_ItemType = .allItem
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -1075,7 +1075,7 @@ extension Common_ItemInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ItemInfo, rhs: Common_ItemInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ItemInfo, rhs: Rankquantity_Voyager_Api_ItemInfo) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

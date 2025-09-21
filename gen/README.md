@@ -4,551 +4,551 @@
 ## Table of Contents
 
 - [base.proto](#base-proto)
-    - [Tags](#common-Tags)
-    - [WhatCurrentUserStatus](#common-WhatCurrentUserStatus)
+    - [Tags](#rankquantity-voyager-api-Tags)
+    - [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus)
   
-    - [ActiveFlowType](#common-ActiveFlowType)
-    - [ActiveType](#common-ActiveType)
-    - [AuthType](#common-AuthType)
-    - [DashScopeTaskStatus](#common-DashScopeTaskStatus)
-    - [GenderType](#common-GenderType)
-    - [GroupStatus](#common-GroupStatus)
-    - [ImageRatios](#common-ImageRatios)
-    - [ItemType](#common-ItemType)
-    - [LikeType](#common-LikeType)
-    - [MultiBranchOrderBy](#common-MultiBranchOrderBy)
-    - [ScopeType](#common-ScopeType)
-    - [SortByType](#common-SortByType)
-    - [TaskStage](#common-TaskStage)
-    - [TaskType](#common-TaskType)
-    - [UserStatus](#common-UserStatus)
+    - [ActiveFlowType](#rankquantity-voyager-api-ActiveFlowType)
+    - [ActiveType](#rankquantity-voyager-api-ActiveType)
+    - [AuthType](#rankquantity-voyager-api-AuthType)
+    - [DashScopeTaskStatus](#rankquantity-voyager-api-DashScopeTaskStatus)
+    - [GenderType](#rankquantity-voyager-api-GenderType)
+    - [GroupStatus](#rankquantity-voyager-api-GroupStatus)
+    - [ImageRatios](#rankquantity-voyager-api-ImageRatios)
+    - [ItemType](#rankquantity-voyager-api-ItemType)
+    - [LikeType](#rankquantity-voyager-api-LikeType)
+    - [MultiBranchOrderBy](#rankquantity-voyager-api-MultiBranchOrderBy)
+    - [ScopeType](#rankquantity-voyager-api-ScopeType)
+    - [SortByType](#rankquantity-voyager-api-SortByType)
+    - [TaskStage](#rankquantity-voyager-api-TaskStage)
+    - [TaskType](#rankquantity-voyager-api-TaskType)
+    - [UserStatus](#rankquantity-voyager-api-UserStatus)
   
 - [comment.proto](#comment-proto)
-    - [CommentInfo](#common-CommentInfo)
+    - [CommentInfo](#rankquantity-voyager-api-CommentInfo)
   
 - [error.proto](#error-proto)
-    - [AIErrorMessages](#common-AIErrorMessages)
-    - [AuthErrorMessages](#common-AuthErrorMessages)
-    - [ChatErrorMessages](#common-ChatErrorMessages)
-    - [CommentErrorMessages](#common-CommentErrorMessages)
-    - [ContentErrorMessages](#common-ContentErrorMessages)
-    - [ErrorDescription](#common-ErrorDescription)
-    - [ErrorDescription.AiErrorsEntry](#common-ErrorDescription-AiErrorsEntry)
-    - [ErrorDescription.AuthErrorsEntry](#common-ErrorDescription-AuthErrorsEntry)
-    - [ErrorDescription.ChatErrorsEntry](#common-ErrorDescription-ChatErrorsEntry)
-    - [ErrorDescription.CommentErrorsEntry](#common-ErrorDescription-CommentErrorsEntry)
-    - [ErrorDescription.ContentErrorsEntry](#common-ErrorDescription-ContentErrorsEntry)
-    - [ErrorDescription.GroupErrorsEntry](#common-ErrorDescription-GroupErrorsEntry)
-    - [ErrorDescription.LikeErrorsEntry](#common-ErrorDescription-LikeErrorsEntry)
-    - [ErrorDescription.LimitErrorsEntry](#common-ErrorDescription-LimitErrorsEntry)
-    - [ErrorDescription.MessageErrorsEntry](#common-ErrorDescription-MessageErrorsEntry)
-    - [ErrorDescription.OperationErrorsEntry](#common-ErrorDescription-OperationErrorsEntry)
-    - [ErrorDescription.OrderErrorsEntry](#common-ErrorDescription-OrderErrorsEntry)
-    - [ErrorDescription.PaymentErrorsEntry](#common-ErrorDescription-PaymentErrorsEntry)
-    - [ErrorDescription.ProjectErrorsEntry](#common-ErrorDescription-ProjectErrorsEntry)
-    - [ErrorDescription.ResourceErrorsEntry](#common-ErrorDescription-ResourceErrorsEntry)
-    - [ErrorDescription.RoleErrorsEntry](#common-ErrorDescription-RoleErrorsEntry)
-    - [ErrorDescription.SearchErrorsEntry](#common-ErrorDescription-SearchErrorsEntry)
-    - [ErrorDescription.StoryErrorsEntry](#common-ErrorDescription-StoryErrorsEntry)
-    - [ErrorDescription.StoryboardErrorsEntry](#common-ErrorDescription-StoryboardErrorsEntry)
-    - [ErrorDescription.SystemErrorsEntry](#common-ErrorDescription-SystemErrorsEntry)
-    - [ErrorDescription.UploadErrorsEntry](#common-ErrorDescription-UploadErrorsEntry)
-    - [ErrorDescription.UserErrorsEntry](#common-ErrorDescription-UserErrorsEntry)
-    - [ErrorDescription.ValidationErrorsEntry](#common-ErrorDescription-ValidationErrorsEntry)
-    - [ErrorDescription.VipErrorsEntry](#common-ErrorDescription-VipErrorsEntry)
-    - [ErrorDescriptions](#common-ErrorDescriptions)
-    - [ErrorDescriptions.AiErrorsEntry](#common-ErrorDescriptions-AiErrorsEntry)
-    - [ErrorDescriptions.AuthErrorsEntry](#common-ErrorDescriptions-AuthErrorsEntry)
-    - [ErrorDescriptions.ChatErrorsEntry](#common-ErrorDescriptions-ChatErrorsEntry)
-    - [ErrorDescriptions.CommentErrorsEntry](#common-ErrorDescriptions-CommentErrorsEntry)
-    - [ErrorDescriptions.ContentErrorsEntry](#common-ErrorDescriptions-ContentErrorsEntry)
-    - [ErrorDescriptions.GroupErrorsEntry](#common-ErrorDescriptions-GroupErrorsEntry)
-    - [ErrorDescriptions.LikeErrorsEntry](#common-ErrorDescriptions-LikeErrorsEntry)
-    - [ErrorDescriptions.LimitErrorsEntry](#common-ErrorDescriptions-LimitErrorsEntry)
-    - [ErrorDescriptions.MessageErrorsEntry](#common-ErrorDescriptions-MessageErrorsEntry)
-    - [ErrorDescriptions.OperationErrorsEntry](#common-ErrorDescriptions-OperationErrorsEntry)
-    - [ErrorDescriptions.OrderErrorsEntry](#common-ErrorDescriptions-OrderErrorsEntry)
-    - [ErrorDescriptions.PaymentErrorsEntry](#common-ErrorDescriptions-PaymentErrorsEntry)
-    - [ErrorDescriptions.ProjectErrorsEntry](#common-ErrorDescriptions-ProjectErrorsEntry)
-    - [ErrorDescriptions.ResourceErrorsEntry](#common-ErrorDescriptions-ResourceErrorsEntry)
-    - [ErrorDescriptions.RoleErrorsEntry](#common-ErrorDescriptions-RoleErrorsEntry)
-    - [ErrorDescriptions.SearchErrorsEntry](#common-ErrorDescriptions-SearchErrorsEntry)
-    - [ErrorDescriptions.StoryErrorsEntry](#common-ErrorDescriptions-StoryErrorsEntry)
-    - [ErrorDescriptions.StoryboardErrorsEntry](#common-ErrorDescriptions-StoryboardErrorsEntry)
-    - [ErrorDescriptions.SystemErrorsEntry](#common-ErrorDescriptions-SystemErrorsEntry)
-    - [ErrorDescriptions.UploadErrorsEntry](#common-ErrorDescriptions-UploadErrorsEntry)
-    - [ErrorDescriptions.UserErrorsEntry](#common-ErrorDescriptions-UserErrorsEntry)
-    - [ErrorDescriptions.ValidationErrorsEntry](#common-ErrorDescriptions-ValidationErrorsEntry)
-    - [ErrorDescriptions.VipErrorsEntry](#common-ErrorDescriptions-VipErrorsEntry)
-    - [GroupErrorMessages](#common-GroupErrorMessages)
-    - [LikeErrorMessages](#common-LikeErrorMessages)
-    - [LimitErrorMessages](#common-LimitErrorMessages)
-    - [MessageErrorMessages](#common-MessageErrorMessages)
-    - [OperationErrorMessages](#common-OperationErrorMessages)
-    - [OrderErrorMessages](#common-OrderErrorMessages)
-    - [PaymentErrorMessages](#common-PaymentErrorMessages)
-    - [ResourceErrorMessages](#common-ResourceErrorMessages)
-    - [RoleErrorMessages](#common-RoleErrorMessages)
-    - [SearchErrorMessages](#common-SearchErrorMessages)
-    - [StoryErrorMessages](#common-StoryErrorMessages)
-    - [StoryboardErrorMessages](#common-StoryboardErrorMessages)
-    - [SystemErrorMessages](#common-SystemErrorMessages)
-    - [UploadErrorMessages](#common-UploadErrorMessages)
-    - [UserErrorMessages](#common-UserErrorMessages)
-    - [VIPErrorMessages](#common-VIPErrorMessages)
-    - [ValidationErrorMessages](#common-ValidationErrorMessages)
+    - [AIErrorMessages](#rankquantity-voyager-api-AIErrorMessages)
+    - [AuthErrorMessages](#rankquantity-voyager-api-AuthErrorMessages)
+    - [ChatErrorMessages](#rankquantity-voyager-api-ChatErrorMessages)
+    - [CommentErrorMessages](#rankquantity-voyager-api-CommentErrorMessages)
+    - [ContentErrorMessages](#rankquantity-voyager-api-ContentErrorMessages)
+    - [ErrorDescription](#rankquantity-voyager-api-ErrorDescription)
+    - [ErrorDescription.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AiErrorsEntry)
+    - [ErrorDescription.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry)
+    - [ErrorDescription.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry)
+    - [ErrorDescription.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry)
+    - [ErrorDescription.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry)
+    - [ErrorDescription.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry)
+    - [ErrorDescription.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry)
+    - [ErrorDescription.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry)
+    - [ErrorDescription.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry)
+    - [ErrorDescription.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry)
+    - [ErrorDescription.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry)
+    - [ErrorDescription.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry)
+    - [ErrorDescription.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry)
+    - [ErrorDescription.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry)
+    - [ErrorDescription.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry)
+    - [ErrorDescription.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry)
+    - [ErrorDescription.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry)
+    - [ErrorDescription.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry)
+    - [ErrorDescription.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry)
+    - [ErrorDescription.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry)
+    - [ErrorDescription.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UserErrorsEntry)
+    - [ErrorDescription.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry)
+    - [ErrorDescription.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescription-VipErrorsEntry)
+    - [ErrorDescriptions](#rankquantity-voyager-api-ErrorDescriptions)
+    - [ErrorDescriptions.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry)
+    - [ErrorDescriptions.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry)
+    - [ErrorDescriptions.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry)
+    - [ErrorDescriptions.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry)
+    - [ErrorDescriptions.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry)
+    - [ErrorDescriptions.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry)
+    - [ErrorDescriptions.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry)
+    - [ErrorDescriptions.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry)
+    - [ErrorDescriptions.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry)
+    - [ErrorDescriptions.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry)
+    - [ErrorDescriptions.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry)
+    - [ErrorDescriptions.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry)
+    - [ErrorDescriptions.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry)
+    - [ErrorDescriptions.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry)
+    - [ErrorDescriptions.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry)
+    - [ErrorDescriptions.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry)
+    - [ErrorDescriptions.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry)
+    - [ErrorDescriptions.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry)
+    - [ErrorDescriptions.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry)
+    - [ErrorDescriptions.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry)
+    - [ErrorDescriptions.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry)
+    - [ErrorDescriptions.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry)
+    - [ErrorDescriptions.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry)
+    - [GroupErrorMessages](#rankquantity-voyager-api-GroupErrorMessages)
+    - [LikeErrorMessages](#rankquantity-voyager-api-LikeErrorMessages)
+    - [LimitErrorMessages](#rankquantity-voyager-api-LimitErrorMessages)
+    - [MessageErrorMessages](#rankquantity-voyager-api-MessageErrorMessages)
+    - [OperationErrorMessages](#rankquantity-voyager-api-OperationErrorMessages)
+    - [OrderErrorMessages](#rankquantity-voyager-api-OrderErrorMessages)
+    - [PaymentErrorMessages](#rankquantity-voyager-api-PaymentErrorMessages)
+    - [ResourceErrorMessages](#rankquantity-voyager-api-ResourceErrorMessages)
+    - [RoleErrorMessages](#rankquantity-voyager-api-RoleErrorMessages)
+    - [SearchErrorMessages](#rankquantity-voyager-api-SearchErrorMessages)
+    - [StoryErrorMessages](#rankquantity-voyager-api-StoryErrorMessages)
+    - [StoryboardErrorMessages](#rankquantity-voyager-api-StoryboardErrorMessages)
+    - [SystemErrorMessages](#rankquantity-voyager-api-SystemErrorMessages)
+    - [UploadErrorMessages](#rankquantity-voyager-api-UploadErrorMessages)
+    - [UserErrorMessages](#rankquantity-voyager-api-UserErrorMessages)
+    - [VIPErrorMessages](#rankquantity-voyager-api-VIPErrorMessages)
+    - [ValidationErrorMessages](#rankquantity-voyager-api-ValidationErrorMessages)
   
-    - [ResponseCode](#common-ResponseCode)
+    - [ResponseCode](#rankquantity-voyager-api-ResponseCode)
   
 - [group.proto](#group-proto)
-    - [GroupInfo](#common-GroupInfo)
-    - [GroupMemberInfo](#common-GroupMemberInfo)
-    - [GroupProfileInfo](#common-GroupProfileInfo)
+    - [GroupInfo](#rankquantity-voyager-api-GroupInfo)
+    - [GroupMemberInfo](#rankquantity-voyager-api-GroupMemberInfo)
+    - [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo)
   
-    - [GroupMemberType](#common-GroupMemberType)
-    - [GroupType](#common-GroupType)
+    - [GroupMemberType](#rankquantity-voyager-api-GroupMemberType)
+    - [GroupType](#rankquantity-voyager-api-GroupType)
   
 - [item.proto](#item-proto)
-    - [ItemDetail](#common-ItemDetail)
-    - [ItemInfo](#common-ItemInfo)
-    - [Location](#common-Location)
-    - [MusicShareDetail](#common-MusicShareDetail)
-    - [PictureDetail](#common-PictureDetail)
-    - [PictureInfo](#common-PictureInfo)
-    - [ShareDetail](#common-ShareDetail)
-    - [VideoDetail](#common-VideoDetail)
-    - [VideoInfo](#common-VideoInfo)
-    - [VoiceDetail](#common-VoiceDetail)
-    - [WordDetail](#common-WordDetail)
+    - [ItemDetail](#rankquantity-voyager-api-ItemDetail)
+    - [ItemInfo](#rankquantity-voyager-api-ItemInfo)
+    - [Location](#rankquantity-voyager-api-Location)
+    - [MusicShareDetail](#rankquantity-voyager-api-MusicShareDetail)
+    - [PictureDetail](#rankquantity-voyager-api-PictureDetail)
+    - [PictureInfo](#rankquantity-voyager-api-PictureInfo)
+    - [ShareDetail](#rankquantity-voyager-api-ShareDetail)
+    - [VideoDetail](#rankquantity-voyager-api-VideoDetail)
+    - [VideoInfo](#rankquantity-voyager-api-VideoInfo)
+    - [VoiceDetail](#rankquantity-voyager-api-VoiceDetail)
+    - [WordDetail](#rankquantity-voyager-api-WordDetail)
   
 - [user.proto](#user-proto)
-    - [UserInfo](#common-UserInfo)
-    - [UserPrivate](#common-UserPrivate)
-    - [UserProfileInfo](#common-UserProfileInfo)
+    - [UserInfo](#rankquantity-voyager-api-UserInfo)
+    - [UserPrivate](#rankquantity-voyager-api-UserPrivate)
+    - [UserProfileInfo](#rankquantity-voyager-api-UserProfileInfo)
   
 - [story.proto](#story-proto)
-    - [ChapterDetailInformation](#common-ChapterDetailInformation)
-    - [ChapterInfo](#common-ChapterInfo)
-    - [ChapterSummary](#common-ChapterSummary)
-    - [Character](#common-Character)
-    - [CharacterDetail](#common-CharacterDetail)
-    - [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest)
-    - [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse)
-    - [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest)
-    - [CreateStoryBoardSenceResponse](#common-CreateStoryBoardSenceResponse)
-    - [CreateStoryBoardSenceResponse.Data](#common-CreateStoryBoardSenceResponse-Data)
-    - [CreateStoryRequest](#common-CreateStoryRequest)
-    - [CreateStoryResponse](#common-CreateStoryResponse)
-    - [CreateStoryResponse.Data](#common-CreateStoryResponse-Data)
-    - [CreateStoryboardRequest](#common-CreateStoryboardRequest)
-    - [CreateStoryboardResponse](#common-CreateStoryboardResponse)
-    - [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data)
-    - [DelStoryboardRequest](#common-DelStoryboardRequest)
-    - [DelStoryboardResponse](#common-DelStoryboardResponse)
-    - [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest)
-    - [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse)
-    - [DetailScene](#common-DetailScene)
-    - [FetchGroupStorysRequest](#common-FetchGroupStorysRequest)
-    - [FetchGroupStorysResponse](#common-FetchGroupStorysResponse)
-    - [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data)
-    - [ForkStoryboardRequest](#common-ForkStoryboardRequest)
-    - [ForkStoryboardResponse](#common-ForkStoryboardResponse)
-    - [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data)
-    - [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest)
-    - [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse)
-    - [GenStoryboardTextRequest](#common-GenStoryboardTextRequest)
-    - [GenStoryboardTextResponse](#common-GenStoryboardTextResponse)
-    - [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest)
-    - [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse)
-    - [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest)
-    - [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse)
-    - [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data)
-    - [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest)
-    - [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse)
-    - [GetStoryBoardRolesResponse.Data](#common-GetStoryBoardRolesResponse-Data)
-    - [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest)
-    - [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse)
-    - [GetStoryBoardSencesRequest](#common-GetStoryBoardSencesRequest)
-    - [GetStoryBoardSencesResponse](#common-GetStoryBoardSencesResponse)
-    - [GetStoryBoardSencesResponse.Data](#common-GetStoryBoardSencesResponse-Data)
-    - [GetStoryInfoRequest](#common-GetStoryInfoRequest)
-    - [GetStoryInfoResponse](#common-GetStoryInfoResponse)
-    - [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data)
-    - [GetStoryRenderRequest](#common-GetStoryRenderRequest)
-    - [GetStoryRenderResponse](#common-GetStoryRenderResponse)
-    - [GetStoryRenderResponse.Data](#common-GetStoryRenderResponse-Data)
-    - [GetStoryRolesRequest](#common-GetStoryRolesRequest)
-    - [GetStoryRolesResponse](#common-GetStoryRolesResponse)
-    - [GetStoryRolesResponse.Data](#common-GetStoryRolesResponse-Data)
-    - [GetStoryboardRequest](#common-GetStoryboardRequest)
-    - [GetStoryboardResponse](#common-GetStoryboardResponse)
-    - [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data)
-    - [GetStoryboardsRequest](#common-GetStoryboardsRequest)
-    - [GetStoryboardsResponse](#common-GetStoryboardsResponse)
-    - [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data)
-    - [LikeStoryboardRequest](#common-LikeStoryboardRequest)
-    - [LikeStoryboardResponse](#common-LikeStoryboardResponse)
-    - [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data)
-    - [QueryTaskStatusRequest](#common-QueryTaskStatusRequest)
-    - [QueryTaskStatusResponse](#common-QueryTaskStatusResponse)
-    - [QueryTaskStatusResponse.Data](#common-QueryTaskStatusResponse-Data)
-    - [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest)
-    - [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse)
-    - [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest)
-    - [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse)
-    - [RenderStoryDetail](#common-RenderStoryDetail)
-    - [RenderStoryRequest](#common-RenderStoryRequest)
-    - [RenderStoryResponse](#common-RenderStoryResponse)
-    - [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest)
-    - [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse)
-    - [RenderStoryRolesRequest](#common-RenderStoryRolesRequest)
-    - [RenderStoryRolesResponse](#common-RenderStoryRolesResponse)
-    - [RenderStoryStructureValue](#common-RenderStoryStructureValue)
-    - [RenderStoryStructureValue.ExtraEntry](#common-RenderStoryStructureValue-ExtraEntry)
-    - [RenderStoryboardDetail](#common-RenderStoryboardDetail)
-    - [RenderStoryboardRequest](#common-RenderStoryboardRequest)
-    - [RenderStoryboardResponse](#common-RenderStoryboardResponse)
-    - [ShareStoryboardRequest](#common-ShareStoryboardRequest)
-    - [ShareStoryboardResponse](#common-ShareStoryboardResponse)
-    - [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data)
-    - [Story](#common-Story)
-    - [StoryBoard](#common-StoryBoard)
-    - [StoryBoardActive](#common-StoryBoardActive)
-    - [StoryBoardActiveRole](#common-StoryBoardActiveRole)
-    - [StoryBoardActiveUser](#common-StoryBoardActiveUser)
-    - [StoryBoardParams](#common-StoryBoardParams)
-    - [StoryBoardSence](#common-StoryBoardSence)
-    - [StoryBoardSences](#common-StoryBoardSences)
-    - [StoryChapter](#common-StoryChapter)
-    - [StoryInfo](#common-StoryInfo)
-    - [StoryNameAndTheme](#common-StoryNameAndTheme)
-    - [StoryParams](#common-StoryParams)
-    - [StoryRole](#common-StoryRole)
-    - [StorySummaryInfo](#common-StorySummaryInfo)
-    - [TimeLine](#common-TimeLine)
-    - [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest)
-    - [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse)
-    - [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest)
-    - [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse)
-    - [UpdateStoryRequest](#common-UpdateStoryRequest)
-    - [UpdateStoryResponse](#common-UpdateStoryResponse)
-    - [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data)
-    - [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest)
-    - [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse)
-    - [UpdateStoryboardRequest](#common-UpdateStoryboardRequest)
-    - [UpdateStoryboardResponse](#common-UpdateStoryboardResponse)
-    - [UpdateStoryboardResponse.Data](#common-UpdateStoryboardResponse-Data)
-    - [WatchStoryRequest](#common-WatchStoryRequest)
-    - [WatchStoryResponse](#common-WatchStoryResponse)
-    - [WatchStoryResponse.Data](#common-WatchStoryResponse-Data)
+    - [ChapterDetailInformation](#rankquantity-voyager-api-ChapterDetailInformation)
+    - [ChapterInfo](#rankquantity-voyager-api-ChapterInfo)
+    - [ChapterSummary](#rankquantity-voyager-api-ChapterSummary)
+    - [Character](#rankquantity-voyager-api-Character)
+    - [CharacterDetail](#rankquantity-voyager-api-CharacterDetail)
+    - [ContinueRenderStoryRequest](#rankquantity-voyager-api-ContinueRenderStoryRequest)
+    - [ContinueRenderStoryResponse](#rankquantity-voyager-api-ContinueRenderStoryResponse)
+    - [CreateStoryBoardSenceRequest](#rankquantity-voyager-api-CreateStoryBoardSenceRequest)
+    - [CreateStoryBoardSenceResponse](#rankquantity-voyager-api-CreateStoryBoardSenceResponse)
+    - [CreateStoryBoardSenceResponse.Data](#rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data)
+    - [CreateStoryRequest](#rankquantity-voyager-api-CreateStoryRequest)
+    - [CreateStoryResponse](#rankquantity-voyager-api-CreateStoryResponse)
+    - [CreateStoryResponse.Data](#rankquantity-voyager-api-CreateStoryResponse-Data)
+    - [CreateStoryboardRequest](#rankquantity-voyager-api-CreateStoryboardRequest)
+    - [CreateStoryboardResponse](#rankquantity-voyager-api-CreateStoryboardResponse)
+    - [CreateStoryboardResponse.Data](#rankquantity-voyager-api-CreateStoryboardResponse-Data)
+    - [DelStoryboardRequest](#rankquantity-voyager-api-DelStoryboardRequest)
+    - [DelStoryboardResponse](#rankquantity-voyager-api-DelStoryboardResponse)
+    - [DeleteStoryBoardSenceRequest](#rankquantity-voyager-api-DeleteStoryBoardSenceRequest)
+    - [DeleteStoryBoardSenceResponse](#rankquantity-voyager-api-DeleteStoryBoardSenceResponse)
+    - [DetailScene](#rankquantity-voyager-api-DetailScene)
+    - [FetchGroupStorysRequest](#rankquantity-voyager-api-FetchGroupStorysRequest)
+    - [FetchGroupStorysResponse](#rankquantity-voyager-api-FetchGroupStorysResponse)
+    - [FetchGroupStorysResponse.Data](#rankquantity-voyager-api-FetchGroupStorysResponse-Data)
+    - [ForkStoryboardRequest](#rankquantity-voyager-api-ForkStoryboardRequest)
+    - [ForkStoryboardResponse](#rankquantity-voyager-api-ForkStoryboardResponse)
+    - [ForkStoryboardResponse.Data](#rankquantity-voyager-api-ForkStoryboardResponse-Data)
+    - [GenStoryboardImagesRequest](#rankquantity-voyager-api-GenStoryboardImagesRequest)
+    - [GenStoryboardImagesResponse](#rankquantity-voyager-api-GenStoryboardImagesResponse)
+    - [GenStoryboardTextRequest](#rankquantity-voyager-api-GenStoryboardTextRequest)
+    - [GenStoryboardTextResponse](#rankquantity-voyager-api-GenStoryboardTextResponse)
+    - [GetStoryBoardGenerateRequest](#rankquantity-voyager-api-GetStoryBoardGenerateRequest)
+    - [GetStoryBoardGenerateResponse](#rankquantity-voyager-api-GetStoryBoardGenerateResponse)
+    - [GetStoryBoardRenderRequest](#rankquantity-voyager-api-GetStoryBoardRenderRequest)
+    - [GetStoryBoardRenderResponse](#rankquantity-voyager-api-GetStoryBoardRenderResponse)
+    - [GetStoryBoardRenderResponse.Data](#rankquantity-voyager-api-GetStoryBoardRenderResponse-Data)
+    - [GetStoryBoardRolesRequest](#rankquantity-voyager-api-GetStoryBoardRolesRequest)
+    - [GetStoryBoardRolesResponse](#rankquantity-voyager-api-GetStoryBoardRolesResponse)
+    - [GetStoryBoardRolesResponse.Data](#rankquantity-voyager-api-GetStoryBoardRolesResponse-Data)
+    - [GetStoryBoardSenceGenerateRequest](#rankquantity-voyager-api-GetStoryBoardSenceGenerateRequest)
+    - [GetStoryBoardSenceGenerateResponse](#rankquantity-voyager-api-GetStoryBoardSenceGenerateResponse)
+    - [GetStoryBoardSencesRequest](#rankquantity-voyager-api-GetStoryBoardSencesRequest)
+    - [GetStoryBoardSencesResponse](#rankquantity-voyager-api-GetStoryBoardSencesResponse)
+    - [GetStoryBoardSencesResponse.Data](#rankquantity-voyager-api-GetStoryBoardSencesResponse-Data)
+    - [GetStoryInfoRequest](#rankquantity-voyager-api-GetStoryInfoRequest)
+    - [GetStoryInfoResponse](#rankquantity-voyager-api-GetStoryInfoResponse)
+    - [GetStoryInfoResponse.Data](#rankquantity-voyager-api-GetStoryInfoResponse-Data)
+    - [GetStoryRenderRequest](#rankquantity-voyager-api-GetStoryRenderRequest)
+    - [GetStoryRenderResponse](#rankquantity-voyager-api-GetStoryRenderResponse)
+    - [GetStoryRenderResponse.Data](#rankquantity-voyager-api-GetStoryRenderResponse-Data)
+    - [GetStoryRolesRequest](#rankquantity-voyager-api-GetStoryRolesRequest)
+    - [GetStoryRolesResponse](#rankquantity-voyager-api-GetStoryRolesResponse)
+    - [GetStoryRolesResponse.Data](#rankquantity-voyager-api-GetStoryRolesResponse-Data)
+    - [GetStoryboardRequest](#rankquantity-voyager-api-GetStoryboardRequest)
+    - [GetStoryboardResponse](#rankquantity-voyager-api-GetStoryboardResponse)
+    - [GetStoryboardResponse.Data](#rankquantity-voyager-api-GetStoryboardResponse-Data)
+    - [GetStoryboardsRequest](#rankquantity-voyager-api-GetStoryboardsRequest)
+    - [GetStoryboardsResponse](#rankquantity-voyager-api-GetStoryboardsResponse)
+    - [GetStoryboardsResponse.Data](#rankquantity-voyager-api-GetStoryboardsResponse-Data)
+    - [LikeStoryboardRequest](#rankquantity-voyager-api-LikeStoryboardRequest)
+    - [LikeStoryboardResponse](#rankquantity-voyager-api-LikeStoryboardResponse)
+    - [LikeStoryboardResponse.Data](#rankquantity-voyager-api-LikeStoryboardResponse-Data)
+    - [QueryTaskStatusRequest](#rankquantity-voyager-api-QueryTaskStatusRequest)
+    - [QueryTaskStatusResponse](#rankquantity-voyager-api-QueryTaskStatusResponse)
+    - [QueryTaskStatusResponse.Data](#rankquantity-voyager-api-QueryTaskStatusResponse-Data)
+    - [RenderStoryBoardSenceRequest](#rankquantity-voyager-api-RenderStoryBoardSenceRequest)
+    - [RenderStoryBoardSenceResponse](#rankquantity-voyager-api-RenderStoryBoardSenceResponse)
+    - [RenderStoryBoardSencesRequest](#rankquantity-voyager-api-RenderStoryBoardSencesRequest)
+    - [RenderStoryBoardSencesResponse](#rankquantity-voyager-api-RenderStoryBoardSencesResponse)
+    - [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail)
+    - [RenderStoryRequest](#rankquantity-voyager-api-RenderStoryRequest)
+    - [RenderStoryResponse](#rankquantity-voyager-api-RenderStoryResponse)
+    - [RenderStoryRoleDetailRequest](#rankquantity-voyager-api-RenderStoryRoleDetailRequest)
+    - [RenderStoryRoleDetailResponse](#rankquantity-voyager-api-RenderStoryRoleDetailResponse)
+    - [RenderStoryRolesRequest](#rankquantity-voyager-api-RenderStoryRolesRequest)
+    - [RenderStoryRolesResponse](#rankquantity-voyager-api-RenderStoryRolesResponse)
+    - [RenderStoryStructureValue](#rankquantity-voyager-api-RenderStoryStructureValue)
+    - [RenderStoryStructureValue.ExtraEntry](#rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry)
+    - [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail)
+    - [RenderStoryboardRequest](#rankquantity-voyager-api-RenderStoryboardRequest)
+    - [RenderStoryboardResponse](#rankquantity-voyager-api-RenderStoryboardResponse)
+    - [ShareStoryboardRequest](#rankquantity-voyager-api-ShareStoryboardRequest)
+    - [ShareStoryboardResponse](#rankquantity-voyager-api-ShareStoryboardResponse)
+    - [ShareStoryboardResponse.Data](#rankquantity-voyager-api-ShareStoryboardResponse-Data)
+    - [Story](#rankquantity-voyager-api-Story)
+    - [StoryBoard](#rankquantity-voyager-api-StoryBoard)
+    - [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive)
+    - [StoryBoardActiveRole](#rankquantity-voyager-api-StoryBoardActiveRole)
+    - [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser)
+    - [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams)
+    - [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence)
+    - [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences)
+    - [StoryChapter](#rankquantity-voyager-api-StoryChapter)
+    - [StoryInfo](#rankquantity-voyager-api-StoryInfo)
+    - [StoryNameAndTheme](#rankquantity-voyager-api-StoryNameAndTheme)
+    - [StoryParams](#rankquantity-voyager-api-StoryParams)
+    - [StoryRole](#rankquantity-voyager-api-StoryRole)
+    - [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo)
+    - [TimeLine](#rankquantity-voyager-api-TimeLine)
+    - [UnLikeStoryboardRequest](#rankquantity-voyager-api-UnLikeStoryboardRequest)
+    - [UnLikeStoryboardResponse](#rankquantity-voyager-api-UnLikeStoryboardResponse)
+    - [UpdateStoryBoardSenceRequest](#rankquantity-voyager-api-UpdateStoryBoardSenceRequest)
+    - [UpdateStoryBoardSenceResponse](#rankquantity-voyager-api-UpdateStoryBoardSenceResponse)
+    - [UpdateStoryRequest](#rankquantity-voyager-api-UpdateStoryRequest)
+    - [UpdateStoryResponse](#rankquantity-voyager-api-UpdateStoryResponse)
+    - [UpdateStoryResponse.Data](#rankquantity-voyager-api-UpdateStoryResponse-Data)
+    - [UpdateStoryRoleRequest](#rankquantity-voyager-api-UpdateStoryRoleRequest)
+    - [UpdateStoryRoleResponse](#rankquantity-voyager-api-UpdateStoryRoleResponse)
+    - [UpdateStoryboardRequest](#rankquantity-voyager-api-UpdateStoryboardRequest)
+    - [UpdateStoryboardResponse](#rankquantity-voyager-api-UpdateStoryboardResponse)
+    - [UpdateStoryboardResponse.Data](#rankquantity-voyager-api-UpdateStoryboardResponse-Data)
+    - [WatchStoryRequest](#rankquantity-voyager-api-WatchStoryRequest)
+    - [WatchStoryResponse](#rankquantity-voyager-api-WatchStoryResponse)
+    - [WatchStoryResponse.Data](#rankquantity-voyager-api-WatchStoryResponse-Data)
   
-    - [RenderType](#common-RenderType)
-    - [StoryGenStatus](#common-StoryGenStatus)
-    - [StoryboardStage](#common-StoryboardStage)
+    - [RenderType](#rankquantity-voyager-api-RenderType)
+    - [StoryGenStatus](#rankquantity-voyager-api-StoryGenStatus)
+    - [StoryboardStage](#rankquantity-voyager-api-StoryboardStage)
   
 - [message.proto](#message-proto)
-    - [ChatMessage](#common-ChatMessage)
-    - [StreamChatMessage](#common-StreamChatMessage)
-    - [StreamChatMessageRequest](#common-StreamChatMessageRequest)
-    - [StreamChatMessageResponse](#common-StreamChatMessageResponse)
+    - [ChatMessage](#rankquantity-voyager-api-ChatMessage)
+    - [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage)
+    - [StreamChatMessageRequest](#rankquantity-voyager-api-StreamChatMessageRequest)
+    - [StreamChatMessageResponse](#rankquantity-voyager-api-StreamChatMessageResponse)
   
-    - [MsgType](#common-MsgType)
+    - [MsgType](#rankquantity-voyager-api-MsgType)
   
-    - [StreamMessageService](#common-StreamMessageService)
+    - [StreamMessageService](#rankquantity-voyager-api-StreamMessageService)
   
 - [service.proto](#service-proto)
-    - [AboutRequest](#common-AboutRequest)
-    - [AboutResponse](#common-AboutResponse)
-    - [ActiveInfo](#common-ActiveInfo)
-    - [ArchiveStoryRequest](#common-ArchiveStoryRequest)
-    - [ArchiveStoryResponse](#common-ArchiveStoryResponse)
-    - [CancelStoryboardRequest](#common-CancelStoryboardRequest)
-    - [CancelStoryboardResponse](#common-CancelStoryboardResponse)
-    - [ChatContext](#common-ChatContext)
-    - [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest)
-    - [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse)
-    - [ConfirmRequest](#common-ConfirmRequest)
-    - [ConfirmResponse](#common-ConfirmResponse)
-    - [CreateDisscusResp](#common-CreateDisscusResp)
-    - [CreateDisscusResp.Data](#common-CreateDisscusResp-Data)
-    - [CreateDisscussReq](#common-CreateDisscussReq)
-    - [CreateGroupRequest](#common-CreateGroupRequest)
-    - [CreateGroupResponse](#common-CreateGroupResponse)
-    - [CreateGroupResponse.Data](#common-CreateGroupResponse-Data)
-    - [CreateItemRequest](#common-CreateItemRequest)
-    - [CreateItemResponse](#common-CreateItemResponse)
-    - [CreateItemResponse.Data](#common-CreateItemResponse-Data)
-    - [CreateStoryBoardCommentRequest](#common-CreateStoryBoardCommentRequest)
-    - [CreateStoryBoardCommentResponse](#common-CreateStoryBoardCommentResponse)
-    - [CreateStoryCommentReplyRequest](#common-CreateStoryCommentReplyRequest)
-    - [CreateStoryCommentReplyResponse](#common-CreateStoryCommentReplyResponse)
-    - [CreateStoryCommentRequest](#common-CreateStoryCommentRequest)
-    - [CreateStoryCommentResponse](#common-CreateStoryCommentResponse)
-    - [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest)
-    - [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse)
-    - [CreateStoryRoleRequest](#common-CreateStoryRoleRequest)
-    - [CreateStoryRoleResponse](#common-CreateStoryRoleResponse)
-    - [DeleteGroupRequest](#common-DeleteGroupRequest)
-    - [DeleteGroupResponse](#common-DeleteGroupResponse)
-    - [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data)
-    - [DeleteItemRequest](#common-DeleteItemRequest)
-    - [DeleteItemResponse](#common-DeleteItemResponse)
-    - [DeleteItemResponse.Data](#common-DeleteItemResponse-Data)
-    - [DeleteStoryBoardCommentRequest](#common-DeleteStoryBoardCommentRequest)
-    - [DeleteStoryBoardCommentResponse](#common-DeleteStoryBoardCommentResponse)
-    - [DeleteStoryCommentReplyRequest](#common-DeleteStoryCommentReplyRequest)
-    - [DeleteStoryCommentReplyResponse](#common-DeleteStoryCommentReplyResponse)
-    - [DeleteStoryCommentRequest](#common-DeleteStoryCommentRequest)
-    - [DeleteStoryCommentResponse](#common-DeleteStoryCommentResponse)
-    - [DislikeCommentRequest](#common-DislikeCommentRequest)
-    - [DislikeCommentResponse](#common-DislikeCommentResponse)
-    - [DisscussParams](#common-DisscussParams)
-    - [ExploreRequest](#common-ExploreRequest)
-    - [ExploreResponse](#common-ExploreResponse)
-    - [ExploreResponse.Data](#common-ExploreResponse-Data)
-    - [FetchActivesRequest](#common-FetchActivesRequest)
-    - [FetchActivesResponse](#common-FetchActivesResponse)
-    - [FetchActivesResponse.Data](#common-FetchActivesResponse-Data)
-    - [FetchGroupMembersRequest](#common-FetchGroupMembersRequest)
-    - [FetchGroupMembersResponse](#common-FetchGroupMembersResponse)
-    - [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data)
-    - [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest)
-    - [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse)
-    - [FollowStoryRoleRequest](#common-FollowStoryRoleRequest)
-    - [FollowStoryRoleResponse](#common-FollowStoryRoleResponse)
-    - [FollowUserRequest](#common-FollowUserRequest)
-    - [FollowUserResponse](#common-FollowUserResponse)
-    - [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest)
-    - [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse)
-    - [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest)
-    - [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse)
-    - [GenerateRolePromptRequest](#common-GenerateRolePromptRequest)
-    - [GenerateRolePromptResponse](#common-GenerateRolePromptResponse)
-    - [GenerateStoryRoleParams](#common-GenerateStoryRoleParams)
-    - [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest)
-    - [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse)
-    - [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest)
-    - [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse)
-    - [GenerateStoryRoleVideoTaskDetail](#common-GenerateStoryRoleVideoTaskDetail)
-    - [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest)
-    - [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse)
-    - [GenerateStorySceneVideoTaskDetail](#common-GenerateStorySceneVideoTaskDetail)
-    - [GetDisscusReq](#common-GetDisscusReq)
-    - [GetDisscusResp](#common-GetDisscusResp)
-    - [GetDisscusResp.Data](#common-GetDisscusResp-Data)
-    - [GetFollowListRequest](#common-GetFollowListRequest)
-    - [GetFollowListResponse](#common-GetFollowListResponse)
-    - [GetFollowerListRequest](#common-GetFollowerListRequest)
-    - [GetFollowerListResponse](#common-GetFollowerListResponse)
-    - [GetGroupActivesRequest](#common-GetGroupActivesRequest)
-    - [GetGroupActivesResponse](#common-GetGroupActivesResponse)
-    - [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data)
-    - [GetGroupItemsRequest](#common-GetGroupItemsRequest)
-    - [GetGroupItemsResponse](#common-GetGroupItemsResponse)
-    - [GetGroupItemsResponse.Data](#common-GetGroupItemsResponse-Data)
-    - [GetGroupProfileRequest](#common-GetGroupProfileRequest)
-    - [GetGroupProfileResponse](#common-GetGroupProfileResponse)
-    - [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data)
-    - [GetGroupRequest](#common-GetGroupRequest)
-    - [GetGroupResponse](#common-GetGroupResponse)
-    - [GetGroupResponse.Data](#common-GetGroupResponse-Data)
-    - [GetItemRequest](#common-GetItemRequest)
-    - [GetItemResponse](#common-GetItemResponse)
-    - [GetItemResponse.Data](#common-GetItemResponse-Data)
-    - [GetNextStoryboardRequest](#common-GetNextStoryboardRequest)
-    - [GetNextStoryboardResponse](#common-GetNextStoryboardResponse)
-    - [GetProjectMembersRequest](#common-GetProjectMembersRequest)
-    - [GetProjectMembersResponse](#common-GetProjectMembersResponse)
-    - [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data)
-    - [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry)
-    - [GetProjectWatcherRequest](#common-GetProjectWatcherRequest)
-    - [GetProjectWatcherResponse](#common-GetProjectWatcherResponse)
-    - [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data)
-    - [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry)
-    - [GetStoryBoardCommentRepliesRequest](#common-GetStoryBoardCommentRepliesRequest)
-    - [GetStoryBoardCommentRepliesResponse](#common-GetStoryBoardCommentRepliesResponse)
-    - [GetStoryBoardCommentsRequest](#common-GetStoryBoardCommentsRequest)
-    - [GetStoryBoardCommentsResponse](#common-GetStoryBoardCommentsResponse)
-    - [GetStoryCommentRepliesRequest](#common-GetStoryCommentRepliesRequest)
-    - [GetStoryCommentRepliesResponse](#common-GetStoryCommentRepliesResponse)
-    - [GetStoryCommentsRequest](#common-GetStoryCommentsRequest)
-    - [GetStoryCommentsResponse](#common-GetStoryCommentsResponse)
-    - [GetStoryContributorsRequest](#common-GetStoryContributorsRequest)
-    - [GetStoryContributorsResponse](#common-GetStoryContributorsResponse)
-    - [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data)
-    - [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest)
-    - [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse)
-    - [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest)
-    - [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse)
-    - [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest)
-    - [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse)
-    - [GetStoryRoleListRequest](#common-GetStoryRoleListRequest)
-    - [GetStoryRoleListResponse](#common-GetStoryRoleListResponse)
-    - [GetStoryRolePosterListRequest](#common-GetStoryRolePosterListRequest)
-    - [GetStoryRolePosterListResponse](#common-GetStoryRolePosterListResponse)
-    - [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest)
-    - [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse)
-    - [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest)
-    - [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse)
-    - [GetUnPublishStoryboardRequest](#common-GetUnPublishStoryboardRequest)
-    - [GetUnPublishStoryboardResponse](#common-GetUnPublishStoryboardResponse)
-    - [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest)
-    - [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse)
-    - [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest)
-    - [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse)
-    - [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest)
-    - [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse)
-    - [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest)
-    - [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse)
-    - [GetUserItemsRequest](#common-GetUserItemsRequest)
-    - [GetUserItemsResponse](#common-GetUserItemsResponse)
-    - [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data)
-    - [GetUserProfileRequest](#common-GetUserProfileRequest)
-    - [GetUserProfileResponse](#common-GetUserProfileResponse)
-    - [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest)
-    - [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse)
-    - [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest)
-    - [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse)
-    - [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest)
-    - [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse)
-    - [JoinGroupRequest](#common-JoinGroupRequest)
-    - [JoinGroupResponse](#common-JoinGroupResponse)
-    - [JoinGroupResponse.Data](#common-JoinGroupResponse-Data)
-    - [LeaveGroupRequest](#common-LeaveGroupRequest)
-    - [LeaveGroupResponse](#common-LeaveGroupResponse)
-    - [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data)
-    - [LikeCommentRequest](#common-LikeCommentRequest)
-    - [LikeCommentResponse](#common-LikeCommentResponse)
-    - [LikeItemRequest](#common-LikeItemRequest)
-    - [LikeItemResponse](#common-LikeItemResponse)
-    - [LikeItemResponse.Data](#common-LikeItemResponse-Data)
-    - [LikeStoryRequest](#common-LikeStoryRequest)
-    - [LikeStoryResponse](#common-LikeStoryResponse)
-    - [LikeStoryRolePosterRequest](#common-LikeStoryRolePosterRequest)
-    - [LikeStoryRolePosterResponse](#common-LikeStoryRolePosterResponse)
-    - [LikeStoryRoleRequest](#common-LikeStoryRoleRequest)
-    - [LikeStoryRoleResponse](#common-LikeStoryRoleResponse)
-    - [LoginRequest](#common-LoginRequest)
-    - [LoginResponse](#common-LoginResponse)
-    - [LoginResponse.Data](#common-LoginResponse-Data)
-    - [LogoutRequest](#common-LogoutRequest)
-    - [LogoutResponse](#common-LogoutResponse)
-    - [PublishStoryboardRequest](#common-PublishStoryboardRequest)
-    - [PublishStoryboardResponse](#common-PublishStoryboardResponse)
-    - [RefreshTokenRequest](#common-RefreshTokenRequest)
-    - [RefreshTokenResponse](#common-RefreshTokenResponse)
-    - [RegisterRequest](#common-RegisterRequest)
-    - [RegisterResponse](#common-RegisterResponse)
-    - [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest)
-    - [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse)
-    - [RenderStoryRoleDetail](#common-RenderStoryRoleDetail)
-    - [RenderStoryRoleRequest](#common-RenderStoryRoleRequest)
-    - [RenderStoryRoleResponse](#common-RenderStoryRoleResponse)
-    - [ResetPasswordRequest](#common-ResetPasswordRequest)
-    - [ResetPasswordResponse](#common-ResetPasswordResponse)
-    - [RestoreStoryboardRequest](#common-RestoreStoryboardRequest)
-    - [RestoreStoryboardResponse](#common-RestoreStoryboardResponse)
-    - [RolePosterDetail](#common-RolePosterDetail)
-    - [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest)
-    - [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse)
-    - [SearchGroupRequest](#common-SearchGroupRequest)
-    - [SearchGroupResponse](#common-SearchGroupResponse)
-    - [SearchGroupResponse.Data](#common-SearchGroupResponse-Data)
-    - [SearchRolesRequest](#common-SearchRolesRequest)
-    - [SearchRolesResponse](#common-SearchRolesResponse)
-    - [SearchStoriesRequest](#common-SearchStoriesRequest)
-    - [SearchStoriesResponse](#common-SearchStoriesResponse)
-    - [SearchUserRequest](#common-SearchUserRequest)
-    - [SearchUserResponse](#common-SearchUserResponse)
-    - [SearchUserResponse.Data](#common-SearchUserResponse-Data)
-    - [StoryComment](#common-StoryComment)
-    - [StoryContributor](#common-StoryContributor)
-    - [StoryGentaskDetail](#common-StoryGentaskDetail)
-    - [StoryStyleDesc](#common-StoryStyleDesc)
-    - [StoryboardStageStore](#common-StoryboardStageStore)
-    - [TrendingStoryRequest](#common-TrendingStoryRequest)
-    - [TrendingStoryResponse](#common-TrendingStoryResponse)
-    - [TrendingStoryResponse.Data](#common-TrendingStoryResponse-Data)
-    - [TrendingStoryRoleRequest](#common-TrendingStoryRoleRequest)
-    - [TrendingStoryRoleResponse](#common-TrendingStoryRoleResponse)
-    - [TrendingStoryRoleResponse.Data](#common-TrendingStoryRoleResponse-Data)
-    - [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest)
-    - [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse)
-    - [UnLikeStoryRequest](#common-UnLikeStoryRequest)
-    - [UnLikeStoryResponse](#common-UnLikeStoryResponse)
-    - [UnLikeStoryRolePosterRequest](#common-UnLikeStoryRolePosterRequest)
-    - [UnLikeStoryRolePosterResponse](#common-UnLikeStoryRolePosterResponse)
-    - [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest)
-    - [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse)
-    - [UnfollowUserRequest](#common-UnfollowUserRequest)
-    - [UnfollowUserResponse](#common-UnfollowUserResponse)
-    - [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest)
-    - [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse)
-    - [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data)
-    - [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest)
-    - [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse)
-    - [UpdateItemRequest](#common-UpdateItemRequest)
-    - [UpdateItemResponse](#common-UpdateItemResponse)
-    - [UpdateItemResponse.Data](#common-UpdateItemResponse-Data)
-    - [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest)
-    - [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse)
-    - [UpdateRolePromptRequest](#common-UpdateRolePromptRequest)
-    - [UpdateRolePromptResponse](#common-UpdateRolePromptResponse)
-    - [UpdateStoryAvatarRequest](#common-UpdateStoryAvatarRequest)
-    - [UpdateStoryAvatarResponse](#common-UpdateStoryAvatarResponse)
-    - [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest)
-    - [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse)
-    - [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest)
-    - [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse)
-    - [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest)
-    - [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse)
-    - [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest)
-    - [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse)
-    - [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest)
-    - [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse)
-    - [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest)
-    - [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse)
-    - [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest)
-    - [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse)
-    - [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest)
-    - [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse)
-    - [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest)
-    - [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse)
-    - [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data)
-    - [UpdateUserBackgroundImageRequest](#common-UpdateUserBackgroundImageRequest)
-    - [UpdateUserBackgroundImageResponse](#common-UpdateUserBackgroundImageResponse)
-    - [UpdateUserProfileRequest](#common-UpdateUserProfileRequest)
-    - [UpdateUserProfileResponse](#common-UpdateUserProfileResponse)
-    - [UploadImageRequest](#common-UploadImageRequest)
-    - [UploadImageResponse](#common-UploadImageResponse)
-    - [UploadImageResponse.Data](#common-UploadImageResponse-Data)
-    - [UserFollowingGroupRequest](#common-UserFollowingGroupRequest)
-    - [UserFollowingGroupResponse](#common-UserFollowingGroupResponse)
-    - [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data)
-    - [UserGenTaskStatus](#common-UserGenTaskStatus)
-    - [UserGroupRequest](#common-UserGroupRequest)
-    - [UserGroupResponse](#common-UserGroupResponse)
-    - [UserGroupResponse.Data](#common-UserGroupResponse-Data)
-    - [UserInfoRequest](#common-UserInfoRequest)
-    - [UserInfoResponse](#common-UserInfoResponse)
-    - [UserInfoResponse.Data](#common-UserInfoResponse-Data)
-    - [UserInitRequest](#common-UserInitRequest)
-    - [UserInitResponse](#common-UserInitResponse)
-    - [UserInitResponse.Data](#common-UserInitResponse-Data)
-    - [UserUpdateRequest](#common-UserUpdateRequest)
-    - [UserUpdateRequest.DataEntry](#common-UserUpdateRequest-DataEntry)
-    - [UserUpdateResponse](#common-UserUpdateResponse)
-    - [UserUpdateResponse.Data](#common-UserUpdateResponse-Data)
-    - [UserWatchingRequest](#common-UserWatchingRequest)
-    - [UserWatchingResponse](#common-UserWatchingResponse)
-    - [UserWatchingResponse.Data](#common-UserWatchingResponse-Data)
-    - [VersionRequest](#common-VersionRequest)
-    - [VersionResponse](#common-VersionResponse)
-    - [VersionResponse.Data](#common-VersionResponse-Data)
+    - [AboutRequest](#rankquantity-voyager-api-AboutRequest)
+    - [AboutResponse](#rankquantity-voyager-api-AboutResponse)
+    - [ActiveInfo](#rankquantity-voyager-api-ActiveInfo)
+    - [ArchiveStoryRequest](#rankquantity-voyager-api-ArchiveStoryRequest)
+    - [ArchiveStoryResponse](#rankquantity-voyager-api-ArchiveStoryResponse)
+    - [CancelStoryboardRequest](#rankquantity-voyager-api-CancelStoryboardRequest)
+    - [CancelStoryboardResponse](#rankquantity-voyager-api-CancelStoryboardResponse)
+    - [ChatContext](#rankquantity-voyager-api-ChatContext)
+    - [ChatWithStoryRoleRequest](#rankquantity-voyager-api-ChatWithStoryRoleRequest)
+    - [ChatWithStoryRoleResponse](#rankquantity-voyager-api-ChatWithStoryRoleResponse)
+    - [ConfirmRequest](#rankquantity-voyager-api-ConfirmRequest)
+    - [ConfirmResponse](#rankquantity-voyager-api-ConfirmResponse)
+    - [CreateDisscusResp](#rankquantity-voyager-api-CreateDisscusResp)
+    - [CreateDisscusResp.Data](#rankquantity-voyager-api-CreateDisscusResp-Data)
+    - [CreateDisscussReq](#rankquantity-voyager-api-CreateDisscussReq)
+    - [CreateGroupRequest](#rankquantity-voyager-api-CreateGroupRequest)
+    - [CreateGroupResponse](#rankquantity-voyager-api-CreateGroupResponse)
+    - [CreateGroupResponse.Data](#rankquantity-voyager-api-CreateGroupResponse-Data)
+    - [CreateItemRequest](#rankquantity-voyager-api-CreateItemRequest)
+    - [CreateItemResponse](#rankquantity-voyager-api-CreateItemResponse)
+    - [CreateItemResponse.Data](#rankquantity-voyager-api-CreateItemResponse-Data)
+    - [CreateStoryBoardCommentRequest](#rankquantity-voyager-api-CreateStoryBoardCommentRequest)
+    - [CreateStoryBoardCommentResponse](#rankquantity-voyager-api-CreateStoryBoardCommentResponse)
+    - [CreateStoryCommentReplyRequest](#rankquantity-voyager-api-CreateStoryCommentReplyRequest)
+    - [CreateStoryCommentReplyResponse](#rankquantity-voyager-api-CreateStoryCommentReplyResponse)
+    - [CreateStoryCommentRequest](#rankquantity-voyager-api-CreateStoryCommentRequest)
+    - [CreateStoryCommentResponse](#rankquantity-voyager-api-CreateStoryCommentResponse)
+    - [CreateStoryRoleChatRequest](#rankquantity-voyager-api-CreateStoryRoleChatRequest)
+    - [CreateStoryRoleChatResponse](#rankquantity-voyager-api-CreateStoryRoleChatResponse)
+    - [CreateStoryRoleRequest](#rankquantity-voyager-api-CreateStoryRoleRequest)
+    - [CreateStoryRoleResponse](#rankquantity-voyager-api-CreateStoryRoleResponse)
+    - [DeleteGroupRequest](#rankquantity-voyager-api-DeleteGroupRequest)
+    - [DeleteGroupResponse](#rankquantity-voyager-api-DeleteGroupResponse)
+    - [DeleteGroupResponse.Data](#rankquantity-voyager-api-DeleteGroupResponse-Data)
+    - [DeleteItemRequest](#rankquantity-voyager-api-DeleteItemRequest)
+    - [DeleteItemResponse](#rankquantity-voyager-api-DeleteItemResponse)
+    - [DeleteItemResponse.Data](#rankquantity-voyager-api-DeleteItemResponse-Data)
+    - [DeleteStoryBoardCommentRequest](#rankquantity-voyager-api-DeleteStoryBoardCommentRequest)
+    - [DeleteStoryBoardCommentResponse](#rankquantity-voyager-api-DeleteStoryBoardCommentResponse)
+    - [DeleteStoryCommentReplyRequest](#rankquantity-voyager-api-DeleteStoryCommentReplyRequest)
+    - [DeleteStoryCommentReplyResponse](#rankquantity-voyager-api-DeleteStoryCommentReplyResponse)
+    - [DeleteStoryCommentRequest](#rankquantity-voyager-api-DeleteStoryCommentRequest)
+    - [DeleteStoryCommentResponse](#rankquantity-voyager-api-DeleteStoryCommentResponse)
+    - [DislikeCommentRequest](#rankquantity-voyager-api-DislikeCommentRequest)
+    - [DislikeCommentResponse](#rankquantity-voyager-api-DislikeCommentResponse)
+    - [DisscussParams](#rankquantity-voyager-api-DisscussParams)
+    - [ExploreRequest](#rankquantity-voyager-api-ExploreRequest)
+    - [ExploreResponse](#rankquantity-voyager-api-ExploreResponse)
+    - [ExploreResponse.Data](#rankquantity-voyager-api-ExploreResponse-Data)
+    - [FetchActivesRequest](#rankquantity-voyager-api-FetchActivesRequest)
+    - [FetchActivesResponse](#rankquantity-voyager-api-FetchActivesResponse)
+    - [FetchActivesResponse.Data](#rankquantity-voyager-api-FetchActivesResponse-Data)
+    - [FetchGroupMembersRequest](#rankquantity-voyager-api-FetchGroupMembersRequest)
+    - [FetchGroupMembersResponse](#rankquantity-voyager-api-FetchGroupMembersResponse)
+    - [FetchGroupMembersResponse.Data](#rankquantity-voyager-api-FetchGroupMembersResponse-Data)
+    - [FetchUserGenTaskStatusRequest](#rankquantity-voyager-api-FetchUserGenTaskStatusRequest)
+    - [FetchUserGenTaskStatusResponse](#rankquantity-voyager-api-FetchUserGenTaskStatusResponse)
+    - [FollowStoryRoleRequest](#rankquantity-voyager-api-FollowStoryRoleRequest)
+    - [FollowStoryRoleResponse](#rankquantity-voyager-api-FollowStoryRoleResponse)
+    - [FollowUserRequest](#rankquantity-voyager-api-FollowUserRequest)
+    - [FollowUserResponse](#rankquantity-voyager-api-FollowUserResponse)
+    - [GenerateRoleAvatarRequest](#rankquantity-voyager-api-GenerateRoleAvatarRequest)
+    - [GenerateRoleAvatarResponse](#rankquantity-voyager-api-GenerateRoleAvatarResponse)
+    - [GenerateRoleDescriptionRequest](#rankquantity-voyager-api-GenerateRoleDescriptionRequest)
+    - [GenerateRoleDescriptionResponse](#rankquantity-voyager-api-GenerateRoleDescriptionResponse)
+    - [GenerateRolePromptRequest](#rankquantity-voyager-api-GenerateRolePromptRequest)
+    - [GenerateRolePromptResponse](#rankquantity-voyager-api-GenerateRolePromptResponse)
+    - [GenerateStoryRoleParams](#rankquantity-voyager-api-GenerateStoryRoleParams)
+    - [GenerateStoryRolePosterRequest](#rankquantity-voyager-api-GenerateStoryRolePosterRequest)
+    - [GenerateStoryRolePosterResponse](#rankquantity-voyager-api-GenerateStoryRolePosterResponse)
+    - [GenerateStoryRoleVideoRequest](#rankquantity-voyager-api-GenerateStoryRoleVideoRequest)
+    - [GenerateStoryRoleVideoResponse](#rankquantity-voyager-api-GenerateStoryRoleVideoResponse)
+    - [GenerateStoryRoleVideoTaskDetail](#rankquantity-voyager-api-GenerateStoryRoleVideoTaskDetail)
+    - [GenerateStorySceneVideoRequest](#rankquantity-voyager-api-GenerateStorySceneVideoRequest)
+    - [GenerateStorySceneVideoResponse](#rankquantity-voyager-api-GenerateStorySceneVideoResponse)
+    - [GenerateStorySceneVideoTaskDetail](#rankquantity-voyager-api-GenerateStorySceneVideoTaskDetail)
+    - [GetDisscusReq](#rankquantity-voyager-api-GetDisscusReq)
+    - [GetDisscusResp](#rankquantity-voyager-api-GetDisscusResp)
+    - [GetDisscusResp.Data](#rankquantity-voyager-api-GetDisscusResp-Data)
+    - [GetFollowListRequest](#rankquantity-voyager-api-GetFollowListRequest)
+    - [GetFollowListResponse](#rankquantity-voyager-api-GetFollowListResponse)
+    - [GetFollowerListRequest](#rankquantity-voyager-api-GetFollowerListRequest)
+    - [GetFollowerListResponse](#rankquantity-voyager-api-GetFollowerListResponse)
+    - [GetGroupActivesRequest](#rankquantity-voyager-api-GetGroupActivesRequest)
+    - [GetGroupActivesResponse](#rankquantity-voyager-api-GetGroupActivesResponse)
+    - [GetGroupActivesResponse.Data](#rankquantity-voyager-api-GetGroupActivesResponse-Data)
+    - [GetGroupItemsRequest](#rankquantity-voyager-api-GetGroupItemsRequest)
+    - [GetGroupItemsResponse](#rankquantity-voyager-api-GetGroupItemsResponse)
+    - [GetGroupItemsResponse.Data](#rankquantity-voyager-api-GetGroupItemsResponse-Data)
+    - [GetGroupProfileRequest](#rankquantity-voyager-api-GetGroupProfileRequest)
+    - [GetGroupProfileResponse](#rankquantity-voyager-api-GetGroupProfileResponse)
+    - [GetGroupProfileResponse.Data](#rankquantity-voyager-api-GetGroupProfileResponse-Data)
+    - [GetGroupRequest](#rankquantity-voyager-api-GetGroupRequest)
+    - [GetGroupResponse](#rankquantity-voyager-api-GetGroupResponse)
+    - [GetGroupResponse.Data](#rankquantity-voyager-api-GetGroupResponse-Data)
+    - [GetItemRequest](#rankquantity-voyager-api-GetItemRequest)
+    - [GetItemResponse](#rankquantity-voyager-api-GetItemResponse)
+    - [GetItemResponse.Data](#rankquantity-voyager-api-GetItemResponse-Data)
+    - [GetNextStoryboardRequest](#rankquantity-voyager-api-GetNextStoryboardRequest)
+    - [GetNextStoryboardResponse](#rankquantity-voyager-api-GetNextStoryboardResponse)
+    - [GetProjectMembersRequest](#rankquantity-voyager-api-GetProjectMembersRequest)
+    - [GetProjectMembersResponse](#rankquantity-voyager-api-GetProjectMembersResponse)
+    - [GetProjectMembersResponse.Data](#rankquantity-voyager-api-GetProjectMembersResponse-Data)
+    - [GetProjectMembersResponse.Data.RoleEntry](#rankquantity-voyager-api-GetProjectMembersResponse-Data-RoleEntry)
+    - [GetProjectWatcherRequest](#rankquantity-voyager-api-GetProjectWatcherRequest)
+    - [GetProjectWatcherResponse](#rankquantity-voyager-api-GetProjectWatcherResponse)
+    - [GetProjectWatcherResponse.Data](#rankquantity-voyager-api-GetProjectWatcherResponse-Data)
+    - [GetProjectWatcherResponse.Data.TimestampEntry](#rankquantity-voyager-api-GetProjectWatcherResponse-Data-TimestampEntry)
+    - [GetStoryBoardCommentRepliesRequest](#rankquantity-voyager-api-GetStoryBoardCommentRepliesRequest)
+    - [GetStoryBoardCommentRepliesResponse](#rankquantity-voyager-api-GetStoryBoardCommentRepliesResponse)
+    - [GetStoryBoardCommentsRequest](#rankquantity-voyager-api-GetStoryBoardCommentsRequest)
+    - [GetStoryBoardCommentsResponse](#rankquantity-voyager-api-GetStoryBoardCommentsResponse)
+    - [GetStoryCommentRepliesRequest](#rankquantity-voyager-api-GetStoryCommentRepliesRequest)
+    - [GetStoryCommentRepliesResponse](#rankquantity-voyager-api-GetStoryCommentRepliesResponse)
+    - [GetStoryCommentsRequest](#rankquantity-voyager-api-GetStoryCommentsRequest)
+    - [GetStoryCommentsResponse](#rankquantity-voyager-api-GetStoryCommentsResponse)
+    - [GetStoryContributorsRequest](#rankquantity-voyager-api-GetStoryContributorsRequest)
+    - [GetStoryContributorsResponse](#rankquantity-voyager-api-GetStoryContributorsResponse)
+    - [GetStoryContributorsResponse.Data](#rankquantity-voyager-api-GetStoryContributorsResponse-Data)
+    - [GetStoryImageStyleRequest](#rankquantity-voyager-api-GetStoryImageStyleRequest)
+    - [GetStoryImageStyleResponse](#rankquantity-voyager-api-GetStoryImageStyleResponse)
+    - [GetStoryParticipantsRequest](#rankquantity-voyager-api-GetStoryParticipantsRequest)
+    - [GetStoryParticipantsResponse](#rankquantity-voyager-api-GetStoryParticipantsResponse)
+    - [GetStoryRoleDetailRequest](#rankquantity-voyager-api-GetStoryRoleDetailRequest)
+    - [GetStoryRoleDetailResponse](#rankquantity-voyager-api-GetStoryRoleDetailResponse)
+    - [GetStoryRoleListRequest](#rankquantity-voyager-api-GetStoryRoleListRequest)
+    - [GetStoryRoleListResponse](#rankquantity-voyager-api-GetStoryRoleListResponse)
+    - [GetStoryRolePosterListRequest](#rankquantity-voyager-api-GetStoryRolePosterListRequest)
+    - [GetStoryRolePosterListResponse](#rankquantity-voyager-api-GetStoryRolePosterListResponse)
+    - [GetStoryRoleStoriesRequest](#rankquantity-voyager-api-GetStoryRoleStoriesRequest)
+    - [GetStoryRoleStoriesResponse](#rankquantity-voyager-api-GetStoryRoleStoriesResponse)
+    - [GetStoryRoleStoryboardsRequest](#rankquantity-voyager-api-GetStoryRoleStoryboardsRequest)
+    - [GetStoryRoleStoryboardsResponse](#rankquantity-voyager-api-GetStoryRoleStoryboardsResponse)
+    - [GetUnPublishStoryboardRequest](#rankquantity-voyager-api-GetUnPublishStoryboardRequest)
+    - [GetUnPublishStoryboardResponse](#rankquantity-voyager-api-GetUnPublishStoryboardResponse)
+    - [GetUserChatMessagesRequest](#rankquantity-voyager-api-GetUserChatMessagesRequest)
+    - [GetUserChatMessagesResponse](#rankquantity-voyager-api-GetUserChatMessagesResponse)
+    - [GetUserChatWithRoleRequest](#rankquantity-voyager-api-GetUserChatWithRoleRequest)
+    - [GetUserChatWithRoleResponse](#rankquantity-voyager-api-GetUserChatWithRoleResponse)
+    - [GetUserCreatedRolesRequest](#rankquantity-voyager-api-GetUserCreatedRolesRequest)
+    - [GetUserCreatedRolesResponse](#rankquantity-voyager-api-GetUserCreatedRolesResponse)
+    - [GetUserCreatedStoryboardsRequest](#rankquantity-voyager-api-GetUserCreatedStoryboardsRequest)
+    - [GetUserCreatedStoryboardsResponse](#rankquantity-voyager-api-GetUserCreatedStoryboardsResponse)
+    - [GetUserItemsRequest](#rankquantity-voyager-api-GetUserItemsRequest)
+    - [GetUserItemsResponse](#rankquantity-voyager-api-GetUserItemsResponse)
+    - [GetUserItemsResponse.Data](#rankquantity-voyager-api-GetUserItemsResponse-Data)
+    - [GetUserProfileRequest](#rankquantity-voyager-api-GetUserProfileRequest)
+    - [GetUserProfileResponse](#rankquantity-voyager-api-GetUserProfileResponse)
+    - [GetUserWatchRoleActiveStoryBoardsRequest](#rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsRequest)
+    - [GetUserWatchRoleActiveStoryBoardsResponse](#rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsResponse)
+    - [GetUserWatchStoryActiveStoryBoardsRequest](#rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsRequest)
+    - [GetUserWatchStoryActiveStoryBoardsResponse](#rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsResponse)
+    - [GetUserWithRoleChatListRequest](#rankquantity-voyager-api-GetUserWithRoleChatListRequest)
+    - [GetUserWithRoleChatListResponse](#rankquantity-voyager-api-GetUserWithRoleChatListResponse)
+    - [JoinGroupRequest](#rankquantity-voyager-api-JoinGroupRequest)
+    - [JoinGroupResponse](#rankquantity-voyager-api-JoinGroupResponse)
+    - [JoinGroupResponse.Data](#rankquantity-voyager-api-JoinGroupResponse-Data)
+    - [LeaveGroupRequest](#rankquantity-voyager-api-LeaveGroupRequest)
+    - [LeaveGroupResponse](#rankquantity-voyager-api-LeaveGroupResponse)
+    - [LeaveGroupResponse.Data](#rankquantity-voyager-api-LeaveGroupResponse-Data)
+    - [LikeCommentRequest](#rankquantity-voyager-api-LikeCommentRequest)
+    - [LikeCommentResponse](#rankquantity-voyager-api-LikeCommentResponse)
+    - [LikeItemRequest](#rankquantity-voyager-api-LikeItemRequest)
+    - [LikeItemResponse](#rankquantity-voyager-api-LikeItemResponse)
+    - [LikeItemResponse.Data](#rankquantity-voyager-api-LikeItemResponse-Data)
+    - [LikeStoryRequest](#rankquantity-voyager-api-LikeStoryRequest)
+    - [LikeStoryResponse](#rankquantity-voyager-api-LikeStoryResponse)
+    - [LikeStoryRolePosterRequest](#rankquantity-voyager-api-LikeStoryRolePosterRequest)
+    - [LikeStoryRolePosterResponse](#rankquantity-voyager-api-LikeStoryRolePosterResponse)
+    - [LikeStoryRoleRequest](#rankquantity-voyager-api-LikeStoryRoleRequest)
+    - [LikeStoryRoleResponse](#rankquantity-voyager-api-LikeStoryRoleResponse)
+    - [LoginRequest](#rankquantity-voyager-api-LoginRequest)
+    - [LoginResponse](#rankquantity-voyager-api-LoginResponse)
+    - [LoginResponse.Data](#rankquantity-voyager-api-LoginResponse-Data)
+    - [LogoutRequest](#rankquantity-voyager-api-LogoutRequest)
+    - [LogoutResponse](#rankquantity-voyager-api-LogoutResponse)
+    - [PublishStoryboardRequest](#rankquantity-voyager-api-PublishStoryboardRequest)
+    - [PublishStoryboardResponse](#rankquantity-voyager-api-PublishStoryboardResponse)
+    - [RefreshTokenRequest](#rankquantity-voyager-api-RefreshTokenRequest)
+    - [RefreshTokenResponse](#rankquantity-voyager-api-RefreshTokenResponse)
+    - [RegisterRequest](#rankquantity-voyager-api-RegisterRequest)
+    - [RegisterResponse](#rankquantity-voyager-api-RegisterResponse)
+    - [RenderStoryRoleContinuouslyRequest](#rankquantity-voyager-api-RenderStoryRoleContinuouslyRequest)
+    - [RenderStoryRoleContinuouslyResponse](#rankquantity-voyager-api-RenderStoryRoleContinuouslyResponse)
+    - [RenderStoryRoleDetail](#rankquantity-voyager-api-RenderStoryRoleDetail)
+    - [RenderStoryRoleRequest](#rankquantity-voyager-api-RenderStoryRoleRequest)
+    - [RenderStoryRoleResponse](#rankquantity-voyager-api-RenderStoryRoleResponse)
+    - [ResetPasswordRequest](#rankquantity-voyager-api-ResetPasswordRequest)
+    - [ResetPasswordResponse](#rankquantity-voyager-api-ResetPasswordResponse)
+    - [RestoreStoryboardRequest](#rankquantity-voyager-api-RestoreStoryboardRequest)
+    - [RestoreStoryboardResponse](#rankquantity-voyager-api-RestoreStoryboardResponse)
+    - [RolePosterDetail](#rankquantity-voyager-api-RolePosterDetail)
+    - [SaveStoryboardCraftRequest](#rankquantity-voyager-api-SaveStoryboardCraftRequest)
+    - [SaveStoryboardCraftResponse](#rankquantity-voyager-api-SaveStoryboardCraftResponse)
+    - [SearchGroupRequest](#rankquantity-voyager-api-SearchGroupRequest)
+    - [SearchGroupResponse](#rankquantity-voyager-api-SearchGroupResponse)
+    - [SearchGroupResponse.Data](#rankquantity-voyager-api-SearchGroupResponse-Data)
+    - [SearchRolesRequest](#rankquantity-voyager-api-SearchRolesRequest)
+    - [SearchRolesResponse](#rankquantity-voyager-api-SearchRolesResponse)
+    - [SearchStoriesRequest](#rankquantity-voyager-api-SearchStoriesRequest)
+    - [SearchStoriesResponse](#rankquantity-voyager-api-SearchStoriesResponse)
+    - [SearchUserRequest](#rankquantity-voyager-api-SearchUserRequest)
+    - [SearchUserResponse](#rankquantity-voyager-api-SearchUserResponse)
+    - [SearchUserResponse.Data](#rankquantity-voyager-api-SearchUserResponse-Data)
+    - [StoryComment](#rankquantity-voyager-api-StoryComment)
+    - [StoryContributor](#rankquantity-voyager-api-StoryContributor)
+    - [StoryGentaskDetail](#rankquantity-voyager-api-StoryGentaskDetail)
+    - [StoryStyleDesc](#rankquantity-voyager-api-StoryStyleDesc)
+    - [StoryboardStageStore](#rankquantity-voyager-api-StoryboardStageStore)
+    - [TrendingStoryRequest](#rankquantity-voyager-api-TrendingStoryRequest)
+    - [TrendingStoryResponse](#rankquantity-voyager-api-TrendingStoryResponse)
+    - [TrendingStoryResponse.Data](#rankquantity-voyager-api-TrendingStoryResponse-Data)
+    - [TrendingStoryRoleRequest](#rankquantity-voyager-api-TrendingStoryRoleRequest)
+    - [TrendingStoryRoleResponse](#rankquantity-voyager-api-TrendingStoryRoleResponse)
+    - [TrendingStoryRoleResponse.Data](#rankquantity-voyager-api-TrendingStoryRoleResponse-Data)
+    - [UnFollowStoryRoleRequest](#rankquantity-voyager-api-UnFollowStoryRoleRequest)
+    - [UnFollowStoryRoleResponse](#rankquantity-voyager-api-UnFollowStoryRoleResponse)
+    - [UnLikeStoryRequest](#rankquantity-voyager-api-UnLikeStoryRequest)
+    - [UnLikeStoryResponse](#rankquantity-voyager-api-UnLikeStoryResponse)
+    - [UnLikeStoryRolePosterRequest](#rankquantity-voyager-api-UnLikeStoryRolePosterRequest)
+    - [UnLikeStoryRolePosterResponse](#rankquantity-voyager-api-UnLikeStoryRolePosterResponse)
+    - [UnLikeStoryRoleRequest](#rankquantity-voyager-api-UnLikeStoryRoleRequest)
+    - [UnLikeStoryRoleResponse](#rankquantity-voyager-api-UnLikeStoryRoleResponse)
+    - [UnfollowUserRequest](#rankquantity-voyager-api-UnfollowUserRequest)
+    - [UnfollowUserResponse](#rankquantity-voyager-api-UnfollowUserResponse)
+    - [UpdateGroupInfoRequest](#rankquantity-voyager-api-UpdateGroupInfoRequest)
+    - [UpdateGroupInfoResponse](#rankquantity-voyager-api-UpdateGroupInfoResponse)
+    - [UpdateGroupInfoResponse.Data](#rankquantity-voyager-api-UpdateGroupInfoResponse-Data)
+    - [UpdateGroupProfileRequest](#rankquantity-voyager-api-UpdateGroupProfileRequest)
+    - [UpdateGroupProfileResponse](#rankquantity-voyager-api-UpdateGroupProfileResponse)
+    - [UpdateItemRequest](#rankquantity-voyager-api-UpdateItemRequest)
+    - [UpdateItemResponse](#rankquantity-voyager-api-UpdateItemResponse)
+    - [UpdateItemResponse.Data](#rankquantity-voyager-api-UpdateItemResponse-Data)
+    - [UpdateRoleDescriptionRequest](#rankquantity-voyager-api-UpdateRoleDescriptionRequest)
+    - [UpdateRoleDescriptionResponse](#rankquantity-voyager-api-UpdateRoleDescriptionResponse)
+    - [UpdateRolePromptRequest](#rankquantity-voyager-api-UpdateRolePromptRequest)
+    - [UpdateRolePromptResponse](#rankquantity-voyager-api-UpdateRolePromptResponse)
+    - [UpdateStoryAvatarRequest](#rankquantity-voyager-api-UpdateStoryAvatarRequest)
+    - [UpdateStoryAvatarResponse](#rankquantity-voyager-api-UpdateStoryAvatarResponse)
+    - [UpdateStoryCoverRequest](#rankquantity-voyager-api-UpdateStoryCoverRequest)
+    - [UpdateStoryCoverResponse](#rankquantity-voyager-api-UpdateStoryCoverResponse)
+    - [UpdateStoryImageStyleRequest](#rankquantity-voyager-api-UpdateStoryImageStyleRequest)
+    - [UpdateStoryImageStyleResponse](#rankquantity-voyager-api-UpdateStoryImageStyleResponse)
+    - [UpdateStoryRoleAvatorRequest](#rankquantity-voyager-api-UpdateStoryRoleAvatorRequest)
+    - [UpdateStoryRoleAvatorResponse](#rankquantity-voyager-api-UpdateStoryRoleAvatorResponse)
+    - [UpdateStoryRoleDescriptionDetailRequest](#rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailRequest)
+    - [UpdateStoryRoleDescriptionDetailResponse](#rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailResponse)
+    - [UpdateStoryRoleDetailRequest](#rankquantity-voyager-api-UpdateStoryRoleDetailRequest)
+    - [UpdateStoryRoleDetailResponse](#rankquantity-voyager-api-UpdateStoryRoleDetailResponse)
+    - [UpdateStoryRolePosterRequest](#rankquantity-voyager-api-UpdateStoryRolePosterRequest)
+    - [UpdateStoryRolePosterResponse](#rankquantity-voyager-api-UpdateStoryRolePosterResponse)
+    - [UpdateStoryRolePromptRequest](#rankquantity-voyager-api-UpdateStoryRolePromptRequest)
+    - [UpdateStoryRolePromptResponse](#rankquantity-voyager-api-UpdateStoryRolePromptResponse)
+    - [UpdateStorySenceMaxNumberRequest](#rankquantity-voyager-api-UpdateStorySenceMaxNumberRequest)
+    - [UpdateStorySenceMaxNumberResponse](#rankquantity-voyager-api-UpdateStorySenceMaxNumberResponse)
+    - [UpdateUserAvatorRequest](#rankquantity-voyager-api-UpdateUserAvatorRequest)
+    - [UpdateUserAvatorResponse](#rankquantity-voyager-api-UpdateUserAvatorResponse)
+    - [UpdateUserAvatorResponse.Data](#rankquantity-voyager-api-UpdateUserAvatorResponse-Data)
+    - [UpdateUserBackgroundImageRequest](#rankquantity-voyager-api-UpdateUserBackgroundImageRequest)
+    - [UpdateUserBackgroundImageResponse](#rankquantity-voyager-api-UpdateUserBackgroundImageResponse)
+    - [UpdateUserProfileRequest](#rankquantity-voyager-api-UpdateUserProfileRequest)
+    - [UpdateUserProfileResponse](#rankquantity-voyager-api-UpdateUserProfileResponse)
+    - [UploadImageRequest](#rankquantity-voyager-api-UploadImageRequest)
+    - [UploadImageResponse](#rankquantity-voyager-api-UploadImageResponse)
+    - [UploadImageResponse.Data](#rankquantity-voyager-api-UploadImageResponse-Data)
+    - [UserFollowingGroupRequest](#rankquantity-voyager-api-UserFollowingGroupRequest)
+    - [UserFollowingGroupResponse](#rankquantity-voyager-api-UserFollowingGroupResponse)
+    - [UserFollowingGroupResponse.Data](#rankquantity-voyager-api-UserFollowingGroupResponse-Data)
+    - [UserGenTaskStatus](#rankquantity-voyager-api-UserGenTaskStatus)
+    - [UserGroupRequest](#rankquantity-voyager-api-UserGroupRequest)
+    - [UserGroupResponse](#rankquantity-voyager-api-UserGroupResponse)
+    - [UserGroupResponse.Data](#rankquantity-voyager-api-UserGroupResponse-Data)
+    - [UserInfoRequest](#rankquantity-voyager-api-UserInfoRequest)
+    - [UserInfoResponse](#rankquantity-voyager-api-UserInfoResponse)
+    - [UserInfoResponse.Data](#rankquantity-voyager-api-UserInfoResponse-Data)
+    - [UserInitRequest](#rankquantity-voyager-api-UserInitRequest)
+    - [UserInitResponse](#rankquantity-voyager-api-UserInitResponse)
+    - [UserInitResponse.Data](#rankquantity-voyager-api-UserInitResponse-Data)
+    - [UserUpdateRequest](#rankquantity-voyager-api-UserUpdateRequest)
+    - [UserUpdateRequest.DataEntry](#rankquantity-voyager-api-UserUpdateRequest-DataEntry)
+    - [UserUpdateResponse](#rankquantity-voyager-api-UserUpdateResponse)
+    - [UserUpdateResponse.Data](#rankquantity-voyager-api-UserUpdateResponse-Data)
+    - [UserWatchingRequest](#rankquantity-voyager-api-UserWatchingRequest)
+    - [UserWatchingResponse](#rankquantity-voyager-api-UserWatchingResponse)
+    - [UserWatchingResponse.Data](#rankquantity-voyager-api-UserWatchingResponse-Data)
+    - [VersionRequest](#rankquantity-voyager-api-VersionRequest)
+    - [VersionResponse](#rankquantity-voyager-api-VersionResponse)
+    - [VersionResponse.Data](#rankquantity-voyager-api-VersionResponse-Data)
   
-    - [TokenSource](#common-TokenSource)
+    - [TokenSource](#rankquantity-voyager-api-TokenSource)
   
-    - [TeamsAPI](#common-TeamsAPI)
+    - [TeamsAPI](#rankquantity-voyager-api-TeamsAPI)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -561,7 +561,7 @@
 
 
 
-<a name="common-Tags"></a>
+<a name="rankquantity-voyager-api-Tags"></a>
 
 ### Tags
 
@@ -584,7 +584,7 @@
 
 
 
-<a name="common-WhatCurrentUserStatus"></a>
+<a name="rankquantity-voyager-api-WhatCurrentUserStatus"></a>
 
 ### WhatCurrentUserStatus
 
@@ -606,7 +606,7 @@
  
 
 
-<a name="common-ActiveFlowType"></a>
+<a name="rankquantity-voyager-api-ActiveFlowType"></a>
 
 ### ActiveFlowType
 
@@ -620,7 +620,7 @@
 
 
 
-<a name="common-ActiveType"></a>
+<a name="rankquantity-voyager-api-ActiveType"></a>
 
 ### ActiveType
 不公开互动
@@ -647,7 +647,7 @@
 
 
 
-<a name="common-AuthType"></a>
+<a name="rankquantity-voyager-api-AuthType"></a>
 
 ### AuthType
 
@@ -664,7 +664,7 @@
 
 
 
-<a name="common-DashScopeTaskStatus"></a>
+<a name="rankquantity-voyager-api-DashScopeTaskStatus"></a>
 
 ### DashScopeTaskStatus
 
@@ -680,7 +680,7 @@
 
 
 
-<a name="common-GenderType"></a>
+<a name="rankquantity-voyager-api-GenderType"></a>
 
 ### GenderType
 
@@ -693,7 +693,7 @@
 
 
 
-<a name="common-GroupStatus"></a>
+<a name="rankquantity-voyager-api-GroupStatus"></a>
 
 ### GroupStatus
 
@@ -708,7 +708,7 @@
 
 
 
-<a name="common-ImageRatios"></a>
+<a name="rankquantity-voyager-api-ImageRatios"></a>
 
 ### ImageRatios
 
@@ -724,7 +724,7 @@
 
 
 
-<a name="common-ItemType"></a>
+<a name="rankquantity-voyager-api-ItemType"></a>
 
 ### ItemType
 
@@ -742,7 +742,7 @@
 
 
 
-<a name="common-LikeType"></a>
+<a name="rankquantity-voyager-api-LikeType"></a>
 
 ### LikeType
 
@@ -756,7 +756,7 @@
 
 
 
-<a name="common-MultiBranchOrderBy"></a>
+<a name="rankquantity-voyager-api-MultiBranchOrderBy"></a>
 
 ### MultiBranchOrderBy
 
@@ -773,7 +773,7 @@
 
 
 
-<a name="common-ScopeType"></a>
+<a name="rankquantity-voyager-api-ScopeType"></a>
 
 ### ScopeType
 
@@ -786,7 +786,7 @@
 
 
 
-<a name="common-SortByType"></a>
+<a name="rankquantity-voyager-api-SortByType"></a>
 
 ### SortByType
 
@@ -801,7 +801,7 @@
 
 
 
-<a name="common-TaskStage"></a>
+<a name="rankquantity-voyager-api-TaskStage"></a>
 
 ### TaskStage
 
@@ -818,7 +818,7 @@
 
 
 
-<a name="common-TaskType"></a>
+<a name="rankquantity-voyager-api-TaskType"></a>
 
 ### TaskType
 
@@ -834,7 +834,7 @@
 
 
 
-<a name="common-UserStatus"></a>
+<a name="rankquantity-voyager-api-UserStatus"></a>
 
 ### UserStatus
 
@@ -864,7 +864,7 @@
 
 
 
-<a name="common-CommentInfo"></a>
+<a name="rankquantity-voyager-api-CommentInfo"></a>
 
 ### CommentInfo
 
@@ -909,7 +909,7 @@
 
 
 
-<a name="common-AIErrorMessages"></a>
+<a name="rankquantity-voyager-api-AIErrorMessages"></a>
 
 ### AIErrorMessages
 AI生成相关错误描述
@@ -933,7 +933,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-AuthErrorMessages"></a>
+<a name="rankquantity-voyager-api-AuthErrorMessages"></a>
 
 ### AuthErrorMessages
 认证和授权错误描述
@@ -961,7 +961,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ChatErrorMessages"></a>
+<a name="rankquantity-voyager-api-ChatErrorMessages"></a>
 
 ### ChatErrorMessages
 聊天相关错误描述
@@ -985,7 +985,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-CommentErrorMessages"></a>
+<a name="rankquantity-voyager-api-CommentErrorMessages"></a>
 
 ### CommentErrorMessages
 评论相关错误描述
@@ -1004,7 +1004,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ContentErrorMessages"></a>
+<a name="rankquantity-voyager-api-ContentErrorMessages"></a>
 
 ### ContentErrorMessages
 内容相关错误描述
@@ -1028,7 +1028,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription"></a>
+<a name="rankquantity-voyager-api-ErrorDescription"></a>
 
 ### ErrorDescription
 错误描述信息
@@ -1036,36 +1036,36 @@ AI生成相关错误描述
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| system_errors | [ErrorDescription.SystemErrorsEntry](#common-ErrorDescription-SystemErrorsEntry) | repeated | 系统级错误描述 |
-| auth_errors | [ErrorDescription.AuthErrorsEntry](#common-ErrorDescription-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
-| validation_errors | [ErrorDescription.ValidationErrorsEntry](#common-ErrorDescription-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
-| resource_errors | [ErrorDescription.ResourceErrorsEntry](#common-ErrorDescription-ResourceErrorsEntry) | repeated | 资源错误描述 |
-| user_errors | [ErrorDescription.UserErrorsEntry](#common-ErrorDescription-UserErrorsEntry) | repeated | 用户相关错误描述 |
-| group_errors | [ErrorDescription.GroupErrorsEntry](#common-ErrorDescription-GroupErrorsEntry) | repeated | 组织相关错误描述 |
-| project_errors | [ErrorDescription.ProjectErrorsEntry](#common-ErrorDescription-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
-| story_errors | [ErrorDescription.StoryErrorsEntry](#common-ErrorDescription-StoryErrorsEntry) | repeated | 故事相关错误描述 |
-| storyboard_errors | [ErrorDescription.StoryboardErrorsEntry](#common-ErrorDescription-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
-| role_errors | [ErrorDescription.RoleErrorsEntry](#common-ErrorDescription-RoleErrorsEntry) | repeated | 角色相关错误描述 |
-| content_errors | [ErrorDescription.ContentErrorsEntry](#common-ErrorDescription-ContentErrorsEntry) | repeated | 内容相关错误描述 |
-| operation_errors | [ErrorDescription.OperationErrorsEntry](#common-ErrorDescription-OperationErrorsEntry) | repeated | 操作相关错误描述 |
-| limit_errors | [ErrorDescription.LimitErrorsEntry](#common-ErrorDescription-LimitErrorsEntry) | repeated | 限制相关错误描述 |
-| ai_errors | [ErrorDescription.AiErrorsEntry](#common-ErrorDescription-AiErrorsEntry) | repeated | AI生成相关错误描述 |
-| comment_errors | [ErrorDescription.CommentErrorsEntry](#common-ErrorDescription-CommentErrorsEntry) | repeated | 评论相关错误描述 |
-| like_errors | [ErrorDescription.LikeErrorsEntry](#common-ErrorDescription-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
-| vip_errors | [ErrorDescription.VipErrorsEntry](#common-ErrorDescription-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
-| payment_errors | [ErrorDescription.PaymentErrorsEntry](#common-ErrorDescription-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
-| order_errors | [ErrorDescription.OrderErrorsEntry](#common-ErrorDescription-OrderErrorsEntry) | repeated | 订单相关错误描述 |
-| message_errors | [ErrorDescription.MessageErrorsEntry](#common-ErrorDescription-MessageErrorsEntry) | repeated | 消息相关错误描述 |
-| chat_errors | [ErrorDescription.ChatErrorsEntry](#common-ErrorDescription-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
-| upload_errors | [ErrorDescription.UploadErrorsEntry](#common-ErrorDescription-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
-| search_errors | [ErrorDescription.SearchErrorsEntry](#common-ErrorDescription-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+| system_errors | [ErrorDescription.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescription.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescription.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescription.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescription.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescription.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescription.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescription.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescription.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescription.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescription.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescription.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescription.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescription.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescription.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescription.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescription.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescription-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescription.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescription.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescription.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescription.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescription.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescription.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
 
 
 
 
 
 
-<a name="common-ErrorDescription-AiErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-AiErrorsEntry"></a>
 
 ### ErrorDescription.AiErrorsEntry
 
@@ -1081,7 +1081,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-AuthErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry"></a>
 
 ### ErrorDescription.AuthErrorsEntry
 
@@ -1097,7 +1097,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-ChatErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry"></a>
 
 ### ErrorDescription.ChatErrorsEntry
 
@@ -1113,7 +1113,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-CommentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry"></a>
 
 ### ErrorDescription.CommentErrorsEntry
 
@@ -1129,7 +1129,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-ContentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry"></a>
 
 ### ErrorDescription.ContentErrorsEntry
 
@@ -1145,7 +1145,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-GroupErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry"></a>
 
 ### ErrorDescription.GroupErrorsEntry
 
@@ -1161,7 +1161,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-LikeErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry"></a>
 
 ### ErrorDescription.LikeErrorsEntry
 
@@ -1177,7 +1177,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-LimitErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry"></a>
 
 ### ErrorDescription.LimitErrorsEntry
 
@@ -1193,7 +1193,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-MessageErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry"></a>
 
 ### ErrorDescription.MessageErrorsEntry
 
@@ -1209,7 +1209,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-OperationErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry"></a>
 
 ### ErrorDescription.OperationErrorsEntry
 
@@ -1225,7 +1225,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-OrderErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry"></a>
 
 ### ErrorDescription.OrderErrorsEntry
 
@@ -1241,7 +1241,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-PaymentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry"></a>
 
 ### ErrorDescription.PaymentErrorsEntry
 
@@ -1257,7 +1257,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-ProjectErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry"></a>
 
 ### ErrorDescription.ProjectErrorsEntry
 
@@ -1273,7 +1273,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-ResourceErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry"></a>
 
 ### ErrorDescription.ResourceErrorsEntry
 
@@ -1289,7 +1289,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-RoleErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry"></a>
 
 ### ErrorDescription.RoleErrorsEntry
 
@@ -1305,7 +1305,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-SearchErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry"></a>
 
 ### ErrorDescription.SearchErrorsEntry
 
@@ -1321,7 +1321,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-StoryErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry"></a>
 
 ### ErrorDescription.StoryErrorsEntry
 
@@ -1337,7 +1337,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-StoryboardErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry"></a>
 
 ### ErrorDescription.StoryboardErrorsEntry
 
@@ -1353,7 +1353,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-SystemErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry"></a>
 
 ### ErrorDescription.SystemErrorsEntry
 
@@ -1369,7 +1369,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-UploadErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry"></a>
 
 ### ErrorDescription.UploadErrorsEntry
 
@@ -1385,7 +1385,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-UserErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-UserErrorsEntry"></a>
 
 ### ErrorDescription.UserErrorsEntry
 
@@ -1401,7 +1401,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-ValidationErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry"></a>
 
 ### ErrorDescription.ValidationErrorsEntry
 
@@ -1417,7 +1417,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescription-VipErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescription-VipErrorsEntry"></a>
 
 ### ErrorDescription.VipErrorsEntry
 
@@ -1433,7 +1433,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions"></a>
 
 ### ErrorDescriptions
 错误描述常量
@@ -1441,36 +1441,36 @@ AI生成相关错误描述
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| system_errors | [ErrorDescriptions.SystemErrorsEntry](#common-ErrorDescriptions-SystemErrorsEntry) | repeated | 系统级错误描述 |
-| auth_errors | [ErrorDescriptions.AuthErrorsEntry](#common-ErrorDescriptions-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
-| validation_errors | [ErrorDescriptions.ValidationErrorsEntry](#common-ErrorDescriptions-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
-| resource_errors | [ErrorDescriptions.ResourceErrorsEntry](#common-ErrorDescriptions-ResourceErrorsEntry) | repeated | 资源错误描述 |
-| user_errors | [ErrorDescriptions.UserErrorsEntry](#common-ErrorDescriptions-UserErrorsEntry) | repeated | 用户相关错误描述 |
-| group_errors | [ErrorDescriptions.GroupErrorsEntry](#common-ErrorDescriptions-GroupErrorsEntry) | repeated | 组织相关错误描述 |
-| project_errors | [ErrorDescriptions.ProjectErrorsEntry](#common-ErrorDescriptions-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
-| story_errors | [ErrorDescriptions.StoryErrorsEntry](#common-ErrorDescriptions-StoryErrorsEntry) | repeated | 故事相关错误描述 |
-| storyboard_errors | [ErrorDescriptions.StoryboardErrorsEntry](#common-ErrorDescriptions-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
-| role_errors | [ErrorDescriptions.RoleErrorsEntry](#common-ErrorDescriptions-RoleErrorsEntry) | repeated | 角色相关错误描述 |
-| content_errors | [ErrorDescriptions.ContentErrorsEntry](#common-ErrorDescriptions-ContentErrorsEntry) | repeated | 内容相关错误描述 |
-| operation_errors | [ErrorDescriptions.OperationErrorsEntry](#common-ErrorDescriptions-OperationErrorsEntry) | repeated | 操作相关错误描述 |
-| limit_errors | [ErrorDescriptions.LimitErrorsEntry](#common-ErrorDescriptions-LimitErrorsEntry) | repeated | 限制相关错误描述 |
-| ai_errors | [ErrorDescriptions.AiErrorsEntry](#common-ErrorDescriptions-AiErrorsEntry) | repeated | AI生成相关错误描述 |
-| comment_errors | [ErrorDescriptions.CommentErrorsEntry](#common-ErrorDescriptions-CommentErrorsEntry) | repeated | 评论相关错误描述 |
-| like_errors | [ErrorDescriptions.LikeErrorsEntry](#common-ErrorDescriptions-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
-| vip_errors | [ErrorDescriptions.VipErrorsEntry](#common-ErrorDescriptions-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
-| payment_errors | [ErrorDescriptions.PaymentErrorsEntry](#common-ErrorDescriptions-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
-| order_errors | [ErrorDescriptions.OrderErrorsEntry](#common-ErrorDescriptions-OrderErrorsEntry) | repeated | 订单相关错误描述 |
-| message_errors | [ErrorDescriptions.MessageErrorsEntry](#common-ErrorDescriptions-MessageErrorsEntry) | repeated | 消息相关错误描述 |
-| chat_errors | [ErrorDescriptions.ChatErrorsEntry](#common-ErrorDescriptions-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
-| upload_errors | [ErrorDescriptions.UploadErrorsEntry](#common-ErrorDescriptions-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
-| search_errors | [ErrorDescriptions.SearchErrorsEntry](#common-ErrorDescriptions-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+| system_errors | [ErrorDescriptions.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescriptions.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescriptions.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescriptions.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescriptions.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescriptions.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescriptions.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescriptions.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescriptions.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescriptions.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescriptions.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescriptions.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescriptions.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescriptions.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescriptions.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescriptions.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescriptions.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescriptions.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescriptions.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescriptions.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescriptions.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescriptions.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescriptions.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
 
 
 
 
 
 
-<a name="common-ErrorDescriptions-AiErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry"></a>
 
 ### ErrorDescriptions.AiErrorsEntry
 
@@ -1486,7 +1486,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-AuthErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry"></a>
 
 ### ErrorDescriptions.AuthErrorsEntry
 
@@ -1502,7 +1502,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-ChatErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry"></a>
 
 ### ErrorDescriptions.ChatErrorsEntry
 
@@ -1518,7 +1518,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-CommentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry"></a>
 
 ### ErrorDescriptions.CommentErrorsEntry
 
@@ -1534,7 +1534,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-ContentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry"></a>
 
 ### ErrorDescriptions.ContentErrorsEntry
 
@@ -1550,7 +1550,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-GroupErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry"></a>
 
 ### ErrorDescriptions.GroupErrorsEntry
 
@@ -1566,7 +1566,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-LikeErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry"></a>
 
 ### ErrorDescriptions.LikeErrorsEntry
 
@@ -1582,7 +1582,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-LimitErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry"></a>
 
 ### ErrorDescriptions.LimitErrorsEntry
 
@@ -1598,7 +1598,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-MessageErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry"></a>
 
 ### ErrorDescriptions.MessageErrorsEntry
 
@@ -1614,7 +1614,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-OperationErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry"></a>
 
 ### ErrorDescriptions.OperationErrorsEntry
 
@@ -1630,7 +1630,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-OrderErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry"></a>
 
 ### ErrorDescriptions.OrderErrorsEntry
 
@@ -1646,7 +1646,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-PaymentErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry"></a>
 
 ### ErrorDescriptions.PaymentErrorsEntry
 
@@ -1662,7 +1662,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-ProjectErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry"></a>
 
 ### ErrorDescriptions.ProjectErrorsEntry
 
@@ -1678,7 +1678,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-ResourceErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry"></a>
 
 ### ErrorDescriptions.ResourceErrorsEntry
 
@@ -1694,7 +1694,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-RoleErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry"></a>
 
 ### ErrorDescriptions.RoleErrorsEntry
 
@@ -1710,7 +1710,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-SearchErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry"></a>
 
 ### ErrorDescriptions.SearchErrorsEntry
 
@@ -1726,7 +1726,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-StoryErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry"></a>
 
 ### ErrorDescriptions.StoryErrorsEntry
 
@@ -1742,7 +1742,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-StoryboardErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry"></a>
 
 ### ErrorDescriptions.StoryboardErrorsEntry
 
@@ -1758,7 +1758,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-SystemErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry"></a>
 
 ### ErrorDescriptions.SystemErrorsEntry
 
@@ -1774,7 +1774,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-UploadErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry"></a>
 
 ### ErrorDescriptions.UploadErrorsEntry
 
@@ -1790,7 +1790,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-UserErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry"></a>
 
 ### ErrorDescriptions.UserErrorsEntry
 
@@ -1806,7 +1806,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-ValidationErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry"></a>
 
 ### ErrorDescriptions.ValidationErrorsEntry
 
@@ -1822,7 +1822,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ErrorDescriptions-VipErrorsEntry"></a>
+<a name="rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry"></a>
 
 ### ErrorDescriptions.VipErrorsEntry
 
@@ -1838,7 +1838,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-GroupErrorMessages"></a>
+<a name="rankquantity-voyager-api-GroupErrorMessages"></a>
 
 ### GroupErrorMessages
 组织相关错误描述
@@ -1862,7 +1862,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-LikeErrorMessages"></a>
+<a name="rankquantity-voyager-api-LikeErrorMessages"></a>
 
 ### LikeErrorMessages
 点赞相关错误描述
@@ -1881,7 +1881,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-LimitErrorMessages"></a>
+<a name="rankquantity-voyager-api-LimitErrorMessages"></a>
 
 ### LimitErrorMessages
 限制相关错误描述
@@ -1905,7 +1905,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-MessageErrorMessages"></a>
+<a name="rankquantity-voyager-api-MessageErrorMessages"></a>
 
 ### MessageErrorMessages
 消息相关错误描述
@@ -1924,7 +1924,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-OperationErrorMessages"></a>
+<a name="rankquantity-voyager-api-OperationErrorMessages"></a>
 
 ### OperationErrorMessages
 操作相关错误描述
@@ -1948,7 +1948,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-OrderErrorMessages"></a>
+<a name="rankquantity-voyager-api-OrderErrorMessages"></a>
 
 ### OrderErrorMessages
 订单相关错误描述
@@ -1967,7 +1967,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-PaymentErrorMessages"></a>
+<a name="rankquantity-voyager-api-PaymentErrorMessages"></a>
 
 ### PaymentErrorMessages
 支付相关错误描述
@@ -1986,7 +1986,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-ResourceErrorMessages"></a>
+<a name="rankquantity-voyager-api-ResourceErrorMessages"></a>
 
 ### ResourceErrorMessages
 资源错误描述
@@ -2009,7 +2009,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-RoleErrorMessages"></a>
+<a name="rankquantity-voyager-api-RoleErrorMessages"></a>
 
 ### RoleErrorMessages
 角色相关错误描述
@@ -2033,7 +2033,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-SearchErrorMessages"></a>
+<a name="rankquantity-voyager-api-SearchErrorMessages"></a>
 
 ### SearchErrorMessages
 搜索相关错误描述
@@ -2057,7 +2057,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-StoryErrorMessages"></a>
+<a name="rankquantity-voyager-api-StoryErrorMessages"></a>
 
 ### StoryErrorMessages
 故事相关错误描述
@@ -2081,7 +2081,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-StoryboardErrorMessages"></a>
+<a name="rankquantity-voyager-api-StoryboardErrorMessages"></a>
 
 ### StoryboardErrorMessages
 故事板相关错误描述
@@ -2105,7 +2105,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-SystemErrorMessages"></a>
+<a name="rankquantity-voyager-api-SystemErrorMessages"></a>
 
 ### SystemErrorMessages
 系统级错误描述
@@ -2129,7 +2129,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-UploadErrorMessages"></a>
+<a name="rankquantity-voyager-api-UploadErrorMessages"></a>
 
 ### UploadErrorMessages
 文件上传相关错误描述
@@ -2153,7 +2153,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-UserErrorMessages"></a>
+<a name="rankquantity-voyager-api-UserErrorMessages"></a>
 
 ### UserErrorMessages
 用户相关错误描述
@@ -2177,7 +2177,7 @@ AI生成相关错误描述
 
 
 
-<a name="common-VIPErrorMessages"></a>
+<a name="rankquantity-voyager-api-VIPErrorMessages"></a>
 
 ### VIPErrorMessages
 VIP/充值相关错误描述
@@ -2196,7 +2196,7 @@ VIP/充值相关错误描述
 
 
 
-<a name="common-ValidationErrorMessages"></a>
+<a name="rankquantity-voyager-api-ValidationErrorMessages"></a>
 
 ### ValidationErrorMessages
 参数验证错误描述
@@ -2222,7 +2222,7 @@ VIP/充值相关错误描述
  
 
 
-<a name="common-ResponseCode"></a>
+<a name="rankquantity-voyager-api-ResponseCode"></a>
 
 ### ResponseCode
 通用响应状态码
@@ -2498,7 +2498,7 @@ VIP不存在 |
 
 
 
-<a name="common-GroupInfo"></a>
+<a name="rankquantity-voyager-api-GroupInfo"></a>
 
 ### GroupInfo
 
@@ -2512,12 +2512,12 @@ VIP不存在 |
 | desc | [string](#string) |  |  |
 | creator | [int64](#int64) |  |  |
 | owner | [int64](#int64) |  |  |
-| tags | [Tags](#common-Tags) | repeated |  |
+| tags | [Tags](#rankquantity-voyager-api-Tags) | repeated |  |
 | location | [string](#string) |  |  |
 | status | [int32](#int32) |  |  |
-| profile | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
-| members | [GroupMemberInfo](#common-GroupMemberInfo) | repeated |  |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  |  |
+| profile | [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo) |  |  |
+| members | [GroupMemberInfo](#rankquantity-voyager-api-GroupMemberInfo) | repeated |  |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2526,7 +2526,7 @@ VIP不存在 |
 
 
 
-<a name="common-GroupMemberInfo"></a>
+<a name="rankquantity-voyager-api-GroupMemberInfo"></a>
 
 ### GroupMemberInfo
 
@@ -2538,14 +2538,14 @@ VIP不存在 |
 | name | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | desc | [string](#string) |  |  |
-| member_type | [GroupMemberType](#common-GroupMemberType) |  |  |
+| member_type | [GroupMemberType](#rankquantity-voyager-api-GroupMemberType) |  |  |
 
 
 
 
 
 
-<a name="common-GroupProfileInfo"></a>
+<a name="rankquantity-voyager-api-GroupProfileInfo"></a>
 
 ### GroupProfileInfo
 
@@ -2569,7 +2569,7 @@ VIP不存在 |
  
 
 
-<a name="common-GroupMemberType"></a>
+<a name="rankquantity-voyager-api-GroupMemberType"></a>
 
 ### GroupMemberType
 群组成员类型枚举
@@ -2591,7 +2591,7 @@ VIP不存在 |
 
 
 
-<a name="common-GroupType"></a>
+<a name="rankquantity-voyager-api-GroupType"></a>
 
 ### GroupType
 
@@ -2618,7 +2618,7 @@ VIP不存在 |
 
 
 
-<a name="common-ItemDetail"></a>
+<a name="rankquantity-voyager-api-ItemDetail"></a>
 
 ### ItemDetail
 
@@ -2626,16 +2626,16 @@ VIP不存在 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| word | [WordDetail](#common-WordDetail) |  |  |
-| pictures | [PictureDetail](#common-PictureDetail) |  |  |
-| video | [VideoDetail](#common-VideoDetail) |  |  |
-| music | [MusicShareDetail](#common-MusicShareDetail) |  |  |
-| voice | [VoiceDetail](#common-VoiceDetail) |  |  |
-| share | [ShareDetail](#common-ShareDetail) |  |  |
-| locate | [Location](#common-Location) |  |  |
+| word | [WordDetail](#rankquantity-voyager-api-WordDetail) |  |  |
+| pictures | [PictureDetail](#rankquantity-voyager-api-PictureDetail) |  |  |
+| video | [VideoDetail](#rankquantity-voyager-api-VideoDetail) |  |  |
+| music | [MusicShareDetail](#rankquantity-voyager-api-MusicShareDetail) |  |  |
+| voice | [VoiceDetail](#rankquantity-voyager-api-VoiceDetail) |  |  |
+| share | [ShareDetail](#rankquantity-voyager-api-ShareDetail) |  |  |
+| locate | [Location](#rankquantity-voyager-api-Location) |  |  |
 | title | [string](#string) |  |  |
 | prevId | [string](#string) |  |  |
-| loc | [Location](#common-Location) |  |  |
+| loc | [Location](#rankquantity-voyager-api-Location) |  |  |
 | is_origin | [bool](#bool) |  |  |
 | ref | [int64](#int64) |  |  |
 | root_id | [int64](#int64) |  |  |
@@ -2645,7 +2645,7 @@ VIP不存在 |
 
 
 
-<a name="common-ItemInfo"></a>
+<a name="rankquantity-voyager-api-ItemInfo"></a>
 
 ### ItemInfo
 
@@ -2657,8 +2657,8 @@ VIP不存在 |
 | project_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | title | [string](#string) |  |  |
-| content | [ItemDetail](#common-ItemDetail) |  |  |
-| itype | [ItemType](#common-ItemType) |  |  |
+| content | [ItemDetail](#rankquantity-voyager-api-ItemDetail) |  |  |
+| itype | [ItemType](#rankquantity-voyager-api-ItemType) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
 
@@ -2667,7 +2667,7 @@ VIP不存在 |
 
 
 
-<a name="common-Location"></a>
+<a name="rankquantity-voyager-api-Location"></a>
 
 ### Location
 
@@ -2685,7 +2685,7 @@ VIP不存在 |
 
 
 
-<a name="common-MusicShareDetail"></a>
+<a name="rankquantity-voyager-api-MusicShareDetail"></a>
 
 ### MusicShareDetail
 
@@ -2706,7 +2706,7 @@ VIP不存在 |
 
 
 
-<a name="common-PictureDetail"></a>
+<a name="rankquantity-voyager-api-PictureDetail"></a>
 
 ### PictureDetail
 
@@ -2714,7 +2714,7 @@ VIP不存在 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [PictureInfo](#common-PictureInfo) | repeated |  |
+| list | [PictureInfo](#rankquantity-voyager-api-PictureInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
 | prompt | [string](#string) |  |  |
 | title | [string](#string) |  |  |
@@ -2725,7 +2725,7 @@ VIP不存在 |
 
 
 
-<a name="common-PictureInfo"></a>
+<a name="rankquantity-voyager-api-PictureInfo"></a>
 
 ### PictureInfo
 
@@ -2742,7 +2742,7 @@ VIP不存在 |
 
 
 
-<a name="common-ShareDetail"></a>
+<a name="rankquantity-voyager-api-ShareDetail"></a>
 
 ### ShareDetail
 
@@ -2760,7 +2760,7 @@ VIP不存在 |
 
 
 
-<a name="common-VideoDetail"></a>
+<a name="rankquantity-voyager-api-VideoDetail"></a>
 
 ### VideoDetail
 
@@ -2768,7 +2768,7 @@ VIP不存在 |
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [VideoInfo](#common-VideoInfo) | repeated |  |
+| list | [VideoInfo](#rankquantity-voyager-api-VideoInfo) | repeated |  |
 | num | [int64](#int64) |  |  |
 | prompt | [string](#string) |  |  |
 | title | [string](#string) |  |  |
@@ -2781,7 +2781,7 @@ VIP不存在 |
 
 
 
-<a name="common-VideoInfo"></a>
+<a name="rankquantity-voyager-api-VideoInfo"></a>
 
 ### VideoInfo
 
@@ -2798,7 +2798,7 @@ VIP不存在 |
 
 
 
-<a name="common-VoiceDetail"></a>
+<a name="rankquantity-voyager-api-VoiceDetail"></a>
 
 ### VoiceDetail
 
@@ -2817,7 +2817,7 @@ VIP不存在 |
 
 
 
-<a name="common-WordDetail"></a>
+<a name="rankquantity-voyager-api-WordDetail"></a>
 
 ### WordDetail
 
@@ -2852,7 +2852,7 @@ VIP不存在 |
 
 
 
-<a name="common-UserInfo"></a>
+<a name="rankquantity-voyager-api-UserInfo"></a>
 
 ### UserInfo
 
@@ -2874,7 +2874,7 @@ VIP不存在 |
 
 
 
-<a name="common-UserPrivate"></a>
+<a name="rankquantity-voyager-api-UserPrivate"></a>
 
 ### UserPrivate
 
@@ -2891,7 +2891,7 @@ VIP不存在 |
 
 
 
-<a name="common-UserProfileInfo"></a>
+<a name="rankquantity-voyager-api-UserProfileInfo"></a>
 
 ### UserProfileInfo
 用户的 profile
@@ -2940,7 +2940,7 @@ VIP不存在 |
 
 
 
-<a name="common-ChapterDetailInformation"></a>
+<a name="rankquantity-voyager-api-ChapterDetailInformation"></a>
 
 ### ChapterDetailInformation
 ChapterDetailInformation 包含多个详细情节
@@ -2948,14 +2948,14 @@ ChapterDetailInformation 包含多个详细情节
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| details | [DetailScene](#common-DetailScene) | repeated | 详细情节列表 |
+| details | [DetailScene](#rankquantity-voyager-api-DetailScene) | repeated | 详细情节列表 |
 
 
 
 
 
 
-<a name="common-ChapterInfo"></a>
+<a name="rankquantity-voyager-api-ChapterInfo"></a>
 
 ### ChapterInfo
 ChapterInfo 表示单个章节的信息
@@ -2972,7 +2972,7 @@ ChapterInfo 表示单个章节的信息
 
 
 
-<a name="common-ChapterSummary"></a>
+<a name="rankquantity-voyager-api-ChapterSummary"></a>
 
 ### ChapterSummary
 ChapterSummary 表示章节的基本信息
@@ -2982,14 +2982,14 @@ ChapterSummary 表示章节的基本信息
 | ----- | ---- | ----- | ----------- |
 | title | [string](#string) |  | 章节题目 |
 | content | [string](#string) |  | 章节内容 |
-| characters | [Character](#common-Character) | repeated | 参与人物 |
+| characters | [Character](#rankquantity-voyager-api-Character) | repeated | 参与人物 |
 
 
 
 
 
 
-<a name="common-Character"></a>
+<a name="rankquantity-voyager-api-Character"></a>
 
 ### Character
 Character 表示角色信息
@@ -3006,7 +3006,7 @@ Character 表示角色信息
 
 
 
-<a name="common-CharacterDetail"></a>
+<a name="rankquantity-voyager-api-CharacterDetail"></a>
 
 ### CharacterDetail
 CharacterDetail represents detailed information about a character in a story
@@ -3030,7 +3030,7 @@ CharacterDetail represents detailed information about a character in a story
 
 
 
-<a name="common-ContinueRenderStoryRequest"></a>
+<a name="rankquantity-voyager-api-ContinueRenderStoryRequest"></a>
 
 ### ContinueRenderStoryRequest
 
@@ -3041,19 +3041,19 @@ CharacterDetail represents detailed information about a character in a story
 | story_id | [int64](#int64) |  |  |
 | prev_board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
 | prompt | [string](#string) |  |  |
 | title | [string](#string) |  |  |
 | description | [string](#string) |  |  |
 | background | [string](#string) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 
 
 
 
 
 
-<a name="common-ContinueRenderStoryResponse"></a>
+<a name="rankquantity-voyager-api-ContinueRenderStoryResponse"></a>
 
 ### ContinueRenderStoryResponse
 
@@ -3063,14 +3063,14 @@ CharacterDetail represents detailed information about a character in a story
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryBoardSenceRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceRequest"></a>
 
 ### CreateStoryBoardSenceRequest
 
@@ -3078,7 +3078,7 @@ CharacterDetail represents detailed information about a character in a story
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| sence | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -3086,7 +3086,7 @@ CharacterDetail represents detailed information about a character in a story
 
 
 
-<a name="common-CreateStoryBoardSenceResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceResponse"></a>
 
 ### CreateStoryBoardSenceResponse
 
@@ -3096,14 +3096,14 @@ CharacterDetail represents detailed information about a character in a story
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [CreateStoryBoardSenceResponse.Data](#common-CreateStoryBoardSenceResponse-Data) |  |  |
+| data | [CreateStoryBoardSenceResponse.Data](#rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryBoardSenceResponse-Data"></a>
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data"></a>
 
 ### CreateStoryBoardSenceResponse.Data
 
@@ -3118,7 +3118,7 @@ CharacterDetail represents detailed information about a character in a story
 
 
 
-<a name="common-CreateStoryRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryRequest"></a>
 
 ### CreateStoryRequest
 CreateStoryRequest 创建故事的请求参数
@@ -3137,15 +3137,15 @@ CreateStoryRequest 创建故事的请求参数
 | is_achieve | [bool](#bool) |  | 是否归档 |
 | is_close | [bool](#bool) |  | 是否关闭 |
 | is_ai_gen | [bool](#bool) |  | 是否AI生成 |
-| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
-| roles | [StoryRole](#common-StoryRole) | repeated | 角色列表 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 角色列表 |
 
 
 
 
 
 
-<a name="common-CreateStoryResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryResponse"></a>
 
 ### CreateStoryResponse
 CreateStoryResponse 创建故事的响应结果
@@ -3155,14 +3155,14 @@ CreateStoryResponse 创建故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [CreateStoryResponse.Data](#common-CreateStoryResponse-Data) |  |  |
+| data | [CreateStoryResponse.Data](#rankquantity-voyager-api-CreateStoryResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryResponse-Data"></a>
+<a name="rankquantity-voyager-api-CreateStoryResponse-Data"></a>
 
 ### CreateStoryResponse.Data
 
@@ -3178,7 +3178,7 @@ CreateStoryResponse 创建故事的响应结果
 
 
 
-<a name="common-CreateStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryboardRequest"></a>
 
 ### CreateStoryboardRequest
 CreateStoryboardRequest 创建故事板的请求参数
@@ -3186,14 +3186,14 @@ CreateStoryboardRequest 创建故事板的请求参数
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board | [StoryBoard](#common-StoryBoard) |  | 故事板信息 |
+| board | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  | 故事板信息 |
 
 
 
 
 
 
-<a name="common-CreateStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryboardResponse"></a>
 
 ### CreateStoryboardResponse
 CreateStoryboardResponse 创建故事板的响应结果
@@ -3203,14 +3203,14 @@ CreateStoryboardResponse 创建故事板的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [CreateStoryboardResponse.Data](#common-CreateStoryboardResponse-Data) |  |  |
+| data | [CreateStoryboardResponse.Data](#rankquantity-voyager-api-CreateStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-CreateStoryboardResponse-Data"></a>
 
 ### CreateStoryboardResponse.Data
 
@@ -3225,7 +3225,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 
 
 
-<a name="common-DelStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-DelStoryboardRequest"></a>
 
 ### DelStoryboardRequest
 
@@ -3242,7 +3242,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 
 
 
-<a name="common-DelStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-DelStoryboardResponse"></a>
 
 ### DelStoryboardResponse
 
@@ -3258,7 +3258,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 
 
 
-<a name="common-DeleteStoryBoardSenceRequest"></a>
+<a name="rankquantity-voyager-api-DeleteStoryBoardSenceRequest"></a>
 
 ### DeleteStoryBoardSenceRequest
 
@@ -3274,7 +3274,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 
 
 
-<a name="common-DeleteStoryBoardSenceResponse"></a>
+<a name="rankquantity-voyager-api-DeleteStoryBoardSenceResponse"></a>
 
 ### DeleteStoryBoardSenceResponse
 
@@ -3290,7 +3290,7 @@ CreateStoryboardResponse 创建故事板的响应结果
 
 
 
-<a name="common-DetailScene"></a>
+<a name="rankquantity-voyager-api-DetailScene"></a>
 
 ### DetailScene
 DetailScene 表示具体的场景信息
@@ -3300,7 +3300,7 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | 情节id |
 | content | [string](#string) |  | 情节内容 |
-| characters | [Character](#common-Character) | repeated | 参与人物 |
+| characters | [Character](#rankquantity-voyager-api-Character) | repeated | 参与人物 |
 | image_prompt | [string](#string) |  | 图片提示词 |
 
 
@@ -3308,7 +3308,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-FetchGroupStorysRequest"></a>
+<a name="rankquantity-voyager-api-FetchGroupStorysRequest"></a>
 
 ### FetchGroupStorysRequest
 
@@ -3326,7 +3326,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-FetchGroupStorysResponse"></a>
+<a name="rankquantity-voyager-api-FetchGroupStorysResponse"></a>
 
 ### FetchGroupStorysResponse
 
@@ -3336,14 +3336,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [FetchGroupStorysResponse.Data](#common-FetchGroupStorysResponse-Data) |  |  |
+| data | [FetchGroupStorysResponse.Data](#rankquantity-voyager-api-FetchGroupStorysResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-FetchGroupStorysResponse-Data"></a>
+<a name="rankquantity-voyager-api-FetchGroupStorysResponse-Data"></a>
 
 ### FetchGroupStorysResponse.Data
 
@@ -3351,8 +3351,8 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [Story](#common-Story) | repeated |  |
-| creator | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [Story](#rankquantity-voyager-api-Story) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -3361,7 +3361,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-ForkStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-ForkStoryboardRequest"></a>
 
 ### ForkStoryboardRequest
 
@@ -3372,14 +3372,14 @@ DetailScene 表示具体的场景信息
 | prev_board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| board | [StoryBoard](#common-StoryBoard) |  |  |
+| board | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  |  |
 
 
 
 
 
 
-<a name="common-ForkStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-ForkStoryboardResponse"></a>
 
 ### ForkStoryboardResponse
 
@@ -3389,14 +3389,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [ForkStoryboardResponse.Data](#common-ForkStoryboardResponse-Data) |  |  |
+| data | [ForkStoryboardResponse.Data](#rankquantity-voyager-api-ForkStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-ForkStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-ForkStoryboardResponse-Data"></a>
 
 ### ForkStoryboardResponse.Data
 
@@ -3414,7 +3414,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GenStoryboardImagesRequest"></a>
+<a name="rankquantity-voyager-api-GenStoryboardImagesRequest"></a>
 
 ### GenStoryboardImagesRequest
 
@@ -3426,7 +3426,7 @@ DetailScene 表示具体的场景信息
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
 | sence_id | [int32](#int32) |  |  |
 | sence_name_key | [string](#string) |  |  |
 | prompt | [string](#string) |  |  |
@@ -3436,7 +3436,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GenStoryboardImagesResponse"></a>
+<a name="rankquantity-voyager-api-GenStoryboardImagesResponse"></a>
 
 ### GenStoryboardImagesResponse
 
@@ -3446,14 +3446,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
 
 
 
 
 
 
-<a name="common-GenStoryboardTextRequest"></a>
+<a name="rankquantity-voyager-api-GenStoryboardTextRequest"></a>
 
 ### GenStoryboardTextRequest
 
@@ -3464,7 +3464,7 @@ DetailScene 表示具体的场景信息
 | board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
 | prompt | [string](#string) |  |  |
 | title | [string](#string) |  |  |
 | description | [string](#string) |  |  |
@@ -3475,7 +3475,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GenStoryboardTextResponse"></a>
+<a name="rankquantity-voyager-api-GenStoryboardTextResponse"></a>
 
 ### GenStoryboardTextResponse
 
@@ -3485,14 +3485,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardGenerateRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardGenerateRequest"></a>
 
 ### GetStoryBoardGenerateRequest
 
@@ -3508,7 +3508,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GetStoryBoardGenerateResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardGenerateResponse"></a>
 
 ### GetStoryBoardGenerateResponse
 
@@ -3519,14 +3519,14 @@ DetailScene 表示具体的场景信息
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | generating_stage | [int32](#int32) |  |  |
-| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardRenderRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRenderRequest"></a>
 
 ### GetStoryBoardRenderRequest
 
@@ -3543,7 +3543,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GetStoryBoardRenderResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRenderResponse"></a>
 
 ### GetStoryBoardRenderResponse
 
@@ -3553,14 +3553,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryBoardRenderResponse.Data](#common-GetStoryBoardRenderResponse-Data) |  |  |
+| data | [GetStoryBoardRenderResponse.Data](#rankquantity-voyager-api-GetStoryBoardRenderResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardRenderResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRenderResponse-Data"></a>
 
 ### GetStoryBoardRenderResponse.Data
 
@@ -3568,14 +3568,14 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [RenderStoryboardDetail](#common-RenderStoryboardDetail) | repeated |  |
+| list | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardRolesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRolesRequest"></a>
 
 ### GetStoryBoardRolesRequest
 
@@ -3591,7 +3591,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GetStoryBoardRolesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRolesResponse"></a>
 
 ### GetStoryBoardRolesResponse
 
@@ -3601,14 +3601,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryBoardRolesResponse.Data](#common-GetStoryBoardRolesResponse-Data) |  |  |
+| data | [GetStoryBoardRolesResponse.Data](#rankquantity-voyager-api-GetStoryBoardRolesResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardRolesResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardRolesResponse-Data"></a>
 
 ### GetStoryBoardRolesResponse.Data
 
@@ -3616,15 +3616,15 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryRole](#common-StoryRole) | repeated |  |
-| creator | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardSenceGenerateRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardSenceGenerateRequest"></a>
 
 ### GetStoryBoardSenceGenerateRequest
 
@@ -3640,7 +3640,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GetStoryBoardSenceGenerateResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardSenceGenerateResponse"></a>
 
 ### GetStoryBoardSenceGenerateResponse
 
@@ -3651,14 +3651,14 @@ DetailScene 表示具体的场景信息
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | generating_stage | [int32](#int32) |  |  |
-| data | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| data | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardSencesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardSencesRequest"></a>
 
 ### GetStoryBoardSencesRequest
 
@@ -3674,7 +3674,7 @@ DetailScene 表示具体的场景信息
 
 
 
-<a name="common-GetStoryBoardSencesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardSencesResponse"></a>
 
 ### GetStoryBoardSencesResponse
 
@@ -3684,14 +3684,14 @@ DetailScene 表示具体的场景信息
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryBoardSencesResponse.Data](#common-GetStoryBoardSencesResponse-Data) |  |  |
+| data | [GetStoryBoardSencesResponse.Data](#rankquantity-voyager-api-GetStoryBoardSencesResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryBoardSencesResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardSencesResponse-Data"></a>
 
 ### GetStoryBoardSencesResponse.Data
 
@@ -3699,14 +3699,14 @@ DetailScene 表示具体的场景信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryInfoRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryInfoRequest"></a>
 
 ### GetStoryInfoRequest
 GetStoryInfoRequest 获取故事信息的请求参数
@@ -3721,7 +3721,7 @@ GetStoryInfoRequest 获取故事信息的请求参数
 
 
 
-<a name="common-GetStoryInfoResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryInfoResponse"></a>
 
 ### GetStoryInfoResponse
 GetStoryInfoResponse 获取故事信息的响应结果
@@ -3731,14 +3731,14 @@ GetStoryInfoResponse 获取故事信息的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [GetStoryInfoResponse.Data](#common-GetStoryInfoResponse-Data) |  |  |
+| data | [GetStoryInfoResponse.Data](#rankquantity-voyager-api-GetStoryInfoResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryInfoResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryInfoResponse-Data"></a>
 
 ### GetStoryInfoResponse.Data
 
@@ -3746,15 +3746,15 @@ GetStoryInfoResponse 获取故事信息的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [Story](#common-Story) |  | 故事信息 |
-| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
+| info | [Story](#rankquantity-voyager-api-Story) |  | 故事信息 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
 
 
 
 
 
 
-<a name="common-GetStoryRenderRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRenderRequest"></a>
 
 ### GetStoryRenderRequest
 
@@ -3772,7 +3772,7 @@ GetStoryInfoResponse 获取故事信息的响应结果
 
 
 
-<a name="common-GetStoryRenderResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRenderResponse"></a>
 
 ### GetStoryRenderResponse
 
@@ -3782,14 +3782,14 @@ GetStoryInfoResponse 获取故事信息的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryRenderResponse.Data](#common-GetStoryRenderResponse-Data) |  |  |
+| data | [GetStoryRenderResponse.Data](#rankquantity-voyager-api-GetStoryRenderResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryRenderResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryRenderResponse-Data"></a>
 
 ### GetStoryRenderResponse.Data
 
@@ -3797,14 +3797,14 @@ GetStoryInfoResponse 获取故事信息的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [RenderStoryDetail](#common-RenderStoryDetail) | repeated |  |
+| list | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryRolesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRolesRequest"></a>
 
 ### GetStoryRolesRequest
 
@@ -3820,7 +3820,7 @@ GetStoryInfoResponse 获取故事信息的响应结果
 
 
 
-<a name="common-GetStoryRolesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRolesResponse"></a>
 
 ### GetStoryRolesResponse
 
@@ -3830,14 +3830,14 @@ GetStoryInfoResponse 获取故事信息的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryRolesResponse.Data](#common-GetStoryRolesResponse-Data) |  |  |
+| data | [GetStoryRolesResponse.Data](#rankquantity-voyager-api-GetStoryRolesResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryRolesResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryRolesResponse-Data"></a>
 
 ### GetStoryRolesResponse.Data
 
@@ -3845,15 +3845,15 @@ GetStoryInfoResponse 获取故事信息的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryRole](#common-StoryRole) | repeated |  |
-| creator | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryboardRequest"></a>
 
 ### GetStoryboardRequest
 GetStoryboardRequest 获取故事板的请求参数
@@ -3869,7 +3869,7 @@ GetStoryboardRequest 获取故事板的请求参数
 
 
 
-<a name="common-GetStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryboardResponse"></a>
 
 ### GetStoryboardResponse
 GetStoryboardResponse 获取故事板的响应结果
@@ -3879,14 +3879,14 @@ GetStoryboardResponse 获取故事板的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [GetStoryboardResponse.Data](#common-GetStoryboardResponse-Data) |  |  |
+| data | [GetStoryboardResponse.Data](#rankquantity-voyager-api-GetStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryboardResponse-Data"></a>
 
 ### GetStoryboardResponse.Data
 
@@ -3894,15 +3894,15 @@ GetStoryboardResponse 获取故事板的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| board_info | [StoryBoardActive](#common-StoryBoardActive) |  | 故事板活动信息 |
-| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
+| board_info | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) |  | 故事板活动信息 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
 
 
 
 
 
 
-<a name="common-GetStoryboardsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryboardsRequest"></a>
 
 ### GetStoryboardsRequest
 GetStoryboardsRequest 获取故事板列表的请求参数
@@ -3918,14 +3918,14 @@ GetStoryboardsRequest 获取故事板列表的请求参数
 | is_multi_branch | [bool](#bool) |  | 是否多分支 |
 | page | [int32](#int32) |  | 页码 |
 | page_size | [int32](#int32) |  | 每页大小 |
-| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  | 排序方式 |
+| order_by | [MultiBranchOrderBy](#rankquantity-voyager-api-MultiBranchOrderBy) |  | 排序方式 |
 
 
 
 
 
 
-<a name="common-GetStoryboardsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryboardsResponse"></a>
 
 ### GetStoryboardsResponse
 GetStoryboardsResponse 获取故事板列表的响应结果
@@ -3935,14 +3935,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [GetStoryboardsResponse.Data](#common-GetStoryboardsResponse-Data) |  |  |
+| data | [GetStoryboardsResponse.Data](#rankquantity-voyager-api-GetStoryboardsResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryboardsResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryboardsResponse-Data"></a>
 
 ### GetStoryboardsResponse.Data
 
@@ -3950,7 +3950,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryBoardActive](#common-StoryBoardActive) | repeated | 故事板活动列表 |
+| list | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated | 故事板活动列表 |
 | is_multi_branch | [bool](#bool) |  | 是否多分支 |
 | total | [int64](#int64) |  | 总数 |
 | offset | [int64](#int64) |  | 偏移量 |
@@ -3961,7 +3961,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-LikeStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-LikeStoryboardRequest"></a>
 
 ### LikeStoryboardRequest
 
@@ -3978,7 +3978,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-LikeStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-LikeStoryboardResponse"></a>
 
 ### LikeStoryboardResponse
 
@@ -3988,14 +3988,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [LikeStoryboardResponse.Data](#common-LikeStoryboardResponse-Data) |  |  |
+| data | [LikeStoryboardResponse.Data](#rankquantity-voyager-api-LikeStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-LikeStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-LikeStoryboardResponse-Data"></a>
 
 ### LikeStoryboardResponse.Data
 
@@ -4013,7 +4013,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-QueryTaskStatusRequest"></a>
+<a name="rankquantity-voyager-api-QueryTaskStatusRequest"></a>
 
 ### QueryTaskStatusRequest
 
@@ -4026,7 +4026,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | story_id | [int64](#int64) |  | 故事ID |
 | sence_id | [int64](#int64) |  | 场景ID |
 | role_id | [int64](#int64) |  | 角色ID |
-| render_type | [RenderType](#common-RenderType) |  | 渲染类型 |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  | 渲染类型 |
 | TaskId | [string](#string) |  | 任务ID |
 
 
@@ -4034,7 +4034,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-QueryTaskStatusResponse"></a>
+<a name="rankquantity-voyager-api-QueryTaskStatusResponse"></a>
 
 ### QueryTaskStatusResponse
 
@@ -4044,14 +4044,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [QueryTaskStatusResponse.Data](#common-QueryTaskStatusResponse-Data) |  |  |
+| data | [QueryTaskStatusResponse.Data](#rankquantity-voyager-api-QueryTaskStatusResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-QueryTaskStatusResponse-Data"></a>
+<a name="rankquantity-voyager-api-QueryTaskStatusResponse-Data"></a>
 
 ### QueryTaskStatusResponse.Data
 
@@ -4059,19 +4059,19 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
-| dashscope_task_status | [DashScopeTaskStatus](#common-DashScopeTaskStatus) |  |  |
-| render_storyboard_detail | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
-| render_story_detail | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
-| render_storyboard_sence_list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
-| render_story_role | [StoryRole](#common-StoryRole) |  |  |
+| stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  |  |
+| dashscope_task_status | [DashScopeTaskStatus](#rankquantity-voyager-api-DashScopeTaskStatus) |  |  |
+| render_storyboard_detail | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+| render_story_detail | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) |  |  |
+| render_storyboard_sence_list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
+| render_story_role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryBoardSenceRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryBoardSenceRequest"></a>
 
 ### RenderStoryBoardSenceRequest
 
@@ -4088,7 +4088,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryBoardSenceResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryBoardSenceResponse"></a>
 
 ### RenderStoryBoardSenceResponse
 
@@ -4099,14 +4099,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | generating_stage | [int32](#int32) |  |  |
-| data | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| data | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryBoardSencesRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryBoardSencesRequest"></a>
 
 ### RenderStoryBoardSencesRequest
 
@@ -4122,7 +4122,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryBoardSencesResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryBoardSencesResponse"></a>
 
 ### RenderStoryBoardSencesResponse
 
@@ -4133,14 +4133,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
 | generating_stage | [int32](#int32) |  |  |
-| list | [StoryBoardSence](#common-StoryBoardSence) | repeated |  |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
 
 
 
 
 
 
-<a name="common-RenderStoryDetail"></a>
+<a name="rankquantity-voyager-api-RenderStoryDetail"></a>
 
 ### RenderStoryDetail
 
@@ -4154,8 +4154,8 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | story_id | [int64](#int64) |  |  |
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
-| result | [StoryInfo](#common-StoryInfo) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| result | [StoryInfo](#rankquantity-voyager-api-StoryInfo) |  |  |
 | timecost | [int32](#int32) |  |  |
 
 
@@ -4163,7 +4163,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryRequest"></a>
 
 ### RenderStoryRequest
 
@@ -4175,14 +4175,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
 | board_id | [int64](#int64) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryResponse"></a>
 
 ### RenderStoryResponse
 
@@ -4192,14 +4192,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryDetail](#common-RenderStoryDetail) |  |  |
+| data | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryRoleDetailRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleDetailRequest"></a>
 
 ### RenderStoryRoleDetailRequest
 
@@ -4208,7 +4208,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | role_id | [int64](#int64) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 | prompt | [string](#string) |  |  |
 | background | [string](#string) |  |  |
 | user_id | [int64](#int64) |  |  |
@@ -4218,7 +4218,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryRoleDetailResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleDetailResponse"></a>
 
 ### RenderStoryRoleDetailResponse
 
@@ -4228,14 +4228,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryRolesRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryRolesRequest"></a>
 
 ### RenderStoryRolesRequest
 
@@ -4248,14 +4248,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | user_id | [int64](#int64) |  |  |
 | prompt | [string](#string) |  |  |
 | background | [string](#string) |  |  |
-| params | [StoryRole](#common-StoryRole) |  |  |
+| params | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryRolesResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryRolesResponse"></a>
 
 ### RenderStoryRolesResponse
 
@@ -4265,14 +4265,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| list | [StoryRole](#common-StoryRole) | repeated |  |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 
 
 
 
 
 
-<a name="common-RenderStoryStructureValue"></a>
+<a name="rankquantity-voyager-api-RenderStoryStructureValue"></a>
 
 ### RenderStoryStructureValue
 
@@ -4284,14 +4284,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | urls | [string](#string) | repeated |  |
 | value | [int32](#int32) |  |  |
 | nums | [int32](#int32) |  |  |
-| extra | [RenderStoryStructureValue.ExtraEntry](#common-RenderStoryStructureValue-ExtraEntry) | repeated |  |
+| extra | [RenderStoryStructureValue.ExtraEntry](#rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-RenderStoryStructureValue-ExtraEntry"></a>
+<a name="rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry"></a>
 
 ### RenderStoryStructureValue.ExtraEntry
 
@@ -4307,7 +4307,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryboardDetail"></a>
+<a name="rankquantity-voyager-api-RenderStoryboardDetail"></a>
 
 ### RenderStoryboardDetail
 
@@ -4321,8 +4321,8 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | story_id | [int64](#int64) |  |  |
 | board_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
-| result | [StoryChapter](#common-StoryChapter) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| result | [StoryChapter](#rankquantity-voyager-api-StoryChapter) |  |  |
 | timecost | [int32](#int32) |  |  |
 
 
@@ -4330,7 +4330,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-RenderStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryboardRequest"></a>
 
 ### RenderStoryboardRequest
 
@@ -4342,14 +4342,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | is_regenerate | [bool](#bool) |  |  |
-| render_type | [RenderType](#common-RenderType) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
 
 
 
 
 
 
-<a name="common-RenderStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryboardResponse"></a>
 
 ### RenderStoryboardResponse
 
@@ -4359,14 +4359,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [RenderStoryboardDetail](#common-RenderStoryboardDetail) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
 
 
 
 
 
 
-<a name="common-ShareStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-ShareStoryboardRequest"></a>
 
 ### ShareStoryboardRequest
 
@@ -4383,7 +4383,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-ShareStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-ShareStoryboardResponse"></a>
 
 ### ShareStoryboardResponse
 
@@ -4393,14 +4393,14 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [ShareStoryboardResponse.Data](#common-ShareStoryboardResponse-Data) |  |  |
+| data | [ShareStoryboardResponse.Data](#rankquantity-voyager-api-ShareStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-ShareStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-ShareStoryboardResponse-Data"></a>
 
 ### ShareStoryboardResponse.Data
 
@@ -4418,7 +4418,7 @@ GetStoryboardsResponse 获取故事板列表的响应结果
 
 
 
-<a name="common-Story"></a>
+<a name="rankquantity-voyager-api-Story"></a>
 
 ### Story
 Story 表示一个完整的故事实体
@@ -4432,20 +4432,20 @@ Story 表示一个完整的故事实体
 | avatar | [string](#string) |  | 故事头像 |
 | creator_id | [int64](#int64) |  | 创建者ID |
 | owner_id | [int64](#int64) |  | 所有者ID |
-| tags | [Tags](#common-Tags) | repeated | 故事标签列表 |
-| visable | [ScopeType](#common-ScopeType) |  | 可见范围 |
+| tags | [Tags](#rankquantity-voyager-api-Tags) | repeated | 故事标签列表 |
+| visable | [ScopeType](#rankquantity-voyager-api-ScopeType) |  | 可见范围 |
 | is_achieve | [bool](#bool) |  | 是否已归档 |
 | is_close | [bool](#bool) |  | 是否已关闭 |
 | is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
 | origin | [string](#string) |  | 故事来源 |
 | root_board_id | [int64](#int64) |  | 根故事板ID |
 | desc | [string](#string) |  | 故事描述 |
-| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
 | status | [int32](#int32) |  | 故事状态 |
 | title | [string](#string) |  | 故事标题 |
 | isliked | [bool](#bool) |  | 当前用户是否点赞 |
 | iswatched | [bool](#bool) |  | 当前用户是否关注 |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
 | like_count | [int64](#int64) |  | 点赞数 |
 | comment_count | [int64](#int64) |  | 评论数 |
 | share_count | [int64](#int64) |  | 分享数 |
@@ -4464,7 +4464,7 @@ Story 表示一个完整的故事实体
 
 
 
-<a name="common-StoryBoard"></a>
+<a name="rankquantity-voyager-api-StoryBoard"></a>
 
 ### StoryBoard
 StoryBoard 表示故事中的一个场景或章节
@@ -4481,23 +4481,23 @@ StoryBoard 表示故事中的一个场景或章节
 | title | [string](#string) |  | 标题 |
 | content | [string](#string) |  | 内容 |
 | is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
-| roles | [StoryRole](#common-StoryRole) | repeated | 相关角色列表 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 相关角色列表 |
 | backgroud | [string](#string) |  | 背景 |
-| params | [StoryBoardParams](#common-StoryBoardParams) |  | 故事板参数 |
-| sences | [StoryBoardSences](#common-StoryBoardSences) |  | 场景列表 |
+| params | [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams) |  | 故事板参数 |
+| sences | [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences) |  | 场景列表 |
 | is_multi_branch | [bool](#bool) |  | 是否多分支 |
-| stage | [StoryboardStage](#common-StoryboardStage) |  | 故事板阶段 |
+| stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  | 故事板阶段 |
 | ForkNum | [int64](#int64) |  |  |
 | Ctime | [int64](#int64) |  | 创建时间 |
 | Mtime | [int64](#int64) |  | 修改时间 |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
 
 
 
 
 
 
-<a name="common-StoryBoardActive"></a>
+<a name="rankquantity-voyager-api-StoryBoardActive"></a>
 
 ### StoryBoardActive
 StoryBoardActive 故事板活动信息
@@ -4505,16 +4505,16 @@ StoryBoardActive 故事板活动信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| storyboard | [StoryBoard](#common-StoryBoard) |  | 故事板信息 |
+| storyboard | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  | 故事板信息 |
 | total_like_count | [int64](#int64) |  | 总点赞数 |
 | total_comment_count | [int64](#int64) |  | 总评论数 |
 | total_share_count | [int64](#int64) |  | 总分享数 |
 | total_render_count | [int64](#int64) |  | 总渲染数 |
 | total_fork_count | [int64](#int64) |  | 总分叉数 |
-| users | [StoryBoardActiveUser](#common-StoryBoardActiveUser) | repeated | 用户列表 |
-| roles | [StoryBoardActiveRole](#common-StoryBoardActiveRole) | repeated | 角色列表 |
-| creator | [StoryBoardActiveUser](#common-StoryBoardActiveUser) |  | 创建者信息 |
-| summary | [StorySummaryInfo](#common-StorySummaryInfo) |  | 摘要信息 |
+| users | [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser) | repeated | 用户列表 |
+| roles | [StoryBoardActiveRole](#rankquantity-voyager-api-StoryBoardActiveRole) | repeated | 角色列表 |
+| creator | [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser) |  | 创建者信息 |
+| summary | [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo) |  | 摘要信息 |
 | isliked | [bool](#bool) |  | 是否点赞 |
 | mtime | [int64](#int64) |  | 修改时间 |
 
@@ -4523,7 +4523,7 @@ StoryBoardActive 故事板活动信息
 
 
 
-<a name="common-StoryBoardActiveRole"></a>
+<a name="rankquantity-voyager-api-StoryBoardActiveRole"></a>
 
 ### StoryBoardActiveRole
 StoryBoardActiveRole 故事板活动中的角色信息
@@ -4540,7 +4540,7 @@ StoryBoardActiveRole 故事板活动中的角色信息
 
 
 
-<a name="common-StoryBoardActiveUser"></a>
+<a name="rankquantity-voyager-api-StoryBoardActiveUser"></a>
 
 ### StoryBoardActiveUser
 StoryBoardActiveUser 故事板活动中的用户信息
@@ -4557,7 +4557,7 @@ StoryBoardActiveUser 故事板活动中的用户信息
 
 
 
-<a name="common-StoryBoardParams"></a>
+<a name="rankquantity-voyager-api-StoryBoardParams"></a>
 
 ### StoryBoardParams
 StoryBoardParams 包含故事板渲染的相关参数
@@ -4586,7 +4586,7 @@ StoryBoardParams 包含故事板渲染的相关参数
 
 
 
-<a name="common-StoryBoardSence"></a>
+<a name="rankquantity-voyager-api-StoryBoardSence"></a>
 
 ### StoryBoardSence
 
@@ -4617,7 +4617,7 @@ StoryBoardParams 包含故事板渲染的相关参数
 
 
 
-<a name="common-StoryBoardSences"></a>
+<a name="rankquantity-voyager-api-StoryBoardSences"></a>
 
 ### StoryBoardSences
 StoryBoardSences 包含故事板中的所有场景
@@ -4626,14 +4626,14 @@ StoryBoardSences 包含故事板中的所有场景
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | total | [int64](#int64) |  | 场景总数 |
-| list | [StoryBoardSence](#common-StoryBoardSence) | repeated | 场景列表 |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated | 场景列表 |
 
 
 
 
 
 
-<a name="common-StoryChapter"></a>
+<a name="rankquantity-voyager-api-StoryChapter"></a>
 
 ### StoryChapter
 
@@ -4641,15 +4641,15 @@ StoryBoardSences 包含故事板中的所有场景
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| chapter_summary | [ChapterSummary](#common-ChapterSummary) |  | 章节情节简述 |
-| chapter_detail_info | [ChapterDetailInformation](#common-ChapterDetailInformation) |  | 章节详细情节 |
+| chapter_summary | [ChapterSummary](#rankquantity-voyager-api-ChapterSummary) |  | 章节情节简述 |
+| chapter_detail_info | [ChapterDetailInformation](#rankquantity-voyager-api-ChapterDetailInformation) |  | 章节详细情节 |
 
 
 
 
 
 
-<a name="common-StoryInfo"></a>
+<a name="rankquantity-voyager-api-StoryInfo"></a>
 
 ### StoryInfo
 
@@ -4657,15 +4657,15 @@ StoryBoardSences 包含故事板中的所有场景
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| story_name_and_theme | [StoryNameAndTheme](#common-StoryNameAndTheme) |  |  |
-| story_chapters | [ChapterInfo](#common-ChapterInfo) | repeated |  |
+| story_name_and_theme | [StoryNameAndTheme](#rankquantity-voyager-api-StoryNameAndTheme) |  |  |
+| story_chapters | [ChapterInfo](#rankquantity-voyager-api-ChapterInfo) | repeated |  |
 
 
 
 
 
 
-<a name="common-StoryNameAndTheme"></a>
+<a name="rankquantity-voyager-api-StoryNameAndTheme"></a>
 
 ### StoryNameAndTheme
 StoryNameAndTheme 表示故事的名称和主题信息
@@ -4682,7 +4682,7 @@ StoryNameAndTheme 表示故事的名称和主题信息
 
 
 
-<a name="common-StoryParams"></a>
+<a name="rankquantity-voyager-api-StoryParams"></a>
 
 ### StoryParams
 StoryParams 包含故事生成和渲染的相关参数
@@ -4706,7 +4706,7 @@ StoryParams 包含故事生成和渲染的相关参数
 
 
 
-<a name="common-StoryRole"></a>
+<a name="rankquantity-voyager-api-StoryRole"></a>
 
 ### StoryRole
 StoryRole 表示故事中的角色
@@ -4722,7 +4722,7 @@ StoryRole 表示故事中的角色
 | character_id | [string](#string) |  | 角色标识符 |
 | character_type | [string](#string) |  | 角色类型 |
 | character_prompt | [string](#string) |  | 角色提示词 |
-| character_detail | [CharacterDetail](#common-CharacterDetail) |  | 角色详细信息 |
+| character_detail | [CharacterDetail](#rankquantity-voyager-api-CharacterDetail) |  | 角色详细信息 |
 | character_ref_images | [string](#string) | repeated | 角色参考图片 |
 | creator_id | [int64](#int64) |  | 创建者ID |
 | status | [int32](#int32) |  | 状态 |
@@ -4734,17 +4734,17 @@ StoryRole 表示故事中的角色
 | isfolllowed | [bool](#bool) |  | 当前用户是否关注 |
 | Ctime | [int64](#int64) |  | 创建时间 |
 | Mtime | [int64](#int64) |  | 修改时间 |
-| current_user_status | [WhatCurrentUserStatus](#common-WhatCurrentUserStatus) |  | 当前用户状态 |
-| creator | [UserInfo](#common-UserInfo) |  | 创建者信息 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
 | poster_image_url | [string](#string) |  | 海报图片URL |
-| story | [StorySummaryInfo](#common-StorySummaryInfo) |  | 角色所在的故事 |
+| story | [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo) |  | 角色所在的故事 |
 
 
 
 
 
 
-<a name="common-StorySummaryInfo"></a>
+<a name="rankquantity-voyager-api-StorySummaryInfo"></a>
 
 ### StorySummaryInfo
 StorySummaryInfo 故事摘要信息
@@ -4773,7 +4773,7 @@ StorySummaryInfo 故事摘要信息
 
 
 
-<a name="common-TimeLine"></a>
+<a name="rankquantity-voyager-api-TimeLine"></a>
 
 ### TimeLine
 TimeLine 表示时间线信息
@@ -4794,7 +4794,7 @@ TimeLine 表示时间线信息
 
 
 
-<a name="common-UnLikeStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryboardRequest"></a>
 
 ### UnLikeStoryboardRequest
 
@@ -4811,7 +4811,7 @@ TimeLine 表示时间线信息
 
 
 
-<a name="common-UnLikeStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryboardResponse"></a>
 
 ### UnLikeStoryboardResponse
 
@@ -4827,7 +4827,7 @@ TimeLine 表示时间线信息
 
 
 
-<a name="common-UpdateStoryBoardSenceRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryBoardSenceRequest"></a>
 
 ### UpdateStoryBoardSenceRequest
 
@@ -4835,7 +4835,7 @@ TimeLine 表示时间线信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| sence | [StoryBoardSence](#common-StoryBoardSence) |  |  |
+| sence | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -4843,7 +4843,7 @@ TimeLine 表示时间线信息
 
 
 
-<a name="common-UpdateStoryBoardSenceResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryBoardSenceResponse"></a>
 
 ### UpdateStoryBoardSenceResponse
 
@@ -4859,7 +4859,7 @@ TimeLine 表示时间线信息
 
 
 
-<a name="common-UpdateStoryRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRequest"></a>
 
 ### UpdateStoryRequest
 UpdateStoryRequest 更新故事的请求参数
@@ -4873,16 +4873,16 @@ UpdateStoryRequest 更新故事的请求参数
 | is_achieve | [bool](#bool) |  | 是否归档 |
 | is_close | [bool](#bool) |  | 是否关闭 |
 | is_ai_gen | [bool](#bool) |  | 是否AI生成 |
-| params | [StoryParams](#common-StoryParams) |  | 故事参数 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
 | story_id | [int64](#int64) |  | 故事ID |
-| roles | [StoryRole](#common-StoryRole) | repeated | 角色列表 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 角色列表 |
 
 
 
 
 
 
-<a name="common-UpdateStoryResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryResponse"></a>
 
 ### UpdateStoryResponse
 UpdateStoryResponse 更新故事的响应结果
@@ -4892,14 +4892,14 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  | 响应码 |
 | message | [string](#string) |  | 响应消息 |
-| data | [UpdateStoryResponse.Data](#common-UpdateStoryResponse-Data) |  |  |
+| data | [UpdateStoryResponse.Data](#rankquantity-voyager-api-UpdateStoryResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateStoryResponse-Data"></a>
+<a name="rankquantity-voyager-api-UpdateStoryResponse-Data"></a>
 
 ### UpdateStoryResponse.Data
 
@@ -4914,7 +4914,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleRequest"></a>
 
 ### UpdateStoryRoleRequest
 
@@ -4922,7 +4922,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -4930,7 +4930,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleResponse"></a>
 
 ### UpdateStoryRoleResponse
 
@@ -4946,7 +4946,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryboardRequest"></a>
 
 ### UpdateStoryboardRequest
 
@@ -4957,14 +4957,14 @@ UpdateStoryResponse 更新故事的响应结果
 | board_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| params | [StoryBoardParams](#common-StoryBoardParams) |  |  |
+| params | [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryboardResponse"></a>
 
 ### UpdateStoryboardResponse
 
@@ -4974,14 +4974,14 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [UpdateStoryboardResponse.Data](#common-UpdateStoryboardResponse-Data) |  |  |
+| data | [UpdateStoryboardResponse.Data](#rankquantity-voyager-api-UpdateStoryboardResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateStoryboardResponse-Data"></a>
+<a name="rankquantity-voyager-api-UpdateStoryboardResponse-Data"></a>
 
 ### UpdateStoryboardResponse.Data
 
@@ -4997,7 +4997,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-WatchStoryRequest"></a>
+<a name="rankquantity-voyager-api-WatchStoryRequest"></a>
 
 ### WatchStoryRequest
 
@@ -5013,7 +5013,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-WatchStoryResponse"></a>
+<a name="rankquantity-voyager-api-WatchStoryResponse"></a>
 
 ### WatchStoryResponse
 
@@ -5023,14 +5023,14 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | code | [int32](#int32) |  |  |
 | message | [string](#string) |  |  |
-| data | [WatchStoryResponse.Data](#common-WatchStoryResponse-Data) |  |  |
+| data | [WatchStoryResponse.Data](#rankquantity-voyager-api-WatchStoryResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-WatchStoryResponse-Data"></a>
+<a name="rankquantity-voyager-api-WatchStoryResponse-Data"></a>
 
 ### WatchStoryResponse.Data
 
@@ -5047,7 +5047,7 @@ UpdateStoryResponse 更新故事的响应结果
  
 
 
-<a name="common-RenderType"></a>
+<a name="rankquantity-voyager-api-RenderType"></a>
 
 ### RenderType
 
@@ -5062,7 +5062,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryGenStatus"></a>
+<a name="rankquantity-voyager-api-StoryGenStatus"></a>
 
 ### StoryGenStatus
 
@@ -5077,7 +5077,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryboardStage"></a>
+<a name="rankquantity-voyager-api-StoryboardStage"></a>
 
 ### StoryboardStage
 
@@ -5112,7 +5112,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ChatMessage"></a>
+<a name="rankquantity-voyager-api-ChatMessage"></a>
 
 ### ChatMessage
 
@@ -5127,8 +5127,8 @@ UpdateStoryResponse 更新故事的响应结果
 | message | [string](#string) |  |  |
 | chat_id | [int64](#int64) |  |  |
 | timestamp | [int64](#int64) |  |  |
-| user | [UserInfo](#common-UserInfo) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| user | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 | uuid | [string](#string) |  |  |
 
 
@@ -5136,7 +5136,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StreamChatMessage"></a>
+<a name="rankquantity-voyager-api-StreamChatMessage"></a>
 
 ### StreamChatMessage
 
@@ -5146,14 +5146,14 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
 
 
 
 
 
 
-<a name="common-StreamChatMessageRequest"></a>
+<a name="rankquantity-voyager-api-StreamChatMessageRequest"></a>
 
 ### StreamChatMessageRequest
 
@@ -5161,7 +5161,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| message | [StreamChatMessage](#common-StreamChatMessage) |  |  |
+| message | [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | request_id | [string](#string) |  |  |
 | token | [string](#string) |  |  |
@@ -5171,7 +5171,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StreamChatMessageResponse"></a>
+<a name="rankquantity-voyager-api-StreamChatMessageResponse"></a>
 
 ### StreamChatMessageResponse
 
@@ -5179,11 +5179,11 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | request_id | [string](#string) |  |  |
-| reply_messages | [StreamChatMessage](#common-StreamChatMessage) | repeated |  |
+| reply_messages | [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage) | repeated |  |
 
 
 
@@ -5192,7 +5192,7 @@ UpdateStoryResponse 更新故事的响应结果
  
 
 
-<a name="common-MsgType"></a>
+<a name="rankquantity-voyager-api-MsgType"></a>
 
 ### MsgType
 
@@ -5211,14 +5211,14 @@ UpdateStoryResponse 更新故事的响应结果
  
 
 
-<a name="common-StreamMessageService"></a>
+<a name="rankquantity-voyager-api-StreamMessageService"></a>
 
 ### StreamMessageService
 使用 stream 发送、接收消息
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| StreamChatMessage | [StreamChatMessageRequest](#common-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#common-StreamChatMessageResponse) stream |  |
+| StreamChatMessage | [StreamChatMessageRequest](#rankquantity-voyager-api-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#rankquantity-voyager-api-StreamChatMessageResponse) stream |  |
 
  
 
@@ -5231,7 +5231,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-AboutRequest"></a>
+<a name="rankquantity-voyager-api-AboutRequest"></a>
 
 ### AboutRequest
 
@@ -5241,7 +5241,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-AboutResponse"></a>
+<a name="rankquantity-voyager-api-AboutResponse"></a>
 
 ### AboutResponse
 
@@ -5256,7 +5256,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ActiveInfo"></a>
+<a name="rankquantity-voyager-api-ActiveInfo"></a>
 
 ### ActiveInfo
 
@@ -5265,12 +5265,12 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | active_id | [int64](#int64) |  |  |
-| user | [UserInfo](#common-UserInfo) |  |  |
-| active_type | [ActiveType](#common-ActiveType) |  |  |
-| group_info | [GroupInfo](#common-GroupInfo) |  |  |
-| story_info | [Story](#common-Story) |  |  |
-| role_info | [StoryRole](#common-StoryRole) |  |  |
-| board_info | [StoryBoard](#common-StoryBoard) |  |  |
+| user | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
+| active_type | [ActiveType](#rankquantity-voyager-api-ActiveType) |  |  |
+| group_info | [GroupInfo](#rankquantity-voyager-api-GroupInfo) |  |  |
+| story_info | [Story](#rankquantity-voyager-api-Story) |  |  |
+| role_info | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+| board_info | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  |  |
 | content | [string](#string) |  |  |
 | Ctime | [int64](#int64) |  |  |
 | Mtime | [int64](#int64) |  |  |
@@ -5280,7 +5280,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ArchiveStoryRequest"></a>
+<a name="rankquantity-voyager-api-ArchiveStoryRequest"></a>
 
 ### ArchiveStoryRequest
 
@@ -5296,7 +5296,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ArchiveStoryResponse"></a>
+<a name="rankquantity-voyager-api-ArchiveStoryResponse"></a>
 
 ### ArchiveStoryResponse
 
@@ -5304,7 +5304,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5312,7 +5312,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CancelStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-CancelStoryboardRequest"></a>
 
 ### CancelStoryboardRequest
 
@@ -5328,7 +5328,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CancelStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-CancelStoryboardResponse"></a>
 
 ### CancelStoryboardResponse
 
@@ -5336,7 +5336,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5344,7 +5344,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ChatContext"></a>
+<a name="rankquantity-voyager-api-ChatContext"></a>
 
 ### ChatContext
 
@@ -5359,16 +5359,16 @@ UpdateStoryResponse 更新故事的响应结果
 | last_update_time | [int64](#int64) |  |  |
 | total_tokens | [int64](#int64) |  |  |
 | total_messages | [int64](#int64) |  |  |
-| last_message | [ChatMessage](#common-ChatMessage) |  |  |
-| user | [UserInfo](#common-UserInfo) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| last_message | [ChatMessage](#rankquantity-voyager-api-ChatMessage) |  |  |
+| user | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-ChatWithStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-ChatWithStoryRoleRequest"></a>
 
 ### ChatWithStoryRoleRequest
 
@@ -5378,7 +5378,7 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -5387,7 +5387,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ChatWithStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-ChatWithStoryRoleResponse"></a>
 
 ### ChatWithStoryRoleResponse
 
@@ -5395,9 +5395,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| reply_messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| reply_messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -5406,7 +5406,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ConfirmRequest"></a>
+<a name="rankquantity-voyager-api-ConfirmRequest"></a>
 
 ### ConfirmRequest
 
@@ -5421,7 +5421,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ConfirmResponse"></a>
+<a name="rankquantity-voyager-api-ConfirmResponse"></a>
 
 ### ConfirmResponse
 
@@ -5437,7 +5437,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateDisscusResp"></a>
+<a name="rankquantity-voyager-api-CreateDisscusResp"></a>
 
 ### CreateDisscusResp
 
@@ -5445,16 +5445,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [CreateDisscusResp.Data](#common-CreateDisscusResp-Data) |  |  |
+| data | [CreateDisscusResp.Data](#rankquantity-voyager-api-CreateDisscusResp-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateDisscusResp-Data"></a>
+<a name="rankquantity-voyager-api-CreateDisscusResp-Data"></a>
 
 ### CreateDisscusResp.Data
 
@@ -5464,7 +5464,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateDisscussReq"></a>
+<a name="rankquantity-voyager-api-CreateDisscussReq"></a>
 
 ### CreateDisscussReq
 
@@ -5474,7 +5474,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateGroupRequest"></a>
+<a name="rankquantity-voyager-api-CreateGroupRequest"></a>
 
 ### CreateGroupRequest
 
@@ -5492,7 +5492,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateGroupResponse"></a>
+<a name="rankquantity-voyager-api-CreateGroupResponse"></a>
 
 ### CreateGroupResponse
 
@@ -5500,16 +5500,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [CreateGroupResponse.Data](#common-CreateGroupResponse-Data) |  |  |
+| data | [CreateGroupResponse.Data](#rankquantity-voyager-api-CreateGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-CreateGroupResponse-Data"></a>
 
 ### CreateGroupResponse.Data
 
@@ -5517,14 +5517,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [GroupInfo](#common-GroupInfo) |  |  |
+| info | [GroupInfo](#rankquantity-voyager-api-GroupInfo) |  |  |
 
 
 
 
 
 
-<a name="common-CreateItemRequest"></a>
+<a name="rankquantity-voyager-api-CreateItemRequest"></a>
 
 ### CreateItemRequest
 
@@ -5535,7 +5535,7 @@ UpdateStoryResponse 更新故事的响应结果
 | group_id | [int64](#int64) |  |  |
 | project_id | [int64](#int64) |  |  |
 | name | [string](#string) |  |  |
-| atype | [ActiveType](#common-ActiveType) |  |  |
+| atype | [ActiveType](#rankquantity-voyager-api-ActiveType) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -5543,7 +5543,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateItemResponse"></a>
+<a name="rankquantity-voyager-api-CreateItemResponse"></a>
 
 ### CreateItemResponse
 
@@ -5551,16 +5551,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [CreateItemResponse.Data](#common-CreateItemResponse-Data) |  |  |
+| data | [CreateItemResponse.Data](#rankquantity-voyager-api-CreateItemResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-CreateItemResponse-Data"></a>
+<a name="rankquantity-voyager-api-CreateItemResponse-Data"></a>
 
 ### CreateItemResponse.Data
 
@@ -5568,14 +5568,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [ItemInfo](#common-ItemInfo) |  |  |
+| info | [ItemInfo](#rankquantity-voyager-api-ItemInfo) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryBoardCommentRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryBoardCommentRequest"></a>
 
 ### CreateStoryBoardCommentRequest
 
@@ -5592,7 +5592,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateStoryBoardCommentResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryBoardCommentResponse"></a>
 
 ### CreateStoryBoardCommentResponse
 
@@ -5600,16 +5600,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| comment | [CommentInfo](#common-CommentInfo) |  |  |
+| comment | [CommentInfo](#rankquantity-voyager-api-CommentInfo) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryCommentReplyRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryCommentReplyRequest"></a>
 
 ### CreateStoryCommentReplyRequest
 
@@ -5626,7 +5626,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateStoryCommentReplyResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryCommentReplyResponse"></a>
 
 ### CreateStoryCommentReplyResponse
 
@@ -5634,16 +5634,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| comment | [CommentInfo](#common-CommentInfo) |  |  |
+| comment | [CommentInfo](#rankquantity-voyager-api-CommentInfo) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryCommentRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryCommentRequest"></a>
 
 ### CreateStoryCommentRequest
 
@@ -5660,7 +5660,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateStoryCommentResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryCommentResponse"></a>
 
 ### CreateStoryCommentResponse
 
@@ -5668,16 +5668,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| comment | [CommentInfo](#common-CommentInfo) |  |  |
+| comment | [CommentInfo](#rankquantity-voyager-api-CommentInfo) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryRoleChatRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryRoleChatRequest"></a>
 
 ### CreateStoryRoleChatRequest
 
@@ -5693,7 +5693,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-CreateStoryRoleChatResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryRoleChatResponse"></a>
 
 ### CreateStoryRoleChatResponse
 
@@ -5701,16 +5701,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| chat_context | [ChatContext](#common-ChatContext) |  |  |
+| chat_context | [ChatContext](#rankquantity-voyager-api-ChatContext) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-CreateStoryRoleRequest"></a>
 
 ### CreateStoryRoleRequest
 
@@ -5719,14 +5719,14 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-CreateStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-CreateStoryRoleResponse"></a>
 
 ### CreateStoryRoleResponse
 
@@ -5734,7 +5734,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5742,7 +5742,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteGroupRequest"></a>
+<a name="rankquantity-voyager-api-DeleteGroupRequest"></a>
 
 ### DeleteGroupRequest
 
@@ -5758,7 +5758,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteGroupResponse"></a>
+<a name="rankquantity-voyager-api-DeleteGroupResponse"></a>
 
 ### DeleteGroupResponse
 
@@ -5766,16 +5766,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [DeleteGroupResponse.Data](#common-DeleteGroupResponse-Data) |  |  |
+| data | [DeleteGroupResponse.Data](#rankquantity-voyager-api-DeleteGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-DeleteGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-DeleteGroupResponse-Data"></a>
 
 ### DeleteGroupResponse.Data
 
@@ -5785,7 +5785,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteItemRequest"></a>
+<a name="rankquantity-voyager-api-DeleteItemRequest"></a>
 
 ### DeleteItemRequest
 
@@ -5803,7 +5803,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteItemResponse"></a>
+<a name="rankquantity-voyager-api-DeleteItemResponse"></a>
 
 ### DeleteItemResponse
 
@@ -5811,16 +5811,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [DeleteItemResponse.Data](#common-DeleteItemResponse-Data) |  |  |
+| data | [DeleteItemResponse.Data](#rankquantity-voyager-api-DeleteItemResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-DeleteItemResponse-Data"></a>
+<a name="rankquantity-voyager-api-DeleteItemResponse-Data"></a>
 
 ### DeleteItemResponse.Data
 
@@ -5830,7 +5830,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryBoardCommentRequest"></a>
+<a name="rankquantity-voyager-api-DeleteStoryBoardCommentRequest"></a>
 
 ### DeleteStoryBoardCommentRequest
 
@@ -5847,7 +5847,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryBoardCommentResponse"></a>
+<a name="rankquantity-voyager-api-DeleteStoryBoardCommentResponse"></a>
 
 ### DeleteStoryBoardCommentResponse
 
@@ -5855,7 +5855,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5863,7 +5863,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryCommentReplyRequest"></a>
+<a name="rankquantity-voyager-api-DeleteStoryCommentReplyRequest"></a>
 
 ### DeleteStoryCommentReplyRequest
 
@@ -5879,7 +5879,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryCommentReplyResponse"></a>
+<a name="rankquantity-voyager-api-DeleteStoryCommentReplyResponse"></a>
 
 ### DeleteStoryCommentReplyResponse
 
@@ -5887,7 +5887,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5895,7 +5895,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryCommentRequest"></a>
+<a name="rankquantity-voyager-api-DeleteStoryCommentRequest"></a>
 
 ### DeleteStoryCommentRequest
 
@@ -5911,7 +5911,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DeleteStoryCommentResponse"></a>
+<a name="rankquantity-voyager-api-DeleteStoryCommentResponse"></a>
 
 ### DeleteStoryCommentResponse
 
@@ -5919,7 +5919,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5927,7 +5927,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DislikeCommentRequest"></a>
+<a name="rankquantity-voyager-api-DislikeCommentRequest"></a>
 
 ### DislikeCommentRequest
 
@@ -5943,7 +5943,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DislikeCommentResponse"></a>
+<a name="rankquantity-voyager-api-DislikeCommentResponse"></a>
 
 ### DislikeCommentResponse
 
@@ -5951,7 +5951,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -5959,7 +5959,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-DisscussParams"></a>
+<a name="rankquantity-voyager-api-DisscussParams"></a>
 
 ### DisscussParams
 
@@ -5969,7 +5969,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ExploreRequest"></a>
+<a name="rankquantity-voyager-api-ExploreRequest"></a>
 
 ### ExploreRequest
 
@@ -5979,7 +5979,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ExploreResponse"></a>
+<a name="rankquantity-voyager-api-ExploreResponse"></a>
 
 ### ExploreResponse
 
@@ -5987,16 +5987,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [ExploreResponse.Data](#common-ExploreResponse-Data) |  |  |
+| data | [ExploreResponse.Data](#rankquantity-voyager-api-ExploreResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-ExploreResponse-Data"></a>
+<a name="rankquantity-voyager-api-ExploreResponse-Data"></a>
 
 ### ExploreResponse.Data
 
@@ -6006,7 +6006,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchActivesRequest"></a>
+<a name="rankquantity-voyager-api-FetchActivesRequest"></a>
 
 ### FetchActivesRequest
 
@@ -6018,7 +6018,7 @@ UpdateStoryResponse 更新故事的响应结果
 | group_id | [int64](#int64) |  |  |
 | story_id | [int64](#int64) |  |  |
 | board_id | [int64](#int64) |  |  |
-| atype | [ActiveFlowType](#common-ActiveFlowType) |  |  |
+| atype | [ActiveFlowType](#rankquantity-voyager-api-ActiveFlowType) |  |  |
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -6028,7 +6028,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchActivesResponse"></a>
+<a name="rankquantity-voyager-api-FetchActivesResponse"></a>
 
 ### FetchActivesResponse
 
@@ -6036,16 +6036,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [FetchActivesResponse.Data](#common-FetchActivesResponse-Data) |  |  |
+| data | [FetchActivesResponse.Data](#rankquantity-voyager-api-FetchActivesResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-FetchActivesResponse-Data"></a>
+<a name="rankquantity-voyager-api-FetchActivesResponse-Data"></a>
 
 ### FetchActivesResponse.Data
 
@@ -6053,7 +6053,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
+| list | [ActiveInfo](#rankquantity-voyager-api-ActiveInfo) | repeated |  |
 | timestamp | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -6065,7 +6065,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchGroupMembersRequest"></a>
+<a name="rankquantity-voyager-api-FetchGroupMembersRequest"></a>
 
 ### FetchGroupMembersRequest
 
@@ -6082,7 +6082,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchGroupMembersResponse"></a>
+<a name="rankquantity-voyager-api-FetchGroupMembersResponse"></a>
 
 ### FetchGroupMembersResponse
 
@@ -6090,16 +6090,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [FetchGroupMembersResponse.Data](#common-FetchGroupMembersResponse-Data) |  |  |
+| data | [FetchGroupMembersResponse.Data](#rankquantity-voyager-api-FetchGroupMembersResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-FetchGroupMembersResponse-Data"></a>
+<a name="rankquantity-voyager-api-FetchGroupMembersResponse-Data"></a>
 
 ### FetchGroupMembersResponse.Data
 
@@ -6107,7 +6107,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
@@ -6117,7 +6117,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchUserGenTaskStatusRequest"></a>
+<a name="rankquantity-voyager-api-FetchUserGenTaskStatusRequest"></a>
 
 ### FetchUserGenTaskStatusRequest
 
@@ -6136,7 +6136,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FetchUserGenTaskStatusResponse"></a>
+<a name="rankquantity-voyager-api-FetchUserGenTaskStatusResponse"></a>
 
 ### FetchUserGenTaskStatusResponse
 
@@ -6144,9 +6144,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| tasks | [UserGenTaskStatus](#common-UserGenTaskStatus) | repeated |  |
+| tasks | [UserGenTaskStatus](#rankquantity-voyager-api-UserGenTaskStatus) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -6155,7 +6155,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FollowStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-FollowStoryRoleRequest"></a>
 
 ### FollowStoryRoleRequest
 
@@ -6172,7 +6172,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FollowStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-FollowStoryRoleResponse"></a>
 
 ### FollowStoryRoleResponse
 
@@ -6180,7 +6180,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6188,7 +6188,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FollowUserRequest"></a>
+<a name="rankquantity-voyager-api-FollowUserRequest"></a>
 
 ### FollowUserRequest
 
@@ -6204,7 +6204,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-FollowUserResponse"></a>
+<a name="rankquantity-voyager-api-FollowUserResponse"></a>
 
 ### FollowUserResponse
 
@@ -6212,7 +6212,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -6220,7 +6220,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateRoleAvatarRequest"></a>
+<a name="rankquantity-voyager-api-GenerateRoleAvatarRequest"></a>
 
 ### GenerateRoleAvatarRequest
 
@@ -6233,14 +6233,14 @@ UpdateStoryResponse 更新故事的响应结果
 | ref_avatar_url | [string](#string) |  |  |
 | description | [string](#string) |  |  |
 | style | [string](#string) |  |  |
-| image_ratios | [ImageRatios](#common-ImageRatios) |  |  |
+| image_ratios | [ImageRatios](#rankquantity-voyager-api-ImageRatios) |  |  |
 
 
 
 
 
 
-<a name="common-GenerateRoleAvatarResponse"></a>
+<a name="rankquantity-voyager-api-GenerateRoleAvatarResponse"></a>
 
 ### GenerateRoleAvatarResponse
 
@@ -6248,7 +6248,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | avatar_url | [string](#string) |  |  |
 
@@ -6257,7 +6257,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateRoleDescriptionRequest"></a>
+<a name="rankquantity-voyager-api-GenerateRoleDescriptionRequest"></a>
 
 ### GenerateRoleDescriptionRequest
 
@@ -6275,7 +6275,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateRoleDescriptionResponse"></a>
+<a name="rankquantity-voyager-api-GenerateRoleDescriptionResponse"></a>
 
 ### GenerateRoleDescriptionResponse
 
@@ -6283,16 +6283,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
+| character_detail | [CharacterDetail](#rankquantity-voyager-api-CharacterDetail) |  |  |
 
 
 
 
 
 
-<a name="common-GenerateRolePromptRequest"></a>
+<a name="rankquantity-voyager-api-GenerateRolePromptRequest"></a>
 
 ### GenerateRolePromptRequest
 
@@ -6310,7 +6310,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateRolePromptResponse"></a>
+<a name="rankquantity-voyager-api-GenerateRolePromptResponse"></a>
 
 ### GenerateRolePromptResponse
 
@@ -6318,7 +6318,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | prompt | [string](#string) |  |  |
 
@@ -6327,7 +6327,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStoryRoleParams"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRoleParams"></a>
 
 ### GenerateStoryRoleParams
 
@@ -6346,7 +6346,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStoryRolePosterRequest"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRolePosterRequest"></a>
 
 ### GenerateStoryRolePosterRequest
 
@@ -6357,14 +6357,14 @@ UpdateStoryResponse 更新故事的响应结果
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| params | [GenerateStoryRoleParams](#common-GenerateStoryRoleParams) |  |  |
+| params | [GenerateStoryRoleParams](#rankquantity-voyager-api-GenerateStoryRoleParams) |  |  |
 
 
 
 
 
 
-<a name="common-GenerateStoryRolePosterResponse"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRolePosterResponse"></a>
 
 ### GenerateStoryRolePosterResponse
 
@@ -6372,7 +6372,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | image_url | [string](#string) |  |  |
 | poster_id | [int64](#int64) |  |  |
@@ -6382,7 +6382,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStoryRoleVideoRequest"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRoleVideoRequest"></a>
 
 ### GenerateStoryRoleVideoRequest
 
@@ -6397,7 +6397,7 @@ UpdateStoryResponse 更新故事的响应结果
 | ref_background_url | [string](#string) |  |  |
 | ref_avatar_url | [string](#string) |  |  |
 | text_prompt | [string](#string) |  |  |
-| image_ratios | [ImageRatios](#common-ImageRatios) |  |  |
+| image_ratios | [ImageRatios](#rankquantity-voyager-api-ImageRatios) |  |  |
 | style | [string](#string) |  |  |
 
 
@@ -6405,7 +6405,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStoryRoleVideoResponse"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRoleVideoResponse"></a>
 
 ### GenerateStoryRoleVideoResponse
 
@@ -6413,16 +6413,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| detail | [GenerateStoryRoleVideoTaskDetail](#common-GenerateStoryRoleVideoTaskDetail) |  |  |
+| detail | [GenerateStoryRoleVideoTaskDetail](#rankquantity-voyager-api-GenerateStoryRoleVideoTaskDetail) |  |  |
 
 
 
 
 
 
-<a name="common-GenerateStoryRoleVideoTaskDetail"></a>
+<a name="rankquantity-voyager-api-GenerateStoryRoleVideoTaskDetail"></a>
 
 ### GenerateStoryRoleVideoTaskDetail
 
@@ -6431,7 +6431,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | task_id | [string](#string) |  |  |
-| task_status | [StoryGenStatus](#common-StoryGenStatus) |  |  |
+| task_status | [StoryGenStatus](#rankquantity-voyager-api-StoryGenStatus) |  |  |
 | video_url | [string](#string) |  |  |
 | video_thumbnail_url | [string](#string) |  |  |
 | duration | [int64](#int64) |  |  |
@@ -6443,7 +6443,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStorySceneVideoRequest"></a>
+<a name="rankquantity-voyager-api-GenerateStorySceneVideoRequest"></a>
 
 ### GenerateStorySceneVideoRequest
 
@@ -6455,7 +6455,7 @@ UpdateStoryResponse 更新故事的响应结果
 | board_id | [int64](#int64) |  |  |
 | sence_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| token_source | [TokenSource](#common-TokenSource) |  |  |
+| token_source | [TokenSource](#rankquantity-voyager-api-TokenSource) |  |  |
 | prompt | [string](#string) |  |  |
 | negative_prompt | [string](#string) |  |  |
 
@@ -6464,7 +6464,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GenerateStorySceneVideoResponse"></a>
+<a name="rankquantity-voyager-api-GenerateStorySceneVideoResponse"></a>
 
 ### GenerateStorySceneVideoResponse
 
@@ -6472,16 +6472,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| detail | [GenerateStorySceneVideoTaskDetail](#common-GenerateStorySceneVideoTaskDetail) |  |  |
+| detail | [GenerateStorySceneVideoTaskDetail](#rankquantity-voyager-api-GenerateStorySceneVideoTaskDetail) |  |  |
 
 
 
 
 
 
-<a name="common-GenerateStorySceneVideoTaskDetail"></a>
+<a name="rankquantity-voyager-api-GenerateStorySceneVideoTaskDetail"></a>
 
 ### GenerateStorySceneVideoTaskDetail
 
@@ -6490,7 +6490,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | task_id | [string](#string) |  |  |
-| task_status | [StoryGenStatus](#common-StoryGenStatus) |  |  |
+| task_status | [StoryGenStatus](#rankquantity-voyager-api-StoryGenStatus) |  |  |
 | video_url | [string](#string) |  |  |
 | video_thumbnail_url | [string](#string) |  |  |
 | duration | [int64](#int64) |  |  |
@@ -6502,7 +6502,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetDisscusReq"></a>
+<a name="rankquantity-voyager-api-GetDisscusReq"></a>
 
 ### GetDisscusReq
 
@@ -6512,7 +6512,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetDisscusResp"></a>
+<a name="rankquantity-voyager-api-GetDisscusResp"></a>
 
 ### GetDisscusResp
 
@@ -6520,16 +6520,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetDisscusResp.Data](#common-GetDisscusResp-Data) |  |  |
+| data | [GetDisscusResp.Data](#rankquantity-voyager-api-GetDisscusResp-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetDisscusResp-Data"></a>
+<a name="rankquantity-voyager-api-GetDisscusResp-Data"></a>
 
 ### GetDisscusResp.Data
 
@@ -6539,7 +6539,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetFollowListRequest"></a>
+<a name="rankquantity-voyager-api-GetFollowListRequest"></a>
 
 ### GetFollowListRequest
 
@@ -6556,7 +6556,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetFollowListResponse"></a>
+<a name="rankquantity-voyager-api-GetFollowListResponse"></a>
 
 ### GetFollowListResponse
 
@@ -6564,9 +6564,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| followers | [UserInfo](#common-UserInfo) | repeated |  |
+| followers | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -6575,7 +6575,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetFollowerListRequest"></a>
+<a name="rankquantity-voyager-api-GetFollowerListRequest"></a>
 
 ### GetFollowerListRequest
 
@@ -6592,7 +6592,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetFollowerListResponse"></a>
+<a name="rankquantity-voyager-api-GetFollowerListResponse"></a>
 
 ### GetFollowerListResponse
 
@@ -6600,9 +6600,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| followers | [UserInfo](#common-UserInfo) | repeated |  |
+| followers | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -6611,7 +6611,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupActivesRequest"></a>
+<a name="rankquantity-voyager-api-GetGroupActivesRequest"></a>
 
 ### GetGroupActivesRequest
 
@@ -6620,7 +6620,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
-| atype | [ActiveType](#common-ActiveType) |  |  |
+| atype | [ActiveType](#rankquantity-voyager-api-ActiveType) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 
@@ -6629,7 +6629,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupActivesResponse"></a>
+<a name="rankquantity-voyager-api-GetGroupActivesResponse"></a>
 
 ### GetGroupActivesResponse
 
@@ -6637,16 +6637,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetGroupActivesResponse.Data](#common-GetGroupActivesResponse-Data) |  |  |
+| data | [GetGroupActivesResponse.Data](#rankquantity-voyager-api-GetGroupActivesResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetGroupActivesResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetGroupActivesResponse-Data"></a>
 
 ### GetGroupActivesResponse.Data
 
@@ -6654,7 +6654,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [ActiveInfo](#common-ActiveInfo) | repeated |  |
+| list | [ActiveInfo](#rankquantity-voyager-api-ActiveInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
@@ -6665,7 +6665,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupItemsRequest"></a>
+<a name="rankquantity-voyager-api-GetGroupItemsRequest"></a>
 
 ### GetGroupItemsRequest
 
@@ -6683,7 +6683,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupItemsResponse"></a>
+<a name="rankquantity-voyager-api-GetGroupItemsResponse"></a>
 
 ### GetGroupItemsResponse
 
@@ -6691,16 +6691,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [GetGroupItemsResponse.Data](#common-GetGroupItemsResponse-Data) |  |  |
+| data | [GetGroupItemsResponse.Data](#rankquantity-voyager-api-GetGroupItemsResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetGroupItemsResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetGroupItemsResponse-Data"></a>
 
 ### GetGroupItemsResponse.Data
 
@@ -6708,7 +6708,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [ItemInfo](#common-ItemInfo) | repeated |  |
+| list | [ItemInfo](#rankquantity-voyager-api-ItemInfo) | repeated |  |
 | group_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -6719,7 +6719,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupProfileRequest"></a>
+<a name="rankquantity-voyager-api-GetGroupProfileRequest"></a>
 
 ### GetGroupProfileRequest
 
@@ -6735,7 +6735,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupProfileResponse"></a>
+<a name="rankquantity-voyager-api-GetGroupProfileResponse"></a>
 
 ### GetGroupProfileResponse
 
@@ -6743,16 +6743,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetGroupProfileResponse.Data](#common-GetGroupProfileResponse-Data) |  |  |
+| data | [GetGroupProfileResponse.Data](#rankquantity-voyager-api-GetGroupProfileResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetGroupProfileResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetGroupProfileResponse-Data"></a>
 
 ### GetGroupProfileResponse.Data
 
@@ -6760,14 +6760,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
+| info | [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo) |  |  |
 
 
 
 
 
 
-<a name="common-GetGroupRequest"></a>
+<a name="rankquantity-voyager-api-GetGroupRequest"></a>
 
 ### GetGroupRequest
 
@@ -6785,7 +6785,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetGroupResponse"></a>
+<a name="rankquantity-voyager-api-GetGroupResponse"></a>
 
 ### GetGroupResponse
 
@@ -6793,16 +6793,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetGroupResponse.Data](#common-GetGroupResponse-Data) |  |  |
+| data | [GetGroupResponse.Data](#rankquantity-voyager-api-GetGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetGroupResponse-Data"></a>
 
 ### GetGroupResponse.Data
 
@@ -6810,14 +6810,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [GroupInfo](#common-GroupInfo) |  |  |
+| info | [GroupInfo](#rankquantity-voyager-api-GroupInfo) |  |  |
 
 
 
 
 
 
-<a name="common-GetItemRequest"></a>
+<a name="rankquantity-voyager-api-GetItemRequest"></a>
 
 ### GetItemRequest
 
@@ -6835,7 +6835,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetItemResponse"></a>
+<a name="rankquantity-voyager-api-GetItemResponse"></a>
 
 ### GetItemResponse
 
@@ -6843,16 +6843,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [GetItemResponse.Data](#common-GetItemResponse-Data) |  |  |
+| data | [GetItemResponse.Data](#rankquantity-voyager-api-GetItemResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetItemResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetItemResponse-Data"></a>
 
 ### GetItemResponse.Data
 
@@ -6860,14 +6860,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [ItemInfo](#common-ItemInfo) |  |  |
+| info | [ItemInfo](#rankquantity-voyager-api-ItemInfo) |  |  |
 
 
 
 
 
 
-<a name="common-GetNextStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-GetNextStoryboardRequest"></a>
 
 ### GetNextStoryboardRequest
 
@@ -6882,14 +6882,14 @@ UpdateStoryResponse 更新故事的响应结果
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
-| order_by | [MultiBranchOrderBy](#common-MultiBranchOrderBy) |  |  |
+| order_by | [MultiBranchOrderBy](#rankquantity-voyager-api-MultiBranchOrderBy) |  |  |
 
 
 
 
 
 
-<a name="common-GetNextStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-GetNextStoryboardResponse"></a>
 
 ### GetNextStoryboardResponse
 
@@ -6897,9 +6897,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboards | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | is_multi_branch | [bool](#bool) |  |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -6911,7 +6911,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetProjectMembersRequest"></a>
+<a name="rankquantity-voyager-api-GetProjectMembersRequest"></a>
 
 ### GetProjectMembersRequest
 
@@ -6927,7 +6927,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetProjectMembersResponse"></a>
+<a name="rankquantity-voyager-api-GetProjectMembersResponse"></a>
 
 ### GetProjectMembersResponse
 
@@ -6935,16 +6935,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetProjectMembersResponse.Data](#common-GetProjectMembersResponse-Data) |  |  |
+| data | [GetProjectMembersResponse.Data](#rankquantity-voyager-api-GetProjectMembersResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetProjectMembersResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetProjectMembersResponse-Data"></a>
 
 ### GetProjectMembersResponse.Data
 
@@ -6952,16 +6952,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int32](#int32) |  |  |
-| role | [GetProjectMembersResponse.Data.RoleEntry](#common-GetProjectMembersResponse-Data-RoleEntry) | repeated |  |
+| role | [GetProjectMembersResponse.Data.RoleEntry](#rankquantity-voyager-api-GetProjectMembersResponse-Data-RoleEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetProjectMembersResponse-Data-RoleEntry"></a>
+<a name="rankquantity-voyager-api-GetProjectMembersResponse-Data-RoleEntry"></a>
 
 ### GetProjectMembersResponse.Data.RoleEntry
 
@@ -6977,7 +6977,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetProjectWatcherRequest"></a>
+<a name="rankquantity-voyager-api-GetProjectWatcherRequest"></a>
 
 ### GetProjectWatcherRequest
 
@@ -6992,7 +6992,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetProjectWatcherResponse"></a>
+<a name="rankquantity-voyager-api-GetProjectWatcherResponse"></a>
 
 ### GetProjectWatcherResponse
 
@@ -7000,16 +7000,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetProjectWatcherResponse.Data](#common-GetProjectWatcherResponse-Data) |  |  |
+| data | [GetProjectWatcherResponse.Data](#rankquantity-voyager-api-GetProjectWatcherResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetProjectWatcherResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetProjectWatcherResponse-Data"></a>
 
 ### GetProjectWatcherResponse.Data
 
@@ -7017,16 +7017,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int32](#int32) |  |  |
-| timestamp | [GetProjectWatcherResponse.Data.TimestampEntry](#common-GetProjectWatcherResponse-Data-TimestampEntry) | repeated |  |
+| timestamp | [GetProjectWatcherResponse.Data.TimestampEntry](#rankquantity-voyager-api-GetProjectWatcherResponse-Data-TimestampEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetProjectWatcherResponse-Data-TimestampEntry"></a>
+<a name="rankquantity-voyager-api-GetProjectWatcherResponse-Data-TimestampEntry"></a>
 
 ### GetProjectWatcherResponse.Data.TimestampEntry
 
@@ -7042,7 +7042,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryBoardCommentRepliesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardCommentRepliesRequest"></a>
 
 ### GetStoryBoardCommentRepliesRequest
 
@@ -7060,7 +7060,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryBoardCommentRepliesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardCommentRepliesResponse"></a>
 
 ### GetStoryBoardCommentRepliesResponse
 
@@ -7068,9 +7068,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| replies | [StoryComment](#common-StoryComment) | repeated |  |
+| replies | [StoryComment](#rankquantity-voyager-api-StoryComment) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7081,7 +7081,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryBoardCommentsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardCommentsRequest"></a>
 
 ### GetStoryBoardCommentsRequest
 
@@ -7099,7 +7099,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryBoardCommentsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryBoardCommentsResponse"></a>
 
 ### GetStoryBoardCommentsResponse
 
@@ -7107,9 +7107,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| comments | [StoryComment](#common-StoryComment) | repeated |  |
+| comments | [StoryComment](#rankquantity-voyager-api-StoryComment) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7120,7 +7120,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryCommentRepliesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryCommentRepliesRequest"></a>
 
 ### GetStoryCommentRepliesRequest
 
@@ -7138,7 +7138,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryCommentRepliesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryCommentRepliesResponse"></a>
 
 ### GetStoryCommentRepliesResponse
 
@@ -7146,9 +7146,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| replies | [StoryComment](#common-StoryComment) | repeated |  |
+| replies | [StoryComment](#rankquantity-voyager-api-StoryComment) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7159,7 +7159,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryCommentsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryCommentsRequest"></a>
 
 ### GetStoryCommentsRequest
 
@@ -7177,7 +7177,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryCommentsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryCommentsResponse"></a>
 
 ### GetStoryCommentsResponse
 
@@ -7185,9 +7185,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| comments | [StoryComment](#common-StoryComment) | repeated |  |
+| comments | [StoryComment](#rankquantity-voyager-api-StoryComment) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7198,7 +7198,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryContributorsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryContributorsRequest"></a>
 
 ### GetStoryContributorsRequest
 
@@ -7216,7 +7216,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryContributorsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryContributorsResponse"></a>
 
 ### GetStoryContributorsResponse
 
@@ -7224,16 +7224,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [GetStoryContributorsResponse.Data](#common-GetStoryContributorsResponse-Data) |  |  |
+| data | [GetStoryContributorsResponse.Data](#rankquantity-voyager-api-GetStoryContributorsResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryContributorsResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetStoryContributorsResponse-Data"></a>
 
 ### GetStoryContributorsResponse.Data
 
@@ -7241,7 +7241,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryContributor](#common-StoryContributor) | repeated |  |
+| list | [StoryContributor](#rankquantity-voyager-api-StoryContributor) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -7250,7 +7250,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryImageStyleRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryImageStyleRequest"></a>
 
 ### GetStoryImageStyleRequest
 
@@ -7265,7 +7265,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryImageStyleResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryImageStyleResponse"></a>
 
 ### GetStoryImageStyleResponse
 
@@ -7273,16 +7273,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| style | [StoryStyleDesc](#common-StoryStyleDesc) | repeated |  |
+| style | [StoryStyleDesc](#rankquantity-voyager-api-StoryStyleDesc) | repeated |  |
 
 
 
 
 
 
-<a name="common-GetStoryParticipantsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryParticipantsRequest"></a>
 
 ### GetStoryParticipantsRequest
 
@@ -7299,7 +7299,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryParticipantsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryParticipantsResponse"></a>
 
 ### GetStoryParticipantsResponse
 
@@ -7307,9 +7307,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| participants | [UserInfo](#common-UserInfo) | repeated |  |
+| participants | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -7318,7 +7318,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleDetailRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleDetailRequest"></a>
 
 ### GetStoryRoleDetailRequest
 
@@ -7333,7 +7333,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleDetailResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleDetailResponse"></a>
 
 ### GetStoryRoleDetailResponse
 
@@ -7341,16 +7341,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| info | [StoryRole](#common-StoryRole) |  |  |
+| info | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 
 
 
 
 
 
-<a name="common-GetStoryRoleListRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleListRequest"></a>
 
 ### GetStoryRoleListRequest
 
@@ -7370,7 +7370,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleListResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleListResponse"></a>
 
 ### GetStoryRoleListResponse
 
@@ -7378,9 +7378,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -7389,7 +7389,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRolePosterListRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRolePosterListRequest"></a>
 
 ### GetStoryRolePosterListRequest
 
@@ -7408,7 +7408,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRolePosterListResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRolePosterListResponse"></a>
 
 ### GetStoryRolePosterListResponse
 
@@ -7416,9 +7416,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| posters | [RolePosterDetail](#common-RolePosterDetail) | repeated |  |
+| posters | [RolePosterDetail](#rankquantity-voyager-api-RolePosterDetail) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -7427,7 +7427,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleStoriesRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleStoriesRequest"></a>
 
 ### GetStoryRoleStoriesRequest
 
@@ -7446,7 +7446,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleStoriesResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleStoriesResponse"></a>
 
 ### GetStoryRoleStoriesResponse
 
@@ -7454,9 +7454,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| stories | [Story](#common-Story) | repeated |  |
+| stories | [Story](#rankquantity-voyager-api-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7467,7 +7467,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleStoryboardsRequest"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleStoryboardsRequest"></a>
 
 ### GetStoryRoleStoryboardsRequest
 
@@ -7487,7 +7487,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetStoryRoleStoryboardsResponse"></a>
+<a name="rankquantity-voyager-api-GetStoryRoleStoryboardsResponse"></a>
 
 ### GetStoryRoleStoryboardsResponse
 
@@ -7495,9 +7495,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboardactives | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboardactives | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7508,7 +7508,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUnPublishStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-GetUnPublishStoryboardRequest"></a>
 
 ### GetUnPublishStoryboardRequest
 
@@ -7525,7 +7525,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUnPublishStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-GetUnPublishStoryboardResponse"></a>
 
 ### GetUnPublishStoryboardResponse
 
@@ -7533,9 +7533,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboardactives | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboardactives | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7546,7 +7546,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserChatMessagesRequest"></a>
+<a name="rankquantity-voyager-api-GetUserChatMessagesRequest"></a>
 
 ### GetUserChatMessagesRequest
 
@@ -7564,7 +7564,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserChatMessagesResponse"></a>
+<a name="rankquantity-voyager-api-GetUserChatMessagesResponse"></a>
 
 ### GetUserChatMessagesResponse
 
@@ -7572,9 +7572,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
+| messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
 | timestamp | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
@@ -7584,7 +7584,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserChatWithRoleRequest"></a>
+<a name="rankquantity-voyager-api-GetUserChatWithRoleRequest"></a>
 
 ### GetUserChatWithRoleRequest
 
@@ -7600,7 +7600,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserChatWithRoleResponse"></a>
+<a name="rankquantity-voyager-api-GetUserChatWithRoleResponse"></a>
 
 ### GetUserChatWithRoleResponse
 
@@ -7608,10 +7608,10 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| messages | [ChatMessage](#common-ChatMessage) | repeated |  |
-| chat_context | [ChatContext](#common-ChatContext) |  |  |
+| messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
+| chat_context | [ChatContext](#rankquantity-voyager-api-ChatContext) |  |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -7620,7 +7620,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserCreatedRolesRequest"></a>
+<a name="rankquantity-voyager-api-GetUserCreatedRolesRequest"></a>
 
 ### GetUserCreatedRolesRequest
 
@@ -7639,7 +7639,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserCreatedRolesResponse"></a>
+<a name="rankquantity-voyager-api-GetUserCreatedRolesResponse"></a>
 
 ### GetUserCreatedRolesResponse
 
@@ -7647,9 +7647,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -7660,7 +7660,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserCreatedStoryboardsRequest"></a>
+<a name="rankquantity-voyager-api-GetUserCreatedStoryboardsRequest"></a>
 
 ### GetUserCreatedStoryboardsRequest
 
@@ -7679,7 +7679,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserCreatedStoryboardsResponse"></a>
+<a name="rankquantity-voyager-api-GetUserCreatedStoryboardsResponse"></a>
 
 ### GetUserCreatedStoryboardsResponse
 
@@ -7687,9 +7687,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboards | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 | offset | [int64](#int64) |  |  |
@@ -7700,7 +7700,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserItemsRequest"></a>
+<a name="rankquantity-voyager-api-GetUserItemsRequest"></a>
 
 ### GetUserItemsRequest
 
@@ -7717,7 +7717,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserItemsResponse"></a>
+<a name="rankquantity-voyager-api-GetUserItemsResponse"></a>
 
 ### GetUserItemsResponse
 
@@ -7725,16 +7725,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [GetUserItemsResponse.Data](#common-GetUserItemsResponse-Data) |  |  |
+| data | [GetUserItemsResponse.Data](#rankquantity-voyager-api-GetUserItemsResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-GetUserItemsResponse-Data"></a>
+<a name="rankquantity-voyager-api-GetUserItemsResponse-Data"></a>
 
 ### GetUserItemsResponse.Data
 
@@ -7742,7 +7742,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [ItemInfo](#common-ItemInfo) | repeated |  |
+| list | [ItemInfo](#rankquantity-voyager-api-ItemInfo) | repeated |  |
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7752,7 +7752,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserProfileRequest"></a>
+<a name="rankquantity-voyager-api-GetUserProfileRequest"></a>
 
 ### GetUserProfileRequest
 
@@ -7767,7 +7767,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserProfileResponse"></a>
+<a name="rankquantity-voyager-api-GetUserProfileResponse"></a>
 
 ### GetUserProfileResponse
 
@@ -7775,16 +7775,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| info | [UserProfileInfo](#common-UserProfileInfo) |  |  |
+| info | [UserProfileInfo](#rankquantity-voyager-api-UserProfileInfo) |  |  |
 
 
 
 
 
 
-<a name="common-GetUserWatchRoleActiveStoryBoardsRequest"></a>
+<a name="rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsRequest"></a>
 
 ### GetUserWatchRoleActiveStoryBoardsRequest
 
@@ -7803,7 +7803,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserWatchRoleActiveStoryBoardsResponse"></a>
+<a name="rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsResponse"></a>
 
 ### GetUserWatchRoleActiveStoryBoardsResponse
 
@@ -7811,9 +7811,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboards | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7824,7 +7824,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserWatchStoryActiveStoryBoardsRequest"></a>
+<a name="rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsRequest"></a>
 
 ### GetUserWatchStoryActiveStoryBoardsRequest
 
@@ -7843,7 +7843,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserWatchStoryActiveStoryBoardsResponse"></a>
+<a name="rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsResponse"></a>
 
 ### GetUserWatchStoryActiveStoryBoardsResponse
 
@@ -7851,9 +7851,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| storyboards | [StoryBoardActive](#common-StoryBoardActive) | repeated |  |
+| storyboards | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7864,7 +7864,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserWithRoleChatListRequest"></a>
+<a name="rankquantity-voyager-api-GetUserWithRoleChatListRequest"></a>
 
 ### GetUserWithRoleChatListRequest
 
@@ -7882,7 +7882,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-GetUserWithRoleChatListResponse"></a>
+<a name="rankquantity-voyager-api-GetUserWithRoleChatListResponse"></a>
 
 ### GetUserWithRoleChatListResponse
 
@@ -7890,9 +7890,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| chats | [ChatContext](#common-ChatContext) | repeated |  |
+| chats | [ChatContext](#rankquantity-voyager-api-ChatContext) | repeated |  |
 | total | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
@@ -7903,7 +7903,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-JoinGroupRequest"></a>
+<a name="rankquantity-voyager-api-JoinGroupRequest"></a>
 
 ### JoinGroupRequest
 
@@ -7919,7 +7919,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-JoinGroupResponse"></a>
+<a name="rankquantity-voyager-api-JoinGroupResponse"></a>
 
 ### JoinGroupResponse
 
@@ -7927,16 +7927,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [JoinGroupResponse.Data](#common-JoinGroupResponse-Data) |  |  |
+| data | [JoinGroupResponse.Data](#rankquantity-voyager-api-JoinGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-JoinGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-JoinGroupResponse-Data"></a>
 
 ### JoinGroupResponse.Data
 
@@ -7946,7 +7946,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LeaveGroupRequest"></a>
+<a name="rankquantity-voyager-api-LeaveGroupRequest"></a>
 
 ### LeaveGroupRequest
 
@@ -7962,7 +7962,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LeaveGroupResponse"></a>
+<a name="rankquantity-voyager-api-LeaveGroupResponse"></a>
 
 ### LeaveGroupResponse
 
@@ -7970,16 +7970,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [LeaveGroupResponse.Data](#common-LeaveGroupResponse-Data) |  |  |
+| data | [LeaveGroupResponse.Data](#rankquantity-voyager-api-LeaveGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-LeaveGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-LeaveGroupResponse-Data"></a>
 
 ### LeaveGroupResponse.Data
 
@@ -7989,7 +7989,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeCommentRequest"></a>
+<a name="rankquantity-voyager-api-LikeCommentRequest"></a>
 
 ### LikeCommentRequest
 
@@ -8005,7 +8005,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeCommentResponse"></a>
+<a name="rankquantity-voyager-api-LikeCommentResponse"></a>
 
 ### LikeCommentResponse
 
@@ -8013,7 +8013,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -8021,7 +8021,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeItemRequest"></a>
+<a name="rankquantity-voyager-api-LikeItemRequest"></a>
 
 ### LikeItemRequest
 
@@ -8040,7 +8040,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeItemResponse"></a>
+<a name="rankquantity-voyager-api-LikeItemResponse"></a>
 
 ### LikeItemResponse
 
@@ -8048,16 +8048,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [LikeItemResponse.Data](#common-LikeItemResponse-Data) |  |  |
+| data | [LikeItemResponse.Data](#rankquantity-voyager-api-LikeItemResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-LikeItemResponse-Data"></a>
+<a name="rankquantity-voyager-api-LikeItemResponse-Data"></a>
 
 ### LikeItemResponse.Data
 
@@ -8067,7 +8067,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryRequest"></a>
+<a name="rankquantity-voyager-api-LikeStoryRequest"></a>
 
 ### LikeStoryRequest
 
@@ -8083,7 +8083,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryResponse"></a>
+<a name="rankquantity-voyager-api-LikeStoryResponse"></a>
 
 ### LikeStoryResponse
 
@@ -8091,7 +8091,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -8099,7 +8099,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryRolePosterRequest"></a>
+<a name="rankquantity-voyager-api-LikeStoryRolePosterRequest"></a>
 
 ### LikeStoryRolePosterRequest
 
@@ -8117,7 +8117,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryRolePosterResponse"></a>
+<a name="rankquantity-voyager-api-LikeStoryRolePosterResponse"></a>
 
 ### LikeStoryRolePosterResponse
 
@@ -8125,7 +8125,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | current_like_count | [int64](#int64) |  |  |
 
@@ -8134,7 +8134,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-LikeStoryRoleRequest"></a>
 
 ### LikeStoryRoleRequest
 
@@ -8151,7 +8151,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LikeStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-LikeStoryRoleResponse"></a>
 
 ### LikeStoryRoleResponse
 
@@ -8159,7 +8159,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -8167,7 +8167,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LoginRequest"></a>
+<a name="rankquantity-voyager-api-LoginRequest"></a>
 
 ### LoginRequest
 
@@ -8184,7 +8184,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LoginResponse"></a>
+<a name="rankquantity-voyager-api-LoginResponse"></a>
 
 ### LoginResponse
 
@@ -8192,16 +8192,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [LoginResponse.Data](#common-LoginResponse-Data) |  |  |
+| data | [LoginResponse.Data](#rankquantity-voyager-api-LoginResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-LoginResponse-Data"></a>
+<a name="rankquantity-voyager-api-LoginResponse-Data"></a>
 
 ### LoginResponse.Data
 
@@ -8220,7 +8220,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LogoutRequest"></a>
+<a name="rankquantity-voyager-api-LogoutRequest"></a>
 
 ### LogoutRequest
 
@@ -8236,7 +8236,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-LogoutResponse"></a>
+<a name="rankquantity-voyager-api-LogoutResponse"></a>
 
 ### LogoutResponse
 
@@ -8244,7 +8244,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 
 
@@ -8252,7 +8252,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-PublishStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-PublishStoryboardRequest"></a>
 
 ### PublishStoryboardRequest
 
@@ -8268,7 +8268,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-PublishStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-PublishStoryboardResponse"></a>
 
 ### PublishStoryboardResponse
 
@@ -8276,7 +8276,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -8284,7 +8284,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RefreshTokenRequest"></a>
+<a name="rankquantity-voyager-api-RefreshTokenRequest"></a>
 
 ### RefreshTokenRequest
 
@@ -8299,7 +8299,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RefreshTokenResponse"></a>
+<a name="rankquantity-voyager-api-RefreshTokenResponse"></a>
 
 ### RefreshTokenResponse
 
@@ -8315,7 +8315,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RegisterRequest"></a>
+<a name="rankquantity-voyager-api-RegisterRequest"></a>
 
 ### RegisterRequest
 
@@ -8334,7 +8334,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RegisterResponse"></a>
+<a name="rankquantity-voyager-api-RegisterResponse"></a>
 
 ### RegisterResponse
 
@@ -8342,7 +8342,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
 
 
@@ -8350,7 +8350,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RenderStoryRoleContinuouslyRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleContinuouslyRequest"></a>
 
 ### RenderStoryRoleContinuouslyRequest
 
@@ -8369,7 +8369,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RenderStoryRoleContinuouslyResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleContinuouslyResponse"></a>
 
 ### RenderStoryRoleContinuouslyResponse
 
@@ -8377,9 +8377,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
+| detail | [RenderStoryRoleDetail](#rankquantity-voyager-api-RenderStoryRoleDetail) |  |  |
 | have_more | [bool](#bool) |  |  |
 
 
@@ -8387,7 +8387,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RenderStoryRoleDetail"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleDetail"></a>
 
 ### RenderStoryRoleDetail
 
@@ -8414,7 +8414,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RenderStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleRequest"></a>
 
 ### RenderStoryRoleRequest
 
@@ -8432,7 +8432,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RenderStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-RenderStoryRoleResponse"></a>
 
 ### RenderStoryRoleResponse
 
@@ -8440,16 +8440,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| detail | [RenderStoryRoleDetail](#common-RenderStoryRoleDetail) |  |  |
+| detail | [RenderStoryRoleDetail](#rankquantity-voyager-api-RenderStoryRoleDetail) |  |  |
 
 
 
 
 
 
-<a name="common-ResetPasswordRequest"></a>
+<a name="rankquantity-voyager-api-ResetPasswordRequest"></a>
 
 ### ResetPasswordRequest
 
@@ -8466,7 +8466,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-ResetPasswordResponse"></a>
+<a name="rankquantity-voyager-api-ResetPasswordResponse"></a>
 
 ### ResetPasswordResponse
 
@@ -8483,7 +8483,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RestoreStoryboardRequest"></a>
+<a name="rankquantity-voyager-api-RestoreStoryboardRequest"></a>
 
 ### RestoreStoryboardRequest
 
@@ -8500,7 +8500,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-RestoreStoryboardResponse"></a>
+<a name="rankquantity-voyager-api-RestoreStoryboardResponse"></a>
 
 ### RestoreStoryboardResponse
 
@@ -8508,16 +8508,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| store | [StoryboardStageStore](#common-StoryboardStageStore) |  |  |
+| store | [StoryboardStageStore](#rankquantity-voyager-api-StoryboardStageStore) |  |  |
 
 
 
 
 
 
-<a name="common-RolePosterDetail"></a>
+<a name="rankquantity-voyager-api-RolePosterDetail"></a>
 
 ### RolePosterDetail
 
@@ -8532,7 +8532,7 @@ UpdateStoryResponse 更新故事的响应结果
 | prompt | [string](#string) |  |  |
 | like_count | [int64](#int64) |  |  |
 | is_liked_by_user | [bool](#bool) |  |  |
-| creator | [UserInfo](#common-UserInfo) |  |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
 | created_at | [int64](#int64) |  |  |
 | updated_at | [int64](#int64) |  |  |
 
@@ -8541,7 +8541,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SaveStoryboardCraftRequest"></a>
+<a name="rankquantity-voyager-api-SaveStoryboardCraftRequest"></a>
 
 ### SaveStoryboardCraftRequest
 
@@ -8557,7 +8557,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SaveStoryboardCraftResponse"></a>
+<a name="rankquantity-voyager-api-SaveStoryboardCraftResponse"></a>
 
 ### SaveStoryboardCraftResponse
 
@@ -8565,7 +8565,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -8573,7 +8573,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchGroupRequest"></a>
+<a name="rankquantity-voyager-api-SearchGroupRequest"></a>
 
 ### SearchGroupRequest
 
@@ -8585,7 +8585,7 @@ UpdateStoryResponse 更新故事的响应结果
 | user_id | [int64](#int64) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| scope | [ScopeType](#common-ScopeType) |  |  |
+| scope | [ScopeType](#rankquantity-voyager-api-ScopeType) |  |  |
 | story_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 
@@ -8594,7 +8594,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchGroupResponse"></a>
+<a name="rankquantity-voyager-api-SearchGroupResponse"></a>
 
 ### SearchGroupResponse
 
@@ -8602,16 +8602,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [SearchGroupResponse.Data](#common-SearchGroupResponse-Data) |  |  |
+| data | [SearchGroupResponse.Data](#rankquantity-voyager-api-SearchGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-SearchGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-SearchGroupResponse-Data"></a>
 
 ### SearchGroupResponse.Data
 
@@ -8619,7 +8619,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [GroupInfo](#common-GroupInfo) | repeated |  |
+| list | [GroupInfo](#rankquantity-voyager-api-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
@@ -8630,7 +8630,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchRolesRequest"></a>
+<a name="rankquantity-voyager-api-SearchRolesRequest"></a>
 
 ### SearchRolesRequest
 
@@ -8642,7 +8642,7 @@ UpdateStoryResponse 更新故事的响应结果
 | keyword | [string](#string) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| scope | [ScopeType](#common-ScopeType) |  |  |
+| scope | [ScopeType](#rankquantity-voyager-api-ScopeType) |  |  |
 | story_id | [int64](#int64) |  |  |
 | group_id | [int64](#int64) |  |  |
 
@@ -8651,7 +8651,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchRolesResponse"></a>
+<a name="rankquantity-voyager-api-SearchRolesResponse"></a>
 
 ### SearchRolesResponse
 
@@ -8659,9 +8659,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| roles | [StoryRole](#common-StoryRole) | repeated |  |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -8670,7 +8670,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchStoriesRequest"></a>
+<a name="rankquantity-voyager-api-SearchStoriesRequest"></a>
 
 ### SearchStoriesRequest
 
@@ -8682,7 +8682,7 @@ UpdateStoryResponse 更新故事的响应结果
 | keyword | [string](#string) |  |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
-| scope | [ScopeType](#common-ScopeType) |  |  |
+| scope | [ScopeType](#rankquantity-voyager-api-ScopeType) |  |  |
 | group_id | [int64](#int64) |  |  |
 
 
@@ -8690,7 +8690,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchStoriesResponse"></a>
+<a name="rankquantity-voyager-api-SearchStoriesResponse"></a>
 
 ### SearchStoriesResponse
 
@@ -8698,9 +8698,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| stories | [Story](#common-Story) | repeated |  |
+| stories | [Story](#rankquantity-voyager-api-Story) | repeated |  |
 | total | [int64](#int64) |  |  |
 | have_more | [bool](#bool) |  |  |
 
@@ -8709,7 +8709,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchUserRequest"></a>
+<a name="rankquantity-voyager-api-SearchUserRequest"></a>
 
 ### SearchUserRequest
 
@@ -8728,7 +8728,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-SearchUserResponse"></a>
+<a name="rankquantity-voyager-api-SearchUserResponse"></a>
 
 ### SearchUserResponse
 
@@ -8736,16 +8736,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [SearchUserResponse.Data](#common-SearchUserResponse-Data) |  |  |
+| data | [SearchUserResponse.Data](#rankquantity-voyager-api-SearchUserResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-SearchUserResponse-Data"></a>
+<a name="rankquantity-voyager-api-SearchUserResponse-Data"></a>
 
 ### SearchUserResponse.Data
 
@@ -8753,7 +8753,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [UserInfo](#common-UserInfo) | repeated |  |
+| list | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | total | [int32](#int32) |  |  |
@@ -8764,7 +8764,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryComment"></a>
+<a name="rankquantity-voyager-api-StoryComment"></a>
 
 ### StoryComment
 
@@ -8785,7 +8785,7 @@ UpdateStoryResponse 更新故事的响应结果
 | like_count | [int64](#int64) |  |  |
 | reply_count | [int64](#int64) |  |  |
 | is_liked | [int64](#int64) |  |  |
-| creator | [UserInfo](#common-UserInfo) |  |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
 | created_at_timestamp | [int64](#int64) |  |  |
 
 
@@ -8793,7 +8793,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryContributor"></a>
+<a name="rankquantity-voyager-api-StoryContributor"></a>
 
 ### StoryContributor
 
@@ -8811,7 +8811,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryGentaskDetail"></a>
+<a name="rankquantity-voyager-api-StoryGentaskDetail"></a>
 
 ### StoryGentaskDetail
 
@@ -8838,7 +8838,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryStyleDesc"></a>
+<a name="rankquantity-voyager-api-StoryStyleDesc"></a>
 
 ### StoryStyleDesc
 
@@ -8855,7 +8855,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-StoryboardStageStore"></a>
+<a name="rankquantity-voyager-api-StoryboardStageStore"></a>
 
 ### StoryboardStageStore
 
@@ -8863,9 +8863,9 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| storyboard | [StoryBoard](#common-StoryBoard) |  |  |
-| sences | [StoryBoardSences](#common-StoryBoardSences) |  |  |
-| stage | [StoryboardStage](#common-StoryboardStage) |  |  |
+| storyboard | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  |  |
+| sences | [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences) |  |  |
+| stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  |  |
 | last_update_time | [int64](#int64) |  |  |
 | version | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
@@ -8875,7 +8875,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-TrendingStoryRequest"></a>
+<a name="rankquantity-voyager-api-TrendingStoryRequest"></a>
 
 ### TrendingStoryRequest
 
@@ -8893,7 +8893,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-TrendingStoryResponse"></a>
+<a name="rankquantity-voyager-api-TrendingStoryResponse"></a>
 
 ### TrendingStoryResponse
 
@@ -8901,16 +8901,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [TrendingStoryResponse.Data](#common-TrendingStoryResponse-Data) |  |  |
+| data | [TrendingStoryResponse.Data](#rankquantity-voyager-api-TrendingStoryResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-TrendingStoryResponse-Data"></a>
+<a name="rankquantity-voyager-api-TrendingStoryResponse-Data"></a>
 
 ### TrendingStoryResponse.Data
 
@@ -8918,7 +8918,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [Story](#common-Story) | repeated |  |
+| list | [Story](#rankquantity-voyager-api-Story) | repeated |  |
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
@@ -8929,7 +8929,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-TrendingStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-TrendingStoryRoleRequest"></a>
 
 ### TrendingStoryRoleRequest
 
@@ -8947,7 +8947,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-TrendingStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-TrendingStoryRoleResponse"></a>
 
 ### TrendingStoryRoleResponse
 
@@ -8955,16 +8955,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [TrendingStoryRoleResponse.Data](#common-TrendingStoryRoleResponse-Data) |  |  |
+| data | [TrendingStoryRoleResponse.Data](#rankquantity-voyager-api-TrendingStoryRoleResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-TrendingStoryRoleResponse-Data"></a>
+<a name="rankquantity-voyager-api-TrendingStoryRoleResponse-Data"></a>
 
 ### TrendingStoryRoleResponse.Data
 
@@ -8972,7 +8972,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [StoryRole](#common-StoryRole) | repeated |  |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
 | page_size | [int64](#int64) |  |  |
 | page_number | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
@@ -8983,7 +8983,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnFollowStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-UnFollowStoryRoleRequest"></a>
 
 ### UnFollowStoryRoleRequest
 
@@ -9000,7 +9000,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnFollowStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-UnFollowStoryRoleResponse"></a>
 
 ### UnFollowStoryRoleResponse
 
@@ -9008,7 +9008,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9016,7 +9016,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryRequest"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryRequest"></a>
 
 ### UnLikeStoryRequest
 
@@ -9032,7 +9032,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryResponse"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryResponse"></a>
 
 ### UnLikeStoryResponse
 
@@ -9040,7 +9040,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9048,7 +9048,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryRolePosterRequest"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryRolePosterRequest"></a>
 
 ### UnLikeStoryRolePosterRequest
 
@@ -9066,7 +9066,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryRolePosterResponse"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryRolePosterResponse"></a>
 
 ### UnLikeStoryRolePosterResponse
 
@@ -9074,7 +9074,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | current_like_count | [int64](#int64) |  |  |
 
@@ -9083,7 +9083,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryRoleRequest"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryRoleRequest"></a>
 
 ### UnLikeStoryRoleRequest
 
@@ -9100,7 +9100,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnLikeStoryRoleResponse"></a>
+<a name="rankquantity-voyager-api-UnLikeStoryRoleResponse"></a>
 
 ### UnLikeStoryRoleResponse
 
@@ -9108,7 +9108,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9116,7 +9116,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnfollowUserRequest"></a>
+<a name="rankquantity-voyager-api-UnfollowUserRequest"></a>
 
 ### UnfollowUserRequest
 
@@ -9132,7 +9132,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UnfollowUserResponse"></a>
+<a name="rankquantity-voyager-api-UnfollowUserResponse"></a>
 
 ### UnfollowUserResponse
 
@@ -9140,7 +9140,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9148,7 +9148,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateGroupInfoRequest"></a>
+<a name="rankquantity-voyager-api-UpdateGroupInfoRequest"></a>
 
 ### UpdateGroupInfoRequest
 
@@ -9157,14 +9157,14 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
-| info | [GroupInfo](#common-GroupInfo) |  |  |
+| info | [GroupInfo](#rankquantity-voyager-api-GroupInfo) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateGroupInfoResponse"></a>
+<a name="rankquantity-voyager-api-UpdateGroupInfoResponse"></a>
 
 ### UpdateGroupInfoResponse
 
@@ -9172,16 +9172,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [UpdateGroupInfoResponse.Data](#common-UpdateGroupInfoResponse-Data) |  |  |
+| data | [UpdateGroupInfoResponse.Data](#rankquantity-voyager-api-UpdateGroupInfoResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateGroupInfoResponse-Data"></a>
+<a name="rankquantity-voyager-api-UpdateGroupInfoResponse-Data"></a>
 
 ### UpdateGroupInfoResponse.Data
 
@@ -9189,14 +9189,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [GroupInfo](#common-GroupInfo) |  |  |
+| info | [GroupInfo](#rankquantity-voyager-api-GroupInfo) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateGroupProfileRequest"></a>
+<a name="rankquantity-voyager-api-UpdateGroupProfileRequest"></a>
 
 ### UpdateGroupProfileRequest
 
@@ -9205,7 +9205,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group_id | [int64](#int64) |  |  |
-| info | [GroupProfileInfo](#common-GroupProfileInfo) |  |  |
+| info | [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -9213,7 +9213,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateGroupProfileResponse"></a>
+<a name="rankquantity-voyager-api-UpdateGroupProfileResponse"></a>
 
 ### UpdateGroupProfileResponse
 
@@ -9221,7 +9221,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9229,7 +9229,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateItemRequest"></a>
+<a name="rankquantity-voyager-api-UpdateItemRequest"></a>
 
 ### UpdateItemRequest
 
@@ -9240,7 +9240,7 @@ UpdateStoryResponse 更新故事的响应结果
 | group_id | [int64](#int64) |  |  |
 | project_id | [int64](#int64) |  |  |
 | item_id | [int64](#int64) |  |  |
-| info | [ItemInfo](#common-ItemInfo) |  |  |
+| info | [ItemInfo](#rankquantity-voyager-api-ItemInfo) |  |  |
 | user_id | [int64](#int64) |  |  |
 
 
@@ -9248,7 +9248,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateItemResponse"></a>
+<a name="rankquantity-voyager-api-UpdateItemResponse"></a>
 
 ### UpdateItemResponse
 
@@ -9256,16 +9256,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [UpdateItemResponse.Data](#common-UpdateItemResponse-Data) |  |  |
+| data | [UpdateItemResponse.Data](#rankquantity-voyager-api-UpdateItemResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateItemResponse-Data"></a>
+<a name="rankquantity-voyager-api-UpdateItemResponse-Data"></a>
 
 ### UpdateItemResponse.Data
 
@@ -9273,14 +9273,14 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [ItemInfo](#common-ItemInfo) |  |  |
+| info | [ItemInfo](#rankquantity-voyager-api-ItemInfo) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateRoleDescriptionRequest"></a>
+<a name="rankquantity-voyager-api-UpdateRoleDescriptionRequest"></a>
 
 ### UpdateRoleDescriptionRequest
 
@@ -9297,7 +9297,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateRoleDescriptionResponse"></a>
+<a name="rankquantity-voyager-api-UpdateRoleDescriptionResponse"></a>
 
 ### UpdateRoleDescriptionResponse
 
@@ -9305,7 +9305,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9313,7 +9313,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateRolePromptRequest"></a>
+<a name="rankquantity-voyager-api-UpdateRolePromptRequest"></a>
 
 ### UpdateRolePromptRequest
 
@@ -9330,7 +9330,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateRolePromptResponse"></a>
+<a name="rankquantity-voyager-api-UpdateRolePromptResponse"></a>
 
 ### UpdateRolePromptResponse
 
@@ -9338,7 +9338,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9346,7 +9346,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryAvatarRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryAvatarRequest"></a>
 
 ### UpdateStoryAvatarRequest
 
@@ -9363,7 +9363,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryAvatarResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryAvatarResponse"></a>
 
 ### UpdateStoryAvatarResponse
 
@@ -9371,7 +9371,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9379,7 +9379,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryCoverRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryCoverRequest"></a>
 
 ### UpdateStoryCoverRequest
 
@@ -9397,7 +9397,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryCoverResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryCoverResponse"></a>
 
 ### UpdateStoryCoverResponse
 
@@ -9405,7 +9405,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9413,7 +9413,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryImageStyleRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryImageStyleRequest"></a>
 
 ### UpdateStoryImageStyleRequest
 
@@ -9431,7 +9431,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryImageStyleResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryImageStyleResponse"></a>
 
 ### UpdateStoryImageStyleResponse
 
@@ -9439,7 +9439,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9447,7 +9447,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleAvatorRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleAvatorRequest"></a>
 
 ### UpdateStoryRoleAvatorRequest
 
@@ -9464,7 +9464,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleAvatorResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleAvatorResponse"></a>
 
 ### UpdateStoryRoleAvatorResponse
 
@@ -9472,7 +9472,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9480,7 +9480,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleDescriptionDetailRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailRequest"></a>
 
 ### UpdateStoryRoleDescriptionDetailRequest
 
@@ -9491,14 +9491,14 @@ UpdateStoryResponse 更新故事的响应结果
 | story_id | [int64](#int64) |  |  |
 | role_id | [int64](#int64) |  |  |
 | user_id | [int64](#int64) |  |  |
-| character_detail | [CharacterDetail](#common-CharacterDetail) |  |  |
+| character_detail | [CharacterDetail](#rankquantity-voyager-api-CharacterDetail) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateStoryRoleDescriptionDetailResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailResponse"></a>
 
 ### UpdateStoryRoleDescriptionDetailResponse
 
@@ -9506,7 +9506,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9514,7 +9514,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleDetailRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleDetailRequest"></a>
 
 ### UpdateStoryRoleDetailRequest
 
@@ -9523,7 +9523,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | role_id | [int64](#int64) |  |  |
-| role | [StoryRole](#common-StoryRole) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
 | user_id | [int64](#int64) |  |  |
 | need_regen | [bool](#bool) |  |  |
 | background_image | [string](#string) |  |  |
@@ -9533,7 +9533,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRoleDetailResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRoleDetailResponse"></a>
 
 ### UpdateStoryRoleDetailResponse
 
@@ -9541,7 +9541,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9549,7 +9549,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRolePosterRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRolePosterRequest"></a>
 
 ### UpdateStoryRolePosterRequest
 
@@ -9569,7 +9569,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRolePosterResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRolePosterResponse"></a>
 
 ### UpdateStoryRolePosterResponse
 
@@ -9577,7 +9577,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 | poster_id | [int64](#int64) |  |  |
 
@@ -9586,7 +9586,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRolePromptRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRolePromptRequest"></a>
 
 ### UpdateStoryRolePromptRequest
 
@@ -9604,7 +9604,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStoryRolePromptResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStoryRolePromptResponse"></a>
 
 ### UpdateStoryRolePromptResponse
 
@@ -9612,7 +9612,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9620,7 +9620,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStorySenceMaxNumberRequest"></a>
+<a name="rankquantity-voyager-api-UpdateStorySenceMaxNumberRequest"></a>
 
 ### UpdateStorySenceMaxNumberRequest
 
@@ -9637,7 +9637,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateStorySenceMaxNumberResponse"></a>
+<a name="rankquantity-voyager-api-UpdateStorySenceMaxNumberResponse"></a>
 
 ### UpdateStorySenceMaxNumberResponse
 
@@ -9645,7 +9645,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9653,7 +9653,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserAvatorRequest"></a>
+<a name="rankquantity-voyager-api-UpdateUserAvatorRequest"></a>
 
 ### UpdateUserAvatorRequest
 
@@ -9669,7 +9669,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserAvatorResponse"></a>
+<a name="rankquantity-voyager-api-UpdateUserAvatorResponse"></a>
 
 ### UpdateUserAvatorResponse
 
@@ -9677,16 +9677,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UpdateUserAvatorResponse.Data](#common-UpdateUserAvatorResponse-Data) |  |  |
+| data | [UpdateUserAvatorResponse.Data](#rankquantity-voyager-api-UpdateUserAvatorResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UpdateUserAvatorResponse-Data"></a>
+<a name="rankquantity-voyager-api-UpdateUserAvatorResponse-Data"></a>
 
 ### UpdateUserAvatorResponse.Data
 
@@ -9694,7 +9694,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [UserInfo](#common-UserInfo) |  |  |
+| info | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
 | status | [int32](#int32) |  |  |
 
 
@@ -9702,7 +9702,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserBackgroundImageRequest"></a>
+<a name="rankquantity-voyager-api-UpdateUserBackgroundImageRequest"></a>
 
 ### UpdateUserBackgroundImageRequest
 
@@ -9718,7 +9718,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserBackgroundImageResponse"></a>
+<a name="rankquantity-voyager-api-UpdateUserBackgroundImageResponse"></a>
 
 ### UpdateUserBackgroundImageResponse
 
@@ -9726,7 +9726,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9734,7 +9734,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserProfileRequest"></a>
+<a name="rankquantity-voyager-api-UpdateUserProfileRequest"></a>
 
 ### UpdateUserProfileRequest
 
@@ -9755,7 +9755,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UpdateUserProfileResponse"></a>
+<a name="rankquantity-voyager-api-UpdateUserProfileResponse"></a>
 
 ### UpdateUserProfileResponse
 
@@ -9763,7 +9763,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
 
 
@@ -9771,7 +9771,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UploadImageRequest"></a>
+<a name="rankquantity-voyager-api-UploadImageRequest"></a>
 
 ### UploadImageRequest
 
@@ -9788,7 +9788,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UploadImageResponse"></a>
+<a name="rankquantity-voyager-api-UploadImageResponse"></a>
 
 ### UploadImageResponse
 
@@ -9796,16 +9796,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [UploadImageResponse.Data](#common-UploadImageResponse-Data) |  |  |
+| data | [UploadImageResponse.Data](#rankquantity-voyager-api-UploadImageResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UploadImageResponse-Data"></a>
+<a name="rankquantity-voyager-api-UploadImageResponse-Data"></a>
 
 ### UploadImageResponse.Data
 
@@ -9821,7 +9821,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserFollowingGroupRequest"></a>
+<a name="rankquantity-voyager-api-UserFollowingGroupRequest"></a>
 
 ### UserFollowingGroupRequest
 
@@ -9838,7 +9838,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserFollowingGroupResponse"></a>
+<a name="rankquantity-voyager-api-UserFollowingGroupResponse"></a>
 
 ### UserFollowingGroupResponse
 
@@ -9846,16 +9846,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UserFollowingGroupResponse.Data](#common-UserFollowingGroupResponse-Data) |  |  |
+| data | [UserFollowingGroupResponse.Data](#rankquantity-voyager-api-UserFollowingGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserFollowingGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserFollowingGroupResponse-Data"></a>
 
 ### UserFollowingGroupResponse.Data
 
@@ -9864,7 +9864,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| list | [GroupInfo](#common-GroupInfo) | repeated |  |
+| list | [GroupInfo](#rankquantity-voyager-api-GroupInfo) | repeated |  |
 | offset | [int64](#int64) |  |  |
 | page_size | [int64](#int64) |  |  |
 | total | [int32](#int32) |  |  |
@@ -9875,7 +9875,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserGenTaskStatus"></a>
+<a name="rankquantity-voyager-api-UserGenTaskStatus"></a>
 
 ### UserGenTaskStatus
 
@@ -9886,7 +9886,7 @@ UpdateStoryResponse 更新故事的响应结果
 | task_id | [string](#string) |  |  |
 | user_id | [int64](#int64) |  |  |
 | status | [string](#string) |  |  |
-| detail | [StoryGentaskDetail](#common-StoryGentaskDetail) |  |  |
+| detail | [StoryGentaskDetail](#rankquantity-voyager-api-StoryGentaskDetail) |  |  |
 | create_time | [int64](#int64) |  |  |
 | update_time | [int64](#int64) |  |  |
 
@@ -9895,7 +9895,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserGroupRequest"></a>
+<a name="rankquantity-voyager-api-UserGroupRequest"></a>
 
 ### UserGroupRequest
 
@@ -9904,7 +9904,7 @@ UpdateStoryResponse 更新故事的响应结果
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| gtype | [GroupType](#common-GroupType) |  |  |
+| gtype | [GroupType](#rankquantity-voyager-api-GroupType) |  |  |
 | offset | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
 
@@ -9913,7 +9913,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserGroupResponse"></a>
+<a name="rankquantity-voyager-api-UserGroupResponse"></a>
 
 ### UserGroupResponse
 
@@ -9921,16 +9921,16 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UserGroupResponse.Data](#common-UserGroupResponse-Data) |  |  |
+| data | [UserGroupResponse.Data](#rankquantity-voyager-api-UserGroupResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserGroupResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserGroupResponse-Data"></a>
 
 ### UserGroupResponse.Data
 
@@ -9938,7 +9938,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| list | [GroupInfo](#common-GroupInfo) | repeated |  |
+| list | [GroupInfo](#rankquantity-voyager-api-GroupInfo) | repeated |  |
 | offset | [int32](#int32) |  |  |
 | page_size | [int32](#int32) |  |  |
 | total | [int32](#int32) |  |  |
@@ -9949,7 +9949,7 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
-<a name="common-UserInfoRequest"></a>
+<a name="rankquantity-voyager-api-UserInfoRequest"></a>
 
 ### UserInfoRequest
 user ,group .project.item
@@ -9965,7 +9965,7 @@ user ,group .project.item
 
 
 
-<a name="common-UserInfoResponse"></a>
+<a name="rankquantity-voyager-api-UserInfoResponse"></a>
 
 ### UserInfoResponse
 
@@ -9973,16 +9973,16 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UserInfoResponse.Data](#common-UserInfoResponse-Data) |  |  |
+| data | [UserInfoResponse.Data](#rankquantity-voyager-api-UserInfoResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserInfoResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserInfoResponse-Data"></a>
 
 ### UserInfoResponse.Data
 
@@ -9990,15 +9990,15 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| info | [UserInfo](#common-UserInfo) |  |  |
-| profile | [UserProfileInfo](#common-UserProfileInfo) |  |  |
+| info | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
+| profile | [UserProfileInfo](#rankquantity-voyager-api-UserProfileInfo) |  |  |
 
 
 
 
 
 
-<a name="common-UserInitRequest"></a>
+<a name="rankquantity-voyager-api-UserInitRequest"></a>
 
 ### UserInitRequest
 
@@ -10014,7 +10014,7 @@ user ,group .project.item
 
 
 
-<a name="common-UserInitResponse"></a>
+<a name="rankquantity-voyager-api-UserInitResponse"></a>
 
 ### UserInitResponse
 
@@ -10022,16 +10022,16 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UserInitResponse.Data](#common-UserInitResponse-Data) |  |  |
+| data | [UserInitResponse.Data](#rankquantity-voyager-api-UserInitResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserInitResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserInitResponse-Data"></a>
 
 ### UserInitResponse.Data
 
@@ -10040,14 +10040,14 @@ user ,group .project.item
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
-| list | [GroupInfo](#common-GroupInfo) | repeated |  |
+| list | [GroupInfo](#rankquantity-voyager-api-GroupInfo) | repeated |  |
 
 
 
 
 
 
-<a name="common-UserUpdateRequest"></a>
+<a name="rankquantity-voyager-api-UserUpdateRequest"></a>
 
 ### UserUpdateRequest
 
@@ -10059,14 +10059,14 @@ user ,group .project.item
 | nickname | [string](#string) |  |  |
 | avatar | [string](#string) |  |  |
 | desc | [string](#string) |  |  |
-| data | [UserUpdateRequest.DataEntry](#common-UserUpdateRequest-DataEntry) | repeated |  |
+| data | [UserUpdateRequest.DataEntry](#rankquantity-voyager-api-UserUpdateRequest-DataEntry) | repeated |  |
 
 
 
 
 
 
-<a name="common-UserUpdateRequest-DataEntry"></a>
+<a name="rankquantity-voyager-api-UserUpdateRequest-DataEntry"></a>
 
 ### UserUpdateRequest.DataEntry
 
@@ -10082,7 +10082,7 @@ user ,group .project.item
 
 
 
-<a name="common-UserUpdateResponse"></a>
+<a name="rankquantity-voyager-api-UserUpdateResponse"></a>
 
 ### UserUpdateResponse
 
@@ -10090,16 +10090,16 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [UserUpdateResponse.Data](#common-UserUpdateResponse-Data) |  |  |
+| data | [UserUpdateResponse.Data](#rankquantity-voyager-api-UserUpdateResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserUpdateResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserUpdateResponse-Data"></a>
 
 ### UserUpdateResponse.Data
 
@@ -10109,7 +10109,7 @@ user ,group .project.item
 
 
 
-<a name="common-UserWatchingRequest"></a>
+<a name="rankquantity-voyager-api-UserWatchingRequest"></a>
 
 ### UserWatchingRequest
 
@@ -10127,7 +10127,7 @@ user ,group .project.item
 
 
 
-<a name="common-UserWatchingResponse"></a>
+<a name="rankquantity-voyager-api-UserWatchingResponse"></a>
 
 ### UserWatchingResponse
 
@@ -10135,16 +10135,16 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | msg | [string](#string) |  |  |
-| data | [UserWatchingResponse.Data](#common-UserWatchingResponse-Data) |  |  |
+| data | [UserWatchingResponse.Data](#rankquantity-voyager-api-UserWatchingResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-UserWatchingResponse-Data"></a>
+<a name="rankquantity-voyager-api-UserWatchingResponse-Data"></a>
 
 ### UserWatchingResponse.Data
 
@@ -10160,7 +10160,7 @@ user ,group .project.item
 
 
 
-<a name="common-VersionRequest"></a>
+<a name="rankquantity-voyager-api-VersionRequest"></a>
 
 ### VersionRequest
 
@@ -10170,7 +10170,7 @@ user ,group .project.item
 
 
 
-<a name="common-VersionResponse"></a>
+<a name="rankquantity-voyager-api-VersionResponse"></a>
 
 ### VersionResponse
 
@@ -10178,16 +10178,16 @@ user ,group .project.item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#common-ResponseCode) |  |  |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
 | message | [string](#string) |  |  |
-| data | [VersionResponse.Data](#common-VersionResponse-Data) |  |  |
+| data | [VersionResponse.Data](#rankquantity-voyager-api-VersionResponse-Data) |  |  |
 
 
 
 
 
 
-<a name="common-VersionResponse-Data"></a>
+<a name="rankquantity-voyager-api-VersionResponse-Data"></a>
 
 ### VersionResponse.Data
 
@@ -10205,7 +10205,7 @@ user ,group .project.item
  
 
 
-<a name="common-TokenSource"></a>
+<a name="rankquantity-voyager-api-TokenSource"></a>
 
 ### TokenSource
 
@@ -10222,153 +10222,153 @@ user ,group .project.item
  
 
 
-<a name="common-TeamsAPI"></a>
+<a name="rankquantity-voyager-api-TeamsAPI"></a>
 
 ### TeamsAPI
 TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Explore | [ExploreRequest](#common-ExploreRequest) | [ExploreResponse](#common-ExploreResponse) | Explore returns trending and recommended content for users to discover |
-| Version | [VersionRequest](#common-VersionRequest) | [VersionResponse](#common-VersionResponse) | Version returns the current API version and build information |
-| About | [AboutRequest](#common-AboutRequest) | [AboutResponse](#common-AboutResponse) | About returns information about the service |
-| Login | [LoginRequest](#common-LoginRequest) | [LoginResponse](#common-LoginResponse) | Login authenticates a user and returns a session token |
-| Logout | [LogoutRequest](#common-LogoutRequest) | [LogoutResponse](#common-LogoutResponse) | Logout invalidates the user&#39;s current session token |
-| RefreshToken | [RefreshTokenRequest](#common-RefreshTokenRequest) | [RefreshTokenResponse](#common-RefreshTokenResponse) | RefreshToken generates a new session token using the current valid token |
-| Register | [RegisterRequest](#common-RegisterRequest) | [RegisterResponse](#common-RegisterResponse) | Register creates a new user account |
-| ResetPwd | [ResetPasswordRequest](#common-ResetPasswordRequest) | [ResetPasswordResponse](#common-ResetPasswordResponse) | ResetPwd allows users to reset their password |
-| UserInit | [UserInitRequest](#common-UserInitRequest) | [UserInitResponse](#common-UserInitResponse) | UserInit performs initial setup for a new user |
-| UserInfo | [UserInfoRequest](#common-UserInfoRequest) | [UserInfoResponse](#common-UserInfoResponse) | UserInfo retrieves detailed information about a user |
-| UpdateUserAvator | [UpdateUserAvatorRequest](#common-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#common-UpdateUserAvatorResponse) | UpdateUserAvator updates the user&#39;s profile picture |
-| UserWatching | [UserWatchingRequest](#common-UserWatchingRequest) | [UserWatchingResponse](#common-UserWatchingResponse) | UserWatching returns a list of projects the user is following |
-| UserGroup | [UserGroupRequest](#common-UserGroupRequest) | [UserGroupResponse](#common-UserGroupResponse) | UserGroup returns a list of groups the user belongs to |
-| UserFollowingGroup | [UserFollowingGroupRequest](#common-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#common-UserFollowingGroupResponse) | UserFollowingGroup returns a list of groups the user is following |
-| UserUpdate | [UserUpdateRequest](#common-UserUpdateRequest) | [UserUpdateResponse](#common-UserUpdateResponse) | UserUpdate updates the user&#39;s profile information |
-| SearchUser | [SearchUserRequest](#common-SearchUserRequest) | [SearchUserResponse](#common-SearchUserResponse) | SearchUser searches for users based on specified criteria |
-| CreateGroup | [CreateGroupRequest](#common-CreateGroupRequest) | [CreateGroupResponse](#common-CreateGroupResponse) | CreateGroup creates a new group |
-| GetGroup | [GetGroupRequest](#common-GetGroupRequest) | [GetGroupResponse](#common-GetGroupResponse) | GetGroup retrieves information about a specific group |
-| GetGroupActives | [GetGroupActivesRequest](#common-GetGroupActivesRequest) | [GetGroupActivesResponse](#common-GetGroupActivesResponse) | GetGroupActives returns recent activities within a group |
-| UpdateGroupInfo | [UpdateGroupInfoRequest](#common-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#common-UpdateGroupInfoResponse) | UpdateGroupInfo updates the group&#39;s information |
-| GetGroupProfile | [GetGroupProfileRequest](#common-GetGroupProfileRequest) | [GetGroupProfileResponse](#common-GetGroupProfileResponse) | GetGroupProfile retrieves the group&#39;s profile information |
-| UpdateGroupProfile | [UpdateGroupProfileRequest](#common-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#common-UpdateGroupProfileResponse) | UpdateGroupProfile updates the group&#39;s profile information |
-| DeleteGroup | [DeleteGroupRequest](#common-DeleteGroupRequest) | [DeleteGroupResponse](#common-DeleteGroupResponse) | DeleteGroup removes a group |
-| FetchGroupMembers | [FetchGroupMembersRequest](#common-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#common-FetchGroupMembersResponse) | FetchGroupMembers retrieves the list of members in a group |
-| JoinGroup | [JoinGroupRequest](#common-JoinGroupRequest) | [JoinGroupResponse](#common-JoinGroupResponse) | JoinGroup adds a user to a group |
-| LeaveGroup | [LeaveGroupRequest](#common-LeaveGroupRequest) | [LeaveGroupResponse](#common-LeaveGroupResponse) | LeaveGroup removes a user from a group |
-| CreateStory | [CreateStoryRequest](#common-CreateStoryRequest) | [CreateStoryResponse](#common-CreateStoryResponse) | 创建故事 |
-| GetStoryInfo | [GetStoryInfoRequest](#common-GetStoryInfoRequest) | [GetStoryInfoResponse](#common-GetStoryInfoResponse) | 获取故事信息 |
-| RenderStory | [RenderStoryRequest](#common-RenderStoryRequest) | [RenderStoryResponse](#common-RenderStoryResponse) | 渲染故事 |
-| UpdateStory | [UpdateStoryRequest](#common-UpdateStoryRequest) | [UpdateStoryResponse](#common-UpdateStoryResponse) | 更新故事 |
-| WatchStory | [WatchStoryRequest](#common-WatchStoryRequest) | [WatchStoryResponse](#common-WatchStoryResponse) | 关注故事 |
-| ArchiveStory | [ArchiveStoryRequest](#common-ArchiveStoryRequest) | [ArchiveStoryResponse](#common-ArchiveStoryResponse) | 收藏故事 |
-| CreateStoryboard | [CreateStoryboardRequest](#common-CreateStoryboardRequest) | [CreateStoryboardResponse](#common-CreateStoryboardResponse) | 创建故事板 |
-| GetStoryboard | [GetStoryboardRequest](#common-GetStoryboardRequest) | [GetStoryboardResponse](#common-GetStoryboardResponse) | 获取故事板 |
-| RenderStoryboard | [RenderStoryboardRequest](#common-RenderStoryboardRequest) | [RenderStoryboardResponse](#common-RenderStoryboardResponse) | 渲染故事板 |
-| GenStoryboardText | [GenStoryboardTextRequest](#common-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#common-GenStoryboardTextResponse) | 生成故事板文本 |
-| GenStoryboardImages | [GenStoryboardImagesRequest](#common-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#common-GenStoryboardImagesResponse) | 生成故事板图片 |
-| GetStoryboards | [GetStoryboardsRequest](#common-GetStoryboardsRequest) | [GetStoryboardsResponse](#common-GetStoryboardsResponse) | 获取故事板 |
-| DelStoryboard | [DelStoryboardRequest](#common-DelStoryboardRequest) | [DelStoryboardResponse](#common-DelStoryboardResponse) | 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除 |
-| ForkStoryboard | [ForkStoryboardRequest](#common-ForkStoryboardRequest) | [ForkStoryboardResponse](#common-ForkStoryboardResponse) | 复制故事板 |
-| UpdateStoryboard | [UpdateStoryboardRequest](#common-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#common-UpdateStoryboardResponse) | 更新故事板 |
-| LikeStoryboard | [LikeStoryboardRequest](#common-LikeStoryboardRequest) | [LikeStoryboardResponse](#common-LikeStoryboardResponse) | 喜欢故事板 |
-| UnLikeStoryboard | [UnLikeStoryboardRequest](#common-UnLikeStoryboardRequest) | [UnLikeStoryboardResponse](#common-UnLikeStoryboardResponse) | 取消喜欢故事板 |
-| ShareStoryboard | [ShareStoryboardRequest](#common-ShareStoryboardRequest) | [ShareStoryboardResponse](#common-ShareStoryboardResponse) | 分享故事板 |
-| FetchGroupStorys | [FetchGroupStorysRequest](#common-FetchGroupStorysRequest) | [FetchGroupStorysResponse](#common-FetchGroupStorysResponse) | 获取组织故事 |
-| UploadImageFile | [UploadImageRequest](#common-UploadImageRequest) | [UploadImageResponse](#common-UploadImageResponse) | 用来上传文件的proto 接口 |
-| GetStoryRender | [GetStoryRenderRequest](#common-GetStoryRenderRequest) | [GetStoryRenderResponse](#common-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
-| GetStoryBoardRender | [GetStoryBoardRenderRequest](#common-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#common-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
-| GetStoryContributors | [GetStoryContributorsRequest](#common-GetStoryContributorsRequest) | [GetStoryContributorsResponse](#common-GetStoryContributorsResponse) | 获取故事的贡献者 |
-| ContinueRenderStory | [ContinueRenderStoryRequest](#common-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#common-ContinueRenderStoryResponse) | 继续渲染故事 |
-| RenderStoryRoles | [RenderStoryRolesRequest](#common-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#common-RenderStoryRolesResponse) | 渲���故事角色 |
-| UpdateStoryRole | [UpdateStoryRoleRequest](#common-UpdateStoryRoleRequest) | [UpdateStoryRoleResponse](#common-UpdateStoryRoleResponse) | 更新 story role |
-| RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#common-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#common-RenderStoryRoleDetailResponse) | 渲染故事角色详情 |
-| GetStoryRoles | [GetStoryRolesRequest](#common-GetStoryRolesRequest) | [GetStoryRolesResponse](#common-GetStoryRolesResponse) | 获取 story roles 的列表 |
-| GetStoryBoardRoles | [GetStoryBoardRolesRequest](#common-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#common-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
-| GetUserProfile | [GetUserProfileRequest](#common-GetUserProfileRequest) | [GetUserProfileResponse](#common-GetUserProfileResponse) | 获取用户的 profile |
-| UpdateUserProfile | [UpdateUserProfileRequest](#common-UpdateUserProfileRequest) | [UpdateUserProfileResponse](#common-UpdateUserProfileResponse) | 更新用户的 profile |
-| UpdateUserBackgroundImage | [UpdateUserBackgroundImageRequest](#common-UpdateUserBackgroundImageRequest) | [UpdateUserBackgroundImageResponse](#common-UpdateUserBackgroundImageResponse) | 更新用户的背景图片 |
-| CreateStoryRole | [CreateStoryRoleRequest](#common-CreateStoryRoleRequest) | [CreateStoryRoleResponse](#common-CreateStoryRoleResponse) | 创建新的故事角色 |
-| GetStoryRoleDetail | [GetStoryRoleDetailRequest](#common-GetStoryRoleDetailRequest) | [GetStoryRoleDetailResponse](#common-GetStoryRoleDetailResponse) | 获取角色详情 |
-| RenderStoryRole | [RenderStoryRoleRequest](#common-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#common-RenderStoryRoleResponse) | 生成角色的图片 |
-| LikeStory | [LikeStoryRequest](#common-LikeStoryRequest) | [LikeStoryResponse](#common-LikeStoryResponse) | 喜欢故事 |
-| UnLikeStory | [UnLikeStoryRequest](#common-UnLikeStoryRequest) | [UnLikeStoryResponse](#common-UnLikeStoryResponse) | 取消喜欢故事 |
-| GetStoryBoardSences | [GetStoryBoardSencesRequest](#common-GetStoryBoardSencesRequest) | [GetStoryBoardSencesResponse](#common-GetStoryBoardSencesResponse) | 获取故事板场景 |
-| CreateStoryBoardSence | [CreateStoryBoardSenceRequest](#common-CreateStoryBoardSenceRequest) | [CreateStoryBoardSenceResponse](#common-CreateStoryBoardSenceResponse) | 创建故事板场景 |
-| UpdateStoryBoardSence | [UpdateStoryBoardSenceRequest](#common-UpdateStoryBoardSenceRequest) | [UpdateStoryBoardSenceResponse](#common-UpdateStoryBoardSenceResponse) | 更新故事板场景 |
-| DeleteStoryBoardSence | [DeleteStoryBoardSenceRequest](#common-DeleteStoryBoardSenceRequest) | [DeleteStoryBoardSenceResponse](#common-DeleteStoryBoardSenceResponse) | 删除故事板场景 |
-| RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#common-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#common-RenderStoryBoardSenceResponse) | 渲染故事板指定场景 |
-| RenderStoryBoardSences | [RenderStoryBoardSencesRequest](#common-RenderStoryBoardSencesRequest) | [RenderStoryBoardSencesResponse](#common-RenderStoryBoardSencesResponse) | 渲染故事板的所有场景 |
-| GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#common-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#common-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
-| GetStoryBoardGenerate | [GetStoryBoardGenerateRequest](#common-GetStoryBoardGenerateRequest) | [GetStoryBoardGenerateResponse](#common-GetStoryBoardGenerateResponse) | 获取故事板生成状态 |
-| LikeStoryRole | [LikeStoryRoleRequest](#common-LikeStoryRoleRequest) | [LikeStoryRoleResponse](#common-LikeStoryRoleResponse) | 点赞故事角色 |
-| UnLikeStoryRole | [UnLikeStoryRoleRequest](#common-UnLikeStoryRoleRequest) | [UnLikeStoryRoleResponse](#common-UnLikeStoryRoleResponse) | 取消点赞故事角色 |
-| FollowStoryRole | [FollowStoryRoleRequest](#common-FollowStoryRoleRequest) | [FollowStoryRoleResponse](#common-FollowStoryRoleResponse) | 关注故事角色 |
-| UnFollowStoryRole | [UnFollowStoryRoleRequest](#common-UnFollowStoryRoleRequest) | [UnFollowStoryRoleResponse](#common-UnFollowStoryRoleResponse) | 取消关注故事角色 |
-| SearchStories | [SearchStoriesRequest](#common-SearchStoriesRequest) | [SearchStoriesResponse](#common-SearchStoriesResponse) | 根据关键字查询故事 |
-| SearchGroup | [SearchGroupRequest](#common-SearchGroupRequest) | [SearchGroupResponse](#common-SearchGroupResponse) | 搜索组织 |
-| SearchRoles | [SearchRolesRequest](#common-SearchRolesRequest) | [SearchRolesResponse](#common-SearchRolesResponse) | 搜索角色 |
-| RestoreStoryboard | [RestoreStoryboardRequest](#common-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#common-RestoreStoryboardResponse) | 恢复故事板的状态 |
-| GetUserCreatedStoryboards | [GetUserCreatedStoryboardsRequest](#common-GetUserCreatedStoryboardsRequest) | [GetUserCreatedStoryboardsResponse](#common-GetUserCreatedStoryboardsResponse) | 获取用户创建的故事板 |
-| GetUserCreatedRoles | [GetUserCreatedRolesRequest](#common-GetUserCreatedRolesRequest) | [GetUserCreatedRolesResponse](#common-GetUserCreatedRolesResponse) | 获取用户创建的角色 |
-| GetStoryRoleStoryboards | [GetStoryRoleStoryboardsRequest](#common-GetStoryRoleStoryboardsRequest) | [GetStoryRoleStoryboardsResponse](#common-GetStoryRoleStoryboardsResponse) | 获取角色参与的故事板 |
-| GetStoryRoleStories | [GetStoryRoleStoriesRequest](#common-GetStoryRoleStoriesRequest) | [GetStoryRoleStoriesResponse](#common-GetStoryRoleStoriesResponse) | 获取角色参与的故事 |
-| CreateStoryRoleChat | [CreateStoryRoleChatRequest](#common-CreateStoryRoleChatRequest) | [CreateStoryRoleChatResponse](#common-CreateStoryRoleChatResponse) | 创建与角色的对话 |
-| ChatWithStoryRole | [ChatWithStoryRoleRequest](#common-ChatWithStoryRoleRequest) | [ChatWithStoryRoleResponse](#common-ChatWithStoryRoleResponse) | 与角色聊天 |
-| UpdateStoryRoleAvator | [UpdateStoryRoleAvatorRequest](#common-UpdateStoryRoleAvatorRequest) | [UpdateStoryRoleAvatorResponse](#common-UpdateStoryRoleAvatorResponse) | 更新角色头像 |
-| UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#common-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#common-UpdateStoryRoleDetailResponse) | 更新角色详情 |
-| GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#common-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#common-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
-| GetUserChatWithRole | [GetUserChatWithRoleRequest](#common-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#common-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |
-| GetUserChatMessages | [GetUserChatMessagesRequest](#common-GetUserChatMessagesRequest) | [GetUserChatMessagesResponse](#common-GetUserChatMessagesResponse) | 获取用户的消息 |
-| FetchActives | [FetchActivesRequest](#common-FetchActivesRequest) | [FetchActivesResponse](#common-FetchActivesResponse) | 活动信息 |
-| GetNextStoryboard | [GetNextStoryboardRequest](#common-GetNextStoryboardRequest) | [GetNextStoryboardResponse](#common-GetNextStoryboardResponse) | 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位 |
-| RenderStoryRoleContinuously | [RenderStoryRoleContinuouslyRequest](#common-RenderStoryRoleContinuouslyRequest) | [RenderStoryRoleContinuouslyResponse](#common-RenderStoryRoleContinuouslyResponse) | 持续渲染故事角色 |
-| PublishStoryboard | [PublishStoryboardRequest](#common-PublishStoryboardRequest) | [PublishStoryboardResponse](#common-PublishStoryboardResponse) | 发布故事板 |
-| CancelStoryboard | [CancelStoryboardRequest](#common-CancelStoryboardRequest) | [CancelStoryboardResponse](#common-CancelStoryboardResponse) | 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。 |
-| GetUserWatchStoryActiveStoryBoards | [GetUserWatchStoryActiveStoryBoardsRequest](#common-GetUserWatchStoryActiveStoryBoardsRequest) | [GetUserWatchStoryActiveStoryBoardsResponse](#common-GetUserWatchStoryActiveStoryBoardsResponse) |  |
-| GetUserWatchRoleActiveStoryBoards | [GetUserWatchRoleActiveStoryBoardsRequest](#common-GetUserWatchRoleActiveStoryBoardsRequest) | [GetUserWatchRoleActiveStoryBoardsResponse](#common-GetUserWatchRoleActiveStoryBoardsResponse) |  |
-| GetUnPublishStoryboard | [GetUnPublishStoryboardRequest](#common-GetUnPublishStoryboardRequest) | [GetUnPublishStoryboardResponse](#common-GetUnPublishStoryboardResponse) |  |
-| GenerateRoleDescription | [GenerateRoleDescriptionRequest](#common-GenerateRoleDescriptionRequest) | [GenerateRoleDescriptionResponse](#common-GenerateRoleDescriptionResponse) |  |
-| UpdateRoleDescription | [UpdateRoleDescriptionRequest](#common-UpdateRoleDescriptionRequest) | [UpdateRoleDescriptionResponse](#common-UpdateRoleDescriptionResponse) |  |
-| GenerateRolePrompt | [GenerateRolePromptRequest](#common-GenerateRolePromptRequest) | [GenerateRolePromptResponse](#common-GenerateRolePromptResponse) |  |
-| UpdateRolePrompt | [UpdateRolePromptRequest](#common-UpdateRolePromptRequest) | [UpdateRolePromptResponse](#common-UpdateRolePromptResponse) |  |
-| CreateStoryComment | [CreateStoryCommentRequest](#common-CreateStoryCommentRequest) | [CreateStoryCommentResponse](#common-CreateStoryCommentResponse) | 创建故事评论 |
-| GetStoryComments | [GetStoryCommentsRequest](#common-GetStoryCommentsRequest) | [GetStoryCommentsResponse](#common-GetStoryCommentsResponse) | 获取故事评论 |
-| DeleteStoryComment | [DeleteStoryCommentRequest](#common-DeleteStoryCommentRequest) | [DeleteStoryCommentResponse](#common-DeleteStoryCommentResponse) | 删除故事评论 |
-| GetStoryCommentReplies | [GetStoryCommentRepliesRequest](#common-GetStoryCommentRepliesRequest) | [GetStoryCommentRepliesResponse](#common-GetStoryCommentRepliesResponse) | 获取故事评论回复 |
-| CreateStoryCommentReply | [CreateStoryCommentReplyRequest](#common-CreateStoryCommentReplyRequest) | [CreateStoryCommentReplyResponse](#common-CreateStoryCommentReplyResponse) | 创建故事评论回复 |
-| DeleteStoryCommentReply | [DeleteStoryCommentReplyRequest](#common-DeleteStoryCommentReplyRequest) | [DeleteStoryCommentReplyResponse](#common-DeleteStoryCommentReplyResponse) | 删除故事评论回复 |
-| GetStoryBoardComments | [GetStoryBoardCommentsRequest](#common-GetStoryBoardCommentsRequest) | [GetStoryBoardCommentsResponse](#common-GetStoryBoardCommentsResponse) | 获取故事板评论 |
-| CreateStoryBoardComment | [CreateStoryBoardCommentRequest](#common-CreateStoryBoardCommentRequest) | [CreateStoryBoardCommentResponse](#common-CreateStoryBoardCommentResponse) | 创建故事板评论 |
-| DeleteStoryBoardComment | [DeleteStoryBoardCommentRequest](#common-DeleteStoryBoardCommentRequest) | [DeleteStoryBoardCommentResponse](#common-DeleteStoryBoardCommentResponse) | 删除故事板评论 |
-| GetStoryBoardCommentReplies | [GetStoryBoardCommentRepliesRequest](#common-GetStoryBoardCommentRepliesRequest) | [GetStoryBoardCommentRepliesResponse](#common-GetStoryBoardCommentRepliesResponse) | 获取故事板评论回复 |
-| LikeComment | [LikeCommentRequest](#common-LikeCommentRequest) | [LikeCommentResponse](#common-LikeCommentResponse) | 点赞故事评论 |
-| DislikeComment | [DislikeCommentRequest](#common-DislikeCommentRequest) | [DislikeCommentResponse](#common-DislikeCommentResponse) | 取消点赞故事评论 |
-| GetStoryRoleList | [GetStoryRoleListRequest](#common-GetStoryRoleListRequest) | [GetStoryRoleListResponse](#common-GetStoryRoleListResponse) | 获取故事角色列表 |
-| TrendingStory | [TrendingStoryRequest](#common-TrendingStoryRequest) | [TrendingStoryResponse](#common-TrendingStoryResponse) | 热门故事 |
-| TrendingStoryRole | [TrendingStoryRoleRequest](#common-TrendingStoryRoleRequest) | [TrendingStoryRoleResponse](#common-TrendingStoryRoleResponse) | 热门角色 |
-| FollowUser | [FollowUserRequest](#common-FollowUserRequest) | [FollowUserResponse](#common-FollowUserResponse) | 关注另一个用户 |
-| UnfollowUser | [UnfollowUserRequest](#common-UnfollowUserRequest) | [UnfollowUserResponse](#common-UnfollowUserResponse) | 取消关注另一个用户 |
-| GetFollowList | [GetFollowListRequest](#common-GetFollowListRequest) | [GetFollowListResponse](#common-GetFollowListResponse) | 获取关注列表 |
-| GetFollowerList | [GetFollowerListRequest](#common-GetFollowerListRequest) | [GetFollowerListResponse](#common-GetFollowerListResponse) | 获取粉丝列表 |
-| UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#common-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#common-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
-| UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#common-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#common-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
-| QueryTaskStatus | [QueryTaskStatusRequest](#common-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#common-QueryTaskStatusResponse) | 获取生成任务状态 |
-| GetStoryImageStyle | [GetStoryImageStyleRequest](#common-GetStoryImageStyleRequest) | [GetStoryImageStyleResponse](#common-GetStoryImageStyleResponse) | 获取故事的风格 |
-| UpdateStoryImageStyle | [UpdateStoryImageStyleRequest](#common-UpdateStoryImageStyleRequest) | [UpdateStoryImageStyleResponse](#common-UpdateStoryImageStyleResponse) | 更新故事的风格 |
-| UpdateStorySenceMaxNumber | [UpdateStorySenceMaxNumberRequest](#common-UpdateStorySenceMaxNumberRequest) | [UpdateStorySenceMaxNumberResponse](#common-UpdateStorySenceMaxNumberResponse) | 更新故事的场景数量 |
-| UpdateStoryAvatar | [UpdateStoryAvatarRequest](#common-UpdateStoryAvatarRequest) | [UpdateStoryAvatarResponse](#common-UpdateStoryAvatarResponse) | 更新故事头像 |
-| UpdateStoryCover | [UpdateStoryCoverRequest](#common-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#common-UpdateStoryCoverResponse) | 更新故事封面 |
-| SaveStoryboardCraft | [SaveStoryboardCraftRequest](#common-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#common-SaveStoryboardCraftResponse) | 保存故事板草稿 |
-| GetStoryParticipants | [GetStoryParticipantsRequest](#common-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#common-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
-| GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#common-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#common-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
-| GenerateRoleAvatar | [GenerateRoleAvatarRequest](#common-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#common-GenerateRoleAvatarResponse) |  |
-| FetchUserGenTaskStatus | [FetchUserGenTaskStatusRequest](#common-FetchUserGenTaskStatusRequest) | [FetchUserGenTaskStatusResponse](#common-FetchUserGenTaskStatusResponse) |  |
-| GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#common-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#common-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
-| UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#common-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#common-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
-| LikeStoryRolePoster | [LikeStoryRolePosterRequest](#common-LikeStoryRolePosterRequest) | [LikeStoryRolePosterResponse](#common-LikeStoryRolePosterResponse) |  |
-| UnLikeStoryRolePoster | [UnLikeStoryRolePosterRequest](#common-UnLikeStoryRolePosterRequest) | [UnLikeStoryRolePosterResponse](#common-UnLikeStoryRolePosterResponse) |  |
-| GetStoryRolePosterList | [GetStoryRolePosterListRequest](#common-GetStoryRolePosterListRequest) | [GetStoryRolePosterListResponse](#common-GetStoryRolePosterListResponse) |  |
-| GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#common-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#common-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
+| Explore | [ExploreRequest](#rankquantity-voyager-api-ExploreRequest) | [ExploreResponse](#rankquantity-voyager-api-ExploreResponse) | Explore returns trending and recommended content for users to discover |
+| Version | [VersionRequest](#rankquantity-voyager-api-VersionRequest) | [VersionResponse](#rankquantity-voyager-api-VersionResponse) | Version returns the current API version and build information |
+| About | [AboutRequest](#rankquantity-voyager-api-AboutRequest) | [AboutResponse](#rankquantity-voyager-api-AboutResponse) | About returns information about the service |
+| Login | [LoginRequest](#rankquantity-voyager-api-LoginRequest) | [LoginResponse](#rankquantity-voyager-api-LoginResponse) | Login authenticates a user and returns a session token |
+| Logout | [LogoutRequest](#rankquantity-voyager-api-LogoutRequest) | [LogoutResponse](#rankquantity-voyager-api-LogoutResponse) | Logout invalidates the user&#39;s current session token |
+| RefreshToken | [RefreshTokenRequest](#rankquantity-voyager-api-RefreshTokenRequest) | [RefreshTokenResponse](#rankquantity-voyager-api-RefreshTokenResponse) | RefreshToken generates a new session token using the current valid token |
+| Register | [RegisterRequest](#rankquantity-voyager-api-RegisterRequest) | [RegisterResponse](#rankquantity-voyager-api-RegisterResponse) | Register creates a new user account |
+| ResetPwd | [ResetPasswordRequest](#rankquantity-voyager-api-ResetPasswordRequest) | [ResetPasswordResponse](#rankquantity-voyager-api-ResetPasswordResponse) | ResetPwd allows users to reset their password |
+| UserInit | [UserInitRequest](#rankquantity-voyager-api-UserInitRequest) | [UserInitResponse](#rankquantity-voyager-api-UserInitResponse) | UserInit performs initial setup for a new user |
+| UserInfo | [UserInfoRequest](#rankquantity-voyager-api-UserInfoRequest) | [UserInfoResponse](#rankquantity-voyager-api-UserInfoResponse) | UserInfo retrieves detailed information about a user |
+| UpdateUserAvator | [UpdateUserAvatorRequest](#rankquantity-voyager-api-UpdateUserAvatorRequest) | [UpdateUserAvatorResponse](#rankquantity-voyager-api-UpdateUserAvatorResponse) | UpdateUserAvator updates the user&#39;s profile picture |
+| UserWatching | [UserWatchingRequest](#rankquantity-voyager-api-UserWatchingRequest) | [UserWatchingResponse](#rankquantity-voyager-api-UserWatchingResponse) | UserWatching returns a list of projects the user is following |
+| UserGroup | [UserGroupRequest](#rankquantity-voyager-api-UserGroupRequest) | [UserGroupResponse](#rankquantity-voyager-api-UserGroupResponse) | UserGroup returns a list of groups the user belongs to |
+| UserFollowingGroup | [UserFollowingGroupRequest](#rankquantity-voyager-api-UserFollowingGroupRequest) | [UserFollowingGroupResponse](#rankquantity-voyager-api-UserFollowingGroupResponse) | UserFollowingGroup returns a list of groups the user is following |
+| UserUpdate | [UserUpdateRequest](#rankquantity-voyager-api-UserUpdateRequest) | [UserUpdateResponse](#rankquantity-voyager-api-UserUpdateResponse) | UserUpdate updates the user&#39;s profile information |
+| SearchUser | [SearchUserRequest](#rankquantity-voyager-api-SearchUserRequest) | [SearchUserResponse](#rankquantity-voyager-api-SearchUserResponse) | SearchUser searches for users based on specified criteria |
+| CreateGroup | [CreateGroupRequest](#rankquantity-voyager-api-CreateGroupRequest) | [CreateGroupResponse](#rankquantity-voyager-api-CreateGroupResponse) | CreateGroup creates a new group |
+| GetGroup | [GetGroupRequest](#rankquantity-voyager-api-GetGroupRequest) | [GetGroupResponse](#rankquantity-voyager-api-GetGroupResponse) | GetGroup retrieves information about a specific group |
+| GetGroupActives | [GetGroupActivesRequest](#rankquantity-voyager-api-GetGroupActivesRequest) | [GetGroupActivesResponse](#rankquantity-voyager-api-GetGroupActivesResponse) | GetGroupActives returns recent activities within a group |
+| UpdateGroupInfo | [UpdateGroupInfoRequest](#rankquantity-voyager-api-UpdateGroupInfoRequest) | [UpdateGroupInfoResponse](#rankquantity-voyager-api-UpdateGroupInfoResponse) | UpdateGroupInfo updates the group&#39;s information |
+| GetGroupProfile | [GetGroupProfileRequest](#rankquantity-voyager-api-GetGroupProfileRequest) | [GetGroupProfileResponse](#rankquantity-voyager-api-GetGroupProfileResponse) | GetGroupProfile retrieves the group&#39;s profile information |
+| UpdateGroupProfile | [UpdateGroupProfileRequest](#rankquantity-voyager-api-UpdateGroupProfileRequest) | [UpdateGroupProfileResponse](#rankquantity-voyager-api-UpdateGroupProfileResponse) | UpdateGroupProfile updates the group&#39;s profile information |
+| DeleteGroup | [DeleteGroupRequest](#rankquantity-voyager-api-DeleteGroupRequest) | [DeleteGroupResponse](#rankquantity-voyager-api-DeleteGroupResponse) | DeleteGroup removes a group |
+| FetchGroupMembers | [FetchGroupMembersRequest](#rankquantity-voyager-api-FetchGroupMembersRequest) | [FetchGroupMembersResponse](#rankquantity-voyager-api-FetchGroupMembersResponse) | FetchGroupMembers retrieves the list of members in a group |
+| JoinGroup | [JoinGroupRequest](#rankquantity-voyager-api-JoinGroupRequest) | [JoinGroupResponse](#rankquantity-voyager-api-JoinGroupResponse) | JoinGroup adds a user to a group |
+| LeaveGroup | [LeaveGroupRequest](#rankquantity-voyager-api-LeaveGroupRequest) | [LeaveGroupResponse](#rankquantity-voyager-api-LeaveGroupResponse) | LeaveGroup removes a user from a group |
+| CreateStory | [CreateStoryRequest](#rankquantity-voyager-api-CreateStoryRequest) | [CreateStoryResponse](#rankquantity-voyager-api-CreateStoryResponse) | 创建故事 |
+| GetStoryInfo | [GetStoryInfoRequest](#rankquantity-voyager-api-GetStoryInfoRequest) | [GetStoryInfoResponse](#rankquantity-voyager-api-GetStoryInfoResponse) | 获取故事信息 |
+| RenderStory | [RenderStoryRequest](#rankquantity-voyager-api-RenderStoryRequest) | [RenderStoryResponse](#rankquantity-voyager-api-RenderStoryResponse) | 渲染故事 |
+| UpdateStory | [UpdateStoryRequest](#rankquantity-voyager-api-UpdateStoryRequest) | [UpdateStoryResponse](#rankquantity-voyager-api-UpdateStoryResponse) | 更新故事 |
+| WatchStory | [WatchStoryRequest](#rankquantity-voyager-api-WatchStoryRequest) | [WatchStoryResponse](#rankquantity-voyager-api-WatchStoryResponse) | 关注故事 |
+| ArchiveStory | [ArchiveStoryRequest](#rankquantity-voyager-api-ArchiveStoryRequest) | [ArchiveStoryResponse](#rankquantity-voyager-api-ArchiveStoryResponse) | 收藏故事 |
+| CreateStoryboard | [CreateStoryboardRequest](#rankquantity-voyager-api-CreateStoryboardRequest) | [CreateStoryboardResponse](#rankquantity-voyager-api-CreateStoryboardResponse) | 创建故事板 |
+| GetStoryboard | [GetStoryboardRequest](#rankquantity-voyager-api-GetStoryboardRequest) | [GetStoryboardResponse](#rankquantity-voyager-api-GetStoryboardResponse) | 获取故事板 |
+| RenderStoryboard | [RenderStoryboardRequest](#rankquantity-voyager-api-RenderStoryboardRequest) | [RenderStoryboardResponse](#rankquantity-voyager-api-RenderStoryboardResponse) | 渲染故事板 |
+| GenStoryboardText | [GenStoryboardTextRequest](#rankquantity-voyager-api-GenStoryboardTextRequest) | [GenStoryboardTextResponse](#rankquantity-voyager-api-GenStoryboardTextResponse) | 生成故事板文本 |
+| GenStoryboardImages | [GenStoryboardImagesRequest](#rankquantity-voyager-api-GenStoryboardImagesRequest) | [GenStoryboardImagesResponse](#rankquantity-voyager-api-GenStoryboardImagesResponse) | 生成故事板图片 |
+| GetStoryboards | [GetStoryboardsRequest](#rankquantity-voyager-api-GetStoryboardsRequest) | [GetStoryboardsResponse](#rankquantity-voyager-api-GetStoryboardsResponse) | 获取故事板 |
+| DelStoryboard | [DelStoryboardRequest](#rankquantity-voyager-api-DelStoryboardRequest) | [DelStoryboardResponse](#rankquantity-voyager-api-DelStoryboardResponse) | 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除 |
+| ForkStoryboard | [ForkStoryboardRequest](#rankquantity-voyager-api-ForkStoryboardRequest) | [ForkStoryboardResponse](#rankquantity-voyager-api-ForkStoryboardResponse) | 复制故事板 |
+| UpdateStoryboard | [UpdateStoryboardRequest](#rankquantity-voyager-api-UpdateStoryboardRequest) | [UpdateStoryboardResponse](#rankquantity-voyager-api-UpdateStoryboardResponse) | 更新故事板 |
+| LikeStoryboard | [LikeStoryboardRequest](#rankquantity-voyager-api-LikeStoryboardRequest) | [LikeStoryboardResponse](#rankquantity-voyager-api-LikeStoryboardResponse) | 喜欢故事板 |
+| UnLikeStoryboard | [UnLikeStoryboardRequest](#rankquantity-voyager-api-UnLikeStoryboardRequest) | [UnLikeStoryboardResponse](#rankquantity-voyager-api-UnLikeStoryboardResponse) | 取消喜欢故事板 |
+| ShareStoryboard | [ShareStoryboardRequest](#rankquantity-voyager-api-ShareStoryboardRequest) | [ShareStoryboardResponse](#rankquantity-voyager-api-ShareStoryboardResponse) | 分享故事板 |
+| FetchGroupStorys | [FetchGroupStorysRequest](#rankquantity-voyager-api-FetchGroupStorysRequest) | [FetchGroupStorysResponse](#rankquantity-voyager-api-FetchGroupStorysResponse) | 获取组织故事 |
+| UploadImageFile | [UploadImageRequest](#rankquantity-voyager-api-UploadImageRequest) | [UploadImageResponse](#rankquantity-voyager-api-UploadImageResponse) | 用来上传文件的proto 接口 |
+| GetStoryRender | [GetStoryRenderRequest](#rankquantity-voyager-api-GetStoryRenderRequest) | [GetStoryRenderResponse](#rankquantity-voyager-api-GetStoryRenderResponse) | 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType |
+| GetStoryBoardRender | [GetStoryBoardRenderRequest](#rankquantity-voyager-api-GetStoryBoardRenderRequest) | [GetStoryBoardRenderResponse](#rankquantity-voyager-api-GetStoryBoardRenderResponse) | 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType |
+| GetStoryContributors | [GetStoryContributorsRequest](#rankquantity-voyager-api-GetStoryContributorsRequest) | [GetStoryContributorsResponse](#rankquantity-voyager-api-GetStoryContributorsResponse) | 获取故事的贡献者 |
+| ContinueRenderStory | [ContinueRenderStoryRequest](#rankquantity-voyager-api-ContinueRenderStoryRequest) | [ContinueRenderStoryResponse](#rankquantity-voyager-api-ContinueRenderStoryResponse) | 继续渲染故事 |
+| RenderStoryRoles | [RenderStoryRolesRequest](#rankquantity-voyager-api-RenderStoryRolesRequest) | [RenderStoryRolesResponse](#rankquantity-voyager-api-RenderStoryRolesResponse) | 渲���故事角色 |
+| UpdateStoryRole | [UpdateStoryRoleRequest](#rankquantity-voyager-api-UpdateStoryRoleRequest) | [UpdateStoryRoleResponse](#rankquantity-voyager-api-UpdateStoryRoleResponse) | 更新 story role |
+| RenderStoryRoleDetail | [RenderStoryRoleDetailRequest](#rankquantity-voyager-api-RenderStoryRoleDetailRequest) | [RenderStoryRoleDetailResponse](#rankquantity-voyager-api-RenderStoryRoleDetailResponse) | 渲染故事角色详情 |
+| GetStoryRoles | [GetStoryRolesRequest](#rankquantity-voyager-api-GetStoryRolesRequest) | [GetStoryRolesResponse](#rankquantity-voyager-api-GetStoryRolesResponse) | 获取 story roles 的列表 |
+| GetStoryBoardRoles | [GetStoryBoardRolesRequest](#rankquantity-voyager-api-GetStoryBoardRolesRequest) | [GetStoryBoardRolesResponse](#rankquantity-voyager-api-GetStoryBoardRolesResponse) | 获取 story board roles 的列表 |
+| GetUserProfile | [GetUserProfileRequest](#rankquantity-voyager-api-GetUserProfileRequest) | [GetUserProfileResponse](#rankquantity-voyager-api-GetUserProfileResponse) | 获取用户的 profile |
+| UpdateUserProfile | [UpdateUserProfileRequest](#rankquantity-voyager-api-UpdateUserProfileRequest) | [UpdateUserProfileResponse](#rankquantity-voyager-api-UpdateUserProfileResponse) | 更新用户的 profile |
+| UpdateUserBackgroundImage | [UpdateUserBackgroundImageRequest](#rankquantity-voyager-api-UpdateUserBackgroundImageRequest) | [UpdateUserBackgroundImageResponse](#rankquantity-voyager-api-UpdateUserBackgroundImageResponse) | 更新用户的背景图片 |
+| CreateStoryRole | [CreateStoryRoleRequest](#rankquantity-voyager-api-CreateStoryRoleRequest) | [CreateStoryRoleResponse](#rankquantity-voyager-api-CreateStoryRoleResponse) | 创建新的故事角色 |
+| GetStoryRoleDetail | [GetStoryRoleDetailRequest](#rankquantity-voyager-api-GetStoryRoleDetailRequest) | [GetStoryRoleDetailResponse](#rankquantity-voyager-api-GetStoryRoleDetailResponse) | 获取角色详情 |
+| RenderStoryRole | [RenderStoryRoleRequest](#rankquantity-voyager-api-RenderStoryRoleRequest) | [RenderStoryRoleResponse](#rankquantity-voyager-api-RenderStoryRoleResponse) | 生成角色的图片 |
+| LikeStory | [LikeStoryRequest](#rankquantity-voyager-api-LikeStoryRequest) | [LikeStoryResponse](#rankquantity-voyager-api-LikeStoryResponse) | 喜欢故事 |
+| UnLikeStory | [UnLikeStoryRequest](#rankquantity-voyager-api-UnLikeStoryRequest) | [UnLikeStoryResponse](#rankquantity-voyager-api-UnLikeStoryResponse) | 取消喜欢故事 |
+| GetStoryBoardSences | [GetStoryBoardSencesRequest](#rankquantity-voyager-api-GetStoryBoardSencesRequest) | [GetStoryBoardSencesResponse](#rankquantity-voyager-api-GetStoryBoardSencesResponse) | 获取故事板场景 |
+| CreateStoryBoardSence | [CreateStoryBoardSenceRequest](#rankquantity-voyager-api-CreateStoryBoardSenceRequest) | [CreateStoryBoardSenceResponse](#rankquantity-voyager-api-CreateStoryBoardSenceResponse) | 创建故事板场景 |
+| UpdateStoryBoardSence | [UpdateStoryBoardSenceRequest](#rankquantity-voyager-api-UpdateStoryBoardSenceRequest) | [UpdateStoryBoardSenceResponse](#rankquantity-voyager-api-UpdateStoryBoardSenceResponse) | 更新故事板场景 |
+| DeleteStoryBoardSence | [DeleteStoryBoardSenceRequest](#rankquantity-voyager-api-DeleteStoryBoardSenceRequest) | [DeleteStoryBoardSenceResponse](#rankquantity-voyager-api-DeleteStoryBoardSenceResponse) | 删除故事板场景 |
+| RenderStoryBoardSence | [RenderStoryBoardSenceRequest](#rankquantity-voyager-api-RenderStoryBoardSenceRequest) | [RenderStoryBoardSenceResponse](#rankquantity-voyager-api-RenderStoryBoardSenceResponse) | 渲染故事板指定场景 |
+| RenderStoryBoardSences | [RenderStoryBoardSencesRequest](#rankquantity-voyager-api-RenderStoryBoardSencesRequest) | [RenderStoryBoardSencesResponse](#rankquantity-voyager-api-RenderStoryBoardSencesResponse) | 渲染故事板的所有场景 |
+| GetStoryBoardSenceGenerate | [GetStoryBoardSenceGenerateRequest](#rankquantity-voyager-api-GetStoryBoardSenceGenerateRequest) | [GetStoryBoardSenceGenerateResponse](#rankquantity-voyager-api-GetStoryBoardSenceGenerateResponse) | 获取故事板场景生成状态 |
+| GetStoryBoardGenerate | [GetStoryBoardGenerateRequest](#rankquantity-voyager-api-GetStoryBoardGenerateRequest) | [GetStoryBoardGenerateResponse](#rankquantity-voyager-api-GetStoryBoardGenerateResponse) | 获取故事板生成状态 |
+| LikeStoryRole | [LikeStoryRoleRequest](#rankquantity-voyager-api-LikeStoryRoleRequest) | [LikeStoryRoleResponse](#rankquantity-voyager-api-LikeStoryRoleResponse) | 点赞故事角色 |
+| UnLikeStoryRole | [UnLikeStoryRoleRequest](#rankquantity-voyager-api-UnLikeStoryRoleRequest) | [UnLikeStoryRoleResponse](#rankquantity-voyager-api-UnLikeStoryRoleResponse) | 取消点赞故事角色 |
+| FollowStoryRole | [FollowStoryRoleRequest](#rankquantity-voyager-api-FollowStoryRoleRequest) | [FollowStoryRoleResponse](#rankquantity-voyager-api-FollowStoryRoleResponse) | 关注故事角色 |
+| UnFollowStoryRole | [UnFollowStoryRoleRequest](#rankquantity-voyager-api-UnFollowStoryRoleRequest) | [UnFollowStoryRoleResponse](#rankquantity-voyager-api-UnFollowStoryRoleResponse) | 取消关注故事角色 |
+| SearchStories | [SearchStoriesRequest](#rankquantity-voyager-api-SearchStoriesRequest) | [SearchStoriesResponse](#rankquantity-voyager-api-SearchStoriesResponse) | 根据关键字查询故事 |
+| SearchGroup | [SearchGroupRequest](#rankquantity-voyager-api-SearchGroupRequest) | [SearchGroupResponse](#rankquantity-voyager-api-SearchGroupResponse) | 搜索组织 |
+| SearchRoles | [SearchRolesRequest](#rankquantity-voyager-api-SearchRolesRequest) | [SearchRolesResponse](#rankquantity-voyager-api-SearchRolesResponse) | 搜索角色 |
+| RestoreStoryboard | [RestoreStoryboardRequest](#rankquantity-voyager-api-RestoreStoryboardRequest) | [RestoreStoryboardResponse](#rankquantity-voyager-api-RestoreStoryboardResponse) | 恢复故事板的状态 |
+| GetUserCreatedStoryboards | [GetUserCreatedStoryboardsRequest](#rankquantity-voyager-api-GetUserCreatedStoryboardsRequest) | [GetUserCreatedStoryboardsResponse](#rankquantity-voyager-api-GetUserCreatedStoryboardsResponse) | 获取用户创建的故事板 |
+| GetUserCreatedRoles | [GetUserCreatedRolesRequest](#rankquantity-voyager-api-GetUserCreatedRolesRequest) | [GetUserCreatedRolesResponse](#rankquantity-voyager-api-GetUserCreatedRolesResponse) | 获取用户创建的角色 |
+| GetStoryRoleStoryboards | [GetStoryRoleStoryboardsRequest](#rankquantity-voyager-api-GetStoryRoleStoryboardsRequest) | [GetStoryRoleStoryboardsResponse](#rankquantity-voyager-api-GetStoryRoleStoryboardsResponse) | 获取角色参与的故事板 |
+| GetStoryRoleStories | [GetStoryRoleStoriesRequest](#rankquantity-voyager-api-GetStoryRoleStoriesRequest) | [GetStoryRoleStoriesResponse](#rankquantity-voyager-api-GetStoryRoleStoriesResponse) | 获取角色参与的故事 |
+| CreateStoryRoleChat | [CreateStoryRoleChatRequest](#rankquantity-voyager-api-CreateStoryRoleChatRequest) | [CreateStoryRoleChatResponse](#rankquantity-voyager-api-CreateStoryRoleChatResponse) | 创建与角色的对话 |
+| ChatWithStoryRole | [ChatWithStoryRoleRequest](#rankquantity-voyager-api-ChatWithStoryRoleRequest) | [ChatWithStoryRoleResponse](#rankquantity-voyager-api-ChatWithStoryRoleResponse) | 与角色聊天 |
+| UpdateStoryRoleAvator | [UpdateStoryRoleAvatorRequest](#rankquantity-voyager-api-UpdateStoryRoleAvatorRequest) | [UpdateStoryRoleAvatorResponse](#rankquantity-voyager-api-UpdateStoryRoleAvatorResponse) | 更新角色头像 |
+| UpdateStoryRoleDetail | [UpdateStoryRoleDetailRequest](#rankquantity-voyager-api-UpdateStoryRoleDetailRequest) | [UpdateStoryRoleDetailResponse](#rankquantity-voyager-api-UpdateStoryRoleDetailResponse) | 更新角色详情 |
+| GetUserWithRoleChatList | [GetUserWithRoleChatListRequest](#rankquantity-voyager-api-GetUserWithRoleChatListRequest) | [GetUserWithRoleChatListResponse](#rankquantity-voyager-api-GetUserWithRoleChatListResponse) | 获取用户的对话列表 |
+| GetUserChatWithRole | [GetUserChatWithRoleRequest](#rankquantity-voyager-api-GetUserChatWithRoleRequest) | [GetUserChatWithRoleResponse](#rankquantity-voyager-api-GetUserChatWithRoleResponse) | 获取用户与角色的对话 |
+| GetUserChatMessages | [GetUserChatMessagesRequest](#rankquantity-voyager-api-GetUserChatMessagesRequest) | [GetUserChatMessagesResponse](#rankquantity-voyager-api-GetUserChatMessagesResponse) | 获取用户的消息 |
+| FetchActives | [FetchActivesRequest](#rankquantity-voyager-api-FetchActivesRequest) | [FetchActivesResponse](#rankquantity-voyager-api-FetchActivesResponse) | 活动信息 |
+| GetNextStoryboard | [GetNextStoryboardRequest](#rankquantity-voyager-api-GetNextStoryboardRequest) | [GetNextStoryboardResponse](#rankquantity-voyager-api-GetNextStoryboardResponse) | 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位 |
+| RenderStoryRoleContinuously | [RenderStoryRoleContinuouslyRequest](#rankquantity-voyager-api-RenderStoryRoleContinuouslyRequest) | [RenderStoryRoleContinuouslyResponse](#rankquantity-voyager-api-RenderStoryRoleContinuouslyResponse) | 持续渲染故事角色 |
+| PublishStoryboard | [PublishStoryboardRequest](#rankquantity-voyager-api-PublishStoryboardRequest) | [PublishStoryboardResponse](#rankquantity-voyager-api-PublishStoryboardResponse) | 发布故事板 |
+| CancelStoryboard | [CancelStoryboardRequest](#rankquantity-voyager-api-CancelStoryboardRequest) | [CancelStoryboardResponse](#rankquantity-voyager-api-CancelStoryboardResponse) | 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。 |
+| GetUserWatchStoryActiveStoryBoards | [GetUserWatchStoryActiveStoryBoardsRequest](#rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsRequest) | [GetUserWatchStoryActiveStoryBoardsResponse](#rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsResponse) |  |
+| GetUserWatchRoleActiveStoryBoards | [GetUserWatchRoleActiveStoryBoardsRequest](#rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsRequest) | [GetUserWatchRoleActiveStoryBoardsResponse](#rankquantity-voyager-api-GetUserWatchRoleActiveStoryBoardsResponse) |  |
+| GetUnPublishStoryboard | [GetUnPublishStoryboardRequest](#rankquantity-voyager-api-GetUnPublishStoryboardRequest) | [GetUnPublishStoryboardResponse](#rankquantity-voyager-api-GetUnPublishStoryboardResponse) |  |
+| GenerateRoleDescription | [GenerateRoleDescriptionRequest](#rankquantity-voyager-api-GenerateRoleDescriptionRequest) | [GenerateRoleDescriptionResponse](#rankquantity-voyager-api-GenerateRoleDescriptionResponse) |  |
+| UpdateRoleDescription | [UpdateRoleDescriptionRequest](#rankquantity-voyager-api-UpdateRoleDescriptionRequest) | [UpdateRoleDescriptionResponse](#rankquantity-voyager-api-UpdateRoleDescriptionResponse) |  |
+| GenerateRolePrompt | [GenerateRolePromptRequest](#rankquantity-voyager-api-GenerateRolePromptRequest) | [GenerateRolePromptResponse](#rankquantity-voyager-api-GenerateRolePromptResponse) |  |
+| UpdateRolePrompt | [UpdateRolePromptRequest](#rankquantity-voyager-api-UpdateRolePromptRequest) | [UpdateRolePromptResponse](#rankquantity-voyager-api-UpdateRolePromptResponse) |  |
+| CreateStoryComment | [CreateStoryCommentRequest](#rankquantity-voyager-api-CreateStoryCommentRequest) | [CreateStoryCommentResponse](#rankquantity-voyager-api-CreateStoryCommentResponse) | 创建故事评论 |
+| GetStoryComments | [GetStoryCommentsRequest](#rankquantity-voyager-api-GetStoryCommentsRequest) | [GetStoryCommentsResponse](#rankquantity-voyager-api-GetStoryCommentsResponse) | 获取故事评论 |
+| DeleteStoryComment | [DeleteStoryCommentRequest](#rankquantity-voyager-api-DeleteStoryCommentRequest) | [DeleteStoryCommentResponse](#rankquantity-voyager-api-DeleteStoryCommentResponse) | 删除故事评论 |
+| GetStoryCommentReplies | [GetStoryCommentRepliesRequest](#rankquantity-voyager-api-GetStoryCommentRepliesRequest) | [GetStoryCommentRepliesResponse](#rankquantity-voyager-api-GetStoryCommentRepliesResponse) | 获取故事评论回复 |
+| CreateStoryCommentReply | [CreateStoryCommentReplyRequest](#rankquantity-voyager-api-CreateStoryCommentReplyRequest) | [CreateStoryCommentReplyResponse](#rankquantity-voyager-api-CreateStoryCommentReplyResponse) | 创建故事评论回复 |
+| DeleteStoryCommentReply | [DeleteStoryCommentReplyRequest](#rankquantity-voyager-api-DeleteStoryCommentReplyRequest) | [DeleteStoryCommentReplyResponse](#rankquantity-voyager-api-DeleteStoryCommentReplyResponse) | 删除故事评论回复 |
+| GetStoryBoardComments | [GetStoryBoardCommentsRequest](#rankquantity-voyager-api-GetStoryBoardCommentsRequest) | [GetStoryBoardCommentsResponse](#rankquantity-voyager-api-GetStoryBoardCommentsResponse) | 获取故事板评论 |
+| CreateStoryBoardComment | [CreateStoryBoardCommentRequest](#rankquantity-voyager-api-CreateStoryBoardCommentRequest) | [CreateStoryBoardCommentResponse](#rankquantity-voyager-api-CreateStoryBoardCommentResponse) | 创建故事板评论 |
+| DeleteStoryBoardComment | [DeleteStoryBoardCommentRequest](#rankquantity-voyager-api-DeleteStoryBoardCommentRequest) | [DeleteStoryBoardCommentResponse](#rankquantity-voyager-api-DeleteStoryBoardCommentResponse) | 删除故事板评论 |
+| GetStoryBoardCommentReplies | [GetStoryBoardCommentRepliesRequest](#rankquantity-voyager-api-GetStoryBoardCommentRepliesRequest) | [GetStoryBoardCommentRepliesResponse](#rankquantity-voyager-api-GetStoryBoardCommentRepliesResponse) | 获取故事板评论回复 |
+| LikeComment | [LikeCommentRequest](#rankquantity-voyager-api-LikeCommentRequest) | [LikeCommentResponse](#rankquantity-voyager-api-LikeCommentResponse) | 点赞故事评论 |
+| DislikeComment | [DislikeCommentRequest](#rankquantity-voyager-api-DislikeCommentRequest) | [DislikeCommentResponse](#rankquantity-voyager-api-DislikeCommentResponse) | 取消点赞故事评论 |
+| GetStoryRoleList | [GetStoryRoleListRequest](#rankquantity-voyager-api-GetStoryRoleListRequest) | [GetStoryRoleListResponse](#rankquantity-voyager-api-GetStoryRoleListResponse) | 获取故事角色列表 |
+| TrendingStory | [TrendingStoryRequest](#rankquantity-voyager-api-TrendingStoryRequest) | [TrendingStoryResponse](#rankquantity-voyager-api-TrendingStoryResponse) | 热门故事 |
+| TrendingStoryRole | [TrendingStoryRoleRequest](#rankquantity-voyager-api-TrendingStoryRoleRequest) | [TrendingStoryRoleResponse](#rankquantity-voyager-api-TrendingStoryRoleResponse) | 热门角色 |
+| FollowUser | [FollowUserRequest](#rankquantity-voyager-api-FollowUserRequest) | [FollowUserResponse](#rankquantity-voyager-api-FollowUserResponse) | 关注另一个用户 |
+| UnfollowUser | [UnfollowUserRequest](#rankquantity-voyager-api-UnfollowUserRequest) | [UnfollowUserResponse](#rankquantity-voyager-api-UnfollowUserResponse) | 取消关注另一个用户 |
+| GetFollowList | [GetFollowListRequest](#rankquantity-voyager-api-GetFollowListRequest) | [GetFollowListResponse](#rankquantity-voyager-api-GetFollowListResponse) | 获取关注列表 |
+| GetFollowerList | [GetFollowerListRequest](#rankquantity-voyager-api-GetFollowerListRequest) | [GetFollowerListResponse](#rankquantity-voyager-api-GetFollowerListResponse) | 获取粉丝列表 |
+| UpdateStoryRolePrompt | [UpdateStoryRolePromptRequest](#rankquantity-voyager-api-UpdateStoryRolePromptRequest) | [UpdateStoryRolePromptResponse](#rankquantity-voyager-api-UpdateStoryRolePromptResponse) | 更新角色的提示词 |
+| UpdateStoryRoleDescriptionDetail | [UpdateStoryRoleDescriptionDetailRequest](#rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailRequest) | [UpdateStoryRoleDescriptionDetailResponse](#rankquantity-voyager-api-UpdateStoryRoleDescriptionDetailResponse) | 更新角色的描述 |
+| QueryTaskStatus | [QueryTaskStatusRequest](#rankquantity-voyager-api-QueryTaskStatusRequest) | [QueryTaskStatusResponse](#rankquantity-voyager-api-QueryTaskStatusResponse) | 获取生成任务状态 |
+| GetStoryImageStyle | [GetStoryImageStyleRequest](#rankquantity-voyager-api-GetStoryImageStyleRequest) | [GetStoryImageStyleResponse](#rankquantity-voyager-api-GetStoryImageStyleResponse) | 获取故事的风格 |
+| UpdateStoryImageStyle | [UpdateStoryImageStyleRequest](#rankquantity-voyager-api-UpdateStoryImageStyleRequest) | [UpdateStoryImageStyleResponse](#rankquantity-voyager-api-UpdateStoryImageStyleResponse) | 更新故事的风格 |
+| UpdateStorySenceMaxNumber | [UpdateStorySenceMaxNumberRequest](#rankquantity-voyager-api-UpdateStorySenceMaxNumberRequest) | [UpdateStorySenceMaxNumberResponse](#rankquantity-voyager-api-UpdateStorySenceMaxNumberResponse) | 更新故事的场景数量 |
+| UpdateStoryAvatar | [UpdateStoryAvatarRequest](#rankquantity-voyager-api-UpdateStoryAvatarRequest) | [UpdateStoryAvatarResponse](#rankquantity-voyager-api-UpdateStoryAvatarResponse) | 更新故事头像 |
+| UpdateStoryCover | [UpdateStoryCoverRequest](#rankquantity-voyager-api-UpdateStoryCoverRequest) | [UpdateStoryCoverResponse](#rankquantity-voyager-api-UpdateStoryCoverResponse) | 更新故事封面 |
+| SaveStoryboardCraft | [SaveStoryboardCraftRequest](#rankquantity-voyager-api-SaveStoryboardCraftRequest) | [SaveStoryboardCraftResponse](#rankquantity-voyager-api-SaveStoryboardCraftResponse) | 保存故事板草稿 |
+| GetStoryParticipants | [GetStoryParticipantsRequest](#rankquantity-voyager-api-GetStoryParticipantsRequest) | [GetStoryParticipantsResponse](#rankquantity-voyager-api-GetStoryParticipantsResponse) | 获取故事参与者，参与故事版创建 |
+| GenerateStorySceneVideo | [GenerateStorySceneVideoRequest](#rankquantity-voyager-api-GenerateStorySceneVideoRequest) | [GenerateStorySceneVideoResponse](#rankquantity-voyager-api-GenerateStorySceneVideoResponse) | 为故事场景生成视频 |
+| GenerateRoleAvatar | [GenerateRoleAvatarRequest](#rankquantity-voyager-api-GenerateRoleAvatarRequest) | [GenerateRoleAvatarResponse](#rankquantity-voyager-api-GenerateRoleAvatarResponse) |  |
+| FetchUserGenTaskStatus | [FetchUserGenTaskStatusRequest](#rankquantity-voyager-api-FetchUserGenTaskStatusRequest) | [FetchUserGenTaskStatusResponse](#rankquantity-voyager-api-FetchUserGenTaskStatusResponse) |  |
+| GenerateStoryRolePoster | [GenerateStoryRolePosterRequest](#rankquantity-voyager-api-GenerateStoryRolePosterRequest) | [GenerateStoryRolePosterResponse](#rankquantity-voyager-api-GenerateStoryRolePosterResponse) | 生成角色的海报图片 |
+| UpdateStoryRolePoster | [UpdateStoryRolePosterRequest](#rankquantity-voyager-api-UpdateStoryRolePosterRequest) | [UpdateStoryRolePosterResponse](#rankquantity-voyager-api-UpdateStoryRolePosterResponse) | 更新角色的海报图片 |
+| LikeStoryRolePoster | [LikeStoryRolePosterRequest](#rankquantity-voyager-api-LikeStoryRolePosterRequest) | [LikeStoryRolePosterResponse](#rankquantity-voyager-api-LikeStoryRolePosterResponse) |  |
+| UnLikeStoryRolePoster | [UnLikeStoryRolePosterRequest](#rankquantity-voyager-api-UnLikeStoryRolePosterRequest) | [UnLikeStoryRolePosterResponse](#rankquantity-voyager-api-UnLikeStoryRolePosterResponse) |  |
+| GetStoryRolePosterList | [GetStoryRolePosterListRequest](#rankquantity-voyager-api-GetStoryRolePosterListRequest) | [GetStoryRolePosterListResponse](#rankquantity-voyager-api-GetStoryRolePosterListResponse) |  |
+| GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#rankquantity-voyager-api-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#rankquantity-voyager-api-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
 
  
 

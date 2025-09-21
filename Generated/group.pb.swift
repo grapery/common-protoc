@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 小组内创建，但是小组外可见但是不可以fork
@@ -56,7 +56,7 @@ public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_GroupType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_GroupType] = [
     .protect,
     .public,
     .private,
@@ -65,7 +65,7 @@ public enum Common_GroupType: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// 群组成员类型枚举
-public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 未指定的普通成员类型（默认值）
@@ -146,7 +146,7 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_GroupMemberType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_GroupMemberType] = [
     .normalUnspecified,
     .creator,
     .maintainer,
@@ -163,7 +163,7 @@ public enum Common_GroupMemberType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct Common_GroupInfo: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_GroupInfo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -198,7 +198,7 @@ public struct Common_GroupInfo: @unchecked Sendable {
     set {_uniqueStorage()._owner = newValue}
   }
 
-  public var tags: [Common_Tags] {
+  public var tags: [Rankquantity_Voyager_Api_Tags] {
     get {return _storage._tags}
     set {_uniqueStorage()._tags = newValue}
   }
@@ -213,8 +213,8 @@ public struct Common_GroupInfo: @unchecked Sendable {
     set {_uniqueStorage()._status = newValue}
   }
 
-  public var profile: Common_GroupProfileInfo {
-    get {return _storage._profile ?? Common_GroupProfileInfo()}
+  public var profile: Rankquantity_Voyager_Api_GroupProfileInfo {
+    get {return _storage._profile ?? Rankquantity_Voyager_Api_GroupProfileInfo()}
     set {_uniqueStorage()._profile = newValue}
   }
   /// Returns true if `profile` has been explicitly set.
@@ -222,13 +222,13 @@ public struct Common_GroupInfo: @unchecked Sendable {
   /// Clears the value of `profile`. Subsequent reads from it will return its default value.
   public mutating func clearProfile() {_uniqueStorage()._profile = nil}
 
-  public var members: [Common_GroupMemberInfo] {
+  public var members: [Rankquantity_Voyager_Api_GroupMemberInfo] {
     get {return _storage._members}
     set {_uniqueStorage()._members = newValue}
   }
 
-  public var currentUserStatus: Common_WhatCurrentUserStatus {
-    get {return _storage._currentUserStatus ?? Common_WhatCurrentUserStatus()}
+  public var currentUserStatus: Rankquantity_Voyager_Api_WhatCurrentUserStatus {
+    get {return _storage._currentUserStatus ?? Rankquantity_Voyager_Api_WhatCurrentUserStatus()}
     set {_uniqueStorage()._currentUserStatus = newValue}
   }
   /// Returns true if `currentUserStatus` has been explicitly set.
@@ -253,7 +253,7 @@ public struct Common_GroupInfo: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_GroupMemberInfo: Sendable {
+public struct Rankquantity_Voyager_Api_GroupMemberInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -266,14 +266,14 @@ public struct Common_GroupMemberInfo: Sendable {
 
   public var desc: String = String()
 
-  public var memberType: Common_GroupMemberType = .normalUnspecified
+  public var memberType: Rankquantity_Voyager_Api_GroupMemberType = .normalUnspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_GroupProfileInfo: Sendable {
+public struct Rankquantity_Voyager_Api_GroupProfileInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -301,17 +301,17 @@ public struct Common_GroupProfileInfo: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_GroupType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTECT\0\u{1}PUBLIC\0\u{1}PRIVATE\0")
 }
 
-extension Common_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupMemberType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED\0\u{1}GROUP_MEMBER_TYPE_CREATOR\0\u{1}GROUP_MEMBER_TYPE_MAINTAINER\0\u{1}GROUP_MEMBER_TYPE_CONTRIBUTOR\0\u{1}GROUP_MEMBER_TYPE_MEMBER\0\u{1}GROUP_MEMBER_TYPE_BANNED\0\u{1}GROUP_MEMBER_TYPE_INVITED\0\u{1}GROUP_MEMBER_TYPE_REJECTED\0\u{1}GROUP_MEMBER_TYPE_PENDING\0\u{1}GROUP_MEMBER_TYPE_LEAVE\0\u{1}GROUP_MEMBER_TYPE_KICKED\0\u{1}GROUP_MEMBER_TYPE_DELETED\0")
 }
 
-extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{1}name\0\u{1}avatar\0\u{1}desc\0\u{1}creator\0\u{1}owner\0\u{1}tags\0\u{1}location\0\u{1}status\0\u{1}profile\0\u{1}members\0\u{3}current_user_status\0\u{2}\u{7}Ctime\0\u{1}Mtime\0")
 
@@ -322,12 +322,12 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     var _desc: String = String()
     var _creator: Int64 = 0
     var _owner: Int64 = 0
-    var _tags: [Common_Tags] = []
+    var _tags: [Rankquantity_Voyager_Api_Tags] = []
     var _location: String = String()
     var _status: Int32 = 0
-    var _profile: Common_GroupProfileInfo? = nil
-    var _members: [Common_GroupMemberInfo] = []
-    var _currentUserStatus: Common_WhatCurrentUserStatus? = nil
+    var _profile: Rankquantity_Voyager_Api_GroupProfileInfo? = nil
+    var _members: [Rankquantity_Voyager_Api_GroupMemberInfo] = []
+    var _currentUserStatus: Rankquantity_Voyager_Api_WhatCurrentUserStatus? = nil
     var _ctime: Int64 = 0
     var _mtime: Int64 = 0
 
@@ -444,7 +444,7 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GroupInfo, rhs: Common_GroupInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GroupInfo, rhs: Rankquantity_Voyager_Api_GroupInfo) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -472,7 +472,7 @@ extension Common_GroupInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupMemberInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}name\0\u{1}avatar\0\u{1}desc\0\u{3}member_type\0")
 
@@ -511,7 +511,7 @@ extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GroupMemberInfo, rhs: Common_GroupMemberInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GroupMemberInfo, rhs: Rankquantity_Voyager_Api_GroupMemberInfo) -> Bool {
     if lhs.userID != rhs.userID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.avatar != rhs.avatar {return false}
@@ -522,7 +522,7 @@ extension Common_GroupMemberInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupProfileInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}group_id\0\u{3}group_member_num\0\u{3}group_follower_num\0\u{3}group_story_num\0\u{2}\u{4}description\0\u{3}backgroud_url\0\u{2}\u{a}Ctime\0\u{1}Mtime\0")
 
@@ -573,7 +573,7 @@ extension Common_GroupProfileInfo: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GroupProfileInfo, rhs: Common_GroupProfileInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GroupProfileInfo, rhs: Rankquantity_Voyager_Api_GroupProfileInfo) -> Bool {
     if lhs.groupID != rhs.groupID {return false}
     if lhs.groupMemberNum != rhs.groupMemberNum {return false}
     if lhs.groupFollowerNum != rhs.groupFollowerNum {return false}

@@ -23,7 +23,7 @@ const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// StreamMessageServiceName is the fully-qualified name of the StreamMessageService service.
-	StreamMessageServiceName = "common.StreamMessageService"
+	StreamMessageServiceName = "rankquantity.voyager.api.StreamMessageService"
 )
 
 // These constants are the fully-qualified names of the RPCs defined in this package. They're
@@ -36,18 +36,20 @@ const (
 const (
 	// StreamMessageServiceStreamChatMessageProcedure is the fully-qualified name of the
 	// StreamMessageService's StreamChatMessage RPC.
-	StreamMessageServiceStreamChatMessageProcedure = "/common.StreamMessageService/StreamChatMessage"
+	StreamMessageServiceStreamChatMessageProcedure = "/rankquantity.voyager.api.StreamMessageService/StreamChatMessage"
 )
 
-// StreamMessageServiceClient is a client for the common.StreamMessageService service.
+// StreamMessageServiceClient is a client for the rankquantity.voyager.api.StreamMessageService
+// service.
 type StreamMessageServiceClient interface {
 	StreamChatMessage(context.Context) *connect_go.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
-// NewStreamMessageServiceClient constructs a client for the common.StreamMessageService service. By
-// default, it uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses,
-// and sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the
-// connect.WithGRPC() or connect.WithGRPCWeb() options.
+// NewStreamMessageServiceClient constructs a client for the
+// rankquantity.voyager.api.StreamMessageService service. By default, it uses the Connect protocol
+// with the binary Protobuf Codec, asks for gzipped responses, and sends uncompressed requests. To
+// use the gRPC or gRPC-Web protocols, supply the connect.WithGRPC() or connect.WithGRPCWeb()
+// options.
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
@@ -67,12 +69,13 @@ type streamMessageServiceClient struct {
 	streamChatMessage *connect_go.Client[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]
 }
 
-// StreamChatMessage calls common.StreamMessageService.StreamChatMessage.
+// StreamChatMessage calls rankquantity.voyager.api.StreamMessageService.StreamChatMessage.
 func (c *streamMessageServiceClient) StreamChatMessage(ctx context.Context) *connect_go.BidiStreamForClient[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse] {
 	return c.streamChatMessage.CallBidiStream(ctx)
 }
 
-// StreamMessageServiceHandler is an implementation of the common.StreamMessageService service.
+// StreamMessageServiceHandler is an implementation of the
+// rankquantity.voyager.api.StreamMessageService service.
 type StreamMessageServiceHandler interface {
 	StreamChatMessage(context.Context, *connect_go.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error
 }
@@ -88,7 +91,7 @@ func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...con
 		svc.StreamChatMessage,
 		opts...,
 	)
-	return "/common.StreamMessageService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	return "/rankquantity.voyager.api.StreamMessageService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case StreamMessageServiceStreamChatMessageProcedure:
 			streamMessageServiceStreamChatMessageHandler.ServeHTTP(w, r)
@@ -102,5 +105,5 @@ func NewStreamMessageServiceHandler(svc StreamMessageServiceHandler, opts ...con
 type UnimplementedStreamMessageServiceHandler struct{}
 
 func (UnimplementedStreamMessageServiceHandler) StreamChatMessage(context.Context, *connect_go.BidiStream[gen.StreamChatMessageRequest, gen.StreamChatMessageResponse]) error {
-	return connect_go.NewError(connect_go.CodeUnimplemented, errors.New("common.StreamMessageService.StreamChatMessage is not implemented"))
+	return connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.StreamMessageService.StreamChatMessage is not implemented"))
 }

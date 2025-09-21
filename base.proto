@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package common;
+package rankquantity.voyager.api;
 import "google/protobuf/timestamp.proto";
 
 enum LikeType {

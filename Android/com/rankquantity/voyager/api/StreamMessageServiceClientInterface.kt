@@ -2,7 +2,7 @@
 //
 // Source: message.proto
 //
-package com.common
+package com.rankquantity.voyager.api
 
 import com.connectrpc.BidirectionalStreamInterface
 import com.connectrpc.Headers

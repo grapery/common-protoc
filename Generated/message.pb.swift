@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum Common_MsgType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_MsgType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case text // = 0
   case image // = 1
@@ -56,7 +56,7 @@ public enum Common_MsgType: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_MsgType] = [
+  public static let allCases: [Rankquantity_Voyager_Api_MsgType] = [
     .text,
     .image,
     .video,
@@ -66,7 +66,7 @@ public enum Common_MsgType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct Common_ChatMessage: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ChatMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -106,8 +106,8 @@ public struct Common_ChatMessage: @unchecked Sendable {
     set {_uniqueStorage()._timestamp = newValue}
   }
 
-  public var user: Common_UserInfo {
-    get {return _storage._user ?? Common_UserInfo()}
+  public var user: Rankquantity_Voyager_Api_UserInfo {
+    get {return _storage._user ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._user = newValue}
   }
   /// Returns true if `user` has been explicitly set.
@@ -115,8 +115,8 @@ public struct Common_ChatMessage: @unchecked Sendable {
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
   public mutating func clearUser() {_uniqueStorage()._user = nil}
 
-  public var role: Common_StoryRole {
-    get {return _storage._role ?? Common_StoryRole()}
+  public var role: Rankquantity_Voyager_Api_StoryRole {
+    get {return _storage._role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_uniqueStorage()._role = newValue}
   }
   /// Returns true if `role` has been explicitly set.
@@ -136,7 +136,7 @@ public struct Common_ChatMessage: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct Common_StreamChatMessage: Sendable {
+public struct Rankquantity_Voyager_Api_StreamChatMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -145,20 +145,20 @@ public struct Common_StreamChatMessage: Sendable {
 
   public var userID: Int64 = 0
 
-  public var messages: [Common_ChatMessage] = []
+  public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct Common_StreamChatMessageRequest: Sendable {
+public struct Rankquantity_Voyager_Api_StreamChatMessageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var message: Common_StreamChatMessage {
-    get {return _message ?? Common_StreamChatMessage()}
+  public var message: Rankquantity_Voyager_Api_StreamChatMessage {
+    get {return _message ?? Rankquantity_Voyager_Api_StreamChatMessage()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
@@ -176,15 +176,15 @@ public struct Common_StreamChatMessageRequest: Sendable {
 
   public init() {}
 
-  fileprivate var _message: Common_StreamChatMessage? = nil
+  fileprivate var _message: Rankquantity_Voyager_Api_StreamChatMessage? = nil
 }
 
-public struct Common_StreamChatMessageResponse: Sendable {
+public struct Rankquantity_Voyager_Api_StreamChatMessageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var code: Common_ResponseCode = .ok
+  public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
   public var message: String = String()
 
@@ -192,7 +192,7 @@ public struct Common_StreamChatMessageResponse: Sendable {
 
   public var requestID: String = String()
 
-  public var replyMessages: [Common_StreamChatMessage] = []
+  public var replyMessages: [Rankquantity_Voyager_Api_StreamChatMessage] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -201,13 +201,13 @@ public struct Common_StreamChatMessageResponse: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_MsgType: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_MsgType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEXT\0\u{1}IMAGE\0\u{1}VIDEO\0\u{1}AUDIO\0\u{1}SYSTEM\0")
 }
 
-extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatMessage"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}role_id\0\u{3}user_id\0\u{1}sender\0\u{1}message\0\u{3}chat_id\0\u{1}timestamp\0\u{1}user\0\u{1}role\0\u{1}uuid\0")
 
@@ -219,8 +219,8 @@ extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     var _message: String = String()
     var _chatID: Int64 = 0
     var _timestamp: Int64 = 0
-    var _user: Common_UserInfo? = nil
-    var _role: Common_StoryRole? = nil
+    var _user: Rankquantity_Voyager_Api_UserInfo? = nil
+    var _role: Rankquantity_Voyager_Api_StoryRole? = nil
     var _uuid: String = String()
 
       // This property is used as the initial default value for new instances of the type.
@@ -316,7 +316,7 @@ extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ChatMessage, rhs: Common_ChatMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ChatMessage, rhs: Rankquantity_Voyager_Api_ChatMessage) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -340,7 +340,7 @@ extension Common_ChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessage"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}role_id\0\u{3}user_id\0\u{1}messages\0")
 
@@ -371,7 +371,7 @@ extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StreamChatMessage, rhs: Common_StreamChatMessage) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StreamChatMessage, rhs: Rankquantity_Voyager_Api_StreamChatMessage) -> Bool {
     if lhs.roleID != rhs.roleID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.messages != rhs.messages {return false}
@@ -380,7 +380,7 @@ extension Common_StreamChatMessage: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}message\0\u{1}timestamp\0\u{3}request_id\0\u{1}token\0")
 
@@ -419,7 +419,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StreamChatMessageRequest, rhs: Common_StreamChatMessageRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StreamChatMessageRequest, rhs: Rankquantity_Voyager_Api_StreamChatMessageRequest) -> Bool {
     if lhs._message != rhs._message {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.requestID != rhs.requestID {return false}
@@ -429,7 +429,7 @@ extension Common_StreamChatMessageRequest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StreamChatMessageResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}timestamp\0\u{3}request_id\0\u{3}reply_messages\0")
 
@@ -468,7 +468,7 @@ extension Common_StreamChatMessageResponse: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StreamChatMessageResponse, rhs: Common_StreamChatMessageResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StreamChatMessageResponse, rhs: Rankquantity_Voyager_Api_StreamChatMessageResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs.timestamp != rhs.timestamp {return false}

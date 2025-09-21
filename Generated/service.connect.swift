@@ -10,1107 +10,1107 @@ import Foundation
 import SwiftProtobuf
 
 /// TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
-public protocol Common_TeamsApiClientInterface: Sendable {
+public protocol Rankquantity_Voyager_Api_TeamsApiClientInterface: Sendable {
 
     /// Explore returns trending and recommended content for users to discover
     @discardableResult
-    func `explore`(request: Common_ExploreRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ExploreResponse>) -> Void) -> Connect.Cancelable
+    func `explore`(request: Rankquantity_Voyager_Api_ExploreRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ExploreResponse>) -> Void) -> Connect.Cancelable
 
     /// Explore returns trending and recommended content for users to discover
     @available(iOS 13, *)
-    func `explore`(request: Common_ExploreRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ExploreResponse>
+    func `explore`(request: Rankquantity_Voyager_Api_ExploreRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ExploreResponse>
 
     /// Version returns the current API version and build information
     @discardableResult
-    func `version`(request: Common_VersionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_VersionResponse>) -> Void) -> Connect.Cancelable
+    func `version`(request: Rankquantity_Voyager_Api_VersionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_VersionResponse>) -> Void) -> Connect.Cancelable
 
     /// Version returns the current API version and build information
     @available(iOS 13, *)
-    func `version`(request: Common_VersionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_VersionResponse>
+    func `version`(request: Rankquantity_Voyager_Api_VersionRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_VersionResponse>
 
     /// About returns information about the service
     @discardableResult
-    func `about`(request: Common_AboutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_AboutResponse>) -> Void) -> Connect.Cancelable
+    func `about`(request: Rankquantity_Voyager_Api_AboutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_AboutResponse>) -> Void) -> Connect.Cancelable
 
     /// About returns information about the service
     @available(iOS 13, *)
-    func `about`(request: Common_AboutRequest, headers: Connect.Headers) async -> ResponseMessage<Common_AboutResponse>
+    func `about`(request: Rankquantity_Voyager_Api_AboutRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_AboutResponse>
 
     /// Login authenticates a user and returns a session token
     @discardableResult
-    func `login`(request: Common_LoginRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LoginResponse>) -> Void) -> Connect.Cancelable
+    func `login`(request: Rankquantity_Voyager_Api_LoginRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LoginResponse>) -> Void) -> Connect.Cancelable
 
     /// Login authenticates a user and returns a session token
     @available(iOS 13, *)
-    func `login`(request: Common_LoginRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LoginResponse>
+    func `login`(request: Rankquantity_Voyager_Api_LoginRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LoginResponse>
 
     /// Logout invalidates the user's current session token
     @discardableResult
-    func `logout`(request: Common_LogoutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LogoutResponse>) -> Void) -> Connect.Cancelable
+    func `logout`(request: Rankquantity_Voyager_Api_LogoutRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LogoutResponse>) -> Void) -> Connect.Cancelable
 
     /// Logout invalidates the user's current session token
     @available(iOS 13, *)
-    func `logout`(request: Common_LogoutRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LogoutResponse>
+    func `logout`(request: Rankquantity_Voyager_Api_LogoutRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LogoutResponse>
 
     /// RefreshToken generates a new session token using the current valid token
     @discardableResult
-    func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RefreshTokenResponse>) -> Void) -> Connect.Cancelable
+    func `refreshToken`(request: Rankquantity_Voyager_Api_RefreshTokenRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RefreshTokenResponse>) -> Void) -> Connect.Cancelable
 
     /// RefreshToken generates a new session token using the current valid token
     @available(iOS 13, *)
-    func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RefreshTokenResponse>
+    func `refreshToken`(request: Rankquantity_Voyager_Api_RefreshTokenRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RefreshTokenResponse>
 
     /// Register creates a new user account
     @discardableResult
-    func `register`(request: Common_RegisterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RegisterResponse>) -> Void) -> Connect.Cancelable
+    func `register`(request: Rankquantity_Voyager_Api_RegisterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RegisterResponse>) -> Void) -> Connect.Cancelable
 
     /// Register creates a new user account
     @available(iOS 13, *)
-    func `register`(request: Common_RegisterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RegisterResponse>
+    func `register`(request: Rankquantity_Voyager_Api_RegisterRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RegisterResponse>
 
     /// ResetPwd allows users to reset their password
     @discardableResult
-    func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ResetPasswordResponse>) -> Void) -> Connect.Cancelable
+    func `resetPwd`(request: Rankquantity_Voyager_Api_ResetPasswordRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ResetPasswordResponse>) -> Void) -> Connect.Cancelable
 
     /// ResetPwd allows users to reset their password
     @available(iOS 13, *)
-    func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ResetPasswordResponse>
+    func `resetPwd`(request: Rankquantity_Voyager_Api_ResetPasswordRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ResetPasswordResponse>
 
     /// UserInit performs initial setup for a new user
     @discardableResult
-    func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserInitResponse>) -> Void) -> Connect.Cancelable
+    func `userInit`(request: Rankquantity_Voyager_Api_UserInitRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserInitResponse>) -> Void) -> Connect.Cancelable
 
     /// UserInit performs initial setup for a new user
     @available(iOS 13, *)
-    func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserInitResponse>
+    func `userInit`(request: Rankquantity_Voyager_Api_UserInitRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserInitResponse>
 
     /// UserInfo retrieves detailed information about a user
     @discardableResult
-    func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserInfoResponse>) -> Void) -> Connect.Cancelable
+    func `userInfo`(request: Rankquantity_Voyager_Api_UserInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserInfoResponse>) -> Void) -> Connect.Cancelable
 
     /// UserInfo retrieves detailed information about a user
     @available(iOS 13, *)
-    func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserInfoResponse>
+    func `userInfo`(request: Rankquantity_Voyager_Api_UserInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserInfoResponse>
 
     /// UpdateUserAvator updates the user's profile picture
     @discardableResult
-    func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserAvatorResponse>) -> Void) -> Connect.Cancelable
+    func `updateUserAvator`(request: Rankquantity_Voyager_Api_UpdateUserAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserAvatorResponse>) -> Void) -> Connect.Cancelable
 
     /// UpdateUserAvator updates the user's profile picture
     @available(iOS 13, *)
-    func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserAvatorResponse>
+    func `updateUserAvator`(request: Rankquantity_Voyager_Api_UpdateUserAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserAvatorResponse>
 
     /// UserWatching returns a list of projects the user is following
     @discardableResult
-    func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserWatchingResponse>) -> Void) -> Connect.Cancelable
+    func `userWatching`(request: Rankquantity_Voyager_Api_UserWatchingRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserWatchingResponse>) -> Void) -> Connect.Cancelable
 
     /// UserWatching returns a list of projects the user is following
     @available(iOS 13, *)
-    func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserWatchingResponse>
+    func `userWatching`(request: Rankquantity_Voyager_Api_UserWatchingRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserWatchingResponse>
 
     /// UserGroup returns a list of groups the user belongs to
     @discardableResult
-    func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserGroupResponse>) -> Void) -> Connect.Cancelable
+    func `userGroup`(request: Rankquantity_Voyager_Api_UserGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// UserGroup returns a list of groups the user belongs to
     @available(iOS 13, *)
-    func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserGroupResponse>
+    func `userGroup`(request: Rankquantity_Voyager_Api_UserGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserGroupResponse>
 
     /// UserFollowingGroup returns a list of groups the user is following
     @discardableResult
-    func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserFollowingGroupResponse>) -> Void) -> Connect.Cancelable
+    func `userFollowingGroup`(request: Rankquantity_Voyager_Api_UserFollowingGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserFollowingGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// UserFollowingGroup returns a list of groups the user is following
     @available(iOS 13, *)
-    func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserFollowingGroupResponse>
+    func `userFollowingGroup`(request: Rankquantity_Voyager_Api_UserFollowingGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserFollowingGroupResponse>
 
     /// UserUpdate updates the user's profile information
     @discardableResult
-    func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UserUpdateResponse>) -> Void) -> Connect.Cancelable
+    func `userUpdate`(request: Rankquantity_Voyager_Api_UserUpdateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserUpdateResponse>) -> Void) -> Connect.Cancelable
 
     /// UserUpdate updates the user's profile information
     @available(iOS 13, *)
-    func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UserUpdateResponse>
+    func `userUpdate`(request: Rankquantity_Voyager_Api_UserUpdateRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserUpdateResponse>
 
     /// SearchUser searches for users based on specified criteria
     @discardableResult
-    func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchUserResponse>) -> Void) -> Connect.Cancelable
+    func `searchUser`(request: Rankquantity_Voyager_Api_SearchUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchUserResponse>) -> Void) -> Connect.Cancelable
 
     /// SearchUser searches for users based on specified criteria
     @available(iOS 13, *)
-    func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchUserResponse>
+    func `searchUser`(request: Rankquantity_Voyager_Api_SearchUserRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchUserResponse>
 
     /// CreateGroup creates a new group
     @discardableResult
-    func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable
+    func `createGroup`(request: Rankquantity_Voyager_Api_CreateGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// CreateGroup creates a new group
     @available(iOS 13, *)
-    func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateGroupResponse>
+    func `createGroup`(request: Rankquantity_Voyager_Api_CreateGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateGroupResponse>
 
     /// GetGroup retrieves information about a specific group
     @discardableResult
-    func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable
+    func `getGroup`(request: Rankquantity_Voyager_Api_GetGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// GetGroup retrieves information about a specific group
     @available(iOS 13, *)
-    func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupResponse>
+    func `getGroup`(request: Rankquantity_Voyager_Api_GetGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupResponse>
 
     /// GetGroupActives returns recent activities within a group
     @discardableResult
-    func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupActivesResponse>) -> Void) -> Connect.Cancelable
+    func `getGroupActives`(request: Rankquantity_Voyager_Api_GetGroupActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupActivesResponse>) -> Void) -> Connect.Cancelable
 
     /// GetGroupActives returns recent activities within a group
     @available(iOS 13, *)
-    func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupActivesResponse>
+    func `getGroupActives`(request: Rankquantity_Voyager_Api_GetGroupActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupActivesResponse>
 
     /// UpdateGroupInfo updates the group's information
     @discardableResult
-    func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupInfoResponse>) -> Void) -> Connect.Cancelable
+    func `updateGroupInfo`(request: Rankquantity_Voyager_Api_UpdateGroupInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupInfoResponse>) -> Void) -> Connect.Cancelable
 
     /// UpdateGroupInfo updates the group's information
     @available(iOS 13, *)
-    func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupInfoResponse>
+    func `updateGroupInfo`(request: Rankquantity_Voyager_Api_UpdateGroupInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupInfoResponse>
 
     /// GetGroupProfile retrieves the group's profile information
     @discardableResult
-    func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable
+    func `getGroupProfile`(request: Rankquantity_Voyager_Api_GetGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable
 
     /// GetGroupProfile retrieves the group's profile information
     @available(iOS 13, *)
-    func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetGroupProfileResponse>
+    func `getGroupProfile`(request: Rankquantity_Voyager_Api_GetGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupProfileResponse>
 
     /// UpdateGroupProfile updates the group's profile information
     @discardableResult
-    func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable
+    func `updateGroupProfile`(request: Rankquantity_Voyager_Api_UpdateGroupProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable
 
     /// UpdateGroupProfile updates the group's profile information
     @available(iOS 13, *)
-    func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateGroupProfileResponse>
+    func `updateGroupProfile`(request: Rankquantity_Voyager_Api_UpdateGroupProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupProfileResponse>
 
     /// DeleteGroup removes a group
     @discardableResult
-    func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteGroupResponse>) -> Void) -> Connect.Cancelable
+    func `deleteGroup`(request: Rankquantity_Voyager_Api_DeleteGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// DeleteGroup removes a group
     @available(iOS 13, *)
-    func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteGroupResponse>
+    func `deleteGroup`(request: Rankquantity_Voyager_Api_DeleteGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteGroupResponse>
 
     /// FetchGroupMembers retrieves the list of members in a group
     @discardableResult
-    func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupMembersResponse>) -> Void) -> Connect.Cancelable
+    func `fetchGroupMembers`(request: Rankquantity_Voyager_Api_FetchGroupMembersRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchGroupMembersResponse>) -> Void) -> Connect.Cancelable
 
     /// FetchGroupMembers retrieves the list of members in a group
     @available(iOS 13, *)
-    func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupMembersResponse>
+    func `fetchGroupMembers`(request: Rankquantity_Voyager_Api_FetchGroupMembersRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchGroupMembersResponse>
 
     /// JoinGroup adds a user to a group
     @discardableResult
-    func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_JoinGroupResponse>) -> Void) -> Connect.Cancelable
+    func `joinGroup`(request: Rankquantity_Voyager_Api_JoinGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_JoinGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// JoinGroup adds a user to a group
     @available(iOS 13, *)
-    func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_JoinGroupResponse>
+    func `joinGroup`(request: Rankquantity_Voyager_Api_JoinGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_JoinGroupResponse>
 
     /// LeaveGroup removes a user from a group
     @discardableResult
-    func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LeaveGroupResponse>) -> Void) -> Connect.Cancelable
+    func `leaveGroup`(request: Rankquantity_Voyager_Api_LeaveGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LeaveGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// LeaveGroup removes a user from a group
     @available(iOS 13, *)
-    func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LeaveGroupResponse>
+    func `leaveGroup`(request: Rankquantity_Voyager_Api_LeaveGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LeaveGroupResponse>
 
     /// 创建故事
     @discardableResult
-    func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable
+    func `createStory`(request: Rankquantity_Voyager_Api_CreateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事
     @available(iOS 13, *)
-    func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryResponse>
+    func `createStory`(request: Rankquantity_Voyager_Api_CreateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryResponse>
 
     /// 获取故事信息
     @discardableResult
-    func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryInfo`(request: Rankquantity_Voyager_Api_GetStoryInfoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事信息
     @available(iOS 13, *)
-    func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryInfoResponse>
+    func `getStoryInfo`(request: Rankquantity_Voyager_Api_GetStoryInfoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryInfoResponse>
 
     /// 渲染故事
     @discardableResult
-    func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryResponse>) -> Void) -> Connect.Cancelable
+    func `renderStory`(request: Rankquantity_Voyager_Api_RenderStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事
     @available(iOS 13, *)
-    func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryResponse>
+    func `renderStory`(request: Rankquantity_Voyager_Api_RenderStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryResponse>
 
     /// 更新故事
     @discardableResult
-    func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable
+    func `updateStory`(request: Rankquantity_Voyager_Api_UpdateStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事
     @available(iOS 13, *)
-    func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryResponse>
+    func `updateStory`(request: Rankquantity_Voyager_Api_UpdateStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryResponse>
 
     /// 关注故事
     @discardableResult
-    func `watchStory`(request: Common_WatchStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_WatchStoryResponse>) -> Void) -> Connect.Cancelable
+    func `watchStory`(request: Rankquantity_Voyager_Api_WatchStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_WatchStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 关注故事
     @available(iOS 13, *)
-    func `watchStory`(request: Common_WatchStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_WatchStoryResponse>
+    func `watchStory`(request: Rankquantity_Voyager_Api_WatchStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_WatchStoryResponse>
 
     /// 收藏故事
     @discardableResult
-    func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable
+    func `archiveStory`(request: Rankquantity_Voyager_Api_ArchiveStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 收藏故事
     @available(iOS 13, *)
-    func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ArchiveStoryResponse>
+    func `archiveStory`(request: Rankquantity_Voyager_Api_ArchiveStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ArchiveStoryResponse>
 
     /// 创建故事板
     @discardableResult
-    func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryboard`(request: Rankquantity_Voyager_Api_CreateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事板
     @available(iOS 13, *)
-    func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryboardResponse>
+    func `createStoryboard`(request: Rankquantity_Voyager_Api_CreateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryboardResponse>
 
     /// 获取故事板
     @discardableResult
-    func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryboard`(request: Rankquantity_Voyager_Api_GetStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板
     @available(iOS 13, *)
-    func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardResponse>
+    func `getStoryboard`(request: Rankquantity_Voyager_Api_GetStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardResponse>
 
     /// 渲染故事板
     @discardableResult
-    func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryboard`(request: Rankquantity_Voyager_Api_RenderStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事板
     @available(iOS 13, *)
-    func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryboardResponse>
+    func `renderStoryboard`(request: Rankquantity_Voyager_Api_RenderStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryboardResponse>
 
     /// 生成故事板文本
     @discardableResult
-    func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable
+    func `genStoryboardText`(request: Rankquantity_Voyager_Api_GenStoryboardTextRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable
 
     /// 生成故事板文本
     @available(iOS 13, *)
-    func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenStoryboardTextResponse>
+    func `genStoryboardText`(request: Rankquantity_Voyager_Api_GenStoryboardTextRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardTextResponse>
 
     /// 生成故事板图片
     @discardableResult
-    func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable
+    func `genStoryboardImages`(request: Rankquantity_Voyager_Api_GenStoryboardImagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable
 
     /// 生成故事板图片
     @available(iOS 13, *)
-    func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenStoryboardImagesResponse>
+    func `genStoryboardImages`(request: Rankquantity_Voyager_Api_GenStoryboardImagesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardImagesResponse>
 
     /// 获取故事板
     @discardableResult
-    func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryboards`(request: Rankquantity_Voyager_Api_GetStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板
     @available(iOS 13, *)
-    func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryboardsResponse>
+    func `getStoryboards`(request: Rankquantity_Voyager_Api_GetStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardsResponse>
 
     /// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
     @discardableResult
-    func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `delStoryboard`(request: Rankquantity_Voyager_Api_DelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DelStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
     @available(iOS 13, *)
-    func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DelStoryboardResponse>
+    func `delStoryboard`(request: Rankquantity_Voyager_Api_DelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DelStoryboardResponse>
 
     /// 复制故事板
     @discardableResult
-    func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `forkStoryboard`(request: Rankquantity_Voyager_Api_ForkStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 复制故事板
     @available(iOS 13, *)
-    func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ForkStoryboardResponse>
+    func `forkStoryboard`(request: Rankquantity_Voyager_Api_ForkStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ForkStoryboardResponse>
 
     /// 更新故事板
     @discardableResult
-    func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryboard`(request: Rankquantity_Voyager_Api_UpdateStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事板
     @available(iOS 13, *)
-    func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryboardResponse>
+    func `updateStoryboard`(request: Rankquantity_Voyager_Api_UpdateStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardResponse>
 
     /// 喜欢故事板
     @discardableResult
-    func `likeStoryboard`(request: Common_LikeStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `likeStoryboard`(request: Rankquantity_Voyager_Api_LikeStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 喜欢故事板
     @available(iOS 13, *)
-    func `likeStoryboard`(request: Common_LikeStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeStoryboardResponse>
+    func `likeStoryboard`(request: Rankquantity_Voyager_Api_LikeStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryboardResponse>
 
     /// 取消喜欢故事板
     @discardableResult
-    func `unLikeStoryboard`(request: Common_UnLikeStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `unLikeStoryboard`(request: Rankquantity_Voyager_Api_UnLikeStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消喜欢故事板
     @available(iOS 13, *)
-    func `unLikeStoryboard`(request: Common_UnLikeStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnLikeStoryboardResponse>
+    func `unLikeStoryboard`(request: Rankquantity_Voyager_Api_UnLikeStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryboardResponse>
 
     /// 分享故事板
     @discardableResult
-    func `shareStoryboard`(request: Common_ShareStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ShareStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `shareStoryboard`(request: Rankquantity_Voyager_Api_ShareStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ShareStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 分享故事板
     @available(iOS 13, *)
-    func `shareStoryboard`(request: Common_ShareStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ShareStoryboardResponse>
+    func `shareStoryboard`(request: Rankquantity_Voyager_Api_ShareStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ShareStoryboardResponse>
 
     /// 获取组织故事
     @discardableResult
-    func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable
+    func `fetchGroupStorys`(request: Rankquantity_Voyager_Api_FetchGroupStorysRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取组织故事
     @available(iOS 13, *)
-    func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchGroupStorysResponse>
+    func `fetchGroupStorys`(request: Rankquantity_Voyager_Api_FetchGroupStorysRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchGroupStorysResponse>
 
     /// 用来上传文件的proto 接口
     @discardableResult
-    func `uploadImageFile`(request: Common_UploadImageRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UploadImageResponse>) -> Void) -> Connect.Cancelable
+    func `uploadImageFile`(request: Rankquantity_Voyager_Api_UploadImageRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UploadImageResponse>) -> Void) -> Connect.Cancelable
 
     /// 用来上传文件的proto 接口
     @available(iOS 13, *)
-    func `uploadImageFile`(request: Common_UploadImageRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UploadImageResponse>
+    func `uploadImageFile`(request: Rankquantity_Voyager_Api_UploadImageRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UploadImageResponse>
 
     /// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
     @discardableResult
-    func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRender`(request: Rankquantity_Voyager_Api_GetStoryRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable
 
     /// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
     @available(iOS 13, *)
-    func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRenderResponse>
+    func `getStoryRender`(request: Rankquantity_Voyager_Api_GetStoryRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRenderResponse>
 
     /// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
     @discardableResult
-    func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardRender`(request: Rankquantity_Voyager_Api_GetStoryBoardRenderRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable
 
     /// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
     @available(iOS 13, *)
-    func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardRenderResponse>
+    func `getStoryBoardRender`(request: Rankquantity_Voyager_Api_GetStoryBoardRenderRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRenderResponse>
 
     /// 获取故事的贡献者
     @discardableResult
-    func `getStoryContributors`(request: Common_GetStoryContributorsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryContributorsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryContributors`(request: Rankquantity_Voyager_Api_GetStoryContributorsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryContributorsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事的贡献者
     @available(iOS 13, *)
-    func `getStoryContributors`(request: Common_GetStoryContributorsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryContributorsResponse>
+    func `getStoryContributors`(request: Rankquantity_Voyager_Api_GetStoryContributorsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryContributorsResponse>
 
     /// 继续渲染故事
     @discardableResult
-    func `continueRenderStory`(request: Common_ContinueRenderStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ContinueRenderStoryResponse>) -> Void) -> Connect.Cancelable
+    func `continueRenderStory`(request: Rankquantity_Voyager_Api_ContinueRenderStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ContinueRenderStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 继续渲染故事
     @available(iOS 13, *)
-    func `continueRenderStory`(request: Common_ContinueRenderStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ContinueRenderStoryResponse>
+    func `continueRenderStory`(request: Rankquantity_Voyager_Api_ContinueRenderStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ContinueRenderStoryResponse>
 
     /// 渲���故事角色
     @discardableResult
-    func `renderStoryRoles`(request: Common_RenderStoryRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRolesResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryRoles`(request: Rankquantity_Voyager_Api_RenderStoryRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲���故事角色
     @available(iOS 13, *)
-    func `renderStoryRoles`(request: Common_RenderStoryRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRolesResponse>
+    func `renderStoryRoles`(request: Rankquantity_Voyager_Api_RenderStoryRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRolesResponse>
 
     /// 更新 story role
     @discardableResult
-    func `updateStoryRole`(request: Common_UpdateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRole`(request: Rankquantity_Voyager_Api_UpdateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新 story role
     @available(iOS 13, *)
-    func `updateStoryRole`(request: Common_UpdateStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleResponse>
+    func `updateStoryRole`(request: Rankquantity_Voyager_Api_UpdateStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleResponse>
 
     /// 渲染故事角色详情
     @discardableResult
-    func `renderStoryRoleDetail`(request: Common_RenderStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryRoleDetail`(request: Rankquantity_Voyager_Api_RenderStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事角色详情
     @available(iOS 13, *)
-    func `renderStoryRoleDetail`(request: Common_RenderStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleDetailResponse>
+    func `renderStoryRoleDetail`(request: Rankquantity_Voyager_Api_RenderStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleDetailResponse>
 
     /// 获取 story roles 的列表
     @discardableResult
-    func `getStoryRoles`(request: Common_GetStoryRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRolesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRoles`(request: Rankquantity_Voyager_Api_GetStoryRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取 story roles 的列表
     @available(iOS 13, *)
-    func `getStoryRoles`(request: Common_GetStoryRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRolesResponse>
+    func `getStoryRoles`(request: Rankquantity_Voyager_Api_GetStoryRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolesResponse>
 
     /// 获取 story board roles 的列表
     @discardableResult
-    func `getStoryBoardRoles`(request: Common_GetStoryBoardRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRolesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardRoles`(request: Rankquantity_Voyager_Api_GetStoryBoardRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取 story board roles 的列表
     @available(iOS 13, *)
-    func `getStoryBoardRoles`(request: Common_GetStoryBoardRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardRolesResponse>
+    func `getStoryBoardRoles`(request: Rankquantity_Voyager_Api_GetStoryBoardRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRolesResponse>
 
     /// 获取用户的 profile
     @discardableResult
-    func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserProfileResponse>) -> Void) -> Connect.Cancelable
+    func `getUserProfile`(request: Rankquantity_Voyager_Api_GetUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserProfileResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户的 profile
     @available(iOS 13, *)
-    func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserProfileResponse>
+    func `getUserProfile`(request: Rankquantity_Voyager_Api_GetUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserProfileResponse>
 
     /// 更新用户的 profile
     @discardableResult
-    func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable
+    func `updateUserProfile`(request: Rankquantity_Voyager_Api_UpdateUserProfileRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新用户的 profile
     @available(iOS 13, *)
-    func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserProfileResponse>
+    func `updateUserProfile`(request: Rankquantity_Voyager_Api_UpdateUserProfileRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserProfileResponse>
 
     /// 更新用户的背景图片
     @discardableResult
-    func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable
+    func `updateUserBackgroundImage`(request: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新用户的背景图片
     @available(iOS 13, *)
-    func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateUserBackgroundImageResponse>
+    func `updateUserBackgroundImage`(request: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse>
 
     /// 创建新的故事角色
     @discardableResult
-    func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryRole`(request: Rankquantity_Voyager_Api_CreateStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建新的故事角色
     @available(iOS 13, *)
-    func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryRoleResponse>
+    func `createStoryRole`(request: Rankquantity_Voyager_Api_CreateStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleResponse>
 
     /// 获取角色详情
     @discardableResult
-    func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRoleDetail`(request: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取角色详情
     @available(iOS 13, *)
-    func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleDetailResponse>
+    func `getStoryRoleDetail`(request: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleDetailResponse>
 
     /// 生成角色的图片
     @discardableResult
-    func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryRole`(request: Rankquantity_Voyager_Api_RenderStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 生成角色的图片
     @available(iOS 13, *)
-    func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleResponse>
+    func `renderStoryRole`(request: Rankquantity_Voyager_Api_RenderStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleResponse>
 
     /// 喜欢故事
     @discardableResult
-    func `likeStory`(request: Common_LikeStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryResponse>) -> Void) -> Connect.Cancelable
+    func `likeStory`(request: Rankquantity_Voyager_Api_LikeStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 喜欢故事
     @available(iOS 13, *)
-    func `likeStory`(request: Common_LikeStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeStoryResponse>
+    func `likeStory`(request: Rankquantity_Voyager_Api_LikeStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryResponse>
 
     /// 取消喜欢故事
     @discardableResult
-    func `unLikeStory`(request: Common_UnLikeStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryResponse>) -> Void) -> Connect.Cancelable
+    func `unLikeStory`(request: Rankquantity_Voyager_Api_UnLikeStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消喜欢故事
     @available(iOS 13, *)
-    func `unLikeStory`(request: Common_UnLikeStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnLikeStoryResponse>
+    func `unLikeStory`(request: Rankquantity_Voyager_Api_UnLikeStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryResponse>
 
     /// 获取故事板场景
     @discardableResult
-    func `getStoryBoardSences`(request: Common_GetStoryBoardSencesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardSences`(request: Rankquantity_Voyager_Api_GetStoryBoardSencesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板场景
     @available(iOS 13, *)
-    func `getStoryBoardSences`(request: Common_GetStoryBoardSencesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardSencesResponse>
+    func `getStoryBoardSences`(request: Rankquantity_Voyager_Api_GetStoryBoardSencesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSencesResponse>
 
     /// 创建故事板场景
     @discardableResult
-    func `createStoryBoardSence`(request: Common_CreateStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryBoardSence`(request: Rankquantity_Voyager_Api_CreateStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事板场景
     @available(iOS 13, *)
-    func `createStoryBoardSence`(request: Common_CreateStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryBoardSenceResponse>
+    func `createStoryBoardSence`(request: Rankquantity_Voyager_Api_CreateStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardSenceResponse>
 
     /// 更新故事板场景
     @discardableResult
-    func `updateStoryBoardSence`(request: Common_UpdateStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryBoardSence`(request: Rankquantity_Voyager_Api_UpdateStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事板场景
     @available(iOS 13, *)
-    func `updateStoryBoardSence`(request: Common_UpdateStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryBoardSenceResponse>
+    func `updateStoryBoardSence`(request: Rankquantity_Voyager_Api_UpdateStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse>
 
     /// 删除故事板场景
     @discardableResult
-    func `deleteStoryBoardSence`(request: Common_DeleteStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+    func `deleteStoryBoardSence`(request: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
 
     /// 删除故事板场景
     @available(iOS 13, *)
-    func `deleteStoryBoardSence`(request: Common_DeleteStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteStoryBoardSenceResponse>
+    func `deleteStoryBoardSence`(request: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardSenceResponse>
 
     /// 渲染故事板指定场景
     @discardableResult
-    func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryBoardSence`(request: Rankquantity_Voyager_Api_RenderStoryBoardSenceRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事板指定场景
     @available(iOS 13, *)
-    func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse>
+    func `renderStoryBoardSence`(request: Rankquantity_Voyager_Api_RenderStoryBoardSenceRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSenceResponse>
 
     /// 渲染故事板的所有场景
     @discardableResult
-    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryBoardSences`(request: Rankquantity_Voyager_Api_RenderStoryBoardSencesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable
 
     /// 渲染故事板的所有场景
     @available(iOS 13, *)
-    func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryBoardSencesResponse>
+    func `renderStoryBoardSences`(request: Rankquantity_Voyager_Api_RenderStoryBoardSencesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSencesResponse>
 
     /// 获取故事板场景生成状态
     @discardableResult
-    func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardSenceGenerateResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardSenceGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板场景生成状态
     @available(iOS 13, *)
-    func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardSenceGenerateResponse>
+    func `getStoryBoardSenceGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateResponse>
 
     /// 获取故事板生成状态
     @discardableResult
-    func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardGenerateRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板生成状态
     @available(iOS 13, *)
-    func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardGenerateResponse>
+    func `getStoryBoardGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardGenerateRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardGenerateResponse>
 
     /// 点赞故事角色
     @discardableResult
-    func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `likeStoryRole`(request: Rankquantity_Voyager_Api_LikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 点赞故事角色
     @available(iOS 13, *)
-    func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeStoryRoleResponse>
+    func `likeStoryRole`(request: Rankquantity_Voyager_Api_LikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRoleResponse>
 
     /// 取消点赞故事角色
     @discardableResult
-    func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `unLikeStoryRole`(request: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消点赞故事角色
     @available(iOS 13, *)
-    func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnLikeStoryRoleResponse>
+    func `unLikeStoryRole`(request: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRoleResponse>
 
     /// 关注故事角色
     @discardableResult
-    func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `followStoryRole`(request: Rankquantity_Voyager_Api_FollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 关注故事角色
     @available(iOS 13, *)
-    func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FollowStoryRoleResponse>
+    func `followStoryRole`(request: Rankquantity_Voyager_Api_FollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FollowStoryRoleResponse>
 
     /// 取消关注故事角色
     @discardableResult
-    func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `unFollowStoryRole`(request: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消关注故事角色
     @available(iOS 13, *)
-    func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnFollowStoryRoleResponse>
+    func `unFollowStoryRole`(request: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnFollowStoryRoleResponse>
 
     /// 根据关键字查询故事
     @discardableResult
-    func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchStoriesResponse>) -> Void) -> Connect.Cancelable
+    func `searchStories`(request: Rankquantity_Voyager_Api_SearchStoriesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchStoriesResponse>) -> Void) -> Connect.Cancelable
 
     /// 根据关键字查询故事
     @available(iOS 13, *)
-    func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchStoriesResponse>
+    func `searchStories`(request: Rankquantity_Voyager_Api_SearchStoriesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchStoriesResponse>
 
     /// 搜索组织
     @discardableResult
-    func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable
+    func `searchGroup`(request: Rankquantity_Voyager_Api_SearchGroupRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchGroupResponse>) -> Void) -> Connect.Cancelable
 
     /// 搜索组织
     @available(iOS 13, *)
-    func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchGroupResponse>
+    func `searchGroup`(request: Rankquantity_Voyager_Api_SearchGroupRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchGroupResponse>
 
     /// 搜索角色
     @discardableResult
-    func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable
+    func `searchRoles`(request: Rankquantity_Voyager_Api_SearchRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 搜索角色
     @available(iOS 13, *)
-    func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SearchRolesResponse>
+    func `searchRoles`(request: Rankquantity_Voyager_Api_SearchRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchRolesResponse>
 
     /// 恢复故事板的状态
     @discardableResult
-    func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `restoreStoryboard`(request: Rankquantity_Voyager_Api_RestoreStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 恢复故事板的状态
     @available(iOS 13, *)
-    func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RestoreStoryboardResponse>
+    func `restoreStoryboard`(request: Rankquantity_Voyager_Api_RestoreStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RestoreStoryboardResponse>
 
     /// 获取用户创建的故事板
     @discardableResult
-    func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable
+    func `getUserCreatedStoryboards`(request: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户创建的故事板
     @available(iOS 13, *)
-    func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserCreatedStoryboardsResponse>
+    func `getUserCreatedStoryboards`(request: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse>
 
     /// 获取用户创建的角色
     @discardableResult
-    func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable
+    func `getUserCreatedRoles`(request: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户创建的角色
     @available(iOS 13, *)
-    func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserCreatedRolesResponse>
+    func `getUserCreatedRoles`(request: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedRolesResponse>
 
     /// 获取角色参与的故事板
     @discardableResult
-    func `getStoryRoleStoryboards`(request: Common_GetStoryRoleStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleStoryboardsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRoleStoryboards`(request: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取角色参与的故事板
     @available(iOS 13, *)
-    func `getStoryRoleStoryboards`(request: Common_GetStoryRoleStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleStoryboardsResponse>
+    func `getStoryRoleStoryboards`(request: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse>
 
     /// 获取角色参与的故事
     @discardableResult
-    func `getStoryRoleStories`(request: Common_GetStoryRoleStoriesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleStoriesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRoleStories`(request: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取角色参与的故事
     @available(iOS 13, *)
-    func `getStoryRoleStories`(request: Common_GetStoryRoleStoriesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleStoriesResponse>
+    func `getStoryRoleStories`(request: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse>
 
     /// 创建与角色的对话
     @discardableResult
-    func `createStoryRoleChat`(request: Common_CreateStoryRoleChatRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleChatResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryRoleChat`(request: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleChatResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建与角色的对话
     @available(iOS 13, *)
-    func `createStoryRoleChat`(request: Common_CreateStoryRoleChatRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryRoleChatResponse>
+    func `createStoryRoleChat`(request: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleChatResponse>
 
     /// 与角色聊天
     @discardableResult
-    func `chatWithStoryRole`(request: Common_ChatWithStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_ChatWithStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `chatWithStoryRole`(request: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ChatWithStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 与角色聊天
     @available(iOS 13, *)
-    func `chatWithStoryRole`(request: Common_ChatWithStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_ChatWithStoryRoleResponse>
+    func `chatWithStoryRole`(request: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_ChatWithStoryRoleResponse>
 
     /// 更新角色头像
     @discardableResult
-    func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRoleAvator`(request: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新角色头像
     @available(iOS 13, *)
-    func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleAvatorResponse>
+    func `updateStoryRoleAvator`(request: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse>
 
     /// 更新角色详情
     @discardableResult
-    func `updateStoryRoleDetail`(request: Common_UpdateStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRoleDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新角色详情
     @available(iOS 13, *)
-    func `updateStoryRoleDetail`(request: Common_UpdateStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleDetailResponse>
+    func `updateStoryRoleDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse>
 
     /// 获取用户的对话列表
     @discardableResult
-    func `getUserWithRoleChatList`(request: Common_GetUserWithRoleChatListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserWithRoleChatListResponse>) -> Void) -> Connect.Cancelable
+    func `getUserWithRoleChatList`(request: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户的对话列表
     @available(iOS 13, *)
-    func `getUserWithRoleChatList`(request: Common_GetUserWithRoleChatListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWithRoleChatListResponse>
+    func `getUserWithRoleChatList`(request: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse>
 
     /// 获取用户与角色的对话
     @discardableResult
-    func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable
+    func `getUserChatWithRole`(request: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户与角色的对话
     @available(iOS 13, *)
-    func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserChatWithRoleResponse>
+    func `getUserChatWithRole`(request: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserChatWithRoleResponse>
 
     /// 获取用户的消息
     @discardableResult
-    func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable
+    func `getUserChatMessages`(request: Rankquantity_Voyager_Api_GetUserChatMessagesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取用户的消息
     @available(iOS 13, *)
-    func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserChatMessagesResponse>
+    func `getUserChatMessages`(request: Rankquantity_Voyager_Api_GetUserChatMessagesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserChatMessagesResponse>
 
     /// 活动信息
     @discardableResult
-    func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchActivesResponse>) -> Void) -> Connect.Cancelable
+    func `fetchActives`(request: Rankquantity_Voyager_Api_FetchActivesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchActivesResponse>) -> Void) -> Connect.Cancelable
 
     /// 活动信息
     @available(iOS 13, *)
-    func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchActivesResponse>
+    func `fetchActives`(request: Rankquantity_Voyager_Api_FetchActivesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchActivesResponse>
 
     /// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
     @discardableResult
-    func `getNextStoryboard`(request: Common_GetNextStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetNextStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `getNextStoryboard`(request: Rankquantity_Voyager_Api_GetNextStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetNextStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
     @available(iOS 13, *)
-    func `getNextStoryboard`(request: Common_GetNextStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetNextStoryboardResponse>
+    func `getNextStoryboard`(request: Rankquantity_Voyager_Api_GetNextStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetNextStoryboardResponse>
 
     /// 持续渲染故事角色
     @discardableResult
-    func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable
+    func `renderStoryRoleContinuously`(request: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable
 
     /// 持续渲染故事角色
     @available(iOS 13, *)
-    func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers) async -> ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>
+    func `renderStoryRoleContinuously`(request: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse>
 
     /// 发布故事板
     @discardableResult
-    func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `publishStoryboard`(request: Rankquantity_Voyager_Api_PublishStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 发布故事板
     @available(iOS 13, *)
-    func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_PublishStoryboardResponse>
+    func `publishStoryboard`(request: Rankquantity_Voyager_Api_PublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_PublishStoryboardResponse>
 
     /// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
     @discardableResult
-    func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `cancelStoryboard`(request: Rankquantity_Voyager_Api_CancelStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     /// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
     @available(iOS 13, *)
-    func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CancelStoryboardResponse>
+    func `cancelStoryboard`(request: Rankquantity_Voyager_Api_CancelStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CancelStoryboardResponse>
 
     @discardableResult
-    func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
+    func `getUserWatchStoryActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>
+    func `getUserWatchStoryActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse>
 
     @discardableResult
-    func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
+    func `getUserWatchRoleActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>
+    func `getUserWatchRoleActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse>
 
     @discardableResult
-    func `getUnPublishStoryboard`(request: Common_GetUnPublishStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetUnPublishStoryboardResponse>) -> Void) -> Connect.Cancelable
+    func `getUnPublishStoryboard`(request: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getUnPublishStoryboard`(request: Common_GetUnPublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetUnPublishStoryboardResponse>
+    func `getUnPublishStoryboard`(request: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse>
 
     @discardableResult
-    func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
+    func `generateRoleDescription`(request: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRoleDescriptionResponse>
+    func `generateRoleDescription`(request: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse>
 
     @discardableResult
-    func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
+    func `updateRoleDescription`(request: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateRoleDescriptionResponse>
+    func `updateRoleDescription`(request: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse>
 
     @discardableResult
-    func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable
+    func `generateRolePrompt`(request: Rankquantity_Voyager_Api_GenerateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRolePromptResponse>
+    func `generateRolePrompt`(request: Rankquantity_Voyager_Api_GenerateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRolePromptResponse>
 
     @discardableResult
-    func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable
+    func `updateRolePrompt`(request: Rankquantity_Voyager_Api_UpdateRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateRolePromptResponse>
+    func `updateRolePrompt`(request: Rankquantity_Voyager_Api_UpdateRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateRolePromptResponse>
 
     /// 创建故事评论
     @discardableResult
-    func `createStoryComment`(request: Common_CreateStoryCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryCommentResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryComment`(request: Rankquantity_Voyager_Api_CreateStoryCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事评论
     @available(iOS 13, *)
-    func `createStoryComment`(request: Common_CreateStoryCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryCommentResponse>
+    func `createStoryComment`(request: Rankquantity_Voyager_Api_CreateStoryCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentResponse>
 
     /// 获取故事评论
     @discardableResult
-    func `getStoryComments`(request: Common_GetStoryCommentsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryCommentsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryComments`(request: Rankquantity_Voyager_Api_GetStoryCommentsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事评论
     @available(iOS 13, *)
-    func `getStoryComments`(request: Common_GetStoryCommentsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryCommentsResponse>
+    func `getStoryComments`(request: Rankquantity_Voyager_Api_GetStoryCommentsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentsResponse>
 
     /// 删除故事评论
     @discardableResult
-    func `deleteStoryComment`(request: Common_DeleteStoryCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryCommentResponse>) -> Void) -> Connect.Cancelable
+    func `deleteStoryComment`(request: Rankquantity_Voyager_Api_DeleteStoryCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 删除故事评论
     @available(iOS 13, *)
-    func `deleteStoryComment`(request: Common_DeleteStoryCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteStoryCommentResponse>
+    func `deleteStoryComment`(request: Rankquantity_Voyager_Api_DeleteStoryCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentResponse>
 
     /// 获取故事评论回复
     @discardableResult
-    func `getStoryCommentReplies`(request: Common_GetStoryCommentRepliesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryCommentRepliesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事评论回复
     @available(iOS 13, *)
-    func `getStoryCommentReplies`(request: Common_GetStoryCommentRepliesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryCommentRepliesResponse>
+    func `getStoryCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse>
 
     /// 创建故事评论回复
     @discardableResult
-    func `createStoryCommentReply`(request: Common_CreateStoryCommentReplyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryCommentReply`(request: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事评论回复
     @available(iOS 13, *)
-    func `createStoryCommentReply`(request: Common_CreateStoryCommentReplyRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryCommentReplyResponse>
+    func `createStoryCommentReply`(request: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse>
 
     /// 删除故事评论回复
     @discardableResult
-    func `deleteStoryCommentReply`(request: Common_DeleteStoryCommentReplyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable
+    func `deleteStoryCommentReply`(request: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable
 
     /// 删除故事评论回复
     @available(iOS 13, *)
-    func `deleteStoryCommentReply`(request: Common_DeleteStoryCommentReplyRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteStoryCommentReplyResponse>
+    func `deleteStoryCommentReply`(request: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse>
 
     /// 获取故事板评论
     @discardableResult
-    func `getStoryBoardComments`(request: Common_GetStoryBoardCommentsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardCommentsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardComments`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板评论
     @available(iOS 13, *)
-    func `getStoryBoardComments`(request: Common_GetStoryBoardCommentsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardCommentsResponse>
+    func `getStoryBoardComments`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse>
 
     /// 创建故事板评论
     @discardableResult
-    func `createStoryBoardComment`(request: Common_CreateStoryBoardCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable
+    func `createStoryBoardComment`(request: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 创建故事板评论
     @available(iOS 13, *)
-    func `createStoryBoardComment`(request: Common_CreateStoryBoardCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_CreateStoryBoardCommentResponse>
+    func `createStoryBoardComment`(request: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse>
 
     /// 删除故事板评论
     @discardableResult
-    func `deleteStoryBoardComment`(request: Common_DeleteStoryBoardCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable
+    func `deleteStoryBoardComment`(request: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 删除故事板评论
     @available(iOS 13, *)
-    func `deleteStoryBoardComment`(request: Common_DeleteStoryBoardCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DeleteStoryBoardCommentResponse>
+    func `deleteStoryBoardComment`(request: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse>
 
     /// 获取故事板评论回复
     @discardableResult
-    func `getStoryBoardCommentReplies`(request: Common_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardCommentRepliesResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryBoardCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事板评论回复
     @available(iOS 13, *)
-    func `getStoryBoardCommentReplies`(request: Common_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryBoardCommentRepliesResponse>
+    func `getStoryBoardCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse>
 
     /// 点赞故事评论
     @discardableResult
-    func `likeComment`(request: Common_LikeCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeCommentResponse>) -> Void) -> Connect.Cancelable
+    func `likeComment`(request: Rankquantity_Voyager_Api_LikeCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 点赞故事评论
     @available(iOS 13, *)
-    func `likeComment`(request: Common_LikeCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeCommentResponse>
+    func `likeComment`(request: Rankquantity_Voyager_Api_LikeCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeCommentResponse>
 
     /// 取消点赞故事评论
     @discardableResult
-    func `dislikeComment`(request: Common_DislikeCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_DislikeCommentResponse>) -> Void) -> Connect.Cancelable
+    func `dislikeComment`(request: Rankquantity_Voyager_Api_DislikeCommentRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DislikeCommentResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消点赞故事评论
     @available(iOS 13, *)
-    func `dislikeComment`(request: Common_DislikeCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Common_DislikeCommentResponse>
+    func `dislikeComment`(request: Rankquantity_Voyager_Api_DislikeCommentRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DislikeCommentResponse>
 
     /// 获取故事角色列表
     @discardableResult
-    func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRoleList`(request: Rankquantity_Voyager_Api_GetStoryRoleListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事角色列表
     @available(iOS 13, *)
-    func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRoleListResponse>
+    func `getStoryRoleList`(request: Rankquantity_Voyager_Api_GetStoryRoleListRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleListResponse>
 
     /// 热门故事
     @discardableResult
-    func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryResponse>) -> Void) -> Connect.Cancelable
+    func `trendingStory`(request: Rankquantity_Voyager_Api_TrendingStoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryResponse>) -> Void) -> Connect.Cancelable
 
     /// 热门故事
     @available(iOS 13, *)
-    func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingStoryResponse>
+    func `trendingStory`(request: Rankquantity_Voyager_Api_TrendingStoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryResponse>
 
     ///热门角色
     @discardableResult
-    func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable
+    func `trendingStoryRole`(request: Rankquantity_Voyager_Api_TrendingStoryRoleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable
 
     ///热门角色
     @available(iOS 13, *)
-    func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_TrendingStoryRoleResponse>
+    func `trendingStoryRole`(request: Rankquantity_Voyager_Api_TrendingStoryRoleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryRoleResponse>
 
     /// 关注另一个用户
     @discardableResult
-    func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FollowUserResponse>) -> Void) -> Connect.Cancelable
+    func `followUser`(request: Rankquantity_Voyager_Api_FollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FollowUserResponse>) -> Void) -> Connect.Cancelable
 
     /// 关注另一个用户
     @available(iOS 13, *)
-    func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FollowUserResponse>
+    func `followUser`(request: Rankquantity_Voyager_Api_FollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FollowUserResponse>
 
     /// 取消关注另一个用户
     @discardableResult
-    func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnfollowUserResponse>) -> Void) -> Connect.Cancelable
+    func `unfollowUser`(request: Rankquantity_Voyager_Api_UnfollowUserRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnfollowUserResponse>) -> Void) -> Connect.Cancelable
 
     /// 取消关注另一个用户
     @available(iOS 13, *)
-    func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnfollowUserResponse>
+    func `unfollowUser`(request: Rankquantity_Voyager_Api_UnfollowUserRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnfollowUserResponse>
 
     /// 获取关注列表
     @discardableResult
-    func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetFollowListResponse>) -> Void) -> Connect.Cancelable
+    func `getFollowList`(request: Rankquantity_Voyager_Api_GetFollowListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetFollowListResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取关注列表
     @available(iOS 13, *)
-    func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetFollowListResponse>
+    func `getFollowList`(request: Rankquantity_Voyager_Api_GetFollowListRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetFollowListResponse>
 
     /// 获取粉丝列表
     @discardableResult
-    func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetFollowerListResponse>) -> Void) -> Connect.Cancelable
+    func `getFollowerList`(request: Rankquantity_Voyager_Api_GetFollowerListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetFollowerListResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取粉丝列表
     @available(iOS 13, *)
-    func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetFollowerListResponse>
+    func `getFollowerList`(request: Rankquantity_Voyager_Api_GetFollowerListRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetFollowerListResponse>
 
     /// 更新角色的提示词
     @discardableResult
-    func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRolePrompt`(request: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新角色的提示词
     @available(iOS 13, *)
-    func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRolePromptResponse>
+    func `updateStoryRolePrompt`(request: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse>
 
     /// 更新角色的描述
     @discardableResult
-    func `updateStoryRoleDescriptionDetail`(request: Common_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDescriptionDetailResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRoleDescriptionDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新角色的描述
     @available(iOS 13, *)
-    func `updateStoryRoleDescriptionDetail`(request: Common_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRoleDescriptionDetailResponse>
+    func `updateStoryRoleDescriptionDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse>
 
     /// 获取生成任务状态
     @discardableResult
-    func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable
+    func `queryTaskStatus`(request: Rankquantity_Voyager_Api_QueryTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取生成任务状态
     @available(iOS 13, *)
-    func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Common_QueryTaskStatusResponse>
+    func `queryTaskStatus`(request: Rankquantity_Voyager_Api_QueryTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_QueryTaskStatusResponse>
 
     /// 获取故事的风格
     @discardableResult
-    func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryImageStyle`(request: Rankquantity_Voyager_Api_GetStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事的风格
     @available(iOS 13, *)
-    func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryImageStyleResponse>
+    func `getStoryImageStyle`(request: Rankquantity_Voyager_Api_GetStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryImageStyleResponse>
 
     /// 更新故事的风格
     @discardableResult
-    func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryImageStyle`(request: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事的风格
     @available(iOS 13, *)
-    func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryImageStyleResponse>
+    func `updateStoryImageStyle`(request: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse>
 
     /// 更新故事的场景数量
     @discardableResult
-    func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStorySenceMaxNumberResponse>) -> Void) -> Connect.Cancelable
+    func `updateStorySenceMaxNumber`(request: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事的场景数量
     @available(iOS 13, *)
-    func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStorySenceMaxNumberResponse>
+    func `updateStorySenceMaxNumber`(request: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse>
 
     /// 更新故事头像
     @discardableResult
-    func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryAvatar`(request: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事头像
     @available(iOS 13, *)
-    func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryAvatarResponse>
+    func `updateStoryAvatar`(request: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryAvatarResponse>
 
     /// 更新故事封面
     @discardableResult
-    func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryCover`(request: Rankquantity_Voyager_Api_UpdateStoryCoverRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新故事封面
     @available(iOS 13, *)
-    func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryCoverResponse>
+    func `updateStoryCover`(request: Rankquantity_Voyager_Api_UpdateStoryCoverRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryCoverResponse>
 
     /// 保存故事板草稿
     @discardableResult
-    func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable
+    func `saveStoryboardCraft`(request: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable
 
     /// 保存故事板草稿
     @available(iOS 13, *)
-    func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers) async -> ResponseMessage<Common_SaveStoryboardCraftResponse>
+    func `saveStoryboardCraft`(request: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_SaveStoryboardCraftResponse>
 
     /// 获取故事参与者，参与故事版创建
     @discardableResult
-    func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryParticipants`(request: Rankquantity_Voyager_Api_GetStoryParticipantsRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable
 
     /// 获取故事参与者，参与故事版创建
     @available(iOS 13, *)
-    func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryParticipantsResponse>
+    func `getStoryParticipants`(request: Rankquantity_Voyager_Api_GetStoryParticipantsRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryParticipantsResponse>
 
     /// 为故事场景生成视频
     @discardableResult
-    func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable
+    func `generateStorySceneVideo`(request: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable
 
     /// 为故事场景生成视频
     @available(iOS 13, *)
-    func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStorySceneVideoResponse>
+    func `generateStorySceneVideo`(request: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse>
 
     @discardableResult
-    func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable
+    func `generateRoleAvatar`(request: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateRoleAvatarResponse>
+    func `generateRoleAvatar`(request: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleAvatarResponse>
 
     @discardableResult
-    func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable
+    func `fetchUserGenTaskStatus`(request: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Common_FetchUserGenTaskStatusResponse>
+    func `fetchUserGenTaskStatus`(request: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse>
 
     /// 生成角色的海报图片
     @discardableResult
-    func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+    func `generateStoryRolePoster`(request: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
 
     /// 生成角色的海报图片
     @available(iOS 13, *)
-    func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStoryRolePosterResponse>
+    func `generateStoryRolePoster`(request: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse>
 
     /// 更新角色的海报图片
     @discardableResult
-    func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+    func `updateStoryRolePoster`(request: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
 
     /// 更新角色的海报图片
     @available(iOS 13, *)
-    func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UpdateStoryRolePosterResponse>
+    func `updateStoryRolePoster`(request: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse>
 
     @discardableResult
-    func `likeStoryRolePoster`(request: Common_LikeStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+    func `likeStoryRolePoster`(request: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `likeStoryRolePoster`(request: Common_LikeStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_LikeStoryRolePosterResponse>
+    func `likeStoryRolePoster`(request: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRolePosterResponse>
 
     @discardableResult
-    func `unLikeStoryRolePoster`(request: Common_UnLikeStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
+    func `unLikeStoryRolePoster`(request: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `unLikeStoryRolePoster`(request: Common_UnLikeStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Common_UnLikeStoryRolePosterResponse>
+    func `unLikeStoryRolePoster`(request: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse>
 
     @discardableResult
-    func `getStoryRolePosterList`(request: Common_GetStoryRolePosterListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRolePosterListResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryRolePosterList`(request: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolePosterListResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getStoryRolePosterList`(request: Common_GetStoryRolePosterListRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GetStoryRolePosterListResponse>
+    func `getStoryRolePosterList`(request: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolePosterListResponse>
 
     /// 为故事角色生成视频
     @discardableResult
-    func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable
+    func `generateStoryRoleVideo`(request: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable
 
     /// 为故事角色生成视频
     @available(iOS 13, *)
-    func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Common_GenerateStoryRoleVideoResponse>
+    func `generateStoryRoleVideo`(request: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse>
 }
 
-/// Concrete implementation of `Common_TeamsApiClientInterface`.
-public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendable {
+/// Concrete implementation of `Rankquantity_Voyager_Api_TeamsApiClientInterface`.
+public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager_Api_TeamsApiClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
     public init(client: Connect.ProtocolClientInterface) {
@@ -1118,1547 +1118,1547 @@ public final class Common_TeamsApiClient: Common_TeamsApiClientInterface, Sendab
     }
 
     @discardableResult
-    public func `explore`(request: Common_ExploreRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ExploreResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Explore", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `explore`(request: Rankquantity_Voyager_Api_ExploreRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ExploreResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Explore", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `explore`(request: Common_ExploreRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ExploreResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Explore", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `explore`(request: Rankquantity_Voyager_Api_ExploreRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ExploreResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Explore", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `version`(request: Common_VersionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_VersionResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Version", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `version`(request: Rankquantity_Voyager_Api_VersionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_VersionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Version", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `version`(request: Common_VersionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_VersionResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Version", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `version`(request: Rankquantity_Voyager_Api_VersionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_VersionResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Version", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `about`(request: Common_AboutRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_AboutResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/About", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `about`(request: Rankquantity_Voyager_Api_AboutRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_AboutResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/About", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `about`(request: Common_AboutRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_AboutResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/About", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `about`(request: Rankquantity_Voyager_Api_AboutRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_AboutResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/About", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `login`(request: Common_LoginRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LoginResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Login", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `login`(request: Rankquantity_Voyager_Api_LoginRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LoginResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Login", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `login`(request: Common_LoginRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LoginResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Login", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `login`(request: Rankquantity_Voyager_Api_LoginRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LoginResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Login", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `logout`(request: Common_LogoutRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LogoutResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Logout", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `logout`(request: Rankquantity_Voyager_Api_LogoutRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LogoutResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Logout", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `logout`(request: Common_LogoutRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LogoutResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Logout", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `logout`(request: Rankquantity_Voyager_Api_LogoutRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LogoutResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Logout", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RefreshTokenResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `refreshToken`(request: Rankquantity_Voyager_Api_RefreshTokenRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RefreshTokenResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `refreshToken`(request: Common_RefreshTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RefreshTokenResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `refreshToken`(request: Rankquantity_Voyager_Api_RefreshTokenRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RefreshTokenResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RefreshToken", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `register`(request: Common_RegisterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RegisterResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/Register", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `register`(request: Rankquantity_Voyager_Api_RegisterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RegisterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Register", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `register`(request: Common_RegisterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RegisterResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/Register", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `register`(request: Rankquantity_Voyager_Api_RegisterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RegisterResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/Register", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ResetPasswordResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ResetPwd", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `resetPwd`(request: Rankquantity_Voyager_Api_ResetPasswordRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ResetPasswordResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ResetPwd", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `resetPwd`(request: Common_ResetPasswordRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ResetPasswordResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ResetPwd", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `resetPwd`(request: Rankquantity_Voyager_Api_ResetPasswordRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ResetPasswordResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ResetPwd", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserInitResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserInit", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userInit`(request: Rankquantity_Voyager_Api_UserInitRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserInitResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserInit", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userInit`(request: Common_UserInitRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserInitResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserInit", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userInit`(request: Rankquantity_Voyager_Api_UserInitRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserInitResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserInit", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserInfoResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userInfo`(request: Rankquantity_Voyager_Api_UserInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserInfoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userInfo`(request: Common_UserInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserInfoResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserInfo", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userInfo`(request: Rankquantity_Voyager_Api_UserInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserInfoResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserInfo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserAvatorResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateUserAvator", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateUserAvator`(request: Rankquantity_Voyager_Api_UpdateUserAvatorRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserAvatorResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserAvator", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateUserAvator`(request: Common_UpdateUserAvatorRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateUserAvatorResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateUserAvator", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateUserAvator`(request: Rankquantity_Voyager_Api_UpdateUserAvatorRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserAvatorResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserAvator", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserWatchingResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserWatching", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userWatching`(request: Rankquantity_Voyager_Api_UserWatchingRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserWatchingResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserWatching", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userWatching`(request: Common_UserWatchingRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserWatchingResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserWatching", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userWatching`(request: Rankquantity_Voyager_Api_UserWatchingRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserWatchingResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserWatching", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userGroup`(request: Rankquantity_Voyager_Api_UserGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userGroup`(request: Common_UserGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userGroup`(request: Rankquantity_Voyager_Api_UserGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserFollowingGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserFollowingGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userFollowingGroup`(request: Rankquantity_Voyager_Api_UserFollowingGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserFollowingGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserFollowingGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userFollowingGroup`(request: Common_UserFollowingGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserFollowingGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserFollowingGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userFollowingGroup`(request: Rankquantity_Voyager_Api_UserFollowingGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserFollowingGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserFollowingGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UserUpdateResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UserUpdate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `userUpdate`(request: Rankquantity_Voyager_Api_UserUpdateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserUpdateResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserUpdate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `userUpdate`(request: Common_UserUpdateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UserUpdateResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UserUpdate", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `userUpdate`(request: Rankquantity_Voyager_Api_UserUpdateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserUpdateResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserUpdate", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchUserResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SearchUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `searchUser`(request: Rankquantity_Voyager_Api_SearchUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchUserResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchUser`(request: Common_SearchUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchUserResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SearchUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `searchUser`(request: Rankquantity_Voyager_Api_SearchUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchUserResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchUser", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createGroup`(request: Rankquantity_Voyager_Api_CreateGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createGroup`(request: Common_CreateGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createGroup`(request: Rankquantity_Voyager_Api_CreateGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getGroup`(request: Rankquantity_Voyager_Api_GetGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getGroup`(request: Common_GetGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getGroup`(request: Rankquantity_Voyager_Api_GetGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupActivesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetGroupActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getGroupActives`(request: Rankquantity_Voyager_Api_GetGroupActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupActivesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroupActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getGroupActives`(request: Common_GetGroupActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupActivesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetGroupActives", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getGroupActives`(request: Rankquantity_Voyager_Api_GetGroupActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupActivesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroupActives", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupInfoResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateGroupInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateGroupInfo`(request: Rankquantity_Voyager_Api_UpdateGroupInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupInfoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateGroupInfo`(request: Common_UpdateGroupInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateGroupInfoResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateGroupInfo", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateGroupInfo`(request: Rankquantity_Voyager_Api_UpdateGroupInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupInfoResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getGroupProfile`(request: Rankquantity_Voyager_Api_GetGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetGroupProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getGroupProfile`(request: Common_GetGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetGroupProfileResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getGroupProfile`(request: Rankquantity_Voyager_Api_GetGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetGroupProfileResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateGroupProfile`(request: Rankquantity_Voyager_Api_UpdateGroupProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateGroupProfile`(request: Common_UpdateGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateGroupProfileResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateGroupProfile`(request: Rankquantity_Voyager_Api_UpdateGroupProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateGroupProfileResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DeleteGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DeleteGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `deleteGroup`(request: Rankquantity_Voyager_Api_DeleteGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `deleteGroup`(request: Common_DeleteGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DeleteGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DeleteGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `deleteGroup`(request: Rankquantity_Voyager_Api_DeleteGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupMembersResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FetchGroupMembers", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `fetchGroupMembers`(request: Rankquantity_Voyager_Api_FetchGroupMembersRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchGroupMembersResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchGroupMembers", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchGroupMembers`(request: Common_FetchGroupMembersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupMembersResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FetchGroupMembers", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `fetchGroupMembers`(request: Rankquantity_Voyager_Api_FetchGroupMembersRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchGroupMembersResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchGroupMembers", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_JoinGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/JoinGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `joinGroup`(request: Rankquantity_Voyager_Api_JoinGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_JoinGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/JoinGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `joinGroup`(request: Common_JoinGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_JoinGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/JoinGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `joinGroup`(request: Rankquantity_Voyager_Api_JoinGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_JoinGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/JoinGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LeaveGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LeaveGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `leaveGroup`(request: Rankquantity_Voyager_Api_LeaveGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LeaveGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LeaveGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `leaveGroup`(request: Common_LeaveGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LeaveGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LeaveGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `leaveGroup`(request: Rankquantity_Voyager_Api_LeaveGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LeaveGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LeaveGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStory`(request: Rankquantity_Voyager_Api_CreateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStory`(request: Common_CreateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStory`(request: Rankquantity_Voyager_Api_CreateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryInfo`(request: Rankquantity_Voyager_Api_GetStoryInfoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryInfoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryInfo`(request: Common_GetStoryInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryInfoResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryInfo`(request: Rankquantity_Voyager_Api_GetStoryInfoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryInfoResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryInfo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStory`(request: Rankquantity_Voyager_Api_RenderStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStory`(request: Common_RenderStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStory`(request: Rankquantity_Voyager_Api_RenderStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStory`(request: Rankquantity_Voyager_Api_UpdateStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStory`(request: Common_UpdateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStory`(request: Rankquantity_Voyager_Api_UpdateStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `watchStory`(request: Common_WatchStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_WatchStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/WatchStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `watchStory`(request: Rankquantity_Voyager_Api_WatchStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_WatchStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/WatchStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `watchStory`(request: Common_WatchStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_WatchStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/WatchStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `watchStory`(request: Rankquantity_Voyager_Api_WatchStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_WatchStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/WatchStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `archiveStory`(request: Rankquantity_Voyager_Api_ArchiveStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ArchiveStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `archiveStory`(request: Common_ArchiveStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ArchiveStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `archiveStory`(request: Rankquantity_Voyager_Api_ArchiveStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ArchiveStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ArchiveStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryboard`(request: Rankquantity_Voyager_Api_CreateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryboard`(request: Common_CreateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryboard`(request: Rankquantity_Voyager_Api_CreateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryboard`(request: Rankquantity_Voyager_Api_GetStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryboard`(request: Common_GetStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryboard`(request: Rankquantity_Voyager_Api_GetStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryboard`(request: Rankquantity_Voyager_Api_RenderStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryboard`(request: Common_RenderStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryboard`(request: Rankquantity_Voyager_Api_RenderStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `genStoryboardText`(request: Rankquantity_Voyager_Api_GenStoryboardTextRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardTextResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `genStoryboardText`(request: Common_GenStoryboardTextRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenStoryboardTextResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `genStoryboardText`(request: Rankquantity_Voyager_Api_GenStoryboardTextRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardTextResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenStoryboardText", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `genStoryboardImages`(request: Rankquantity_Voyager_Api_GenStoryboardImagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardImagesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `genStoryboardImages`(request: Common_GenStoryboardImagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenStoryboardImagesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `genStoryboardImages`(request: Rankquantity_Voyager_Api_GenStoryboardImagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenStoryboardImagesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenStoryboardImages", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryboards`(request: Rankquantity_Voyager_Api_GetStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryboards`(request: Common_GetStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryboardsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryboards`(request: Rankquantity_Voyager_Api_GetStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DelStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `delStoryboard`(request: Rankquantity_Voyager_Api_DelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DelStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `delStoryboard`(request: Common_DelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DelStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `delStoryboard`(request: Rankquantity_Voyager_Api_DelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DelStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `forkStoryboard`(request: Rankquantity_Voyager_Api_ForkStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ForkStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `forkStoryboard`(request: Common_ForkStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ForkStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `forkStoryboard`(request: Rankquantity_Voyager_Api_ForkStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ForkStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ForkStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryboard`(request: Rankquantity_Voyager_Api_UpdateStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryboard`(request: Common_UpdateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryboard`(request: Rankquantity_Voyager_Api_UpdateStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `likeStoryboard`(request: Common_LikeStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `likeStoryboard`(request: Rankquantity_Voyager_Api_LikeStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `likeStoryboard`(request: Common_LikeStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `likeStoryboard`(request: Rankquantity_Voyager_Api_LikeStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unLikeStoryboard`(request: Common_UnLikeStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnLikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unLikeStoryboard`(request: Rankquantity_Voyager_Api_UnLikeStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unLikeStoryboard`(request: Common_UnLikeStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnLikeStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnLikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unLikeStoryboard`(request: Rankquantity_Voyager_Api_UnLikeStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `shareStoryboard`(request: Common_ShareStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ShareStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ShareStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `shareStoryboard`(request: Rankquantity_Voyager_Api_ShareStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ShareStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ShareStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `shareStoryboard`(request: Common_ShareStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ShareStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ShareStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `shareStoryboard`(request: Rankquantity_Voyager_Api_ShareStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ShareStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ShareStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `fetchGroupStorys`(request: Rankquantity_Voyager_Api_FetchGroupStorysRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchGroupStorysResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchGroupStorys`(request: Common_FetchGroupStorysRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchGroupStorysResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `fetchGroupStorys`(request: Rankquantity_Voyager_Api_FetchGroupStorysRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchGroupStorysResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchGroupStorys", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `uploadImageFile`(request: Common_UploadImageRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UploadImageResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UploadImageFile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `uploadImageFile`(request: Rankquantity_Voyager_Api_UploadImageRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UploadImageResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UploadImageFile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `uploadImageFile`(request: Common_UploadImageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UploadImageResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UploadImageFile", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `uploadImageFile`(request: Rankquantity_Voyager_Api_UploadImageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UploadImageResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UploadImageFile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRender`(request: Rankquantity_Voyager_Api_GetStoryRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRenderResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRender`(request: Common_GetStoryRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRenderResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRender`(request: Rankquantity_Voyager_Api_GetStoryRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRenderResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRender", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardRender`(request: Rankquantity_Voyager_Api_GetStoryBoardRenderRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRenderResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardRender`(request: Common_GetStoryBoardRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardRenderResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardRender`(request: Rankquantity_Voyager_Api_GetStoryBoardRenderRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRenderResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryContributors`(request: Common_GetStoryContributorsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryContributorsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryContributors", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryContributors`(request: Rankquantity_Voyager_Api_GetStoryContributorsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryContributorsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryContributors", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryContributors`(request: Common_GetStoryContributorsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryContributorsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryContributors", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryContributors`(request: Rankquantity_Voyager_Api_GetStoryContributorsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryContributorsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryContributors", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `continueRenderStory`(request: Common_ContinueRenderStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ContinueRenderStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ContinueRenderStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `continueRenderStory`(request: Rankquantity_Voyager_Api_ContinueRenderStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ContinueRenderStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ContinueRenderStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `continueRenderStory`(request: Common_ContinueRenderStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ContinueRenderStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ContinueRenderStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `continueRenderStory`(request: Rankquantity_Voyager_Api_ContinueRenderStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ContinueRenderStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ContinueRenderStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryRoles`(request: Common_RenderStoryRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRolesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryRoles`(request: Rankquantity_Voyager_Api_RenderStoryRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryRoles`(request: Common_RenderStoryRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRolesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryRoles`(request: Rankquantity_Voyager_Api_RenderStoryRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRolesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRole`(request: Common_UpdateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRole`(request: Rankquantity_Voyager_Api_UpdateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRole`(request: Common_UpdateStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRole`(request: Rankquantity_Voyager_Api_UpdateStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryRoleDetail`(request: Common_RenderStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryRoleDetail`(request: Rankquantity_Voyager_Api_RenderStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryRoleDetail`(request: Common_RenderStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRoleDetailResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryRoleDetail`(request: Rankquantity_Voyager_Api_RenderStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleDetailResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRoles`(request: Common_GetStoryRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRolesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRoles`(request: Rankquantity_Voyager_Api_GetStoryRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRoles`(request: Common_GetStoryRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRolesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRoles`(request: Rankquantity_Voyager_Api_GetStoryRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardRoles`(request: Common_GetStoryBoardRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardRolesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardRoles`(request: Rankquantity_Voyager_Api_GetStoryBoardRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardRoles`(request: Common_GetStoryBoardRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardRolesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardRoles`(request: Rankquantity_Voyager_Api_GetStoryBoardRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardRolesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserProfileResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserProfile`(request: Rankquantity_Voyager_Api_GetUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserProfile`(request: Common_GetUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserProfileResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserProfile`(request: Rankquantity_Voyager_Api_GetUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserProfileResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateUserProfile`(request: Rankquantity_Voyager_Api_UpdateUserProfileRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserProfileResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateUserProfile`(request: Common_UpdateUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateUserProfileResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateUserProfile`(request: Rankquantity_Voyager_Api_UpdateUserProfileRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserProfileResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserProfile", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateUserBackgroundImage`(request: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateUserBackgroundImage`(request: Common_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateUserBackgroundImageResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateUserBackgroundImage`(request: Rankquantity_Voyager_Api_UpdateUserBackgroundImageRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryRole`(request: Rankquantity_Voyager_Api_CreateStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryRole`(request: Common_CreateStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryRole`(request: Rankquantity_Voyager_Api_CreateStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRoleDetail`(request: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRoleDetail`(request: Common_GetStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleDetailResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRoleDetail`(request: Rankquantity_Voyager_Api_GetStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleDetailResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryRole`(request: Rankquantity_Voyager_Api_RenderStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryRole`(request: Common_RenderStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryRole`(request: Rankquantity_Voyager_Api_RenderStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `likeStory`(request: Common_LikeStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LikeStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `likeStory`(request: Rankquantity_Voyager_Api_LikeStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `likeStory`(request: Common_LikeStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LikeStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `likeStory`(request: Rankquantity_Voyager_Api_LikeStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unLikeStory`(request: Common_UnLikeStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnLikeStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unLikeStory`(request: Rankquantity_Voyager_Api_UnLikeStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unLikeStory`(request: Common_UnLikeStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnLikeStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnLikeStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unLikeStory`(request: Rankquantity_Voyager_Api_UnLikeStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardSences`(request: Common_GetStoryBoardSencesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardSences`(request: Rankquantity_Voyager_Api_GetStoryBoardSencesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardSences`(request: Common_GetStoryBoardSencesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardSencesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardSences`(request: Rankquantity_Voyager_Api_GetStoryBoardSencesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSencesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryBoardSence`(request: Common_CreateStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryBoardSence`(request: Rankquantity_Voyager_Api_CreateStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryBoardSence`(request: Common_CreateStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryBoardSenceResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryBoardSence`(request: Rankquantity_Voyager_Api_CreateStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardSenceResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryBoardSence`(request: Common_UpdateStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryBoardSence`(request: Rankquantity_Voyager_Api_UpdateStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryBoardSence`(request: Common_UpdateStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryBoardSenceResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryBoardSence`(request: Rankquantity_Voyager_Api_UpdateStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryBoardSenceResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `deleteStoryBoardSence`(request: Common_DeleteStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DeleteStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `deleteStoryBoardSence`(request: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `deleteStoryBoardSence`(request: Common_DeleteStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DeleteStoryBoardSenceResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DeleteStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `deleteStoryBoardSence`(request: Rankquantity_Voyager_Api_DeleteStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardSenceResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryBoardSence`(request: Rankquantity_Voyager_Api_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSenceResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryBoardSence`(request: Common_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryBoardSenceResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryBoardSence`(request: Rankquantity_Voyager_Api_RenderStoryBoardSenceRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSenceResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryBoardSences`(request: Rankquantity_Voyager_Api_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSencesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryBoardSences`(request: Common_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryBoardSencesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryBoardSences`(request: Rankquantity_Voyager_Api_RenderStoryBoardSencesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryBoardSencesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardSenceGenerateResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardSenceGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardSenceGenerate`(request: Common_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardSenceGenerateResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardSenceGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardSenceGenerateResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardGenerateResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardGenerate`(request: Common_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardGenerateResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardGenerate`(request: Rankquantity_Voyager_Api_GetStoryBoardGenerateRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardGenerateResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `likeStoryRole`(request: Rankquantity_Voyager_Api_LikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `likeStoryRole`(request: Common_LikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `likeStoryRole`(request: Rankquantity_Voyager_Api_LikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unLikeStoryRole`(request: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unLikeStoryRole`(request: Common_UnLikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnLikeStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unLikeStoryRole`(request: Rankquantity_Voyager_Api_UnLikeStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `followStoryRole`(request: Rankquantity_Voyager_Api_FollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `followStoryRole`(request: Common_FollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FollowStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `followStoryRole`(request: Rankquantity_Voyager_Api_FollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FollowStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unFollowStoryRole`(request: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnFollowStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unFollowStoryRole`(request: Common_UnFollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnFollowStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unFollowStoryRole`(request: Rankquantity_Voyager_Api_UnFollowStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnFollowStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchStoriesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `searchStories`(request: Rankquantity_Voyager_Api_SearchStoriesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchStoriesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchStories`(request: Common_SearchStoriesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchStoriesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `searchStories`(request: Rankquantity_Voyager_Api_SearchStoriesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchStoriesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchStories", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `searchGroup`(request: Rankquantity_Voyager_Api_SearchGroupRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchGroupResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchGroup`(request: Common_SearchGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchGroupResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `searchGroup`(request: Rankquantity_Voyager_Api_SearchGroupRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchGroupResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchGroup", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SearchRolesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `searchRoles`(request: Rankquantity_Voyager_Api_SearchRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SearchRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `searchRoles`(request: Common_SearchRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SearchRolesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `searchRoles`(request: Rankquantity_Voyager_Api_SearchRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_SearchRolesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SearchRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `restoreStoryboard`(request: Rankquantity_Voyager_Api_RestoreStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RestoreStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `restoreStoryboard`(request: Common_RestoreStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RestoreStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `restoreStoryboard`(request: Rankquantity_Voyager_Api_RestoreStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RestoreStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RestoreStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserCreatedStoryboards`(request: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserCreatedStoryboards`(request: Common_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserCreatedStoryboardsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserCreatedStoryboards`(request: Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserCreatedRoles`(request: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedRolesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserCreatedRoles`(request: Common_GetUserCreatedRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserCreatedRolesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserCreatedRoles`(request: Rankquantity_Voyager_Api_GetUserCreatedRolesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserCreatedRolesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRoleStoryboards`(request: Common_GetStoryRoleStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleStoryboardsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRoleStoryboards`(request: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRoleStoryboards`(request: Common_GetStoryRoleStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleStoryboardsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRoleStoryboards`(request: Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRoleStories`(request: Common_GetStoryRoleStoriesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleStoriesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleStories", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRoleStories`(request: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRoleStories`(request: Common_GetStoryRoleStoriesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleStoriesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleStories", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRoleStories`(request: Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryRoleChat`(request: Common_CreateStoryRoleChatRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryRoleChatResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryRoleChat", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryRoleChat`(request: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleChatResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryRoleChat`(request: Common_CreateStoryRoleChatRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryRoleChatResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryRoleChat", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryRoleChat`(request: Rankquantity_Voyager_Api_CreateStoryRoleChatRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryRoleChatResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `chatWithStoryRole`(request: Common_ChatWithStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_ChatWithStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/ChatWithStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `chatWithStoryRole`(request: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_ChatWithStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `chatWithStoryRole`(request: Common_ChatWithStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_ChatWithStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/ChatWithStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `chatWithStoryRole`(request: Rankquantity_Voyager_Api_ChatWithStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_ChatWithStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRoleAvator`(request: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRoleAvator`(request: Common_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleAvatorResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRoleAvator`(request: Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRoleDetail`(request: Common_UpdateStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRoleDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRoleDetail`(request: Common_UpdateStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleDetailResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRoleDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserWithRoleChatList`(request: Common_GetUserWithRoleChatListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserWithRoleChatListResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserWithRoleChatList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserWithRoleChatList`(request: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserWithRoleChatList`(request: Common_GetUserWithRoleChatListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserWithRoleChatListResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserWithRoleChatList", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserWithRoleChatList`(request: Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserChatWithRole`(request: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserChatWithRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserChatWithRole`(request: Common_GetUserChatWithRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserChatWithRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserChatWithRole`(request: Rankquantity_Voyager_Api_GetUserChatWithRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserChatWithRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserChatMessages`(request: Rankquantity_Voyager_Api_GetUserChatMessagesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserChatMessagesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserChatMessages`(request: Common_GetUserChatMessagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserChatMessagesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserChatMessages`(request: Rankquantity_Voyager_Api_GetUserChatMessagesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserChatMessagesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserChatMessages", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchActivesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `fetchActives`(request: Rankquantity_Voyager_Api_FetchActivesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchActivesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchActives`(request: Common_FetchActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchActivesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `fetchActives`(request: Rankquantity_Voyager_Api_FetchActivesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchActivesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchActives", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getNextStoryboard`(request: Common_GetNextStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetNextStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetNextStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getNextStoryboard`(request: Rankquantity_Voyager_Api_GetNextStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetNextStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetNextStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getNextStoryboard`(request: Common_GetNextStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetNextStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetNextStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getNextStoryboard`(request: Rankquantity_Voyager_Api_GetNextStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetNextStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetNextStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `renderStoryRoleContinuously`(request: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `renderStoryRoleContinuously`(request: Common_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_RenderStoryRoleContinuouslyResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `renderStoryRoleContinuously`(request: Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `publishStoryboard`(request: Rankquantity_Voyager_Api_PublishStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_PublishStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `publishStoryboard`(request: Common_PublishStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_PublishStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `publishStoryboard`(request: Rankquantity_Voyager_Api_PublishStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_PublishStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/PublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `cancelStoryboard`(request: Rankquantity_Voyager_Api_CancelStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CancelStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `cancelStoryboard`(request: Common_CancelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CancelStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `cancelStoryboard`(request: Rankquantity_Voyager_Api_CancelStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CancelStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CancelStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserWatchStoryActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserWatchStoryActiveStoryBoards`(request: Common_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserWatchStoryActiveStoryBoardsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserWatchStoryActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUserWatchRoleActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUserWatchRoleActiveStoryBoards`(request: Common_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUserWatchRoleActiveStoryBoardsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUserWatchRoleActiveStoryBoards`(request: Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getUnPublishStoryboard`(request: Common_GetUnPublishStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetUnPublishStoryboardResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetUnPublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getUnPublishStoryboard`(request: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getUnPublishStoryboard`(request: Common_GetUnPublishStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetUnPublishStoryboardResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetUnPublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getUnPublishStoryboard`(request: Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateRoleDescription`(request: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateRoleDescription`(request: Common_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRoleDescriptionResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateRoleDescription`(request: Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateRoleDescription`(request: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateRoleDescription`(request: Common_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateRoleDescriptionResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateRoleDescription`(request: Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateRolePrompt`(request: Rankquantity_Voyager_Api_GenerateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateRolePrompt`(request: Common_GenerateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRolePromptResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateRolePrompt`(request: Rankquantity_Voyager_Api_GenerateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRolePromptResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateRolePrompt`(request: Rankquantity_Voyager_Api_UpdateRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateRolePrompt`(request: Common_UpdateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateRolePromptResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateRolePrompt`(request: Rankquantity_Voyager_Api_UpdateRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateRolePromptResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryComment`(request: Common_CreateStoryCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryComment`(request: Rankquantity_Voyager_Api_CreateStoryCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryComment`(request: Common_CreateStoryCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryComment`(request: Rankquantity_Voyager_Api_CreateStoryCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryComments`(request: Common_GetStoryCommentsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryCommentsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryComments", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryComments`(request: Rankquantity_Voyager_Api_GetStoryCommentsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryComments", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryComments`(request: Common_GetStoryCommentsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryCommentsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryComments", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryComments`(request: Rankquantity_Voyager_Api_GetStoryCommentsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryComments", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `deleteStoryComment`(request: Common_DeleteStoryCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DeleteStoryComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `deleteStoryComment`(request: Rankquantity_Voyager_Api_DeleteStoryCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `deleteStoryComment`(request: Common_DeleteStoryCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DeleteStoryCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DeleteStoryComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `deleteStoryComment`(request: Rankquantity_Voyager_Api_DeleteStoryCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryCommentReplies`(request: Common_GetStoryCommentRepliesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryCommentRepliesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryCommentReplies`(request: Common_GetStoryCommentRepliesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryCommentRepliesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryCommentReply`(request: Common_CreateStoryCommentReplyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryCommentReply`(request: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryCommentReply`(request: Common_CreateStoryCommentReplyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryCommentReplyResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryCommentReply`(request: Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `deleteStoryCommentReply`(request: Common_DeleteStoryCommentReplyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DeleteStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `deleteStoryCommentReply`(request: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `deleteStoryCommentReply`(request: Common_DeleteStoryCommentReplyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DeleteStoryCommentReplyResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DeleteStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `deleteStoryCommentReply`(request: Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardComments`(request: Common_GetStoryBoardCommentsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardCommentsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardComments", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardComments`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardComments`(request: Common_GetStoryBoardCommentsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardCommentsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardComments", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardComments`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `createStoryBoardComment`(request: Common_CreateStoryBoardCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_CreateStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/CreateStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `createStoryBoardComment`(request: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `createStoryBoardComment`(request: Common_CreateStoryBoardCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_CreateStoryBoardCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/CreateStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `createStoryBoardComment`(request: Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `deleteStoryBoardComment`(request: Common_DeleteStoryBoardCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DeleteStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DeleteStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `deleteStoryBoardComment`(request: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `deleteStoryBoardComment`(request: Common_DeleteStoryBoardCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DeleteStoryBoardCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DeleteStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `deleteStoryBoardComment`(request: Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryBoardCommentReplies`(request: Common_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryBoardCommentRepliesResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryBoardCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryBoardCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryBoardCommentReplies`(request: Common_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryBoardCommentRepliesResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryBoardCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryBoardCommentReplies`(request: Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `likeComment`(request: Common_LikeCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LikeComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `likeComment`(request: Rankquantity_Voyager_Api_LikeCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `likeComment`(request: Common_LikeCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LikeComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `likeComment`(request: Rankquantity_Voyager_Api_LikeCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `dislikeComment`(request: Common_DislikeCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_DislikeCommentResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/DislikeComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `dislikeComment`(request: Rankquantity_Voyager_Api_DislikeCommentRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DislikeCommentResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DislikeComment", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `dislikeComment`(request: Common_DislikeCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_DislikeCommentResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/DislikeComment", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `dislikeComment`(request: Rankquantity_Voyager_Api_DislikeCommentRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DislikeCommentResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DislikeComment", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRoleList`(request: Rankquantity_Voyager_Api_GetStoryRoleListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRoleList`(request: Common_GetStoryRoleListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRoleListResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRoleList`(request: Rankquantity_Voyager_Api_GetStoryRoleListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRoleListResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `trendingStory`(request: Rankquantity_Voyager_Api_TrendingStoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `trendingStory`(request: Common_TrendingStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_TrendingStoryResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `trendingStory`(request: Rankquantity_Voyager_Api_TrendingStoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/TrendingStory", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `trendingStoryRole`(request: Rankquantity_Voyager_Api_TrendingStoryRoleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryRoleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `trendingStoryRole`(request: Common_TrendingStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_TrendingStoryRoleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `trendingStoryRole`(request: Rankquantity_Voyager_Api_TrendingStoryRoleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_TrendingStoryRoleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/TrendingStoryRole", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FollowUserResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `followUser`(request: Rankquantity_Voyager_Api_FollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FollowUserResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `followUser`(request: Common_FollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FollowUserResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `followUser`(request: Rankquantity_Voyager_Api_FollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FollowUserResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnfollowUserResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unfollowUser`(request: Rankquantity_Voyager_Api_UnfollowUserRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnfollowUserResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unfollowUser`(request: Common_UnfollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnfollowUserResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unfollowUser`(request: Rankquantity_Voyager_Api_UnfollowUserRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnfollowUserResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnfollowUser", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetFollowListResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getFollowList`(request: Rankquantity_Voyager_Api_GetFollowListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetFollowListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getFollowList`(request: Common_GetFollowListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetFollowListResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getFollowList`(request: Rankquantity_Voyager_Api_GetFollowListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetFollowListResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetFollowList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetFollowerListResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getFollowerList`(request: Rankquantity_Voyager_Api_GetFollowerListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetFollowerListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getFollowerList`(request: Common_GetFollowerListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetFollowerListResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getFollowerList`(request: Rankquantity_Voyager_Api_GetFollowerListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetFollowerListResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetFollowerList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRolePrompt`(request: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRolePrompt`(request: Common_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRolePromptResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRolePrompt`(request: Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRoleDescriptionDetail`(request: Common_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRoleDescriptionDetailResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRoleDescriptionDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRoleDescriptionDetail`(request: Common_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRoleDescriptionDetailResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRoleDescriptionDetail`(request: Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `queryTaskStatus`(request: Rankquantity_Voyager_Api_QueryTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_QueryTaskStatusResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `queryTaskStatus`(request: Common_QueryTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_QueryTaskStatusResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `queryTaskStatus`(request: Rankquantity_Voyager_Api_QueryTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_QueryTaskStatusResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/QueryTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryImageStyleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryImageStyle`(request: Rankquantity_Voyager_Api_GetStoryImageStyleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryImageStyleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryImageStyle`(request: Common_GetStoryImageStyleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryImageStyleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryImageStyle`(request: Rankquantity_Voyager_Api_GetStoryImageStyleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryImageStyleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryImageStyleResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryImageStyle`(request: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryImageStyle`(request: Common_UpdateStoryImageStyleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryImageStyleResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryImageStyle`(request: Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStorySenceMaxNumberResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStorySenceMaxNumber", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStorySenceMaxNumber`(request: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStorySenceMaxNumber`(request: Common_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStorySenceMaxNumberResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStorySenceMaxNumber", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStorySenceMaxNumber`(request: Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryAvatar`(request: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryAvatarResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryAvatar`(request: Common_UpdateStoryAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryAvatarResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryAvatar`(request: Rankquantity_Voyager_Api_UpdateStoryAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryAvatarResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryCover`(request: Rankquantity_Voyager_Api_UpdateStoryCoverRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryCoverResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryCover`(request: Common_UpdateStoryCoverRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryCoverResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryCover`(request: Rankquantity_Voyager_Api_UpdateStoryCoverRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryCoverResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryCover", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `saveStoryboardCraft`(request: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_SaveStoryboardCraftResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `saveStoryboardCraft`(request: Common_SaveStoryboardCraftRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_SaveStoryboardCraftResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `saveStoryboardCraft`(request: Rankquantity_Voyager_Api_SaveStoryboardCraftRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_SaveStoryboardCraftResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryParticipants`(request: Rankquantity_Voyager_Api_GetStoryParticipantsRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryParticipantsResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryParticipants`(request: Common_GetStoryParticipantsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryParticipantsResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryParticipants`(request: Rankquantity_Voyager_Api_GetStoryParticipantsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryParticipantsResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryParticipants", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateStorySceneVideo`(request: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateStorySceneVideo`(request: Common_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStorySceneVideoResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateStorySceneVideo`(request: Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateRoleAvatar`(request: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleAvatarResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateRoleAvatar`(request: Common_GenerateRoleAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateRoleAvatarResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateRoleAvatar`(request: Rankquantity_Voyager_Api_GenerateRoleAvatarRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateRoleAvatarResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `fetchUserGenTaskStatus`(request: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `fetchUserGenTaskStatus`(request: Common_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_FetchUserGenTaskStatusResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `fetchUserGenTaskStatus`(request: Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateStoryRolePoster`(request: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateStoryRolePoster`(request: Common_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStoryRolePosterResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateStoryRolePoster`(request: Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `updateStoryRolePoster`(request: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `updateStoryRolePoster`(request: Common_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UpdateStoryRolePosterResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `updateStoryRolePoster`(request: Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `likeStoryRolePoster`(request: Common_LikeStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_LikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/LikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `likeStoryRolePoster`(request: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `likeStoryRolePoster`(request: Common_LikeStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_LikeStoryRolePosterResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/LikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `likeStoryRolePoster`(request: Rankquantity_Voyager_Api_LikeStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_LikeStoryRolePosterResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `unLikeStoryRolePoster`(request: Common_UnLikeStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_UnLikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `unLikeStoryRolePoster`(request: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `unLikeStoryRolePoster`(request: Common_UnLikeStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_UnLikeStoryRolePosterResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/UnLikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `unLikeStoryRolePoster`(request: Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `getStoryRolePosterList`(request: Common_GetStoryRolePosterListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GetStoryRolePosterListResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GetStoryRolePosterList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryRolePosterList`(request: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolePosterListResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryRolePosterList`(request: Common_GetStoryRolePosterListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GetStoryRolePosterListResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GetStoryRolePosterList", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryRolePosterList`(request: Rankquantity_Voyager_Api_GetStoryRolePosterListRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryRolePosterListResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     @discardableResult
-    public func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Common_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/common.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `generateStoryRoleVideo`(request: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `generateStoryRoleVideo`(request: Common_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Common_GenerateStoryRoleVideoResponse> {
-        return await self.client.unary(path: "/common.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `generateStoryRoleVideo`(request: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     public enum Metadata {
         public enum Methods {
-            public static let explore = Connect.MethodSpec(name: "Explore", service: "common.TeamsAPI", type: .unary)
-            public static let version = Connect.MethodSpec(name: "Version", service: "common.TeamsAPI", type: .unary)
-            public static let about = Connect.MethodSpec(name: "About", service: "common.TeamsAPI", type: .unary)
-            public static let login = Connect.MethodSpec(name: "Login", service: "common.TeamsAPI", type: .unary)
-            public static let logout = Connect.MethodSpec(name: "Logout", service: "common.TeamsAPI", type: .unary)
-            public static let refreshToken = Connect.MethodSpec(name: "RefreshToken", service: "common.TeamsAPI", type: .unary)
-            public static let register = Connect.MethodSpec(name: "Register", service: "common.TeamsAPI", type: .unary)
-            public static let resetPwd = Connect.MethodSpec(name: "ResetPwd", service: "common.TeamsAPI", type: .unary)
-            public static let userInit = Connect.MethodSpec(name: "UserInit", service: "common.TeamsAPI", type: .unary)
-            public static let userInfo = Connect.MethodSpec(name: "UserInfo", service: "common.TeamsAPI", type: .unary)
-            public static let updateUserAvator = Connect.MethodSpec(name: "UpdateUserAvator", service: "common.TeamsAPI", type: .unary)
-            public static let userWatching = Connect.MethodSpec(name: "UserWatching", service: "common.TeamsAPI", type: .unary)
-            public static let userGroup = Connect.MethodSpec(name: "UserGroup", service: "common.TeamsAPI", type: .unary)
-            public static let userFollowingGroup = Connect.MethodSpec(name: "UserFollowingGroup", service: "common.TeamsAPI", type: .unary)
-            public static let userUpdate = Connect.MethodSpec(name: "UserUpdate", service: "common.TeamsAPI", type: .unary)
-            public static let searchUser = Connect.MethodSpec(name: "SearchUser", service: "common.TeamsAPI", type: .unary)
-            public static let createGroup = Connect.MethodSpec(name: "CreateGroup", service: "common.TeamsAPI", type: .unary)
-            public static let getGroup = Connect.MethodSpec(name: "GetGroup", service: "common.TeamsAPI", type: .unary)
-            public static let getGroupActives = Connect.MethodSpec(name: "GetGroupActives", service: "common.TeamsAPI", type: .unary)
-            public static let updateGroupInfo = Connect.MethodSpec(name: "UpdateGroupInfo", service: "common.TeamsAPI", type: .unary)
-            public static let getGroupProfile = Connect.MethodSpec(name: "GetGroupProfile", service: "common.TeamsAPI", type: .unary)
-            public static let updateGroupProfile = Connect.MethodSpec(name: "UpdateGroupProfile", service: "common.TeamsAPI", type: .unary)
-            public static let deleteGroup = Connect.MethodSpec(name: "DeleteGroup", service: "common.TeamsAPI", type: .unary)
-            public static let fetchGroupMembers = Connect.MethodSpec(name: "FetchGroupMembers", service: "common.TeamsAPI", type: .unary)
-            public static let joinGroup = Connect.MethodSpec(name: "JoinGroup", service: "common.TeamsAPI", type: .unary)
-            public static let leaveGroup = Connect.MethodSpec(name: "LeaveGroup", service: "common.TeamsAPI", type: .unary)
-            public static let createStory = Connect.MethodSpec(name: "CreateStory", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryInfo = Connect.MethodSpec(name: "GetStoryInfo", service: "common.TeamsAPI", type: .unary)
-            public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "common.TeamsAPI", type: .unary)
-            public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "common.TeamsAPI", type: .unary)
-            public static let watchStory = Connect.MethodSpec(name: "WatchStory", service: "common.TeamsAPI", type: .unary)
-            public static let archiveStory = Connect.MethodSpec(name: "ArchiveStory", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryboard = Connect.MethodSpec(name: "RenderStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let genStoryboardText = Connect.MethodSpec(name: "GenStoryboardText", service: "common.TeamsAPI", type: .unary)
-            public static let genStoryboardImages = Connect.MethodSpec(name: "GenStoryboardImages", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryboards = Connect.MethodSpec(name: "GetStoryboards", service: "common.TeamsAPI", type: .unary)
-            public static let delStoryboard = Connect.MethodSpec(name: "DelStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let forkStoryboard = Connect.MethodSpec(name: "ForkStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryboard = Connect.MethodSpec(name: "UpdateStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let likeStoryboard = Connect.MethodSpec(name: "LikeStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let unLikeStoryboard = Connect.MethodSpec(name: "UnLikeStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let shareStoryboard = Connect.MethodSpec(name: "ShareStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let fetchGroupStorys = Connect.MethodSpec(name: "FetchGroupStorys", service: "common.TeamsAPI", type: .unary)
-            public static let uploadImageFile = Connect.MethodSpec(name: "UploadImageFile", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRender = Connect.MethodSpec(name: "GetStoryRender", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardRender = Connect.MethodSpec(name: "GetStoryBoardRender", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryContributors = Connect.MethodSpec(name: "GetStoryContributors", service: "common.TeamsAPI", type: .unary)
-            public static let continueRenderStory = Connect.MethodSpec(name: "ContinueRenderStory", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryRoles = Connect.MethodSpec(name: "RenderStoryRoles", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRole = Connect.MethodSpec(name: "UpdateStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryRoleDetail = Connect.MethodSpec(name: "RenderStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRoles = Connect.MethodSpec(name: "GetStoryRoles", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardRoles = Connect.MethodSpec(name: "GetStoryBoardRoles", service: "common.TeamsAPI", type: .unary)
-            public static let getUserProfile = Connect.MethodSpec(name: "GetUserProfile", service: "common.TeamsAPI", type: .unary)
-            public static let updateUserProfile = Connect.MethodSpec(name: "UpdateUserProfile", service: "common.TeamsAPI", type: .unary)
-            public static let updateUserBackgroundImage = Connect.MethodSpec(name: "UpdateUserBackgroundImage", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryRole = Connect.MethodSpec(name: "CreateStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRoleDetail = Connect.MethodSpec(name: "GetStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryRole = Connect.MethodSpec(name: "RenderStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let likeStory = Connect.MethodSpec(name: "LikeStory", service: "common.TeamsAPI", type: .unary)
-            public static let unLikeStory = Connect.MethodSpec(name: "UnLikeStory", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardSences = Connect.MethodSpec(name: "GetStoryBoardSences", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryBoardSence = Connect.MethodSpec(name: "CreateStoryBoardSence", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryBoardSence = Connect.MethodSpec(name: "UpdateStoryBoardSence", service: "common.TeamsAPI", type: .unary)
-            public static let deleteStoryBoardSence = Connect.MethodSpec(name: "DeleteStoryBoardSence", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryBoardSence = Connect.MethodSpec(name: "RenderStoryBoardSence", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryBoardSences = Connect.MethodSpec(name: "RenderStoryBoardSences", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardSenceGenerate = Connect.MethodSpec(name: "GetStoryBoardSenceGenerate", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardGenerate = Connect.MethodSpec(name: "GetStoryBoardGenerate", service: "common.TeamsAPI", type: .unary)
-            public static let likeStoryRole = Connect.MethodSpec(name: "LikeStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let unLikeStoryRole = Connect.MethodSpec(name: "UnLikeStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let followStoryRole = Connect.MethodSpec(name: "FollowStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let unFollowStoryRole = Connect.MethodSpec(name: "UnFollowStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let searchStories = Connect.MethodSpec(name: "SearchStories", service: "common.TeamsAPI", type: .unary)
-            public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "common.TeamsAPI", type: .unary)
-            public static let searchRoles = Connect.MethodSpec(name: "SearchRoles", service: "common.TeamsAPI", type: .unary)
-            public static let restoreStoryboard = Connect.MethodSpec(name: "RestoreStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let getUserCreatedStoryboards = Connect.MethodSpec(name: "GetUserCreatedStoryboards", service: "common.TeamsAPI", type: .unary)
-            public static let getUserCreatedRoles = Connect.MethodSpec(name: "GetUserCreatedRoles", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRoleStoryboards = Connect.MethodSpec(name: "GetStoryRoleStoryboards", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRoleStories = Connect.MethodSpec(name: "GetStoryRoleStories", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryRoleChat = Connect.MethodSpec(name: "CreateStoryRoleChat", service: "common.TeamsAPI", type: .unary)
-            public static let chatWithStoryRole = Connect.MethodSpec(name: "ChatWithStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRoleAvator = Connect.MethodSpec(name: "UpdateStoryRoleAvator", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRoleDetail = Connect.MethodSpec(name: "UpdateStoryRoleDetail", service: "common.TeamsAPI", type: .unary)
-            public static let getUserWithRoleChatList = Connect.MethodSpec(name: "GetUserWithRoleChatList", service: "common.TeamsAPI", type: .unary)
-            public static let getUserChatWithRole = Connect.MethodSpec(name: "GetUserChatWithRole", service: "common.TeamsAPI", type: .unary)
-            public static let getUserChatMessages = Connect.MethodSpec(name: "GetUserChatMessages", service: "common.TeamsAPI", type: .unary)
-            public static let fetchActives = Connect.MethodSpec(name: "FetchActives", service: "common.TeamsAPI", type: .unary)
-            public static let getNextStoryboard = Connect.MethodSpec(name: "GetNextStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let renderStoryRoleContinuously = Connect.MethodSpec(name: "RenderStoryRoleContinuously", service: "common.TeamsAPI", type: .unary)
-            public static let publishStoryboard = Connect.MethodSpec(name: "PublishStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let cancelStoryboard = Connect.MethodSpec(name: "CancelStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let getUserWatchStoryActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchStoryActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
-            public static let getUserWatchRoleActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchRoleActiveStoryBoards", service: "common.TeamsAPI", type: .unary)
-            public static let getUnPublishStoryboard = Connect.MethodSpec(name: "GetUnPublishStoryboard", service: "common.TeamsAPI", type: .unary)
-            public static let generateRoleDescription = Connect.MethodSpec(name: "GenerateRoleDescription", service: "common.TeamsAPI", type: .unary)
-            public static let updateRoleDescription = Connect.MethodSpec(name: "UpdateRoleDescription", service: "common.TeamsAPI", type: .unary)
-            public static let generateRolePrompt = Connect.MethodSpec(name: "GenerateRolePrompt", service: "common.TeamsAPI", type: .unary)
-            public static let updateRolePrompt = Connect.MethodSpec(name: "UpdateRolePrompt", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryComment = Connect.MethodSpec(name: "CreateStoryComment", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryComments = Connect.MethodSpec(name: "GetStoryComments", service: "common.TeamsAPI", type: .unary)
-            public static let deleteStoryComment = Connect.MethodSpec(name: "DeleteStoryComment", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryCommentReplies = Connect.MethodSpec(name: "GetStoryCommentReplies", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryCommentReply = Connect.MethodSpec(name: "CreateStoryCommentReply", service: "common.TeamsAPI", type: .unary)
-            public static let deleteStoryCommentReply = Connect.MethodSpec(name: "DeleteStoryCommentReply", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardComments = Connect.MethodSpec(name: "GetStoryBoardComments", service: "common.TeamsAPI", type: .unary)
-            public static let createStoryBoardComment = Connect.MethodSpec(name: "CreateStoryBoardComment", service: "common.TeamsAPI", type: .unary)
-            public static let deleteStoryBoardComment = Connect.MethodSpec(name: "DeleteStoryBoardComment", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryBoardCommentReplies = Connect.MethodSpec(name: "GetStoryBoardCommentReplies", service: "common.TeamsAPI", type: .unary)
-            public static let likeComment = Connect.MethodSpec(name: "LikeComment", service: "common.TeamsAPI", type: .unary)
-            public static let dislikeComment = Connect.MethodSpec(name: "DislikeComment", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRoleList = Connect.MethodSpec(name: "GetStoryRoleList", service: "common.TeamsAPI", type: .unary)
-            public static let trendingStory = Connect.MethodSpec(name: "TrendingStory", service: "common.TeamsAPI", type: .unary)
-            public static let trendingStoryRole = Connect.MethodSpec(name: "TrendingStoryRole", service: "common.TeamsAPI", type: .unary)
-            public static let followUser = Connect.MethodSpec(name: "FollowUser", service: "common.TeamsAPI", type: .unary)
-            public static let unfollowUser = Connect.MethodSpec(name: "UnfollowUser", service: "common.TeamsAPI", type: .unary)
-            public static let getFollowList = Connect.MethodSpec(name: "GetFollowList", service: "common.TeamsAPI", type: .unary)
-            public static let getFollowerList = Connect.MethodSpec(name: "GetFollowerList", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRolePrompt = Connect.MethodSpec(name: "UpdateStoryRolePrompt", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRoleDescriptionDetail = Connect.MethodSpec(name: "UpdateStoryRoleDescriptionDetail", service: "common.TeamsAPI", type: .unary)
-            public static let queryTaskStatus = Connect.MethodSpec(name: "QueryTaskStatus", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryImageStyle = Connect.MethodSpec(name: "GetStoryImageStyle", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryImageStyle = Connect.MethodSpec(name: "UpdateStoryImageStyle", service: "common.TeamsAPI", type: .unary)
-            public static let updateStorySenceMaxNumber = Connect.MethodSpec(name: "UpdateStorySenceMaxNumber", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryAvatar = Connect.MethodSpec(name: "UpdateStoryAvatar", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryCover = Connect.MethodSpec(name: "UpdateStoryCover", service: "common.TeamsAPI", type: .unary)
-            public static let saveStoryboardCraft = Connect.MethodSpec(name: "SaveStoryboardCraft", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryParticipants = Connect.MethodSpec(name: "GetStoryParticipants", service: "common.TeamsAPI", type: .unary)
-            public static let generateStorySceneVideo = Connect.MethodSpec(name: "GenerateStorySceneVideo", service: "common.TeamsAPI", type: .unary)
-            public static let generateRoleAvatar = Connect.MethodSpec(name: "GenerateRoleAvatar", service: "common.TeamsAPI", type: .unary)
-            public static let fetchUserGenTaskStatus = Connect.MethodSpec(name: "FetchUserGenTaskStatus", service: "common.TeamsAPI", type: .unary)
-            public static let generateStoryRolePoster = Connect.MethodSpec(name: "GenerateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
-            public static let updateStoryRolePoster = Connect.MethodSpec(name: "UpdateStoryRolePoster", service: "common.TeamsAPI", type: .unary)
-            public static let likeStoryRolePoster = Connect.MethodSpec(name: "LikeStoryRolePoster", service: "common.TeamsAPI", type: .unary)
-            public static let unLikeStoryRolePoster = Connect.MethodSpec(name: "UnLikeStoryRolePoster", service: "common.TeamsAPI", type: .unary)
-            public static let getStoryRolePosterList = Connect.MethodSpec(name: "GetStoryRolePosterList", service: "common.TeamsAPI", type: .unary)
-            public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "common.TeamsAPI", type: .unary)
+            public static let explore = Connect.MethodSpec(name: "Explore", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let version = Connect.MethodSpec(name: "Version", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let about = Connect.MethodSpec(name: "About", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let login = Connect.MethodSpec(name: "Login", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let logout = Connect.MethodSpec(name: "Logout", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let refreshToken = Connect.MethodSpec(name: "RefreshToken", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let register = Connect.MethodSpec(name: "Register", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let resetPwd = Connect.MethodSpec(name: "ResetPwd", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userInit = Connect.MethodSpec(name: "UserInit", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userInfo = Connect.MethodSpec(name: "UserInfo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateUserAvator = Connect.MethodSpec(name: "UpdateUserAvator", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userWatching = Connect.MethodSpec(name: "UserWatching", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userGroup = Connect.MethodSpec(name: "UserGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userFollowingGroup = Connect.MethodSpec(name: "UserFollowingGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userUpdate = Connect.MethodSpec(name: "UserUpdate", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let searchUser = Connect.MethodSpec(name: "SearchUser", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createGroup = Connect.MethodSpec(name: "CreateGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getGroup = Connect.MethodSpec(name: "GetGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getGroupActives = Connect.MethodSpec(name: "GetGroupActives", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateGroupInfo = Connect.MethodSpec(name: "UpdateGroupInfo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getGroupProfile = Connect.MethodSpec(name: "GetGroupProfile", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateGroupProfile = Connect.MethodSpec(name: "UpdateGroupProfile", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteGroup = Connect.MethodSpec(name: "DeleteGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let fetchGroupMembers = Connect.MethodSpec(name: "FetchGroupMembers", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let joinGroup = Connect.MethodSpec(name: "JoinGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let leaveGroup = Connect.MethodSpec(name: "LeaveGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStory = Connect.MethodSpec(name: "CreateStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryInfo = Connect.MethodSpec(name: "GetStoryInfo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStory = Connect.MethodSpec(name: "RenderStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStory = Connect.MethodSpec(name: "UpdateStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let watchStory = Connect.MethodSpec(name: "WatchStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let archiveStory = Connect.MethodSpec(name: "ArchiveStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryboard = Connect.MethodSpec(name: "CreateStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryboard = Connect.MethodSpec(name: "GetStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryboard = Connect.MethodSpec(name: "RenderStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let genStoryboardText = Connect.MethodSpec(name: "GenStoryboardText", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let genStoryboardImages = Connect.MethodSpec(name: "GenStoryboardImages", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryboards = Connect.MethodSpec(name: "GetStoryboards", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let delStoryboard = Connect.MethodSpec(name: "DelStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let forkStoryboard = Connect.MethodSpec(name: "ForkStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryboard = Connect.MethodSpec(name: "UpdateStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let likeStoryboard = Connect.MethodSpec(name: "LikeStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unLikeStoryboard = Connect.MethodSpec(name: "UnLikeStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let shareStoryboard = Connect.MethodSpec(name: "ShareStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let fetchGroupStorys = Connect.MethodSpec(name: "FetchGroupStorys", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let uploadImageFile = Connect.MethodSpec(name: "UploadImageFile", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRender = Connect.MethodSpec(name: "GetStoryRender", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardRender = Connect.MethodSpec(name: "GetStoryBoardRender", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryContributors = Connect.MethodSpec(name: "GetStoryContributors", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let continueRenderStory = Connect.MethodSpec(name: "ContinueRenderStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryRoles = Connect.MethodSpec(name: "RenderStoryRoles", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRole = Connect.MethodSpec(name: "UpdateStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryRoleDetail = Connect.MethodSpec(name: "RenderStoryRoleDetail", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRoles = Connect.MethodSpec(name: "GetStoryRoles", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardRoles = Connect.MethodSpec(name: "GetStoryBoardRoles", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserProfile = Connect.MethodSpec(name: "GetUserProfile", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateUserProfile = Connect.MethodSpec(name: "UpdateUserProfile", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateUserBackgroundImage = Connect.MethodSpec(name: "UpdateUserBackgroundImage", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryRole = Connect.MethodSpec(name: "CreateStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRoleDetail = Connect.MethodSpec(name: "GetStoryRoleDetail", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryRole = Connect.MethodSpec(name: "RenderStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let likeStory = Connect.MethodSpec(name: "LikeStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unLikeStory = Connect.MethodSpec(name: "UnLikeStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardSences = Connect.MethodSpec(name: "GetStoryBoardSences", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryBoardSence = Connect.MethodSpec(name: "CreateStoryBoardSence", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryBoardSence = Connect.MethodSpec(name: "UpdateStoryBoardSence", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteStoryBoardSence = Connect.MethodSpec(name: "DeleteStoryBoardSence", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryBoardSence = Connect.MethodSpec(name: "RenderStoryBoardSence", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryBoardSences = Connect.MethodSpec(name: "RenderStoryBoardSences", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardSenceGenerate = Connect.MethodSpec(name: "GetStoryBoardSenceGenerate", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardGenerate = Connect.MethodSpec(name: "GetStoryBoardGenerate", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let likeStoryRole = Connect.MethodSpec(name: "LikeStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unLikeStoryRole = Connect.MethodSpec(name: "UnLikeStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let followStoryRole = Connect.MethodSpec(name: "FollowStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unFollowStoryRole = Connect.MethodSpec(name: "UnFollowStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let searchStories = Connect.MethodSpec(name: "SearchStories", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let searchGroup = Connect.MethodSpec(name: "SearchGroup", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let searchRoles = Connect.MethodSpec(name: "SearchRoles", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let restoreStoryboard = Connect.MethodSpec(name: "RestoreStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserCreatedStoryboards = Connect.MethodSpec(name: "GetUserCreatedStoryboards", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserCreatedRoles = Connect.MethodSpec(name: "GetUserCreatedRoles", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRoleStoryboards = Connect.MethodSpec(name: "GetStoryRoleStoryboards", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRoleStories = Connect.MethodSpec(name: "GetStoryRoleStories", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryRoleChat = Connect.MethodSpec(name: "CreateStoryRoleChat", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let chatWithStoryRole = Connect.MethodSpec(name: "ChatWithStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRoleAvator = Connect.MethodSpec(name: "UpdateStoryRoleAvator", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRoleDetail = Connect.MethodSpec(name: "UpdateStoryRoleDetail", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserWithRoleChatList = Connect.MethodSpec(name: "GetUserWithRoleChatList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserChatWithRole = Connect.MethodSpec(name: "GetUserChatWithRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserChatMessages = Connect.MethodSpec(name: "GetUserChatMessages", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let fetchActives = Connect.MethodSpec(name: "FetchActives", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getNextStoryboard = Connect.MethodSpec(name: "GetNextStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let renderStoryRoleContinuously = Connect.MethodSpec(name: "RenderStoryRoleContinuously", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let publishStoryboard = Connect.MethodSpec(name: "PublishStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let cancelStoryboard = Connect.MethodSpec(name: "CancelStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserWatchStoryActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchStoryActiveStoryBoards", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUserWatchRoleActiveStoryBoards = Connect.MethodSpec(name: "GetUserWatchRoleActiveStoryBoards", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getUnPublishStoryboard = Connect.MethodSpec(name: "GetUnPublishStoryboard", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateRoleDescription = Connect.MethodSpec(name: "GenerateRoleDescription", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateRoleDescription = Connect.MethodSpec(name: "UpdateRoleDescription", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateRolePrompt = Connect.MethodSpec(name: "GenerateRolePrompt", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateRolePrompt = Connect.MethodSpec(name: "UpdateRolePrompt", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryComment = Connect.MethodSpec(name: "CreateStoryComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryComments = Connect.MethodSpec(name: "GetStoryComments", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteStoryComment = Connect.MethodSpec(name: "DeleteStoryComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryCommentReplies = Connect.MethodSpec(name: "GetStoryCommentReplies", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryCommentReply = Connect.MethodSpec(name: "CreateStoryCommentReply", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteStoryCommentReply = Connect.MethodSpec(name: "DeleteStoryCommentReply", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardComments = Connect.MethodSpec(name: "GetStoryBoardComments", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let createStoryBoardComment = Connect.MethodSpec(name: "CreateStoryBoardComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteStoryBoardComment = Connect.MethodSpec(name: "DeleteStoryBoardComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryBoardCommentReplies = Connect.MethodSpec(name: "GetStoryBoardCommentReplies", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let likeComment = Connect.MethodSpec(name: "LikeComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let dislikeComment = Connect.MethodSpec(name: "DislikeComment", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRoleList = Connect.MethodSpec(name: "GetStoryRoleList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let trendingStory = Connect.MethodSpec(name: "TrendingStory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let trendingStoryRole = Connect.MethodSpec(name: "TrendingStoryRole", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let followUser = Connect.MethodSpec(name: "FollowUser", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unfollowUser = Connect.MethodSpec(name: "UnfollowUser", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getFollowList = Connect.MethodSpec(name: "GetFollowList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getFollowerList = Connect.MethodSpec(name: "GetFollowerList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRolePrompt = Connect.MethodSpec(name: "UpdateStoryRolePrompt", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRoleDescriptionDetail = Connect.MethodSpec(name: "UpdateStoryRoleDescriptionDetail", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let queryTaskStatus = Connect.MethodSpec(name: "QueryTaskStatus", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryImageStyle = Connect.MethodSpec(name: "GetStoryImageStyle", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryImageStyle = Connect.MethodSpec(name: "UpdateStoryImageStyle", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStorySenceMaxNumber = Connect.MethodSpec(name: "UpdateStorySenceMaxNumber", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryAvatar = Connect.MethodSpec(name: "UpdateStoryAvatar", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryCover = Connect.MethodSpec(name: "UpdateStoryCover", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let saveStoryboardCraft = Connect.MethodSpec(name: "SaveStoryboardCraft", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryParticipants = Connect.MethodSpec(name: "GetStoryParticipants", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateStorySceneVideo = Connect.MethodSpec(name: "GenerateStorySceneVideo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateRoleAvatar = Connect.MethodSpec(name: "GenerateRoleAvatar", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let fetchUserGenTaskStatus = Connect.MethodSpec(name: "FetchUserGenTaskStatus", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateStoryRolePoster = Connect.MethodSpec(name: "GenerateStoryRolePoster", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryRolePoster = Connect.MethodSpec(name: "UpdateStoryRolePoster", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let likeStoryRolePoster = Connect.MethodSpec(name: "LikeStoryRolePoster", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let unLikeStoryRolePoster = Connect.MethodSpec(name: "UnLikeStoryRolePoster", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryRolePosterList = Connect.MethodSpec(name: "GetStoryRolePosterList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
         }
     }
 }

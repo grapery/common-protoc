@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// 通用响应状态码
-public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
+public enum Rankquantity_Voyager_Api_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// 成功 (0)
@@ -1062,7 +1062,7 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Common_ResponseCode] = [
+  public static let allCases: [Rankquantity_Voyager_Api_ResponseCode] = [
     .ok,
     .systemError,
     .internalError,
@@ -1272,7 +1272,7 @@ public enum Common_ResponseCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// 错误描述信息
-public struct Common_ErrorDescription: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ErrorDescription: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1423,7 +1423,7 @@ public struct Common_ErrorDescription: @unchecked Sendable {
 }
 
 /// 错误描述常量
-public struct Common_ErrorDescriptions: @unchecked Sendable {
+public struct Rankquantity_Voyager_Api_ErrorDescriptions: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1574,7 +1574,7 @@ public struct Common_ErrorDescriptions: @unchecked Sendable {
 }
 
 /// 系统级错误描述
-public struct Common_SystemErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_SystemErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1615,7 +1615,7 @@ public struct Common_SystemErrorMessages: Sendable {
 }
 
 /// 认证和授权错误描述
-public struct Common_AuthErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_AuthErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1668,7 +1668,7 @@ public struct Common_AuthErrorMessages: Sendable {
 }
 
 /// 参数验证错误描述
-public struct Common_ValidationErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_ValidationErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1709,7 +1709,7 @@ public struct Common_ValidationErrorMessages: Sendable {
 }
 
 /// 资源错误描述
-public struct Common_ResourceErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_ResourceErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1747,7 +1747,7 @@ public struct Common_ResourceErrorMessages: Sendable {
 }
 
 /// 用户相关错误描述
-public struct Common_UserErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_UserErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1788,7 +1788,7 @@ public struct Common_UserErrorMessages: Sendable {
 }
 
 /// 组织相关错误描述
-public struct Common_GroupErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_GroupErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1829,7 +1829,7 @@ public struct Common_GroupErrorMessages: Sendable {
 }
 
 /// 故事相关错误描述
-public struct Common_StoryErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_StoryErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1870,7 +1870,7 @@ public struct Common_StoryErrorMessages: Sendable {
 }
 
 /// 故事板相关错误描述
-public struct Common_StoryboardErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_StoryboardErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1911,7 +1911,7 @@ public struct Common_StoryboardErrorMessages: Sendable {
 }
 
 /// 角色相关错误描述
-public struct Common_RoleErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_RoleErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1952,7 +1952,7 @@ public struct Common_RoleErrorMessages: Sendable {
 }
 
 /// 内容相关错误描述
-public struct Common_ContentErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_ContentErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1993,7 +1993,7 @@ public struct Common_ContentErrorMessages: Sendable {
 }
 
 /// 操作相关错误描述
-public struct Common_OperationErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_OperationErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2034,7 +2034,7 @@ public struct Common_OperationErrorMessages: Sendable {
 }
 
 /// 限制相关错误描述
-public struct Common_LimitErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_LimitErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2075,7 +2075,7 @@ public struct Common_LimitErrorMessages: Sendable {
 }
 
 /// AI生成相关错误描述
-public struct Common_AIErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_AIErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2116,7 +2116,7 @@ public struct Common_AIErrorMessages: Sendable {
 }
 
 /// 评论相关错误描述
-public struct Common_CommentErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_CommentErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2142,7 +2142,7 @@ public struct Common_CommentErrorMessages: Sendable {
 }
 
 /// 点赞相关错误描述
-public struct Common_LikeErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_LikeErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2168,7 +2168,7 @@ public struct Common_LikeErrorMessages: Sendable {
 }
 
 /// VIP/充值相关错误描述
-public struct Common_VIPErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_VIPErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2194,7 +2194,7 @@ public struct Common_VIPErrorMessages: Sendable {
 }
 
 /// 支付相关错误描述
-public struct Common_PaymentErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_PaymentErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2220,7 +2220,7 @@ public struct Common_PaymentErrorMessages: Sendable {
 }
 
 /// 订单相关错误描述
-public struct Common_OrderErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_OrderErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2246,7 +2246,7 @@ public struct Common_OrderErrorMessages: Sendable {
 }
 
 /// 消息相关错误描述
-public struct Common_MessageErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_MessageErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2272,7 +2272,7 @@ public struct Common_MessageErrorMessages: Sendable {
 }
 
 /// 聊天相关错误描述
-public struct Common_ChatErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_ChatErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2313,7 +2313,7 @@ public struct Common_ChatErrorMessages: Sendable {
 }
 
 /// 文件上传相关错误描述
-public struct Common_UploadErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_UploadErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2354,7 +2354,7 @@ public struct Common_UploadErrorMessages: Sendable {
 }
 
 /// 搜索相关错误描述
-public struct Common_SearchErrorMessages: Sendable {
+public struct Rankquantity_Voyager_Api_SearchErrorMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2396,13 +2396,13 @@ public struct Common_SearchErrorMessages: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_ResponseCode: SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ResponseCode: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OK\0\u{1}SYSTEM_ERROR\0\u{1}INTERNAL_ERROR\0\u{1}DATABASE_ERROR\0\u{1}CACHE_ERROR\0\u{1}NETWORK_ERROR\0\u{1}TIMEOUT_ERROR\0\u{1}SERVICE_UNAVAILABLE\0\u{1}TOO_MANY_REQUESTS\0\u{1}CONFIGURATION_ERROR\0\u{1}INITIALIZATION_ERROR\0\u{2}Z\u{1}UNAUTHORIZED\0\u{1}TOKEN_EXPIRED\0\u{1}TOKEN_INVALID\0\u{1}PERMISSION_DENIED\0\u{1}ACCOUNT_NOT_FOUND\0\u{1}WRONG_PASSWORD\0\u{1}ACCOUNT_DISABLED\0\u{1}LOGIN_REQUIRED\0\u{1}TOKEN_MISSING\0\u{1}SESSION_EXPIRED\0\u{1}INVALID_CREDENTIALS\0\u{1}ACCOUNT_LOCKED\0\u{1}ACCOUNT_EXPIRED\0\u{1}INVALID_LOGIN_TYPE\0\u{2}W\u{1}INVALID_PARAMETER\0\u{1}MISSING_PARAMETER\0\u{1}INVALID_FORMAT\0\u{1}INVALID_LENGTH\0\u{1}INVALID_VALUE\0\u{1}INVALID_TYPE\0\u{1}INVALID_SYNTAX\0\u{1}INVALID_ENCODING\0\u{1}INVALID_OPERATION\0\u{1}VALIDATION_FAILED\0\u{2}[\u{1}RESOURCE_NOT_FOUND\0\u{1}RESOURCE_ALREADY_EXISTS\0\u{1}RESOURCE_EXPIRED\0\u{1}RESOURCE_EXHAUSTED\0\u{1}RESOURCE_BUSY\0\u{1}RESOURCE_LOCKED\0\u{1}RESOURCE_UNAVAILABLE\0\u{1}RESOURCE_QUOTA_EXCEEDED\0\u{1}RESOURCE_CORRUPTED\0\u{2}\\\u{1}USER_NOT_FOUND\0\u{1}USER_ALREADY_EXISTS\0\u{1}USER_NOT_ACTIVE\0\u{1}USER_BLOCKED\0\u{1}USER_PROFILE_INCOMPLETE\0\u{1}USER_OPERATION_DENIED\0\u{1}USER_QUOTA_EXCEEDED\0\u{1}USER_STATUS_ERROR\0\u{1}USER_VERIFICATION_FAILED\0\u{1}USER_ROLE_INVALID\0\u{2}[\u{1}GROUP_NOT_FOUND\0\u{1}GROUP_ALREADY_EXISTS\0\u{1}NOT_GROUP_MEMBER\0\u{1}GROUP_PERMISSION_DENIED\0\u{1}GROUP_FULL\0\u{1}GROUP_CLOSED\0\u{1}GROUP_OPERATION_DENIED\0\u{1}GROUP_STATUS_ERROR\0\u{1}GROUP_TYPE_INVALID\0\u{1}GROUP_QUOTA_EXCEEDED\0\u{2}[\u{1}PROJECT_NOT_FOUND\0\u{1}PROJECT_ALREADY_EXISTS\0\u{1}PROJECT_PERMISSION_DENIED\0\u{1}PROJECT_CLOSED\0\u{1}PROJECT_ARCHIVED\0\u{1}PROJECT_FULL\0\u{1}PROJECT_STATUS_ERROR\0\u{1}PROJECT_TYPE_INVALID\0\u{1}PROJECT_OPERATION_DENIED\0\u{1}PROJECT_QUOTA_EXCEEDED\0\u{2}[\u{1}STORY_NOT_FOUND\0\u{1}STORY_ALREADY_EXISTS\0\u{1}STORY_PERMISSION_DENIED\0\u{1}STORY_LOCKED\0\u{1}STORY_ARCHIVED\0\u{1}STORY_STATUS_ERROR\0\u{1}STORY_VERSION_ERROR\0\u{1}STORY_CONTENT_ERROR\0\u{1}STORY_OPERATION_DENIED\0\u{1}STORY_GENERATION_FAILED\0\u{2}[\u{1}STORYBOARD_NOT_FOUND\0\u{1}STORYBOARD_ALREADY_EXISTS\0\u{1}STORYBOARD_PERMISSION_DENIED\0\u{1}STORYBOARD_RENDER_ERROR\0\u{1}STORYBOARD_LOCKED\0\u{1}STORYBOARD_STATUS_ERROR\0\u{1}STORYBOARD_VERSION_ERROR\0\u{1}STORYBOARD_SCENE_ERROR\0\u{1}STORYBOARD_GENERATION_FAILED\0\u{1}STORYBOARD_OPERATION_DENIED\0\u{2}[\u{1}ROLE_NOT_FOUND\0\u{1}ROLE_ALREADY_EXISTS\0\u{1}ROLE_PERMISSION_DENIED\0\u{1}ROLE_RENDER_ERROR\0\u{1}ROLE_LOCKED\0\u{1}ROLE_STATUS_ERROR\0\u{1}ROLE_TYPE_INVALID\0\u{1}ROLE_QUOTA_EXCEEDED\0\u{1}ROLE_GENERATION_FAILED\0\u{1}ROLE_OPERATION_DENIED\0\u{2}[\u{1}CONTENT_NOT_FOUND\0\u{1}CONTENT_ALREADY_EXISTS\0\u{1}CONTENT_PERMISSION_DENIED\0\u{1}CONTENT_TYPE_INVALID\0\u{1}CONTENT_SIZE_EXCEEDED\0\u{1}CONTENT_FORMAT_ERROR\0\u{1}CONTENT_LOCKED\0\u{1}CONTENT_EXPIRED\0\u{1}CONTENT_CORRUPTED\0\u{1}CONTENT_OPERATION_DENIED\0\u{2}[\u{1}OPERATION_FAILED\0\u{1}OPERATION_TIMEOUT\0\u{1}OPERATION_CANCELLED\0\u{1}OPERATION_NOT_SUPPORTED\0\u{1}OPERATION_IN_PROGRESS\0\u{1}OPERATION_ABORTED\0\u{1}OPERATION_REJECTED\0\u{1}OPERATION_INVALID\0\u{1}OPERATION_CONFLICT\0\u{1}OPERATION_TOO_FREQUENT\0\u{2}[\u{1}RATE_LIMIT_EXCEEDED\0\u{1}QUOTA_EXCEEDED\0\u{1}SIZE_LIMIT_EXCEEDED\0\u{1}TIME_LIMIT_EXCEEDED\0\u{1}FREQUENCY_LIMIT_EXCEEDED\0\u{1}CONCURRENT_LIMIT_EXCEEDED\0\u{1}STORAGE_LIMIT_EXCEEDED\0\u{1}BANDWIDTH_LIMIT_EXCEEDED\0\u{1}REQUEST_LIMIT_EXCEEDED\0\u{1}USER_LIMIT_EXCEEDED\0\u{2}[\u{1}AI_GENERATION_FAILED\0\u{1}AI_SERVICE_UNAVAILABLE\0\u{1}AI_QUOTA_EXCEEDED\0\u{1}AI_MODEL_ERROR\0\u{1}AI_PARAMETER_ERROR\0\u{1}AI_CONTENT_ERROR\0\u{1}AI_TIMEOUT\0\u{1}AI_RATE_LIMITED\0\u{1}AI_CONTEXT_ERROR\0\u{1}AI_RESPONSE_ERROR\0\u{2}[\u{1}COMMENT_NOT_FOUND\0\u{1}COMMENT_ALREADY_EXISTS\0\u{1}COMMENT_PERMISSION_DENIED\0\u{1}COMMENT_LOCKED\0\u{1}COMMENT_STATUS_ERROR\0\u{2}`\u{1}LIKE_NOT_FOUND\0\u{1}LIKE_ALREADY_EXISTS\0\u{1}LIKE_PERMISSION_DENIED\0\u{1}LIKE_LOCKED\0\u{1}LIKE_STATUS_ERROR\0\u{2}`\u{1}VIP_NOT_FOUND\0\u{1}VIP_ALREADY_EXISTS\0\u{1}VIP_PERMISSION_DENIED\0\u{1}VIP_LOCKED\0\u{1}VIP_STATUS_ERROR\0\u{2}`\u{1}PAYMENT_NOT_FOUND\0\u{1}PAYMENT_ALREADY_EXISTS\0\u{1}PAYMENT_PERMISSION_DENIED\0\u{1}PAYMENT_LOCKED\0\u{1}PAYMENT_STATUS_ERROR\0\u{2}`\u{1}ORDER_NOT_FOUND\0\u{1}ORDER_ALREADY_EXISTS\0\u{1}ORDER_PERMISSION_DENIED\0\u{1}ORDER_LOCKED\0\u{1}ORDER_STATUS_ERROR\0\u{2}`\u{1}MESSAGE_NOT_FOUND\0\u{1}MESSAGE_ALREADY_EXISTS\0\u{1}MESSAGE_PERMISSION_DENIED\0\u{1}MESSAGE_LOCKED\0\u{1}MESSAGE_STATUS_ERROR\0\u{2}`\u{1}CHAT_NOT_FOUND\0\u{1}CHAT_ALREADY_EXISTS\0\u{1}CHAT_PERMISSION_DENIED\0\u{1}CHAT_LOCKED\0\u{1}CHAT_STATUS_ERROR\0\u{1}CHAT_MESSAGE_ERROR\0\u{1}CHAT_CONTEXT_ERROR\0\u{1}CHAT_STREAM_ERROR\0\u{1}CHAT_TIMEOUT\0\u{1}CHAT_RATE_LIMITED\0\u{2}[\u{1}UPLOAD_FAILED\0\u{1}UPLOAD_SIZE_EXCEEDED\0\u{1}UPLOAD_FORMAT_ERROR\0\u{1}UPLOAD_PERMISSION_DENIED\0\u{1}UPLOAD_QUOTA_EXCEEDED\0\u{1}UPLOAD_TYPE_INVALID\0\u{1}UPLOAD_TIMEOUT\0\u{1}UPLOAD_CORRUPTED\0\u{1}UPLOAD_STORAGE_ERROR\0\u{1}UPLOAD_PROCESSING_ERROR\0\u{2}[\u{1}SEARCH_FAILED\0\u{1}SEARCH_PARAMETER_ERROR\0\u{1}SEARCH_TIMEOUT\0\u{1}SEARCH_PERMISSION_DENIED\0\u{1}SEARCH_QUOTA_EXCEEDED\0\u{1}SEARCH_INDEX_ERROR\0\u{1}SEARCH_RESULT_ERROR\0\u{1}SEARCH_FILTER_ERROR\0\u{1}SEARCH_SORT_ERROR\0\u{1}SEARCH_SCOPE_ERROR\0")
 }
 
-extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ErrorDescription"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}system_errors\0\u{3}auth_errors\0\u{3}validation_errors\0\u{3}resource_errors\0\u{3}user_errors\0\u{3}group_errors\0\u{3}project_errors\0\u{3}story_errors\0\u{3}storyboard_errors\0\u{3}role_errors\0\u{3}content_errors\0\u{3}operation_errors\0\u{3}limit_errors\0\u{3}ai_errors\0\u{3}comment_errors\0\u{3}like_errors\0\u{3}vip_errors\0\u{3}payment_errors\0\u{3}order_errors\0\u{3}message_errors\0\u{3}chat_errors\0\u{3}upload_errors\0\u{3}search_errors\0")
 
@@ -2585,7 +2585,7 @@ extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ErrorDescription, rhs: Common_ErrorDescription) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ErrorDescription, rhs: Rankquantity_Voyager_Api_ErrorDescription) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2622,7 +2622,7 @@ extension Common_ErrorDescription: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ErrorDescriptions"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}system_errors\0\u{3}auth_errors\0\u{3}validation_errors\0\u{3}resource_errors\0\u{3}user_errors\0\u{3}group_errors\0\u{3}project_errors\0\u{3}story_errors\0\u{3}storyboard_errors\0\u{3}role_errors\0\u{3}content_errors\0\u{3}operation_errors\0\u{3}limit_errors\0\u{3}ai_errors\0\u{3}comment_errors\0\u{3}like_errors\0\u{3}vip_errors\0\u{3}payment_errors\0\u{3}order_errors\0\u{3}message_errors\0\u{3}chat_errors\0\u{3}upload_errors\0\u{3}search_errors\0")
 
@@ -2805,7 +2805,7 @@ extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ErrorDescriptions, rhs: Common_ErrorDescriptions) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ErrorDescriptions, rhs: Rankquantity_Voyager_Api_ErrorDescriptions) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2842,7 +2842,7 @@ extension Common_ErrorDescriptions: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SystemErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}SYSTEM_ERROR\0\u{3}INTERNAL_ERROR\0\u{3}DATABASE_ERROR\0\u{3}CACHE_ERROR\0\u{3}NETWORK_ERROR\0\u{3}TIMEOUT_ERROR\0\u{3}SERVICE_UNAVAILABLE\0\u{3}TOO_MANY_REQUESTS\0\u{3}CONFIGURATION_ERROR\0\u{3}INITIALIZATION_ERROR\0")
 
@@ -2901,7 +2901,7 @@ extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SystemErrorMessages, rhs: Common_SystemErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SystemErrorMessages, rhs: Rankquantity_Voyager_Api_SystemErrorMessages) -> Bool {
     if lhs.systemError != rhs.systemError {return false}
     if lhs.internalError != rhs.internalError {return false}
     if lhs.databaseError != rhs.databaseError {return false}
@@ -2917,7 +2917,7 @@ extension Common_SystemErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AuthErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UNAUTHORIZED\0\u{3}TOKEN_EXPIRED\0\u{3}TOKEN_INVALID\0\u{3}PERMISSION_DENIED\0\u{3}ACCOUNT_NOT_FOUND\0\u{3}WRONG_PASSWORD\0\u{3}ACCOUNT_DISABLED\0\u{3}LOGIN_REQUIRED\0\u{3}TOKEN_MISSING\0\u{3}SESSION_EXPIRED\0\u{3}INVALID_CREDENTIALS\0\u{3}ACCOUNT_LOCKED\0\u{3}ACCOUNT_EXPIRED\0\u{3}INVALID_LOGIN_TYPE\0")
 
@@ -2992,7 +2992,7 @@ extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_AuthErrorMessages, rhs: Common_AuthErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_AuthErrorMessages, rhs: Rankquantity_Voyager_Api_AuthErrorMessages) -> Bool {
     if lhs.unauthorized != rhs.unauthorized {return false}
     if lhs.tokenExpired != rhs.tokenExpired {return false}
     if lhs.tokenInvalid != rhs.tokenInvalid {return false}
@@ -3012,7 +3012,7 @@ extension Common_AuthErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ValidationErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}INVALID_PARAMETER\0\u{3}MISSING_PARAMETER\0\u{3}INVALID_FORMAT\0\u{3}INVALID_LENGTH\0\u{3}INVALID_VALUE\0\u{3}INVALID_TYPE\0\u{3}INVALID_SYNTAX\0\u{3}INVALID_ENCODING\0\u{3}INVALID_OPERATION\0\u{3}VALIDATION_FAILED\0")
 
@@ -3071,7 +3071,7 @@ extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ValidationErrorMessages, rhs: Common_ValidationErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ValidationErrorMessages, rhs: Rankquantity_Voyager_Api_ValidationErrorMessages) -> Bool {
     if lhs.invalidParameter != rhs.invalidParameter {return false}
     if lhs.missingParameter != rhs.missingParameter {return false}
     if lhs.invalidFormat != rhs.invalidFormat {return false}
@@ -3087,7 +3087,7 @@ extension Common_ValidationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ResourceErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}RESOURCE_NOT_FOUND\0\u{3}RESOURCE_ALREADY_EXISTS\0\u{3}RESOURCE_EXPIRED\0\u{3}RESOURCE_EXHAUSTED\0\u{3}RESOURCE_BUSY\0\u{3}RESOURCE_LOCKED\0\u{3}RESOURCE_UNAVAILABLE\0\u{3}RESOURCE_QUOTA_EXCEEDED\0\u{3}RESOURCE_CORRUPTED\0")
 
@@ -3142,7 +3142,7 @@ extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ResourceErrorMessages, rhs: Common_ResourceErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ResourceErrorMessages, rhs: Rankquantity_Voyager_Api_ResourceErrorMessages) -> Bool {
     if lhs.resourceNotFound != rhs.resourceNotFound {return false}
     if lhs.resourceAlreadyExists != rhs.resourceAlreadyExists {return false}
     if lhs.resourceExpired != rhs.resourceExpired {return false}
@@ -3157,7 +3157,7 @@ extension Common_ResourceErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}USER_NOT_FOUND\0\u{3}USER_ALREADY_EXISTS\0\u{3}USER_NOT_ACTIVE\0\u{3}USER_BLOCKED\0\u{3}USER_PROFILE_INCOMPLETE\0\u{3}USER_OPERATION_DENIED\0\u{3}USER_QUOTA_EXCEEDED\0\u{3}USER_STATUS_ERROR\0\u{3}USER_VERIFICATION_FAILED\0\u{3}USER_ROLE_INVALID\0")
 
@@ -3216,7 +3216,7 @@ extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UserErrorMessages, rhs: Common_UserErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UserErrorMessages, rhs: Rankquantity_Voyager_Api_UserErrorMessages) -> Bool {
     if lhs.userNotFound != rhs.userNotFound {return false}
     if lhs.userAlreadyExists != rhs.userAlreadyExists {return false}
     if lhs.userNotActive != rhs.userNotActive {return false}
@@ -3232,7 +3232,7 @@ extension Common_UserErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".GroupErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}GROUP_NOT_FOUND\0\u{3}GROUP_ALREADY_EXISTS\0\u{3}NOT_GROUP_MEMBER\0\u{3}GROUP_PERMISSION_DENIED\0\u{3}GROUP_FULL\0\u{3}GROUP_CLOSED\0\u{3}GROUP_OPERATION_DENIED\0\u{3}GROUP_STATUS_ERROR\0\u{3}GROUP_TYPE_INVALID\0\u{3}GROUP_QUOTA_EXCEEDED\0")
 
@@ -3291,7 +3291,7 @@ extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_GroupErrorMessages, rhs: Common_GroupErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GroupErrorMessages, rhs: Rankquantity_Voyager_Api_GroupErrorMessages) -> Bool {
     if lhs.groupNotFound != rhs.groupNotFound {return false}
     if lhs.groupAlreadyExists != rhs.groupAlreadyExists {return false}
     if lhs.notGroupMember != rhs.notGroupMember {return false}
@@ -3307,7 +3307,7 @@ extension Common_GroupErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}STORY_NOT_FOUND\0\u{3}STORY_ALREADY_EXISTS\0\u{3}STORY_PERMISSION_DENIED\0\u{3}STORY_LOCKED\0\u{3}STORY_ARCHIVED\0\u{3}STORY_STATUS_ERROR\0\u{3}STORY_VERSION_ERROR\0\u{3}STORY_CONTENT_ERROR\0\u{3}STORY_OPERATION_DENIED\0\u{3}STORY_GENERATION_FAILED\0")
 
@@ -3366,7 +3366,7 @@ extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryErrorMessages, rhs: Common_StoryErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryErrorMessages, rhs: Rankquantity_Voyager_Api_StoryErrorMessages) -> Bool {
     if lhs.storyNotFound != rhs.storyNotFound {return false}
     if lhs.storyAlreadyExists != rhs.storyAlreadyExists {return false}
     if lhs.storyPermissionDenied != rhs.storyPermissionDenied {return false}
@@ -3382,7 +3382,7 @@ extension Common_StoryErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}STORYBOARD_NOT_FOUND\0\u{3}STORYBOARD_ALREADY_EXISTS\0\u{3}STORYBOARD_PERMISSION_DENIED\0\u{3}STORYBOARD_RENDER_ERROR\0\u{3}STORYBOARD_LOCKED\0\u{3}STORYBOARD_STATUS_ERROR\0\u{3}STORYBOARD_VERSION_ERROR\0\u{3}STORYBOARD_SCENE_ERROR\0\u{3}STORYBOARD_GENERATION_FAILED\0\u{3}STORYBOARD_OPERATION_DENIED\0")
 
@@ -3441,7 +3441,7 @@ extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_StoryboardErrorMessages, rhs: Common_StoryboardErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_StoryboardErrorMessages, rhs: Rankquantity_Voyager_Api_StoryboardErrorMessages) -> Bool {
     if lhs.storyboardNotFound != rhs.storyboardNotFound {return false}
     if lhs.storyboardAlreadyExists != rhs.storyboardAlreadyExists {return false}
     if lhs.storyboardPermissionDenied != rhs.storyboardPermissionDenied {return false}
@@ -3457,7 +3457,7 @@ extension Common_StoryboardErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RoleErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ROLE_NOT_FOUND\0\u{3}ROLE_ALREADY_EXISTS\0\u{3}ROLE_PERMISSION_DENIED\0\u{3}ROLE_RENDER_ERROR\0\u{3}ROLE_LOCKED\0\u{3}ROLE_STATUS_ERROR\0\u{3}ROLE_TYPE_INVALID\0\u{3}ROLE_QUOTA_EXCEEDED\0\u{3}ROLE_GENERATION_FAILED\0\u{3}ROLE_OPERATION_DENIED\0")
 
@@ -3516,7 +3516,7 @@ extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_RoleErrorMessages, rhs: Common_RoleErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_RoleErrorMessages, rhs: Rankquantity_Voyager_Api_RoleErrorMessages) -> Bool {
     if lhs.roleNotFound != rhs.roleNotFound {return false}
     if lhs.roleAlreadyExists != rhs.roleAlreadyExists {return false}
     if lhs.rolePermissionDenied != rhs.rolePermissionDenied {return false}
@@ -3532,7 +3532,7 @@ extension Common_RoleErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ContentErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}CONTENT_NOT_FOUND\0\u{3}CONTENT_ALREADY_EXISTS\0\u{3}CONTENT_PERMISSION_DENIED\0\u{3}CONTENT_TYPE_INVALID\0\u{3}CONTENT_SIZE_EXCEEDED\0\u{3}CONTENT_FORMAT_ERROR\0\u{3}CONTENT_LOCKED\0\u{3}CONTENT_EXPIRED\0\u{3}CONTENT_CORRUPTED\0\u{3}CONTENT_OPERATION_DENIED\0")
 
@@ -3591,7 +3591,7 @@ extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ContentErrorMessages, rhs: Common_ContentErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ContentErrorMessages, rhs: Rankquantity_Voyager_Api_ContentErrorMessages) -> Bool {
     if lhs.contentNotFound != rhs.contentNotFound {return false}
     if lhs.contentAlreadyExists != rhs.contentAlreadyExists {return false}
     if lhs.contentPermissionDenied != rhs.contentPermissionDenied {return false}
@@ -3607,7 +3607,7 @@ extension Common_ContentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".OperationErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}OPERATION_FAILED\0\u{3}OPERATION_TIMEOUT\0\u{3}OPERATION_CANCELLED\0\u{3}OPERATION_NOT_SUPPORTED\0\u{3}OPERATION_IN_PROGRESS\0\u{3}OPERATION_ABORTED\0\u{3}OPERATION_REJECTED\0\u{3}OPERATION_INVALID\0\u{3}OPERATION_CONFLICT\0\u{3}OPERATION_TOO_FREQUENT\0")
 
@@ -3666,7 +3666,7 @@ extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_OperationErrorMessages, rhs: Common_OperationErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_OperationErrorMessages, rhs: Rankquantity_Voyager_Api_OperationErrorMessages) -> Bool {
     if lhs.operationFailed != rhs.operationFailed {return false}
     if lhs.operationTimeout != rhs.operationTimeout {return false}
     if lhs.operationCancelled != rhs.operationCancelled {return false}
@@ -3682,7 +3682,7 @@ extension Common_OperationErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LimitErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}RATE_LIMIT_EXCEEDED\0\u{3}QUOTA_EXCEEDED\0\u{3}SIZE_LIMIT_EXCEEDED\0\u{3}TIME_LIMIT_EXCEEDED\0\u{3}FREQUENCY_LIMIT_EXCEEDED\0\u{3}CONCURRENT_LIMIT_EXCEEDED\0\u{3}STORAGE_LIMIT_EXCEEDED\0\u{3}BANDWIDTH_LIMIT_EXCEEDED\0\u{3}REQUEST_LIMIT_EXCEEDED\0\u{3}USER_LIMIT_EXCEEDED\0")
 
@@ -3741,7 +3741,7 @@ extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LimitErrorMessages, rhs: Common_LimitErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LimitErrorMessages, rhs: Rankquantity_Voyager_Api_LimitErrorMessages) -> Bool {
     if lhs.rateLimitExceeded != rhs.rateLimitExceeded {return false}
     if lhs.quotaExceeded != rhs.quotaExceeded {return false}
     if lhs.sizeLimitExceeded != rhs.sizeLimitExceeded {return false}
@@ -3757,7 +3757,7 @@ extension Common_LimitErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".AIErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}AI_GENERATION_FAILED\0\u{3}AI_SERVICE_UNAVAILABLE\0\u{3}AI_QUOTA_EXCEEDED\0\u{3}AI_MODEL_ERROR\0\u{3}AI_PARAMETER_ERROR\0\u{3}AI_CONTENT_ERROR\0\u{3}AI_TIMEOUT\0\u{3}AI_RATE_LIMITED\0\u{3}AI_CONTEXT_ERROR\0\u{3}AI_RESPONSE_ERROR\0")
 
@@ -3816,7 +3816,7 @@ extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_AIErrorMessages, rhs: Common_AIErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_AIErrorMessages, rhs: Rankquantity_Voyager_Api_AIErrorMessages) -> Bool {
     if lhs.aiGenerationFailed != rhs.aiGenerationFailed {return false}
     if lhs.aiServiceUnavailable != rhs.aiServiceUnavailable {return false}
     if lhs.aiQuotaExceeded != rhs.aiQuotaExceeded {return false}
@@ -3832,7 +3832,7 @@ extension Common_AIErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CommentErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}COMMENT_NOT_FOUND\0\u{3}COMMENT_ALREADY_EXISTS\0\u{3}COMMENT_PERMISSION_DENIED\0\u{3}COMMENT_LOCKED\0\u{3}COMMENT_STATUS_ERROR\0")
 
@@ -3871,7 +3871,7 @@ extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CommentErrorMessages, rhs: Common_CommentErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CommentErrorMessages, rhs: Rankquantity_Voyager_Api_CommentErrorMessages) -> Bool {
     if lhs.commentNotFound != rhs.commentNotFound {return false}
     if lhs.commentAlreadyExists != rhs.commentAlreadyExists {return false}
     if lhs.commentPermissionDenied != rhs.commentPermissionDenied {return false}
@@ -3882,7 +3882,7 @@ extension Common_CommentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".LikeErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}LIKE_NOT_FOUND\0\u{3}LIKE_ALREADY_EXISTS\0\u{3}LIKE_PERMISSION_DENIED\0\u{3}LIKE_LOCKED\0\u{3}LIKE_STATUS_ERROR\0")
 
@@ -3921,7 +3921,7 @@ extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_LikeErrorMessages, rhs: Common_LikeErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_LikeErrorMessages, rhs: Rankquantity_Voyager_Api_LikeErrorMessages) -> Bool {
     if lhs.likeNotFound != rhs.likeNotFound {return false}
     if lhs.likeAlreadyExists != rhs.likeAlreadyExists {return false}
     if lhs.likePermissionDenied != rhs.likePermissionDenied {return false}
@@ -3932,7 +3932,7 @@ extension Common_LikeErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".VIPErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}VIP_NOT_FOUND\0\u{3}VIP_ALREADY_EXISTS\0\u{3}VIP_PERMISSION_DENIED\0\u{3}VIP_LOCKED\0\u{3}VIP_STATUS_ERROR\0")
 
@@ -3971,7 +3971,7 @@ extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_VIPErrorMessages, rhs: Common_VIPErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_VIPErrorMessages, rhs: Rankquantity_Voyager_Api_VIPErrorMessages) -> Bool {
     if lhs.vipNotFound != rhs.vipNotFound {return false}
     if lhs.vipAlreadyExists != rhs.vipAlreadyExists {return false}
     if lhs.vipPermissionDenied != rhs.vipPermissionDenied {return false}
@@ -3982,7 +3982,7 @@ extension Common_VIPErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".PaymentErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}PAYMENT_NOT_FOUND\0\u{3}PAYMENT_ALREADY_EXISTS\0\u{3}PAYMENT_PERMISSION_DENIED\0\u{3}PAYMENT_LOCKED\0\u{3}PAYMENT_STATUS_ERROR\0")
 
@@ -4021,7 +4021,7 @@ extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_PaymentErrorMessages, rhs: Common_PaymentErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_PaymentErrorMessages, rhs: Rankquantity_Voyager_Api_PaymentErrorMessages) -> Bool {
     if lhs.paymentNotFound != rhs.paymentNotFound {return false}
     if lhs.paymentAlreadyExists != rhs.paymentAlreadyExists {return false}
     if lhs.paymentPermissionDenied != rhs.paymentPermissionDenied {return false}
@@ -4032,7 +4032,7 @@ extension Common_PaymentErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".OrderErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ORDER_NOT_FOUND\0\u{3}ORDER_ALREADY_EXISTS\0\u{3}ORDER_PERMISSION_DENIED\0\u{3}ORDER_LOCKED\0\u{3}ORDER_STATUS_ERROR\0")
 
@@ -4071,7 +4071,7 @@ extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_OrderErrorMessages, rhs: Common_OrderErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_OrderErrorMessages, rhs: Rankquantity_Voyager_Api_OrderErrorMessages) -> Bool {
     if lhs.orderNotFound != rhs.orderNotFound {return false}
     if lhs.orderAlreadyExists != rhs.orderAlreadyExists {return false}
     if lhs.orderPermissionDenied != rhs.orderPermissionDenied {return false}
@@ -4082,7 +4082,7 @@ extension Common_OrderErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MessageErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}MESSAGE_NOT_FOUND\0\u{3}MESSAGE_ALREADY_EXISTS\0\u{3}MESSAGE_PERMISSION_DENIED\0\u{3}MESSAGE_LOCKED\0\u{3}MESSAGE_STATUS_ERROR\0")
 
@@ -4121,7 +4121,7 @@ extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_MessageErrorMessages, rhs: Common_MessageErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_MessageErrorMessages, rhs: Rankquantity_Voyager_Api_MessageErrorMessages) -> Bool {
     if lhs.messageNotFound != rhs.messageNotFound {return false}
     if lhs.messageAlreadyExists != rhs.messageAlreadyExists {return false}
     if lhs.messagePermissionDenied != rhs.messagePermissionDenied {return false}
@@ -4132,7 +4132,7 @@ extension Common_MessageErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ChatErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}CHAT_NOT_FOUND\0\u{3}CHAT_ALREADY_EXISTS\0\u{3}CHAT_PERMISSION_DENIED\0\u{3}CHAT_LOCKED\0\u{3}CHAT_STATUS_ERROR\0\u{3}CHAT_MESSAGE_ERROR\0\u{3}CHAT_CONTEXT_ERROR\0\u{3}CHAT_STREAM_ERROR\0\u{3}CHAT_TIMEOUT\0\u{3}CHAT_RATE_LIMITED\0")
 
@@ -4191,7 +4191,7 @@ extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_ChatErrorMessages, rhs: Common_ChatErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_ChatErrorMessages, rhs: Rankquantity_Voyager_Api_ChatErrorMessages) -> Bool {
     if lhs.chatNotFound != rhs.chatNotFound {return false}
     if lhs.chatAlreadyExists != rhs.chatAlreadyExists {return false}
     if lhs.chatPermissionDenied != rhs.chatPermissionDenied {return false}
@@ -4207,7 +4207,7 @@ extension Common_ChatErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UploadErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}UPLOAD_FAILED\0\u{3}UPLOAD_SIZE_EXCEEDED\0\u{3}UPLOAD_FORMAT_ERROR\0\u{3}UPLOAD_PERMISSION_DENIED\0\u{3}UPLOAD_QUOTA_EXCEEDED\0\u{3}UPLOAD_TYPE_INVALID\0\u{3}UPLOAD_TIMEOUT\0\u{3}UPLOAD_CORRUPTED\0\u{3}UPLOAD_STORAGE_ERROR\0\u{3}UPLOAD_PROCESSING_ERROR\0")
 
@@ -4266,7 +4266,7 @@ extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_UploadErrorMessages, rhs: Common_UploadErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_UploadErrorMessages, rhs: Rankquantity_Voyager_Api_UploadErrorMessages) -> Bool {
     if lhs.uploadFailed != rhs.uploadFailed {return false}
     if lhs.uploadSizeExceeded != rhs.uploadSizeExceeded {return false}
     if lhs.uploadFormatError != rhs.uploadFormatError {return false}
@@ -4282,7 +4282,7 @@ extension Common_UploadErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Common_SearchErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_SearchErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SearchErrorMessages"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}SEARCH_FAILED\0\u{3}SEARCH_PARAMETER_ERROR\0\u{3}SEARCH_TIMEOUT\0\u{3}SEARCH_PERMISSION_DENIED\0\u{3}SEARCH_QUOTA_EXCEEDED\0\u{3}SEARCH_INDEX_ERROR\0\u{3}SEARCH_RESULT_ERROR\0\u{3}SEARCH_FILTER_ERROR\0\u{3}SEARCH_SORT_ERROR\0\u{3}SEARCH_SCOPE_ERROR\0")
 
@@ -4341,7 +4341,7 @@ extension Common_SearchErrorMessages: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_SearchErrorMessages, rhs: Common_SearchErrorMessages) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_SearchErrorMessages, rhs: Rankquantity_Voyager_Api_SearchErrorMessages) -> Bool {
     if lhs.searchFailed != rhs.searchFailed {return false}
     if lhs.searchParameterError != rhs.searchParameterError {return false}
     if lhs.searchTimeout != rhs.searchTimeout {return false}

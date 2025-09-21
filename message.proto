@@ -1,5 +1,5 @@
 syntax = "proto3";
-package common;
+package rankquantity.voyager.api;
 
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";

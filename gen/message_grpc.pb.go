@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	StreamMessageService_StreamChatMessage_FullMethodName = "/common.StreamMessageService/StreamChatMessage"
+	StreamMessageService_StreamChatMessage_FullMethodName = "/rankquantity.voyager.api.StreamMessageService/StreamChatMessage"
 )
 
 // StreamMessageServiceClient is the client API for StreamMessageService service.
@@ -126,7 +126,7 @@ func (x *streamMessageServiceStreamChatMessageServer) Recv() (*StreamChatMessage
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var StreamMessageService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.StreamMessageService",
+	ServiceName: "rankquantity.voyager.api.StreamMessageService",
 	HandlerType: (*StreamMessageServiceServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{

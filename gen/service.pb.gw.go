@@ -4757,7 +4757,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/Explore", runtime.WithHTTPPathPattern("/common.TeamsAPI/Explore"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Explore", runtime.WithHTTPPathPattern("/common.TeamsAPI/Explore"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4782,7 +4782,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/Version", runtime.WithHTTPPathPattern("/common.TeamsAPI/Version"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Version", runtime.WithHTTPPathPattern("/common.TeamsAPI/Version"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4807,7 +4807,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/About", runtime.WithHTTPPathPattern("/common.TeamsAPI/About"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/About", runtime.WithHTTPPathPattern("/common.TeamsAPI/About"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4832,7 +4832,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/Login", runtime.WithHTTPPathPattern("/common.TeamsAPI/Login"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Login", runtime.WithHTTPPathPattern("/common.TeamsAPI/Login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4857,7 +4857,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/Logout", runtime.WithHTTPPathPattern("/common.TeamsAPI/Logout"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Logout", runtime.WithHTTPPathPattern("/common.TeamsAPI/Logout"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4882,7 +4882,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RefreshToken", runtime.WithHTTPPathPattern("/common.TeamsAPI/RefreshToken"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RefreshToken", runtime.WithHTTPPathPattern("/common.TeamsAPI/RefreshToken"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4907,7 +4907,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/Register", runtime.WithHTTPPathPattern("/common.TeamsAPI/Register"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Register", runtime.WithHTTPPathPattern("/common.TeamsAPI/Register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4932,7 +4932,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ResetPwd", runtime.WithHTTPPathPattern("/common.TeamsAPI/ResetPwd"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ResetPwd", runtime.WithHTTPPathPattern("/common.TeamsAPI/ResetPwd"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4957,7 +4957,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserInit", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInit"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserInit", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInit"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -4982,7 +4982,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInfo"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5007,7 +5007,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserAvator"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserAvator"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5032,7 +5032,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserWatching", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserWatching"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserWatching", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserWatching"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5057,7 +5057,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5082,7 +5082,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserFollowingGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserFollowingGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserFollowingGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserFollowingGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5107,7 +5107,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UserUpdate", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserUpdate"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserUpdate", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserUpdate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5132,7 +5132,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/SearchUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchUser"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5157,7 +5157,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5182,7 +5182,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5207,7 +5207,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetGroupActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupActives"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroupActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupActives"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5232,7 +5232,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateGroupInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupInfo"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5257,7 +5257,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupProfile"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5282,7 +5282,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupProfile"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5307,7 +5307,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DeleteGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5332,7 +5332,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FetchGroupMembers", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupMembers"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchGroupMembers", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupMembers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5357,7 +5357,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/JoinGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/JoinGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/JoinGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/JoinGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5382,7 +5382,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LeaveGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/LeaveGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LeaveGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/LeaveGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5407,7 +5407,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5432,7 +5432,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryInfo"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5457,7 +5457,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5482,7 +5482,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5507,7 +5507,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/WatchStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/WatchStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/WatchStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/WatchStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5532,7 +5532,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ArchiveStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ArchiveStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ArchiveStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ArchiveStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5557,7 +5557,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5582,7 +5582,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5607,7 +5607,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5632,7 +5632,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenStoryboardText", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardText"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenStoryboardText", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardText"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5657,7 +5657,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenStoryboardImages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardImages"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenStoryboardImages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardImages"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5682,7 +5682,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5707,7 +5707,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/DelStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/DelStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5732,7 +5732,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ForkStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ForkStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ForkStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ForkStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5757,7 +5757,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5782,7 +5782,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5807,7 +5807,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5832,7 +5832,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ShareStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ShareStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ShareStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ShareStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5857,7 +5857,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FetchGroupStorys", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupStorys"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchGroupStorys", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupStorys"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5882,7 +5882,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UploadImageFile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UploadImageFile"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UploadImageFile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UploadImageFile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5907,7 +5907,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryRender/list"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryRender/list"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5932,7 +5932,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryBoardRender/list"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryBoardRender/list"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5957,7 +5957,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryContributors", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryContributors"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryContributors", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryContributors"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -5982,7 +5982,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ContinueRenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ContinueRenderStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ContinueRenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ContinueRenderStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6007,7 +6007,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6032,7 +6032,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6057,7 +6057,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6082,7 +6082,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6107,7 +6107,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardRoles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6132,7 +6132,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserProfile"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6157,7 +6157,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserProfile"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6182,7 +6182,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserBackgroundImage", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserBackgroundImage"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserBackgroundImage"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6207,7 +6207,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6232,7 +6232,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6257,7 +6257,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6282,7 +6282,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6307,7 +6307,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6332,7 +6332,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSences"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSences"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6357,7 +6357,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6382,7 +6382,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6407,7 +6407,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6432,7 +6432,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6457,7 +6457,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSences"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSences"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6482,7 +6482,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardSenceGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSenceGenerate"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSenceGenerate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6507,7 +6507,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardGenerate"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardGenerate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6532,7 +6532,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6557,7 +6557,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6582,7 +6582,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6607,7 +6607,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnFollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnFollowStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnFollowStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6632,7 +6632,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/SearchStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchStories"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchStories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6657,7 +6657,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/SearchGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchGroup"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6682,7 +6682,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/SearchRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchRoles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6707,7 +6707,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RestoreStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RestoreStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RestoreStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RestoreStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6732,7 +6732,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserCreatedStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedStoryboards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6757,7 +6757,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserCreatedRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedRoles"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6782,7 +6782,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStoryboards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6807,7 +6807,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStories"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6832,7 +6832,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryRoleChat", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRoleChat"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRoleChat"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6857,7 +6857,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/ChatWithStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/ChatWithStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/ChatWithStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6882,7 +6882,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleAvator"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleAvator"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6907,7 +6907,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6932,7 +6932,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserWithRoleChatList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWithRoleChatList"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWithRoleChatList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6957,7 +6957,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserChatWithRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatWithRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatWithRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -6982,7 +6982,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserChatMessages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatMessages"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserChatMessages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatMessages"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7007,7 +7007,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FetchActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchActives"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchActives"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7032,7 +7032,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetNextStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetNextStoryboards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetNextStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetNextStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7057,7 +7057,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoleContinuously", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleContinuously"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleContinuously"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7082,7 +7082,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/PublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/PublishStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/PublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/PublishStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7107,7 +7107,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CancelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CancelStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CancelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CancelStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7132,7 +7132,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7157,7 +7157,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7182,7 +7182,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetUnPublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUnPublishStoryboard"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUnPublishStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7207,7 +7207,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleDescription"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleDescription"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7232,7 +7232,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRoleDescription"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRoleDescription"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7257,7 +7257,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRolePrompt"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7282,7 +7282,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRolePrompt"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7307,7 +7307,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7332,7 +7332,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryComments"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryComments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7357,7 +7357,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7382,7 +7382,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryCommentReplies"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryCommentReplies"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7407,7 +7407,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryCommentReply"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryCommentReply"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7432,7 +7432,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryCommentReply"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryCommentReply"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7457,7 +7457,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardComments"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardComments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7482,7 +7482,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7507,7 +7507,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7532,7 +7532,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardCommentReplies"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardCommentReplies"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7557,7 +7557,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7582,7 +7582,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/DislikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DislikeComment"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DislikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DislikeComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7607,7 +7607,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleList"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7632,7 +7632,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/TrendingStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStory"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/TrendingStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7657,7 +7657,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/TrendingStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStoryRole"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/TrendingStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7682,7 +7682,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowUser"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7707,7 +7707,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnfollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnfollowUser"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnfollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnfollowUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7732,7 +7732,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetFollowList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowList"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetFollowList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7757,7 +7757,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetFollowerList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowerList"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetFollowerList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowerList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7782,7 +7782,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePrompt"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7807,7 +7807,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7832,7 +7832,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/QueryTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryTaskStatus"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/QueryTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryTaskStatus"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7857,7 +7857,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryImageStyle"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryImageStyle"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7882,7 +7882,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryImageStyle"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryImageStyle"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7907,7 +7907,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStorySenceMaxNumber", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStorySenceMaxNumber"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStorySenceMaxNumber"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7932,7 +7932,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryAvatar"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryAvatar"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7957,7 +7957,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryCover", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryCover"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryCover", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryCover"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -7982,7 +7982,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/SaveStoryboardCraft", runtime.WithHTTPPathPattern("/common.TeamsAPI/SaveStoryboardCraft"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft", runtime.WithHTTPPathPattern("/common.TeamsAPI/SaveStoryboardCraft"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8007,7 +8007,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryParticipants", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryParticipants"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryParticipants", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryParticipants"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8032,7 +8032,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateStorySceneVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStorySceneVideo"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStorySceneVideo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8057,7 +8057,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateRoleAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleAvatar"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleAvatar"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8082,7 +8082,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/FetchUserGenTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryGenTaskStatus"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryGenTaskStatus"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8107,7 +8107,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8132,7 +8132,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8157,7 +8157,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8182,7 +8182,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8207,7 +8207,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRolePosterList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRolePosterList"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRolePosterList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8232,7 +8232,7 @@ func RegisterTeamsAPIHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8296,7 +8296,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/Explore", runtime.WithHTTPPathPattern("/common.TeamsAPI/Explore"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Explore", runtime.WithHTTPPathPattern("/common.TeamsAPI/Explore"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8318,7 +8318,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/Version", runtime.WithHTTPPathPattern("/common.TeamsAPI/Version"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Version", runtime.WithHTTPPathPattern("/common.TeamsAPI/Version"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8340,7 +8340,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/About", runtime.WithHTTPPathPattern("/common.TeamsAPI/About"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/About", runtime.WithHTTPPathPattern("/common.TeamsAPI/About"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8362,7 +8362,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/Login", runtime.WithHTTPPathPattern("/common.TeamsAPI/Login"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Login", runtime.WithHTTPPathPattern("/common.TeamsAPI/Login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8384,7 +8384,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/Logout", runtime.WithHTTPPathPattern("/common.TeamsAPI/Logout"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Logout", runtime.WithHTTPPathPattern("/common.TeamsAPI/Logout"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8406,7 +8406,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RefreshToken", runtime.WithHTTPPathPattern("/common.TeamsAPI/RefreshToken"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RefreshToken", runtime.WithHTTPPathPattern("/common.TeamsAPI/RefreshToken"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8428,7 +8428,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/Register", runtime.WithHTTPPathPattern("/common.TeamsAPI/Register"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/Register", runtime.WithHTTPPathPattern("/common.TeamsAPI/Register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8450,7 +8450,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ResetPwd", runtime.WithHTTPPathPattern("/common.TeamsAPI/ResetPwd"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ResetPwd", runtime.WithHTTPPathPattern("/common.TeamsAPI/ResetPwd"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8472,7 +8472,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserInit", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInit"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserInit", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInit"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8494,7 +8494,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInfo"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8516,7 +8516,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserAvator"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserAvator"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8538,7 +8538,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserWatching", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserWatching"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserWatching", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserWatching"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8560,7 +8560,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8582,7 +8582,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserFollowingGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserFollowingGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserFollowingGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserFollowingGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8604,7 +8604,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UserUpdate", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserUpdate"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UserUpdate", runtime.WithHTTPPathPattern("/common.TeamsAPI/UserUpdate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8626,7 +8626,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/SearchUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchUser"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8648,7 +8648,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8670,7 +8670,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8692,7 +8692,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetGroupActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupActives"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroupActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupActives"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8714,7 +8714,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateGroupInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupInfo"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateGroupInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8736,7 +8736,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupProfile"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetGroupProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8758,7 +8758,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupProfile"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateGroupProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateGroupProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8780,7 +8780,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DeleteGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8802,7 +8802,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FetchGroupMembers", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupMembers"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchGroupMembers", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupMembers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8824,7 +8824,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/JoinGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/JoinGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/JoinGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/JoinGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8846,7 +8846,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LeaveGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/LeaveGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LeaveGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/LeaveGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8868,7 +8868,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8890,7 +8890,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryInfo"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryInfo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryInfo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8912,7 +8912,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8934,7 +8934,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8956,7 +8956,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/WatchStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/WatchStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/WatchStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/WatchStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -8978,7 +8978,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ArchiveStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ArchiveStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ArchiveStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ArchiveStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9000,7 +9000,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9022,7 +9022,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9044,7 +9044,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9066,7 +9066,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenStoryboardText", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardText"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenStoryboardText", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardText"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9088,7 +9088,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenStoryboardImages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardImages"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenStoryboardImages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenStoryboardImages"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9110,7 +9110,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9132,7 +9132,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/DelStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/DelStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9154,7 +9154,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ForkStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ForkStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ForkStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ForkStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9176,7 +9176,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9198,7 +9198,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9220,7 +9220,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9242,7 +9242,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ShareStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ShareStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ShareStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/ShareStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9264,7 +9264,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FetchGroupStorys", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupStorys"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchGroupStorys", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchGroupStorys"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9286,7 +9286,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UploadImageFile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UploadImageFile"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UploadImageFile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UploadImageFile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9308,7 +9308,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryRender/list"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryRender/list"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9330,7 +9330,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryBoardRender/list"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRender", runtime.WithHTTPPathPattern("/common.TeamsAPI/StoryBoardRender/list"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9352,7 +9352,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryContributors", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryContributors"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryContributors", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryContributors"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9374,7 +9374,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ContinueRenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ContinueRenderStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ContinueRenderStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/ContinueRenderStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9396,7 +9396,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9418,7 +9418,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9440,7 +9440,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9462,7 +9462,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9484,7 +9484,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardRoles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9506,7 +9506,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserProfile"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9528,7 +9528,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserProfile"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserProfile", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9550,7 +9550,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateUserBackgroundImage", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserBackgroundImage"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateUserBackgroundImage", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateUserBackgroundImage"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9572,7 +9572,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9594,7 +9594,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9616,7 +9616,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9638,7 +9638,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9660,7 +9660,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9682,7 +9682,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSences"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSences"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9704,7 +9704,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9726,7 +9726,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9748,7 +9748,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9770,7 +9770,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSence"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSence", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSence"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9792,7 +9792,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSences"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryBoardSences", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryBoardSences"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9814,7 +9814,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardSenceGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSenceGenerate"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardSenceGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardSenceGenerate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9836,7 +9836,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardGenerate"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardGenerate", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardGenerate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9858,7 +9858,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9880,7 +9880,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9902,7 +9902,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9924,7 +9924,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnFollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnFollowStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnFollowStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnFollowStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9946,7 +9946,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/SearchStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchStories"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchStories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9968,7 +9968,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/SearchGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchGroup"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchGroup", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchGroup"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -9990,7 +9990,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/SearchRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchRoles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SearchRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/SearchRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10012,7 +10012,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RestoreStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RestoreStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RestoreStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/RestoreStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10034,7 +10034,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserCreatedStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedStoryboards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10056,7 +10056,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserCreatedRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedRoles"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserCreatedRoles", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserCreatedRoles"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10078,7 +10078,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStoryboards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStoryboards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10100,7 +10100,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStories"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleStories", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleStories"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10122,7 +10122,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryRoleChat", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRoleChat"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryRoleChat", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryRoleChat"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10144,7 +10144,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/ChatWithStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/ChatWithStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/ChatWithStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/ChatWithStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10166,7 +10166,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleAvator"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleAvator", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleAvator"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10188,7 +10188,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDetail"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10210,7 +10210,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserWithRoleChatList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWithRoleChatList"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWithRoleChatList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWithRoleChatList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10232,7 +10232,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserChatWithRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatWithRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserChatWithRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatWithRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10254,7 +10254,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserChatMessages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatMessages"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserChatMessages", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserChatMessages"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10276,7 +10276,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FetchActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchActives"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchActives", runtime.WithHTTPPathPattern("/common.TeamsAPI/FetchActives"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10298,7 +10298,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetNextStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetNextStoryboards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetNextStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetNextStoryboards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10320,7 +10320,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/RenderStoryRoleContinuously", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleContinuously"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/RenderStoryRoleContinuously", runtime.WithHTTPPathPattern("/common.TeamsAPI/RenderStoryRoleContinuously"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10342,7 +10342,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/PublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/PublishStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/PublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/PublishStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10364,7 +10364,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CancelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CancelStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CancelStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/CancelStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10386,7 +10386,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWatchStoryActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10408,7 +10408,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUserWatchRoleActiveStoryBoards", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10430,7 +10430,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetUnPublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUnPublishStoryboard"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetUnPublishStoryboard", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetUnPublishStoryboard"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10452,7 +10452,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleDescription"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleDescription"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10474,7 +10474,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRoleDescription"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateRoleDescription", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRoleDescription"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10496,7 +10496,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRolePrompt"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10518,7 +10518,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRolePrompt"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10540,7 +10540,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10562,7 +10562,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryComments"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryComments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10584,7 +10584,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10606,7 +10606,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryCommentReplies"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryCommentReplies"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10628,7 +10628,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryCommentReply"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryCommentReply"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10650,7 +10650,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryCommentReply"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryCommentReply", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryCommentReply"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10672,7 +10672,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardComments"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardComments", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardComments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10694,7 +10694,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/CreateStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/CreateStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/CreateStoryBoardComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10716,7 +10716,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DeleteStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DeleteStoryBoardComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DeleteStoryBoardComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10738,7 +10738,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryBoardCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardCommentReplies"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryBoardCommentReplies", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryBoardCommentReplies"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10760,7 +10760,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10782,7 +10782,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/DislikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DislikeComment"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/DislikeComment", runtime.WithHTTPPathPattern("/common.TeamsAPI/DislikeComment"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10804,7 +10804,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRoleList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleList"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRoleList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRoleList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10826,7 +10826,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/TrendingStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStory"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/TrendingStory", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStory"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10848,7 +10848,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/TrendingStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStoryRole"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/TrendingStoryRole", runtime.WithHTTPPathPattern("/common.TeamsAPI/TrendingStoryRole"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10870,7 +10870,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowUser"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/FollowUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10892,7 +10892,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnfollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnfollowUser"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnfollowUser", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnfollowUser"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10914,7 +10914,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetFollowList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowList"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetFollowList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10936,7 +10936,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetFollowerList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowerList"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetFollowerList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetFollowerList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10958,7 +10958,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePrompt"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePrompt", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePrompt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -10980,7 +10980,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRoleDescriptionDetail", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11002,7 +11002,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/QueryTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryTaskStatus"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/QueryTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryTaskStatus"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11024,7 +11024,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryImageStyle"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryImageStyle"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11046,7 +11046,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryImageStyle"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryImageStyle", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryImageStyle"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11068,7 +11068,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStorySenceMaxNumber", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStorySenceMaxNumber"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStorySenceMaxNumber", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStorySenceMaxNumber"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11090,7 +11090,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryAvatar"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryAvatar"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11112,7 +11112,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryCover", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryCover"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryCover", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryCover"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11134,7 +11134,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/SaveStoryboardCraft", runtime.WithHTTPPathPattern("/common.TeamsAPI/SaveStoryboardCraft"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/SaveStoryboardCraft", runtime.WithHTTPPathPattern("/common.TeamsAPI/SaveStoryboardCraft"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11156,7 +11156,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryParticipants", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryParticipants"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryParticipants", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryParticipants"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11178,7 +11178,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateStorySceneVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStorySceneVideo"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStorySceneVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStorySceneVideo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11200,7 +11200,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateRoleAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleAvatar"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateRoleAvatar", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateRoleAvatar"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11222,7 +11222,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/FetchUserGenTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryGenTaskStatus"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/FetchUserGenTaskStatus", runtime.WithHTTPPathPattern("/common.TeamsAPI/QueryGenTaskStatus"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11244,7 +11244,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11266,7 +11266,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UpdateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UpdateStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UpdateStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11288,7 +11288,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/LikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/LikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/LikeStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11310,7 +11310,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/UnLikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRolePoster"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster", runtime.WithHTTPPathPattern("/common.TeamsAPI/UnLikeStoryRolePoster"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11332,7 +11332,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GetStoryRolePosterList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRolePosterList"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList", runtime.WithHTTPPathPattern("/common.TeamsAPI/GetStoryRolePosterList"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -11354,7 +11354,7 @@ func RegisterTeamsAPIHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo", runtime.WithHTTPPathPattern("/common.TeamsAPI/GenerateStoryRoleVideo"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

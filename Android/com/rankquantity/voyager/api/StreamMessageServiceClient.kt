@@ -2,7 +2,7 @@
 //
 // Source: message.proto
 //
-package com.common
+package com.rankquantity.voyager.api
 
 import com.connectrpc.BidirectionalStreamInterface
 import com.connectrpc.Headers
@@ -19,9 +19,9 @@ public class StreamMessageServiceClient(
   override suspend fun streamChatMessage(headers: Headers): BidirectionalStreamInterface<StreamChatMessageRequest, StreamChatMessageResponse> = client.stream(
     headers,
     MethodSpec(
-    "common.StreamMessageService/StreamChatMessage",
-      com.common.StreamChatMessageRequest::class,
-      com.common.StreamChatMessageResponse::class,
+    "rankquantity.voyager.api.StreamMessageService/StreamChatMessage",
+      com.rankquantity.voyager.api.StreamChatMessageRequest::class,
+      com.rankquantity.voyager.api.StreamChatMessageResponse::class,
       StreamType.BIDI,
     ),
   )

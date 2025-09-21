@@ -10,34 +10,34 @@ import Foundation
 import SwiftProtobuf
 
 /// 使用 stream 发送、接收消息
-public protocol Common_StreamMessageServiceClientInterface: Sendable {
+public protocol Rankquantity_Voyager_Api_StreamMessageServiceClientInterface: Sendable {
 
-    func `streamChatMessage`(headers: Connect.Headers, onResult: @escaping @Sendable (Connect.StreamResult<Common_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Common_StreamChatMessageRequest>
+    func `streamChatMessage`(headers: Connect.Headers, onResult: @escaping @Sendable (Connect.StreamResult<Rankquantity_Voyager_Api_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Rankquantity_Voyager_Api_StreamChatMessageRequest>
 
     @available(iOS 13, *)
-    func `streamChatMessage`(headers: Connect.Headers) -> any Connect.BidirectionalAsyncStreamInterface<Common_StreamChatMessageRequest, Common_StreamChatMessageResponse>
+    func `streamChatMessage`(headers: Connect.Headers) -> any Connect.BidirectionalAsyncStreamInterface<Rankquantity_Voyager_Api_StreamChatMessageRequest, Rankquantity_Voyager_Api_StreamChatMessageResponse>
 }
 
-/// Concrete implementation of `Common_StreamMessageServiceClientInterface`.
-public final class Common_StreamMessageServiceClient: Common_StreamMessageServiceClientInterface, Sendable {
+/// Concrete implementation of `Rankquantity_Voyager_Api_StreamMessageServiceClientInterface`.
+public final class Rankquantity_Voyager_Api_StreamMessageServiceClient: Rankquantity_Voyager_Api_StreamMessageServiceClientInterface, Sendable {
     private let client: Connect.ProtocolClientInterface
 
     public init(client: Connect.ProtocolClientInterface) {
         self.client = client
     }
 
-    public func `streamChatMessage`(headers: Connect.Headers = [:], onResult: @escaping @Sendable (Connect.StreamResult<Common_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Common_StreamChatMessageRequest> {
-        return self.client.bidirectionalStream(path: "/common.StreamMessageService/StreamChatMessage", headers: headers, onResult: onResult)
+    public func `streamChatMessage`(headers: Connect.Headers = [:], onResult: @escaping @Sendable (Connect.StreamResult<Rankquantity_Voyager_Api_StreamChatMessageResponse>) -> Void) -> any Connect.BidirectionalStreamInterface<Rankquantity_Voyager_Api_StreamChatMessageRequest> {
+        return self.client.bidirectionalStream(path: "/rankquantity.voyager.api.StreamMessageService/StreamChatMessage", headers: headers, onResult: onResult)
     }
 
     @available(iOS 13, *)
-    public func `streamChatMessage`(headers: Connect.Headers = [:]) -> any Connect.BidirectionalAsyncStreamInterface<Common_StreamChatMessageRequest, Common_StreamChatMessageResponse> {
-        return self.client.bidirectionalStream(path: "/common.StreamMessageService/StreamChatMessage", headers: headers)
+    public func `streamChatMessage`(headers: Connect.Headers = [:]) -> any Connect.BidirectionalAsyncStreamInterface<Rankquantity_Voyager_Api_StreamChatMessageRequest, Rankquantity_Voyager_Api_StreamChatMessageResponse> {
+        return self.client.bidirectionalStream(path: "/rankquantity.voyager.api.StreamMessageService/StreamChatMessage", headers: headers)
     }
 
     public enum Metadata {
         public enum Methods {
-            public static let streamChatMessage = Connect.MethodSpec(name: "StreamChatMessage", service: "common.StreamMessageService", type: .bidirectionalStream)
+            public static let streamChatMessage = Connect.MethodSpec(name: "StreamChatMessage", service: "rankquantity.voyager.api.StreamMessageService", type: .bidirectionalStream)
         }
     }
 }

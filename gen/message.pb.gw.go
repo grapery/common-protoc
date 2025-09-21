@@ -134,7 +134,7 @@ func RegisterStreamMessageServiceHandlerClient(ctx context.Context, mux *runtime
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/common.StreamMessageService/StreamChatMessage", runtime.WithHTTPPathPattern("/v1/chat/messages/stream"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/rankquantity.voyager.api.StreamMessageService/StreamChatMessage", runtime.WithHTTPPathPattern("/v1/chat/messages/stream"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

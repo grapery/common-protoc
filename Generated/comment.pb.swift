@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Common_CommentInfo: Sendable {
+public struct Rankquantity_Voyager_Api_CommentInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -62,9 +62,9 @@ public struct Common_CommentInfo: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "common"
+fileprivate let _protobuf_package = "rankquantity.voyager.api"
 
-extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Rankquantity_Voyager_Api_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CommentInfo"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}comment_id\0\u{3}root_comment_id\0\u{3}prev_comment_id\0\u{3}user_id\0\u{3}user_name\0\u{3}avatar_url\0\u{3}story_id\0\u{3}board_id\0\u{3}group_id\0\u{2}\u{2}content\0\u{3}like_count\0\u{3}reply_count\0\u{3}reply_id\0\u{1}ctime\0\u{1}mtime\0")
 
@@ -143,7 +143,7 @@ extension Common_CommentInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Common_CommentInfo, rhs: Common_CommentInfo) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_CommentInfo, rhs: Rankquantity_Voyager_Api_CommentInfo) -> Bool {
     if lhs.commentID != rhs.commentID {return false}
     if lhs.rootCommentID != rhs.rootCommentID {return false}
     if lhs.prevCommentID != rhs.prevCommentID {return false}

@@ -2,7 +2,7 @@
 //
 // Source: service.proto
 //
-package com.common
+package com.rankquantity.voyager.api
 
 import com.connectrpc.Headers
 import com.connectrpc.ResponseMessage
