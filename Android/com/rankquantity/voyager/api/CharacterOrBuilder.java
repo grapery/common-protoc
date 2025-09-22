@@ -69,4 +69,24 @@ public interface CharacterOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
+
+  /**
+   * <pre>
+   * 角色头像
+   * </pre>
+   *
+   * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  java.lang.String getAvatarUrl();
+  /**
+   * <pre>
+   * 角色头像
+   * </pre>
+   *
+   * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  com.google.protobuf.ByteString
+      getAvatarUrlBytes();
 }

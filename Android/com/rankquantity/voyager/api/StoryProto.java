@@ -904,265 +904,266 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
       "id\022\030\n\007content\030\002 \001(\tR\007content\022C\n\ncharacte" +
       "rs\030\003 \003(\0132#.rankquantity.voyager.api.Char" +
       "acterR\ncharacters\022!\n\014image_prompt\030\004 \001(\tR" +
-      "\013imagePrompt\"Q\n\tCharacter\022\016\n\002id\030\001 \001(\tR\002i" +
+      "\013imagePrompt\"p\n\tCharacter\022\016\n\002id\030\001 \001(\tR\002i" +
       "d\022\022\n\004name\030\002 \001(\tR\004name\022 \n\013description\030\003 \001" +
-      "(\tR\013description\"\272\001\n\tStoryInfo\022`\n\024story_n" +
-      "ame_and_theme\030\001 \001(\0132+.rankquantity.voyag" +
-      "er.api.StoryNameAndThemeR\025\346\225\205\344\272\213\345\220\215\347\247\260\345\222" +
-      "\214\344\270\273\351\242\230\022K\n\016story_chapters\030\002 \003(\0132%.rankqu" +
-      "antity.voyager.api.ChapterInfoR\014\346\225\205\344\272\213\347\253" +
-      "\240\350\212\202\"o\n\021StoryNameAndTheme\022\032\n\004name\030\001 \001(\tR" +
-      "\014\346\225\205\344\272\213\345\220\215\347\247\260\022\033\n\005theme\030\002 \001(\tR\014\346\225\205\344\272\213\344\270\273\351" +
-      "\242\230\022!\n\013description\030\003 \001(\tR\014\346\225\205\344\272\213\347\256\200\344\273\213\"_\n" +
-      "\013ChapterInfo\022\024\n\002id\030\001 \001(\tR\010\347\253\240\350\212\202ID\022\033\n\005ti" +
-      "tle\030\002 \001(\tR\014\347\253\240\350\212\202\351\242\230\347\233\256\022\035\n\007content\030\003 \001(\t" +
-      "R\014\347\253\240\350\212\202\345\206\205\345\256\271\"\302\002\n\021RenderStoryDetail\022\022\n\004" +
-      "text\030\001 \001(\tR\004text\022\026\n\006status\030\002 \001(\005R\006status" +
-      "\022\022\n\004urls\030\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007" +
-      "storyId\022\031\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007us" +
-      "er_id\030\006 \001(\003R\006userId\022E\n\013render_type\030\007 \001(\016" +
-      "2$.rankquantity.voyager.api.RenderTypeR\n" +
-      "renderType\022;\n\006result\030\010 \001(\0132#.rankquantit" +
-      "y.voyager.api.StoryInfoR\006result\022\032\n\010timec" +
-      "ost\030\t \001(\005R\010timecost\"\204\001\n\023RenderStoryRespo" +
-      "nse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\t" +
-      "R\007message\022?\n\004data\030\003 \001(\0132+.rankquantity.v" +
-      "oyager.api.RenderStoryDetailR\004data\"\324\001\n\027R" +
-      "enderStoryboardRequest\022\031\n\010board_id\030\001 \001(\003" +
-      "R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n\007" +
-      "user_id\030\003 \001(\003R\006userId\022#\n\ris_regenerate\030\004" +
-      " \001(\010R\014isRegenerate\022E\n\013render_type\030\006 \001(\0162" +
-      "$.rankquantity.voyager.api.RenderTypeR\nr" +
-      "enderType\"\312\002\n\026RenderStoryboardDetail\022\022\n\004" +
-      "text\030\001 \001(\tR\004text\022\026\n\006status\030\002 \001(\005R\006status" +
-      "\022\022\n\004urls\030\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007" +
-      "storyId\022\031\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007us" +
-      "er_id\030\006 \001(\003R\006userId\022E\n\013render_type\030\007 \001(\016" +
-      "2$.rankquantity.voyager.api.RenderTypeR\n" +
-      "renderType\022>\n\006result\030\010 \001(\0132&.rankquantit" +
-      "y.voyager.api.StoryChapterR\006result\022\032\n\010ti" +
-      "mecost\030\t \001(\005R\010timecost\"\216\001\n\030RenderStorybo" +
-      "ardResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messa" +
-      "ge\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(\01320.rankqu" +
-      "antity.voyager.api.RenderStoryboardDetai" +
-      "lR\004data\"\235\002\n\030GenStoryboardTextRequest\022\031\n\010" +
-      "board_id\030\001 \001(\003R\007boardId\022\031\n\010story_id\030\002 \001(" +
-      "\003R\007storyId\022\027\n\007user_id\030\003 \001(\003R\006userId\022E\n\013r" +
-      "ender_type\030\006 \001(\0162$.rankquantity.voyager." +
-      "api.RenderTypeR\nrenderType\022\026\n\006prompt\030\t \001" +
-      "(\tR\006prompt\022\024\n\005title\030\n \001(\tR\005title\022 \n\013desc" +
-      "ription\030\013 \001(\tR\013description\022\033\n\tsence_num\030" +
-      "\r \001(\005R\010senceNum\"\217\001\n\031GenStoryboardTextRes" +
-      "ponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001" +
-      "(\tR\007message\022D\n\004data\030\003 \001(\01320.rankquantity" +
-      ".voyager.api.RenderStoryboardDetailR\004dat" +
-      "a\"\260\002\n\032GenStoryboardImagesRequest\022\031\n\010boar" +
-      "d_id\030\001 \001(\003R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007s" +
-      "toryId\022\027\n\007user_id\030\003 \001(\003R\006userId\022#\n\ris_re" +
-      "generate\030\004 \001(\010R\014isRegenerate\022E\n\013render_t" +
-      "ype\030\006 \001(\0162$.rankquantity.voyager.api.Ren" +
-      "derTypeR\nrenderType\022\031\n\010sence_id\030\007 \001(\005R\007s" +
-      "enceId\022$\n\016sence_name_key\030\010 \001(\tR\014senceNam" +
-      "eKey\022\026\n\006prompt\030\t \001(\tR\006prompt\"\221\001\n\033GenStor" +
-      "yboardImagesResponse\022\022\n\004code\030\001 \001(\005R\004code" +
-      "\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(\013" +
-      "20.rankquantity.voyager.api.RenderStoryb" +
-      "oardDetailR\004data\"~\n\027FetchGroupStorysRequ" +
-      "est\022\031\n\010group_id\030\001 \001(\003R\007groupId\022\027\n\007user_i" +
-      "d\030\002 \001(\003R\006userId\022\022\n\004page\030\003 \001(\005R\004page\022\033\n\tp" +
-      "age_size\030\004 \001(\005R\010pageSize\"\304\002\n\030FetchGroupS" +
-      "torysResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\022K\n\004data\030\003 \001(\01327.rank" +
-      "quantity.voyager.api.FetchGroupStorysRes" +
-      "ponse.DataR\004data\032\254\001\n\004Data\0223\n\004list\030\001 \003(\0132" +
-      "\037.rankquantity.voyager.api.StoryR\004list\022<" +
-      "\n\007creator\030\003 \003(\0132\".rankquantity.voyager.a" +
-      "pi.UserInfoR\007creator\022\024\n\005total\030\004 \001(\003R\005tot" +
-      "al\022\033\n\thave_more\030\005 \001(\010R\010haveMore\"\221\001\n\025GetS" +
-      "toryRenderRequest\022\031\n\010story_id\030\001 \001(\003R\007sto" +
-      "ryId\022#\n\rrender_status\030\002 \001(\005R\014renderStatu" +
-      "s\022\037\n\013render_type\030\003 \001(\005R\nrenderType\022\027\n\007us" +
-      "er_id\030\004 \001(\003R\006userId\"\332\001\n\026GetStoryRenderRe" +
-      "sponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 " +
-      "\001(\tR\007message\022I\n\004data\030\003 \001(\01325.rankquantit" +
-      "y.voyager.api.GetStoryRenderResponse.Dat" +
-      "aR\004data\032G\n\004Data\022?\n\004list\030\001 \003(\0132+.rankquan" +
-      "tity.voyager.api.RenderStoryDetailR\004list" +
-      "\"}\n\032GetStoryBoardRenderRequest\022\031\n\010board_" +
-      "id\030\001 \001(\003R\007boardId\022#\n\rrender_status\030\002 \001(\005" +
-      "R\014renderStatus\022\037\n\013render_type\030\003 \001(\005R\nren" +
-      "derType\"\351\001\n\033GetStoryBoardRenderResponse\022" +
-      "\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007me" +
-      "ssage\022N\n\004data\030\003 \001(\0132:.rankquantity.voyag" +
-      "er.api.GetStoryBoardRenderResponse.DataR" +
-      "\004data\032L\n\004Data\022D\n\004list\030\001 \003(\01320.rankquanti" +
-      "ty.voyager.api.RenderStoryboardDetailR\004l" +
-      "ist\"\346\002\n\032ContinueRenderStoryRequest\022\031\n\010st" +
-      "ory_id\030\001 \001(\003R\007storyId\022\"\n\rprev_board_id\030\002" +
-      " \001(\003R\013prevBoardId\022\027\n\007user_id\030\003 \001(\003R\006user" +
-      "Id\022E\n\013render_type\030\004 \001(\0162$.rankquantity.v" +
-      "oyager.api.RenderTypeR\nrenderType\022\026\n\006pro" +
-      "mpt\030\005 \001(\tR\006prompt\022\024\n\005title\030\006 \001(\tR\005title\022" +
-      " \n\013description\030\007 \001(\tR\013description\022\036\n\nbac" +
-      "kground\030\010 \001(\tR\nbackground\0229\n\005roles\030\t \003(\013",
-      "2#.rankquantity.voyager.api.StoryRoleR\005r" +
-      "oles\"\221\001\n\033ContinueRenderStoryResponse\022\022\n\004" +
+      "(\tR\013description\022\035\n\navatar_url\030\004 \001(\tR\tava" +
+      "tarUrl\"\272\001\n\tStoryInfo\022`\n\024story_name_and_t" +
+      "heme\030\001 \001(\0132+.rankquantity.voyager.api.St" +
+      "oryNameAndThemeR\025\346\225\205\344\272\213\345\220\215\347\247\260\345\222\214\344\270\273\351\242\230\022K" +
+      "\n\016story_chapters\030\002 \003(\0132%.rankquantity.vo" +
+      "yager.api.ChapterInfoR\014\346\225\205\344\272\213\347\253\240\350\212\202\"o\n\021S" +
+      "toryNameAndTheme\022\032\n\004name\030\001 \001(\tR\014\346\225\205\344\272\213\345\220" +
+      "\215\347\247\260\022\033\n\005theme\030\002 \001(\tR\014\346\225\205\344\272\213\344\270\273\351\242\230\022!\n\013des" +
+      "cription\030\003 \001(\tR\014\346\225\205\344\272\213\347\256\200\344\273\213\"_\n\013ChapterI" +
+      "nfo\022\024\n\002id\030\001 \001(\tR\010\347\253\240\350\212\202ID\022\033\n\005title\030\002 \001(\t" +
+      "R\014\347\253\240\350\212\202\351\242\230\347\233\256\022\035\n\007content\030\003 \001(\tR\014\347\253\240\350\212\202\345" +
+      "\206\205\345\256\271\"\302\002\n\021RenderStoryDetail\022\022\n\004text\030\001 \001(" +
+      "\tR\004text\022\026\n\006status\030\002 \001(\005R\006status\022\022\n\004urls\030" +
+      "\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007storyId\022\031" +
+      "\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007user_id\030\006 \001" +
+      "(\003R\006userId\022E\n\013render_type\030\007 \001(\0162$.rankqu" +
+      "antity.voyager.api.RenderTypeR\nrenderTyp" +
+      "e\022;\n\006result\030\010 \001(\0132#.rankquantity.voyager" +
+      ".api.StoryInfoR\006result\022\032\n\010timecost\030\t \001(\005" +
+      "R\010timecost\"\204\001\n\023RenderStoryResponse\022\022\n\004co" +
+      "de\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message" +
+      "\022?\n\004data\030\003 \001(\0132+.rankquantity.voyager.ap" +
+      "i.RenderStoryDetailR\004data\"\324\001\n\027RenderStor" +
+      "yboardRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId" +
+      "\022\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n\007user_id\030\003" +
+      " \001(\003R\006userId\022#\n\ris_regenerate\030\004 \001(\010R\014isR" +
+      "egenerate\022E\n\013render_type\030\006 \001(\0162$.rankqua" +
+      "ntity.voyager.api.RenderTypeR\nrenderType" +
+      "\"\312\002\n\026RenderStoryboardDetail\022\022\n\004text\030\001 \001(" +
+      "\tR\004text\022\026\n\006status\030\002 \001(\005R\006status\022\022\n\004urls\030" +
+      "\003 \003(\tR\004urls\022\031\n\010story_id\030\004 \001(\003R\007storyId\022\031" +
+      "\n\010board_id\030\005 \001(\003R\007boardId\022\027\n\007user_id\030\006 \001" +
+      "(\003R\006userId\022E\n\013render_type\030\007 \001(\0162$.rankqu" +
+      "antity.voyager.api.RenderTypeR\nrenderTyp" +
+      "e\022>\n\006result\030\010 \001(\0132&.rankquantity.voyager" +
+      ".api.StoryChapterR\006result\022\032\n\010timecost\030\t " +
+      "\001(\005R\010timecost\"\216\001\n\030RenderStoryboardRespon" +
+      "se\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR" +
+      "\007message\022D\n\004data\030\003 \001(\01320.rankquantity.vo" +
+      "yager.api.RenderStoryboardDetailR\004data\"\235" +
+      "\002\n\030GenStoryboardTextRequest\022\031\n\010board_id\030" +
+      "\001 \001(\003R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007storyI" +
+      "d\022\027\n\007user_id\030\003 \001(\003R\006userId\022E\n\013render_typ" +
+      "e\030\006 \001(\0162$.rankquantity.voyager.api.Rende" +
+      "rTypeR\nrenderType\022\026\n\006prompt\030\t \001(\tR\006promp" +
+      "t\022\024\n\005title\030\n \001(\tR\005title\022 \n\013description\030\013" +
+      " \001(\tR\013description\022\033\n\tsence_num\030\r \001(\005R\010se" +
+      "nceNum\"\217\001\n\031GenStoryboardTextResponse\022\022\n\004" +
       "code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
       "ge\022D\n\004data\030\003 \001(\01320.rankquantity.voyager." +
-      "api.RenderStoryboardDetailR\004data\"\335\001\n\027Ren" +
-      "derStoryRolesRequest\022\031\n\010story_id\030\001 \001(\003R\007" +
-      "storyId\022\031\n\010board_id\030\002 \001(\003R\007boardId\022\027\n\007us" +
-      "er_id\030\003 \001(\003R\006userId\022\026\n\006prompt\030\004 \001(\tR\006pro" +
-      "mpt\022\036\n\nbackground\030\005 \001(\tR\nbackground\022;\n\006p" +
-      "arams\030\006 \001(\0132#.rankquantity.voyager.api.S" +
-      "toryRoleR\006params\"\201\001\n\030RenderStoryRolesRes" +
-      "ponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001" +
-      "(\tR\007message\0227\n\004list\030\003 \003(\0132#.rankquantity" +
-      ".voyager.api.StoryRoleR\004list\"\301\001\n\034RenderS" +
-      "toryRoleDetailRequest\022\027\n\007role_id\030\001 \001(\003R\006" +
-      "roleId\0227\n\004role\030\002 \001(\0132#.rankquantity.voya" +
-      "ger.api.StoryRoleR\004role\022\026\n\006prompt\030\003 \001(\tR" +
-      "\006prompt\022\036\n\nbackground\030\004 \001(\tR\nbackground\022" +
-      "\027\n\007user_id\030\005 \001(\003R\006userId\"\206\001\n\035RenderStory" +
-      "RoleDetailResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030" +
-      "\n\007message\030\002 \001(\tR\007message\0227\n\004role\030\003 \001(\0132#" +
-      ".rankquantity.voyager.api.StoryRoleR\004rol" +
-      "e\"j\n\026UpdateStoryRoleRequest\0227\n\004role\030\001 \001(" +
-      "\0132#.rankquantity.voyager.api.StoryRoleR\004" +
-      "role\022\027\n\007user_id\030\002 \001(\003R\006userId\"G\n\027UpdateS" +
-      "toryRoleResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007" +
-      "message\030\002 \001(\tR\007message\"J\n\024GetStoryRolesR" +
-      "equest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\027\n\007use" +
-      "r_id\030\002 \001(\003R\006userId\"\216\002\n\025GetStoryRolesResp" +
+      "api.RenderStoryboardDetailR\004data\"\260\002\n\032Gen" +
+      "StoryboardImagesRequest\022\031\n\010board_id\030\001 \001(" +
+      "\003R\007boardId\022\031\n\010story_id\030\002 \001(\003R\007storyId\022\027\n" +
+      "\007user_id\030\003 \001(\003R\006userId\022#\n\ris_regenerate\030" +
+      "\004 \001(\010R\014isRegenerate\022E\n\013render_type\030\006 \001(\016" +
+      "2$.rankquantity.voyager.api.RenderTypeR\n" +
+      "renderType\022\031\n\010sence_id\030\007 \001(\005R\007senceId\022$\n" +
+      "\016sence_name_key\030\010 \001(\tR\014senceNameKey\022\026\n\006p" +
+      "rompt\030\t \001(\tR\006prompt\"\221\001\n\033GenStoryboardIma" +
+      "gesResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messa" +
+      "ge\030\002 \001(\tR\007message\022D\n\004data\030\003 \001(\01320.rankqu" +
+      "antity.voyager.api.RenderStoryboardDetai" +
+      "lR\004data\"~\n\027FetchGroupStorysRequest\022\031\n\010gr" +
+      "oup_id\030\001 \001(\003R\007groupId\022\027\n\007user_id\030\002 \001(\003R\006" +
+      "userId\022\022\n\004page\030\003 \001(\005R\004page\022\033\n\tpage_size\030" +
+      "\004 \001(\005R\010pageSize\"\304\002\n\030FetchGroupStorysResp" +
       "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\022H\n\004data\030\003 \001(\01324.rankquantity." +
-      "voyager.api.GetStoryRolesResponse.DataR\004" +
-      "data\032}\n\004Data\0227\n\004list\030\001 \003(\0132#.rankquantit" +
-      "y.voyager.api.StoryRoleR\004list\022<\n\007creator" +
+      "\tR\007message\022K\n\004data\030\003 \001(\01327.rankquantity." +
+      "voyager.api.FetchGroupStorysResponse.Dat" +
+      "aR\004data\032\254\001\n\004Data\0223\n\004list\030\001 \003(\0132\037.rankqua" +
+      "ntity.voyager.api.StoryR\004list\022<\n\007creator" +
       "\030\003 \003(\0132\".rankquantity.voyager.api.UserIn" +
-      "foR\007creator\"O\n\031GetStoryBoardRolesRequest" +
-      "\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002" +
-      " \001(\003R\006userId\"\230\002\n\032GetStoryBoardRolesRespo" +
-      "nse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\t" +
-      "R\007message\022M\n\004data\030\003 \001(\01329.rankquantity.v" +
-      "oyager.api.GetStoryBoardRolesResponse.Da" +
-      "taR\004data\032}\n\004Data\0227\n\004list\030\001 \003(\0132#.rankqua" +
-      "ntity.voyager.api.StoryRoleR\004list\022<\n\007cre" +
-      "ator\030\003 \003(\0132\".rankquantity.voyager.api.Us" +
-      "erInfoR\007creator\"\211\004\n\017StoryBoardSence\022\031\n\010s" +
-      "ence_id\030\001 \001(\003R\007senceId\022\030\n\007content\030\002 \001(\tR" +
-      "\007content\022#\n\rcharacter_ids\030\003 \003(\tR\014charact" +
-      "erIds\022\035\n\ncreator_id\030\004 \001(\003R\tcreatorId\022\031\n\010" +
-      "story_id\030\005 \001(\003R\007storyId\022\031\n\010board_id\030\006 \001(" +
-      "\003R\007boardId\022#\n\rimage_prompts\030\007 \001(\tR\014image" +
-      "Prompts\022#\n\raudio_prompts\030\010 \001(\tR\014audioPro" +
-      "mpts\022#\n\rvideo_prompts\030\t \001(\tR\014videoPrompt" +
-      "s\022#\n\ris_generating\030\n \001(\005R\014isGenerating\022\035" +
-      "\n\ngen_result\030\013 \001(\tR\tgenResult\022\026\n\006images\030" +
-      "\014 \003(\tR\006images\022\033\n\taudio_url\030\r \001(\tR\010audioU" +
-      "rl\022\033\n\tvideo_url\030\016 \001(\tR\010videoUrl\022\026\n\006statu" +
-      "s\030\017 \001(\005R\006status\022\024\n\005Ctime\030\020 \001(\003R\005Ctime\022\024\n" +
-      "\005Mtime\030\021 \001(\003R\005Mtime\"P\n\032GetStoryBoardSenc" +
-      "esRequest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007" +
-      "user_id\030\002 \001(\003R\006userId\"\342\001\n\033GetStoryBoardS" +
-      "encesResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\022N\n\004data\030\003 \001(\0132:.rank" +
-      "quantity.voyager.api.GetStoryBoardSences" +
-      "Response.DataR\004data\032E\n\004Data\022=\n\004list\030\001 \003(" +
-      "\0132).rankquantity.voyager.api.StoryBoardS" +
-      "enceR\004list\"x\n\034CreateStoryBoardSenceReque" +
-      "st\022?\n\005sence\030\001 \001(\0132).rankquantity.voyager" +
-      ".api.StoryBoardSenceR\005sence\022\027\n\007user_id\030\002" +
-      " \001(\003R\006userId\"\302\001\n\035CreateStoryBoardSenceRe" +
-      "sponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 " +
-      "\001(\tR\007message\022P\n\004data\030\003 \001(\0132<.rankquantit" +
-      "y.voyager.api.CreateStoryBoardSenceRespo" +
-      "nse.DataR\004data\032!\n\004Data\022\031\n\010sence_id\030\001 \001(\003" +
-      "R\007senceId\"x\n\034UpdateStoryBoardSenceReques" +
-      "t\022?\n\005sence\030\001 \001(\0132).rankquantity.voyager." +
-      "api.StoryBoardSenceR\005sence\022\027\n\007user_id\030\002 " +
-      "\001(\003R\006userId\"M\n\035UpdateStoryBoardSenceResp" +
-      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
-      "\tR\007message\"R\n\034DeleteStoryBoardSenceReque" +
-      "st\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\027\n\007user_id" +
-      "\030\002 \001(\003R\006userId\"M\n\035DeleteStoryBoardSenceR" +
+      "foR\007creator\022\024\n\005total\030\004 \001(\003R\005total\022\033\n\thav" +
+      "e_more\030\005 \001(\010R\010haveMore\"\221\001\n\025GetStoryRende" +
+      "rRequest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022#\n\rr" +
+      "ender_status\030\002 \001(\005R\014renderStatus\022\037\n\013rend" +
+      "er_type\030\003 \001(\005R\nrenderType\022\027\n\007user_id\030\004 \001" +
+      "(\003R\006userId\"\332\001\n\026GetStoryRenderResponse\022\022\n" +
+      "\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
+      "age\022I\n\004data\030\003 \001(\01325.rankquantity.voyager" +
+      ".api.GetStoryRenderResponse.DataR\004data\032G" +
+      "\n\004Data\022?\n\004list\030\001 \003(\0132+.rankquantity.voya" +
+      "ger.api.RenderStoryDetailR\004list\"}\n\032GetSt" +
+      "oryBoardRenderRequest\022\031\n\010board_id\030\001 \001(\003R" +
+      "\007boardId\022#\n\rrender_status\030\002 \001(\005R\014renderS" +
+      "tatus\022\037\n\013render_type\030\003 \001(\005R\nrenderType\"\351" +
+      "\001\n\033GetStoryBoardRenderResponse\022\022\n\004code\030\001" +
+      " \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022N\n\004" +
+      "data\030\003 \001(\0132:.rankquantity.voyager.api.Ge" +
+      "tStoryBoardRenderResponse.DataR\004data\032L\n\004" +
+      "Data\022D\n\004list\030\001 \003(\01320.rankquantity.voyage" +
+      "r.api.RenderStoryboardDetailR\004list\"\346\002\n\032C" +
+      "ontinueRenderStoryRequest\022\031\n\010story_id\030\001 " +
+      "\001(\003R\007storyId\022\"\n\rprev_board_id\030\002 \001(\003R\013pre" +
+      "vBoardId\022\027\n\007user_id\030\003 \001(\003R\006userId\022E\n\013ren" +
+      "der_type\030\004 \001(\0162$.rankquantity.voyager.ap" +
+      "i.RenderTypeR\nrenderType\022\026\n\006prompt\030\005 \001(\t" +
+      "R\006prompt\022\024\n\005title\030\006 \001(\tR\005title\022 \n\013descri" +
+      "ption\030\007 \001(\tR\013description\022\036\n\nbackground\030\010",
+      " \001(\tR\nbackground\0229\n\005roles\030\t \003(\0132#.rankqu" +
+      "antity.voyager.api.StoryRoleR\005roles\"\221\001\n\033" +
+      "ContinueRenderStoryResponse\022\022\n\004code\030\001 \001(" +
+      "\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022D\n\004dat" +
+      "a\030\003 \001(\01320.rankquantity.voyager.api.Rende" +
+      "rStoryboardDetailR\004data\"\335\001\n\027RenderStoryR" +
+      "olesRequest\022\031\n\010story_id\030\001 \001(\003R\007storyId\022\031" +
+      "\n\010board_id\030\002 \001(\003R\007boardId\022\027\n\007user_id\030\003 \001" +
+      "(\003R\006userId\022\026\n\006prompt\030\004 \001(\tR\006prompt\022\036\n\nba" +
+      "ckground\030\005 \001(\tR\nbackground\022;\n\006params\030\006 \001" +
+      "(\0132#.rankquantity.voyager.api.StoryRoleR" +
+      "\006params\"\201\001\n\030RenderStoryRolesResponse\022\022\n\004" +
+      "code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messa" +
+      "ge\0227\n\004list\030\003 \003(\0132#.rankquantity.voyager." +
+      "api.StoryRoleR\004list\"\301\001\n\034RenderStoryRoleD" +
+      "etailRequest\022\027\n\007role_id\030\001 \001(\003R\006roleId\0227\n" +
+      "\004role\030\002 \001(\0132#.rankquantity.voyager.api.S" +
+      "toryRoleR\004role\022\026\n\006prompt\030\003 \001(\tR\006prompt\022\036" +
+      "\n\nbackground\030\004 \001(\tR\nbackground\022\027\n\007user_i" +
+      "d\030\005 \001(\003R\006userId\"\206\001\n\035RenderStoryRoleDetai" +
+      "lResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message" +
+      "\030\002 \001(\tR\007message\0227\n\004role\030\003 \001(\0132#.rankquan" +
+      "tity.voyager.api.StoryRoleR\004role\"j\n\026Upda" +
+      "teStoryRoleRequest\0227\n\004role\030\001 \001(\0132#.rankq" +
+      "uantity.voyager.api.StoryRoleR\004role\022\027\n\007u" +
+      "ser_id\030\002 \001(\003R\006userId\"G\n\027UpdateStoryRoleR" +
       "esponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002" +
-      " \001(\tR\007message\"m\n\034RenderStoryBoardSenceRe" +
-      "quest\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\027\n\007user" +
-      "_id\030\002 \001(\003R\006userId\022\031\n\010board_id\030\003 \001(\005R\007boa" +
-      "rdId\"\267\001\n\035RenderStoryBoardSenceResponse\022\022" +
+      " \001(\tR\007message\"J\n\024GetStoryRolesRequest\022\031\n" +
+      "\010story_id\030\001 \001(\003R\007storyId\022\027\n\007user_id\030\002 \001(" +
+      "\003R\006userId\"\216\002\n\025GetStoryRolesResponse\022\022\n\004c" +
+      "ode\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
+      "e\022H\n\004data\030\003 \001(\01324.rankquantity.voyager.a" +
+      "pi.GetStoryRolesResponse.DataR\004data\032}\n\004D" +
+      "ata\0227\n\004list\030\001 \003(\0132#.rankquantity.voyager" +
+      ".api.StoryRoleR\004list\022<\n\007creator\030\003 \003(\0132\"." +
+      "rankquantity.voyager.api.UserInfoR\007creat" +
+      "or\"O\n\031GetStoryBoardRolesRequest\022\031\n\010board" +
+      "_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006use" +
+      "rId\"\230\002\n\032GetStoryBoardRolesResponse\022\022\n\004co" +
+      "de\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message" +
+      "\022M\n\004data\030\003 \001(\01329.rankquantity.voyager.ap" +
+      "i.GetStoryBoardRolesResponse.DataR\004data\032" +
+      "}\n\004Data\0227\n\004list\030\001 \003(\0132#.rankquantity.voy" +
+      "ager.api.StoryRoleR\004list\022<\n\007creator\030\003 \003(" +
+      "\0132\".rankquantity.voyager.api.UserInfoR\007c" +
+      "reator\"\211\004\n\017StoryBoardSence\022\031\n\010sence_id\030\001" +
+      " \001(\003R\007senceId\022\030\n\007content\030\002 \001(\tR\007content\022" +
+      "#\n\rcharacter_ids\030\003 \003(\tR\014characterIds\022\035\n\n" +
+      "creator_id\030\004 \001(\003R\tcreatorId\022\031\n\010story_id\030" +
+      "\005 \001(\003R\007storyId\022\031\n\010board_id\030\006 \001(\003R\007boardI" +
+      "d\022#\n\rimage_prompts\030\007 \001(\tR\014imagePrompts\022#" +
+      "\n\raudio_prompts\030\010 \001(\tR\014audioPrompts\022#\n\rv" +
+      "ideo_prompts\030\t \001(\tR\014videoPrompts\022#\n\ris_g" +
+      "enerating\030\n \001(\005R\014isGenerating\022\035\n\ngen_res" +
+      "ult\030\013 \001(\tR\tgenResult\022\026\n\006images\030\014 \003(\tR\006im" +
+      "ages\022\033\n\taudio_url\030\r \001(\tR\010audioUrl\022\033\n\tvid" +
+      "eo_url\030\016 \001(\tR\010videoUrl\022\026\n\006status\030\017 \001(\005R\006" +
+      "status\022\024\n\005Ctime\030\020 \001(\003R\005Ctime\022\024\n\005Mtime\030\021 " +
+      "\001(\003R\005Mtime\"P\n\032GetStoryBoardSencesRequest" +
+      "\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002" +
+      " \001(\003R\006userId\"\342\001\n\033GetStoryBoardSencesResp" +
+      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
+      "\tR\007message\022N\n\004data\030\003 \001(\0132:.rankquantity." +
+      "voyager.api.GetStoryBoardSencesResponse." +
+      "DataR\004data\032E\n\004Data\022=\n\004list\030\001 \003(\0132).rankq" +
+      "uantity.voyager.api.StoryBoardSenceR\004lis" +
+      "t\"x\n\034CreateStoryBoardSenceRequest\022?\n\005sen" +
+      "ce\030\001 \001(\0132).rankquantity.voyager.api.Stor" +
+      "yBoardSenceR\005sence\022\027\n\007user_id\030\002 \001(\003R\006use" +
+      "rId\"\302\001\n\035CreateStoryBoardSenceResponse\022\022\n" +
+      "\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mess" +
+      "age\022P\n\004data\030\003 \001(\0132<.rankquantity.voyager" +
+      ".api.CreateStoryBoardSenceResponse.DataR" +
+      "\004data\032!\n\004Data\022\031\n\010sence_id\030\001 \001(\003R\007senceId" +
+      "\"x\n\034UpdateStoryBoardSenceRequest\022?\n\005senc" +
+      "e\030\001 \001(\0132).rankquantity.voyager.api.Story" +
+      "BoardSenceR\005sence\022\027\n\007user_id\030\002 \001(\003R\006user" +
+      "Id\"M\n\035UpdateStoryBoardSenceResponse\022\022\n\004c" +
+      "ode\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007messag" +
+      "e\"R\n\034DeleteStoryBoardSenceRequest\022\031\n\010sen" +
+      "ce_id\030\001 \001(\003R\007senceId\022\027\n\007user_id\030\002 \001(\003R\006u" +
+      "serId\"M\n\035DeleteStoryBoardSenceResponse\022\022" +
       "\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007mes" +
-      "sage\022)\n\020generating_stage\030\003 \001(\005R\017generati" +
-      "ngStage\022=\n\004data\030\004 \001(\0132).rankquantity.voy" +
-      "ager.api.StoryBoardSenceR\004data\"S\n\035Render" +
-      "StoryBoardSencesRequest\022\027\n\007user_id\030\001 \001(\003" +
-      "R\006userId\022\031\n\010board_id\030\002 \001(\005R\007boardId\"\270\001\n\036" +
-      "RenderStoryBoardSencesResponse\022\022\n\004code\030\001" +
-      " \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020" +
-      "generating_stage\030\003 \001(\005R\017generatingStage\022" +
-      "=\n\004list\030\004 \003(\0132).rankquantity.voyager.api" +
-      ".StoryBoardSenceR\004list\"W\n!GetStoryBoardS" +
-      "enceGenerateRequest\022\031\n\010sence_id\030\001 \001(\003R\007s" +
-      "enceId\022\027\n\007user_id\030\002 \001(\003R\006userId\"\274\001\n\"GetS" +
-      "toryBoardSenceGenerateResponse\022\022\n\004code\030\001" +
-      " \001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020" +
-      "generating_stage\030\003 \001(\005R\017generatingStage\022" +
-      "=\n\004data\030\004 \001(\0132).rankquantity.voyager.api" +
-      ".StoryBoardSenceR\004data\"R\n\034GetStoryBoardG" +
-      "enerateRequest\022\031\n\010board_id\030\001 \001(\003R\007boardI" +
-      "d\022\027\n\007user_id\030\002 \001(\003R\006userId\"\267\001\n\035GetStoryB" +
-      "oardGenerateResponse\022\022\n\004code\030\001 \001(\005R\004code" +
-      "\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generating" +
-      "_stage\030\003 \001(\005R\017generatingStage\022=\n\004list\030\004 " +
-      "\003(\0132).rankquantity.voyager.api.StoryBoar" +
-      "dSenceR\004list\"\372\001\n\026QueryTaskStatusRequest\022" +
-      "\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 " +
-      "\001(\003R\006userId\022\031\n\010story_id\030\003 \001(\003R\007storyId\022\031" +
-      "\n\010sence_id\030\004 \001(\003R\007senceId\022\027\n\007role_id\030\005 \001" +
-      "(\003R\006roleId\022E\n\013render_type\030\006 \001(\0162$.rankqu" +
-      "antity.voyager.api.RenderTypeR\nrenderTyp" +
-      "e\022\026\n\006TaskId\030\007 \001(\tR\006TaskId\"\306\005\n\027QueryTaskS" +
-      "tatusResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007mes" +
-      "sage\030\002 \001(\tR\007message\022J\n\004data\030\003 \001(\01326.rank" +
-      "quantity.voyager.api.QueryTaskStatusResp" +
-      "onse.DataR\004data\032\260\004\n\004Data\022?\n\005stage\030\001 \001(\0162" +
-      ").rankquantity.voyager.api.StoryboardSta" +
-      "geR\005stage\022a\n\025dashscope_task_status\030\002 \001(\016" +
-      "2-.rankquantity.voyager.api.DashScopeTas" +
-      "kStatusR\023dashscopeTaskStatus\022j\n\030render_s" +
-      "toryboard_detail\030\003 \001(\01320.rankquantity.vo" +
-      "yager.api.RenderStoryboardDetailR\026render" +
-      "StoryboardDetail\022[\n\023render_story_detail\030" +
-      "\004 \001(\0132+.rankquantity.voyager.api.RenderS" +
-      "toryDetailR\021renderStoryDetail\022j\n\034render_" +
-      "storyboard_sence_list\030\005 \003(\0132).rankquanti" +
-      "ty.voyager.api.StoryBoardSenceR\031renderSt" +
-      "oryboardSenceList\022O\n\021render_story_role\030\006" +
-      " \001(\0132#.rankquantity.voyager.api.StoryRol" +
-      "eR\017renderStoryRole*\246\001\n\016StoryGenStatus\022 \n" +
-      "\034STORY_GEN_STATUS_UNSPECIFIED\020\000\022\031\n\025STORY" +
-      "_GEN_STATUS_INIT\020\001\022\034\n\030STORY_GEN_STATUS_R" +
-      "UNNING\020\002\022\035\n\031STORY_GEN_STATUS_FINISHED\020\003\022" +
-      "\032\n\026STORY_GEN_STATUS_ERROR\020\004*\353\002\n\017Storyboa" +
-      "rdStage\022 \n\034STORYBOARD_STAGE_UNSPECIFIED\020" +
-      "\000\022\032\n\026STORYBOARD_STAGE_DRAFT\020\001\022\034\n\030STORYBO" +
-      "ARD_STAGE_CREATED\020\002\022\035\n\031STORYBOARD_STAGE_" +
-      "RENDERED\020\003\022!\n\035STORYBOARD_STAGE_RENDER_SC" +
-      "ENE\020\004\022\036\n\032STORYBOARD_STAGE_GEN_IMAGE\020\005\022\036\n" +
-      "\032STORYBOARD_STAGE_GEN_VIDEO\020\006\022\036\n\032STORYBO" +
-      "ARD_STAGE_GEN_AUDIO\020\007\022\035\n\031STORYBOARD_STAG" +
-      "E_FINISHED\020\010\022\033\n\027STORYBOARD_STAGE_FAILED\020" +
-      "\t\022\036\n\032STORYBOARD_STAGE_PUBLISHED\020\n*\250\001\n\nRe" +
-      "nderType\022 \n\034RENDER_TYPE_TEXT_UNSPECIFIED" +
-      "\020\000\022\037\n\033RENDER_TYPE_STORYBOARD_TEXT\020\001\022\032\n\026R" +
-      "ENDER_TYPE_STORYBOARD\020\002\022\032\n\026RENDER_TYPE_S" +
-      "TORYSENCE\020\003\022\037\n\033RENDER_TYPE_STORYCHARACTE" +
-      "RS\020\004B\322\001\n\034com.rankquantity.voyager.apiB\nS" +
-      "toryProtoP\001Z$github.com/grapery/common-p" +
-      "rotoc/gen\242\002\003RVA\252\002\030Rankquantity.Voyager.A" +
-      "pi\312\002\030Rankquantity\\Voyager\\Api\342\002$Rankquan" +
-      "tity\\Voyager\\Api\\GPBMetadata\352\002\032Rankquant" +
-      "ity::Voyager::Apib\006proto3"
+      "sage\"m\n\034RenderStoryBoardSenceRequest\022\031\n\010" +
+      "sence_id\030\001 \001(\003R\007senceId\022\027\n\007user_id\030\002 \001(\003" +
+      "R\006userId\022\031\n\010board_id\030\003 \001(\005R\007boardId\"\267\001\n\035" +
+      "RenderStoryBoardSenceResponse\022\022\n\004code\030\001 " +
+      "\001(\005R\004code\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020g" +
+      "enerating_stage\030\003 \001(\005R\017generatingStage\022=" +
+      "\n\004data\030\004 \001(\0132).rankquantity.voyager.api." +
+      "StoryBoardSenceR\004data\"S\n\035RenderStoryBoar" +
+      "dSencesRequest\022\027\n\007user_id\030\001 \001(\003R\006userId\022" +
+      "\031\n\010board_id\030\002 \001(\005R\007boardId\"\270\001\n\036RenderSto" +
+      "ryBoardSencesResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
+      "e\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generatin" +
+      "g_stage\030\003 \001(\005R\017generatingStage\022=\n\004list\030\004" +
+      " \003(\0132).rankquantity.voyager.api.StoryBoa" +
+      "rdSenceR\004list\"W\n!GetStoryBoardSenceGener" +
+      "ateRequest\022\031\n\010sence_id\030\001 \001(\003R\007senceId\022\027\n" +
+      "\007user_id\030\002 \001(\003R\006userId\"\274\001\n\"GetStoryBoard" +
+      "SenceGenerateResponse\022\022\n\004code\030\001 \001(\005R\004cod" +
+      "e\022\030\n\007message\030\002 \001(\tR\007message\022)\n\020generatin" +
+      "g_stage\030\003 \001(\005R\017generatingStage\022=\n\004data\030\004" +
+      " \001(\0132).rankquantity.voyager.api.StoryBoa" +
+      "rdSenceR\004data\"R\n\034GetStoryBoardGenerateRe" +
+      "quest\022\031\n\010board_id\030\001 \001(\003R\007boardId\022\027\n\007user" +
+      "_id\030\002 \001(\003R\006userId\"\267\001\n\035GetStoryBoardGener" +
+      "ateResponse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007messa" +
+      "ge\030\002 \001(\tR\007message\022)\n\020generating_stage\030\003 " +
+      "\001(\005R\017generatingStage\022=\n\004list\030\004 \003(\0132).ran" +
+      "kquantity.voyager.api.StoryBoardSenceR\004l" +
+      "ist\"\372\001\n\026QueryTaskStatusRequest\022\031\n\010board_" +
+      "id\030\001 \001(\003R\007boardId\022\027\n\007user_id\030\002 \001(\003R\006user" +
+      "Id\022\031\n\010story_id\030\003 \001(\003R\007storyId\022\031\n\010sence_i" +
+      "d\030\004 \001(\003R\007senceId\022\027\n\007role_id\030\005 \001(\003R\006roleI" +
+      "d\022E\n\013render_type\030\006 \001(\0162$.rankquantity.vo" +
+      "yager.api.RenderTypeR\nrenderType\022\026\n\006Task" +
+      "Id\030\007 \001(\tR\006TaskId\"\306\005\n\027QueryTaskStatusResp" +
+      "onse\022\022\n\004code\030\001 \001(\005R\004code\022\030\n\007message\030\002 \001(" +
+      "\tR\007message\022J\n\004data\030\003 \001(\01326.rankquantity." +
+      "voyager.api.QueryTaskStatusResponse.Data" +
+      "R\004data\032\260\004\n\004Data\022?\n\005stage\030\001 \001(\0162).rankqua" +
+      "ntity.voyager.api.StoryboardStageR\005stage" +
+      "\022a\n\025dashscope_task_status\030\002 \001(\0162-.rankqu" +
+      "antity.voyager.api.DashScopeTaskStatusR\023" +
+      "dashscopeTaskStatus\022j\n\030render_storyboard" +
+      "_detail\030\003 \001(\01320.rankquantity.voyager.api" +
+      ".RenderStoryboardDetailR\026renderStoryboar" +
+      "dDetail\022[\n\023render_story_detail\030\004 \001(\0132+.r" +
+      "ankquantity.voyager.api.RenderStoryDetai" +
+      "lR\021renderStoryDetail\022j\n\034render_storyboar" +
+      "d_sence_list\030\005 \003(\0132).rankquantity.voyage" +
+      "r.api.StoryBoardSenceR\031renderStoryboardS" +
+      "enceList\022O\n\021render_story_role\030\006 \001(\0132#.ra" +
+      "nkquantity.voyager.api.StoryRoleR\017render" +
+      "StoryRole*\246\001\n\016StoryGenStatus\022 \n\034STORY_GE" +
+      "N_STATUS_UNSPECIFIED\020\000\022\031\n\025STORY_GEN_STAT" +
+      "US_INIT\020\001\022\034\n\030STORY_GEN_STATUS_RUNNING\020\002\022" +
+      "\035\n\031STORY_GEN_STATUS_FINISHED\020\003\022\032\n\026STORY_" +
+      "GEN_STATUS_ERROR\020\004*\353\002\n\017StoryboardStage\022 " +
+      "\n\034STORYBOARD_STAGE_UNSPECIFIED\020\000\022\032\n\026STOR" +
+      "YBOARD_STAGE_DRAFT\020\001\022\034\n\030STORYBOARD_STAGE" +
+      "_CREATED\020\002\022\035\n\031STORYBOARD_STAGE_RENDERED\020" +
+      "\003\022!\n\035STORYBOARD_STAGE_RENDER_SCENE\020\004\022\036\n\032" +
+      "STORYBOARD_STAGE_GEN_IMAGE\020\005\022\036\n\032STORYBOA" +
+      "RD_STAGE_GEN_VIDEO\020\006\022\036\n\032STORYBOARD_STAGE" +
+      "_GEN_AUDIO\020\007\022\035\n\031STORYBOARD_STAGE_FINISHE" +
+      "D\020\010\022\033\n\027STORYBOARD_STAGE_FAILED\020\t\022\036\n\032STOR" +
+      "YBOARD_STAGE_PUBLISHED\020\n*\250\001\n\nRenderType\022" +
+      " \n\034RENDER_TYPE_TEXT_UNSPECIFIED\020\000\022\037\n\033REN" +
+      "DER_TYPE_STORYBOARD_TEXT\020\001\022\032\n\026RENDER_TYP" +
+      "E_STORYBOARD\020\002\022\032\n\026RENDER_TYPE_STORYSENCE" +
+      "\020\003\022\037\n\033RENDER_TYPE_STORYCHARACTERS\020\004B\322\001\n\034" +
+      "com.rankquantity.voyager.apiB\nStoryProto" +
+      "P\001Z$github.com/grapery/common-protoc/gen" +
+      "\242\002\003RVA\252\002\030Rankquantity.Voyager.Api\312\002\030Rank" +
+      "quantity\\Voyager\\Api\342\002$Rankquantity\\Voya" +
+      "ger\\Api\\GPBMetadata\352\002\032Rankquantity::Voya" +
+      "ger::Apib\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1512,7 +1513,7 @@ public final class StoryProto extends com.google.protobuf.GeneratedFile {
     internal_static_rankquantity_voyager_api_Character_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rankquantity_voyager_api_Character_descriptor,
-        new java.lang.String[] { "Id", "Name", "Description", });
+        new java.lang.String[] { "Id", "Name", "Description", "AvatarUrl", });
     internal_static_rankquantity_voyager_api_StoryInfo_descriptor =
       getDescriptor().getMessageTypes().get(45);
     internal_static_rankquantity_voyager_api_StoryInfo_fieldAccessorTable = new

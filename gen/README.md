@@ -3000,6 +3000,7 @@ Character 表示角色信息
 | id | [string](#string) |  | 角色id |
 | name | [string](#string) |  | 角色姓名 |
 | description | [string](#string) |  | 角色描述 |
+| avatar_url | [string](#string) |  | 角色头像 |
 
 
 

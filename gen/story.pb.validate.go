@@ -6173,6 +6173,8 @@ func (m *Character) validate(all bool) error {
 
 	// no validation rules for Description
 
+	// no validation rules for AvatarUrl
+
 	if len(errors) > 0 {
 		return CharacterMultiError(errors)
 	}

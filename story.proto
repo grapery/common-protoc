@@ -559,6 +559,8 @@ message Character {
   string name = 2;
   // 角色描述
   string description = 3;
+  // 角色头像
+  string avatar_url = 4;
 }
 
 

@@ -35,6 +35,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     name_ = "";
     description_ = "";
+    avatarUrl_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -191,6 +192,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int AVATAR_URL_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object avatarUrl_ = "";
+  /**
+   * <pre>
+   * 角色头像
+   * </pre>
+   *
+   * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+   * @return The avatarUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getAvatarUrl() {
+    java.lang.Object ref = avatarUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      avatarUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 角色头像
+   * </pre>
+   *
+   * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+   * @return The bytes for avatarUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAvatarUrlBytes() {
+    java.lang.Object ref = avatarUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      avatarUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -214,6 +262,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 3, description_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(avatarUrl_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 4, avatarUrl_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -231,6 +282,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(3, description_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(avatarUrl_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, avatarUrl_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -253,6 +307,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
+    if (!getAvatarUrl()
+        .equals(other.getAvatarUrl())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -270,6 +326,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
+    hash = (53 * hash) + getAvatarUrl().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -408,6 +466,7 @@ private static final long serialVersionUID = 0L;
       id_ = "";
       name_ = "";
       description_ = "";
+      avatarUrl_ = "";
       return this;
     }
 
@@ -450,6 +509,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.description_ = description_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.avatarUrl_ = avatarUrl_;
+      }
     }
 
     @java.lang.Override
@@ -477,6 +539,11 @@ private static final long serialVersionUID = 0L;
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
         bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (!other.getAvatarUrl().isEmpty()) {
+        avatarUrl_ = other.avatarUrl_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -520,6 +587,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
+            case 34: {
+              avatarUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -809,6 +881,98 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       description_ = value;
       bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object avatarUrl_ = "";
+    /**
+     * <pre>
+     * 角色头像
+     * </pre>
+     *
+     * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+     * @return The avatarUrl.
+     */
+    public java.lang.String getAvatarUrl() {
+      java.lang.Object ref = avatarUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avatarUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 角色头像
+     * </pre>
+     *
+     * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+     * @return The bytes for avatarUrl.
+     */
+    public com.google.protobuf.ByteString
+        getAvatarUrlBytes() {
+      java.lang.Object ref = avatarUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avatarUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 角色头像
+     * </pre>
+     *
+     * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+     * @param value The avatarUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAvatarUrl(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      avatarUrl_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 角色头像
+     * </pre>
+     *
+     * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAvatarUrl() {
+      avatarUrl_ = getDefaultInstance().getAvatarUrl();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 角色头像
+     * </pre>
+     *
+     * <code>string avatar_url = 4 [json_name = "avatarUrl"];</code>
+     * @param value The bytes for avatarUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAvatarUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      avatarUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

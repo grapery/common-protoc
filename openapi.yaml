@@ -3607,6 +3607,9 @@ components:
                 description:
                     type: string
                     description: 角色描述
+                avatarUrl:
+                    type: string
+                    description: 角色头像
             description: Character 表示角色信息
         CharacterDetail:
             type: object
