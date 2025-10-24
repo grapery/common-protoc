@@ -300,6 +300,8 @@
     - [DeleteStoryCommentReplyResponse](#rankquantity-voyager-api-DeleteStoryCommentReplyResponse)
     - [DeleteStoryCommentRequest](#rankquantity-voyager-api-DeleteStoryCommentRequest)
     - [DeleteStoryCommentResponse](#rankquantity-voyager-api-DeleteStoryCommentResponse)
+    - [DeleteUserStoryboardDraftRequest](#rankquantity-voyager-api-DeleteUserStoryboardDraftRequest)
+    - [DeleteUserStoryboardDraftResponse](#rankquantity-voyager-api-DeleteUserStoryboardDraftResponse)
     - [DislikeCommentRequest](#rankquantity-voyager-api-DislikeCommentRequest)
     - [DislikeCommentResponse](#rankquantity-voyager-api-DislikeCommentResponse)
     - [DisscussParams](#rankquantity-voyager-api-DisscussParams)
@@ -411,6 +413,9 @@
     - [GetUserWatchStoryActiveStoryBoardsResponse](#rankquantity-voyager-api-GetUserWatchStoryActiveStoryBoardsResponse)
     - [GetUserWithRoleChatListRequest](#rankquantity-voyager-api-GetUserWithRoleChatListRequest)
     - [GetUserWithRoleChatListResponse](#rankquantity-voyager-api-GetUserWithRoleChatListResponse)
+    - [GroupActiveHeamapRequest](#rankquantity-voyager-api-GroupActiveHeamapRequest)
+    - [GroupActiveHeamapResponse](#rankquantity-voyager-api-GroupActiveHeamapResponse)
+    - [HeatmapDataItem](#rankquantity-voyager-api-HeatmapDataItem)
     - [JoinGroupRequest](#rankquantity-voyager-api-JoinGroupRequest)
     - [JoinGroupResponse](#rankquantity-voyager-api-JoinGroupResponse)
     - [JoinGroupResponse.Data](#rankquantity-voyager-api-JoinGroupResponse-Data)
@@ -465,6 +470,8 @@
     - [StoryContributor](#rankquantity-voyager-api-StoryContributor)
     - [StoryGentaskDetail](#rankquantity-voyager-api-StoryGentaskDetail)
     - [StoryStyleDesc](#rankquantity-voyager-api-StoryStyleDesc)
+    - [StoryboardDraftDetail](#rankquantity-voyager-api-StoryboardDraftDetail)
+    - [StoryboardDraftItem](#rankquantity-voyager-api-StoryboardDraftItem)
     - [StoryboardStageStore](#rankquantity-voyager-api-StoryboardStageStore)
     - [TrendingStoryRequest](#rankquantity-voyager-api-TrendingStoryRequest)
     - [TrendingStoryResponse](#rankquantity-voyager-api-TrendingStoryResponse)
@@ -512,6 +519,8 @@
     - [UpdateStoryRolePromptResponse](#rankquantity-voyager-api-UpdateStoryRolePromptResponse)
     - [UpdateStorySenceMaxNumberRequest](#rankquantity-voyager-api-UpdateStorySenceMaxNumberRequest)
     - [UpdateStorySenceMaxNumberResponse](#rankquantity-voyager-api-UpdateStorySenceMaxNumberResponse)
+    - [UpdateStoryboardForkAbleRequest](#rankquantity-voyager-api-UpdateStoryboardForkAbleRequest)
+    - [UpdateStoryboardForkAbleResponse](#rankquantity-voyager-api-UpdateStoryboardForkAbleResponse)
     - [UpdateUserAvatorRequest](#rankquantity-voyager-api-UpdateUserAvatorRequest)
     - [UpdateUserAvatorResponse](#rankquantity-voyager-api-UpdateUserAvatorResponse)
     - [UpdateUserAvatorResponse.Data](#rankquantity-voyager-api-UpdateUserAvatorResponse-Data)
@@ -522,6 +531,10 @@
     - [UploadImageRequest](#rankquantity-voyager-api-UploadImageRequest)
     - [UploadImageResponse](#rankquantity-voyager-api-UploadImageResponse)
     - [UploadImageResponse.Data](#rankquantity-voyager-api-UploadImageResponse-Data)
+    - [UserActiveHeamapRequest](#rankquantity-voyager-api-UserActiveHeamapRequest)
+    - [UserActiveHeamapResponse](#rankquantity-voyager-api-UserActiveHeamapResponse)
+    - [UserDraftStoryboardDetailRequest](#rankquantity-voyager-api-UserDraftStoryboardDetailRequest)
+    - [UserDraftStoryboardDetailResponse](#rankquantity-voyager-api-UserDraftStoryboardDetailResponse)
     - [UserFollowingGroupRequest](#rankquantity-voyager-api-UserFollowingGroupRequest)
     - [UserFollowingGroupResponse](#rankquantity-voyager-api-UserFollowingGroupResponse)
     - [UserFollowingGroupResponse.Data](#rankquantity-voyager-api-UserFollowingGroupResponse-Data)
@@ -535,6 +548,8 @@
     - [UserInitRequest](#rankquantity-voyager-api-UserInitRequest)
     - [UserInitResponse](#rankquantity-voyager-api-UserInitResponse)
     - [UserInitResponse.Data](#rankquantity-voyager-api-UserInitResponse-Data)
+    - [UserStoryboardDraftlistRequest](#rankquantity-voyager-api-UserStoryboardDraftlistRequest)
+    - [UserStoryboardDraftlistResponse](#rankquantity-voyager-api-UserStoryboardDraftlistResponse)
     - [UserUpdateRequest](#rankquantity-voyager-api-UserUpdateRequest)
     - [UserUpdateRequest.DataEntry](#rankquantity-voyager-api-UserUpdateRequest-DataEntry)
     - [UserUpdateResponse](#rankquantity-voyager-api-UserUpdateResponse)
@@ -5928,6 +5943,40 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="rankquantity-voyager-api-DeleteUserStoryboardDraftRequest"></a>
+
+### DeleteUserStoryboardDraftRequest
+==================== 删除用户故事板草稿 ====================
+删除用户故事板草稿请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| draft_id | [int64](#int64) |  | 草稿ID |
+| story_id | [int64](#int64) |  | 故事ID（可选） |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DeleteUserStoryboardDraftResponse"></a>
+
+### DeleteUserStoryboardDraftResponse
+删除用户故事板草稿响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-DislikeCommentRequest"></a>
 
 ### DislikeCommentRequest
@@ -7904,6 +7953,62 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="rankquantity-voyager-api-GroupActiveHeamapRequest"></a>
+
+### GroupActiveHeamapRequest
+==================== 群组活跃热力图 ====================
+群组活跃热力图请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  | 群组ID |
+| user_id | [int64](#int64) |  | 请求用户ID（用于权限验证） |
+| start_time | [int64](#int64) |  | 开始时间戳（秒） |
+| end_time | [int64](#int64) |  | 结束时间戳（秒） |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GroupActiveHeamapResponse"></a>
+
+### GroupActiveHeamapResponse
+群组活跃热力图响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [HeatmapDataItem](#rankquantity-voyager-api-HeatmapDataItem) | repeated | 热力图数据列表 |
+| total_count | [int64](#int64) |  | 总活跃次数 |
+| member_count | [int64](#int64) |  | 活跃成员数量 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-HeatmapDataItem"></a>
+
+### HeatmapDataItem
+==================== 用户活跃热力图 ====================
+用户活跃热力图数据项
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| date | [string](#string) |  | 日期，格式：YYYY-MM-DD |
+| count | [int64](#int64) |  | 活跃次数/数量 |
+| level | [int64](#int64) |  | 热力等级（0-4，用于显示不同颜色深度） |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-JoinGroupRequest"></a>
 
 ### JoinGroupRequest
@@ -8856,6 +8961,58 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="rankquantity-voyager-api-StoryboardDraftDetail"></a>
+
+### StoryboardDraftDetail
+==================== 用户故事板草稿详情 ====================
+故事板草稿详细信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| draft_id | [int64](#int64) |  | 草稿ID |
+| story_id | [int64](#int64) |  | 故事ID |
+| storyboard_id | [int64](#int64) |  | 故事板ID |
+| title | [string](#string) |  | 标题 |
+| content | [string](#string) |  | 内容 |
+| background | [string](#string) |  | 背景 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 角色列表 |
+| sences | [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences) |  | 场景列表 |
+| params | [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams) |  | 故事板参数 |
+| created_at | [int64](#int64) |  | 创建时间戳 |
+| updated_at | [int64](#int64) |  | 更新时间戳 |
+| version | [int64](#int64) |  | 版本号 |
+| user_id | [int64](#int64) |  | 用户ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryboardDraftItem"></a>
+
+### StoryboardDraftItem
+==================== 用户故事板草稿列表 ====================
+故事板草稿简要信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| draft_id | [int64](#int64) |  | 草稿ID |
+| story_id | [int64](#int64) |  | 故事ID |
+| storyboard_id | [int64](#int64) |  | 故事板ID |
+| title | [string](#string) |  | 标题 |
+| content | [string](#string) |  | 内容摘要 |
+| cover_image | [string](#string) |  | 封面图片 |
+| created_at | [int64](#int64) |  | 创建时间戳 |
+| updated_at | [int64](#int64) |  | 更新时间戳 |
+| version | [int64](#int64) |  | 版本号 |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-StoryboardStageStore"></a>
 
 ### StoryboardStageStore
@@ -9654,6 +9811,40 @@ UpdateStoryResponse 更新故事的响应结果
 
 
 
+<a name="rankquantity-voyager-api-UpdateStoryboardForkAbleRequest"></a>
+
+### UpdateStoryboardForkAbleRequest
+==================== 更新故事板是否可分叉 ====================
+更新故事板是否可分叉请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| storyboard_id | [int64](#int64) |  | 故事板ID |
+| fork_able | [bool](#bool) |  | 是否可分叉 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryboardForkAbleResponse"></a>
+
+### UpdateStoryboardForkAbleResponse
+更新故事板是否可分叉响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-UpdateUserAvatorRequest"></a>
 
 ### UpdateUserAvatorRequest
@@ -9816,6 +10007,74 @@ UpdateStoryResponse 更新故事的响应结果
 | ----- | ---- | ----- | ----------- |
 | file_id | [string](#string) |  |  |
 | url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserActiveHeamapRequest"></a>
+
+### UserActiveHeamapRequest
+用户活跃热力图请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| start_time | [int64](#int64) |  | 开始时间戳（秒） |
+| end_time | [int64](#int64) |  | 结束时间戳（秒） |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserActiveHeamapResponse"></a>
+
+### UserActiveHeamapResponse
+用户活跃热力图响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [HeatmapDataItem](#rankquantity-voyager-api-HeatmapDataItem) | repeated | 热力图数据列表 |
+| total_count | [int64](#int64) |  | 总活跃次数 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserDraftStoryboardDetailRequest"></a>
+
+### UserDraftStoryboardDetailRequest
+用户故事板草稿详情请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| draft_id | [int64](#int64) |  | 草稿ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserDraftStoryboardDetailResponse"></a>
+
+### UserDraftStoryboardDetailResponse
+用户故事板草稿详情响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| detail | [StoryboardDraftDetail](#rankquantity-voyager-api-StoryboardDraftDetail) |  | 草稿详情 |
 
 
 
@@ -10042,6 +10301,43 @@ user ,group .project.item
 | ----- | ---- | ----- | ----------- |
 | user_id | [int64](#int64) |  |  |
 | list | [GroupInfo](#rankquantity-voyager-api-GroupInfo) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserStoryboardDraftlistRequest"></a>
+
+### UserStoryboardDraftlistRequest
+用户故事板草稿列表请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| offset | [int64](#int64) |  | 偏移量 |
+| page_size | [int64](#int64) |  | 每页数量 |
+| story_id | [int64](#int64) |  | 故事ID（可选，用于筛选特定故事的草稿） |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserStoryboardDraftlistResponse"></a>
+
+### UserStoryboardDraftlistResponse
+用户故事板草稿列表响应
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| drafts | [StoryboardDraftItem](#rankquantity-voyager-api-StoryboardDraftItem) | repeated | 草稿列表 |
+| total | [int64](#int64) |  | 草稿总数 |
+| have_more | [bool](#bool) |  | 是否有更多 |
 
 
 
@@ -10370,6 +10666,12 @@ TeamsAPI provides a comprehensive set of services for managing teams, stories, a
 | UnLikeStoryRolePoster | [UnLikeStoryRolePosterRequest](#rankquantity-voyager-api-UnLikeStoryRolePosterRequest) | [UnLikeStoryRolePosterResponse](#rankquantity-voyager-api-UnLikeStoryRolePosterResponse) |  |
 | GetStoryRolePosterList | [GetStoryRolePosterListRequest](#rankquantity-voyager-api-GetStoryRolePosterListRequest) | [GetStoryRolePosterListResponse](#rankquantity-voyager-api-GetStoryRolePosterListResponse) |  |
 | GenerateStoryRoleVideo | [GenerateStoryRoleVideoRequest](#rankquantity-voyager-api-GenerateStoryRoleVideoRequest) | [GenerateStoryRoleVideoResponse](#rankquantity-voyager-api-GenerateStoryRoleVideoResponse) | 为故事角色生成视频 |
+| UpdateStoryboardForkAble | [UpdateStoryboardForkAbleRequest](#rankquantity-voyager-api-UpdateStoryboardForkAbleRequest) | [UpdateStoryboardForkAbleResponse](#rankquantity-voyager-api-UpdateStoryboardForkAbleResponse) |  |
+| UserStoryboardDraftlist | [UserStoryboardDraftlistRequest](#rankquantity-voyager-api-UserStoryboardDraftlistRequest) | [UserStoryboardDraftlistResponse](#rankquantity-voyager-api-UserStoryboardDraftlistResponse) |  |
+| UserStoryboardDraftDetail | [UserDraftStoryboardDetailRequest](#rankquantity-voyager-api-UserDraftStoryboardDetailRequest) | [UserDraftStoryboardDetailResponse](#rankquantity-voyager-api-UserDraftStoryboardDetailResponse) |  |
+| DeleteUserStoryboardDraft | [DeleteUserStoryboardDraftRequest](#rankquantity-voyager-api-DeleteUserStoryboardDraftRequest) | [DeleteUserStoryboardDraftResponse](#rankquantity-voyager-api-DeleteUserStoryboardDraftResponse) |  |
+| UserActiveHeatmap | [UserActiveHeamapRequest](#rankquantity-voyager-api-UserActiveHeamapRequest) | [UserActiveHeamapResponse](#rankquantity-voyager-api-UserActiveHeamapResponse) |  |
+| GroupActiveHeatmap | [GroupActiveHeamapRequest](#rankquantity-voyager-api-GroupActiveHeamapRequest) | [GroupActiveHeamapResponse](#rankquantity-voyager-api-GroupActiveHeamapResponse) |  |
 
  
 

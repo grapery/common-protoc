@@ -1107,6 +1107,42 @@ public protocol Rankquantity_Voyager_Api_TeamsApiClientInterface: Sendable {
     /// 为故事角色生成视频
     @available(iOS 13, *)
     func `generateStoryRoleVideo`(request: Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse>
+
+    @discardableResult
+    func `updateStoryboardForkAble`(request: Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `updateStoryboardForkAble`(request: Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse>
+
+    @discardableResult
+    func `userStoryboardDraftlist`(request: Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `userStoryboardDraftlist`(request: Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse>
+
+    @discardableResult
+    func `userStoryboardDraftDetail`(request: Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserDraftStoryboardDetailResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `userStoryboardDraftDetail`(request: Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserDraftStoryboardDetailResponse>
+
+    @discardableResult
+    func `deleteUserStoryboardDraft`(request: Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `deleteUserStoryboardDraft`(request: Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse>
+
+    @discardableResult
+    func `userActiveHeatmap`(request: Rankquantity_Voyager_Api_UserActiveHeamapRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserActiveHeamapResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `userActiveHeatmap`(request: Rankquantity_Voyager_Api_UserActiveHeamapRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_UserActiveHeamapResponse>
+
+    @discardableResult
+    func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse>) -> Void) -> Connect.Cancelable
+
+    @available(iOS 13, *)
+    func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse>
 }
 
 /// Concrete implementation of `Rankquantity_Voyager_Api_TeamsApiClientInterface`.
@@ -2517,6 +2553,66 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
         return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
+    @discardableResult
+    public func `updateStoryboardForkAble`(request: Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboardForkAble", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `updateStoryboardForkAble`(request: Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboardForkAble", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `userStoryboardDraftlist`(request: Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftlist", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `userStoryboardDraftlist`(request: Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftlist", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `userStoryboardDraftDetail`(request: Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserDraftStoryboardDetailResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftDetail", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `userStoryboardDraftDetail`(request: Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserDraftStoryboardDetailResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftDetail", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `deleteUserStoryboardDraft`(request: Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `deleteUserStoryboardDraft`(request: Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `userActiveHeatmap`(request: Rankquantity_Voyager_Api_UserActiveHeamapRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_UserActiveHeamapResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `userActiveHeatmap`(request: Rankquantity_Voyager_Api_UserActiveHeamapRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_UserActiveHeamapResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @discardableResult
+    public func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    }
+
+    @available(iOS 13, *)
+    public func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
     public enum Metadata {
         public enum Methods {
             public static let explore = Connect.MethodSpec(name: "Explore", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
@@ -2659,6 +2755,12 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
             public static let unLikeStoryRolePoster = Connect.MethodSpec(name: "UnLikeStoryRolePoster", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let getStoryRolePosterList = Connect.MethodSpec(name: "GetStoryRolePosterList", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let generateStoryRoleVideo = Connect.MethodSpec(name: "GenerateStoryRoleVideo", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let updateStoryboardForkAble = Connect.MethodSpec(name: "UpdateStoryboardForkAble", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userStoryboardDraftlist = Connect.MethodSpec(name: "UserStoryboardDraftlist", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userStoryboardDraftDetail = Connect.MethodSpec(name: "UserStoryboardDraftDetail", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let deleteUserStoryboardDraft = Connect.MethodSpec(name: "DeleteUserStoryboardDraft", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let userActiveHeatmap = Connect.MethodSpec(name: "UserActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let groupActiveHeatmap = Connect.MethodSpec(name: "GroupActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
         }
     }
 }

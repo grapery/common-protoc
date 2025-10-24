@@ -1769,6 +1769,48 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc UpdateStoryboardForkAble(UpdateStoryboardForkAbleRequest) returns (UpdateStoryboardForkAbleResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UpdateStoryboardForkAble"
+      body : "*"
+    };
+  }
+
+  rpc UserStoryboardDraftlist(UserStoryboardDraftlistRequest) returns (UserStoryboardDraftlistResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UserStoryboardDraftlist"
+      body : "*"
+    };
+  }
+
+  rpc UserStoryboardDraftDetail(UserDraftStoryboardDetailRequest) returns (UserDraftStoryboardDetailResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UserStoryboardDraftDetail"
+      body : "*"
+    };
+  }
+
+  rpc DeleteUserStoryboardDraft(DeleteUserStoryboardDraftRequest) returns (DeleteUserStoryboardDraftResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/DeleteStoryboardUserDraft"
+      body : "*"
+    };
+  }
+
+  rpc UserActiveHeatmap(UserActiveHeamapRequest) returns (UserActiveHeamapResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/UserActiveHeatmap"
+      body : "*"
+    };
+  }
+
+  rpc GroupActiveHeatmap(GroupActiveHeamapRequest) returns (GroupActiveHeamapResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GroupActiveHeatmap"
+      body : "*"
+    };
+  }
 }
 
 message GetStoryRolePosterListRequest{
@@ -2946,4 +2988,135 @@ message UnLikeStoryRequest {
 message UnLikeStoryResponse {
   ResponseCode code = 1;
   string message = 2;
+}
+
+// ==================== 删除用户故事板草稿 ====================
+// 删除用户故事板草稿请求
+message DeleteUserStoryboardDraftRequest {
+  int64 user_id = 1;         // 用户ID
+  int64 draft_id = 2;        // 草稿ID
+  int64 story_id = 3;        // 故事ID（可选）
+}
+
+// 删除用户故事板草稿响应
+message DeleteUserStoryboardDraftResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+}
+
+// ==================== 用户活跃热力图 ====================
+// 用户活跃热力图数据项
+message HeatmapDataItem {
+  string date = 1;           // 日期，格式：YYYY-MM-DD
+  int64 count = 2;           // 活跃次数/数量
+  int64 level = 3;           // 热力等级（0-4，用于显示不同颜色深度）
+}
+
+// 用户活跃热力图请求
+message UserActiveHeamapRequest {
+  int64 user_id = 1;         // 用户ID
+  int64 start_time = 2;      // 开始时间戳（秒）
+  int64 end_time = 3;        // 结束时间戳（秒）
+}
+
+// 用户活跃热力图响应
+message UserActiveHeamapResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+  repeated HeatmapDataItem data = 3;  // 热力图数据列表
+  int64 total_count = 4;     // 总活跃次数
+}
+
+// ==================== 群组活跃热力图 ====================
+// 群组活跃热力图请求
+message GroupActiveHeamapRequest {
+  int64 group_id = 1;        // 群组ID
+  int64 user_id = 2;         // 请求用户ID（用于权限验证）
+  int64 start_time = 3;      // 开始时间戳（秒）
+  int64 end_time = 4;        // 结束时间戳（秒）
+}
+
+// 群组活跃热力图响应
+message GroupActiveHeamapResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+  repeated HeatmapDataItem data = 3;  // 热力图数据列表
+  int64 total_count = 4;     // 总活跃次数
+  int64 member_count = 5;    // 活跃成员数量
+}
+
+// ==================== 更新故事板是否可分叉 ====================
+// 更新故事板是否可分叉请求
+message UpdateStoryboardForkAbleRequest {
+  int64 user_id = 1;         // 用户ID
+  int64 storyboard_id = 2;   // 故事板ID
+  bool fork_able = 3;        // 是否可分叉
+}
+
+// 更新故事板是否可分叉响应
+message UpdateStoryboardForkAbleResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+}
+
+// ==================== 用户故事板草稿列表 ====================
+// 故事板草稿简要信息
+message StoryboardDraftItem {
+  int64 draft_id = 1;        // 草稿ID
+  int64 story_id = 2;        // 故事ID
+  int64 storyboard_id = 3;   // 故事板ID
+  string title = 4;          // 标题
+  string content = 5;        // 内容摘要
+  string cover_image = 6;    // 封面图片
+  int64 created_at = 7;      // 创建时间戳
+  int64 updated_at = 8;      // 更新时间戳
+  int64 version = 9;         // 版本号
+}
+
+// 用户故事板草稿列表请求
+message UserStoryboardDraftlistRequest {
+  int64 user_id = 1;         // 用户ID
+  int64 offset = 2;          // 偏移量
+  int64 page_size = 3;       // 每页数量
+  int64 story_id = 4;        // 故事ID（可选，用于筛选特定故事的草稿）
+}
+
+// 用户故事板草稿列表响应
+message UserStoryboardDraftlistResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+  repeated StoryboardDraftItem drafts = 3;  // 草稿列表
+  int64 total = 4;           // 草稿总数
+  bool have_more = 5;        // 是否有更多
+}
+
+// ==================== 用户故事板草稿详情 ====================
+// 故事板草稿详细信息
+message StoryboardDraftDetail {
+  int64 draft_id = 1;        // 草稿ID
+  int64 story_id = 2;        // 故事ID
+  int64 storyboard_id = 3;   // 故事板ID
+  string title = 4;          // 标题
+  string content = 5;        // 内容
+  string background = 6;     // 背景
+  repeated StoryRole roles = 7;  // 角色列表
+  StoryBoardSences sences = 8;   // 场景列表
+  StoryBoardParams params = 9;   // 故事板参数
+  int64 created_at = 10;     // 创建时间戳
+  int64 updated_at = 11;     // 更新时间戳
+  int64 version = 12;        // 版本号
+  int64 user_id = 13;        // 用户ID
+}
+
+// 用户故事板草稿详情请求
+message UserDraftStoryboardDetailRequest {
+  int64 user_id = 1;         // 用户ID
+  int64 draft_id = 2;        // 草稿ID
+}
+
+// 用户故事板草稿详情响应
+message UserDraftStoryboardDetailResponse {
+  ResponseCode code = 1;     // 响应码
+  string message = 2;        // 响应消息
+  StoryboardDraftDetail detail = 3;  // 草稿详情
 }

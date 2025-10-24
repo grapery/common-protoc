@@ -7,11 +7,10 @@ package genconnect
 import (
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
+	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
-
-	connect_go "connectrpc.com/connect"
-	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -408,6 +407,24 @@ const (
 	// TeamsAPIGenerateStoryRoleVideoProcedure is the fully-qualified name of the TeamsAPI's
 	// GenerateStoryRoleVideo RPC.
 	TeamsAPIGenerateStoryRoleVideoProcedure = "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo"
+	// TeamsAPIUpdateStoryboardForkAbleProcedure is the fully-qualified name of the TeamsAPI's
+	// UpdateStoryboardForkAble RPC.
+	TeamsAPIUpdateStoryboardForkAbleProcedure = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboardForkAble"
+	// TeamsAPIUserStoryboardDraftlistProcedure is the fully-qualified name of the TeamsAPI's
+	// UserStoryboardDraftlist RPC.
+	TeamsAPIUserStoryboardDraftlistProcedure = "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftlist"
+	// TeamsAPIUserStoryboardDraftDetailProcedure is the fully-qualified name of the TeamsAPI's
+	// UserStoryboardDraftDetail RPC.
+	TeamsAPIUserStoryboardDraftDetailProcedure = "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftDetail"
+	// TeamsAPIDeleteUserStoryboardDraftProcedure is the fully-qualified name of the TeamsAPI's
+	// DeleteUserStoryboardDraft RPC.
+	TeamsAPIDeleteUserStoryboardDraftProcedure = "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft"
+	// TeamsAPIUserActiveHeatmapProcedure is the fully-qualified name of the TeamsAPI's
+	// UserActiveHeatmap RPC.
+	TeamsAPIUserActiveHeatmapProcedure = "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap"
+	// TeamsAPIGroupActiveHeatmapProcedure is the fully-qualified name of the TeamsAPI's
+	// GroupActiveHeatmap RPC.
+	TeamsAPIGroupActiveHeatmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
 )
 
 // TeamsAPIClient is a client for the rankquantity.voyager.api.TeamsAPI service.
@@ -680,6 +697,12 @@ type TeamsAPIClient interface {
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
 	// 为故事角色生成视频
 	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the rankquantity.voyager.api.TeamsAPI service. By
@@ -1392,6 +1415,36 @@ func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ..
 			baseURL+TeamsAPIGenerateStoryRoleVideoProcedure,
 			opts...,
 		),
+		updateStoryboardForkAble: connect_go.NewClient[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse](
+			httpClient,
+			baseURL+TeamsAPIUpdateStoryboardForkAbleProcedure,
+			opts...,
+		),
+		userStoryboardDraftlist: connect_go.NewClient[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse](
+			httpClient,
+			baseURL+TeamsAPIUserStoryboardDraftlistProcedure,
+			opts...,
+		),
+		userStoryboardDraftDetail: connect_go.NewClient[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse](
+			httpClient,
+			baseURL+TeamsAPIUserStoryboardDraftDetailProcedure,
+			opts...,
+		),
+		deleteUserStoryboardDraft: connect_go.NewClient[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse](
+			httpClient,
+			baseURL+TeamsAPIDeleteUserStoryboardDraftProcedure,
+			opts...,
+		),
+		userActiveHeatmap: connect_go.NewClient[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse](
+			httpClient,
+			baseURL+TeamsAPIUserActiveHeatmapProcedure,
+			opts...,
+		),
+		groupActiveHeatmap: connect_go.NewClient[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse](
+			httpClient,
+			baseURL+TeamsAPIGroupActiveHeatmapProcedure,
+			opts...,
+		),
 	}
 }
 
@@ -1537,6 +1590,12 @@ type teamsAPIClient struct {
 	unLikeStoryRolePoster              *connect_go.Client[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse]
 	getStoryRolePosterList             *connect_go.Client[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse]
 	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
+	updateStoryboardForkAble           *connect_go.Client[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse]
+	userStoryboardDraftlist            *connect_go.Client[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse]
+	userStoryboardDraftDetail          *connect_go.Client[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse]
+	deleteUserStoryboardDraft          *connect_go.Client[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse]
+	userActiveHeatmap                  *connect_go.Client[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse]
+	groupActiveHeatmap                 *connect_go.Client[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse]
 }
 
 // Explore calls rankquantity.voyager.api.TeamsAPI.Explore.
@@ -2242,6 +2301,36 @@ func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connec
 	return c.generateStoryRoleVideo.CallUnary(ctx, req)
 }
 
+// UpdateStoryboardForkAble calls rankquantity.voyager.api.TeamsAPI.UpdateStoryboardForkAble.
+func (c *teamsAPIClient) UpdateStoryboardForkAble(ctx context.Context, req *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error) {
+	return c.updateStoryboardForkAble.CallUnary(ctx, req)
+}
+
+// UserStoryboardDraftlist calls rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftlist.
+func (c *teamsAPIClient) UserStoryboardDraftlist(ctx context.Context, req *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error) {
+	return c.userStoryboardDraftlist.CallUnary(ctx, req)
+}
+
+// UserStoryboardDraftDetail calls rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftDetail.
+func (c *teamsAPIClient) UserStoryboardDraftDetail(ctx context.Context, req *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error) {
+	return c.userStoryboardDraftDetail.CallUnary(ctx, req)
+}
+
+// DeleteUserStoryboardDraft calls rankquantity.voyager.api.TeamsAPI.DeleteUserStoryboardDraft.
+func (c *teamsAPIClient) DeleteUserStoryboardDraft(ctx context.Context, req *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error) {
+	return c.deleteUserStoryboardDraft.CallUnary(ctx, req)
+}
+
+// UserActiveHeatmap calls rankquantity.voyager.api.TeamsAPI.UserActiveHeatmap.
+func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, req *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error) {
+	return c.userActiveHeatmap.CallUnary(ctx, req)
+}
+
+// GroupActiveHeatmap calls rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap.
+func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error) {
+	return c.groupActiveHeatmap.CallUnary(ctx, req)
+}
+
 // TeamsAPIHandler is an implementation of the rankquantity.voyager.api.TeamsAPI service.
 type TeamsAPIHandler interface {
 	// Explore returns trending and recommended content for users to discover
@@ -2512,6 +2601,12 @@ type TeamsAPIHandler interface {
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
 	// 为故事角色生成视频
 	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -3220,6 +3315,36 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 		svc.GenerateStoryRoleVideo,
 		opts...,
 	)
+	teamsAPIUpdateStoryboardForkAbleHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUpdateStoryboardForkAbleProcedure,
+		svc.UpdateStoryboardForkAble,
+		opts...,
+	)
+	teamsAPIUserStoryboardDraftlistHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUserStoryboardDraftlistProcedure,
+		svc.UserStoryboardDraftlist,
+		opts...,
+	)
+	teamsAPIUserStoryboardDraftDetailHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUserStoryboardDraftDetailProcedure,
+		svc.UserStoryboardDraftDetail,
+		opts...,
+	)
+	teamsAPIDeleteUserStoryboardDraftHandler := connect_go.NewUnaryHandler(
+		TeamsAPIDeleteUserStoryboardDraftProcedure,
+		svc.DeleteUserStoryboardDraft,
+		opts...,
+	)
+	teamsAPIUserActiveHeatmapHandler := connect_go.NewUnaryHandler(
+		TeamsAPIUserActiveHeatmapProcedure,
+		svc.UserActiveHeatmap,
+		opts...,
+	)
+	teamsAPIGroupActiveHeatmapHandler := connect_go.NewUnaryHandler(
+		TeamsAPIGroupActiveHeatmapProcedure,
+		svc.GroupActiveHeatmap,
+		opts...,
+	)
 	return "/rankquantity.voyager.api.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case TeamsAPIExploreProcedure:
@@ -3502,6 +3627,18 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIGetStoryRolePosterListHandler.ServeHTTP(w, r)
 		case TeamsAPIGenerateStoryRoleVideoProcedure:
 			teamsAPIGenerateStoryRoleVideoHandler.ServeHTTP(w, r)
+		case TeamsAPIUpdateStoryboardForkAbleProcedure:
+			teamsAPIUpdateStoryboardForkAbleHandler.ServeHTTP(w, r)
+		case TeamsAPIUserStoryboardDraftlistProcedure:
+			teamsAPIUserStoryboardDraftlistHandler.ServeHTTP(w, r)
+		case TeamsAPIUserStoryboardDraftDetailProcedure:
+			teamsAPIUserStoryboardDraftDetailHandler.ServeHTTP(w, r)
+		case TeamsAPIDeleteUserStoryboardDraftProcedure:
+			teamsAPIDeleteUserStoryboardDraftHandler.ServeHTTP(w, r)
+		case TeamsAPIUserActiveHeatmapProcedure:
+			teamsAPIUserActiveHeatmapHandler.ServeHTTP(w, r)
+		case TeamsAPIGroupActiveHeatmapProcedure:
+			teamsAPIGroupActiveHeatmapHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -4069,4 +4206,28 @@ func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *con
 
 func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboardForkAble is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftlist is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftDetail is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteUserStoryboardDraft is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserActiveHeatmap is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap is not implemented"))
 }

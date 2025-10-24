@@ -29899,6 +29899,1891 @@ var _ interface {
 	ErrorName() string
 } = UnLikeStoryResponseValidationError{}
 
+// Validate checks the field values on DeleteUserStoryboardDraftRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *DeleteUserStoryboardDraftRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteUserStoryboardDraftRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// DeleteUserStoryboardDraftRequestMultiError, or nil if none found.
+func (m *DeleteUserStoryboardDraftRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteUserStoryboardDraftRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for DraftId
+
+	// no validation rules for StoryId
+
+	if len(errors) > 0 {
+		return DeleteUserStoryboardDraftRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteUserStoryboardDraftRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// DeleteUserStoryboardDraftRequest.ValidateAll() if the designated
+// constraints aren't met.
+type DeleteUserStoryboardDraftRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteUserStoryboardDraftRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteUserStoryboardDraftRequestMultiError) AllErrors() []error { return m }
+
+// DeleteUserStoryboardDraftRequestValidationError is the validation error
+// returned by DeleteUserStoryboardDraftRequest.Validate if the designated
+// constraints aren't met.
+type DeleteUserStoryboardDraftRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteUserStoryboardDraftRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteUserStoryboardDraftRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteUserStoryboardDraftRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteUserStoryboardDraftRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteUserStoryboardDraftRequestValidationError) ErrorName() string {
+	return "DeleteUserStoryboardDraftRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteUserStoryboardDraftRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteUserStoryboardDraftRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteUserStoryboardDraftRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteUserStoryboardDraftRequestValidationError{}
+
+// Validate checks the field values on DeleteUserStoryboardDraftResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *DeleteUserStoryboardDraftResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteUserStoryboardDraftResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// DeleteUserStoryboardDraftResponseMultiError, or nil if none found.
+func (m *DeleteUserStoryboardDraftResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteUserStoryboardDraftResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return DeleteUserStoryboardDraftResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteUserStoryboardDraftResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// DeleteUserStoryboardDraftResponse.ValidateAll() if the designated
+// constraints aren't met.
+type DeleteUserStoryboardDraftResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteUserStoryboardDraftResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteUserStoryboardDraftResponseMultiError) AllErrors() []error { return m }
+
+// DeleteUserStoryboardDraftResponseValidationError is the validation error
+// returned by DeleteUserStoryboardDraftResponse.Validate if the designated
+// constraints aren't met.
+type DeleteUserStoryboardDraftResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteUserStoryboardDraftResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteUserStoryboardDraftResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteUserStoryboardDraftResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteUserStoryboardDraftResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteUserStoryboardDraftResponseValidationError) ErrorName() string {
+	return "DeleteUserStoryboardDraftResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteUserStoryboardDraftResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteUserStoryboardDraftResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteUserStoryboardDraftResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteUserStoryboardDraftResponseValidationError{}
+
+// Validate checks the field values on HeatmapDataItem with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *HeatmapDataItem) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on HeatmapDataItem with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// HeatmapDataItemMultiError, or nil if none found.
+func (m *HeatmapDataItem) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *HeatmapDataItem) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Date
+
+	// no validation rules for Count
+
+	// no validation rules for Level
+
+	if len(errors) > 0 {
+		return HeatmapDataItemMultiError(errors)
+	}
+
+	return nil
+}
+
+// HeatmapDataItemMultiError is an error wrapping multiple validation errors
+// returned by HeatmapDataItem.ValidateAll() if the designated constraints
+// aren't met.
+type HeatmapDataItemMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m HeatmapDataItemMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m HeatmapDataItemMultiError) AllErrors() []error { return m }
+
+// HeatmapDataItemValidationError is the validation error returned by
+// HeatmapDataItem.Validate if the designated constraints aren't met.
+type HeatmapDataItemValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e HeatmapDataItemValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e HeatmapDataItemValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e HeatmapDataItemValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e HeatmapDataItemValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e HeatmapDataItemValidationError) ErrorName() string { return "HeatmapDataItemValidationError" }
+
+// Error satisfies the builtin error interface
+func (e HeatmapDataItemValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sHeatmapDataItem.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = HeatmapDataItemValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = HeatmapDataItemValidationError{}
+
+// Validate checks the field values on UserActiveHeamapRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UserActiveHeamapRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserActiveHeamapRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UserActiveHeamapRequestMultiError, or nil if none found.
+func (m *UserActiveHeamapRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserActiveHeamapRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for StartTime
+
+	// no validation rules for EndTime
+
+	if len(errors) > 0 {
+		return UserActiveHeamapRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserActiveHeamapRequestMultiError is an error wrapping multiple validation
+// errors returned by UserActiveHeamapRequest.ValidateAll() if the designated
+// constraints aren't met.
+type UserActiveHeamapRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserActiveHeamapRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserActiveHeamapRequestMultiError) AllErrors() []error { return m }
+
+// UserActiveHeamapRequestValidationError is the validation error returned by
+// UserActiveHeamapRequest.Validate if the designated constraints aren't met.
+type UserActiveHeamapRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserActiveHeamapRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserActiveHeamapRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserActiveHeamapRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserActiveHeamapRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserActiveHeamapRequestValidationError) ErrorName() string {
+	return "UserActiveHeamapRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserActiveHeamapRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserActiveHeamapRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserActiveHeamapRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserActiveHeamapRequestValidationError{}
+
+// Validate checks the field values on UserActiveHeamapResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UserActiveHeamapResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserActiveHeamapResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UserActiveHeamapResponseMultiError, or nil if none found.
+func (m *UserActiveHeamapResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserActiveHeamapResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, UserActiveHeamapResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, UserActiveHeamapResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return UserActiveHeamapResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for TotalCount
+
+	if len(errors) > 0 {
+		return UserActiveHeamapResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserActiveHeamapResponseMultiError is an error wrapping multiple validation
+// errors returned by UserActiveHeamapResponse.ValidateAll() if the designated
+// constraints aren't met.
+type UserActiveHeamapResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserActiveHeamapResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserActiveHeamapResponseMultiError) AllErrors() []error { return m }
+
+// UserActiveHeamapResponseValidationError is the validation error returned by
+// UserActiveHeamapResponse.Validate if the designated constraints aren't met.
+type UserActiveHeamapResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserActiveHeamapResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserActiveHeamapResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserActiveHeamapResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserActiveHeamapResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserActiveHeamapResponseValidationError) ErrorName() string {
+	return "UserActiveHeamapResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserActiveHeamapResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserActiveHeamapResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserActiveHeamapResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserActiveHeamapResponseValidationError{}
+
+// Validate checks the field values on GroupActiveHeamapRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GroupActiveHeamapRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GroupActiveHeamapRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GroupActiveHeamapRequestMultiError, or nil if none found.
+func (m *GroupActiveHeamapRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GroupActiveHeamapRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GroupId
+
+	// no validation rules for UserId
+
+	// no validation rules for StartTime
+
+	// no validation rules for EndTime
+
+	if len(errors) > 0 {
+		return GroupActiveHeamapRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GroupActiveHeamapRequestMultiError is an error wrapping multiple validation
+// errors returned by GroupActiveHeamapRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GroupActiveHeamapRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GroupActiveHeamapRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GroupActiveHeamapRequestMultiError) AllErrors() []error { return m }
+
+// GroupActiveHeamapRequestValidationError is the validation error returned by
+// GroupActiveHeamapRequest.Validate if the designated constraints aren't met.
+type GroupActiveHeamapRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GroupActiveHeamapRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GroupActiveHeamapRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GroupActiveHeamapRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GroupActiveHeamapRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GroupActiveHeamapRequestValidationError) ErrorName() string {
+	return "GroupActiveHeamapRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GroupActiveHeamapRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGroupActiveHeamapRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GroupActiveHeamapRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GroupActiveHeamapRequestValidationError{}
+
+// Validate checks the field values on GroupActiveHeamapResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GroupActiveHeamapResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GroupActiveHeamapResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GroupActiveHeamapResponseMultiError, or nil if none found.
+func (m *GroupActiveHeamapResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GroupActiveHeamapResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GroupActiveHeamapResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GroupActiveHeamapResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GroupActiveHeamapResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for TotalCount
+
+	// no validation rules for MemberCount
+
+	if len(errors) > 0 {
+		return GroupActiveHeamapResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GroupActiveHeamapResponseMultiError is an error wrapping multiple validation
+// errors returned by GroupActiveHeamapResponse.ValidateAll() if the
+// designated constraints aren't met.
+type GroupActiveHeamapResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GroupActiveHeamapResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GroupActiveHeamapResponseMultiError) AllErrors() []error { return m }
+
+// GroupActiveHeamapResponseValidationError is the validation error returned by
+// GroupActiveHeamapResponse.Validate if the designated constraints aren't met.
+type GroupActiveHeamapResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GroupActiveHeamapResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GroupActiveHeamapResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GroupActiveHeamapResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GroupActiveHeamapResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GroupActiveHeamapResponseValidationError) ErrorName() string {
+	return "GroupActiveHeamapResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GroupActiveHeamapResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGroupActiveHeamapResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GroupActiveHeamapResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GroupActiveHeamapResponseValidationError{}
+
+// Validate checks the field values on UpdateStoryboardForkAbleRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UpdateStoryboardForkAbleRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdateStoryboardForkAbleRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UpdateStoryboardForkAbleRequestMultiError, or nil if none found.
+func (m *UpdateStoryboardForkAbleRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdateStoryboardForkAbleRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for StoryboardId
+
+	// no validation rules for ForkAble
+
+	if len(errors) > 0 {
+		return UpdateStoryboardForkAbleRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdateStoryboardForkAbleRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateStoryboardForkAbleRequest.ValidateAll()
+// if the designated constraints aren't met.
+type UpdateStoryboardForkAbleRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateStoryboardForkAbleRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateStoryboardForkAbleRequestMultiError) AllErrors() []error { return m }
+
+// UpdateStoryboardForkAbleRequestValidationError is the validation error
+// returned by UpdateStoryboardForkAbleRequest.Validate if the designated
+// constraints aren't met.
+type UpdateStoryboardForkAbleRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateStoryboardForkAbleRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateStoryboardForkAbleRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateStoryboardForkAbleRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateStoryboardForkAbleRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateStoryboardForkAbleRequestValidationError) ErrorName() string {
+	return "UpdateStoryboardForkAbleRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateStoryboardForkAbleRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateStoryboardForkAbleRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateStoryboardForkAbleRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateStoryboardForkAbleRequestValidationError{}
+
+// Validate checks the field values on UpdateStoryboardForkAbleResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *UpdateStoryboardForkAbleResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdateStoryboardForkAbleResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UpdateStoryboardForkAbleResponseMultiError, or nil if none found.
+func (m *UpdateStoryboardForkAbleResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdateStoryboardForkAbleResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return UpdateStoryboardForkAbleResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdateStoryboardForkAbleResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdateStoryboardForkAbleResponse.ValidateAll() if the designated
+// constraints aren't met.
+type UpdateStoryboardForkAbleResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateStoryboardForkAbleResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateStoryboardForkAbleResponseMultiError) AllErrors() []error { return m }
+
+// UpdateStoryboardForkAbleResponseValidationError is the validation error
+// returned by UpdateStoryboardForkAbleResponse.Validate if the designated
+// constraints aren't met.
+type UpdateStoryboardForkAbleResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateStoryboardForkAbleResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateStoryboardForkAbleResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateStoryboardForkAbleResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateStoryboardForkAbleResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateStoryboardForkAbleResponseValidationError) ErrorName() string {
+	return "UpdateStoryboardForkAbleResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateStoryboardForkAbleResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateStoryboardForkAbleResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateStoryboardForkAbleResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateStoryboardForkAbleResponseValidationError{}
+
+// Validate checks the field values on StoryboardDraftItem with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *StoryboardDraftItem) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on StoryboardDraftItem with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// StoryboardDraftItemMultiError, or nil if none found.
+func (m *StoryboardDraftItem) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *StoryboardDraftItem) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for DraftId
+
+	// no validation rules for StoryId
+
+	// no validation rules for StoryboardId
+
+	// no validation rules for Title
+
+	// no validation rules for Content
+
+	// no validation rules for CoverImage
+
+	// no validation rules for CreatedAt
+
+	// no validation rules for UpdatedAt
+
+	// no validation rules for Version
+
+	if len(errors) > 0 {
+		return StoryboardDraftItemMultiError(errors)
+	}
+
+	return nil
+}
+
+// StoryboardDraftItemMultiError is an error wrapping multiple validation
+// errors returned by StoryboardDraftItem.ValidateAll() if the designated
+// constraints aren't met.
+type StoryboardDraftItemMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StoryboardDraftItemMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StoryboardDraftItemMultiError) AllErrors() []error { return m }
+
+// StoryboardDraftItemValidationError is the validation error returned by
+// StoryboardDraftItem.Validate if the designated constraints aren't met.
+type StoryboardDraftItemValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StoryboardDraftItemValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StoryboardDraftItemValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StoryboardDraftItemValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StoryboardDraftItemValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StoryboardDraftItemValidationError) ErrorName() string {
+	return "StoryboardDraftItemValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StoryboardDraftItemValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStoryboardDraftItem.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StoryboardDraftItemValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StoryboardDraftItemValidationError{}
+
+// Validate checks the field values on UserStoryboardDraftlistRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UserStoryboardDraftlistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserStoryboardDraftlistRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UserStoryboardDraftlistRequestMultiError, or nil if none found.
+func (m *UserStoryboardDraftlistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserStoryboardDraftlistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for Offset
+
+	// no validation rules for PageSize
+
+	// no validation rules for StoryId
+
+	if len(errors) > 0 {
+		return UserStoryboardDraftlistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserStoryboardDraftlistRequestMultiError is an error wrapping multiple
+// validation errors returned by UserStoryboardDraftlistRequest.ValidateAll()
+// if the designated constraints aren't met.
+type UserStoryboardDraftlistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserStoryboardDraftlistRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserStoryboardDraftlistRequestMultiError) AllErrors() []error { return m }
+
+// UserStoryboardDraftlistRequestValidationError is the validation error
+// returned by UserStoryboardDraftlistRequest.Validate if the designated
+// constraints aren't met.
+type UserStoryboardDraftlistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserStoryboardDraftlistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserStoryboardDraftlistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserStoryboardDraftlistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserStoryboardDraftlistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserStoryboardDraftlistRequestValidationError) ErrorName() string {
+	return "UserStoryboardDraftlistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserStoryboardDraftlistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserStoryboardDraftlistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserStoryboardDraftlistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserStoryboardDraftlistRequestValidationError{}
+
+// Validate checks the field values on UserStoryboardDraftlistResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UserStoryboardDraftlistResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserStoryboardDraftlistResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UserStoryboardDraftlistResponseMultiError, or nil if none found.
+func (m *UserStoryboardDraftlistResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserStoryboardDraftlistResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	for idx, item := range m.GetDrafts() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, UserStoryboardDraftlistResponseValidationError{
+						field:  fmt.Sprintf("Drafts[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, UserStoryboardDraftlistResponseValidationError{
+						field:  fmt.Sprintf("Drafts[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return UserStoryboardDraftlistResponseValidationError{
+					field:  fmt.Sprintf("Drafts[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for Total
+
+	// no validation rules for HaveMore
+
+	if len(errors) > 0 {
+		return UserStoryboardDraftlistResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserStoryboardDraftlistResponseMultiError is an error wrapping multiple
+// validation errors returned by UserStoryboardDraftlistResponse.ValidateAll()
+// if the designated constraints aren't met.
+type UserStoryboardDraftlistResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserStoryboardDraftlistResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserStoryboardDraftlistResponseMultiError) AllErrors() []error { return m }
+
+// UserStoryboardDraftlistResponseValidationError is the validation error
+// returned by UserStoryboardDraftlistResponse.Validate if the designated
+// constraints aren't met.
+type UserStoryboardDraftlistResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserStoryboardDraftlistResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserStoryboardDraftlistResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserStoryboardDraftlistResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserStoryboardDraftlistResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserStoryboardDraftlistResponseValidationError) ErrorName() string {
+	return "UserStoryboardDraftlistResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserStoryboardDraftlistResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserStoryboardDraftlistResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserStoryboardDraftlistResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserStoryboardDraftlistResponseValidationError{}
+
+// Validate checks the field values on StoryboardDraftDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *StoryboardDraftDetail) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on StoryboardDraftDetail with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// StoryboardDraftDetailMultiError, or nil if none found.
+func (m *StoryboardDraftDetail) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *StoryboardDraftDetail) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for DraftId
+
+	// no validation rules for StoryId
+
+	// no validation rules for StoryboardId
+
+	// no validation rules for Title
+
+	// no validation rules for Content
+
+	// no validation rules for Background
+
+	for idx, item := range m.GetRoles() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryboardDraftDetailValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryboardDraftDetailValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryboardDraftDetailValidationError{
+					field:  fmt.Sprintf("Roles[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if all {
+		switch v := interface{}(m.GetSences()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, StoryboardDraftDetailValidationError{
+					field:  "Sences",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, StoryboardDraftDetailValidationError{
+					field:  "Sences",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSences()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return StoryboardDraftDetailValidationError{
+				field:  "Sences",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetParams()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, StoryboardDraftDetailValidationError{
+					field:  "Params",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, StoryboardDraftDetailValidationError{
+					field:  "Params",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetParams()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return StoryboardDraftDetailValidationError{
+				field:  "Params",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for CreatedAt
+
+	// no validation rules for UpdatedAt
+
+	// no validation rules for Version
+
+	// no validation rules for UserId
+
+	if len(errors) > 0 {
+		return StoryboardDraftDetailMultiError(errors)
+	}
+
+	return nil
+}
+
+// StoryboardDraftDetailMultiError is an error wrapping multiple validation
+// errors returned by StoryboardDraftDetail.ValidateAll() if the designated
+// constraints aren't met.
+type StoryboardDraftDetailMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StoryboardDraftDetailMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StoryboardDraftDetailMultiError) AllErrors() []error { return m }
+
+// StoryboardDraftDetailValidationError is the validation error returned by
+// StoryboardDraftDetail.Validate if the designated constraints aren't met.
+type StoryboardDraftDetailValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StoryboardDraftDetailValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StoryboardDraftDetailValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StoryboardDraftDetailValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StoryboardDraftDetailValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StoryboardDraftDetailValidationError) ErrorName() string {
+	return "StoryboardDraftDetailValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StoryboardDraftDetailValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStoryboardDraftDetail.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StoryboardDraftDetailValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StoryboardDraftDetailValidationError{}
+
+// Validate checks the field values on UserDraftStoryboardDetailRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *UserDraftStoryboardDetailRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserDraftStoryboardDetailRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UserDraftStoryboardDetailRequestMultiError, or nil if none found.
+func (m *UserDraftStoryboardDetailRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserDraftStoryboardDetailRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserId
+
+	// no validation rules for DraftId
+
+	if len(errors) > 0 {
+		return UserDraftStoryboardDetailRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserDraftStoryboardDetailRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UserDraftStoryboardDetailRequest.ValidateAll() if the designated
+// constraints aren't met.
+type UserDraftStoryboardDetailRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserDraftStoryboardDetailRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserDraftStoryboardDetailRequestMultiError) AllErrors() []error { return m }
+
+// UserDraftStoryboardDetailRequestValidationError is the validation error
+// returned by UserDraftStoryboardDetailRequest.Validate if the designated
+// constraints aren't met.
+type UserDraftStoryboardDetailRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserDraftStoryboardDetailRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserDraftStoryboardDetailRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserDraftStoryboardDetailRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserDraftStoryboardDetailRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserDraftStoryboardDetailRequestValidationError) ErrorName() string {
+	return "UserDraftStoryboardDetailRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserDraftStoryboardDetailRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserDraftStoryboardDetailRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserDraftStoryboardDetailRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserDraftStoryboardDetailRequestValidationError{}
+
+// Validate checks the field values on UserDraftStoryboardDetailResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *UserDraftStoryboardDetailResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UserDraftStoryboardDetailResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// UserDraftStoryboardDetailResponseMultiError, or nil if none found.
+func (m *UserDraftStoryboardDetailResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UserDraftStoryboardDetailResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if all {
+		switch v := interface{}(m.GetDetail()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UserDraftStoryboardDetailResponseValidationError{
+					field:  "Detail",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UserDraftStoryboardDetailResponseValidationError{
+					field:  "Detail",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetDetail()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UserDraftStoryboardDetailResponseValidationError{
+				field:  "Detail",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return UserDraftStoryboardDetailResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// UserDraftStoryboardDetailResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// UserDraftStoryboardDetailResponse.ValidateAll() if the designated
+// constraints aren't met.
+type UserDraftStoryboardDetailResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UserDraftStoryboardDetailResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UserDraftStoryboardDetailResponseMultiError) AllErrors() []error { return m }
+
+// UserDraftStoryboardDetailResponseValidationError is the validation error
+// returned by UserDraftStoryboardDetailResponse.Validate if the designated
+// constraints aren't met.
+type UserDraftStoryboardDetailResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UserDraftStoryboardDetailResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UserDraftStoryboardDetailResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UserDraftStoryboardDetailResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UserDraftStoryboardDetailResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UserDraftStoryboardDetailResponseValidationError) ErrorName() string {
+	return "UserDraftStoryboardDetailResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UserDraftStoryboardDetailResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUserDraftStoryboardDetailResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UserDraftStoryboardDetailResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UserDraftStoryboardDetailResponseValidationError{}
+
 // Validate checks the field values on LoginResponse_Data with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

@@ -7,11 +7,10 @@ package genconnect
 import (
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
+	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
-
-	connect_go "connectrpc.com/connect"
-	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are

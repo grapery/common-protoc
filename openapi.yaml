@@ -500,6 +500,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/DeleteStoryboardUserDraft:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_DeleteUserStoryboardDraft
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/DeleteUserStoryboardDraftRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteUserStoryboardDraftResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/DislikeComment:
         post:
             tags:
@@ -1756,6 +1780,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetUserWithRoleChatListResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GroupActiveHeatmap:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GroupActiveHeatmap
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GroupActiveHeamapRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GroupActiveHeamapResponse'
                 default:
                     description: Default error response
                     content:
@@ -3182,6 +3230,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UpdateStoryboardForkAble:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UpdateStoryboardForkAble
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateStoryboardForkAbleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateStoryboardForkAbleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UpdateUserAvator:
         post:
             tags:
@@ -3282,6 +3354,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UserActiveHeatmap:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserActiveHeatmap
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserActiveHeamapRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserActiveHeamapResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/UserFollowingGroup:
         post:
             tags:
@@ -3376,6 +3472,54 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/UserInitResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UserStoryboardDraftDetail:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserStoryboardDraftDetail
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserDraftStoryboardDetailRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserDraftStoryboardDetailResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/UserStoryboardDraftlist:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_UserStoryboardDraftlist
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UserStoryboardDraftlistRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UserStoryboardDraftlistResponse'
                 default:
                     description: Default error response
                     content:
@@ -4101,6 +4245,27 @@ components:
                     format: enum
                 message:
                     type: string
+        DeleteUserStoryboardDraftRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                draftId:
+                    type: string
+                storyId:
+                    type: string
+            description: |-
+                ==================== 删除用户故事板草稿 ====================
+                 删除用户故事板草稿请求
+        DeleteUserStoryboardDraftResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+            description: 删除用户故事板草稿响应
         DetailScene:
             type: object
             properties:
@@ -5693,6 +5858,37 @@ components:
                     description: The type of the serialized message.
             additionalProperties: true
             description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        GroupActiveHeamapRequest:
+            type: object
+            properties:
+                groupId:
+                    type: string
+                userId:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+            description: |-
+                ==================== 群组活跃热力图 ====================
+                 群组活跃热力图请求
+        GroupActiveHeamapResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/HeatmapDataItem'
+                totalCount:
+                    type: string
+                memberCount:
+                    type: string
+            description: 群组活跃热力图响应
         GroupInfo:
             type: object
             properties:
@@ -5765,6 +5961,18 @@ components:
                     type: string
                 Mtime:
                     type: string
+        HeatmapDataItem:
+            type: object
+            properties:
+                date:
+                    type: string
+                count:
+                    type: string
+                level:
+                    type: string
+            description: |-
+                ==================== 用户活跃热力图 ====================
+                 用户活跃热力图数据项
         JoinGroupRequest:
             type: object
             properties:
@@ -7081,6 +7289,64 @@ components:
                 totalViewCount:
                     type: string
             description: StorySummaryInfo 故事摘要信息
+        StoryboardDraftDetail:
+            type: object
+            properties:
+                draftId:
+                    type: string
+                storyId:
+                    type: string
+                storyboardId:
+                    type: string
+                title:
+                    type: string
+                content:
+                    type: string
+                background:
+                    type: string
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+                sences:
+                    $ref: '#/components/schemas/StoryBoardSences'
+                params:
+                    $ref: '#/components/schemas/StoryBoardParams'
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+                version:
+                    type: string
+                userId:
+                    type: string
+            description: |-
+                ==================== 用户故事板草稿详情 ====================
+                 故事板草稿详细信息
+        StoryboardDraftItem:
+            type: object
+            properties:
+                draftId:
+                    type: string
+                storyId:
+                    type: string
+                storyboardId:
+                    type: string
+                title:
+                    type: string
+                content:
+                    type: string
+                coverImage:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+                version:
+                    type: string
+            description: |-
+                ==================== 用户故事板草稿列表 ====================
+                 故事板草稿简要信息
         StoryboardStageStore:
             type: object
             properties:
@@ -7653,6 +7919,27 @@ components:
                     format: enum
                 message:
                     type: string
+        UpdateStoryboardForkAbleRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                storyboardId:
+                    type: string
+                forkAble:
+                    type: boolean
+            description: |-
+                ==================== 更新故事板是否可分叉 ====================
+                 更新故事板是否可分叉请求
+        UpdateStoryboardForkAbleResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+            description: 更新故事板是否可分叉响应
         UpdateStoryboardRequest:
             type: object
             properties:
@@ -7773,6 +8060,50 @@ components:
                     type: string
                 url:
                     type: string
+        UserActiveHeamapRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                startTime:
+                    type: string
+                endTime:
+                    type: string
+            description: 用户活跃热力图请求
+        UserActiveHeamapResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/HeatmapDataItem'
+                totalCount:
+                    type: string
+            description: 用户活跃热力图响应
+        UserDraftStoryboardDetailRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                draftId:
+                    type: string
+            description: 用户故事板草稿详情请求
+        UserDraftStoryboardDetailResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                detail:
+                    $ref: '#/components/schemas/StoryboardDraftDetail'
+            description: 用户故事板草稿详情响应
         UserFollowingGroupRequest:
             type: object
             properties:
@@ -7995,6 +8326,35 @@ components:
                 Mtime:
                     type: string
             description: 用户的 profile
+        UserStoryboardDraftlistRequest:
+            type: object
+            properties:
+                userId:
+                    type: string
+                offset:
+                    type: string
+                pageSize:
+                    type: string
+                storyId:
+                    type: string
+            description: 用户故事板草稿列表请求
+        UserStoryboardDraftlistResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: enum
+                message:
+                    type: string
+                drafts:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryboardDraftItem'
+                total:
+                    type: string
+                haveMore:
+                    type: boolean
+            description: 用户故事板草稿列表响应
         UserUpdateRequest:
             type: object
             properties:

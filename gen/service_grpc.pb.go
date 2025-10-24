@@ -159,6 +159,12 @@ const (
 	TeamsAPI_UnLikeStoryRolePoster_FullMethodName              = "/rankquantity.voyager.api.TeamsAPI/UnLikeStoryRolePoster"
 	TeamsAPI_GetStoryRolePosterList_FullMethodName             = "/rankquantity.voyager.api.TeamsAPI/GetStoryRolePosterList"
 	TeamsAPI_GenerateStoryRoleVideo_FullMethodName             = "/rankquantity.voyager.api.TeamsAPI/GenerateStoryRoleVideo"
+	TeamsAPI_UpdateStoryboardForkAble_FullMethodName           = "/rankquantity.voyager.api.TeamsAPI/UpdateStoryboardForkAble"
+	TeamsAPI_UserStoryboardDraftlist_FullMethodName            = "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftlist"
+	TeamsAPI_UserStoryboardDraftDetail_FullMethodName          = "/rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftDetail"
+	TeamsAPI_DeleteUserStoryboardDraft_FullMethodName          = "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft"
+	TeamsAPI_UserActiveHeatmap_FullMethodName                  = "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap"
+	TeamsAPI_GroupActiveHeatmap_FullMethodName                 = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -433,6 +439,12 @@ type TeamsAPIClient interface {
 	GetStoryRolePosterList(ctx context.Context, in *GetStoryRolePosterListRequest, opts ...grpc.CallOption) (*GetStoryRolePosterListResponse, error)
 	// 为故事角色生成视频
 	GenerateStoryRoleVideo(ctx context.Context, in *GenerateStoryRoleVideoRequest, opts ...grpc.CallOption) (*GenerateStoryRoleVideoResponse, error)
+	UpdateStoryboardForkAble(ctx context.Context, in *UpdateStoryboardForkAbleRequest, opts ...grpc.CallOption) (*UpdateStoryboardForkAbleResponse, error)
+	UserStoryboardDraftlist(ctx context.Context, in *UserStoryboardDraftlistRequest, opts ...grpc.CallOption) (*UserStoryboardDraftlistResponse, error)
+	UserStoryboardDraftDetail(ctx context.Context, in *UserDraftStoryboardDetailRequest, opts ...grpc.CallOption) (*UserDraftStoryboardDetailResponse, error)
+	DeleteUserStoryboardDraft(ctx context.Context, in *DeleteUserStoryboardDraftRequest, opts ...grpc.CallOption) (*DeleteUserStoryboardDraftResponse, error)
+	UserActiveHeatmap(ctx context.Context, in *UserActiveHeamapRequest, opts ...grpc.CallOption) (*UserActiveHeamapResponse, error)
+	GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -1703,6 +1715,60 @@ func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, in *Generat
 	return out, nil
 }
 
+func (c *teamsAPIClient) UpdateStoryboardForkAble(ctx context.Context, in *UpdateStoryboardForkAbleRequest, opts ...grpc.CallOption) (*UpdateStoryboardForkAbleResponse, error) {
+	out := new(UpdateStoryboardForkAbleResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UpdateStoryboardForkAble_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UserStoryboardDraftlist(ctx context.Context, in *UserStoryboardDraftlistRequest, opts ...grpc.CallOption) (*UserStoryboardDraftlistResponse, error) {
+	out := new(UserStoryboardDraftlistResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UserStoryboardDraftlist_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UserStoryboardDraftDetail(ctx context.Context, in *UserDraftStoryboardDetailRequest, opts ...grpc.CallOption) (*UserDraftStoryboardDetailResponse, error) {
+	out := new(UserDraftStoryboardDetailResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UserStoryboardDraftDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) DeleteUserStoryboardDraft(ctx context.Context, in *DeleteUserStoryboardDraftRequest, opts ...grpc.CallOption) (*DeleteUserStoryboardDraftResponse, error) {
+	out := new(DeleteUserStoryboardDraftResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_DeleteUserStoryboardDraft_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, in *UserActiveHeamapRequest, opts ...grpc.CallOption) (*UserActiveHeamapResponse, error) {
+	out := new(UserActiveHeamapResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_UserActiveHeatmap_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error) {
+	out := new(GroupActiveHeamapResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GroupActiveHeatmap_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TeamsAPIServer is the server API for TeamsAPI service.
 // All implementations must embed UnimplementedTeamsAPIServer
 // for forward compatibility
@@ -1975,6 +2041,12 @@ type TeamsAPIServer interface {
 	GetStoryRolePosterList(context.Context, *GetStoryRolePosterListRequest) (*GetStoryRolePosterListResponse, error)
 	// 为故事角色生成视频
 	GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error)
+	UpdateStoryboardForkAble(context.Context, *UpdateStoryboardForkAbleRequest) (*UpdateStoryboardForkAbleResponse, error)
+	UserStoryboardDraftlist(context.Context, *UserStoryboardDraftlistRequest) (*UserStoryboardDraftlistResponse, error)
+	UserStoryboardDraftDetail(context.Context, *UserDraftStoryboardDetailRequest) (*UserDraftStoryboardDetailResponse, error)
+	DeleteUserStoryboardDraft(context.Context, *DeleteUserStoryboardDraftRequest) (*DeleteUserStoryboardDraftResponse, error)
+	UserActiveHeatmap(context.Context, *UserActiveHeamapRequest) (*UserActiveHeamapResponse, error)
+	GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -2401,6 +2473,24 @@ func (UnimplementedTeamsAPIServer) GetStoryRolePosterList(context.Context, *GetS
 }
 func (UnimplementedTeamsAPIServer) GenerateStoryRoleVideo(context.Context, *GenerateStoryRoleVideoRequest) (*GenerateStoryRoleVideoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateStoryRoleVideo not implemented")
+}
+func (UnimplementedTeamsAPIServer) UpdateStoryboardForkAble(context.Context, *UpdateStoryboardForkAbleRequest) (*UpdateStoryboardForkAbleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStoryboardForkAble not implemented")
+}
+func (UnimplementedTeamsAPIServer) UserStoryboardDraftlist(context.Context, *UserStoryboardDraftlistRequest) (*UserStoryboardDraftlistResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserStoryboardDraftlist not implemented")
+}
+func (UnimplementedTeamsAPIServer) UserStoryboardDraftDetail(context.Context, *UserDraftStoryboardDetailRequest) (*UserDraftStoryboardDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserStoryboardDraftDetail not implemented")
+}
+func (UnimplementedTeamsAPIServer) DeleteUserStoryboardDraft(context.Context, *DeleteUserStoryboardDraftRequest) (*DeleteUserStoryboardDraftResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUserStoryboardDraft not implemented")
+}
+func (UnimplementedTeamsAPIServer) UserActiveHeatmap(context.Context, *UserActiveHeamapRequest) (*UserActiveHeamapResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserActiveHeatmap not implemented")
+}
+func (UnimplementedTeamsAPIServer) GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GroupActiveHeatmap not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -4935,6 +5025,114 @@ func _TeamsAPI_GenerateStoryRoleVideo_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_UpdateStoryboardForkAble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStoryboardForkAbleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UpdateStoryboardForkAble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UpdateStoryboardForkAble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UpdateStoryboardForkAble(ctx, req.(*UpdateStoryboardForkAbleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UserStoryboardDraftlist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserStoryboardDraftlistRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UserStoryboardDraftlist(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UserStoryboardDraftlist_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UserStoryboardDraftlist(ctx, req.(*UserStoryboardDraftlistRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UserStoryboardDraftDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserDraftStoryboardDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UserStoryboardDraftDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UserStoryboardDraftDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UserStoryboardDraftDetail(ctx, req.(*UserDraftStoryboardDetailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_DeleteUserStoryboardDraft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteUserStoryboardDraftRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).DeleteUserStoryboardDraft(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_DeleteUserStoryboardDraft_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).DeleteUserStoryboardDraft(ctx, req.(*DeleteUserStoryboardDraftRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_UserActiveHeatmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserActiveHeamapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).UserActiveHeatmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_UserActiveHeatmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).UserActiveHeatmap(ctx, req.(*UserActiveHeamapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TeamsAPI_GroupActiveHeatmap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GroupActiveHeamapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GroupActiveHeatmap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GroupActiveHeatmap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GroupActiveHeatmap(ctx, req.(*GroupActiveHeamapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -5501,6 +5699,30 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateStoryRoleVideo",
 			Handler:    _TeamsAPI_GenerateStoryRoleVideo_Handler,
+		},
+		{
+			MethodName: "UpdateStoryboardForkAble",
+			Handler:    _TeamsAPI_UpdateStoryboardForkAble_Handler,
+		},
+		{
+			MethodName: "UserStoryboardDraftlist",
+			Handler:    _TeamsAPI_UserStoryboardDraftlist_Handler,
+		},
+		{
+			MethodName: "UserStoryboardDraftDetail",
+			Handler:    _TeamsAPI_UserStoryboardDraftDetail_Handler,
+		},
+		{
+			MethodName: "DeleteUserStoryboardDraft",
+			Handler:    _TeamsAPI_DeleteUserStoryboardDraft_Handler,
+		},
+		{
+			MethodName: "UserActiveHeatmap",
+			Handler:    _TeamsAPI_UserActiveHeatmap_Handler,
+		},
+		{
+			MethodName: "GroupActiveHeatmap",
+			Handler:    _TeamsAPI_GroupActiveHeatmap_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

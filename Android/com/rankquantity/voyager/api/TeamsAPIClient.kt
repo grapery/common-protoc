@@ -2079,4 +2079,76 @@ public class TeamsAPIClient(
     ),
   )
 
+
+  override suspend fun updateStoryboardForkAble(request: UpdateStoryboardForkAbleRequest, headers: Headers): ResponseMessage<UpdateStoryboardForkAbleResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/UpdateStoryboardForkAble",
+      com.rankquantity.voyager.api.UpdateStoryboardForkAbleRequest::class,
+      com.rankquantity.voyager.api.UpdateStoryboardForkAbleResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun userStoryboardDraftlist(request: UserStoryboardDraftlistRequest, headers: Headers): ResponseMessage<UserStoryboardDraftlistResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftlist",
+      com.rankquantity.voyager.api.UserStoryboardDraftlistRequest::class,
+      com.rankquantity.voyager.api.UserStoryboardDraftlistResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun userStoryboardDraftDetail(request: UserDraftStoryboardDetailRequest, headers: Headers): ResponseMessage<UserDraftStoryboardDetailResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/UserStoryboardDraftDetail",
+      com.rankquantity.voyager.api.UserDraftStoryboardDetailRequest::class,
+      com.rankquantity.voyager.api.UserDraftStoryboardDetailResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun deleteUserStoryboardDraft(request: DeleteUserStoryboardDraftRequest, headers: Headers): ResponseMessage<DeleteUserStoryboardDraftResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft",
+      com.rankquantity.voyager.api.DeleteUserStoryboardDraftRequest::class,
+      com.rankquantity.voyager.api.DeleteUserStoryboardDraftResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun userActiveHeatmap(request: UserActiveHeamapRequest, headers: Headers): ResponseMessage<UserActiveHeamapResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap",
+      com.rankquantity.voyager.api.UserActiveHeamapRequest::class,
+      com.rankquantity.voyager.api.UserActiveHeamapResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
+
+  override suspend fun groupActiveHeatmap(request: GroupActiveHeamapRequest, headers: Headers): ResponseMessage<GroupActiveHeamapResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap",
+      com.rankquantity.voyager.api.GroupActiveHeamapRequest::class,
+      com.rankquantity.voyager.api.GroupActiveHeamapResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
 }

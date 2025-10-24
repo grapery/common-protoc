@@ -674,4 +674,16 @@ public interface TeamsAPIClientInterface {
    *  为故事角色生成视频
    */
   public suspend fun generateStoryRoleVideo(request: GenerateStoryRoleVideoRequest, headers: Headers = emptyMap()): ResponseMessage<GenerateStoryRoleVideoResponse>
+
+  public suspend fun updateStoryboardForkAble(request: UpdateStoryboardForkAbleRequest, headers: Headers = emptyMap()): ResponseMessage<UpdateStoryboardForkAbleResponse>
+
+  public suspend fun userStoryboardDraftlist(request: UserStoryboardDraftlistRequest, headers: Headers = emptyMap()): ResponseMessage<UserStoryboardDraftlistResponse>
+
+  public suspend fun userStoryboardDraftDetail(request: UserDraftStoryboardDetailRequest, headers: Headers = emptyMap()): ResponseMessage<UserDraftStoryboardDetailResponse>
+
+  public suspend fun deleteUserStoryboardDraft(request: DeleteUserStoryboardDraftRequest, headers: Headers = emptyMap()): ResponseMessage<DeleteUserStoryboardDraftResponse>
+
+  public suspend fun userActiveHeatmap(request: UserActiveHeamapRequest, headers: Headers = emptyMap()): ResponseMessage<UserActiveHeamapResponse>
+
+  public suspend fun groupActiveHeatmap(request: GroupActiveHeamapRequest, headers: Headers = emptyMap()): ResponseMessage<GroupActiveHeamapResponse>
 }
