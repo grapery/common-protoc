@@ -165,6 +165,7 @@ const (
 	TeamsAPI_DeleteUserStoryboardDraft_FullMethodName          = "/rankquantity.voyager.api.TeamsAPI/DeleteUserStoryboardDraft"
 	TeamsAPI_UserActiveHeatmap_FullMethodName                  = "/rankquantity.voyager.api.TeamsAPI/UserActiveHeatmap"
 	TeamsAPI_GroupActiveHeatmap_FullMethodName                 = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
+	TeamsAPI_GetStoryGenerationHistory_FullMethodName          = "/rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory"
 )
 
 // TeamsAPIClient is the client API for TeamsAPI service.
@@ -2261,6 +2262,7 @@ type TeamsAPIClient interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error)
+	GetStoryGenerationHistory(ctx context.Context, in *GetStoryGenerationHistoryRequest, opts ...grpc.CallOption) (*GetStoryGenerationHistoryResponse, error)
 }
 
 type teamsAPIClient struct {
@@ -3579,6 +3581,15 @@ func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, in *UserActiveHe
 func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, in *GroupActiveHeamapRequest, opts ...grpc.CallOption) (*GroupActiveHeamapResponse, error) {
 	out := new(GroupActiveHeamapResponse)
 	err := c.cc.Invoke(ctx, TeamsAPI_GroupActiveHeatmap_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *teamsAPIClient) GetStoryGenerationHistory(ctx context.Context, in *GetStoryGenerationHistoryRequest, opts ...grpc.CallOption) (*GetStoryGenerationHistoryResponse, error) {
+	out := new(GetStoryGenerationHistoryResponse)
+	err := c.cc.Invoke(ctx, TeamsAPI_GetStoryGenerationHistory_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5679,6 +5690,7 @@ type TeamsAPIServer interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error)
+	GetStoryGenerationHistory(context.Context, *GetStoryGenerationHistoryRequest) (*GetStoryGenerationHistoryResponse, error)
 	mustEmbedUnimplementedTeamsAPIServer()
 }
 
@@ -6123,6 +6135,9 @@ func (UnimplementedTeamsAPIServer) UserActiveHeatmap(context.Context, *UserActiv
 }
 func (UnimplementedTeamsAPIServer) GroupActiveHeatmap(context.Context, *GroupActiveHeamapRequest) (*GroupActiveHeamapResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GroupActiveHeatmap not implemented")
+}
+func (UnimplementedTeamsAPIServer) GetStoryGenerationHistory(context.Context, *GetStoryGenerationHistoryRequest) (*GetStoryGenerationHistoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStoryGenerationHistory not implemented")
 }
 func (UnimplementedTeamsAPIServer) mustEmbedUnimplementedTeamsAPIServer() {}
 
@@ -8765,6 +8780,24 @@ func _TeamsAPI_GroupActiveHeatmap_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TeamsAPI_GetStoryGenerationHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStoryGenerationHistoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TeamsAPIServer).GetStoryGenerationHistory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TeamsAPI_GetStoryGenerationHistory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TeamsAPIServer).GetStoryGenerationHistory(ctx, req.(*GetStoryGenerationHistoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TeamsAPI_ServiceDesc is the grpc.ServiceDesc for TeamsAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -9355,6 +9388,10 @@ var TeamsAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GroupActiveHeatmap",
 			Handler:    _TeamsAPI_GroupActiveHeatmap_Handler,
+		},
+		{
+			MethodName: "GetStoryGenerationHistory",
+			Handler:    _TeamsAPI_GetStoryGenerationHistory_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

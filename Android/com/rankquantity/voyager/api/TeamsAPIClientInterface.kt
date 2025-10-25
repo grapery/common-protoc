@@ -2540,4 +2540,6 @@ public interface TeamsAPIClientInterface {
    * / - 活跃群组排行
    */
   public suspend fun groupActiveHeatmap(request: GroupActiveHeamapRequest, headers: Headers = emptyMap()): ResponseMessage<GroupActiveHeamapResponse>
+
+  public suspend fun getStoryGenerationHistory(request: GetStoryGenerationHistoryRequest, headers: Headers = emptyMap()): ResponseMessage<GetStoryGenerationHistoryResponse>
 }

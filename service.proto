@@ -4009,6 +4009,13 @@ service TeamsAPI {
       body : "*"
     };
   }
+
+  rpc GetStoryGenerationHistory(GetStoryGenerationHistoryRequest) returns (GetStoryGenerationHistoryResponse){
+    option (google.api.http) = {
+      post : "/common.TeamsAPI/GetStoryGenerationHistory"
+      body : "*"
+    };
+  }
 }
 
 /// 获取故事角色海报列表请求
@@ -7032,4 +7039,176 @@ message UserDraftStoryboardDetailResponse {
   
   /// 草稿详细信息
   StoryboardDraftDetail detail = 3;
+}
+
+// ==================== 故事生成历史相关消息定义 ====================
+
+/// Token消耗来源类型
+enum TokenSourceType {
+  /// 未指定
+  TOKEN_SOURCE_UNSPECIFIED = 0;
+  /// 个人账户
+  TOKEN_SOURCE_PERSONAL = 1;
+  /// 机构/组织账户
+  TOKEN_SOURCE_ORGANIZATION = 2;
+}
+
+/// Token消耗记录
+/// 记录AI功能使用的Token消耗情况
+message TokenConsumption {
+  /// Token消耗数量
+  int64 token_count = 1;
+  
+  /// Token来源类型
+  TokenSourceType source_type = 2;
+  
+  /// 来源ID（个人用户ID或机构ID）
+  int64 source_id = 3;
+  
+  /// 消耗时间戳
+  int64 consumed_at = 4;
+  
+  /// 消耗用途描述
+  string purpose = 5;
+}
+
+/// AI润色内容记录
+/// 记录使用AI润色的原始内容和润色后的内容
+message AIPolishRecord {
+  /// 原始内容
+  string original_content = 1;
+  
+  /// 润色后的内容
+  string polished_content = 2;
+  
+  /// 润色时间戳
+  int64 polished_at = 3;
+  
+  /// 润色类型（如：标题润色、描述润色、内容润色）
+  string polish_type = 4;
+  
+  /// Token消耗
+  TokenConsumption token_consumption = 5;
+}
+
+/// 章节AI转译记录
+/// 记录章节使用AI转译的场景和图片描述
+message ChapterTranslationRecord {
+  /// 章节ID
+  string chapter_id = 1;
+  
+  /// 章节标题
+  string chapter_title = 2;
+  
+  /// 原始场景描述
+  string original_scene = 3;
+  
+  /// 转译后的场景描述
+  string translated_scene = 4;
+  
+  /// 原始图片描述
+  string original_image_desc = 5;
+  
+  /// 转译后的图片描述
+  string translated_image_desc = 6;
+  
+  /// 转译时间戳
+  int64 translated_at = 7;
+  
+  /// Token消耗
+  TokenConsumption token_consumption = 8;
+}
+
+/// 生成提示词记录
+/// 记录故事图片和视频生成使用的提示词
+message GenerationPromptRecord {
+  /// 内容类型（image/video）
+  string content_type = 1;
+  
+  /// 内容ID（场景ID或其他相关ID）
+  int64 content_id = 2;
+  
+  /// 图片提示词
+  string image_prompt = 3;
+  
+  /// 视频提示词
+  string video_prompt = 4;
+  
+  /// 生成的图片URL列表
+  repeated string generated_images = 5;
+  
+  /// 生成的视频URL
+  string generated_video = 6;
+  
+  /// 生成时间戳
+  int64 generated_at = 7;
+  
+  /// Token消耗
+  TokenConsumption token_consumption = 8;
+}
+
+/// 故事生成历史详情
+/// 包含故事生成过程中的所有历史记录
+message StoryGenerationHistory {
+  /// 故事基本信息
+  Story story_info = 1;
+  
+  /// 参与的角色信息列表
+  repeated StoryRole roles = 2;
+  
+  /// AI润色记录列表（标题、描述等润色记录）
+  repeated AIPolishRecord polish_records = 3;
+  
+  /// 故事章节信息
+  StoryInfo chapter_info = 4;
+  
+  /// 章节AI转译记录列表
+  repeated ChapterTranslationRecord translation_records = 5;
+  
+  /// 生成提示词记录列表（图片、视频提示词）
+  repeated GenerationPromptRecord prompt_records = 6;
+  
+  /// 最终内容（包含所有场景的完整内容）
+  repeated StoryBoard final_content = 7;
+  
+  /// 创建者信息
+  UserInfo creator = 8;
+  
+  /// Token总消耗记录
+  repeated TokenConsumption total_token_consumptions = 9;
+  
+  /// 子故事板数量
+  int64 child_storyboard_count = 10;
+  
+  /// 创建时间戳
+  int64 created_at = 11;
+  
+  /// 最后更新时间戳
+  int64 updated_at = 12;
+}
+
+/// 获取故事生成历史请求
+/// 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
+message GetStoryGenerationHistoryRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事板ID，必须大于0
+  int64 storyboard_id = 3 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 获取故事生成历史响应
+/// 返回故事的完整生成历史记录
+message GetStoryGenerationHistoryResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
+  
+  /// 故事生成历史数据
+  StoryGenerationHistory data = 3;
 }

@@ -3,7 +3,261 @@
 
 ## Table of Contents
 
+- [base.proto](#base-proto)
+    - [Tags](#rankquantity-voyager-api-Tags)
+    - [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus)
+  
+    - [ActiveFlowType](#rankquantity-voyager-api-ActiveFlowType)
+    - [ActiveType](#rankquantity-voyager-api-ActiveType)
+    - [AuthType](#rankquantity-voyager-api-AuthType)
+    - [DashScopeTaskStatus](#rankquantity-voyager-api-DashScopeTaskStatus)
+    - [GenderType](#rankquantity-voyager-api-GenderType)
+    - [GroupStatus](#rankquantity-voyager-api-GroupStatus)
+    - [ImageRatios](#rankquantity-voyager-api-ImageRatios)
+    - [ItemType](#rankquantity-voyager-api-ItemType)
+    - [LikeType](#rankquantity-voyager-api-LikeType)
+    - [MultiBranchOrderBy](#rankquantity-voyager-api-MultiBranchOrderBy)
+    - [ScopeType](#rankquantity-voyager-api-ScopeType)
+    - [SortByType](#rankquantity-voyager-api-SortByType)
+    - [TaskStage](#rankquantity-voyager-api-TaskStage)
+    - [TaskType](#rankquantity-voyager-api-TaskType)
+    - [UserStatus](#rankquantity-voyager-api-UserStatus)
+  
+- [comment.proto](#comment-proto)
+    - [CommentInfo](#rankquantity-voyager-api-CommentInfo)
+  
+- [error.proto](#error-proto)
+    - [AIErrorMessages](#rankquantity-voyager-api-AIErrorMessages)
+    - [AuthErrorMessages](#rankquantity-voyager-api-AuthErrorMessages)
+    - [ChatErrorMessages](#rankquantity-voyager-api-ChatErrorMessages)
+    - [CommentErrorMessages](#rankquantity-voyager-api-CommentErrorMessages)
+    - [ContentErrorMessages](#rankquantity-voyager-api-ContentErrorMessages)
+    - [ErrorDescription](#rankquantity-voyager-api-ErrorDescription)
+    - [ErrorDescription.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AiErrorsEntry)
+    - [ErrorDescription.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry)
+    - [ErrorDescription.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry)
+    - [ErrorDescription.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry)
+    - [ErrorDescription.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry)
+    - [ErrorDescription.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry)
+    - [ErrorDescription.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry)
+    - [ErrorDescription.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry)
+    - [ErrorDescription.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry)
+    - [ErrorDescription.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry)
+    - [ErrorDescription.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry)
+    - [ErrorDescription.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry)
+    - [ErrorDescription.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry)
+    - [ErrorDescription.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry)
+    - [ErrorDescription.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry)
+    - [ErrorDescription.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry)
+    - [ErrorDescription.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry)
+    - [ErrorDescription.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry)
+    - [ErrorDescription.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry)
+    - [ErrorDescription.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry)
+    - [ErrorDescription.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UserErrorsEntry)
+    - [ErrorDescription.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry)
+    - [ErrorDescription.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescription-VipErrorsEntry)
+    - [ErrorDescriptions](#rankquantity-voyager-api-ErrorDescriptions)
+    - [ErrorDescriptions.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry)
+    - [ErrorDescriptions.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry)
+    - [ErrorDescriptions.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry)
+    - [ErrorDescriptions.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry)
+    - [ErrorDescriptions.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry)
+    - [ErrorDescriptions.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry)
+    - [ErrorDescriptions.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry)
+    - [ErrorDescriptions.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry)
+    - [ErrorDescriptions.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry)
+    - [ErrorDescriptions.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry)
+    - [ErrorDescriptions.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry)
+    - [ErrorDescriptions.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry)
+    - [ErrorDescriptions.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry)
+    - [ErrorDescriptions.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry)
+    - [ErrorDescriptions.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry)
+    - [ErrorDescriptions.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry)
+    - [ErrorDescriptions.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry)
+    - [ErrorDescriptions.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry)
+    - [ErrorDescriptions.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry)
+    - [ErrorDescriptions.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry)
+    - [ErrorDescriptions.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry)
+    - [ErrorDescriptions.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry)
+    - [ErrorDescriptions.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry)
+    - [GroupErrorMessages](#rankquantity-voyager-api-GroupErrorMessages)
+    - [LikeErrorMessages](#rankquantity-voyager-api-LikeErrorMessages)
+    - [LimitErrorMessages](#rankquantity-voyager-api-LimitErrorMessages)
+    - [MessageErrorMessages](#rankquantity-voyager-api-MessageErrorMessages)
+    - [OperationErrorMessages](#rankquantity-voyager-api-OperationErrorMessages)
+    - [OrderErrorMessages](#rankquantity-voyager-api-OrderErrorMessages)
+    - [PaymentErrorMessages](#rankquantity-voyager-api-PaymentErrorMessages)
+    - [ResourceErrorMessages](#rankquantity-voyager-api-ResourceErrorMessages)
+    - [RoleErrorMessages](#rankquantity-voyager-api-RoleErrorMessages)
+    - [SearchErrorMessages](#rankquantity-voyager-api-SearchErrorMessages)
+    - [StoryErrorMessages](#rankquantity-voyager-api-StoryErrorMessages)
+    - [StoryboardErrorMessages](#rankquantity-voyager-api-StoryboardErrorMessages)
+    - [SystemErrorMessages](#rankquantity-voyager-api-SystemErrorMessages)
+    - [UploadErrorMessages](#rankquantity-voyager-api-UploadErrorMessages)
+    - [UserErrorMessages](#rankquantity-voyager-api-UserErrorMessages)
+    - [VIPErrorMessages](#rankquantity-voyager-api-VIPErrorMessages)
+    - [ValidationErrorMessages](#rankquantity-voyager-api-ValidationErrorMessages)
+  
+    - [ResponseCode](#rankquantity-voyager-api-ResponseCode)
+  
+- [group.proto](#group-proto)
+    - [GroupInfo](#rankquantity-voyager-api-GroupInfo)
+    - [GroupMemberInfo](#rankquantity-voyager-api-GroupMemberInfo)
+    - [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo)
+  
+    - [GroupMemberType](#rankquantity-voyager-api-GroupMemberType)
+    - [GroupType](#rankquantity-voyager-api-GroupType)
+  
+- [item.proto](#item-proto)
+    - [ItemDetail](#rankquantity-voyager-api-ItemDetail)
+    - [ItemInfo](#rankquantity-voyager-api-ItemInfo)
+    - [Location](#rankquantity-voyager-api-Location)
+    - [MusicShareDetail](#rankquantity-voyager-api-MusicShareDetail)
+    - [PictureDetail](#rankquantity-voyager-api-PictureDetail)
+    - [PictureInfo](#rankquantity-voyager-api-PictureInfo)
+    - [ShareDetail](#rankquantity-voyager-api-ShareDetail)
+    - [VideoDetail](#rankquantity-voyager-api-VideoDetail)
+    - [VideoInfo](#rankquantity-voyager-api-VideoInfo)
+    - [VoiceDetail](#rankquantity-voyager-api-VoiceDetail)
+    - [WordDetail](#rankquantity-voyager-api-WordDetail)
+  
+- [user.proto](#user-proto)
+    - [UserInfo](#rankquantity-voyager-api-UserInfo)
+    - [UserPrivate](#rankquantity-voyager-api-UserPrivate)
+    - [UserProfileInfo](#rankquantity-voyager-api-UserProfileInfo)
+  
+- [story.proto](#story-proto)
+    - [ChapterDetailInformation](#rankquantity-voyager-api-ChapterDetailInformation)
+    - [ChapterInfo](#rankquantity-voyager-api-ChapterInfo)
+    - [ChapterSummary](#rankquantity-voyager-api-ChapterSummary)
+    - [Character](#rankquantity-voyager-api-Character)
+    - [CharacterDetail](#rankquantity-voyager-api-CharacterDetail)
+    - [ContinueRenderStoryRequest](#rankquantity-voyager-api-ContinueRenderStoryRequest)
+    - [ContinueRenderStoryResponse](#rankquantity-voyager-api-ContinueRenderStoryResponse)
+    - [CreateStoryBoardSenceRequest](#rankquantity-voyager-api-CreateStoryBoardSenceRequest)
+    - [CreateStoryBoardSenceResponse](#rankquantity-voyager-api-CreateStoryBoardSenceResponse)
+    - [CreateStoryBoardSenceResponse.Data](#rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data)
+    - [CreateStoryRequest](#rankquantity-voyager-api-CreateStoryRequest)
+    - [CreateStoryResponse](#rankquantity-voyager-api-CreateStoryResponse)
+    - [CreateStoryResponse.Data](#rankquantity-voyager-api-CreateStoryResponse-Data)
+    - [CreateStoryboardRequest](#rankquantity-voyager-api-CreateStoryboardRequest)
+    - [CreateStoryboardResponse](#rankquantity-voyager-api-CreateStoryboardResponse)
+    - [CreateStoryboardResponse.Data](#rankquantity-voyager-api-CreateStoryboardResponse-Data)
+    - [DelStoryboardRequest](#rankquantity-voyager-api-DelStoryboardRequest)
+    - [DelStoryboardResponse](#rankquantity-voyager-api-DelStoryboardResponse)
+    - [DeleteStoryBoardSenceRequest](#rankquantity-voyager-api-DeleteStoryBoardSenceRequest)
+    - [DeleteStoryBoardSenceResponse](#rankquantity-voyager-api-DeleteStoryBoardSenceResponse)
+    - [DetailScene](#rankquantity-voyager-api-DetailScene)
+    - [FetchGroupStorysRequest](#rankquantity-voyager-api-FetchGroupStorysRequest)
+    - [FetchGroupStorysResponse](#rankquantity-voyager-api-FetchGroupStorysResponse)
+    - [FetchGroupStorysResponse.Data](#rankquantity-voyager-api-FetchGroupStorysResponse-Data)
+    - [ForkStoryboardRequest](#rankquantity-voyager-api-ForkStoryboardRequest)
+    - [ForkStoryboardResponse](#rankquantity-voyager-api-ForkStoryboardResponse)
+    - [ForkStoryboardResponse.Data](#rankquantity-voyager-api-ForkStoryboardResponse-Data)
+    - [GenStoryboardImagesRequest](#rankquantity-voyager-api-GenStoryboardImagesRequest)
+    - [GenStoryboardImagesResponse](#rankquantity-voyager-api-GenStoryboardImagesResponse)
+    - [GenStoryboardTextRequest](#rankquantity-voyager-api-GenStoryboardTextRequest)
+    - [GenStoryboardTextResponse](#rankquantity-voyager-api-GenStoryboardTextResponse)
+    - [GetStoryBoardGenerateRequest](#rankquantity-voyager-api-GetStoryBoardGenerateRequest)
+    - [GetStoryBoardGenerateResponse](#rankquantity-voyager-api-GetStoryBoardGenerateResponse)
+    - [GetStoryBoardRenderRequest](#rankquantity-voyager-api-GetStoryBoardRenderRequest)
+    - [GetStoryBoardRenderResponse](#rankquantity-voyager-api-GetStoryBoardRenderResponse)
+    - [GetStoryBoardRenderResponse.Data](#rankquantity-voyager-api-GetStoryBoardRenderResponse-Data)
+    - [GetStoryBoardRolesRequest](#rankquantity-voyager-api-GetStoryBoardRolesRequest)
+    - [GetStoryBoardRolesResponse](#rankquantity-voyager-api-GetStoryBoardRolesResponse)
+    - [GetStoryBoardRolesResponse.Data](#rankquantity-voyager-api-GetStoryBoardRolesResponse-Data)
+    - [GetStoryBoardSenceGenerateRequest](#rankquantity-voyager-api-GetStoryBoardSenceGenerateRequest)
+    - [GetStoryBoardSenceGenerateResponse](#rankquantity-voyager-api-GetStoryBoardSenceGenerateResponse)
+    - [GetStoryBoardSencesRequest](#rankquantity-voyager-api-GetStoryBoardSencesRequest)
+    - [GetStoryBoardSencesResponse](#rankquantity-voyager-api-GetStoryBoardSencesResponse)
+    - [GetStoryBoardSencesResponse.Data](#rankquantity-voyager-api-GetStoryBoardSencesResponse-Data)
+    - [GetStoryInfoRequest](#rankquantity-voyager-api-GetStoryInfoRequest)
+    - [GetStoryInfoResponse](#rankquantity-voyager-api-GetStoryInfoResponse)
+    - [GetStoryInfoResponse.Data](#rankquantity-voyager-api-GetStoryInfoResponse-Data)
+    - [GetStoryRenderRequest](#rankquantity-voyager-api-GetStoryRenderRequest)
+    - [GetStoryRenderResponse](#rankquantity-voyager-api-GetStoryRenderResponse)
+    - [GetStoryRenderResponse.Data](#rankquantity-voyager-api-GetStoryRenderResponse-Data)
+    - [GetStoryRolesRequest](#rankquantity-voyager-api-GetStoryRolesRequest)
+    - [GetStoryRolesResponse](#rankquantity-voyager-api-GetStoryRolesResponse)
+    - [GetStoryRolesResponse.Data](#rankquantity-voyager-api-GetStoryRolesResponse-Data)
+    - [GetStoryboardRequest](#rankquantity-voyager-api-GetStoryboardRequest)
+    - [GetStoryboardResponse](#rankquantity-voyager-api-GetStoryboardResponse)
+    - [GetStoryboardResponse.Data](#rankquantity-voyager-api-GetStoryboardResponse-Data)
+    - [GetStoryboardsRequest](#rankquantity-voyager-api-GetStoryboardsRequest)
+    - [GetStoryboardsResponse](#rankquantity-voyager-api-GetStoryboardsResponse)
+    - [GetStoryboardsResponse.Data](#rankquantity-voyager-api-GetStoryboardsResponse-Data)
+    - [LikeStoryboardRequest](#rankquantity-voyager-api-LikeStoryboardRequest)
+    - [LikeStoryboardResponse](#rankquantity-voyager-api-LikeStoryboardResponse)
+    - [LikeStoryboardResponse.Data](#rankquantity-voyager-api-LikeStoryboardResponse-Data)
+    - [QueryTaskStatusRequest](#rankquantity-voyager-api-QueryTaskStatusRequest)
+    - [QueryTaskStatusResponse](#rankquantity-voyager-api-QueryTaskStatusResponse)
+    - [QueryTaskStatusResponse.Data](#rankquantity-voyager-api-QueryTaskStatusResponse-Data)
+    - [RenderStoryBoardSenceRequest](#rankquantity-voyager-api-RenderStoryBoardSenceRequest)
+    - [RenderStoryBoardSenceResponse](#rankquantity-voyager-api-RenderStoryBoardSenceResponse)
+    - [RenderStoryBoardSencesRequest](#rankquantity-voyager-api-RenderStoryBoardSencesRequest)
+    - [RenderStoryBoardSencesResponse](#rankquantity-voyager-api-RenderStoryBoardSencesResponse)
+    - [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail)
+    - [RenderStoryRequest](#rankquantity-voyager-api-RenderStoryRequest)
+    - [RenderStoryResponse](#rankquantity-voyager-api-RenderStoryResponse)
+    - [RenderStoryRoleDetailRequest](#rankquantity-voyager-api-RenderStoryRoleDetailRequest)
+    - [RenderStoryRoleDetailResponse](#rankquantity-voyager-api-RenderStoryRoleDetailResponse)
+    - [RenderStoryRolesRequest](#rankquantity-voyager-api-RenderStoryRolesRequest)
+    - [RenderStoryRolesResponse](#rankquantity-voyager-api-RenderStoryRolesResponse)
+    - [RenderStoryStructureValue](#rankquantity-voyager-api-RenderStoryStructureValue)
+    - [RenderStoryStructureValue.ExtraEntry](#rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry)
+    - [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail)
+    - [RenderStoryboardRequest](#rankquantity-voyager-api-RenderStoryboardRequest)
+    - [RenderStoryboardResponse](#rankquantity-voyager-api-RenderStoryboardResponse)
+    - [ShareStoryboardRequest](#rankquantity-voyager-api-ShareStoryboardRequest)
+    - [ShareStoryboardResponse](#rankquantity-voyager-api-ShareStoryboardResponse)
+    - [ShareStoryboardResponse.Data](#rankquantity-voyager-api-ShareStoryboardResponse-Data)
+    - [Story](#rankquantity-voyager-api-Story)
+    - [StoryBoard](#rankquantity-voyager-api-StoryBoard)
+    - [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive)
+    - [StoryBoardActiveRole](#rankquantity-voyager-api-StoryBoardActiveRole)
+    - [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser)
+    - [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams)
+    - [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence)
+    - [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences)
+    - [StoryChapter](#rankquantity-voyager-api-StoryChapter)
+    - [StoryInfo](#rankquantity-voyager-api-StoryInfo)
+    - [StoryNameAndTheme](#rankquantity-voyager-api-StoryNameAndTheme)
+    - [StoryParams](#rankquantity-voyager-api-StoryParams)
+    - [StoryRole](#rankquantity-voyager-api-StoryRole)
+    - [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo)
+    - [TimeLine](#rankquantity-voyager-api-TimeLine)
+    - [UnLikeStoryboardRequest](#rankquantity-voyager-api-UnLikeStoryboardRequest)
+    - [UnLikeStoryboardResponse](#rankquantity-voyager-api-UnLikeStoryboardResponse)
+    - [UpdateStoryBoardSenceRequest](#rankquantity-voyager-api-UpdateStoryBoardSenceRequest)
+    - [UpdateStoryBoardSenceResponse](#rankquantity-voyager-api-UpdateStoryBoardSenceResponse)
+    - [UpdateStoryRequest](#rankquantity-voyager-api-UpdateStoryRequest)
+    - [UpdateStoryResponse](#rankquantity-voyager-api-UpdateStoryResponse)
+    - [UpdateStoryResponse.Data](#rankquantity-voyager-api-UpdateStoryResponse-Data)
+    - [UpdateStoryRoleRequest](#rankquantity-voyager-api-UpdateStoryRoleRequest)
+    - [UpdateStoryRoleResponse](#rankquantity-voyager-api-UpdateStoryRoleResponse)
+    - [UpdateStoryboardRequest](#rankquantity-voyager-api-UpdateStoryboardRequest)
+    - [UpdateStoryboardResponse](#rankquantity-voyager-api-UpdateStoryboardResponse)
+    - [UpdateStoryboardResponse.Data](#rankquantity-voyager-api-UpdateStoryboardResponse-Data)
+    - [WatchStoryRequest](#rankquantity-voyager-api-WatchStoryRequest)
+    - [WatchStoryResponse](#rankquantity-voyager-api-WatchStoryResponse)
+    - [WatchStoryResponse.Data](#rankquantity-voyager-api-WatchStoryResponse-Data)
+  
+    - [RenderType](#rankquantity-voyager-api-RenderType)
+    - [StoryGenStatus](#rankquantity-voyager-api-StoryGenStatus)
+    - [StoryboardStage](#rankquantity-voyager-api-StoryboardStage)
+  
+- [message.proto](#message-proto)
+    - [ChatMessage](#rankquantity-voyager-api-ChatMessage)
+    - [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage)
+    - [StreamChatMessageRequest](#rankquantity-voyager-api-StreamChatMessageRequest)
+    - [StreamChatMessageResponse](#rankquantity-voyager-api-StreamChatMessageResponse)
+  
+    - [MsgType](#rankquantity-voyager-api-MsgType)
+  
+    - [StreamMessageService](#rankquantity-voyager-api-StreamMessageService)
+  
 - [service.proto](#service-proto)
+    - [AIPolishRecord](#rankquantity-voyager-api-AIPolishRecord)
     - [AboutRequest](#rankquantity-voyager-api-AboutRequest)
     - [AboutResponse](#rankquantity-voyager-api-AboutResponse)
     - [ActiveInfo](#rankquantity-voyager-api-ActiveInfo)
@@ -11,6 +265,7 @@
     - [ArchiveStoryResponse](#rankquantity-voyager-api-ArchiveStoryResponse)
     - [CancelStoryboardRequest](#rankquantity-voyager-api-CancelStoryboardRequest)
     - [CancelStoryboardResponse](#rankquantity-voyager-api-CancelStoryboardResponse)
+    - [ChapterTranslationRecord](#rankquantity-voyager-api-ChapterTranslationRecord)
     - [ChatContext](#rankquantity-voyager-api-ChatContext)
     - [ChatWithStoryRoleRequest](#rankquantity-voyager-api-ChatWithStoryRoleRequest)
     - [ChatWithStoryRoleResponse](#rankquantity-voyager-api-ChatWithStoryRoleResponse)
@@ -82,6 +337,7 @@
     - [GenerateStorySceneVideoRequest](#rankquantity-voyager-api-GenerateStorySceneVideoRequest)
     - [GenerateStorySceneVideoResponse](#rankquantity-voyager-api-GenerateStorySceneVideoResponse)
     - [GenerateStorySceneVideoTaskDetail](#rankquantity-voyager-api-GenerateStorySceneVideoTaskDetail)
+    - [GenerationPromptRecord](#rankquantity-voyager-api-GenerationPromptRecord)
     - [GetDisscusReq](#rankquantity-voyager-api-GetDisscusReq)
     - [GetDisscusResp](#rankquantity-voyager-api-GetDisscusResp)
     - [GetDisscusResp.Data](#rankquantity-voyager-api-GetDisscusResp-Data)
@@ -125,6 +381,8 @@
     - [GetStoryContributorsRequest](#rankquantity-voyager-api-GetStoryContributorsRequest)
     - [GetStoryContributorsResponse](#rankquantity-voyager-api-GetStoryContributorsResponse)
     - [GetStoryContributorsResponse.Data](#rankquantity-voyager-api-GetStoryContributorsResponse-Data)
+    - [GetStoryGenerationHistoryRequest](#rankquantity-voyager-api-GetStoryGenerationHistoryRequest)
+    - [GetStoryGenerationHistoryResponse](#rankquantity-voyager-api-GetStoryGenerationHistoryResponse)
     - [GetStoryImageStyleRequest](#rankquantity-voyager-api-GetStoryImageStyleRequest)
     - [GetStoryImageStyleResponse](#rankquantity-voyager-api-GetStoryImageStyleResponse)
     - [GetStoryParticipantsRequest](#rankquantity-voyager-api-GetStoryParticipantsRequest)
@@ -215,10 +473,12 @@
     - [SearchUserResponse.Data](#rankquantity-voyager-api-SearchUserResponse-Data)
     - [StoryComment](#rankquantity-voyager-api-StoryComment)
     - [StoryContributor](#rankquantity-voyager-api-StoryContributor)
+    - [StoryGenerationHistory](#rankquantity-voyager-api-StoryGenerationHistory)
     - [StoryGentaskDetail](#rankquantity-voyager-api-StoryGentaskDetail)
     - [StoryStyleDesc](#rankquantity-voyager-api-StoryStyleDesc)
     - [StoryboardDraftDetail](#rankquantity-voyager-api-StoryboardDraftDetail)
     - [StoryboardStageStore](#rankquantity-voyager-api-StoryboardStageStore)
+    - [TokenConsumption](#rankquantity-voyager-api-TokenConsumption)
     - [TrendingStoryRequest](#rankquantity-voyager-api-TrendingStoryRequest)
     - [TrendingStoryResponse](#rankquantity-voyager-api-TrendingStoryResponse)
     - [TrendingStoryResponse.Data](#rankquantity-voyager-api-TrendingStoryResponse-Data)
@@ -308,6 +568,7 @@
     - [VersionResponse.Data](#rankquantity-voyager-api-VersionResponse-Data)
   
     - [TokenSource](#rankquantity-voyager-api-TokenSource)
+    - [TokenSourceType](#rankquantity-voyager-api-TokenSourceType)
   
     - [TeamsAPI](#rankquantity-voyager-api-TeamsAPI)
   
@@ -315,10 +576,4701 @@
 
 
 
+<a name="base-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## base.proto
+
+
+
+<a name="rankquantity-voyager-api-Tags"></a>
+
+### Tags
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| creator_id | [int32](#int32) |  |  |
+| name | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| is_global | [int32](#int32) |  |  |
+| id | [int32](#int32) |  |  |
+| expired_time | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-WhatCurrentUserStatus"></a>
+
+### WhatCurrentUserStatus
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| is_followed | [bool](#bool) |  |  |
+| is_watched | [bool](#bool) |  |  |
+| is_liked | [bool](#bool) |  |  |
+| is_joined | [bool](#bool) |  |  |
+| is_viewed | [bool](#bool) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="rankquantity-voyager-api-ActiveFlowType"></a>
+
+### ActiveFlowType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| AllFlowType | 0 | 所有 |
+| StoryFlowType | 1 | 故事 |
+| RoleFlowType | 2 | 角色 |
+| GroupFlowType | 3 | 小组织 |
+
+
+
+<a name="rankquantity-voyager-api-ActiveType"></a>
+
+### ActiveType
+不公开互动
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NoneActive | 0 | 不公开互动 |
+| AllActive | 1 | 所有互动 |
+| NewStory | 2 | 新故事 |
+| NewRole | 3 | 新角色 |
+| JoinGroup | 4 | 加入群组 |
+| FollowRole | 5 | 关注角色 |
+| LikeRole | 6 | 点赞角色 |
+| FollowStory | 7 | 关注故事 |
+| LikeStory | 8 | 点赞故事 |
+| FollowGroup | 9 | 关注群组 |
+| LikeGroup | 10 | 点赞群组 |
+| NewStoryBoard | 11 | 新的故事板 |
+| LikeStoryBoard | 12 | 点赞故事板 |
+| ForkStory | 13 | 分叉故事 |
+| ShareStoryBoard | 14 | 分享故事板 |
+| ShareStory | 15 | 分享故事 |
+| ShareRole | 16 | 分享角色 |
+
+
+
+<a name="rankquantity-voyager-api-AuthType"></a>
+
+### AuthType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NotSupport | 0 | 不支持 |
+| WithPhone | 1 | 手机号 |
+| WithEmail | 2 | 邮箱 |
+| WithThirdpart | 3 | 第三方 |
+| WithGmail | 4 | gmail |
+| WithWeChat | 5 | 微信 |
+| WithApple | 6 | apple |
+
+
+
+<a name="rankquantity-voyager-api-DashScopeTaskStatus"></a>
+
+### DashScopeTaskStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| DashScopeTaskStatusUnknown | 0 |  |
+| DashScopeTaskStatusPending | 1 |  |
+| DashScopeTaskStatusRunning | 2 |  |
+| DashScopeTaskStatusSucceeded | 3 |  |
+| DashScopeTaskStatusFailed | 4 |  |
+| DashScopeTaskStatusCanceled | 5 |  |
+
+
+
+<a name="rankquantity-voyager-api-GenderType"></a>
+
+### GenderType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| None | 0 | 不公开性别 |
+| Man | 1 |  |
+| Women | 2 |  |
+
+
+
+<a name="rankquantity-voyager-api-GroupStatus"></a>
+
+### GroupStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Unknow | 0 | 未知 |
+| NotReady | 1 | 未准备 |
+| Normal | 2 | 正常 |
+| ViewOnly | 3 | 仅查看 |
+| Abandon | 4 | 废弃 |
+
+
+
+<a name="rankquantity-voyager-api-ImageRatios"></a>
+
+### ImageRatios
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Ratio1_1 | 0 | 1:1 |
+| Ratio4_3 | 1 | 4:3 |
+| Ratio16_9 | 2 | 16:9 |
+| Ratio3_2 | 3 | 3:2 |
+| Ratio3_4 | 4 | 3:4 |
+| Ratio2_3 | 5 | 2:3 |
+
+
+
+<a name="rankquantity-voyager-api-ItemType"></a>
+
+### ItemType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| AllItem | 0 | 所有内容 |
+| ShortWord | 1 | 短文 |
+| Paper | 2 | 纸片 |
+| Picture | 3 | 图片 |
+| Video | 4 | 视频 |
+| Music | 5 | 音乐 |
+| Link | 6 | 链接 |
+| Locate | 7 | 定位 |
+
+
+
+<a name="rankquantity-voyager-api-LikeType"></a>
+
+### LikeType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Browser | 0 | 浏览 |
+| Left | 1 | 左 |
+| Middle | 2 | 中 |
+| Right | 3 | 右 |
+
+
+
+<a name="rankquantity-voyager-api-MultiBranchOrderBy"></a>
+
+### MultiBranchOrderBy
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MultiBranchOrderByUnspecified | 0 | 不指定 |
+| MultiBranchOrderByCreatedAt | 1 | 创建时间 |
+| MultiBranchOrderByUpdatedAt | 2 | 更新时间 |
+| MultiBranchOrderByLikes | 3 | 点赞数 |
+| MultiBranchOrderByComments | 4 | 评论数 |
+| MultiBranchOrderByViews | 5 | 浏览数 |
+| MultiBranchOrderByFollowRole | 6 | 关注的角色参与数 |
+
+
+
+<a name="rankquantity-voyager-api-ScopeType"></a>
+
+### ScopeType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| PROTECT_SCOPE | 0 | 小组内创建，但是小组外可见但是不可以fork |
+| PUBLIC_SCOPE | 1 | 小组内外可见，小组外可以操作fork |
+| PRIVATE_SCOPE | 2 | 仅小组内可见，小组外不可以fork |
+
+
+
+<a name="rankquantity-voyager-api-SortByType"></a>
+
+### SortByType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SortByTime | 0 | 时间排序 |
+| SortByLike | 1 | 点赞排序 |
+| SortByComment | 2 | 评论排序 |
+| SortByShare | 3 | 分享排序 |
+| SortByView | 4 | 浏览排序 |
+
+
+
+<a name="rankquantity-voyager-api-TaskStage"></a>
+
+### TaskStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UnknowTaskStage | 0 | 未知 |
+| Init | 1 | 初始化 |
+| Processing | 2 | 处理中 |
+| Waiting | 3 | 等待 |
+| Retry | 4 | 重试 |
+| Success | 5 | 成功 |
+| Fail | 6 | 失败 |
+
+
+
+<a name="rankquantity-voyager-api-TaskType"></a>
+
+### TaskType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NotSpecify | 0 | 不指定 |
+| Word_Generate | 1 | 文字生成 |
+| Pic_Generate | 2 | 图片生成 |
+| Video_Generate | 3 | 视频生成 |
+| Voice_Generate | 4 | 语音生成 |
+| Music_Generate | 5 | 音乐生成 |
+
+
+
+<a name="rankquantity-voyager-api-UserStatus"></a>
+
+### UserStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Rest | 0 | 休息 |
+| Study | 1 | 学习 |
+| Busy | 2 | 忙碌 |
+| Working | 3 | 工作 |
+| Invisible | 4 | 隐身 |
+| Idle | 5 | 空闲 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="comment-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## comment.proto
+
+
+
+<a name="rankquantity-voyager-api-CommentInfo"></a>
+
+### CommentInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| comment_id | [int64](#int64) |  |  |
+| root_comment_id | [int64](#int64) |  |  |
+| prev_comment_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| user_name | [string](#string) |  |  |
+| avatar_url | [string](#string) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| group_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+| like_count | [int64](#int64) |  |  |
+| reply_count | [int64](#int64) |  |  |
+| reply_id | [int64](#int64) |  |  |
+| ctime | [int64](#int64) |  |  |
+| mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="error-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## error.proto
+
+
+
+<a name="rankquantity-voyager-api-AIErrorMessages"></a>
+
+### AIErrorMessages
+AI生成相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| AI_GENERATION_FAILED | [string](#string) |  | AI生成失败 |
+| AI_SERVICE_UNAVAILABLE | [string](#string) |  | AI服务不可用 |
+| AI_QUOTA_EXCEEDED | [string](#string) |  | AI配额超限 |
+| AI_MODEL_ERROR | [string](#string) |  | AI模型错误 |
+| AI_PARAMETER_ERROR | [string](#string) |  | AI参数错误 |
+| AI_CONTENT_ERROR | [string](#string) |  | AI内容错误 |
+| AI_TIMEOUT | [string](#string) |  | AI处理超时 |
+| AI_RATE_LIMITED | [string](#string) |  | AI速率受限 |
+| AI_CONTEXT_ERROR | [string](#string) |  | AI上下文错误 |
+| AI_RESPONSE_ERROR | [string](#string) |  | AI响应错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-AuthErrorMessages"></a>
+
+### AuthErrorMessages
+认证和授权错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| UNAUTHORIZED | [string](#string) |  | 未授权 |
+| TOKEN_EXPIRED | [string](#string) |  | Token过期 |
+| TOKEN_INVALID | [string](#string) |  | Token无效 |
+| PERMISSION_DENIED | [string](#string) |  | 权限不足 |
+| ACCOUNT_NOT_FOUND | [string](#string) |  | 账号不存在 |
+| WRONG_PASSWORD | [string](#string) |  | 密码错误 |
+| ACCOUNT_DISABLED | [string](#string) |  | 账号已禁用 |
+| LOGIN_REQUIRED | [string](#string) |  | 需要登录 |
+| TOKEN_MISSING | [string](#string) |  | Token缺失 |
+| SESSION_EXPIRED | [string](#string) |  | 会话过期 |
+| INVALID_CREDENTIALS | [string](#string) |  | 无效的凭证 |
+| ACCOUNT_LOCKED | [string](#string) |  | 账号已锁定 |
+| ACCOUNT_EXPIRED | [string](#string) |  | 账号已过期 |
+| INVALID_LOGIN_TYPE | [string](#string) |  | 无效的登录类型 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ChatErrorMessages"></a>
+
+### ChatErrorMessages
+聊天相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CHAT_NOT_FOUND | [string](#string) |  | 聊天不存在 |
+| CHAT_ALREADY_EXISTS | [string](#string) |  | 聊天已存在 |
+| CHAT_PERMISSION_DENIED | [string](#string) |  | 聊天权限不足 |
+| CHAT_LOCKED | [string](#string) |  | 聊天已锁定 |
+| CHAT_STATUS_ERROR | [string](#string) |  | 聊天状态错误 |
+| CHAT_MESSAGE_ERROR | [string](#string) |  | 聊天消息错误 |
+| CHAT_CONTEXT_ERROR | [string](#string) |  | 聊天上下文错误 |
+| CHAT_STREAM_ERROR | [string](#string) |  | 聊天流错误 |
+| CHAT_TIMEOUT | [string](#string) |  | 聊天超时 |
+| CHAT_RATE_LIMITED | [string](#string) |  | 聊天频率限制 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CommentErrorMessages"></a>
+
+### CommentErrorMessages
+评论相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| COMMENT_NOT_FOUND | [string](#string) |  | 评论不存在 |
+| COMMENT_ALREADY_EXISTS | [string](#string) |  | 评论已存在 |
+| COMMENT_PERMISSION_DENIED | [string](#string) |  | 评论权限不足 |
+| COMMENT_LOCKED | [string](#string) |  | 评论已锁定 |
+| COMMENT_STATUS_ERROR | [string](#string) |  | 评论状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ContentErrorMessages"></a>
+
+### ContentErrorMessages
+内容相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CONTENT_NOT_FOUND | [string](#string) |  | 内容不存在 |
+| CONTENT_ALREADY_EXISTS | [string](#string) |  | 内容已存在 |
+| CONTENT_PERMISSION_DENIED | [string](#string) |  | 内容权限不足 |
+| CONTENT_TYPE_INVALID | [string](#string) |  | 内容类型无效 |
+| CONTENT_SIZE_EXCEEDED | [string](#string) |  | 内容大小超限 |
+| CONTENT_FORMAT_ERROR | [string](#string) |  | 内容格式错误 |
+| CONTENT_LOCKED | [string](#string) |  | 内容已锁定 |
+| CONTENT_EXPIRED | [string](#string) |  | 内容已过期 |
+| CONTENT_CORRUPTED | [string](#string) |  | 内容已损坏 |
+| CONTENT_OPERATION_DENIED | [string](#string) |  | 内容操作被拒绝 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription"></a>
+
+### ErrorDescription
+错误描述信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| system_errors | [ErrorDescription.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescription.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescription.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescription.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescription.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescription.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescription.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescription.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescription.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescription.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescription.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescription.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescription.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescription.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescription-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescription.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescription.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescription.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescription-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescription.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescription.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescription.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescription.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescription.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescription.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-AiErrorsEntry"></a>
+
+### ErrorDescription.AiErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-AuthErrorsEntry"></a>
+
+### ErrorDescription.AuthErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-ChatErrorsEntry"></a>
+
+### ErrorDescription.ChatErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-CommentErrorsEntry"></a>
+
+### ErrorDescription.CommentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-ContentErrorsEntry"></a>
+
+### ErrorDescription.ContentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-GroupErrorsEntry"></a>
+
+### ErrorDescription.GroupErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-LikeErrorsEntry"></a>
+
+### ErrorDescription.LikeErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-LimitErrorsEntry"></a>
+
+### ErrorDescription.LimitErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-MessageErrorsEntry"></a>
+
+### ErrorDescription.MessageErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-OperationErrorsEntry"></a>
+
+### ErrorDescription.OperationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-OrderErrorsEntry"></a>
+
+### ErrorDescription.OrderErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-PaymentErrorsEntry"></a>
+
+### ErrorDescription.PaymentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-ProjectErrorsEntry"></a>
+
+### ErrorDescription.ProjectErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-ResourceErrorsEntry"></a>
+
+### ErrorDescription.ResourceErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-RoleErrorsEntry"></a>
+
+### ErrorDescription.RoleErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-SearchErrorsEntry"></a>
+
+### ErrorDescription.SearchErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-StoryErrorsEntry"></a>
+
+### ErrorDescription.StoryErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-StoryboardErrorsEntry"></a>
+
+### ErrorDescription.StoryboardErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-SystemErrorsEntry"></a>
+
+### ErrorDescription.SystemErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-UploadErrorsEntry"></a>
+
+### ErrorDescription.UploadErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-UserErrorsEntry"></a>
+
+### ErrorDescription.UserErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-ValidationErrorsEntry"></a>
+
+### ErrorDescription.ValidationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescription-VipErrorsEntry"></a>
+
+### ErrorDescription.VipErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions"></a>
+
+### ErrorDescriptions
+错误描述常量
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| system_errors | [ErrorDescriptions.SystemErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry) | repeated | 系统级错误描述 |
+| auth_errors | [ErrorDescriptions.AuthErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry) | repeated | 认证和授权错误描述 |
+| validation_errors | [ErrorDescriptions.ValidationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry) | repeated | 参数验证错误描述 |
+| resource_errors | [ErrorDescriptions.ResourceErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry) | repeated | 资源错误描述 |
+| user_errors | [ErrorDescriptions.UserErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry) | repeated | 用户相关错误描述 |
+| group_errors | [ErrorDescriptions.GroupErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry) | repeated | 组织相关错误描述 |
+| project_errors | [ErrorDescriptions.ProjectErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry) | repeated | 项目相关错误描述 |
+| story_errors | [ErrorDescriptions.StoryErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry) | repeated | 故事相关错误描述 |
+| storyboard_errors | [ErrorDescriptions.StoryboardErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry) | repeated | 故事板相关错误描述 |
+| role_errors | [ErrorDescriptions.RoleErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry) | repeated | 角色相关错误描述 |
+| content_errors | [ErrorDescriptions.ContentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry) | repeated | 内容相关错误描述 |
+| operation_errors | [ErrorDescriptions.OperationErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry) | repeated | 操作相关错误描述 |
+| limit_errors | [ErrorDescriptions.LimitErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry) | repeated | 限制相关错误描述 |
+| ai_errors | [ErrorDescriptions.AiErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry) | repeated | AI生成相关错误描述 |
+| comment_errors | [ErrorDescriptions.CommentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry) | repeated | 评论相关错误描述 |
+| like_errors | [ErrorDescriptions.LikeErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry) | repeated | 点赞相关错误描述 |
+| vip_errors | [ErrorDescriptions.VipErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry) | repeated | VIP/充值相关错误描述 |
+| payment_errors | [ErrorDescriptions.PaymentErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry) | repeated | 支付相关错误描述 |
+| order_errors | [ErrorDescriptions.OrderErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry) | repeated | 订单相关错误描述 |
+| message_errors | [ErrorDescriptions.MessageErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry) | repeated | 消息相关错误描述 |
+| chat_errors | [ErrorDescriptions.ChatErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry) | repeated | 聊天相关错误描述 |
+| upload_errors | [ErrorDescriptions.UploadErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry) | repeated | 文件上传相关错误描述 |
+| search_errors | [ErrorDescriptions.SearchErrorsEntry](#rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry) | repeated | 搜索相关错误描述 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-AiErrorsEntry"></a>
+
+### ErrorDescriptions.AiErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-AuthErrorsEntry"></a>
+
+### ErrorDescriptions.AuthErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-ChatErrorsEntry"></a>
+
+### ErrorDescriptions.ChatErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-CommentErrorsEntry"></a>
+
+### ErrorDescriptions.CommentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-ContentErrorsEntry"></a>
+
+### ErrorDescriptions.ContentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-GroupErrorsEntry"></a>
+
+### ErrorDescriptions.GroupErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-LikeErrorsEntry"></a>
+
+### ErrorDescriptions.LikeErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-LimitErrorsEntry"></a>
+
+### ErrorDescriptions.LimitErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-MessageErrorsEntry"></a>
+
+### ErrorDescriptions.MessageErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-OperationErrorsEntry"></a>
+
+### ErrorDescriptions.OperationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-OrderErrorsEntry"></a>
+
+### ErrorDescriptions.OrderErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-PaymentErrorsEntry"></a>
+
+### ErrorDescriptions.PaymentErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-ProjectErrorsEntry"></a>
+
+### ErrorDescriptions.ProjectErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-ResourceErrorsEntry"></a>
+
+### ErrorDescriptions.ResourceErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-RoleErrorsEntry"></a>
+
+### ErrorDescriptions.RoleErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-SearchErrorsEntry"></a>
+
+### ErrorDescriptions.SearchErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-StoryErrorsEntry"></a>
+
+### ErrorDescriptions.StoryErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-StoryboardErrorsEntry"></a>
+
+### ErrorDescriptions.StoryboardErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-SystemErrorsEntry"></a>
+
+### ErrorDescriptions.SystemErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-UploadErrorsEntry"></a>
+
+### ErrorDescriptions.UploadErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-UserErrorsEntry"></a>
+
+### ErrorDescriptions.UserErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-ValidationErrorsEntry"></a>
+
+### ErrorDescriptions.ValidationErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ErrorDescriptions-VipErrorsEntry"></a>
+
+### ErrorDescriptions.VipErrorsEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GroupErrorMessages"></a>
+
+### GroupErrorMessages
+组织相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| GROUP_NOT_FOUND | [string](#string) |  | 组织不存在 |
+| GROUP_ALREADY_EXISTS | [string](#string) |  | 组织已存在 |
+| NOT_GROUP_MEMBER | [string](#string) |  | 非组织成员 |
+| GROUP_PERMISSION_DENIED | [string](#string) |  | 组织权限不足 |
+| GROUP_FULL | [string](#string) |  | 组织人数已满 |
+| GROUP_CLOSED | [string](#string) |  | 组织已关闭 |
+| GROUP_OPERATION_DENIED | [string](#string) |  | 组织操作被拒绝 |
+| GROUP_STATUS_ERROR | [string](#string) |  | 组织状态错误 |
+| GROUP_TYPE_INVALID | [string](#string) |  | 组织类型无效 |
+| GROUP_QUOTA_EXCEEDED | [string](#string) |  | 组织配额超限 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-LikeErrorMessages"></a>
+
+### LikeErrorMessages
+点赞相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| LIKE_NOT_FOUND | [string](#string) |  | 点赞不存在 |
+| LIKE_ALREADY_EXISTS | [string](#string) |  | 点赞已存在 |
+| LIKE_PERMISSION_DENIED | [string](#string) |  | 点赞权限不足 |
+| LIKE_LOCKED | [string](#string) |  | 点赞已锁定 |
+| LIKE_STATUS_ERROR | [string](#string) |  | 点赞状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-LimitErrorMessages"></a>
+
+### LimitErrorMessages
+限制相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| RATE_LIMIT_EXCEEDED | [string](#string) |  | 速率限制超限 |
+| QUOTA_EXCEEDED | [string](#string) |  | 配额超限 |
+| SIZE_LIMIT_EXCEEDED | [string](#string) |  | 大小限制超限 |
+| TIME_LIMIT_EXCEEDED | [string](#string) |  | 时间限制超限 |
+| FREQUENCY_LIMIT_EXCEEDED | [string](#string) |  | 频率限制超限 |
+| CONCURRENT_LIMIT_EXCEEDED | [string](#string) |  | 并发限制超限 |
+| STORAGE_LIMIT_EXCEEDED | [string](#string) |  | 存储限制超限 |
+| BANDWIDTH_LIMIT_EXCEEDED | [string](#string) |  | 带宽限制超限 |
+| REQUEST_LIMIT_EXCEEDED | [string](#string) |  | 请求限制超限 |
+| USER_LIMIT_EXCEEDED | [string](#string) |  | 用户限制超限 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-MessageErrorMessages"></a>
+
+### MessageErrorMessages
+消息相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| MESSAGE_NOT_FOUND | [string](#string) |  | 消息不存在 |
+| MESSAGE_ALREADY_EXISTS | [string](#string) |  | 消息已存在 |
+| MESSAGE_PERMISSION_DENIED | [string](#string) |  | 消息权限不足 |
+| MESSAGE_LOCKED | [string](#string) |  | 消息已锁定 |
+| MESSAGE_STATUS_ERROR | [string](#string) |  | 消息状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-OperationErrorMessages"></a>
+
+### OperationErrorMessages
+操作相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| OPERATION_FAILED | [string](#string) |  | 操作失败 |
+| OPERATION_TIMEOUT | [string](#string) |  | 操作超时 |
+| OPERATION_CANCELLED | [string](#string) |  | 操作已取消 |
+| OPERATION_NOT_SUPPORTED | [string](#string) |  | 操作不支持 |
+| OPERATION_IN_PROGRESS | [string](#string) |  | 操作进行中 |
+| OPERATION_ABORTED | [string](#string) |  | 操作已中止 |
+| OPERATION_REJECTED | [string](#string) |  | 操作被拒绝 |
+| OPERATION_INVALID | [string](#string) |  | 操作无效 |
+| OPERATION_CONFLICT | [string](#string) |  | 操作冲突 |
+| OPERATION_TOO_FREQUENT | [string](#string) |  | 操作过于频繁 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-OrderErrorMessages"></a>
+
+### OrderErrorMessages
+订单相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ORDER_NOT_FOUND | [string](#string) |  | 订单不存在 |
+| ORDER_ALREADY_EXISTS | [string](#string) |  | 订单已存在 |
+| ORDER_PERMISSION_DENIED | [string](#string) |  | 订单权限不足 |
+| ORDER_LOCKED | [string](#string) |  | 订单已锁定 |
+| ORDER_STATUS_ERROR | [string](#string) |  | 订单状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-PaymentErrorMessages"></a>
+
+### PaymentErrorMessages
+支付相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| PAYMENT_NOT_FOUND | [string](#string) |  | 支付不存在 |
+| PAYMENT_ALREADY_EXISTS | [string](#string) |  | 支付已存在 |
+| PAYMENT_PERMISSION_DENIED | [string](#string) |  | 支付权限不足 |
+| PAYMENT_LOCKED | [string](#string) |  | 支付已锁定 |
+| PAYMENT_STATUS_ERROR | [string](#string) |  | 支付状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ResourceErrorMessages"></a>
+
+### ResourceErrorMessages
+资源错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| RESOURCE_NOT_FOUND | [string](#string) |  | 资源不存在 |
+| RESOURCE_ALREADY_EXISTS | [string](#string) |  | 资源已存在 |
+| RESOURCE_EXPIRED | [string](#string) |  | 资源已过期 |
+| RESOURCE_EXHAUSTED | [string](#string) |  | 资源耗尽 |
+| RESOURCE_BUSY | [string](#string) |  | 资源忙碌 |
+| RESOURCE_LOCKED | [string](#string) |  | 资源已锁定 |
+| RESOURCE_UNAVAILABLE | [string](#string) |  | 资源不可用 |
+| RESOURCE_QUOTA_EXCEEDED | [string](#string) |  | 资源配额超限 |
+| RESOURCE_CORRUPTED | [string](#string) |  | 资源已损坏 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RoleErrorMessages"></a>
+
+### RoleErrorMessages
+角色相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ROLE_NOT_FOUND | [string](#string) |  | 角色不存在 |
+| ROLE_ALREADY_EXISTS | [string](#string) |  | 角色已存在 |
+| ROLE_PERMISSION_DENIED | [string](#string) |  | 角色权限不足 |
+| ROLE_RENDER_ERROR | [string](#string) |  | 角色渲染错误 |
+| ROLE_LOCKED | [string](#string) |  | 角色已锁定 |
+| ROLE_STATUS_ERROR | [string](#string) |  | 角色状态错误 |
+| ROLE_TYPE_INVALID | [string](#string) |  | 角色类型无效 |
+| ROLE_QUOTA_EXCEEDED | [string](#string) |  | 角色配额超限 |
+| ROLE_GENERATION_FAILED | [string](#string) |  | 角色生成失败 |
+| ROLE_OPERATION_DENIED | [string](#string) |  | 角色操作被拒绝 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-SearchErrorMessages"></a>
+
+### SearchErrorMessages
+搜索相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| SEARCH_FAILED | [string](#string) |  | 搜索失败 |
+| SEARCH_PARAMETER_ERROR | [string](#string) |  | 搜索参数错误 |
+| SEARCH_TIMEOUT | [string](#string) |  | 搜索超时 |
+| SEARCH_PERMISSION_DENIED | [string](#string) |  | 搜索权限不足 |
+| SEARCH_QUOTA_EXCEEDED | [string](#string) |  | 搜索配额超限 |
+| SEARCH_INDEX_ERROR | [string](#string) |  | 搜索索引错误 |
+| SEARCH_RESULT_ERROR | [string](#string) |  | 搜索结果错误 |
+| SEARCH_FILTER_ERROR | [string](#string) |  | 搜索过滤错误 |
+| SEARCH_SORT_ERROR | [string](#string) |  | 搜索排序错误 |
+| SEARCH_SCOPE_ERROR | [string](#string) |  | 搜索范围错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryErrorMessages"></a>
+
+### StoryErrorMessages
+故事相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| STORY_NOT_FOUND | [string](#string) |  | 故事不存在 |
+| STORY_ALREADY_EXISTS | [string](#string) |  | 故事已存在 |
+| STORY_PERMISSION_DENIED | [string](#string) |  | 故事权限不足 |
+| STORY_LOCKED | [string](#string) |  | 故事已锁定 |
+| STORY_ARCHIVED | [string](#string) |  | 故事已归档 |
+| STORY_STATUS_ERROR | [string](#string) |  | 故事状态错误 |
+| STORY_VERSION_ERROR | [string](#string) |  | 故事版本错误 |
+| STORY_CONTENT_ERROR | [string](#string) |  | 故事内容错误 |
+| STORY_OPERATION_DENIED | [string](#string) |  | 故事操作被拒绝 |
+| STORY_GENERATION_FAILED | [string](#string) |  | 故事生成失败 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryboardErrorMessages"></a>
+
+### StoryboardErrorMessages
+故事板相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| STORYBOARD_NOT_FOUND | [string](#string) |  | 故事板不存在 |
+| STORYBOARD_ALREADY_EXISTS | [string](#string) |  | 故事板已存在 |
+| STORYBOARD_PERMISSION_DENIED | [string](#string) |  | 故事板权限不足 |
+| STORYBOARD_RENDER_ERROR | [string](#string) |  | 故事板渲染错误 |
+| STORYBOARD_LOCKED | [string](#string) |  | 故事板已锁定 |
+| STORYBOARD_STATUS_ERROR | [string](#string) |  | 故事板状态错误 |
+| STORYBOARD_VERSION_ERROR | [string](#string) |  | 故事板版本错误 |
+| STORYBOARD_SCENE_ERROR | [string](#string) |  | 故事板场景错误 |
+| STORYBOARD_GENERATION_FAILED | [string](#string) |  | 故事板生成失败 |
+| STORYBOARD_OPERATION_DENIED | [string](#string) |  | 故事板操作被拒绝 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-SystemErrorMessages"></a>
+
+### SystemErrorMessages
+系统级错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| SYSTEM_ERROR | [string](#string) |  | 系统错误 |
+| INTERNAL_ERROR | [string](#string) |  | 内部错误 |
+| DATABASE_ERROR | [string](#string) |  | 数据库错误 |
+| CACHE_ERROR | [string](#string) |  | 缓存错误 |
+| NETWORK_ERROR | [string](#string) |  | 网络错误 |
+| TIMEOUT_ERROR | [string](#string) |  | 超时错误 |
+| SERVICE_UNAVAILABLE | [string](#string) |  | 服务不可用 |
+| TOO_MANY_REQUESTS | [string](#string) |  | 请求过于频繁 |
+| CONFIGURATION_ERROR | [string](#string) |  | 配置错误 |
+| INITIALIZATION_ERROR | [string](#string) |  | 初始化错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UploadErrorMessages"></a>
+
+### UploadErrorMessages
+文件上传相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| UPLOAD_FAILED | [string](#string) |  | 上传失败 |
+| UPLOAD_SIZE_EXCEEDED | [string](#string) |  | 上传大小超限 |
+| UPLOAD_FORMAT_ERROR | [string](#string) |  | 上传格式错误 |
+| UPLOAD_PERMISSION_DENIED | [string](#string) |  | 上传权限不足 |
+| UPLOAD_QUOTA_EXCEEDED | [string](#string) |  | 上传配额超限 |
+| UPLOAD_TYPE_INVALID | [string](#string) |  | 上传类型无效 |
+| UPLOAD_TIMEOUT | [string](#string) |  | 上传超时 |
+| UPLOAD_CORRUPTED | [string](#string) |  | 上传文件损坏 |
+| UPLOAD_STORAGE_ERROR | [string](#string) |  | 上传存储错误 |
+| UPLOAD_PROCESSING_ERROR | [string](#string) |  | 上传处理错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserErrorMessages"></a>
+
+### UserErrorMessages
+用户相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| USER_NOT_FOUND | [string](#string) |  | 用户不存在 |
+| USER_ALREADY_EXISTS | [string](#string) |  | 用户已存在 |
+| USER_NOT_ACTIVE | [string](#string) |  | 用户未激活 |
+| USER_BLOCKED | [string](#string) |  | 用户已封禁 |
+| USER_PROFILE_INCOMPLETE | [string](#string) |  | 用户资料不完整 |
+| USER_OPERATION_DENIED | [string](#string) |  | 用户操作被拒绝 |
+| USER_QUOTA_EXCEEDED | [string](#string) |  | 用户配额超限 |
+| USER_STATUS_ERROR | [string](#string) |  | 用户状态错误 |
+| USER_VERIFICATION_FAILED | [string](#string) |  | 用户验证失败 |
+| USER_ROLE_INVALID | [string](#string) |  | 用户角色无效 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-VIPErrorMessages"></a>
+
+### VIPErrorMessages
+VIP/充值相关错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| VIP_NOT_FOUND | [string](#string) |  | VIP不存在 |
+| VIP_ALREADY_EXISTS | [string](#string) |  | VIP已存在 |
+| VIP_PERMISSION_DENIED | [string](#string) |  | VIP权限不足 |
+| VIP_LOCKED | [string](#string) |  | VIP已锁定 |
+| VIP_STATUS_ERROR | [string](#string) |  | VIP状态错误 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ValidationErrorMessages"></a>
+
+### ValidationErrorMessages
+参数验证错误描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| INVALID_PARAMETER | [string](#string) |  | 无效的参数 |
+| MISSING_PARAMETER | [string](#string) |  | 缺少参数 |
+| INVALID_FORMAT | [string](#string) |  | 格式错误 |
+| INVALID_LENGTH | [string](#string) |  | 长度错误 |
+| INVALID_VALUE | [string](#string) |  | 值错误 |
+| INVALID_TYPE | [string](#string) |  | 类型错误 |
+| INVALID_SYNTAX | [string](#string) |  | 语法错误 |
+| INVALID_ENCODING | [string](#string) |  | 编码错误 |
+| INVALID_OPERATION | [string](#string) |  | 无效的操作 |
+| VALIDATION_FAILED | [string](#string) |  | 验证失败 |
+
+
+
+
+
+ 
+
+
+<a name="rankquantity-voyager-api-ResponseCode"></a>
+
+### ResponseCode
+通用响应状态码
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OK | 0 | 成功 (0)
+
+请求成功 |
+| SYSTEM_ERROR | 1 | 系统级错误 (1-99)
+
+系统错误 |
+| INTERNAL_ERROR | 2 | 内部错误 |
+| DATABASE_ERROR | 3 | 数据库错误 |
+| CACHE_ERROR | 4 | 缓存错误 |
+| NETWORK_ERROR | 5 | 网络错误 |
+| TIMEOUT_ERROR | 6 | 超时错误 |
+| SERVICE_UNAVAILABLE | 7 | 服务不可用 |
+| TOO_MANY_REQUESTS | 8 | 请求过于频繁 |
+| CONFIGURATION_ERROR | 9 | 配置错误 |
+| INITIALIZATION_ERROR | 10 | 初始化错误 |
+| UNAUTHORIZED | 100 | 认证和授权错误 (100-199)
+
+未授权 |
+| TOKEN_EXPIRED | 101 | Token过期 |
+| TOKEN_INVALID | 102 | Token无效 |
+| PERMISSION_DENIED | 103 | 权限不足 |
+| ACCOUNT_NOT_FOUND | 104 | 账号不存在 |
+| WRONG_PASSWORD | 105 | 密码错误 |
+| ACCOUNT_DISABLED | 106 | 账号已禁用 |
+| LOGIN_REQUIRED | 107 | 需要登录 |
+| TOKEN_MISSING | 108 | Token缺失 |
+| SESSION_EXPIRED | 109 | 会话过期 |
+| INVALID_CREDENTIALS | 110 | 无效的凭证 |
+| ACCOUNT_LOCKED | 111 | 账号已锁定 |
+| ACCOUNT_EXPIRED | 112 | 账号已过期 |
+| INVALID_LOGIN_TYPE | 113 | 无效的登录类型 |
+| INVALID_PARAMETER | 200 | 参数验证错误 (200-299)
+
+无效的参数 |
+| MISSING_PARAMETER | 201 | 缺少参数 |
+| INVALID_FORMAT | 202 | 格式错误 |
+| INVALID_LENGTH | 203 | 长度错误 |
+| INVALID_VALUE | 204 | 值错误 |
+| INVALID_TYPE | 205 | 类型错误 |
+| INVALID_SYNTAX | 206 | 语法错误 |
+| INVALID_ENCODING | 207 | 编码错误 |
+| INVALID_OPERATION | 208 | 无效的操作 |
+| VALIDATION_FAILED | 209 | 验证失败 |
+| RESOURCE_NOT_FOUND | 300 | 资源错误 (300-399)
+
+资源不存在 |
+| RESOURCE_ALREADY_EXISTS | 301 | 资源已存在 |
+| RESOURCE_EXPIRED | 302 | 资源已过期 |
+| RESOURCE_EXHAUSTED | 303 | 资源耗尽 |
+| RESOURCE_BUSY | 304 | 资源忙碌 |
+| RESOURCE_LOCKED | 305 | 资源已锁定 |
+| RESOURCE_UNAVAILABLE | 306 | 资源不可用 |
+| RESOURCE_QUOTA_EXCEEDED | 307 | 资源配额超限 |
+| RESOURCE_CORRUPTED | 308 | 资源已损坏 |
+| USER_NOT_FOUND | 400 | 用户相关错误 (400-499)
+
+用户不存在 |
+| USER_ALREADY_EXISTS | 401 | 用户已存在 |
+| USER_NOT_ACTIVE | 402 | 用户未激活 |
+| USER_BLOCKED | 403 | 用户已封禁 |
+| USER_PROFILE_INCOMPLETE | 404 | 用户资料不完整 |
+| USER_OPERATION_DENIED | 405 | 用户操作被拒绝 |
+| USER_QUOTA_EXCEEDED | 406 | 用户配额超限 |
+| USER_STATUS_ERROR | 407 | 用户状态错误 |
+| USER_VERIFICATION_FAILED | 408 | 用户验证失败 |
+| USER_ROLE_INVALID | 409 | 用户角色无效 |
+| GROUP_NOT_FOUND | 500 | 组织相关错误 (500-599)
+
+组织不存在 |
+| GROUP_ALREADY_EXISTS | 501 | 组织已存在 |
+| NOT_GROUP_MEMBER | 502 | 非组织成员 |
+| GROUP_PERMISSION_DENIED | 503 | 组织权限不足 |
+| GROUP_FULL | 504 | 组织人数已满 |
+| GROUP_CLOSED | 505 | 组织已关闭 |
+| GROUP_OPERATION_DENIED | 506 | 组织操作被拒绝 |
+| GROUP_STATUS_ERROR | 507 | 组织状态错误 |
+| GROUP_TYPE_INVALID | 508 | 组织类型无效 |
+| GROUP_QUOTA_EXCEEDED | 509 | 组织配额超限 |
+| PROJECT_NOT_FOUND | 600 | 项目相关错误 (600-699)
+
+项目不存在 |
+| PROJECT_ALREADY_EXISTS | 601 | 项目已存在 |
+| PROJECT_PERMISSION_DENIED | 602 | 项目权限不足 |
+| PROJECT_CLOSED | 603 | 项目已关闭 |
+| PROJECT_ARCHIVED | 604 | 项目已归档 |
+| PROJECT_FULL | 605 | 项目已满 |
+| PROJECT_STATUS_ERROR | 606 | 项目状态错误 |
+| PROJECT_TYPE_INVALID | 607 | 项目类型无效 |
+| PROJECT_OPERATION_DENIED | 608 | 项目操作被拒绝 |
+| PROJECT_QUOTA_EXCEEDED | 609 | 项目配额超限 |
+| STORY_NOT_FOUND | 700 | 故事相关错误 (700-799)
+
+故事不存在 |
+| STORY_ALREADY_EXISTS | 701 | 故事已存在 |
+| STORY_PERMISSION_DENIED | 702 | 故事权限不足 |
+| STORY_LOCKED | 703 | 故事已锁定 |
+| STORY_ARCHIVED | 704 | 故事已归档 |
+| STORY_STATUS_ERROR | 705 | 故事状态错误 |
+| STORY_VERSION_ERROR | 706 | 故事版本错误 |
+| STORY_CONTENT_ERROR | 707 | 故事内容错误 |
+| STORY_OPERATION_DENIED | 708 | 故事操作被拒绝 |
+| STORY_GENERATION_FAILED | 709 | 故事生成失败 |
+| STORYBOARD_NOT_FOUND | 800 | 故事板相关错误 (800-899)
+
+故事板不存在 |
+| STORYBOARD_ALREADY_EXISTS | 801 | 故事板已存在 |
+| STORYBOARD_PERMISSION_DENIED | 802 | 故事板权限不足 |
+| STORYBOARD_RENDER_ERROR | 803 | 故事板渲染错误 |
+| STORYBOARD_LOCKED | 804 | 故事板已锁定 |
+| STORYBOARD_STATUS_ERROR | 805 | 故事板状态错误 |
+| STORYBOARD_VERSION_ERROR | 806 | 故事板版本错误 |
+| STORYBOARD_SCENE_ERROR | 807 | 故事板场景错误 |
+| STORYBOARD_GENERATION_FAILED | 808 | 故事板生成失败 |
+| STORYBOARD_OPERATION_DENIED | 809 | 故事板操作被拒绝 |
+| ROLE_NOT_FOUND | 900 | 角色相关错误 (900-999)
+
+角色不存在 |
+| ROLE_ALREADY_EXISTS | 901 | 角色已存在 |
+| ROLE_PERMISSION_DENIED | 902 | 角色权限不足 |
+| ROLE_RENDER_ERROR | 903 | 角色渲染错误 |
+| ROLE_LOCKED | 904 | 角色已锁定 |
+| ROLE_STATUS_ERROR | 905 | 角色状态错误 |
+| ROLE_TYPE_INVALID | 906 | 角色类型无效 |
+| ROLE_QUOTA_EXCEEDED | 907 | 角色配额超限 |
+| ROLE_GENERATION_FAILED | 908 | 角色生成失败 |
+| ROLE_OPERATION_DENIED | 909 | 角色操作被拒绝 |
+| CONTENT_NOT_FOUND | 1000 | 内容相关错误 (1000-1099)
+
+内容不存在 |
+| CONTENT_ALREADY_EXISTS | 1001 | 内容已存在 |
+| CONTENT_PERMISSION_DENIED | 1002 | 内容权限不足 |
+| CONTENT_TYPE_INVALID | 1003 | 内容类型无效 |
+| CONTENT_SIZE_EXCEEDED | 1004 | 内容大小超限 |
+| CONTENT_FORMAT_ERROR | 1005 | 内容格式错误 |
+| CONTENT_LOCKED | 1006 | 内容已锁定 |
+| CONTENT_EXPIRED | 1007 | 内容已过期 |
+| CONTENT_CORRUPTED | 1008 | 内容已损坏 |
+| CONTENT_OPERATION_DENIED | 1009 | 内容操作被拒绝 |
+| OPERATION_FAILED | 1100 | 操作相关错误 (1100-1199)
+
+操作失败 |
+| OPERATION_TIMEOUT | 1101 | 操作超时 |
+| OPERATION_CANCELLED | 1102 | 操作已取消 |
+| OPERATION_NOT_SUPPORTED | 1103 | 操作不支持 |
+| OPERATION_IN_PROGRESS | 1104 | 操作进行中 |
+| OPERATION_ABORTED | 1105 | 操作已中止 |
+| OPERATION_REJECTED | 1106 | 操作被拒绝 |
+| OPERATION_INVALID | 1107 | 操作无效 |
+| OPERATION_CONFLICT | 1108 | 操作冲突 |
+| OPERATION_TOO_FREQUENT | 1109 | 操作过于频繁 |
+| RATE_LIMIT_EXCEEDED | 1200 | 限制相关错误 (1200-1299)
+
+速率限制超限 |
+| QUOTA_EXCEEDED | 1201 | 配额超限 |
+| SIZE_LIMIT_EXCEEDED | 1202 | 大小限制超限 |
+| TIME_LIMIT_EXCEEDED | 1203 | 时间限制超限 |
+| FREQUENCY_LIMIT_EXCEEDED | 1204 | 频率限制超限 |
+| CONCURRENT_LIMIT_EXCEEDED | 1205 | 并发限制超限 |
+| STORAGE_LIMIT_EXCEEDED | 1206 | 存储限制超限 |
+| BANDWIDTH_LIMIT_EXCEEDED | 1207 | 带宽限制超限 |
+| REQUEST_LIMIT_EXCEEDED | 1208 | 请求限制超限 |
+| USER_LIMIT_EXCEEDED | 1209 | 用户限制超限 |
+| AI_GENERATION_FAILED | 1300 | AI生成相关错误 (1300-1399)
+
+AI生成失败 |
+| AI_SERVICE_UNAVAILABLE | 1301 | AI服务不可用 |
+| AI_QUOTA_EXCEEDED | 1302 | AI配额超限 |
+| AI_MODEL_ERROR | 1303 | AI模型错误 |
+| AI_PARAMETER_ERROR | 1304 | AI参数错误 |
+| AI_CONTENT_ERROR | 1305 | AI内容错误 |
+| AI_TIMEOUT | 1306 | AI处理超时 |
+| AI_RATE_LIMITED | 1307 | AI速率受限 |
+| AI_CONTEXT_ERROR | 1308 | AI上下文错误 |
+| AI_RESPONSE_ERROR | 1309 | AI响应错误 |
+| COMMENT_NOT_FOUND | 1400 | 评论相关错误 (1400-1499)
+
+评论不存在 |
+| COMMENT_ALREADY_EXISTS | 1401 | 评论已存在 |
+| COMMENT_PERMISSION_DENIED | 1402 | 评论权限不足 |
+| COMMENT_LOCKED | 1403 | 评论已锁定 |
+| COMMENT_STATUS_ERROR | 1404 | 评论状态错误 |
+| LIKE_NOT_FOUND | 1500 | 点赞相关错误 (1500-1599)
+
+点赞不存在 |
+| LIKE_ALREADY_EXISTS | 1501 | 点赞已存在 |
+| LIKE_PERMISSION_DENIED | 1502 | 点赞权限不足 |
+| LIKE_LOCKED | 1503 | 点赞已锁定 |
+| LIKE_STATUS_ERROR | 1504 | 点赞状态错误 |
+| VIP_NOT_FOUND | 1600 | VIP\充值相关错误 (1600-1699)
+
+VIP不存在 |
+| VIP_ALREADY_EXISTS | 1601 | VIP已存在 |
+| VIP_PERMISSION_DENIED | 1602 | VIP权限不足 |
+| VIP_LOCKED | 1603 | VIP已锁定 |
+| VIP_STATUS_ERROR | 1604 | VIP状态错误 |
+| PAYMENT_NOT_FOUND | 1700 | 支付相关错误 (1700-1799)
+
+支付不存在 |
+| PAYMENT_ALREADY_EXISTS | 1701 | 支付已存在 |
+| PAYMENT_PERMISSION_DENIED | 1702 | 支付权限不足 |
+| PAYMENT_LOCKED | 1703 | 支付已锁定 |
+| PAYMENT_STATUS_ERROR | 1704 | 支付状态错误 |
+| ORDER_NOT_FOUND | 1800 | 订单相关错误 (1800-1899)
+
+订单不存在 |
+| ORDER_ALREADY_EXISTS | 1801 | 订单已存在 |
+| ORDER_PERMISSION_DENIED | 1802 | 订单权限不足 |
+| ORDER_LOCKED | 1803 | 订单已锁定 |
+| ORDER_STATUS_ERROR | 1804 | 订单状态错误 |
+| MESSAGE_NOT_FOUND | 1900 | 消息相关错误 (1900-1999)
+
+消息不存在 |
+| MESSAGE_ALREADY_EXISTS | 1901 | 消息已存在 |
+| MESSAGE_PERMISSION_DENIED | 1902 | 消息权限不足 |
+| MESSAGE_LOCKED | 1903 | 消息已锁定 |
+| MESSAGE_STATUS_ERROR | 1904 | 消息状态错误 |
+| CHAT_NOT_FOUND | 2000 | 聊天相关错误 (2000-2099)
+
+聊天不存在 |
+| CHAT_ALREADY_EXISTS | 2001 | 聊天已存在 |
+| CHAT_PERMISSION_DENIED | 2002 | 聊天权限不足 |
+| CHAT_LOCKED | 2003 | 聊天已锁定 |
+| CHAT_STATUS_ERROR | 2004 | 聊天状态错误 |
+| CHAT_MESSAGE_ERROR | 2005 | 聊天消息错误 |
+| CHAT_CONTEXT_ERROR | 2006 | 聊天上下文错误 |
+| CHAT_STREAM_ERROR | 2007 | 聊天流错误 |
+| CHAT_TIMEOUT | 2008 | 聊天超时 |
+| CHAT_RATE_LIMITED | 2009 | 聊天频率限制 |
+| UPLOAD_FAILED | 2100 | 文件上传相关错误 (2100-2199)
+
+上传失败 |
+| UPLOAD_SIZE_EXCEEDED | 2101 | 上传大小超限 |
+| UPLOAD_FORMAT_ERROR | 2102 | 上传格式错误 |
+| UPLOAD_PERMISSION_DENIED | 2103 | 上传权限不足 |
+| UPLOAD_QUOTA_EXCEEDED | 2104 | 上传配额超限 |
+| UPLOAD_TYPE_INVALID | 2105 | 上传类型无效 |
+| UPLOAD_TIMEOUT | 2106 | 上传超时 |
+| UPLOAD_CORRUPTED | 2107 | 上传文件损坏 |
+| UPLOAD_STORAGE_ERROR | 2108 | 上传存储错误 |
+| UPLOAD_PROCESSING_ERROR | 2109 | 上传处理错误 |
+| SEARCH_FAILED | 2200 | 搜索相关错误 (2200-2299)
+
+搜索失败 |
+| SEARCH_PARAMETER_ERROR | 2201 | 搜索参数错误 |
+| SEARCH_TIMEOUT | 2202 | 搜索超时 |
+| SEARCH_PERMISSION_DENIED | 2203 | 搜索权限不足 |
+| SEARCH_QUOTA_EXCEEDED | 2204 | 搜索配额超限 |
+| SEARCH_INDEX_ERROR | 2205 | 搜索索引错误 |
+| SEARCH_RESULT_ERROR | 2206 | 搜索结果错误 |
+| SEARCH_FILTER_ERROR | 2207 | 搜索过滤错误 |
+| SEARCH_SORT_ERROR | 2208 | 搜索排序错误 |
+| SEARCH_SCOPE_ERROR | 2209 | 搜索范围错误 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="group-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## group.proto
+
+
+
+<a name="rankquantity-voyager-api-GroupInfo"></a>
+
+### GroupInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+| creator | [int64](#int64) |  |  |
+| owner | [int64](#int64) |  |  |
+| tags | [Tags](#rankquantity-voyager-api-Tags) | repeated |  |
+| location | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| profile | [GroupProfileInfo](#rankquantity-voyager-api-GroupProfileInfo) |  |  |
+| members | [GroupMemberInfo](#rankquantity-voyager-api-GroupMemberInfo) | repeated |  |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GroupMemberInfo"></a>
+
+### GroupMemberInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+| member_type | [GroupMemberType](#rankquantity-voyager-api-GroupMemberType) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GroupProfileInfo"></a>
+
+### GroupProfileInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| group_member_num | [int32](#int32) |  |  |
+| group_follower_num | [int32](#int32) |  |  |
+| group_story_num | [int32](#int32) |  |  |
+| description | [string](#string) |  |  |
+| backgroud_url | [string](#string) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="rankquantity-voyager-api-GroupMemberType"></a>
+
+### GroupMemberType
+群组成员类型枚举
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| GROUP_MEMBER_TYPE_NORMAL_UNSPECIFIED | 0 | 未指定的普通成员类型（默认值） |
+| GROUP_MEMBER_TYPE_CREATOR | 1 | 群组创建者，拥有最高权限 |
+| GROUP_MEMBER_TYPE_MAINTAINER | 2 | 群组管理员，负责群组维护和管理 |
+| GROUP_MEMBER_TYPE_CONTRIBUTOR | 3 | 贡献者，可以参与群组内容创作 |
+| GROUP_MEMBER_TYPE_MEMBER | 4 | 普通成员，可以查看和参与群组活动 |
+| GROUP_MEMBER_TYPE_BANNED | 5 | 被禁言的成员，无法发言但可以查看内容 |
+| GROUP_MEMBER_TYPE_INVITED | 6 | 被邀请但尚未加入的成员 |
+| GROUP_MEMBER_TYPE_REJECTED | 7 | 拒绝加入群组的用户 |
+| GROUP_MEMBER_TYPE_PENDING | 8 | 等待审核的成员申请 |
+| GROUP_MEMBER_TYPE_LEAVE | 9 | 主动离开群组的成员 |
+| GROUP_MEMBER_TYPE_KICKED | 10 | 被踢出群组的成员 |
+| GROUP_MEMBER_TYPE_DELETED | 11 | 已删除的成员记录 |
+
+
+
+<a name="rankquantity-voyager-api-GroupType"></a>
+
+### GroupType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| PROTECT | 0 | 小组内创建，但是小组外可见但是不可以fork |
+| PUBLIC | 1 | 小组内外可见，小组外可以操作fork |
+| PRIVATE | 2 | 仅小组内可见，小组外不可以fork |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="item-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## item.proto
+
+
+
+<a name="rankquantity-voyager-api-ItemDetail"></a>
+
+### ItemDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| word | [WordDetail](#rankquantity-voyager-api-WordDetail) |  |  |
+| pictures | [PictureDetail](#rankquantity-voyager-api-PictureDetail) |  |  |
+| video | [VideoDetail](#rankquantity-voyager-api-VideoDetail) |  |  |
+| music | [MusicShareDetail](#rankquantity-voyager-api-MusicShareDetail) |  |  |
+| voice | [VoiceDetail](#rankquantity-voyager-api-VoiceDetail) |  |  |
+| share | [ShareDetail](#rankquantity-voyager-api-ShareDetail) |  |  |
+| locate | [Location](#rankquantity-voyager-api-Location) |  |  |
+| title | [string](#string) |  |  |
+| prevId | [string](#string) |  |  |
+| loc | [Location](#rankquantity-voyager-api-Location) |  |  |
+| is_origin | [bool](#bool) |  |  |
+| ref | [int64](#int64) |  |  |
+| root_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ItemInfo"></a>
+
+### ItemInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| project_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| title | [string](#string) |  |  |
+| content | [ItemDetail](#rankquantity-voyager-api-ItemDetail) |  |  |
+| itype | [ItemType](#rankquantity-voyager-api-ItemType) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-Location"></a>
+
+### Location
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| country | [string](#string) |  |  |
+| province | [string](#string) |  |  |
+| city | [string](#string) |  |  |
+| district | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-MusicShareDetail"></a>
+
+### MusicShareDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_url | [string](#string) |  |  |
+| source | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-PictureDetail"></a>
+
+### PictureDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [PictureInfo](#rankquantity-voyager-api-PictureInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-PictureInfo"></a>
+
+### PictureInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_url | [string](#string) |  |  |
+| size | [int64](#int64) |  |  |
+| num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ShareDetail"></a>
+
+### ShareDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_url | [string](#string) |  |  |
+| source | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-VideoDetail"></a>
+
+### VideoDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [VideoInfo](#rankquantity-voyager-api-VideoInfo) | repeated |  |
+| num | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-VideoInfo"></a>
+
+### VideoInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_url | [string](#string) |  |  |
+| size | [int64](#int64) |  |  |
+| time_length | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-VoiceDetail"></a>
+
+### VoiceDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_url | [string](#string) |  |  |
+| size | [int64](#int64) |  |  |
+| time_length | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-WordDetail"></a>
+
+### WordDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) |  |  |
+| length | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="user-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## user.proto
+
+
+
+<a name="rankquantity-voyager-api-UserInfo"></a>
+
+### UserInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| avatar | [string](#string) |  |  |
+| email | [string](#string) |  |  |
+| location | [string](#string) |  |  |
+| desc | [string](#string) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserPrivate"></a>
+
+### UserPrivate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| connect_type | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UserProfileInfo"></a>
+
+### UserProfileInfo
+用户的 profile
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| num_group | [int32](#int32) |  |  |
+| default_group_id | [int64](#int64) |  |  |
+| min_same_group | [int32](#int32) |  |  |
+| limit | [int32](#int32) |  |  |
+| used_tokens | [int32](#int32) |  |  |
+| status | [int32](#int32) |  |  |
+| created_group_num | [int32](#int32) |  |  |
+| created_story_num | [int32](#int32) |  |  |
+| created_role_num | [int32](#int32) |  |  |
+| watching_story_num | [int32](#int32) |  |  |
+| watching_group_num | [int32](#int32) |  |  |
+| contribut_story_num | [int32](#int32) |  |  |
+| contribut_role_num | [int32](#int32) |  |  |
+| background_image | [string](#string) |  |  |
+| num_followers | [int32](#int32) |  |  |
+| num_following | [int32](#int32) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="story-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## story.proto
+
+
+
+<a name="rankquantity-voyager-api-ChapterDetailInformation"></a>
+
+### ChapterDetailInformation
+ChapterDetailInformation 包含多个详细情节
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| details | [DetailScene](#rankquantity-voyager-api-DetailScene) | repeated | 详细情节列表 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ChapterInfo"></a>
+
+### ChapterInfo
+ChapterInfo 表示单个章节的信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ChapterSummary"></a>
+
+### ChapterSummary
+ChapterSummary 表示章节的基本信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| title | [string](#string) |  | 章节题目 |
+| content | [string](#string) |  | 章节内容 |
+| characters | [Character](#rankquantity-voyager-api-Character) | repeated | 参与人物 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-Character"></a>
+
+### Character
+Character 表示角色信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 角色id |
+| name | [string](#string) |  | 角色姓名 |
+| description | [string](#string) |  | 角色描述 |
+| avatar_url | [string](#string) |  | 角色头像 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CharacterDetail"></a>
+
+### CharacterDetail
+CharacterDetail represents detailed information about a character in a story
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| description | [string](#string) |  | Description of the character&#39;s overall appearance and basic traits |
+| short_term_goal | [string](#string) |  | Character&#39;s immediate objectives and goals in the current story arc |
+| long_term_goal | [string](#string) |  | Character&#39;s overarching ambitions and long-term aspirations |
+| personality | [string](#string) |  | Character&#39;s personality traits, temperament, and behavioral patterns |
+| background | [string](#string) |  | Character&#39;s history, origin story, and formative experiences |
+| handling_style | [string](#string) |  | Character&#39;s approach to handling situations and solving problems |
+| cognition_range | [string](#string) |  | Character&#39;s knowledge, understanding, and awareness of their world |
+| ability_features | [string](#string) |  | Character&#39;s special skills, talents, and unique capabilities |
+| appearance | [string](#string) |  | Character&#39;s physical appearance and distinguishing features |
+| dress_preference | [string](#string) |  | Character&#39;s clothing preferences and style choices |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ContinueRenderStoryRequest"></a>
+
+### ContinueRenderStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ContinueRenderStoryResponse"></a>
+
+### ContinueRenderStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceRequest"></a>
+
+### CreateStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceResponse"></a>
+
+### CreateStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [CreateStoryBoardSenceResponse.Data](#rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryBoardSenceResponse-Data"></a>
+
+### CreateStoryBoardSenceResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryRequest"></a>
+
+### CreateStoryRequest
+CreateStoryRequest 创建故事的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | 故事名称 |
+| title | [string](#string) |  | 故事标题 |
+| short_desc | [string](#string) |  | 简短描述 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| owner_id | [int64](#int64) |  | 所有者ID |
+| group_id | [int64](#int64) |  | 组织ID |
+| origin | [string](#string) |  | 来源 |
+| status | [int32](#int32) |  | 状态 |
+| is_achieve | [bool](#bool) |  | 是否归档 |
+| is_close | [bool](#bool) |  | 是否关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否AI生成 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 角色列表 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryResponse"></a>
+
+### CreateStoryResponse
+CreateStoryResponse 创建故事的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [CreateStoryResponse.Data](#rankquantity-voyager-api-CreateStoryResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryResponse-Data"></a>
+
+### CreateStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int32](#int32) |  | 故事ID |
+| board_id | [int32](#int32) |  | 故事板ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryboardRequest"></a>
+
+### CreateStoryboardRequest
+CreateStoryboardRequest 创建故事板的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  | 故事板信息 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryboardResponse"></a>
+
+### CreateStoryboardResponse
+CreateStoryboardResponse 创建故事板的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [CreateStoryboardResponse.Data](#rankquantity-voyager-api-CreateStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-CreateStoryboardResponse-Data"></a>
+
+### CreateStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  | 故事板ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DelStoryboardRequest"></a>
+
+### DelStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DelStoryboardResponse"></a>
+
+### DelStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DeleteStoryBoardSenceRequest"></a>
+
+### DeleteStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DeleteStoryBoardSenceResponse"></a>
+
+### DeleteStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-DetailScene"></a>
+
+### DetailScene
+DetailScene 表示具体的场景信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 情节id |
+| content | [string](#string) |  | 情节内容 |
+| characters | [Character](#rankquantity-voyager-api-Character) | repeated | 参与人物 |
+| image_prompt | [string](#string) |  | 图片提示词 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-FetchGroupStorysRequest"></a>
+
+### FetchGroupStorysRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| page | [int32](#int32) |  |  |
+| page_size | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-FetchGroupStorysResponse"></a>
+
+### FetchGroupStorysResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [FetchGroupStorysResponse.Data](#rankquantity-voyager-api-FetchGroupStorysResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-FetchGroupStorysResponse-Data"></a>
+
+### FetchGroupStorysResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [Story](#rankquantity-voyager-api-Story) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
+| total | [int64](#int64) |  |  |
+| have_more | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ForkStoryboardRequest"></a>
+
+### ForkStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| prev_board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| board | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ForkStoryboardResponse"></a>
+
+### ForkStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [ForkStoryboardResponse.Data](#rankquantity-voyager-api-ForkStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ForkStoryboardResponse-Data"></a>
+
+### ForkStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| timeline_id | [int64](#int64) |  |  |
+| prev_board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GenStoryboardImagesRequest"></a>
+
+### GenStoryboardImagesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| sence_id | [int32](#int32) |  |  |
+| sence_name_key | [string](#string) |  |  |
+| prompt | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GenStoryboardImagesResponse"></a>
+
+### GenStoryboardImagesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GenStoryboardTextRequest"></a>
+
+### GenStoryboardTextRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| prompt | [string](#string) |  |  |
+| title | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| sence_num | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GenStoryboardTextResponse"></a>
+
+### GenStoryboardTextResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardGenerateRequest"></a>
+
+### GetStoryBoardGenerateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardGenerateResponse"></a>
+
+### GetStoryBoardGenerateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRenderRequest"></a>
+
+### GetStoryBoardRenderRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| render_status | [int32](#int32) |  |  |
+| render_type | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRenderResponse"></a>
+
+### GetStoryBoardRenderResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardRenderResponse.Data](#rankquantity-voyager-api-GetStoryBoardRenderResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRenderResponse-Data"></a>
+
+### GetStoryBoardRenderResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRolesRequest"></a>
+
+### GetStoryBoardRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRolesResponse"></a>
+
+### GetStoryBoardRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardRolesResponse.Data](#rankquantity-voyager-api-GetStoryBoardRolesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardRolesResponse-Data"></a>
+
+### GetStoryBoardRolesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardSenceGenerateRequest"></a>
+
+### GetStoryBoardSenceGenerateRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardSenceGenerateResponse"></a>
+
+### GetStoryBoardSenceGenerateResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| data | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardSencesRequest"></a>
+
+### GetStoryBoardSencesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardSencesResponse"></a>
+
+### GetStoryBoardSencesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryBoardSencesResponse.Data](#rankquantity-voyager-api-GetStoryBoardSencesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryBoardSencesResponse-Data"></a>
+
+### GetStoryBoardSencesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryInfoRequest"></a>
+
+### GetStoryInfoRequest
+GetStoryInfoRequest 获取故事信息的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 故事ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryInfoResponse"></a>
+
+### GetStoryInfoResponse
+GetStoryInfoResponse 获取故事信息的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [GetStoryInfoResponse.Data](#rankquantity-voyager-api-GetStoryInfoResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryInfoResponse-Data"></a>
+
+### GetStoryInfoResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| info | [Story](#rankquantity-voyager-api-Story) |  | 故事信息 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRenderRequest"></a>
+
+### GetStoryRenderRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| render_status | [int32](#int32) |  |  |
+| render_type | [int32](#int32) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRenderResponse"></a>
+
+### GetStoryRenderResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryRenderResponse.Data](#rankquantity-voyager-api-GetStoryRenderResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRenderResponse-Data"></a>
+
+### GetStoryRenderResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRolesRequest"></a>
+
+### GetStoryRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRolesResponse"></a>
+
+### GetStoryRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [GetStoryRolesResponse.Data](#rankquantity-voyager-api-GetStoryRolesResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryRolesResponse-Data"></a>
+
+### GetStoryRolesResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardRequest"></a>
+
+### GetStoryboardRequest
+GetStoryboardRequest 获取故事板的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  | 故事板ID |
+| user_id | [int64](#int64) |  | 用户ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardResponse"></a>
+
+### GetStoryboardResponse
+GetStoryboardResponse 获取故事板的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [GetStoryboardResponse.Data](#rankquantity-voyager-api-GetStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardResponse-Data"></a>
+
+### GetStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_info | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) |  | 故事板活动信息 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardsRequest"></a>
+
+### GetStoryboardsRequest
+GetStoryboardsRequest 获取故事板列表的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 故事ID |
+| timeline_id | [int64](#int64) |  | 时间线ID |
+| start_time | [int64](#int64) |  | 开始时间 |
+| end_time | [int64](#int64) |  | 结束时间 |
+| user_id | [int64](#int64) |  | 用户ID |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| page | [int32](#int32) |  | 页码 |
+| page_size | [int32](#int32) |  | 每页大小 |
+| order_by | [MultiBranchOrderBy](#rankquantity-voyager-api-MultiBranchOrderBy) |  | 排序方式 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardsResponse"></a>
+
+### GetStoryboardsResponse
+GetStoryboardsResponse 获取故事板列表的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [GetStoryboardsResponse.Data](#rankquantity-voyager-api-GetStoryboardsResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardsResponse-Data"></a>
+
+### GetStoryboardsResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| list | [StoryBoardActive](#rankquantity-voyager-api-StoryBoardActive) | repeated | 故事板活动列表 |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| total | [int64](#int64) |  | 总数 |
+| offset | [int64](#int64) |  | 偏移量 |
+| page_size | [int64](#int64) |  | 每页大小 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-LikeStoryboardRequest"></a>
+
+### LikeStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-LikeStoryboardResponse"></a>
+
+### LikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [LikeStoryboardResponse.Data](#rankquantity-voyager-api-LikeStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-LikeStoryboardResponse-Data"></a>
+
+### LikeStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| like_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-QueryTaskStatusRequest"></a>
+
+### QueryTaskStatusRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  | 故事板ID |
+| user_id | [int64](#int64) |  | 用户ID |
+| story_id | [int64](#int64) |  | 故事ID |
+| sence_id | [int64](#int64) |  | 场景ID |
+| role_id | [int64](#int64) |  | 角色ID |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  | 渲染类型 |
+| TaskId | [string](#string) |  | 任务ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-QueryTaskStatusResponse"></a>
+
+### QueryTaskStatusResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [QueryTaskStatusResponse.Data](#rankquantity-voyager-api-QueryTaskStatusResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-QueryTaskStatusResponse-Data"></a>
+
+### QueryTaskStatusResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  |  |
+| dashscope_task_status | [DashScopeTaskStatus](#rankquantity-voyager-api-DashScopeTaskStatus) |  |  |
+| render_storyboard_detail | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+| render_story_detail | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) |  |  |
+| render_storyboard_sence_list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
+| render_story_role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryBoardSenceRequest"></a>
+
+### RenderStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryBoardSenceResponse"></a>
+
+### RenderStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| data | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryBoardSencesRequest"></a>
+
+### RenderStoryBoardSencesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  |  |
+| board_id | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryBoardSencesResponse"></a>
+
+### RenderStoryBoardSencesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| generating_stage | [int32](#int32) |  |  |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryDetail"></a>
+
+### RenderStoryDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| urls | [string](#string) | repeated |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| result | [StoryInfo](#rankquantity-voyager-api-StoryInfo) |  |  |
+| timecost | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryRequest"></a>
+
+### RenderStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+| board_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryResponse"></a>
+
+### RenderStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [RenderStoryDetail](#rankquantity-voyager-api-RenderStoryDetail) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryRoleDetailRequest"></a>
+
+### RenderStoryRoleDetailRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+| prompt | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryRoleDetailResponse"></a>
+
+### RenderStoryRoleDetailResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryRolesRequest"></a>
+
+### RenderStoryRolesRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| prompt | [string](#string) |  |  |
+| background | [string](#string) |  |  |
+| params | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryRolesResponse"></a>
+
+### RenderStoryRolesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| list | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryStructureValue"></a>
+
+### RenderStoryStructureValue
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| urls | [string](#string) | repeated |  |
+| value | [int32](#int32) |  |  |
+| nums | [int32](#int32) |  |  |
+| extra | [RenderStoryStructureValue.ExtraEntry](#rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryStructureValue-ExtraEntry"></a>
+
+### RenderStoryStructureValue.ExtraEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryboardDetail"></a>
+
+### RenderStoryboardDetail
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| urls | [string](#string) | repeated |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+| result | [StoryChapter](#rankquantity-voyager-api-StoryChapter) |  |  |
+| timecost | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryboardRequest"></a>
+
+### RenderStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| is_regenerate | [bool](#bool) |  |  |
+| render_type | [RenderType](#rankquantity-voyager-api-RenderType) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-RenderStoryboardResponse"></a>
+
+### RenderStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [RenderStoryboardDetail](#rankquantity-voyager-api-RenderStoryboardDetail) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ShareStoryboardRequest"></a>
+
+### ShareStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ShareStoryboardResponse"></a>
+
+### ShareStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [ShareStoryboardResponse.Data](#rankquantity-voyager-api-ShareStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ShareStoryboardResponse-Data"></a>
+
+### ShareStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| share_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-Story"></a>
+
+### Story
+Story 表示一个完整的故事实体
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  | 故事唯一标识符 |
+| group_id | [int64](#int64) |  | 所属组织ID |
+| name | [string](#string) |  | 故事名称 |
+| avatar | [string](#string) |  | 故事头像 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| owner_id | [int64](#int64) |  | 所有者ID |
+| tags | [Tags](#rankquantity-voyager-api-Tags) | repeated | 故事标签列表 |
+| visable | [ScopeType](#rankquantity-voyager-api-ScopeType) |  | 可见范围 |
+| is_achieve | [bool](#bool) |  | 是否已归档 |
+| is_close | [bool](#bool) |  | 是否已关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
+| origin | [string](#string) |  | 故事来源 |
+| root_board_id | [int64](#int64) |  | 根故事板ID |
+| desc | [string](#string) |  | 故事描述 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
+| status | [int32](#int32) |  | 故事状态 |
+| title | [string](#string) |  | 故事标题 |
+| isliked | [bool](#bool) |  | 当前用户是否点赞 |
+| iswatched | [bool](#bool) |  | 当前用户是否关注 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
+| like_count | [int64](#int64) |  | 点赞数 |
+| comment_count | [int64](#int64) |  | 评论数 |
+| share_count | [int64](#int64) |  | 分享数 |
+| follow_count | [int64](#int64) |  | 关注数 |
+| total_boards | [int64](#int64) |  | 故事板总数 |
+| total_roles | [int64](#int64) |  | 角色总数 |
+| total_members | [int64](#int64) |  | 成员总数 |
+| cover | [string](#string) |  | 封面 |
+| sence_num | [int64](#int64) |  | 场景数量 |
+| style | [string](#string) |  | 风格 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoard"></a>
+
+### StoryBoard
+StoryBoard 表示故事中的一个场景或章节
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 所属故事ID |
+| num | [int64](#int64) |  | 序号 |
+| prev_board_id | [int64](#int64) |  | 前一个故事板ID |
+| next_board_id | [int64](#int64) | repeated | 下一个故事板ID列表 |
+| creator | [int64](#int64) |  | 创建者ID |
+| story_board_id | [int64](#int64) |  | 故事板ID |
+| title | [string](#string) |  | 标题 |
+| content | [string](#string) |  | 内容 |
+| is_ai_gen | [bool](#bool) |  | 是否由AI生成 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 相关角色列表 |
+| backgroud | [string](#string) |  | 背景 |
+| params | [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams) |  | 故事板参数 |
+| sences | [StoryBoardSences](#rankquantity-voyager-api-StoryBoardSences) |  | 场景列表 |
+| is_multi_branch | [bool](#bool) |  | 是否多分支 |
+| stage | [StoryboardStage](#rankquantity-voyager-api-StoryboardStage) |  | 故事板阶段 |
+| ForkNum | [int64](#int64) |  |  |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardActive"></a>
+
+### StoryBoardActive
+StoryBoardActive 故事板活动信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| storyboard | [StoryBoard](#rankquantity-voyager-api-StoryBoard) |  | 故事板信息 |
+| total_like_count | [int64](#int64) |  | 总点赞数 |
+| total_comment_count | [int64](#int64) |  | 总评论数 |
+| total_share_count | [int64](#int64) |  | 总分享数 |
+| total_render_count | [int64](#int64) |  | 总渲染数 |
+| total_fork_count | [int64](#int64) |  | 总分叉数 |
+| users | [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser) | repeated | 用户列表 |
+| roles | [StoryBoardActiveRole](#rankquantity-voyager-api-StoryBoardActiveRole) | repeated | 角色列表 |
+| creator | [StoryBoardActiveUser](#rankquantity-voyager-api-StoryBoardActiveUser) |  | 创建者信息 |
+| summary | [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo) |  | 摘要信息 |
+| isliked | [bool](#bool) |  | 是否点赞 |
+| mtime | [int64](#int64) |  | 修改时间 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardActiveRole"></a>
+
+### StoryBoardActiveRole
+StoryBoardActiveRole 故事板活动中的角色信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  | 角色ID |
+| role_name | [string](#string) |  | 角色名称 |
+| role_avatar | [string](#string) |  | 角色头像 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardActiveUser"></a>
+
+### StoryBoardActiveUser
+StoryBoardActiveUser 故事板活动中的用户信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int64](#int64) |  | 用户ID |
+| user_name | [string](#string) |  | 用户名称 |
+| user_avatar | [string](#string) |  | 用户头像 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardParams"></a>
+
+### StoryBoardParams
+StoryBoardParams 包含故事板渲染的相关参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  | 故事板ID |
+| StoryDescription | [string](#string) |  | 故事描述 |
+| NumIds | [int32](#int32) |  | ID数量 |
+| NumSteps | [int32](#int32) |  | 步骤数 |
+| SdModel | [string](#string) |  | 模型名称 |
+| RefImage | [string](#string) |  | 参考图片 |
+| LayoutStyle | [string](#string) |  | 布局风格 |
+| Style | [string](#string) |  | 风格 |
+| NegativePrompt | [string](#string) |  | 负面提示词 |
+| OutputQuality | [int32](#int32) |  | 输出质量 |
+| GuidanceScale | [float](#float) |  | 引导比例 |
+| OutputFormat | [int32](#int32) |  | 输出格式 |
+| ImageWidth | [int32](#int32) |  | 图片宽度 |
+| ImageHeight | [int32](#int32) |  | 图片高度 |
+| scene_count | [int32](#int32) |  | 场景数量 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardSence"></a>
+
+### StoryBoardSence
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence_id | [int64](#int64) |  |  |
+| content | [string](#string) |  |  |
+| character_ids | [string](#string) | repeated |  |
+| creator_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+| image_prompts | [string](#string) |  |  |
+| audio_prompts | [string](#string) |  |  |
+| video_prompts | [string](#string) |  |  |
+| is_generating | [int32](#int32) |  |  |
+| gen_result | [string](#string) |  |  |
+| images | [string](#string) | repeated |  |
+| audio_url | [string](#string) |  |  |
+| video_url | [string](#string) |  |  |
+| status | [int32](#int32) |  |  |
+| Ctime | [int64](#int64) |  |  |
+| Mtime | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryBoardSences"></a>
+
+### StoryBoardSences
+StoryBoardSences 包含故事板中的所有场景
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| total | [int64](#int64) |  | 场景总数 |
+| list | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) | repeated | 场景列表 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryChapter"></a>
+
+### StoryChapter
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| chapter_summary | [ChapterSummary](#rankquantity-voyager-api-ChapterSummary) |  | 章节情节简述 |
+| chapter_detail_info | [ChapterDetailInformation](#rankquantity-voyager-api-ChapterDetailInformation) |  | 章节详细情节 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryInfo"></a>
+
+### StoryInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_name_and_theme | [StoryNameAndTheme](#rankquantity-voyager-api-StoryNameAndTheme) |  |  |
+| story_chapters | [ChapterInfo](#rankquantity-voyager-api-ChapterInfo) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryNameAndTheme"></a>
+
+### StoryNameAndTheme
+StoryNameAndTheme 表示故事的名称和主题信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| theme | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryParams"></a>
+
+### StoryParams
+StoryParams 包含故事生成和渲染的相关参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_description | [string](#string) |  | 故事描述 |
+| ref_image | [string](#string) |  | 参考图片 |
+| negative_prompt | [string](#string) |  | 负面提示词 |
+| prompt | [string](#string) |  | 提示词 |
+| layout_style | [string](#string) |  | 布局风格 |
+| style | [string](#string) |  | 风格 |
+| background | [string](#string) |  | 背景 |
+| style_ref_image | [string](#string) |  | 风格参考图片 |
+| subject | [string](#string) |  | 主题 |
+| scene_count | [int32](#int32) |  | 场景数量 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StoryRole"></a>
+
+### StoryRole
+StoryRole 表示故事中的角色
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  | 角色ID |
+| story_id | [int64](#int64) |  | 所属故事ID |
+| character_description | [string](#string) |  | 角色描述 |
+| character_name | [string](#string) |  | 角色名称 |
+| character_avatar | [string](#string) |  | 角色头像 |
+| character_id | [string](#string) |  | 角色标识符 |
+| character_type | [string](#string) |  | 角色类型 |
+| character_prompt | [string](#string) |  | 角色提示词 |
+| character_detail | [CharacterDetail](#rankquantity-voyager-api-CharacterDetail) |  | 角色详细信息 |
+| character_ref_images | [string](#string) | repeated | 角色参考图片 |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| status | [int32](#int32) |  | 状态 |
+| like_count | [int64](#int64) |  | 点赞数 |
+| follow_count | [int64](#int64) |  | 关注数 |
+| storyboard_num | [int64](#int64) |  | 故事板数量 |
+| version | [int64](#int64) |  | 版本号 |
+| isliked | [bool](#bool) |  | 当前用户是否点赞 |
+| isfolllowed | [bool](#bool) |  | 当前用户是否关注 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+| current_user_status | [WhatCurrentUserStatus](#rankquantity-voyager-api-WhatCurrentUserStatus) |  | 当前用户状态 |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
+| poster_image_url | [string](#string) |  | 海报图片URL |
+| story | [StorySummaryInfo](#rankquantity-voyager-api-StorySummaryInfo) |  | 角色所在的故事 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StorySummaryInfo"></a>
+
+### StorySummaryInfo
+StorySummaryInfo 故事摘要信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 故事ID |
+| story_title | [string](#string) |  | 故事标题 |
+| story_avatar | [string](#string) |  | 故事头像 |
+| story_description | [string](#string) |  | 故事描述 |
+| story_cover | [string](#string) |  | 故事封面 |
+| story_tags | [string](#string) |  | 故事标签 |
+| create_time | [int64](#int64) |  | 创建时间 |
+| create_user_id | [int64](#int64) |  | 创建用户ID |
+| total_board_count | [int64](#int64) |  | 故事板总数 |
+| total_like_count | [int64](#int64) |  | 点赞总数 |
+| total_comment_count | [int64](#int64) |  | 评论总数 |
+| total_share_count | [int64](#int64) |  | 分享总数 |
+| total_render_count | [int64](#int64) |  | 渲染总数 |
+| total_fork_count | [int64](#int64) |  | 分叉总数 |
+| total_view_count | [int64](#int64) |  | 查看总数 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-TimeLine"></a>
+
+### TimeLine
+TimeLine 表示时间线信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| root_board_id | [int64](#int64) |  | 根ID |
+| group_id | [int64](#int64) |  | 组织ID |
+| story_id | [int64](#int64) |  | 故事ID |
+| creator_id | [int64](#int64) |  | 创建者ID |
+| title | [string](#string) |  | 标题 |
+| Ctime | [int64](#int64) |  | 创建时间 |
+| Mtime | [int64](#int64) |  | 修改时间 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UnLikeStoryboardRequest"></a>
+
+### UnLikeStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UnLikeStoryboardResponse"></a>
+
+### UnLikeStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryBoardSenceRequest"></a>
+
+### UpdateStoryBoardSenceRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sence | [StoryBoardSence](#rankquantity-voyager-api-StoryBoardSence) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryBoardSenceResponse"></a>
+
+### UpdateStoryBoardSenceResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryRequest"></a>
+
+### UpdateStoryRequest
+UpdateStoryRequest 更新故事的请求参数
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| short_desc | [string](#string) |  | 简短描述 |
+| origin | [string](#string) |  | 来源 |
+| status | [int32](#int32) |  | 状态 |
+| is_achieve | [bool](#bool) |  | 是否归档 |
+| is_close | [bool](#bool) |  | 是否关闭 |
+| is_ai_gen | [bool](#bool) |  | 是否AI生成 |
+| params | [StoryParams](#rankquantity-voyager-api-StoryParams) |  | 故事参数 |
+| story_id | [int64](#int64) |  | 故事ID |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 角色列表 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryResponse"></a>
+
+### UpdateStoryResponse
+UpdateStoryResponse 更新故事的响应结果
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  | 响应码 |
+| message | [string](#string) |  | 响应消息 |
+| data | [UpdateStoryResponse.Data](#rankquantity-voyager-api-UpdateStoryResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryResponse-Data"></a>
+
+### UpdateStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int32](#int32) |  | 故事ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryRoleRequest"></a>
+
+### UpdateStoryRoleRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryRoleResponse"></a>
+
+### UpdateStoryRoleResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryboardRequest"></a>
+
+### UpdateStoryboardRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| board_id | [int64](#int64) |  |  |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| params | [StoryBoardParams](#rankquantity-voyager-api-StoryBoardParams) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryboardResponse"></a>
+
+### UpdateStoryboardResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [UpdateStoryboardResponse.Data](#rankquantity-voyager-api-UpdateStoryboardResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-UpdateStoryboardResponse-Data"></a>
+
+### UpdateStoryboardResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| board_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-WatchStoryRequest"></a>
+
+### WatchStoryRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-WatchStoryResponse"></a>
+
+### WatchStoryResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| data | [WatchStoryResponse.Data](#rankquantity-voyager-api-WatchStoryResponse-Data) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-WatchStoryResponse-Data"></a>
+
+### WatchStoryResponse.Data
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="rankquantity-voyager-api-RenderType"></a>
+
+### RenderType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| RENDER_TYPE_TEXT_UNSPECIFIED | 0 | 0: 原创 |
+| RENDER_TYPE_STORYBOARD_TEXT | 1 | 1: 故事板文本 |
+| RENDER_TYPE_STORYBOARD | 2 | 2: 故事板 |
+| RENDER_TYPE_STORYSENCE | 3 | 3: 故事场景 |
+| RENDER_TYPE_STORYCHARACTERS | 4 | 4: 故事角色 |
+
+
+
+<a name="rankquantity-voyager-api-StoryGenStatus"></a>
+
+### StoryGenStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORY_GEN_STATUS_UNSPECIFIED | 0 |  |
+| STORY_GEN_STATUS_INIT | 1 |  |
+| STORY_GEN_STATUS_RUNNING | 2 |  |
+| STORY_GEN_STATUS_FINISHED | 3 |  |
+| STORY_GEN_STATUS_ERROR | 4 |  |
+
+
+
+<a name="rankquantity-voyager-api-StoryboardStage"></a>
+
+### StoryboardStage
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STORYBOARD_STAGE_UNSPECIFIED | 0 | 未指定 |
+| STORYBOARD_STAGE_DRAFT | 1 | 草稿 |
+| STORYBOARD_STAGE_CREATED | 2 | 创建 |
+| STORYBOARD_STAGE_RENDERED | 3 | 渲染完成 |
+| STORYBOARD_STAGE_RENDER_SCENE | 4 | 渲染场景 |
+| STORYBOARD_STAGE_GEN_IMAGE | 5 | 生成片 |
+| STORYBOARD_STAGE_GEN_VIDEO | 6 | 生成视频 |
+| STORYBOARD_STAGE_GEN_AUDIO | 7 | 生成音频 |
+| STORYBOARD_STAGE_FINISHED | 8 | 完成 |
+| STORYBOARD_STAGE_FAILED | 9 | 失败 |
+| STORYBOARD_STAGE_PUBLISHED | 10 | 发布 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="message-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## message.proto
+
+
+
+<a name="rankquantity-voyager-api-ChatMessage"></a>
+
+### ChatMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| sender | [int32](#int32) |  |  |
+| message | [string](#string) |  |  |
+| chat_id | [int64](#int64) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| user | [UserInfo](#rankquantity-voyager-api-UserInfo) |  |  |
+| role | [StoryRole](#rankquantity-voyager-api-StoryRole) |  |  |
+| uuid | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StreamChatMessage"></a>
+
+### StreamChatMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role_id | [int64](#int64) |  |  |
+| user_id | [int64](#int64) |  |  |
+| messages | [ChatMessage](#rankquantity-voyager-api-ChatMessage) | repeated |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StreamChatMessageRequest"></a>
+
+### StreamChatMessageRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-StreamChatMessageResponse"></a>
+
+### StreamChatMessageResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  |  |
+| message | [string](#string) |  |  |
+| timestamp | [int64](#int64) |  |  |
+| request_id | [string](#string) |  |  |
+| reply_messages | [StreamChatMessage](#rankquantity-voyager-api-StreamChatMessage) | repeated |  |
+
+
+
+
+
+ 
+
+
+<a name="rankquantity-voyager-api-MsgType"></a>
+
+### MsgType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TEXT | 0 |  |
+| IMAGE | 1 |  |
+| VIDEO | 2 |  |
+| AUDIO | 3 |  |
+| SYSTEM | 4 |  |
+
+
+ 
+
+ 
+
+
+<a name="rankquantity-voyager-api-StreamMessageService"></a>
+
+### StreamMessageService
+使用 stream 发送、接收消息
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| StreamChatMessage | [StreamChatMessageRequest](#rankquantity-voyager-api-StreamChatMessageRequest) stream | [StreamChatMessageResponse](#rankquantity-voyager-api-StreamChatMessageResponse) stream |  |
+
+ 
+
+
+
 <a name="service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
 ## service.proto
+
+
+
+<a name="rankquantity-voyager-api-AIPolishRecord"></a>
+
+### AIPolishRecord
+AI润色内容记录
+/ 记录使用AI润色的原始内容和润色后的内容
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| original_content | [string](#string) |  | 原始内容 |
+| polished_content | [string](#string) |  | 润色后的内容 |
+| polished_at | [int64](#int64) |  | 润色时间戳 |
+| polish_type | [string](#string) |  | 润色类型（如：标题润色、描述润色、内容润色） |
+| token_consumption | [TokenConsumption](#rankquantity-voyager-api-TokenConsumption) |  | Token消耗 |
+
+
+
 
 
 
@@ -433,6 +5385,29 @@
 | ----- | ---- | ----- | ----------- |
 | code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应状态码 |
 | message | [string](#string) |  | 响应消息 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-ChapterTranslationRecord"></a>
+
+### ChapterTranslationRecord
+章节AI转译记录
+/ 记录章节使用AI转译的场景和图片描述
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| chapter_id | [string](#string) |  | 章节ID |
+| chapter_title | [string](#string) |  | 章节标题 |
+| original_scene | [string](#string) |  | 原始场景描述 |
+| translated_scene | [string](#string) |  | 转译后的场景描述 |
+| original_image_desc | [string](#string) |  | 原始图片描述 |
+| translated_image_desc | [string](#string) |  | 转译后的图片描述 |
+| translated_at | [int64](#int64) |  | 转译时间戳 |
+| token_consumption | [TokenConsumption](#rankquantity-voyager-api-TokenConsumption) |  | Token消耗 |
 
 
 
@@ -1684,6 +6659,29 @@
 
 
 
+<a name="rankquantity-voyager-api-GenerationPromptRecord"></a>
+
+### GenerationPromptRecord
+生成提示词记录
+/ 记录故事图片和视频生成使用的提示词
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content_type | [string](#string) |  | 内容类型（image/video） |
+| content_id | [int64](#int64) |  | 内容ID（场景ID或其他相关ID） |
+| image_prompt | [string](#string) |  | 图片提示词 |
+| video_prompt | [string](#string) |  | 视频提示词 |
+| generated_images | [string](#string) | repeated | 生成的图片URL列表 |
+| generated_video | [string](#string) |  | 生成的视频URL |
+| generated_at | [int64](#int64) |  | 生成时间戳 |
+| token_consumption | [TokenConsumption](#rankquantity-voyager-api-TokenConsumption) |  | Token消耗 |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-GetDisscusReq"></a>
 
 ### GetDisscusReq
@@ -2442,6 +7440,42 @@
 | list | [StoryContributor](#rankquantity-voyager-api-StoryContributor) | repeated | 贡献者列表 |
 | total | [int64](#int64) |  | 贡献者总数 |
 | have_more | [bool](#bool) |  | 是否有更多数据 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryGenerationHistoryRequest"></a>
+
+### GetStoryGenerationHistoryRequest
+获取故事生成历史请求
+/ 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 故事ID，必须大于0 |
+| user_id | [int64](#int64) |  | 用户ID，必须大于0 |
+| storyboard_id | [int64](#int64) |  | 故事板ID，必须大于0 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryGenerationHistoryResponse"></a>
+
+### GetStoryGenerationHistoryResponse
+获取故事生成历史响应
+/ 返回故事的完整生成历史记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应状态码 |
+| message | [string](#string) |  | 响应消息描述 |
+| data | [StoryGenerationHistory](#rankquantity-voyager-api-StoryGenerationHistory) |  | 故事生成历史数据 |
 
 
 
@@ -4143,6 +9177,33 @@
 
 
 
+<a name="rankquantity-voyager-api-StoryGenerationHistory"></a>
+
+### StoryGenerationHistory
+故事生成历史详情
+/ 包含故事生成过程中的所有历史记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_info | [Story](#rankquantity-voyager-api-Story) |  | 故事基本信息 |
+| roles | [StoryRole](#rankquantity-voyager-api-StoryRole) | repeated | 参与的角色信息列表 |
+| polish_records | [AIPolishRecord](#rankquantity-voyager-api-AIPolishRecord) | repeated | AI润色记录列表（标题、描述等润色记录） |
+| chapter_info | [StoryInfo](#rankquantity-voyager-api-StoryInfo) |  | 故事章节信息 |
+| translation_records | [ChapterTranslationRecord](#rankquantity-voyager-api-ChapterTranslationRecord) | repeated | 章节AI转译记录列表 |
+| prompt_records | [GenerationPromptRecord](#rankquantity-voyager-api-GenerationPromptRecord) | repeated | 生成提示词记录列表（图片、视频提示词） |
+| final_content | [StoryBoard](#rankquantity-voyager-api-StoryBoard) | repeated | 最终内容（包含所有场景的完整内容） |
+| creator | [UserInfo](#rankquantity-voyager-api-UserInfo) |  | 创建者信息 |
+| total_token_consumptions | [TokenConsumption](#rankquantity-voyager-api-TokenConsumption) | repeated | Token总消耗记录 |
+| child_storyboard_count | [int64](#int64) |  | 子故事板数量 |
+| created_at | [int64](#int64) |  | 创建时间戳 |
+| updated_at | [int64](#int64) |  | 最后更新时间戳 |
+
+
+
+
+
+
 <a name="rankquantity-voyager-api-StoryGentaskDetail"></a>
 
 ### StoryGentaskDetail
@@ -4233,6 +9294,26 @@
 | last_update_time | [int64](#int64) |  | 最后更新时间戳 |
 | version | [int64](#int64) |  | 版本号 |
 | user_id | [int64](#int64) |  | 用户ID |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-TokenConsumption"></a>
+
+### TokenConsumption
+Token消耗记录
+/ 记录AI功能使用的Token消耗情况
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token_count | [int64](#int64) |  | Token消耗数量 |
+| source_type | [TokenSourceType](#rankquantity-voyager-api-TokenSourceType) |  | Token来源类型 |
+| source_id | [int64](#int64) |  | 来源ID（个人用户ID或机构ID） |
+| consumed_at | [int64](#int64) |  | 消耗时间戳 |
+| purpose | [string](#string) |  | 消耗用途描述 |
 
 
 
@@ -5774,6 +10855,19 @@ Token来源枚举
 | TOKEN_SOURCE_THIRD_PARTY | 2 | 使用第三方赞助的token额度 |
 
 
+
+<a name="rankquantity-voyager-api-TokenSourceType"></a>
+
+### TokenSourceType
+Token消耗来源类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TOKEN_SOURCE_UNSPECIFIED | 0 | 未指定 |
+| TOKEN_SOURCE_PERSONAL | 1 | 个人账户 |
+| TOKEN_SOURCE_ORGANIZATION | 2 | 机构/组织账户 |
+
+
  
 
  
@@ -5934,6 +11028,7 @@ TeamsAPI - 团队协作服务API
 | DeleteUserStoryboardDraft | [DeleteUserStoryboardDraftRequest](#rankquantity-voyager-api-DeleteUserStoryboardDraftRequest) | [DeleteUserStoryboardDraftResponse](#rankquantity-voyager-api-DeleteUserStoryboardDraftResponse) | 删除用户故事板草稿 / / 【功能说明】 / 删除指定用户的故事板草稿，释放存储空间 / / 【权限要求】 / - 仅草稿所有者可以删除自己的草稿 / - 删除后不可恢复，请谨慎操作 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft / - 请求体：DeleteUserStoryboardDraftRequest (JSON) / - 响应：DeleteUserStoryboardDraftResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID（所有者ID） / - draft_id: [必填] 草稿ID（要删除的草稿） / - story_id: [可选] 故事ID（用于权限验证） / / 【响应字段】 / - code: 响应状态码（0表示成功） / - message: 响应消息描述 / / 【使用示例】 / ```json / { / &#34;user_id&#34;: 123, / &#34;draft_id&#34;: 456, / &#34;story_id&#34;: 789 / } / ``` |
 | UserActiveHeatmap | [UserActiveHeamapRequest](#rankquantity-voyager-api-UserActiveHeamapRequest) | [UserActiveHeamapResponse](#rankquantity-voyager-api-UserActiveHeamapResponse) | 获取用户活跃热力图 / / 【功能说明】 / 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示 / / 【数据统计】 / - 统计用户的创建、更新、评论等所有活跃操作 / - 按天聚合活跃度数据 / - 自动计算热力等级（0-4级） / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/UserActiveHeatmap / - 请求体：UserActiveHeamapRequest (JSON) / - 响应：UserActiveHeamapResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组（每天一条记录） / - total_count: 时间范围内的总活跃次数 / / 【使用场景】 / - 用户个人主页展示活跃度 / - 统计用户贡献度 / - 活跃度排行榜 |
 | GroupActiveHeatmap | [GroupActiveHeamapRequest](#rankquantity-voyager-api-GroupActiveHeamapRequest) | [GroupActiveHeamapResponse](#rankquantity-voyager-api-GroupActiveHeamapResponse) | 获取群组活跃热力图 / / 【功能说明】 / 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况 / / 【数据统计】 / - 统计群组内所有成员的活跃操作 / - 包括故事创建、故事板发布、评论互动等 / - 返回活跃成员数量统计 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/GroupActiveHeatmap / - 请求体：GroupActiveHeamapRequest (JSON) / - 响应：GroupActiveHeamapResponse (JSON) / / 【请求参数】 / - group_id: [必填] 群组ID / - user_id: [必填] 请求用户ID（用于权限验证） / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组 / - total_count: 群组总活跃次数 / - member_count: 参与活跃的成员数量 / / 【权限要求】 / - 用户必须是群组成员才能查看 / / 【使用场景】 / - 群组主页展示活跃度 / - 分析群组健康度 / - 活跃群组排行 |
+| GetStoryGenerationHistory | [GetStoryGenerationHistoryRequest](#rankquantity-voyager-api-GetStoryGenerationHistoryRequest) | [GetStoryGenerationHistoryResponse](#rankquantity-voyager-api-GetStoryGenerationHistoryResponse) |  |
 
  
 

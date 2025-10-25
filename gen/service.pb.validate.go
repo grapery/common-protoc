@@ -34691,6 +34691,1216 @@ var _ interface {
 	ErrorName() string
 } = UserDraftStoryboardDetailResponseValidationError{}
 
+// Validate checks the field values on TokenConsumption with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *TokenConsumption) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TokenConsumption with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// TokenConsumptionMultiError, or nil if none found.
+func (m *TokenConsumption) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TokenConsumption) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TokenCount
+
+	// no validation rules for SourceType
+
+	// no validation rules for SourceId
+
+	// no validation rules for ConsumedAt
+
+	// no validation rules for Purpose
+
+	if len(errors) > 0 {
+		return TokenConsumptionMultiError(errors)
+	}
+
+	return nil
+}
+
+// TokenConsumptionMultiError is an error wrapping multiple validation errors
+// returned by TokenConsumption.ValidateAll() if the designated constraints
+// aren't met.
+type TokenConsumptionMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TokenConsumptionMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TokenConsumptionMultiError) AllErrors() []error { return m }
+
+// TokenConsumptionValidationError is the validation error returned by
+// TokenConsumption.Validate if the designated constraints aren't met.
+type TokenConsumptionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TokenConsumptionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TokenConsumptionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TokenConsumptionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TokenConsumptionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TokenConsumptionValidationError) ErrorName() string { return "TokenConsumptionValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TokenConsumptionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTokenConsumption.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TokenConsumptionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TokenConsumptionValidationError{}
+
+// Validate checks the field values on AIPolishRecord with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AIPolishRecord) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AIPolishRecord with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in AIPolishRecordMultiError,
+// or nil if none found.
+func (m *AIPolishRecord) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AIPolishRecord) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OriginalContent
+
+	// no validation rules for PolishedContent
+
+	// no validation rules for PolishedAt
+
+	// no validation rules for PolishType
+
+	if all {
+		switch v := interface{}(m.GetTokenConsumption()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AIPolishRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AIPolishRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTokenConsumption()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AIPolishRecordValidationError{
+				field:  "TokenConsumption",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return AIPolishRecordMultiError(errors)
+	}
+
+	return nil
+}
+
+// AIPolishRecordMultiError is an error wrapping multiple validation errors
+// returned by AIPolishRecord.ValidateAll() if the designated constraints
+// aren't met.
+type AIPolishRecordMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AIPolishRecordMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AIPolishRecordMultiError) AllErrors() []error { return m }
+
+// AIPolishRecordValidationError is the validation error returned by
+// AIPolishRecord.Validate if the designated constraints aren't met.
+type AIPolishRecordValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AIPolishRecordValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AIPolishRecordValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AIPolishRecordValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AIPolishRecordValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AIPolishRecordValidationError) ErrorName() string { return "AIPolishRecordValidationError" }
+
+// Error satisfies the builtin error interface
+func (e AIPolishRecordValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAIPolishRecord.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AIPolishRecordValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AIPolishRecordValidationError{}
+
+// Validate checks the field values on ChapterTranslationRecord with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ChapterTranslationRecord) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ChapterTranslationRecord with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ChapterTranslationRecordMultiError, or nil if none found.
+func (m *ChapterTranslationRecord) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ChapterTranslationRecord) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ChapterId
+
+	// no validation rules for ChapterTitle
+
+	// no validation rules for OriginalScene
+
+	// no validation rules for TranslatedScene
+
+	// no validation rules for OriginalImageDesc
+
+	// no validation rules for TranslatedImageDesc
+
+	// no validation rules for TranslatedAt
+
+	if all {
+		switch v := interface{}(m.GetTokenConsumption()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ChapterTranslationRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ChapterTranslationRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTokenConsumption()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ChapterTranslationRecordValidationError{
+				field:  "TokenConsumption",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ChapterTranslationRecordMultiError(errors)
+	}
+
+	return nil
+}
+
+// ChapterTranslationRecordMultiError is an error wrapping multiple validation
+// errors returned by ChapterTranslationRecord.ValidateAll() if the designated
+// constraints aren't met.
+type ChapterTranslationRecordMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ChapterTranslationRecordMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ChapterTranslationRecordMultiError) AllErrors() []error { return m }
+
+// ChapterTranslationRecordValidationError is the validation error returned by
+// ChapterTranslationRecord.Validate if the designated constraints aren't met.
+type ChapterTranslationRecordValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ChapterTranslationRecordValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ChapterTranslationRecordValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ChapterTranslationRecordValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ChapterTranslationRecordValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ChapterTranslationRecordValidationError) ErrorName() string {
+	return "ChapterTranslationRecordValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ChapterTranslationRecordValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sChapterTranslationRecord.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ChapterTranslationRecordValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ChapterTranslationRecordValidationError{}
+
+// Validate checks the field values on GenerationPromptRecord with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GenerationPromptRecord) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GenerationPromptRecord with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GenerationPromptRecordMultiError, or nil if none found.
+func (m *GenerationPromptRecord) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GenerationPromptRecord) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ContentType
+
+	// no validation rules for ContentId
+
+	// no validation rules for ImagePrompt
+
+	// no validation rules for VideoPrompt
+
+	// no validation rules for GeneratedVideo
+
+	// no validation rules for GeneratedAt
+
+	if all {
+		switch v := interface{}(m.GetTokenConsumption()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GenerationPromptRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GenerationPromptRecordValidationError{
+					field:  "TokenConsumption",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTokenConsumption()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GenerationPromptRecordValidationError{
+				field:  "TokenConsumption",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return GenerationPromptRecordMultiError(errors)
+	}
+
+	return nil
+}
+
+// GenerationPromptRecordMultiError is an error wrapping multiple validation
+// errors returned by GenerationPromptRecord.ValidateAll() if the designated
+// constraints aren't met.
+type GenerationPromptRecordMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GenerationPromptRecordMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GenerationPromptRecordMultiError) AllErrors() []error { return m }
+
+// GenerationPromptRecordValidationError is the validation error returned by
+// GenerationPromptRecord.Validate if the designated constraints aren't met.
+type GenerationPromptRecordValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GenerationPromptRecordValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GenerationPromptRecordValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GenerationPromptRecordValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GenerationPromptRecordValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GenerationPromptRecordValidationError) ErrorName() string {
+	return "GenerationPromptRecordValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GenerationPromptRecordValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGenerationPromptRecord.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GenerationPromptRecordValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GenerationPromptRecordValidationError{}
+
+// Validate checks the field values on StoryGenerationHistory with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *StoryGenerationHistory) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on StoryGenerationHistory with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// StoryGenerationHistoryMultiError, or nil if none found.
+func (m *StoryGenerationHistory) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *StoryGenerationHistory) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetStoryInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "StoryInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "StoryInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetStoryInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return StoryGenerationHistoryValidationError{
+				field:  "StoryInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetRoles() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("Roles[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetPolishRecords() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("PolishRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("PolishRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("PolishRecords[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if all {
+		switch v := interface{}(m.GetChapterInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "ChapterInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "ChapterInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetChapterInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return StoryGenerationHistoryValidationError{
+				field:  "ChapterInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetTranslationRecords() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("TranslationRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("TranslationRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("TranslationRecords[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetPromptRecords() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("PromptRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("PromptRecords[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("PromptRecords[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetFinalContent() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("FinalContent[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("FinalContent[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("FinalContent[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if all {
+		switch v := interface{}(m.GetCreator()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "Creator",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, StoryGenerationHistoryValidationError{
+					field:  "Creator",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreator()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return StoryGenerationHistoryValidationError{
+				field:  "Creator",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetTotalTokenConsumptions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("TotalTokenConsumptions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, StoryGenerationHistoryValidationError{
+						field:  fmt.Sprintf("TotalTokenConsumptions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return StoryGenerationHistoryValidationError{
+					field:  fmt.Sprintf("TotalTokenConsumptions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for ChildStoryboardCount
+
+	// no validation rules for CreatedAt
+
+	// no validation rules for UpdatedAt
+
+	if len(errors) > 0 {
+		return StoryGenerationHistoryMultiError(errors)
+	}
+
+	return nil
+}
+
+// StoryGenerationHistoryMultiError is an error wrapping multiple validation
+// errors returned by StoryGenerationHistory.ValidateAll() if the designated
+// constraints aren't met.
+type StoryGenerationHistoryMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StoryGenerationHistoryMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StoryGenerationHistoryMultiError) AllErrors() []error { return m }
+
+// StoryGenerationHistoryValidationError is the validation error returned by
+// StoryGenerationHistory.Validate if the designated constraints aren't met.
+type StoryGenerationHistoryValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StoryGenerationHistoryValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StoryGenerationHistoryValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StoryGenerationHistoryValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StoryGenerationHistoryValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StoryGenerationHistoryValidationError) ErrorName() string {
+	return "StoryGenerationHistoryValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StoryGenerationHistoryValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStoryGenerationHistory.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StoryGenerationHistoryValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StoryGenerationHistoryValidationError{}
+
+// Validate checks the field values on GetStoryGenerationHistoryRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetStoryGenerationHistoryRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetStoryGenerationHistoryRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetStoryGenerationHistoryRequestMultiError, or nil if none found.
+func (m *GetStoryGenerationHistoryRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.GetStoryId() <= 0 {
+		err := GetStoryGenerationHistoryRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetUserId() <= 0 {
+		err := GetStoryGenerationHistoryRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetStoryboardId() <= 0 {
+		err := GetStoryGenerationHistoryRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetStoryGenerationHistoryRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetStoryGenerationHistoryRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// GetStoryGenerationHistoryRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetStoryGenerationHistoryRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetStoryGenerationHistoryRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetStoryGenerationHistoryRequestMultiError) AllErrors() []error { return m }
+
+// GetStoryGenerationHistoryRequestValidationError is the validation error
+// returned by GetStoryGenerationHistoryRequest.Validate if the designated
+// constraints aren't met.
+type GetStoryGenerationHistoryRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetStoryGenerationHistoryRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetStoryGenerationHistoryRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetStoryGenerationHistoryRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetStoryGenerationHistoryRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetStoryGenerationHistoryRequestValidationError) ErrorName() string {
+	return "GetStoryGenerationHistoryRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetStoryGenerationHistoryRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetStoryGenerationHistoryRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetStoryGenerationHistoryRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetStoryGenerationHistoryRequestValidationError{}
+
+// Validate checks the field values on GetStoryGenerationHistoryResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetStoryGenerationHistoryResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetStoryGenerationHistoryResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetStoryGenerationHistoryResponseMultiError, or nil if none found.
+func (m *GetStoryGenerationHistoryResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetStoryGenerationHistoryResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetStoryGenerationHistoryResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetStoryGenerationHistoryResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return GetStoryGenerationHistoryResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetStoryGenerationHistoryResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// GetStoryGenerationHistoryResponse.ValidateAll() if the designated
+// constraints aren't met.
+type GetStoryGenerationHistoryResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetStoryGenerationHistoryResponseMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetStoryGenerationHistoryResponseMultiError) AllErrors() []error { return m }
+
+// GetStoryGenerationHistoryResponseValidationError is the validation error
+// returned by GetStoryGenerationHistoryResponse.Validate if the designated
+// constraints aren't met.
+type GetStoryGenerationHistoryResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetStoryGenerationHistoryResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetStoryGenerationHistoryResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetStoryGenerationHistoryResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetStoryGenerationHistoryResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetStoryGenerationHistoryResponseValidationError) ErrorName() string {
+	return "GetStoryGenerationHistoryResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetStoryGenerationHistoryResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetStoryGenerationHistoryResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetStoryGenerationHistoryResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetStoryGenerationHistoryResponseValidationError{}
+
 // Validate checks the field values on LoginResponse_Data with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

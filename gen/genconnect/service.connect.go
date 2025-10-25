@@ -5,13 +5,12 @@
 package genconnect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
-
-	connect_go "connectrpc.com/connect"
-	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -19,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// TeamsAPIName is the fully-qualified name of the TeamsAPI service.
@@ -426,6 +425,9 @@ const (
 	// TeamsAPIGroupActiveHeatmapProcedure is the fully-qualified name of the TeamsAPI's
 	// GroupActiveHeatmap RPC.
 	TeamsAPIGroupActiveHeatmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
+	// TeamsAPIGetStoryGenerationHistoryProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryGenerationHistory RPC.
+	TeamsAPIGetStoryGenerationHistoryProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory"
 )
 
 // TeamsAPIClient is a client for the rankquantity.voyager.api.TeamsAPI service.
@@ -434,17 +436,17 @@ type TeamsAPIClient interface {
 	// / 获取平台推荐的热门和优质内容，帮助用户发现有趣的故事和角色
 	// / HTTP GET /common.TeamsAPI/Explore
 	// / 响应：ExploreResponse (JSON，返回推荐内容列表)
-	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
+	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
 	// / 获取API版本信息
 	// / 返回当前API的版本号和构建时间信息
 	// / HTTP GET /common.TeamsAPI/Version
 	// / 响应：VersionResponse (JSON，包含version和build_time)
-	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
+	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
 	// / 获取服务关于信息
 	// / 返回服务的基本介绍和说明信息
 	// / HTTP GET /common.TeamsAPI/About
 	// / 响应：AboutResponse (JSON，包含服务描述)
-	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
+	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
 	// / 用户登录
 	// /
 	// / 【功能说明】
@@ -481,25 +483,25 @@ type TeamsAPIClient interface {
 	// /   "login_type": 1
 	// / }
 	// / ```
-	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
+	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
 	// / 用户登出
 	// / 使当前会话token失效，退出登录状态
 	// / HTTP POST /common.TeamsAPI/Logout
 	// / 请求体：LogoutRequest (JSON，包含token和用户ID)
 	// / 响应：LogoutResponse (JSON)
-	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
+	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
 	// / 刷新访问令牌
 	// / 使用当前有效token生成新的访问令牌，延长会话时间
 	// / HTTP POST /common.TeamsAPI/RefreshToken
 	// / 请求体：RefreshTokenRequest (JSON，包含当前token)
 	// / 响应：RefreshTokenResponse (JSON，返回新的token和用户ID)
-	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
+	RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error)
 	// / 用户注册
 	// / 创建新的用户账号，需要提供账号、密码、邮箱等信息
 	// / HTTP POST /common.TeamsAPI/Register
 	// / 请求体：RegisterRequest (JSON，包含账号、密码、昵称、邮箱、手机号)
 	// / 响应：RegisterResponse (JSON)
-	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
+	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
 	// / 重置密码
 	// /
 	// / 【功能说明】
@@ -524,7 +526,7 @@ type TeamsAPIClient interface {
 	// / - account: 用户账号
 	// / - status: 重置状态（0-成功）
 	// / - timestamp: 操作时间戳
-	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
+	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
 	// / 用户初始化
 	// /
 	// / 【功能说明】
@@ -550,7 +552,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 初始化后的用户信息
-	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
+	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
 	// / 获取用户信息
 	// /
 	// / 【功能说明】
@@ -574,7 +576,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 用户详细信息对象
-	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
+	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
 	// / 更新用户头像
 	// /
 	// / 【功能说明】
@@ -597,7 +599,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
+	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
 	// / 获取用户关注的项目
 	// /
 	// / 【功能说明】
@@ -623,7 +625,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - projects: 关注的项目列表
 	// / - total: 总数量
-	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
+	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
 	// / 获取用户所属群组
 	// /
 	// / 【功能说明】
@@ -649,7 +651,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - groups: 群组列表
 	// / - total: 总数量
-	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
+	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
 	// / 获取用户关注的群组
 	// /
 	// / 【功能说明】
@@ -675,7 +677,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - groups: 关注的群组列表
 	// / - total: 总数量
-	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
+	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
 	// / 更新用户信息
 	// /
 	// / 【功能说明】
@@ -702,61 +704,61 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 更新后的用户信息
-	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
+	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
 	// / 搜索用户
 	// / 根据名称搜索用户，支持模糊搜索和精确匹配
 	// / HTTP POST /common.TeamsAPI/SearchUser
 	// / 请求体：SearchUserRequest (JSON，包含搜索关键词、群组ID和分页参数)
 	// / 响应：SearchUserResponse (JSON，返回匹配的用户列表)
-	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
+	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// / 创建群组
 	// / 创建新的协作群组或团队，设置名称、描述和头像
 	// / HTTP POST /common.TeamsAPI/CreateGroup
 	// / 请求体：CreateGroupRequest (JSON，包含群组名称、描述和头像)
 	// / 响应：CreateGroupResponse (JSON，返回创建的群组信息)
-	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error)
 	// / 获取群组信息
 	// / 获取指定群组的详细信息，支持同时获取资料信息
 	// / HTTP POST /common.TeamsAPI/GetGroup
 	// / 请求体：GetGroupRequest (JSON，包含群组ID和是否获取资料标志)
 	// / 响应：GetGroupResponse (JSON，返回群组详细信息)
-	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error)
 	// / 获取群组动态
 	// / 获取群组内的最新活动动态
 	// / HTTP POST /common.TeamsAPI/GetGroupActives
 	// / 请求体：GetGroupActivesRequest (JSON，包含群组ID和分页参数)
 	// / 响应：GetGroupActivesResponse (JSON，返回群组活动列表)
-	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
+	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	// / 更新群组信息
 	// / 更新群组的基本信息，如名称、描述等
 	// / HTTP POST /common.TeamsAPI/UpdateGroupInfo
 	// / 请求体：UpdateGroupInfoRequest (JSON，包含群组ID和更新信息)
 	// / 响应：UpdateGroupInfoResponse (JSON，返回更新后的群组信息)
-	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
+	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
 	// GetGroupProfile retrieves the group's profile information
-	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
+	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
 	// UpdateGroupProfile updates the group's profile information
-	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
+	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
 	// DeleteGroup removes a group
-	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
+	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	// / 获取群组成员列表
 	// / 分页获取指定群组的所有成员用户列表
 	// / HTTP POST /common.TeamsAPI/FetchGroupMembers
 	// / 请求体：FetchGroupMembersRequest (JSON，包含群组ID和分页参数)
 	// / 响应：FetchGroupMembersResponse (JSON，返回成员列表和总数)
-	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
+	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	// / 加入群组
 	// / 用户申请加入指定群组，成为群组成员
 	// / HTTP POST /common.TeamsAPI/JoinGroup
 	// / 请求体：JoinGroupRequest (JSON，包含群组ID和用户ID)
 	// / 响应：JoinGroupResponse (JSON)
-	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
+	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
 	// / 离开群组
 	// / 用户退出指定群组，解除成员关系
 	// / HTTP POST /common.TeamsAPI/LeaveGroup
 	// / 请求体：LeaveGroupRequest (JSON，包含群组ID和用户ID)
 	// / 响应：LeaveGroupResponse (JSON)
-	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
+	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
 	// / 创建故事
 	// /
 	// / 【功能说明】
@@ -785,7 +787,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - story: 创建的故事对象
 	// / - story_id: 故事ID
-	CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error)
+	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	// / 获取故事信息
 	// /
 	// / 【功能说明】
@@ -810,7 +812,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - story: 故事详细信息
 	// / - stats: 统计数据（浏览、点赞、评论数等）
-	GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error)
+	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
 	// / 渲染故事
 	// /
 	// / 【功能说明】
@@ -837,7 +839,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - render_id: 渲染任务ID
 	// / - status: 任务状态
-	RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error)
+	RenderStory(context.Context, *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error)
 	// / 更新故事
 	// /
 	// / 【功能说明】
@@ -865,7 +867,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - story: 更新后的故事信息
-	UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error)
+	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
 	// / 关注故事
 	// /
 	// / 【功能说明】
@@ -889,13 +891,13 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
-	WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error)
+	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
 	// / 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID)
 	// / 响应：ArchiveStoryResponse (JSON)
-	ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error)
+	ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error)
 	// / 创建故事板
 	// /
 	// / 【功能说明】
@@ -923,7 +925,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - storyboard: 创建的故事板对象
 	// / - storyboard_id: 故事板ID
-	CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error)
+	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	// / 获取故事板
 	// /
 	// / 【功能说明】
@@ -949,7 +951,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - storyboard: 故事板详细信息
 	// / - scenes: 场景列表（如果 include_scenes=true）
-	GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error)
+	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	// / 渲染故事板
 	// /
 	// / 【功能说明】
@@ -979,7 +981,7 @@ type TeamsAPIClient interface {
 	// / - render_id: 渲染任务ID
 	// / - status: 渲染状态
 	// / - progress: 渲染进度（0-100）
-	RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error)
+	RenderStoryboard(context.Context, *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error)
 	// / 生成故事板文本
 	// /
 	// / 【功能说明】
@@ -1008,7 +1010,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - generated_text: 生成的文本内容
 	// / - task_id: 生成任务ID
-	GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error)
+	GenStoryboardText(context.Context, *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error)
 	// / 生成故事板图片
 	// /
 	// / 【功能说明】
@@ -1037,7 +1039,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - task_ids: 图片生成任务ID列表
 	// / - estimated_time: 预计完成时间（秒）
-	GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error)
+	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
 	// / 获取故事板列表
 	// /
 	// / 【功能说明】
@@ -1066,7 +1068,7 @@ type TeamsAPIClient interface {
 	// / - storyboards: 故事板列表
 	// / - total: 总数量
 	// / - have_more: 是否有更多数据
-	GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error)
+	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	// / 删除故事板
 	// /
 	// / 【功能说明】
@@ -1096,7 +1098,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error)
+	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	// / 复制故事板（分叉）
 	// /
 	// / 【功能说明】
@@ -1124,7 +1126,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - new_storyboard: 新创建的分支故事板
 	// / - new_storyboard_id: 新故事板ID
-	ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error)
+	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 	// / 更新故事板
 	// /
 	// / 【功能说明】
@@ -1151,7 +1153,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - storyboard: 更新后的故事板信息
-	UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error)
+	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 	// / 点赞故事板
 	// /
 	// / 【功能说明】
@@ -1175,7 +1177,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - like_count: 最新点赞总数
-	LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error)
+	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	// / 取消点赞故事板
 	// /
 	// / 【功能说明】
@@ -1199,7 +1201,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - like_count: 最新点赞总数
-	UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error)
+	UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error)
 	// / 分享故事板
 	// /
 	// / 【功能说明】
@@ -1227,7 +1229,7 @@ type TeamsAPIClient interface {
 	// / - share_url: 分享链接URL
 	// / - qr_code: 二维码图片URL（可选）
 	// / - share_id: 分享记录ID
-	ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error)
+	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	// / 获取群组故事列表
 	// /
 	// / 【功能说明】
@@ -1255,7 +1257,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - stories: 故事列表
 	// / - total: 总数量
-	FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// / 上传图片文件
 	// /
 	// / 【功能说明】
@@ -1289,7 +1291,7 @@ type TeamsAPIClient interface {
 	// / - url: 上传后的图片URL
 	// / - file_id: 文件ID
 	// / - size: 文件大小（字节）
-	UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error)
+	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 	// / 获取故事渲染记录
 	// /
 	// / 【功能说明】
@@ -1318,7 +1320,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - renders: 渲染记录列表
 	// / - total: 总数量
-	GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error)
+	GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error)
 	// / 获取故事板渲染记录
 	// /
 	// / 【功能说明】
@@ -1347,13 +1349,13 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - renders: 渲染记录列表
 	// / - total: 总数量
-	GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error)
+	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 	// / 获取故事贡献者列表
 	// / 获取参与故事创作的所有贡献者，按贡献度排序
 	// / HTTP POST /common.TeamsAPI/GetStoryContributors
 	// / 请求体：GetStoryContributorsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryContributorsResponse (JSON，返回贡献者列表和VIP等级信息)
-	GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error)
+	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
 	// / 继续渲染故事
 	// /
 	// / 【功能说明】
@@ -1381,9 +1383,9 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - new_boards: 新生成的故事板列表
 	// / - render_id: 渲染任务ID
-	ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error)
+	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
 	// 渲���故事角色
-	RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error)
+	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// / 更新故事角色
 	// /
 	// / 【功能说明】
@@ -1410,7 +1412,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - role: 更新后的角色信息
-	UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error)
+	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
 	// / 渲染故事角色详情
 	// /
 	// / 【功能说明】
@@ -1438,7 +1440,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - character_detail: 角色详细信息对象
 	// / - render_id: 渲染任务ID
-	RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error)
+	RenderStoryRoleDetail(context.Context, *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error)
 	// / 获取故事角色列表
 	// /
 	// / 【功能说明】
@@ -1466,7 +1468,7 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - roles: 角色列表
 	// / - total: 总数量
-	GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error)
+	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
 	// / 获取故事板角色列表
 	// /
 	// / 【功能说明】
@@ -1492,55 +1494,55 @@ type TeamsAPIClient interface {
 	// / - message: 响应消息
 	// / - roles: 角色列表
 	// / - total: 角色总数
-	GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error)
+	GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error)
 	// / 获取用户资料
 	// / 获取指定用户的详细个人资料信息
 	// / HTTP POST /common.TeamsAPI/GetUserProfile
 	// / 请求体：GetUserProfileRequest (JSON，包含用户ID)
 	// / 响应：GetUserProfileResponse (JSON，返回用户完整资料)
-	GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error)
+	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
 	// / 更新用户资料
 	// / 更新用户的个人资料信息，包括昵称、描述、位置等
 	// / HTTP POST /common.TeamsAPI/UpdateUserProfile
 	// / 请求体：UpdateUserProfileRequest (JSON，包含要更新的资料字段)
 	// / 响应：UpdateUserProfileResponse (JSON)
-	UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error)
+	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
 	// / 更新用户背景图片
 	// / 更新用户个人主页的背景图片
 	// / HTTP POST /common.TeamsAPI/UpdateUserBackgroundImage
 	// / 请求体：UpdateUserBackgroundImageRequest (JSON，包含背景图片URL)
 	// / 响应：UpdateUserBackgroundImageResponse (JSON)
-	UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error)
+	UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error)
 	// / 创建新的故事角色
 	// / 在故事中创建一个新的角色，设置角色的基本信息
 	// / HTTP POST /common.TeamsAPI/CreateStoryRole
 	// / 请求体：CreateStoryRoleRequest (JSON，包含角色详细信息)
 	// / 响应：CreateStoryRoleResponse (JSON)
-	CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error)
+	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
 	// / 获取角色详情
 	// / 获取故事角色的完整详细信息
 	// / HTTP POST /common.TeamsAPI/GetStoryRoleDetail
 	// / 请求体：GetStoryRoleDetailRequest (JSON，包含角色ID)
 	// / 响应：GetStoryRoleDetailResponse (JSON，返回角色完整信息)
-	GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error)
+	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
 	// / 渲染生成角色图片
 	// / 使用AI为故事角色生成高质量的形象图片
 	// / HTTP POST /common.TeamsAPI/RenderStoryRole
 	// / 请求体：RenderStoryRoleRequest (JSON，包含渲染提示词和参考图片)
 	// / 响应：RenderStoryRoleResponse (JSON，返回渲染详情和图片URL)
-	RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error)
+	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
 	// / 点赞故事
 	// / 为故事点赞表示喜欢，增加故事人气
 	// / HTTP POST /common.TeamsAPI/LikeStory
 	// / 请求体：LikeStoryRequest (JSON，包含故事ID和用户ID)
 	// / 响应：LikeStoryResponse (JSON)
-	LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error)
+	LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error)
 	// / 取消点赞故事
 	// / 取消对故事的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStory
 	// / 请求体：UnLikeStoryRequest (JSON)
 	// / 响应：UnLikeStoryResponse (JSON)
-	UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error)
+	UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error)
 	// / 获取故事板场景列表
 	// /
 	// / 【功能说明】
@@ -1563,7 +1565,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - scenes: 场景列表（按顺序排列）
-	GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error)
+	GetStoryBoardSences(context.Context, *connect.Request[gen.GetStoryBoardSencesRequest]) (*connect.Response[gen.GetStoryBoardSencesResponse], error)
 	// / 创建故事板场景
 	// /
 	// / 【功能说明】
@@ -1590,7 +1592,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - scene: 创建的场景对象
 	// / - scene_id: 场景ID
-	CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error)
+	CreateStoryBoardSence(context.Context, *connect.Request[gen.CreateStoryBoardSenceRequest]) (*connect.Response[gen.CreateStoryBoardSenceResponse], error)
 	// / 更新故事板场景
 	// /
 	// / 【功能说明】
@@ -1616,7 +1618,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - scene: 更新后的场景信息
-	UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error)
+	UpdateStoryBoardSence(context.Context, *connect.Request[gen.UpdateStoryBoardSenceRequest]) (*connect.Response[gen.UpdateStoryBoardSenceResponse], error)
 	// / 删除故事板场景
 	// /
 	// / 【功能说明】
@@ -1640,7 +1642,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error)
+	DeleteStoryBoardSence(context.Context, *connect.Request[gen.DeleteStoryBoardSenceRequest]) (*connect.Response[gen.DeleteStoryBoardSenceResponse], error)
 	// / 渲染故事板指定场景
 	// /
 	// / 【功能说明】
@@ -1668,7 +1670,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - image_url: 生成的场景图片URL
 	// / - task_id: 渲染任务ID
-	RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error)
+	RenderStoryBoardSence(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
 	// / 批量渲染故事板场景
 	// /
 	// / 【功能说明】
@@ -1695,7 +1697,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - task_ids: 批量渲染任务ID列表
 	// / - estimated_time: 预计完成时间（秒）
-	RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error)
+	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error)
 	// / 获取场景生成状态
 	// /
 	// / 【功能说明】
@@ -1721,7 +1723,7 @@ type TeamsAPIClient interface {
 	// / - status: 生成状态（0-队列中，1-生成中，2-完成，3-失败）
 	// / - progress: 进度百分比（0-100）
 	// / - result_url: 生成结果URL（完成时）
-	GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error)
+	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// / 获取故事板生成状态
 	// /
 	// / 【功能说明】
@@ -1747,111 +1749,111 @@ type TeamsAPIClient interface {
 	// / - status: 整体生成状态
 	// / - progress: 总体进度百分比
 	// / - scene_status: 各场景的生成状态列表
-	GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error)
+	GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error)
 	// / 点赞故事角色
 	// / 为故事角色点赞，表达对角色的喜爱
 	// / HTTP POST /common.TeamsAPI/LikeStoryRole
 	// / 请求体：LikeStoryRoleRequest (JSON，包含角色ID和用户ID)
 	// / 响应：LikeStoryRoleResponse (JSON)
-	LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error)
+	LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error)
 	// / 取消点赞故事角色
 	// / 取消对故事角色的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStoryRole
 	// / 请求体：UnLikeStoryRoleRequest (JSON)
 	// / 响应：UnLikeStoryRoleResponse (JSON)
-	UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error)
+	UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error)
 	// / 关注故事角色
 	// / 关注指定的故事角色，接收该角色的最新动态通知
 	// / HTTP POST /common.TeamsAPI/FollowStoryRole
 	// / 请求体：FollowStoryRoleRequest (JSON)
 	// / 响应：FollowStoryRoleResponse (JSON)
-	FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error)
+	FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error)
 	// / 取消关注故事角色
 	// / 取消对故事角色的关注，停止接收动态通知
 	// / HTTP POST /common.TeamsAPI/UnFollowStoryRole
 	// / 请求体：UnFollowStoryRoleRequest (JSON)
 	// / 响应：UnFollowStoryRoleResponse (JSON)
-	UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error)
+	UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error)
 	// / 搜索故事
 	// / 根据关键词搜索故事，支持全局搜索和群组内搜索
 	// / HTTP POST /common.TeamsAPI/SearchStories
 	// / 请求体：SearchStoriesRequest (JSON，包含关键词、范围和分页参数)
 	// / 响应：SearchStoriesResponse (JSON，返回匹配的故事列表)
-	SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error)
+	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
 	// / 搜索群组
 	// / 根据名称搜索群组，支持模糊搜索
 	// / HTTP POST /common.TeamsAPI/SearchGroup
 	// / 请求体：SearchGroupRequest (JSON，包含搜索关键词和范围)
 	// / 响应：SearchGroupResponse (JSON，返回匹配的群组列表)
-	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error)
 	// / 搜索故事角色
 	// / 根据关键词搜索故事角色，支持在故事内或全局搜索
 	// / HTTP POST /common.TeamsAPI/SearchRoles
 	// / 请求体：SearchRolesRequest (JSON，包含关键词、范围和分页参数)
 	// / 响应：SearchRolesResponse (JSON，返回匹配的角色列表)
-	SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error)
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// / 恢复故事板状态
 	// / 从草稿或历史版本恢复故事板到指定状态
 	// / HTTP POST /common.TeamsAPI/RestoreStoryboard
 	// / 请求体：RestoreStoryboardRequest (JSON，包含故事板ID和版本信息)
 	// / 响应：RestoreStoryboardResponse (JSON，返回恢复后的完整故事板数据)
-	RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error)
+	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 	// 获取用户创建的故事板
-	GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error)
+	GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error)
 	// 获取用户创建的角色
-	GetUserCreatedRoles(context.Context, *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error)
+	GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error)
 	// 获取角色参与的故事板
-	GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error)
+	GetStoryRoleStoryboards(context.Context, *connect.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect.Response[gen.GetStoryRoleStoryboardsResponse], error)
 	// 获取角色参与的故事
-	GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error)
+	GetStoryRoleStories(context.Context, *connect.Request[gen.GetStoryRoleStoriesRequest]) (*connect.Response[gen.GetStoryRoleStoriesResponse], error)
 	// / 创建与角色的对话
 	// / 开始一个新的与故事角色的AI聊天会话
 	// / HTTP POST /common.TeamsAPI/CreateStoryRoleChat
 	// / 请求体：CreateStoryRoleChatRequest (JSON，包含角色ID和用户ID)
 	// / 响应：CreateStoryRoleChatResponse (JSON，返回聊天上下文信息)
-	CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error)
+	CreateStoryRoleChat(context.Context, *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error)
 	// / 与角色聊天
 	// / 发送消息并获取AI角色的智能回复
 	// / HTTP POST /common.TeamsAPI/ChatWithStoryRole
 	// / 请求体：ChatWithStoryRoleRequest (JSON，包含历史消息列表)
 	// / 响应：ChatWithStoryRoleResponse (JSON，返回角色的回复消息)
-	ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error)
+	ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error)
 	// / 更新角色头像
 	// / 更新故事角色的头像图片
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleAvator
 	// / 请求体：UpdateStoryRoleAvatorRequest (JSON，包含新头像URL)
 	// / 响应：UpdateStoryRoleAvatorResponse (JSON)
-	UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error)
+	UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error)
 	// / 更新角色详情
 	// / 更新故事角色的完整信息，包括描述、性格、能力等
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleDetail
 	// / 请求体：UpdateStoryRoleDetailRequest (JSON，包含角色完整信息)
 	// / 响应：UpdateStoryRoleDetailResponse (JSON)
-	UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error)
+	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// / 获取用户的对话列表
 	// / 获取用户与各个角色的所有聊天会话列表
 	// / HTTP POST /common.TeamsAPI/GetUserWithRoleChatList
 	// / 请求体：GetUserWithRoleChatListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetUserWithRoleChatListResponse (JSON，返回聊天会话列表)
-	GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error)
+	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
 	// / 获取用户与角色的对话
 	// / 获取用户与指定角色的完整聊天记录
 	// / HTTP POST /common.TeamsAPI/GetUserChatWithRole
 	// / 请求体：GetUserChatWithRoleRequest (JSON，包含角色ID和用户ID)
 	// / 响应：GetUserChatWithRoleResponse (JSON，返回聊天消息列表和上下文)
-	GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error)
+	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
 	// / 获取用户的消息列表
 	// / 获取指定聊天会话中的所有消息记录
 	// / HTTP POST /common.TeamsAPI/GetUserChatMessages
 	// / 请求体：GetUserChatMessagesRequest (JSON，包含聊天ID和时间戳)
 	// / 响应：GetUserChatMessagesResponse (JSON，返回消息列表)
-	GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error)
+	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
 	// / 获取活动动态列表
 	// / 获取用户、群组或故事的最新活动动态信息
 	// / HTTP POST /common.TeamsAPI/FetchActives
 	// / 请求体：FetchActivesRequest (JSON，包含筛选条件和分页参数)
 	// / 响应：FetchActivesResponse (JSON，返回活动动态列表)
-	FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error)
+	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
 	// / 获取下一个故事板
 	// /
 	// / 【功能说明】
@@ -1885,7 +1887,7 @@ type TeamsAPIClient interface {
 	// / - storyboards: 后续故事板列表
 	// / - is_multi_branch: 是否为多分支
 	// / - total: 分支总数
-	GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error)
+	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 	// / 持续渲染故事角色
 	// /
 	// / 【功能说明】
@@ -1912,7 +1914,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - detail: 渲染详情对象
 	// / - have_more: 是否还有更多迭代空间
-	RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error)
+	RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error)
 	// / 发布故事板
 	// /
 	// / 【功能说明】
@@ -1936,7 +1938,7 @@ type TeamsAPIClient interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - publish_time: 发布时间戳
-	PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error)
+	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
 	// / 撤销故事板
 	// /
 	// / 【功能说明】
@@ -1964,7 +1966,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error)
+	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 	// / 获取用户关注故事的活跃故事板
 	// /
 	// / 【功能说明】
@@ -1990,7 +1992,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - storyboards: 活跃故事板列表
 	// / - total: 总数量
-	GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	// / 获取用户关注角色的活跃故事板
 	// /
 	// / 【功能说明】
@@ -2016,7 +2018,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - storyboards: 活跃故事板列表
 	// / - total: 总数量
-	GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 	// / 获取未发布故事板列表
 	// /
 	// / 【功能说明】
@@ -2040,7 +2042,7 @@ type TeamsAPIClient interface {
 	// / 【响应字段】
 	// / - storyboardactives: 草稿故事板列表
 	// / - total: 总数量
-	GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error)
+	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
 	// / 生成角色描述
 	// /
 	// / 【功能说明】
@@ -2064,7 +2066,7 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - character_detail: AI生成的详细角色描述
-	GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error)
+	GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error)
 	// / 更新角色描述
 	// /
 	// / 【功能说明】
@@ -2087,7 +2089,7 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error)
+	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
 	// / 生成角色提示词
 	// /
 	// / 【功能说明】
@@ -2111,7 +2113,7 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - prompt: AI生成的优化提示词
-	GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error)
+	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
 	// / 更新角色提示词
 	// /
 	// / 【功能说明】
@@ -2134,97 +2136,97 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error)
+	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
 	// / 创建故事评论
 	// / 在故事下发表新的评论，支持富文本内容
 	// / HTTP POST /common.TeamsAPI/CreateStoryComment
 	// / 请求体：CreateStoryCommentRequest (JSON，包含故事ID和评论内容)
 	// / 响应：CreateStoryCommentResponse (JSON，返回创建的评论信息)
-	CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error)
+	CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error)
 	// / 获取故事评论列表
 	// / 分页获取指定故事的所有评论
 	// / HTTP POST /common.TeamsAPI/GetStoryComments
 	// / 请求体：GetStoryCommentsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryCommentsResponse (JSON，返回评论列表和分页信息)
-	GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error)
+	GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error)
 	// / 删除故事评论
 	// / 删除指定的故事评论，仅评论作者或管理员可删除
 	// / HTTP POST /common.TeamsAPI/DeleteStoryComment
 	// / 请求体：DeleteStoryCommentRequest (JSON)
 	// / 响应：DeleteStoryCommentResponse (JSON)
-	DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error)
+	DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error)
 	// / 获取故事评论回复列表
 	// / 获取指定评论的所有回复
 	// / HTTP POST /common.TeamsAPI/GetStoryCommentReplies
 	// / 请求体：GetStoryCommentRepliesRequest (JSON，包含评论ID和分页参数)
 	// / 响应：GetStoryCommentRepliesResponse (JSON，返回回复列表)
-	GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error)
+	GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error)
 	// / 创建故事评论回复
 	// / 回复指定的故事评论
 	// / HTTP POST /common.TeamsAPI/CreateStoryCommentReply
 	// / 请求体：CreateStoryCommentReplyRequest (JSON，包含评论ID和回复内容)
 	// / 响应：CreateStoryCommentReplyResponse (JSON，返回创建的回复信息)
-	CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error)
+	CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error)
 	// / 删除故事评论回复
 	// / 删除指定的评论回复，仅回复作者或管理员可删除
 	// / HTTP POST /common.TeamsAPI/DeleteStoryCommentReply
 	// / 请求体：DeleteStoryCommentReplyRequest (JSON)
 	// / 响应：DeleteStoryCommentReplyResponse (JSON)
-	DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error)
+	DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error)
 	// 获取故事板评论
-	GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error)
+	GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error)
 	// 创建故事板评论
-	CreateStoryBoardComment(context.Context, *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error)
+	CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error)
 	// 删除故事板评论
-	DeleteStoryBoardComment(context.Context, *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error)
+	DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error)
 	// 获取故事板评论回复
-	GetStoryBoardCommentReplies(context.Context, *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error)
+	GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error)
 	// 点赞故事评论
-	LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error)
+	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
-	DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error)
+	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 	// / 获取故事角色列表
 	// / 获取指定故事的所有角色列表，支持搜索和筛选
 	// / HTTP POST /common.TeamsAPI/GetStoryRoleList
 	// / 请求体：GetStoryRoleListRequest (JSON，包含故事ID、搜索关键词和分页参数)
 	// / 响应：GetStoryRoleListResponse (JSON，返回角色列表和总数)
-	GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error)
+	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
 	// / 获取热门故事
 	// / 获取指定时间段内最热门的故事列表，按热度排序
 	// / HTTP POST /common.TeamsAPI/TrendingStory
 	// / 请求体：TrendingStoryRequest (JSON，包含时间范围和分页参数)
 	// / 响应：TrendingStoryResponse (JSON，返回热门故事列表)
-	TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error)
+	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
 	// / 获取热门角色
 	// / 获取指定时间段内最热门的故事角色列表，按人气排序
 	// / HTTP POST /common.TeamsAPI/TrendingStoryRole
 	// / 请求体：TrendingStoryRoleRequest (JSON，包含时间范围和分页参数)
 	// / 响应：TrendingStoryRoleResponse (JSON，返回热门角色列表)
-	TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error)
+	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
 	// / 关注用户
 	// / 关注另一个用户，建立关注关系并接收其动态
 	// / HTTP POST /common.TeamsAPI/FollowUser
 	// / 请求体：FollowUserRequest (JSON，包含被关注用户的ID)
 	// / 响应：FollowUserResponse (JSON)
-	FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error)
+	FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error)
 	// / 取消关注用户
 	// / 取消对另一个用户的关注，停止接收其动态
 	// / HTTP POST /common.TeamsAPI/UnfollowUser
 	// / 请求体：UnfollowUserRequest (JSON)
 	// / 响应：UnfollowUserResponse (JSON)
-	UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error)
+	UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error)
 	// / 获取用户关注列表
 	// / 获取用户关注的所有其他用户列表
 	// / HTTP POST /common.TeamsAPI/GetFollowList
 	// / 请求体：GetFollowListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetFollowListResponse (JSON，返回关注的用户列表)
-	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
+	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
 	// / 获取用户粉丝列表
 	// / 获取关注该用户的所有粉丝列表
 	// / HTTP POST /common.TeamsAPI/GetFollowerList
 	// / 请求体：GetFollowerListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetFollowerListResponse (JSON，返回粉丝用户列表)
-	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
+	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
 	// / 更新故事角色提示词
 	// /
 	// / 【功能说明】
@@ -2248,7 +2250,7 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
+	UpdateStoryRolePrompt(context.Context, *connect.Request[gen.UpdateStoryRolePromptRequest]) (*connect.Response[gen.UpdateStoryRolePromptResponse], error)
 	// / 更新故事角色描述详情
 	// /
 	// / 【功能说明】
@@ -2276,7 +2278,7 @@ type TeamsAPIClient interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
+	UpdateStoryRoleDescriptionDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 	// / 查询任务状态
 	// /
 	// / 【功能说明】
@@ -2303,121 +2305,121 @@ type TeamsAPIClient interface {
 	// / - progress: 进度百分比（0-100）
 	// / - result_data: 任务结果数据（完成时）
 	// / - error_message: 错误消息（失败时）
-	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
+	QueryTaskStatus(context.Context, *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error)
 	// / 获取故事图片风格
 	// / 获取故事可用的所有图片生成风格列表
 	// / HTTP POST /common.TeamsAPI/GetStoryImageStyle
 	// / 请求体：GetStoryImageStyleRequest (JSON，包含故事ID)
 	// / 响应：GetStoryImageStyleResponse (JSON，返回风格列表和描述)
-	GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error)
+	GetStoryImageStyle(context.Context, *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error)
 	// / 更新故事图片风格
 	// / 设置故事使用的图片生成风格
 	// / HTTP POST /common.TeamsAPI/UpdateStoryImageStyle
 	// / 请求体：UpdateStoryImageStyleRequest (JSON，包含风格ID和名称)
 	// / 响应：UpdateStoryImageStyleResponse (JSON)
-	UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error)
+	UpdateStoryImageStyle(context.Context, *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error)
 	// / 更新故事最大场景数
 	// / 设置故事允许创建的最大场景数量限制
 	// / HTTP POST /common.TeamsAPI/UpdateStorySenceMaxNumber
 	// / 请求体：UpdateStorySenceMaxNumberRequest (JSON，包含最大场景数)
 	// / 响应：UpdateStorySenceMaxNumberResponse (JSON)
-	UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error)
+	UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error)
 	// / 更新故事头像
 	// / 更新故事的头像图片，用于故事展示
 	// / HTTP POST /common.TeamsAPI/UpdateStoryAvatar
 	// / 请求体：UpdateStoryAvatarRequest (JSON，包含新头像URL)
 	// / 响应：UpdateStoryAvatarResponse (JSON)
-	UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error)
+	UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error)
 	// / 更新故事封面
 	// / 更新故事的封面图片，支持使用AI生成的封面
 	// / HTTP POST /common.TeamsAPI/UpdateStoryCover
 	// / 请求体：UpdateStoryCoverRequest (JSON，包含封面URL和AI生成标志)
 	// / 响应：UpdateStoryCoverResponse (JSON)
-	UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error)
+	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
 	// / 保存故事板草稿
 	// / 将当前故事板保存为草稿，便于后续继续编辑
 	// / HTTP POST /common.TeamsAPI/SaveStoryboardCraft
 	// / 请求体：SaveStoryboardCraftRequest (JSON，包含故事板ID)
 	// / 响应：SaveStoryboardCraftResponse (JSON)
-	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
+	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
 	// / 获取故事参与者列表
 	// / 获取参与故事创作和编辑的所有用户列表
 	// / HTTP POST /common.TeamsAPI/GetStoryParticipants
 	// / 请求体：GetStoryParticipantsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryParticipantsResponse (JSON，返回参与者用户列表)
-	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
+	GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error)
 	// / 生成故事场景视频
 	// / 为指定的故事场景生成动态视频内容，支持自定义提示词和风格
 	// / HTTP POST /common.TeamsAPI/GenerateStorySceneVideo
 	// / 请求体：GenerateStorySceneVideoRequest (JSON，包含场景ID、提示词和token来源)
 	// / 响应：GenerateStorySceneVideoResponse (JSON，返回生成任务详情和视频URL)
-	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
+	GenerateStorySceneVideo(context.Context, *connect.Request[gen.GenerateStorySceneVideoRequest]) (*connect.Response[gen.GenerateStorySceneVideoResponse], error)
 	// / 生成角色头像
 	// / 使用AI为故事角色生成个性化头像图片
 	// / HTTP POST /common.TeamsAPI/GenerateRoleAvatar
 	// / 请求体：GenerateRoleAvatarRequest (JSON，包含角色描述和风格)
 	// / 响应：GenerateRoleAvatarResponse (JSON，返回头像URL)
-	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	GenerateRoleAvatar(context.Context, *connect.Request[gen.GenerateRoleAvatarRequest]) (*connect.Response[gen.GenerateRoleAvatarResponse], error)
 	// / 查询用户生成任务状态
 	// / 获取用户的所有AI生成任务的实时状态和进度
 	// / HTTP POST /common.TeamsAPI/QueryGenTaskStatus
 	// / 请求体：FetchUserGenTaskStatusRequest (JSON)
 	// / 响应：FetchUserGenTaskStatusResponse (JSON，包含任务列表和状态)
-	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
+	FetchUserGenTaskStatus(context.Context, *connect.Request[gen.FetchUserGenTaskStatusRequest]) (*connect.Response[gen.FetchUserGenTaskStatusResponse], error)
 	// / 生成角色海报图片
 	// / 为故事角色生成精美的宣传海报
 	// / HTTP POST /common.TeamsAPI/GenerateStoryRolePoster
 	// / 请求体：GenerateStoryRolePosterRequest (JSON，包含生成参数和风格)
 	// / 响应：GenerateStoryRolePosterResponse (JSON，返回海报URL和ID)
-	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
+	GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error)
 	// / 更新角色海报图片
 	// / 更新角色海报的图片或可见性设置
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRolePoster
 	// / 请求体：UpdateStoryRolePosterRequest (JSON)
 	// / 响应：UpdateStoryRolePosterResponse (JSON)
-	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error)
 	// / 点赞角色海报
 	// / 为角色海报点赞，增加人气值
 	// / HTTP POST /common.TeamsAPI/LikeStoryRolePoster
 	// / 请求体：LikeStoryRolePosterRequest (JSON)
 	// / 响应：LikeStoryRolePosterResponse (JSON，返回最新点赞数)
-	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	LikeStoryRolePoster(context.Context, *connect.Request[gen.LikeStoryRolePosterRequest]) (*connect.Response[gen.LikeStoryRolePosterResponse], error)
 	// / 取消点赞角色海报
 	// / 取消对角色海报的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStoryRolePoster
 	// / 请求体：UnLikeStoryRolePosterRequest (JSON)
 	// / 响应：UnLikeStoryRolePosterResponse (JSON，返回最新点赞数)
-	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	UnLikeStoryRolePoster(context.Context, *connect.Request[gen.UnLikeStoryRolePosterRequest]) (*connect.Response[gen.UnLikeStoryRolePosterResponse], error)
 	// / 获取角色海报列表
 	// / 获取指定故事角色的所有海报图片列表
 	// / HTTP POST /common.TeamsAPI/GetStoryRolePosterList
 	// / 请求体：GetStoryRolePosterListRequest (JSON，包含分页参数)
 	// / 响应：GetStoryRolePosterListResponse (JSON，返回海报列表)
-	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
+	GetStoryRolePosterList(context.Context, *connect.Request[gen.GetStoryRolePosterListRequest]) (*connect.Response[gen.GetStoryRolePosterListResponse], error)
 	// / 生成故事角色视频
 	// / 为故事角色生成动态宣传视频
 	// / HTTP POST /common.TeamsAPI/GenerateStoryRoleVideo
 	// / 请求体：GenerateStoryRoleVideoRequest (JSON，包含视频参数和风格)
 	// / 响应：GenerateStoryRoleVideoResponse (JSON，返回任务详情和视频URL)
-	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	GenerateStoryRoleVideo(context.Context, *connect.Request[gen.GenerateStoryRoleVideoRequest]) (*connect.Response[gen.GenerateStoryRoleVideoResponse], error)
 	// / 更新故事板分叉权限
 	// / 设置故事板是否允许其他用户进行分叉创建分支
 	// / HTTP POST /common.TeamsAPI/UpdateStoryboardForkAble
 	// / 请求体：UpdateStoryboardForkAbleRequest (JSON)
 	// / 响应：UpdateStoryboardForkAbleResponse (JSON)
-	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	UpdateStoryboardForkAble(context.Context, *connect.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect.Response[gen.UpdateStoryboardForkAbleResponse], error)
 	// / 获取用户故事板草稿列表
 	// / 分页获取指定用户的所有故事板草稿，支持按故事筛选
 	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftlist
 	// / 请求体：UserStoryboardDraftlistRequest (JSON)
 	// / 响应：UserStoryboardDraftlistResponse (JSON)
-	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	UserStoryboardDraftlist(context.Context, *connect.Request[gen.UserStoryboardDraftlistRequest]) (*connect.Response[gen.UserStoryboardDraftlistResponse], error)
 	// / 获取用户故事板草稿详情
 	// / 获取指定草稿的完整详细信息，包括内容、角色、场景等
 	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftDetail
 	// / 请求体：UserDraftStoryboardDetailRequest (JSON)
 	// / 响应：UserDraftStoryboardDetailResponse (JSON)
-	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	UserStoryboardDraftDetail(context.Context, *connect.Request[gen.UserDraftStoryboardDetailRequest]) (*connect.Response[gen.UserDraftStoryboardDetailResponse], error)
 	// / 删除用户故事板草稿
 	// /
 	// / 【功能说明】
@@ -2450,7 +2452,7 @@ type TeamsAPIClient interface {
 	// /   "story_id": 789
 	// / }
 	// / ```
-	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	DeleteUserStoryboardDraft(context.Context, *connect.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect.Response[gen.DeleteUserStoryboardDraftResponse], error)
 	// / 获取用户活跃热力图
 	// /
 	// / 【功能说明】
@@ -2482,7 +2484,7 @@ type TeamsAPIClient interface {
 	// / - 用户个人主页展示活跃度
 	// / - 统计用户贡献度
 	// / - 活跃度排行榜
-	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	UserActiveHeatmap(context.Context, *connect.Request[gen.UserActiveHeamapRequest]) (*connect.Response[gen.UserActiveHeamapResponse], error)
 	// / 获取群组活跃热力图
 	// /
 	// / 【功能说明】
@@ -2519,7 +2521,8 @@ type TeamsAPIClient interface {
 	// / - 群组主页展示活跃度
 	// / - 分析群组健康度
 	// / - 活跃群组排行
-	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
+	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
+	GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the rankquantity.voyager.api.TeamsAPI service. By
@@ -2529,1623 +2532,1782 @@ type TeamsAPIClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewTeamsAPIClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) TeamsAPIClient {
+func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) TeamsAPIClient {
 	baseURL = strings.TrimRight(baseURL, "/")
+	teamsAPIMethods := gen.File_service_proto.Services().ByName("TeamsAPI").Methods()
 	return &teamsAPIClient{
-		explore: connect_go.NewClient[gen.ExploreRequest, gen.ExploreResponse](
+		explore: connect.NewClient[gen.ExploreRequest, gen.ExploreResponse](
 			httpClient,
 			baseURL+TeamsAPIExploreProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("Explore")),
+			connect.WithClientOptions(opts...),
 		),
-		version: connect_go.NewClient[gen.VersionRequest, gen.VersionResponse](
+		version: connect.NewClient[gen.VersionRequest, gen.VersionResponse](
 			httpClient,
 			baseURL+TeamsAPIVersionProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("Version")),
+			connect.WithClientOptions(opts...),
 		),
-		about: connect_go.NewClient[gen.AboutRequest, gen.AboutResponse](
+		about: connect.NewClient[gen.AboutRequest, gen.AboutResponse](
 			httpClient,
 			baseURL+TeamsAPIAboutProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("About")),
+			connect.WithClientOptions(opts...),
 		),
-		login: connect_go.NewClient[gen.LoginRequest, gen.LoginResponse](
+		login: connect.NewClient[gen.LoginRequest, gen.LoginResponse](
 			httpClient,
 			baseURL+TeamsAPILoginProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("Login")),
+			connect.WithClientOptions(opts...),
 		),
-		logout: connect_go.NewClient[gen.LogoutRequest, gen.LogoutResponse](
+		logout: connect.NewClient[gen.LogoutRequest, gen.LogoutResponse](
 			httpClient,
 			baseURL+TeamsAPILogoutProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("Logout")),
+			connect.WithClientOptions(opts...),
 		),
-		refreshToken: connect_go.NewClient[gen.RefreshTokenRequest, gen.RefreshTokenResponse](
+		refreshToken: connect.NewClient[gen.RefreshTokenRequest, gen.RefreshTokenResponse](
 			httpClient,
 			baseURL+TeamsAPIRefreshTokenProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RefreshToken")),
+			connect.WithClientOptions(opts...),
 		),
-		register: connect_go.NewClient[gen.RegisterRequest, gen.RegisterResponse](
+		register: connect.NewClient[gen.RegisterRequest, gen.RegisterResponse](
 			httpClient,
 			baseURL+TeamsAPIRegisterProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("Register")),
+			connect.WithClientOptions(opts...),
 		),
-		resetPwd: connect_go.NewClient[gen.ResetPasswordRequest, gen.ResetPasswordResponse](
+		resetPwd: connect.NewClient[gen.ResetPasswordRequest, gen.ResetPasswordResponse](
 			httpClient,
 			baseURL+TeamsAPIResetPwdProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ResetPwd")),
+			connect.WithClientOptions(opts...),
 		),
-		userInit: connect_go.NewClient[gen.UserInitRequest, gen.UserInitResponse](
+		userInit: connect.NewClient[gen.UserInitRequest, gen.UserInitResponse](
 			httpClient,
 			baseURL+TeamsAPIUserInitProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserInit")),
+			connect.WithClientOptions(opts...),
 		),
-		userInfo: connect_go.NewClient[gen.UserInfoRequest, gen.UserInfoResponse](
+		userInfo: connect.NewClient[gen.UserInfoRequest, gen.UserInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIUserInfoProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserInfo")),
+			connect.WithClientOptions(opts...),
 		),
-		updateUserAvator: connect_go.NewClient[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse](
+		updateUserAvator: connect.NewClient[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateUserAvatorProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateUserAvator")),
+			connect.WithClientOptions(opts...),
 		),
-		userWatching: connect_go.NewClient[gen.UserWatchingRequest, gen.UserWatchingResponse](
+		userWatching: connect.NewClient[gen.UserWatchingRequest, gen.UserWatchingResponse](
 			httpClient,
 			baseURL+TeamsAPIUserWatchingProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserWatching")),
+			connect.WithClientOptions(opts...),
 		),
-		userGroup: connect_go.NewClient[gen.UserGroupRequest, gen.UserGroupResponse](
+		userGroup: connect.NewClient[gen.UserGroupRequest, gen.UserGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIUserGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		userFollowingGroup: connect_go.NewClient[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse](
+		userFollowingGroup: connect.NewClient[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIUserFollowingGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserFollowingGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		userUpdate: connect_go.NewClient[gen.UserUpdateRequest, gen.UserUpdateResponse](
+		userUpdate: connect.NewClient[gen.UserUpdateRequest, gen.UserUpdateResponse](
 			httpClient,
 			baseURL+TeamsAPIUserUpdateProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserUpdate")),
+			connect.WithClientOptions(opts...),
 		),
-		searchUser: connect_go.NewClient[gen.SearchUserRequest, gen.SearchUserResponse](
+		searchUser: connect.NewClient[gen.SearchUserRequest, gen.SearchUserResponse](
 			httpClient,
 			baseURL+TeamsAPISearchUserProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("SearchUser")),
+			connect.WithClientOptions(opts...),
 		),
-		createGroup: connect_go.NewClient[gen.CreateGroupRequest, gen.CreateGroupResponse](
+		createGroup: connect.NewClient[gen.CreateGroupRequest, gen.CreateGroupResponse](
 			httpClient,
 			baseURL+TeamsAPICreateGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		getGroup: connect_go.NewClient[gen.GetGroupRequest, gen.GetGroupResponse](
+		getGroup: connect.NewClient[gen.GetGroupRequest, gen.GetGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		getGroupActives: connect_go.NewClient[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse](
+		getGroupActives: connect.NewClient[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupActivesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetGroupActives")),
+			connect.WithClientOptions(opts...),
 		),
-		updateGroupInfo: connect_go.NewClient[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse](
+		updateGroupInfo: connect.NewClient[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateGroupInfoProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateGroupInfo")),
+			connect.WithClientOptions(opts...),
 		),
-		getGroupProfile: connect_go.NewClient[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse](
+		getGroupProfile: connect.NewClient[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIGetGroupProfileProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetGroupProfile")),
+			connect.WithClientOptions(opts...),
 		),
-		updateGroupProfile: connect_go.NewClient[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse](
+		updateGroupProfile: connect.NewClient[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateGroupProfileProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateGroupProfile")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteGroup: connect_go.NewClient[gen.DeleteGroupRequest, gen.DeleteGroupResponse](
+		deleteGroup: connect.NewClient[gen.DeleteGroupRequest, gen.DeleteGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		fetchGroupMembers: connect_go.NewClient[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse](
+		fetchGroupMembers: connect.NewClient[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupMembersProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FetchGroupMembers")),
+			connect.WithClientOptions(opts...),
 		),
-		joinGroup: connect_go.NewClient[gen.JoinGroupRequest, gen.JoinGroupResponse](
+		joinGroup: connect.NewClient[gen.JoinGroupRequest, gen.JoinGroupResponse](
 			httpClient,
 			baseURL+TeamsAPIJoinGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("JoinGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		leaveGroup: connect_go.NewClient[gen.LeaveGroupRequest, gen.LeaveGroupResponse](
+		leaveGroup: connect.NewClient[gen.LeaveGroupRequest, gen.LeaveGroupResponse](
 			httpClient,
 			baseURL+TeamsAPILeaveGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LeaveGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		createStory: connect_go.NewClient[gen.CreateStoryRequest, gen.CreateStoryResponse](
+		createStory: connect.NewClient[gen.CreateStoryRequest, gen.CreateStoryResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStory")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryInfo: connect_go.NewClient[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse](
+		getStoryInfo: connect.NewClient[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryInfoProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryInfo")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStory: connect_go.NewClient[gen.RenderStoryRequest, gen.RenderStoryResponse](
+		renderStory: connect.NewClient[gen.RenderStoryRequest, gen.RenderStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStory")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStory: connect_go.NewClient[gen.UpdateStoryRequest, gen.UpdateStoryResponse](
+		updateStory: connect.NewClient[gen.UpdateStoryRequest, gen.UpdateStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStory")),
+			connect.WithClientOptions(opts...),
 		),
-		watchStory: connect_go.NewClient[gen.WatchStoryRequest, gen.WatchStoryResponse](
+		watchStory: connect.NewClient[gen.WatchStoryRequest, gen.WatchStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIWatchStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("WatchStory")),
+			connect.WithClientOptions(opts...),
 		),
-		archiveStory: connect_go.NewClient[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse](
+		archiveStory: connect.NewClient[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIArchiveStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ArchiveStory")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryboard: connect_go.NewClient[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse](
+		createStoryboard: connect.NewClient[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryboard: connect_go.NewClient[gen.GetStoryboardRequest, gen.GetStoryboardResponse](
+		getStoryboard: connect.NewClient[gen.GetStoryboardRequest, gen.GetStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryboard: connect_go.NewClient[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse](
+		renderStoryboard: connect.NewClient[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		genStoryboardText: connect_go.NewClient[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse](
+		genStoryboardText: connect.NewClient[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse](
 			httpClient,
 			baseURL+TeamsAPIGenStoryboardTextProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenStoryboardText")),
+			connect.WithClientOptions(opts...),
 		),
-		genStoryboardImages: connect_go.NewClient[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse](
+		genStoryboardImages: connect.NewClient[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse](
 			httpClient,
 			baseURL+TeamsAPIGenStoryboardImagesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenStoryboardImages")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryboards: connect_go.NewClient[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse](
+		getStoryboards: connect.NewClient[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryboardsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryboards")),
+			connect.WithClientOptions(opts...),
 		),
-		delStoryboard: connect_go.NewClient[gen.DelStoryboardRequest, gen.DelStoryboardResponse](
+		delStoryboard: connect.NewClient[gen.DelStoryboardRequest, gen.DelStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIDelStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DelStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		forkStoryboard: connect_go.NewClient[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse](
+		forkStoryboard: connect.NewClient[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIForkStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ForkStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryboard: connect_go.NewClient[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse](
+		updateStoryboard: connect.NewClient[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		likeStoryboard: connect_go.NewClient[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse](
+		likeStoryboard: connect.NewClient[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPILikeStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LikeStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		unLikeStoryboard: connect_go.NewClient[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse](
+		unLikeStoryboard: connect.NewClient[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIUnLikeStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		shareStoryboard: connect_go.NewClient[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse](
+		shareStoryboard: connect.NewClient[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIShareStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ShareStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		fetchGroupStorys: connect_go.NewClient[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse](
+		fetchGroupStorys: connect.NewClient[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchGroupStorysProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FetchGroupStorys")),
+			connect.WithClientOptions(opts...),
 		),
-		uploadImageFile: connect_go.NewClient[gen.UploadImageRequest, gen.UploadImageResponse](
+		uploadImageFile: connect.NewClient[gen.UploadImageRequest, gen.UploadImageResponse](
 			httpClient,
 			baseURL+TeamsAPIUploadImageFileProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UploadImageFile")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRender: connect_go.NewClient[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse](
+		getStoryRender: connect.NewClient[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRenderProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRender")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardRender: connect_go.NewClient[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse](
+		getStoryBoardRender: connect.NewClient[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardRenderProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardRender")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryContributors: connect_go.NewClient[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse](
+		getStoryContributors: connect.NewClient[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryContributorsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryContributors")),
+			connect.WithClientOptions(opts...),
 		),
-		continueRenderStory: connect_go.NewClient[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse](
+		continueRenderStory: connect.NewClient[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIContinueRenderStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ContinueRenderStory")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryRoles: connect_go.NewClient[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse](
+		renderStoryRoles: connect.NewClient[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryRolesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoles")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRole: connect_go.NewClient[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse](
+		updateStoryRole: connect.NewClient[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryRoleDetail: connect_go.NewClient[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse](
+		renderStoryRoleDetail: connect.NewClient[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryRoleDetailProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoleDetail")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRoles: connect_go.NewClient[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse](
+		getStoryRoles: connect.NewClient[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRolesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoles")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardRoles: connect_go.NewClient[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse](
+		getStoryBoardRoles: connect.NewClient[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardRolesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardRoles")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserProfile: connect_go.NewClient[gen.GetUserProfileRequest, gen.GetUserProfileResponse](
+		getUserProfile: connect.NewClient[gen.GetUserProfileRequest, gen.GetUserProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserProfileProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserProfile")),
+			connect.WithClientOptions(opts...),
 		),
-		updateUserProfile: connect_go.NewClient[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse](
+		updateUserProfile: connect.NewClient[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateUserProfileProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateUserProfile")),
+			connect.WithClientOptions(opts...),
 		),
-		updateUserBackgroundImage: connect_go.NewClient[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse](
+		updateUserBackgroundImage: connect.NewClient[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateUserBackgroundImageProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateUserBackgroundImage")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryRole: connect_go.NewClient[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse](
+		createStoryRole: connect.NewClient[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRoleDetail: connect_go.NewClient[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse](
+		getStoryRoleDetail: connect.NewClient[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRoleDetailProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleDetail")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryRole: connect_go.NewClient[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse](
+		renderStoryRole: connect.NewClient[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		likeStory: connect_go.NewClient[gen.LikeStoryRequest, gen.LikeStoryResponse](
+		likeStory: connect.NewClient[gen.LikeStoryRequest, gen.LikeStoryResponse](
 			httpClient,
 			baseURL+TeamsAPILikeStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LikeStory")),
+			connect.WithClientOptions(opts...),
 		),
-		unLikeStory: connect_go.NewClient[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse](
+		unLikeStory: connect.NewClient[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse](
 			httpClient,
 			baseURL+TeamsAPIUnLikeStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnLikeStory")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardSences: connect_go.NewClient[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse](
+		getStoryBoardSences: connect.NewClient[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardSencesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardSences")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryBoardSence: connect_go.NewClient[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse](
+		createStoryBoardSence: connect.NewClient[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryBoardSenceProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryBoardSence")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryBoardSence: connect_go.NewClient[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse](
+		updateStoryBoardSence: connect.NewClient[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryBoardSenceProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryBoardSence")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteStoryBoardSence: connect_go.NewClient[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse](
+		deleteStoryBoardSence: connect.NewClient[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteStoryBoardSenceProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryBoardSence")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryBoardSence: connect_go.NewClient[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse](
+		renderStoryBoardSence: connect.NewClient[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryBoardSenceProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryBoardSence")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryBoardSences: connect_go.NewClient[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse](
+		renderStoryBoardSences: connect.NewClient[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryBoardSencesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryBoardSences")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardSenceGenerate: connect_go.NewClient[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse](
+		getStoryBoardSenceGenerate: connect.NewClient[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardSenceGenerateProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardSenceGenerate")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardGenerate: connect_go.NewClient[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse](
+		getStoryBoardGenerate: connect.NewClient[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardGenerateProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardGenerate")),
+			connect.WithClientOptions(opts...),
 		),
-		likeStoryRole: connect_go.NewClient[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse](
+		likeStoryRole: connect.NewClient[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPILikeStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LikeStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		unLikeStoryRole: connect_go.NewClient[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse](
+		unLikeStoryRole: connect.NewClient[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIUnLikeStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		followStoryRole: connect_go.NewClient[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse](
+		followStoryRole: connect.NewClient[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIFollowStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FollowStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		unFollowStoryRole: connect_go.NewClient[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse](
+		unFollowStoryRole: connect.NewClient[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIUnFollowStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnFollowStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		searchStories: connect_go.NewClient[gen.SearchStoriesRequest, gen.SearchStoriesResponse](
+		searchStories: connect.NewClient[gen.SearchStoriesRequest, gen.SearchStoriesResponse](
 			httpClient,
 			baseURL+TeamsAPISearchStoriesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("SearchStories")),
+			connect.WithClientOptions(opts...),
 		),
-		searchGroup: connect_go.NewClient[gen.SearchGroupRequest, gen.SearchGroupResponse](
+		searchGroup: connect.NewClient[gen.SearchGroupRequest, gen.SearchGroupResponse](
 			httpClient,
 			baseURL+TeamsAPISearchGroupProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("SearchGroup")),
+			connect.WithClientOptions(opts...),
 		),
-		searchRoles: connect_go.NewClient[gen.SearchRolesRequest, gen.SearchRolesResponse](
+		searchRoles: connect.NewClient[gen.SearchRolesRequest, gen.SearchRolesResponse](
 			httpClient,
 			baseURL+TeamsAPISearchRolesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("SearchRoles")),
+			connect.WithClientOptions(opts...),
 		),
-		restoreStoryboard: connect_go.NewClient[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse](
+		restoreStoryboard: connect.NewClient[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIRestoreStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RestoreStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserCreatedStoryboards: connect_go.NewClient[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse](
+		getUserCreatedStoryboards: connect.NewClient[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserCreatedStoryboardsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserCreatedStoryboards")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserCreatedRoles: connect_go.NewClient[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse](
+		getUserCreatedRoles: connect.NewClient[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserCreatedRolesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserCreatedRoles")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRoleStoryboards: connect_go.NewClient[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse](
+		getStoryRoleStoryboards: connect.NewClient[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRoleStoryboardsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleStoryboards")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRoleStories: connect_go.NewClient[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse](
+		getStoryRoleStories: connect.NewClient[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRoleStoriesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleStories")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryRoleChat: connect_go.NewClient[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse](
+		createStoryRoleChat: connect.NewClient[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryRoleChatProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryRoleChat")),
+			connect.WithClientOptions(opts...),
 		),
-		chatWithStoryRole: connect_go.NewClient[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse](
+		chatWithStoryRole: connect.NewClient[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIChatWithStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("ChatWithStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRoleAvator: connect_go.NewClient[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse](
+		updateStoryRoleAvator: connect.NewClient[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRoleAvatorProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleAvator")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRoleDetail: connect_go.NewClient[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse](
+		updateStoryRoleDetail: connect.NewClient[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRoleDetailProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleDetail")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserWithRoleChatList: connect_go.NewClient[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse](
+		getUserWithRoleChatList: connect.NewClient[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserWithRoleChatListProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserWithRoleChatList")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserChatWithRole: connect_go.NewClient[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse](
+		getUserChatWithRole: connect.NewClient[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserChatWithRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserChatWithRole")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserChatMessages: connect_go.NewClient[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse](
+		getUserChatMessages: connect.NewClient[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserChatMessagesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserChatMessages")),
+			connect.WithClientOptions(opts...),
 		),
-		fetchActives: connect_go.NewClient[gen.FetchActivesRequest, gen.FetchActivesResponse](
+		fetchActives: connect.NewClient[gen.FetchActivesRequest, gen.FetchActivesResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchActivesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FetchActives")),
+			connect.WithClientOptions(opts...),
 		),
-		getNextStoryboard: connect_go.NewClient[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse](
+		getNextStoryboard: connect.NewClient[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIGetNextStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetNextStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		renderStoryRoleContinuously: connect_go.NewClient[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse](
+		renderStoryRoleContinuously: connect.NewClient[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse](
 			httpClient,
 			baseURL+TeamsAPIRenderStoryRoleContinuouslyProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoleContinuously")),
+			connect.WithClientOptions(opts...),
 		),
-		publishStoryboard: connect_go.NewClient[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse](
+		publishStoryboard: connect.NewClient[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIPublishStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("PublishStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		cancelStoryboard: connect_go.NewClient[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse](
+		cancelStoryboard: connect.NewClient[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPICancelStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CancelStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserWatchStoryActiveStoryBoards: connect_go.NewClient[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse](
+		getUserWatchStoryActiveStoryBoards: connect.NewClient[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserWatchStoryActiveStoryBoards")),
+			connect.WithClientOptions(opts...),
 		),
-		getUserWatchRoleActiveStoryBoards: connect_go.NewClient[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse](
+		getUserWatchRoleActiveStoryBoards: connect.NewClient[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUserWatchRoleActiveStoryBoards")),
+			connect.WithClientOptions(opts...),
 		),
-		getUnPublishStoryboard: connect_go.NewClient[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse](
+		getUnPublishStoryboard: connect.NewClient[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse](
 			httpClient,
 			baseURL+TeamsAPIGetUnPublishStoryboardProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetUnPublishStoryboard")),
+			connect.WithClientOptions(opts...),
 		),
-		generateRoleDescription: connect_go.NewClient[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse](
+		generateRoleDescription: connect.NewClient[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateRoleDescriptionProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateRoleDescription")),
+			connect.WithClientOptions(opts...),
 		),
-		updateRoleDescription: connect_go.NewClient[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse](
+		updateRoleDescription: connect.NewClient[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateRoleDescriptionProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateRoleDescription")),
+			connect.WithClientOptions(opts...),
 		),
-		generateRolePrompt: connect_go.NewClient[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse](
+		generateRolePrompt: connect.NewClient[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateRolePromptProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateRolePrompt")),
+			connect.WithClientOptions(opts...),
 		),
-		updateRolePrompt: connect_go.NewClient[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse](
+		updateRolePrompt: connect.NewClient[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateRolePromptProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateRolePrompt")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryComment: connect_go.NewClient[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse](
+		createStoryComment: connect.NewClient[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryComment")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryComments: connect_go.NewClient[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse](
+		getStoryComments: connect.NewClient[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryCommentsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryComments")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteStoryComment: connect_go.NewClient[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse](
+		deleteStoryComment: connect.NewClient[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteStoryCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryComment")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryCommentReplies: connect_go.NewClient[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse](
+		getStoryCommentReplies: connect.NewClient[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryCommentRepliesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryCommentReplies")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryCommentReply: connect_go.NewClient[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse](
+		createStoryCommentReply: connect.NewClient[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryCommentReplyProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryCommentReply")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteStoryCommentReply: connect_go.NewClient[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse](
+		deleteStoryCommentReply: connect.NewClient[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteStoryCommentReplyProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryCommentReply")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardComments: connect_go.NewClient[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse](
+		getStoryBoardComments: connect.NewClient[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardCommentsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardComments")),
+			connect.WithClientOptions(opts...),
 		),
-		createStoryBoardComment: connect_go.NewClient[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse](
+		createStoryBoardComment: connect.NewClient[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse](
 			httpClient,
 			baseURL+TeamsAPICreateStoryBoardCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("CreateStoryBoardComment")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteStoryBoardComment: connect_go.NewClient[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse](
+		deleteStoryBoardComment: connect.NewClient[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteStoryBoardCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryBoardComment")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryBoardCommentReplies: connect_go.NewClient[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse](
+		getStoryBoardCommentReplies: connect.NewClient[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryBoardCommentRepliesProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardCommentReplies")),
+			connect.WithClientOptions(opts...),
 		),
-		likeComment: connect_go.NewClient[gen.LikeCommentRequest, gen.LikeCommentResponse](
+		likeComment: connect.NewClient[gen.LikeCommentRequest, gen.LikeCommentResponse](
 			httpClient,
 			baseURL+TeamsAPILikeCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LikeComment")),
+			connect.WithClientOptions(opts...),
 		),
-		dislikeComment: connect_go.NewClient[gen.DislikeCommentRequest, gen.DislikeCommentResponse](
+		dislikeComment: connect.NewClient[gen.DislikeCommentRequest, gen.DislikeCommentResponse](
 			httpClient,
 			baseURL+TeamsAPIDislikeCommentProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DislikeComment")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRoleList: connect_go.NewClient[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse](
+		getStoryRoleList: connect.NewClient[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRoleListProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleList")),
+			connect.WithClientOptions(opts...),
 		),
-		trendingStory: connect_go.NewClient[gen.TrendingStoryRequest, gen.TrendingStoryResponse](
+		trendingStory: connect.NewClient[gen.TrendingStoryRequest, gen.TrendingStoryResponse](
 			httpClient,
 			baseURL+TeamsAPITrendingStoryProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("TrendingStory")),
+			connect.WithClientOptions(opts...),
 		),
-		trendingStoryRole: connect_go.NewClient[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse](
+		trendingStoryRole: connect.NewClient[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse](
 			httpClient,
 			baseURL+TeamsAPITrendingStoryRoleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("TrendingStoryRole")),
+			connect.WithClientOptions(opts...),
 		),
-		followUser: connect_go.NewClient[gen.FollowUserRequest, gen.FollowUserResponse](
+		followUser: connect.NewClient[gen.FollowUserRequest, gen.FollowUserResponse](
 			httpClient,
 			baseURL+TeamsAPIFollowUserProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FollowUser")),
+			connect.WithClientOptions(opts...),
 		),
-		unfollowUser: connect_go.NewClient[gen.UnfollowUserRequest, gen.UnfollowUserResponse](
+		unfollowUser: connect.NewClient[gen.UnfollowUserRequest, gen.UnfollowUserResponse](
 			httpClient,
 			baseURL+TeamsAPIUnfollowUserProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnfollowUser")),
+			connect.WithClientOptions(opts...),
 		),
-		getFollowList: connect_go.NewClient[gen.GetFollowListRequest, gen.GetFollowListResponse](
+		getFollowList: connect.NewClient[gen.GetFollowListRequest, gen.GetFollowListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetFollowListProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetFollowList")),
+			connect.WithClientOptions(opts...),
 		),
-		getFollowerList: connect_go.NewClient[gen.GetFollowerListRequest, gen.GetFollowerListResponse](
+		getFollowerList: connect.NewClient[gen.GetFollowerListRequest, gen.GetFollowerListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetFollowerListProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetFollowerList")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRolePrompt: connect_go.NewClient[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse](
+		updateStoryRolePrompt: connect.NewClient[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRolePromptProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRolePrompt")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRoleDescriptionDetail: connect_go.NewClient[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse](
+		updateStoryRoleDescriptionDetail: connect.NewClient[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRoleDescriptionDetailProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleDescriptionDetail")),
+			connect.WithClientOptions(opts...),
 		),
-		queryTaskStatus: connect_go.NewClient[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse](
+		queryTaskStatus: connect.NewClient[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse](
 			httpClient,
 			baseURL+TeamsAPIQueryTaskStatusProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("QueryTaskStatus")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryImageStyle: connect_go.NewClient[gen.GetStoryImageStyleRequest, gen.GetStoryImageStyleResponse](
+		getStoryImageStyle: connect.NewClient[gen.GetStoryImageStyleRequest, gen.GetStoryImageStyleResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryImageStyleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryImageStyle")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryImageStyle: connect_go.NewClient[gen.UpdateStoryImageStyleRequest, gen.UpdateStoryImageStyleResponse](
+		updateStoryImageStyle: connect.NewClient[gen.UpdateStoryImageStyleRequest, gen.UpdateStoryImageStyleResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryImageStyleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryImageStyle")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStorySenceMaxNumber: connect_go.NewClient[gen.UpdateStorySenceMaxNumberRequest, gen.UpdateStorySenceMaxNumberResponse](
+		updateStorySenceMaxNumber: connect.NewClient[gen.UpdateStorySenceMaxNumberRequest, gen.UpdateStorySenceMaxNumberResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStorySenceMaxNumberProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStorySenceMaxNumber")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryAvatar: connect_go.NewClient[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse](
+		updateStoryAvatar: connect.NewClient[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryAvatarProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryAvatar")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryCover: connect_go.NewClient[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse](
+		updateStoryCover: connect.NewClient[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryCoverProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryCover")),
+			connect.WithClientOptions(opts...),
 		),
-		saveStoryboardCraft: connect_go.NewClient[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse](
+		saveStoryboardCraft: connect.NewClient[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse](
 			httpClient,
 			baseURL+TeamsAPISaveStoryboardCraftProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("SaveStoryboardCraft")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryParticipants: connect_go.NewClient[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse](
+		getStoryParticipants: connect.NewClient[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryParticipantsProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryParticipants")),
+			connect.WithClientOptions(opts...),
 		),
-		generateStorySceneVideo: connect_go.NewClient[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse](
+		generateStorySceneVideo: connect.NewClient[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateStorySceneVideoProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateStorySceneVideo")),
+			connect.WithClientOptions(opts...),
 		),
-		generateRoleAvatar: connect_go.NewClient[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse](
+		generateRoleAvatar: connect.NewClient[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateRoleAvatarProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateRoleAvatar")),
+			connect.WithClientOptions(opts...),
 		),
-		fetchUserGenTaskStatus: connect_go.NewClient[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse](
+		fetchUserGenTaskStatus: connect.NewClient[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse](
 			httpClient,
 			baseURL+TeamsAPIFetchUserGenTaskStatusProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("FetchUserGenTaskStatus")),
+			connect.WithClientOptions(opts...),
 		),
-		generateStoryRolePoster: connect_go.NewClient[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse](
+		generateStoryRolePoster: connect.NewClient[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateStoryRolePosterProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateStoryRolePoster")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryRolePoster: connect_go.NewClient[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse](
+		updateStoryRolePoster: connect.NewClient[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryRolePosterProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRolePoster")),
+			connect.WithClientOptions(opts...),
 		),
-		likeStoryRolePoster: connect_go.NewClient[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse](
+		likeStoryRolePoster: connect.NewClient[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse](
 			httpClient,
 			baseURL+TeamsAPILikeStoryRolePosterProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("LikeStoryRolePoster")),
+			connect.WithClientOptions(opts...),
 		),
-		unLikeStoryRolePoster: connect_go.NewClient[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse](
+		unLikeStoryRolePoster: connect.NewClient[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse](
 			httpClient,
 			baseURL+TeamsAPIUnLikeStoryRolePosterProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryRolePoster")),
+			connect.WithClientOptions(opts...),
 		),
-		getStoryRolePosterList: connect_go.NewClient[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse](
+		getStoryRolePosterList: connect.NewClient[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse](
 			httpClient,
 			baseURL+TeamsAPIGetStoryRolePosterListProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryRolePosterList")),
+			connect.WithClientOptions(opts...),
 		),
-		generateStoryRoleVideo: connect_go.NewClient[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse](
+		generateStoryRoleVideo: connect.NewClient[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse](
 			httpClient,
 			baseURL+TeamsAPIGenerateStoryRoleVideoProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GenerateStoryRoleVideo")),
+			connect.WithClientOptions(opts...),
 		),
-		updateStoryboardForkAble: connect_go.NewClient[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse](
+		updateStoryboardForkAble: connect.NewClient[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse](
 			httpClient,
 			baseURL+TeamsAPIUpdateStoryboardForkAbleProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryboardForkAble")),
+			connect.WithClientOptions(opts...),
 		),
-		userStoryboardDraftlist: connect_go.NewClient[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse](
+		userStoryboardDraftlist: connect.NewClient[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse](
 			httpClient,
 			baseURL+TeamsAPIUserStoryboardDraftlistProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserStoryboardDraftlist")),
+			connect.WithClientOptions(opts...),
 		),
-		userStoryboardDraftDetail: connect_go.NewClient[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse](
+		userStoryboardDraftDetail: connect.NewClient[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse](
 			httpClient,
 			baseURL+TeamsAPIUserStoryboardDraftDetailProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserStoryboardDraftDetail")),
+			connect.WithClientOptions(opts...),
 		),
-		deleteUserStoryboardDraft: connect_go.NewClient[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse](
+		deleteUserStoryboardDraft: connect.NewClient[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse](
 			httpClient,
 			baseURL+TeamsAPIDeleteUserStoryboardDraftProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("DeleteUserStoryboardDraft")),
+			connect.WithClientOptions(opts...),
 		),
-		userActiveHeatmap: connect_go.NewClient[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse](
+		userActiveHeatmap: connect.NewClient[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse](
 			httpClient,
 			baseURL+TeamsAPIUserActiveHeatmapProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("UserActiveHeatmap")),
+			connect.WithClientOptions(opts...),
 		),
-		groupActiveHeatmap: connect_go.NewClient[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse](
+		groupActiveHeatmap: connect.NewClient[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse](
 			httpClient,
 			baseURL+TeamsAPIGroupActiveHeatmapProcedure,
-			opts...,
+			connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
+			connect.WithClientOptions(opts...),
+		),
+		getStoryGenerationHistory: connect.NewClient[gen.GetStoryGenerationHistoryRequest, gen.GetStoryGenerationHistoryResponse](
+			httpClient,
+			baseURL+TeamsAPIGetStoryGenerationHistoryProcedure,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryGenerationHistory")),
+			connect.WithClientOptions(opts...),
 		),
 	}
 }
 
 // teamsAPIClient implements TeamsAPIClient.
 type teamsAPIClient struct {
-	explore                            *connect_go.Client[gen.ExploreRequest, gen.ExploreResponse]
-	version                            *connect_go.Client[gen.VersionRequest, gen.VersionResponse]
-	about                              *connect_go.Client[gen.AboutRequest, gen.AboutResponse]
-	login                              *connect_go.Client[gen.LoginRequest, gen.LoginResponse]
-	logout                             *connect_go.Client[gen.LogoutRequest, gen.LogoutResponse]
-	refreshToken                       *connect_go.Client[gen.RefreshTokenRequest, gen.RefreshTokenResponse]
-	register                           *connect_go.Client[gen.RegisterRequest, gen.RegisterResponse]
-	resetPwd                           *connect_go.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
-	userInit                           *connect_go.Client[gen.UserInitRequest, gen.UserInitResponse]
-	userInfo                           *connect_go.Client[gen.UserInfoRequest, gen.UserInfoResponse]
-	updateUserAvator                   *connect_go.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
-	userWatching                       *connect_go.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
-	userGroup                          *connect_go.Client[gen.UserGroupRequest, gen.UserGroupResponse]
-	userFollowingGroup                 *connect_go.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
-	userUpdate                         *connect_go.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
-	searchUser                         *connect_go.Client[gen.SearchUserRequest, gen.SearchUserResponse]
-	createGroup                        *connect_go.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
-	getGroup                           *connect_go.Client[gen.GetGroupRequest, gen.GetGroupResponse]
-	getGroupActives                    *connect_go.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
-	updateGroupInfo                    *connect_go.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
-	getGroupProfile                    *connect_go.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
-	updateGroupProfile                 *connect_go.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
-	deleteGroup                        *connect_go.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
-	fetchGroupMembers                  *connect_go.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
-	joinGroup                          *connect_go.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
-	leaveGroup                         *connect_go.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
-	createStory                        *connect_go.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
-	getStoryInfo                       *connect_go.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
-	renderStory                        *connect_go.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
-	updateStory                        *connect_go.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
-	watchStory                         *connect_go.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
-	archiveStory                       *connect_go.Client[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse]
-	createStoryboard                   *connect_go.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
-	getStoryboard                      *connect_go.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
-	renderStoryboard                   *connect_go.Client[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse]
-	genStoryboardText                  *connect_go.Client[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse]
-	genStoryboardImages                *connect_go.Client[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse]
-	getStoryboards                     *connect_go.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
-	delStoryboard                      *connect_go.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
-	forkStoryboard                     *connect_go.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
-	updateStoryboard                   *connect_go.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
-	likeStoryboard                     *connect_go.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
-	unLikeStoryboard                   *connect_go.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
-	shareStoryboard                    *connect_go.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
-	fetchGroupStorys                   *connect_go.Client[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse]
-	uploadImageFile                    *connect_go.Client[gen.UploadImageRequest, gen.UploadImageResponse]
-	getStoryRender                     *connect_go.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
-	getStoryBoardRender                *connect_go.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
-	getStoryContributors               *connect_go.Client[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse]
-	continueRenderStory                *connect_go.Client[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse]
-	renderStoryRoles                   *connect_go.Client[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse]
-	updateStoryRole                    *connect_go.Client[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse]
-	renderStoryRoleDetail              *connect_go.Client[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse]
-	getStoryRoles                      *connect_go.Client[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse]
-	getStoryBoardRoles                 *connect_go.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
-	getUserProfile                     *connect_go.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
-	updateUserProfile                  *connect_go.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
-	updateUserBackgroundImage          *connect_go.Client[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse]
-	createStoryRole                    *connect_go.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
-	getStoryRoleDetail                 *connect_go.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
-	renderStoryRole                    *connect_go.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
-	likeStory                          *connect_go.Client[gen.LikeStoryRequest, gen.LikeStoryResponse]
-	unLikeStory                        *connect_go.Client[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse]
-	getStoryBoardSences                *connect_go.Client[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse]
-	createStoryBoardSence              *connect_go.Client[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse]
-	updateStoryBoardSence              *connect_go.Client[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse]
-	deleteStoryBoardSence              *connect_go.Client[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse]
-	renderStoryBoardSence              *connect_go.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
-	renderStoryBoardSences             *connect_go.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
-	getStoryBoardSenceGenerate         *connect_go.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
-	getStoryBoardGenerate              *connect_go.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
-	likeStoryRole                      *connect_go.Client[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse]
-	unLikeStoryRole                    *connect_go.Client[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse]
-	followStoryRole                    *connect_go.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
-	unFollowStoryRole                  *connect_go.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
-	searchStories                      *connect_go.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
-	searchGroup                        *connect_go.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
-	searchRoles                        *connect_go.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
-	restoreStoryboard                  *connect_go.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
-	getUserCreatedStoryboards          *connect_go.Client[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse]
-	getUserCreatedRoles                *connect_go.Client[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse]
-	getStoryRoleStoryboards            *connect_go.Client[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse]
-	getStoryRoleStories                *connect_go.Client[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse]
-	createStoryRoleChat                *connect_go.Client[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse]
-	chatWithStoryRole                  *connect_go.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
-	updateStoryRoleAvator              *connect_go.Client[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse]
-	updateStoryRoleDetail              *connect_go.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
-	getUserWithRoleChatList            *connect_go.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
-	getUserChatWithRole                *connect_go.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
-	getUserChatMessages                *connect_go.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
-	fetchActives                       *connect_go.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
-	getNextStoryboard                  *connect_go.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
-	renderStoryRoleContinuously        *connect_go.Client[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse]
-	publishStoryboard                  *connect_go.Client[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse]
-	cancelStoryboard                   *connect_go.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
-	getUserWatchStoryActiveStoryBoards *connect_go.Client[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse]
-	getUserWatchRoleActiveStoryBoards  *connect_go.Client[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse]
-	getUnPublishStoryboard             *connect_go.Client[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse]
-	generateRoleDescription            *connect_go.Client[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse]
-	updateRoleDescription              *connect_go.Client[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse]
-	generateRolePrompt                 *connect_go.Client[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse]
-	updateRolePrompt                   *connect_go.Client[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse]
-	createStoryComment                 *connect_go.Client[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse]
-	getStoryComments                   *connect_go.Client[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse]
-	deleteStoryComment                 *connect_go.Client[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse]
-	getStoryCommentReplies             *connect_go.Client[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse]
-	createStoryCommentReply            *connect_go.Client[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse]
-	deleteStoryCommentReply            *connect_go.Client[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse]
-	getStoryBoardComments              *connect_go.Client[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse]
-	createStoryBoardComment            *connect_go.Client[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse]
-	deleteStoryBoardComment            *connect_go.Client[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse]
-	getStoryBoardCommentReplies        *connect_go.Client[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse]
-	likeComment                        *connect_go.Client[gen.LikeCommentRequest, gen.LikeCommentResponse]
-	dislikeComment                     *connect_go.Client[gen.DislikeCommentRequest, gen.DislikeCommentResponse]
-	getStoryRoleList                   *connect_go.Client[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse]
-	trendingStory                      *connect_go.Client[gen.TrendingStoryRequest, gen.TrendingStoryResponse]
-	trendingStoryRole                  *connect_go.Client[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse]
-	followUser                         *connect_go.Client[gen.FollowUserRequest, gen.FollowUserResponse]
-	unfollowUser                       *connect_go.Client[gen.UnfollowUserRequest, gen.UnfollowUserResponse]
-	getFollowList                      *connect_go.Client[gen.GetFollowListRequest, gen.GetFollowListResponse]
-	getFollowerList                    *connect_go.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
-	updateStoryRolePrompt              *connect_go.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
-	updateStoryRoleDescriptionDetail   *connect_go.Client[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse]
-	queryTaskStatus                    *connect_go.Client[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse]
-	getStoryImageStyle                 *connect_go.Client[gen.GetStoryImageStyleRequest, gen.GetStoryImageStyleResponse]
-	updateStoryImageStyle              *connect_go.Client[gen.UpdateStoryImageStyleRequest, gen.UpdateStoryImageStyleResponse]
-	updateStorySenceMaxNumber          *connect_go.Client[gen.UpdateStorySenceMaxNumberRequest, gen.UpdateStorySenceMaxNumberResponse]
-	updateStoryAvatar                  *connect_go.Client[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse]
-	updateStoryCover                   *connect_go.Client[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse]
-	saveStoryboardCraft                *connect_go.Client[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse]
-	getStoryParticipants               *connect_go.Client[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse]
-	generateStorySceneVideo            *connect_go.Client[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse]
-	generateRoleAvatar                 *connect_go.Client[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse]
-	fetchUserGenTaskStatus             *connect_go.Client[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse]
-	generateStoryRolePoster            *connect_go.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
-	updateStoryRolePoster              *connect_go.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
-	likeStoryRolePoster                *connect_go.Client[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse]
-	unLikeStoryRolePoster              *connect_go.Client[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse]
-	getStoryRolePosterList             *connect_go.Client[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse]
-	generateStoryRoleVideo             *connect_go.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
-	updateStoryboardForkAble           *connect_go.Client[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse]
-	userStoryboardDraftlist            *connect_go.Client[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse]
-	userStoryboardDraftDetail          *connect_go.Client[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse]
-	deleteUserStoryboardDraft          *connect_go.Client[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse]
-	userActiveHeatmap                  *connect_go.Client[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse]
-	groupActiveHeatmap                 *connect_go.Client[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse]
+	explore                            *connect.Client[gen.ExploreRequest, gen.ExploreResponse]
+	version                            *connect.Client[gen.VersionRequest, gen.VersionResponse]
+	about                              *connect.Client[gen.AboutRequest, gen.AboutResponse]
+	login                              *connect.Client[gen.LoginRequest, gen.LoginResponse]
+	logout                             *connect.Client[gen.LogoutRequest, gen.LogoutResponse]
+	refreshToken                       *connect.Client[gen.RefreshTokenRequest, gen.RefreshTokenResponse]
+	register                           *connect.Client[gen.RegisterRequest, gen.RegisterResponse]
+	resetPwd                           *connect.Client[gen.ResetPasswordRequest, gen.ResetPasswordResponse]
+	userInit                           *connect.Client[gen.UserInitRequest, gen.UserInitResponse]
+	userInfo                           *connect.Client[gen.UserInfoRequest, gen.UserInfoResponse]
+	updateUserAvator                   *connect.Client[gen.UpdateUserAvatorRequest, gen.UpdateUserAvatorResponse]
+	userWatching                       *connect.Client[gen.UserWatchingRequest, gen.UserWatchingResponse]
+	userGroup                          *connect.Client[gen.UserGroupRequest, gen.UserGroupResponse]
+	userFollowingGroup                 *connect.Client[gen.UserFollowingGroupRequest, gen.UserFollowingGroupResponse]
+	userUpdate                         *connect.Client[gen.UserUpdateRequest, gen.UserUpdateResponse]
+	searchUser                         *connect.Client[gen.SearchUserRequest, gen.SearchUserResponse]
+	createGroup                        *connect.Client[gen.CreateGroupRequest, gen.CreateGroupResponse]
+	getGroup                           *connect.Client[gen.GetGroupRequest, gen.GetGroupResponse]
+	getGroupActives                    *connect.Client[gen.GetGroupActivesRequest, gen.GetGroupActivesResponse]
+	updateGroupInfo                    *connect.Client[gen.UpdateGroupInfoRequest, gen.UpdateGroupInfoResponse]
+	getGroupProfile                    *connect.Client[gen.GetGroupProfileRequest, gen.GetGroupProfileResponse]
+	updateGroupProfile                 *connect.Client[gen.UpdateGroupProfileRequest, gen.UpdateGroupProfileResponse]
+	deleteGroup                        *connect.Client[gen.DeleteGroupRequest, gen.DeleteGroupResponse]
+	fetchGroupMembers                  *connect.Client[gen.FetchGroupMembersRequest, gen.FetchGroupMembersResponse]
+	joinGroup                          *connect.Client[gen.JoinGroupRequest, gen.JoinGroupResponse]
+	leaveGroup                         *connect.Client[gen.LeaveGroupRequest, gen.LeaveGroupResponse]
+	createStory                        *connect.Client[gen.CreateStoryRequest, gen.CreateStoryResponse]
+	getStoryInfo                       *connect.Client[gen.GetStoryInfoRequest, gen.GetStoryInfoResponse]
+	renderStory                        *connect.Client[gen.RenderStoryRequest, gen.RenderStoryResponse]
+	updateStory                        *connect.Client[gen.UpdateStoryRequest, gen.UpdateStoryResponse]
+	watchStory                         *connect.Client[gen.WatchStoryRequest, gen.WatchStoryResponse]
+	archiveStory                       *connect.Client[gen.ArchiveStoryRequest, gen.ArchiveStoryResponse]
+	createStoryboard                   *connect.Client[gen.CreateStoryboardRequest, gen.CreateStoryboardResponse]
+	getStoryboard                      *connect.Client[gen.GetStoryboardRequest, gen.GetStoryboardResponse]
+	renderStoryboard                   *connect.Client[gen.RenderStoryboardRequest, gen.RenderStoryboardResponse]
+	genStoryboardText                  *connect.Client[gen.GenStoryboardTextRequest, gen.GenStoryboardTextResponse]
+	genStoryboardImages                *connect.Client[gen.GenStoryboardImagesRequest, gen.GenStoryboardImagesResponse]
+	getStoryboards                     *connect.Client[gen.GetStoryboardsRequest, gen.GetStoryboardsResponse]
+	delStoryboard                      *connect.Client[gen.DelStoryboardRequest, gen.DelStoryboardResponse]
+	forkStoryboard                     *connect.Client[gen.ForkStoryboardRequest, gen.ForkStoryboardResponse]
+	updateStoryboard                   *connect.Client[gen.UpdateStoryboardRequest, gen.UpdateStoryboardResponse]
+	likeStoryboard                     *connect.Client[gen.LikeStoryboardRequest, gen.LikeStoryboardResponse]
+	unLikeStoryboard                   *connect.Client[gen.UnLikeStoryboardRequest, gen.UnLikeStoryboardResponse]
+	shareStoryboard                    *connect.Client[gen.ShareStoryboardRequest, gen.ShareStoryboardResponse]
+	fetchGroupStorys                   *connect.Client[gen.FetchGroupStorysRequest, gen.FetchGroupStorysResponse]
+	uploadImageFile                    *connect.Client[gen.UploadImageRequest, gen.UploadImageResponse]
+	getStoryRender                     *connect.Client[gen.GetStoryRenderRequest, gen.GetStoryRenderResponse]
+	getStoryBoardRender                *connect.Client[gen.GetStoryBoardRenderRequest, gen.GetStoryBoardRenderResponse]
+	getStoryContributors               *connect.Client[gen.GetStoryContributorsRequest, gen.GetStoryContributorsResponse]
+	continueRenderStory                *connect.Client[gen.ContinueRenderStoryRequest, gen.ContinueRenderStoryResponse]
+	renderStoryRoles                   *connect.Client[gen.RenderStoryRolesRequest, gen.RenderStoryRolesResponse]
+	updateStoryRole                    *connect.Client[gen.UpdateStoryRoleRequest, gen.UpdateStoryRoleResponse]
+	renderStoryRoleDetail              *connect.Client[gen.RenderStoryRoleDetailRequest, gen.RenderStoryRoleDetailResponse]
+	getStoryRoles                      *connect.Client[gen.GetStoryRolesRequest, gen.GetStoryRolesResponse]
+	getStoryBoardRoles                 *connect.Client[gen.GetStoryBoardRolesRequest, gen.GetStoryBoardRolesResponse]
+	getUserProfile                     *connect.Client[gen.GetUserProfileRequest, gen.GetUserProfileResponse]
+	updateUserProfile                  *connect.Client[gen.UpdateUserProfileRequest, gen.UpdateUserProfileResponse]
+	updateUserBackgroundImage          *connect.Client[gen.UpdateUserBackgroundImageRequest, gen.UpdateUserBackgroundImageResponse]
+	createStoryRole                    *connect.Client[gen.CreateStoryRoleRequest, gen.CreateStoryRoleResponse]
+	getStoryRoleDetail                 *connect.Client[gen.GetStoryRoleDetailRequest, gen.GetStoryRoleDetailResponse]
+	renderStoryRole                    *connect.Client[gen.RenderStoryRoleRequest, gen.RenderStoryRoleResponse]
+	likeStory                          *connect.Client[gen.LikeStoryRequest, gen.LikeStoryResponse]
+	unLikeStory                        *connect.Client[gen.UnLikeStoryRequest, gen.UnLikeStoryResponse]
+	getStoryBoardSences                *connect.Client[gen.GetStoryBoardSencesRequest, gen.GetStoryBoardSencesResponse]
+	createStoryBoardSence              *connect.Client[gen.CreateStoryBoardSenceRequest, gen.CreateStoryBoardSenceResponse]
+	updateStoryBoardSence              *connect.Client[gen.UpdateStoryBoardSenceRequest, gen.UpdateStoryBoardSenceResponse]
+	deleteStoryBoardSence              *connect.Client[gen.DeleteStoryBoardSenceRequest, gen.DeleteStoryBoardSenceResponse]
+	renderStoryBoardSence              *connect.Client[gen.RenderStoryBoardSenceRequest, gen.RenderStoryBoardSenceResponse]
+	renderStoryBoardSences             *connect.Client[gen.RenderStoryBoardSencesRequest, gen.RenderStoryBoardSencesResponse]
+	getStoryBoardSenceGenerate         *connect.Client[gen.GetStoryBoardSenceGenerateRequest, gen.GetStoryBoardSenceGenerateResponse]
+	getStoryBoardGenerate              *connect.Client[gen.GetStoryBoardGenerateRequest, gen.GetStoryBoardGenerateResponse]
+	likeStoryRole                      *connect.Client[gen.LikeStoryRoleRequest, gen.LikeStoryRoleResponse]
+	unLikeStoryRole                    *connect.Client[gen.UnLikeStoryRoleRequest, gen.UnLikeStoryRoleResponse]
+	followStoryRole                    *connect.Client[gen.FollowStoryRoleRequest, gen.FollowStoryRoleResponse]
+	unFollowStoryRole                  *connect.Client[gen.UnFollowStoryRoleRequest, gen.UnFollowStoryRoleResponse]
+	searchStories                      *connect.Client[gen.SearchStoriesRequest, gen.SearchStoriesResponse]
+	searchGroup                        *connect.Client[gen.SearchGroupRequest, gen.SearchGroupResponse]
+	searchRoles                        *connect.Client[gen.SearchRolesRequest, gen.SearchRolesResponse]
+	restoreStoryboard                  *connect.Client[gen.RestoreStoryboardRequest, gen.RestoreStoryboardResponse]
+	getUserCreatedStoryboards          *connect.Client[gen.GetUserCreatedStoryboardsRequest, gen.GetUserCreatedStoryboardsResponse]
+	getUserCreatedRoles                *connect.Client[gen.GetUserCreatedRolesRequest, gen.GetUserCreatedRolesResponse]
+	getStoryRoleStoryboards            *connect.Client[gen.GetStoryRoleStoryboardsRequest, gen.GetStoryRoleStoryboardsResponse]
+	getStoryRoleStories                *connect.Client[gen.GetStoryRoleStoriesRequest, gen.GetStoryRoleStoriesResponse]
+	createStoryRoleChat                *connect.Client[gen.CreateStoryRoleChatRequest, gen.CreateStoryRoleChatResponse]
+	chatWithStoryRole                  *connect.Client[gen.ChatWithStoryRoleRequest, gen.ChatWithStoryRoleResponse]
+	updateStoryRoleAvator              *connect.Client[gen.UpdateStoryRoleAvatorRequest, gen.UpdateStoryRoleAvatorResponse]
+	updateStoryRoleDetail              *connect.Client[gen.UpdateStoryRoleDetailRequest, gen.UpdateStoryRoleDetailResponse]
+	getUserWithRoleChatList            *connect.Client[gen.GetUserWithRoleChatListRequest, gen.GetUserWithRoleChatListResponse]
+	getUserChatWithRole                *connect.Client[gen.GetUserChatWithRoleRequest, gen.GetUserChatWithRoleResponse]
+	getUserChatMessages                *connect.Client[gen.GetUserChatMessagesRequest, gen.GetUserChatMessagesResponse]
+	fetchActives                       *connect.Client[gen.FetchActivesRequest, gen.FetchActivesResponse]
+	getNextStoryboard                  *connect.Client[gen.GetNextStoryboardRequest, gen.GetNextStoryboardResponse]
+	renderStoryRoleContinuously        *connect.Client[gen.RenderStoryRoleContinuouslyRequest, gen.RenderStoryRoleContinuouslyResponse]
+	publishStoryboard                  *connect.Client[gen.PublishStoryboardRequest, gen.PublishStoryboardResponse]
+	cancelStoryboard                   *connect.Client[gen.CancelStoryboardRequest, gen.CancelStoryboardResponse]
+	getUserWatchStoryActiveStoryBoards *connect.Client[gen.GetUserWatchStoryActiveStoryBoardsRequest, gen.GetUserWatchStoryActiveStoryBoardsResponse]
+	getUserWatchRoleActiveStoryBoards  *connect.Client[gen.GetUserWatchRoleActiveStoryBoardsRequest, gen.GetUserWatchRoleActiveStoryBoardsResponse]
+	getUnPublishStoryboard             *connect.Client[gen.GetUnPublishStoryboardRequest, gen.GetUnPublishStoryboardResponse]
+	generateRoleDescription            *connect.Client[gen.GenerateRoleDescriptionRequest, gen.GenerateRoleDescriptionResponse]
+	updateRoleDescription              *connect.Client[gen.UpdateRoleDescriptionRequest, gen.UpdateRoleDescriptionResponse]
+	generateRolePrompt                 *connect.Client[gen.GenerateRolePromptRequest, gen.GenerateRolePromptResponse]
+	updateRolePrompt                   *connect.Client[gen.UpdateRolePromptRequest, gen.UpdateRolePromptResponse]
+	createStoryComment                 *connect.Client[gen.CreateStoryCommentRequest, gen.CreateStoryCommentResponse]
+	getStoryComments                   *connect.Client[gen.GetStoryCommentsRequest, gen.GetStoryCommentsResponse]
+	deleteStoryComment                 *connect.Client[gen.DeleteStoryCommentRequest, gen.DeleteStoryCommentResponse]
+	getStoryCommentReplies             *connect.Client[gen.GetStoryCommentRepliesRequest, gen.GetStoryCommentRepliesResponse]
+	createStoryCommentReply            *connect.Client[gen.CreateStoryCommentReplyRequest, gen.CreateStoryCommentReplyResponse]
+	deleteStoryCommentReply            *connect.Client[gen.DeleteStoryCommentReplyRequest, gen.DeleteStoryCommentReplyResponse]
+	getStoryBoardComments              *connect.Client[gen.GetStoryBoardCommentsRequest, gen.GetStoryBoardCommentsResponse]
+	createStoryBoardComment            *connect.Client[gen.CreateStoryBoardCommentRequest, gen.CreateStoryBoardCommentResponse]
+	deleteStoryBoardComment            *connect.Client[gen.DeleteStoryBoardCommentRequest, gen.DeleteStoryBoardCommentResponse]
+	getStoryBoardCommentReplies        *connect.Client[gen.GetStoryBoardCommentRepliesRequest, gen.GetStoryBoardCommentRepliesResponse]
+	likeComment                        *connect.Client[gen.LikeCommentRequest, gen.LikeCommentResponse]
+	dislikeComment                     *connect.Client[gen.DislikeCommentRequest, gen.DislikeCommentResponse]
+	getStoryRoleList                   *connect.Client[gen.GetStoryRoleListRequest, gen.GetStoryRoleListResponse]
+	trendingStory                      *connect.Client[gen.TrendingStoryRequest, gen.TrendingStoryResponse]
+	trendingStoryRole                  *connect.Client[gen.TrendingStoryRoleRequest, gen.TrendingStoryRoleResponse]
+	followUser                         *connect.Client[gen.FollowUserRequest, gen.FollowUserResponse]
+	unfollowUser                       *connect.Client[gen.UnfollowUserRequest, gen.UnfollowUserResponse]
+	getFollowList                      *connect.Client[gen.GetFollowListRequest, gen.GetFollowListResponse]
+	getFollowerList                    *connect.Client[gen.GetFollowerListRequest, gen.GetFollowerListResponse]
+	updateStoryRolePrompt              *connect.Client[gen.UpdateStoryRolePromptRequest, gen.UpdateStoryRolePromptResponse]
+	updateStoryRoleDescriptionDetail   *connect.Client[gen.UpdateStoryRoleDescriptionDetailRequest, gen.UpdateStoryRoleDescriptionDetailResponse]
+	queryTaskStatus                    *connect.Client[gen.QueryTaskStatusRequest, gen.QueryTaskStatusResponse]
+	getStoryImageStyle                 *connect.Client[gen.GetStoryImageStyleRequest, gen.GetStoryImageStyleResponse]
+	updateStoryImageStyle              *connect.Client[gen.UpdateStoryImageStyleRequest, gen.UpdateStoryImageStyleResponse]
+	updateStorySenceMaxNumber          *connect.Client[gen.UpdateStorySenceMaxNumberRequest, gen.UpdateStorySenceMaxNumberResponse]
+	updateStoryAvatar                  *connect.Client[gen.UpdateStoryAvatarRequest, gen.UpdateStoryAvatarResponse]
+	updateStoryCover                   *connect.Client[gen.UpdateStoryCoverRequest, gen.UpdateStoryCoverResponse]
+	saveStoryboardCraft                *connect.Client[gen.SaveStoryboardCraftRequest, gen.SaveStoryboardCraftResponse]
+	getStoryParticipants               *connect.Client[gen.GetStoryParticipantsRequest, gen.GetStoryParticipantsResponse]
+	generateStorySceneVideo            *connect.Client[gen.GenerateStorySceneVideoRequest, gen.GenerateStorySceneVideoResponse]
+	generateRoleAvatar                 *connect.Client[gen.GenerateRoleAvatarRequest, gen.GenerateRoleAvatarResponse]
+	fetchUserGenTaskStatus             *connect.Client[gen.FetchUserGenTaskStatusRequest, gen.FetchUserGenTaskStatusResponse]
+	generateStoryRolePoster            *connect.Client[gen.GenerateStoryRolePosterRequest, gen.GenerateStoryRolePosterResponse]
+	updateStoryRolePoster              *connect.Client[gen.UpdateStoryRolePosterRequest, gen.UpdateStoryRolePosterResponse]
+	likeStoryRolePoster                *connect.Client[gen.LikeStoryRolePosterRequest, gen.LikeStoryRolePosterResponse]
+	unLikeStoryRolePoster              *connect.Client[gen.UnLikeStoryRolePosterRequest, gen.UnLikeStoryRolePosterResponse]
+	getStoryRolePosterList             *connect.Client[gen.GetStoryRolePosterListRequest, gen.GetStoryRolePosterListResponse]
+	generateStoryRoleVideo             *connect.Client[gen.GenerateStoryRoleVideoRequest, gen.GenerateStoryRoleVideoResponse]
+	updateStoryboardForkAble           *connect.Client[gen.UpdateStoryboardForkAbleRequest, gen.UpdateStoryboardForkAbleResponse]
+	userStoryboardDraftlist            *connect.Client[gen.UserStoryboardDraftlistRequest, gen.UserStoryboardDraftlistResponse]
+	userStoryboardDraftDetail          *connect.Client[gen.UserDraftStoryboardDetailRequest, gen.UserDraftStoryboardDetailResponse]
+	deleteUserStoryboardDraft          *connect.Client[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse]
+	userActiveHeatmap                  *connect.Client[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse]
+	groupActiveHeatmap                 *connect.Client[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse]
+	getStoryGenerationHistory          *connect.Client[gen.GetStoryGenerationHistoryRequest, gen.GetStoryGenerationHistoryResponse]
 }
 
 // Explore calls rankquantity.voyager.api.TeamsAPI.Explore.
-func (c *teamsAPIClient) Explore(ctx context.Context, req *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
+func (c *teamsAPIClient) Explore(ctx context.Context, req *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
 	return c.explore.CallUnary(ctx, req)
 }
 
 // Version calls rankquantity.voyager.api.TeamsAPI.Version.
-func (c *teamsAPIClient) Version(ctx context.Context, req *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
+func (c *teamsAPIClient) Version(ctx context.Context, req *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error) {
 	return c.version.CallUnary(ctx, req)
 }
 
 // About calls rankquantity.voyager.api.TeamsAPI.About.
-func (c *teamsAPIClient) About(ctx context.Context, req *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
+func (c *teamsAPIClient) About(ctx context.Context, req *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error) {
 	return c.about.CallUnary(ctx, req)
 }
 
 // Login calls rankquantity.voyager.api.TeamsAPI.Login.
-func (c *teamsAPIClient) Login(ctx context.Context, req *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
+func (c *teamsAPIClient) Login(ctx context.Context, req *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error) {
 	return c.login.CallUnary(ctx, req)
 }
 
 // Logout calls rankquantity.voyager.api.TeamsAPI.Logout.
-func (c *teamsAPIClient) Logout(ctx context.Context, req *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
+func (c *teamsAPIClient) Logout(ctx context.Context, req *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
 	return c.logout.CallUnary(ctx, req)
 }
 
 // RefreshToken calls rankquantity.voyager.api.TeamsAPI.RefreshToken.
-func (c *teamsAPIClient) RefreshToken(ctx context.Context, req *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error) {
+func (c *teamsAPIClient) RefreshToken(ctx context.Context, req *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error) {
 	return c.refreshToken.CallUnary(ctx, req)
 }
 
 // Register calls rankquantity.voyager.api.TeamsAPI.Register.
-func (c *teamsAPIClient) Register(ctx context.Context, req *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
+func (c *teamsAPIClient) Register(ctx context.Context, req *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error) {
 	return c.register.CallUnary(ctx, req)
 }
 
 // ResetPwd calls rankquantity.voyager.api.TeamsAPI.ResetPwd.
-func (c *teamsAPIClient) ResetPwd(ctx context.Context, req *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
+func (c *teamsAPIClient) ResetPwd(ctx context.Context, req *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error) {
 	return c.resetPwd.CallUnary(ctx, req)
 }
 
 // UserInit calls rankquantity.voyager.api.TeamsAPI.UserInit.
-func (c *teamsAPIClient) UserInit(ctx context.Context, req *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
+func (c *teamsAPIClient) UserInit(ctx context.Context, req *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error) {
 	return c.userInit.CallUnary(ctx, req)
 }
 
 // UserInfo calls rankquantity.voyager.api.TeamsAPI.UserInfo.
-func (c *teamsAPIClient) UserInfo(ctx context.Context, req *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
+func (c *teamsAPIClient) UserInfo(ctx context.Context, req *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error) {
 	return c.userInfo.CallUnary(ctx, req)
 }
 
 // UpdateUserAvator calls rankquantity.voyager.api.TeamsAPI.UpdateUserAvator.
-func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, req *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
+func (c *teamsAPIClient) UpdateUserAvator(ctx context.Context, req *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error) {
 	return c.updateUserAvator.CallUnary(ctx, req)
 }
 
 // UserWatching calls rankquantity.voyager.api.TeamsAPI.UserWatching.
-func (c *teamsAPIClient) UserWatching(ctx context.Context, req *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
+func (c *teamsAPIClient) UserWatching(ctx context.Context, req *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error) {
 	return c.userWatching.CallUnary(ctx, req)
 }
 
 // UserGroup calls rankquantity.voyager.api.TeamsAPI.UserGroup.
-func (c *teamsAPIClient) UserGroup(ctx context.Context, req *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
+func (c *teamsAPIClient) UserGroup(ctx context.Context, req *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error) {
 	return c.userGroup.CallUnary(ctx, req)
 }
 
 // UserFollowingGroup calls rankquantity.voyager.api.TeamsAPI.UserFollowingGroup.
-func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
+func (c *teamsAPIClient) UserFollowingGroup(ctx context.Context, req *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error) {
 	return c.userFollowingGroup.CallUnary(ctx, req)
 }
 
 // UserUpdate calls rankquantity.voyager.api.TeamsAPI.UserUpdate.
-func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
+func (c *teamsAPIClient) UserUpdate(ctx context.Context, req *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
 	return c.userUpdate.CallUnary(ctx, req)
 }
 
 // SearchUser calls rankquantity.voyager.api.TeamsAPI.SearchUser.
-func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
+func (c *teamsAPIClient) SearchUser(ctx context.Context, req *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error) {
 	return c.searchUser.CallUnary(ctx, req)
 }
 
 // CreateGroup calls rankquantity.voyager.api.TeamsAPI.CreateGroup.
-func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error) {
+func (c *teamsAPIClient) CreateGroup(ctx context.Context, req *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error) {
 	return c.createGroup.CallUnary(ctx, req)
 }
 
 // GetGroup calls rankquantity.voyager.api.TeamsAPI.GetGroup.
-func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error) {
+func (c *teamsAPIClient) GetGroup(ctx context.Context, req *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error) {
 	return c.getGroup.CallUnary(ctx, req)
 }
 
 // GetGroupActives calls rankquantity.voyager.api.TeamsAPI.GetGroupActives.
-func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
+func (c *teamsAPIClient) GetGroupActives(ctx context.Context, req *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error) {
 	return c.getGroupActives.CallUnary(ctx, req)
 }
 
 // UpdateGroupInfo calls rankquantity.voyager.api.TeamsAPI.UpdateGroupInfo.
-func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
+func (c *teamsAPIClient) UpdateGroupInfo(ctx context.Context, req *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
 	return c.updateGroupInfo.CallUnary(ctx, req)
 }
 
 // GetGroupProfile calls rankquantity.voyager.api.TeamsAPI.GetGroupProfile.
-func (c *teamsAPIClient) GetGroupProfile(ctx context.Context, req *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error) {
+func (c *teamsAPIClient) GetGroupProfile(ctx context.Context, req *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error) {
 	return c.getGroupProfile.CallUnary(ctx, req)
 }
 
 // UpdateGroupProfile calls rankquantity.voyager.api.TeamsAPI.UpdateGroupProfile.
-func (c *teamsAPIClient) UpdateGroupProfile(ctx context.Context, req *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error) {
+func (c *teamsAPIClient) UpdateGroupProfile(ctx context.Context, req *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error) {
 	return c.updateGroupProfile.CallUnary(ctx, req)
 }
 
 // DeleteGroup calls rankquantity.voyager.api.TeamsAPI.DeleteGroup.
-func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
+func (c *teamsAPIClient) DeleteGroup(ctx context.Context, req *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error) {
 	return c.deleteGroup.CallUnary(ctx, req)
 }
 
 // FetchGroupMembers calls rankquantity.voyager.api.TeamsAPI.FetchGroupMembers.
-func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
+func (c *teamsAPIClient) FetchGroupMembers(ctx context.Context, req *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
 	return c.fetchGroupMembers.CallUnary(ctx, req)
 }
 
 // JoinGroup calls rankquantity.voyager.api.TeamsAPI.JoinGroup.
-func (c *teamsAPIClient) JoinGroup(ctx context.Context, req *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
+func (c *teamsAPIClient) JoinGroup(ctx context.Context, req *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error) {
 	return c.joinGroup.CallUnary(ctx, req)
 }
 
 // LeaveGroup calls rankquantity.voyager.api.TeamsAPI.LeaveGroup.
-func (c *teamsAPIClient) LeaveGroup(ctx context.Context, req *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
+func (c *teamsAPIClient) LeaveGroup(ctx context.Context, req *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error) {
 	return c.leaveGroup.CallUnary(ctx, req)
 }
 
 // CreateStory calls rankquantity.voyager.api.TeamsAPI.CreateStory.
-func (c *teamsAPIClient) CreateStory(ctx context.Context, req *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error) {
+func (c *teamsAPIClient) CreateStory(ctx context.Context, req *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error) {
 	return c.createStory.CallUnary(ctx, req)
 }
 
 // GetStoryInfo calls rankquantity.voyager.api.TeamsAPI.GetStoryInfo.
-func (c *teamsAPIClient) GetStoryInfo(ctx context.Context, req *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error) {
+func (c *teamsAPIClient) GetStoryInfo(ctx context.Context, req *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error) {
 	return c.getStoryInfo.CallUnary(ctx, req)
 }
 
 // RenderStory calls rankquantity.voyager.api.TeamsAPI.RenderStory.
-func (c *teamsAPIClient) RenderStory(ctx context.Context, req *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error) {
+func (c *teamsAPIClient) RenderStory(ctx context.Context, req *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error) {
 	return c.renderStory.CallUnary(ctx, req)
 }
 
 // UpdateStory calls rankquantity.voyager.api.TeamsAPI.UpdateStory.
-func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error) {
+func (c *teamsAPIClient) UpdateStory(ctx context.Context, req *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error) {
 	return c.updateStory.CallUnary(ctx, req)
 }
 
 // WatchStory calls rankquantity.voyager.api.TeamsAPI.WatchStory.
-func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error) {
+func (c *teamsAPIClient) WatchStory(ctx context.Context, req *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
 	return c.watchStory.CallUnary(ctx, req)
 }
 
 // ArchiveStory calls rankquantity.voyager.api.TeamsAPI.ArchiveStory.
-func (c *teamsAPIClient) ArchiveStory(ctx context.Context, req *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error) {
+func (c *teamsAPIClient) ArchiveStory(ctx context.Context, req *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error) {
 	return c.archiveStory.CallUnary(ctx, req)
 }
 
 // CreateStoryboard calls rankquantity.voyager.api.TeamsAPI.CreateStoryboard.
-func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, req *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error) {
+func (c *teamsAPIClient) CreateStoryboard(ctx context.Context, req *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error) {
 	return c.createStoryboard.CallUnary(ctx, req)
 }
 
 // GetStoryboard calls rankquantity.voyager.api.TeamsAPI.GetStoryboard.
-func (c *teamsAPIClient) GetStoryboard(ctx context.Context, req *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error) {
+func (c *teamsAPIClient) GetStoryboard(ctx context.Context, req *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error) {
 	return c.getStoryboard.CallUnary(ctx, req)
 }
 
 // RenderStoryboard calls rankquantity.voyager.api.TeamsAPI.RenderStoryboard.
-func (c *teamsAPIClient) RenderStoryboard(ctx context.Context, req *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error) {
+func (c *teamsAPIClient) RenderStoryboard(ctx context.Context, req *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error) {
 	return c.renderStoryboard.CallUnary(ctx, req)
 }
 
 // GenStoryboardText calls rankquantity.voyager.api.TeamsAPI.GenStoryboardText.
-func (c *teamsAPIClient) GenStoryboardText(ctx context.Context, req *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error) {
+func (c *teamsAPIClient) GenStoryboardText(ctx context.Context, req *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error) {
 	return c.genStoryboardText.CallUnary(ctx, req)
 }
 
 // GenStoryboardImages calls rankquantity.voyager.api.TeamsAPI.GenStoryboardImages.
-func (c *teamsAPIClient) GenStoryboardImages(ctx context.Context, req *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error) {
+func (c *teamsAPIClient) GenStoryboardImages(ctx context.Context, req *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error) {
 	return c.genStoryboardImages.CallUnary(ctx, req)
 }
 
 // GetStoryboards calls rankquantity.voyager.api.TeamsAPI.GetStoryboards.
-func (c *teamsAPIClient) GetStoryboards(ctx context.Context, req *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error) {
+func (c *teamsAPIClient) GetStoryboards(ctx context.Context, req *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error) {
 	return c.getStoryboards.CallUnary(ctx, req)
 }
 
 // DelStoryboard calls rankquantity.voyager.api.TeamsAPI.DelStoryboard.
-func (c *teamsAPIClient) DelStoryboard(ctx context.Context, req *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error) {
+func (c *teamsAPIClient) DelStoryboard(ctx context.Context, req *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error) {
 	return c.delStoryboard.CallUnary(ctx, req)
 }
 
 // ForkStoryboard calls rankquantity.voyager.api.TeamsAPI.ForkStoryboard.
-func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, req *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error) {
+func (c *teamsAPIClient) ForkStoryboard(ctx context.Context, req *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error) {
 	return c.forkStoryboard.CallUnary(ctx, req)
 }
 
 // UpdateStoryboard calls rankquantity.voyager.api.TeamsAPI.UpdateStoryboard.
-func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, req *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error) {
+func (c *teamsAPIClient) UpdateStoryboard(ctx context.Context, req *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
 	return c.updateStoryboard.CallUnary(ctx, req)
 }
 
 // LikeStoryboard calls rankquantity.voyager.api.TeamsAPI.LikeStoryboard.
-func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, req *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error) {
+func (c *teamsAPIClient) LikeStoryboard(ctx context.Context, req *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error) {
 	return c.likeStoryboard.CallUnary(ctx, req)
 }
 
 // UnLikeStoryboard calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryboard.
-func (c *teamsAPIClient) UnLikeStoryboard(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error) {
+func (c *teamsAPIClient) UnLikeStoryboard(ctx context.Context, req *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error) {
 	return c.unLikeStoryboard.CallUnary(ctx, req)
 }
 
 // ShareStoryboard calls rankquantity.voyager.api.TeamsAPI.ShareStoryboard.
-func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error) {
+func (c *teamsAPIClient) ShareStoryboard(ctx context.Context, req *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
 	return c.shareStoryboard.CallUnary(ctx, req)
 }
 
 // FetchGroupStorys calls rankquantity.voyager.api.TeamsAPI.FetchGroupStorys.
-func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error) {
+func (c *teamsAPIClient) FetchGroupStorys(ctx context.Context, req *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
 	return c.fetchGroupStorys.CallUnary(ctx, req)
 }
 
 // UploadImageFile calls rankquantity.voyager.api.TeamsAPI.UploadImageFile.
-func (c *teamsAPIClient) UploadImageFile(ctx context.Context, req *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error) {
+func (c *teamsAPIClient) UploadImageFile(ctx context.Context, req *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error) {
 	return c.uploadImageFile.CallUnary(ctx, req)
 }
 
 // GetStoryRender calls rankquantity.voyager.api.TeamsAPI.GetStoryRender.
-func (c *teamsAPIClient) GetStoryRender(ctx context.Context, req *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error) {
+func (c *teamsAPIClient) GetStoryRender(ctx context.Context, req *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error) {
 	return c.getStoryRender.CallUnary(ctx, req)
 }
 
 // GetStoryBoardRender calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardRender.
-func (c *teamsAPIClient) GetStoryBoardRender(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardRender(ctx context.Context, req *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error) {
 	return c.getStoryBoardRender.CallUnary(ctx, req)
 }
 
 // GetStoryContributors calls rankquantity.voyager.api.TeamsAPI.GetStoryContributors.
-func (c *teamsAPIClient) GetStoryContributors(ctx context.Context, req *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error) {
+func (c *teamsAPIClient) GetStoryContributors(ctx context.Context, req *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error) {
 	return c.getStoryContributors.CallUnary(ctx, req)
 }
 
 // ContinueRenderStory calls rankquantity.voyager.api.TeamsAPI.ContinueRenderStory.
-func (c *teamsAPIClient) ContinueRenderStory(ctx context.Context, req *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error) {
+func (c *teamsAPIClient) ContinueRenderStory(ctx context.Context, req *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error) {
 	return c.continueRenderStory.CallUnary(ctx, req)
 }
 
 // RenderStoryRoles calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoles.
-func (c *teamsAPIClient) RenderStoryRoles(ctx context.Context, req *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error) {
+func (c *teamsAPIClient) RenderStoryRoles(ctx context.Context, req *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error) {
 	return c.renderStoryRoles.CallUnary(ctx, req)
 }
 
 // UpdateStoryRole calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRole.
-func (c *teamsAPIClient) UpdateStoryRole(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRole(ctx context.Context, req *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error) {
 	return c.updateStoryRole.CallUnary(ctx, req)
 }
 
 // RenderStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoleDetail.
-func (c *teamsAPIClient) RenderStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error) {
+func (c *teamsAPIClient) RenderStoryRoleDetail(ctx context.Context, req *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error) {
 	return c.renderStoryRoleDetail.CallUnary(ctx, req)
 }
 
 // GetStoryRoles calls rankquantity.voyager.api.TeamsAPI.GetStoryRoles.
-func (c *teamsAPIClient) GetStoryRoles(ctx context.Context, req *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error) {
+func (c *teamsAPIClient) GetStoryRoles(ctx context.Context, req *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error) {
 	return c.getStoryRoles.CallUnary(ctx, req)
 }
 
 // GetStoryBoardRoles calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardRoles.
-func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardRoles(ctx context.Context, req *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error) {
 	return c.getStoryBoardRoles.CallUnary(ctx, req)
 }
 
 // GetUserProfile calls rankquantity.voyager.api.TeamsAPI.GetUserProfile.
-func (c *teamsAPIClient) GetUserProfile(ctx context.Context, req *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error) {
+func (c *teamsAPIClient) GetUserProfile(ctx context.Context, req *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error) {
 	return c.getUserProfile.CallUnary(ctx, req)
 }
 
 // UpdateUserProfile calls rankquantity.voyager.api.TeamsAPI.UpdateUserProfile.
-func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, req *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error) {
+func (c *teamsAPIClient) UpdateUserProfile(ctx context.Context, req *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error) {
 	return c.updateUserProfile.CallUnary(ctx, req)
 }
 
 // UpdateUserBackgroundImage calls rankquantity.voyager.api.TeamsAPI.UpdateUserBackgroundImage.
-func (c *teamsAPIClient) UpdateUserBackgroundImage(ctx context.Context, req *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error) {
+func (c *teamsAPIClient) UpdateUserBackgroundImage(ctx context.Context, req *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error) {
 	return c.updateUserBackgroundImage.CallUnary(ctx, req)
 }
 
 // CreateStoryRole calls rankquantity.voyager.api.TeamsAPI.CreateStoryRole.
-func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, req *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error) {
+func (c *teamsAPIClient) CreateStoryRole(ctx context.Context, req *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
 	return c.createStoryRole.CallUnary(ctx, req)
 }
 
 // GetStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleDetail.
-func (c *teamsAPIClient) GetStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error) {
+func (c *teamsAPIClient) GetStoryRoleDetail(ctx context.Context, req *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error) {
 	return c.getStoryRoleDetail.CallUnary(ctx, req)
 }
 
 // RenderStoryRole calls rankquantity.voyager.api.TeamsAPI.RenderStoryRole.
-func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error) {
+func (c *teamsAPIClient) RenderStoryRole(ctx context.Context, req *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error) {
 	return c.renderStoryRole.CallUnary(ctx, req)
 }
 
 // LikeStory calls rankquantity.voyager.api.TeamsAPI.LikeStory.
-func (c *teamsAPIClient) LikeStory(ctx context.Context, req *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error) {
+func (c *teamsAPIClient) LikeStory(ctx context.Context, req *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error) {
 	return c.likeStory.CallUnary(ctx, req)
 }
 
 // UnLikeStory calls rankquantity.voyager.api.TeamsAPI.UnLikeStory.
-func (c *teamsAPIClient) UnLikeStory(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error) {
+func (c *teamsAPIClient) UnLikeStory(ctx context.Context, req *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error) {
 	return c.unLikeStory.CallUnary(ctx, req)
 }
 
 // GetStoryBoardSences calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardSences.
-func (c *teamsAPIClient) GetStoryBoardSences(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardSences(ctx context.Context, req *connect.Request[gen.GetStoryBoardSencesRequest]) (*connect.Response[gen.GetStoryBoardSencesResponse], error) {
 	return c.getStoryBoardSences.CallUnary(ctx, req)
 }
 
 // CreateStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.CreateStoryBoardSence.
-func (c *teamsAPIClient) CreateStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error) {
+func (c *teamsAPIClient) CreateStoryBoardSence(ctx context.Context, req *connect.Request[gen.CreateStoryBoardSenceRequest]) (*connect.Response[gen.CreateStoryBoardSenceResponse], error) {
 	return c.createStoryBoardSence.CallUnary(ctx, req)
 }
 
 // UpdateStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.UpdateStoryBoardSence.
-func (c *teamsAPIClient) UpdateStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error) {
+func (c *teamsAPIClient) UpdateStoryBoardSence(ctx context.Context, req *connect.Request[gen.UpdateStoryBoardSenceRequest]) (*connect.Response[gen.UpdateStoryBoardSenceResponse], error) {
 	return c.updateStoryBoardSence.CallUnary(ctx, req)
 }
 
 // DeleteStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardSence.
-func (c *teamsAPIClient) DeleteStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error) {
+func (c *teamsAPIClient) DeleteStoryBoardSence(ctx context.Context, req *connect.Request[gen.DeleteStoryBoardSenceRequest]) (*connect.Response[gen.DeleteStoryBoardSenceResponse], error) {
 	return c.deleteStoryBoardSence.CallUnary(ctx, req)
 }
 
 // RenderStoryBoardSence calls rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSence.
-func (c *teamsAPIClient) RenderStoryBoardSence(ctx context.Context, req *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error) {
+func (c *teamsAPIClient) RenderStoryBoardSence(ctx context.Context, req *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error) {
 	return c.renderStoryBoardSence.CallUnary(ctx, req)
 }
 
 // RenderStoryBoardSences calls rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSences.
-func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, req *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error) {
+func (c *teamsAPIClient) RenderStoryBoardSences(ctx context.Context, req *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error) {
 	return c.renderStoryBoardSences.CallUnary(ctx, req)
 }
 
 // GetStoryBoardSenceGenerate calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardSenceGenerate.
-func (c *teamsAPIClient) GetStoryBoardSenceGenerate(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardSenceGenerate(ctx context.Context, req *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
 	return c.getStoryBoardSenceGenerate.CallUnary(ctx, req)
 }
 
 // GetStoryBoardGenerate calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardGenerate.
-func (c *teamsAPIClient) GetStoryBoardGenerate(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardGenerate(ctx context.Context, req *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error) {
 	return c.getStoryBoardGenerate.CallUnary(ctx, req)
 }
 
 // LikeStoryRole calls rankquantity.voyager.api.TeamsAPI.LikeStoryRole.
-func (c *teamsAPIClient) LikeStoryRole(ctx context.Context, req *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error) {
+func (c *teamsAPIClient) LikeStoryRole(ctx context.Context, req *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error) {
 	return c.likeStoryRole.CallUnary(ctx, req)
 }
 
 // UnLikeStoryRole calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryRole.
-func (c *teamsAPIClient) UnLikeStoryRole(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error) {
+func (c *teamsAPIClient) UnLikeStoryRole(ctx context.Context, req *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error) {
 	return c.unLikeStoryRole.CallUnary(ctx, req)
 }
 
 // FollowStoryRole calls rankquantity.voyager.api.TeamsAPI.FollowStoryRole.
-func (c *teamsAPIClient) FollowStoryRole(ctx context.Context, req *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error) {
+func (c *teamsAPIClient) FollowStoryRole(ctx context.Context, req *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error) {
 	return c.followStoryRole.CallUnary(ctx, req)
 }
 
 // UnFollowStoryRole calls rankquantity.voyager.api.TeamsAPI.UnFollowStoryRole.
-func (c *teamsAPIClient) UnFollowStoryRole(ctx context.Context, req *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error) {
+func (c *teamsAPIClient) UnFollowStoryRole(ctx context.Context, req *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error) {
 	return c.unFollowStoryRole.CallUnary(ctx, req)
 }
 
 // SearchStories calls rankquantity.voyager.api.TeamsAPI.SearchStories.
-func (c *teamsAPIClient) SearchStories(ctx context.Context, req *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error) {
+func (c *teamsAPIClient) SearchStories(ctx context.Context, req *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error) {
 	return c.searchStories.CallUnary(ctx, req)
 }
 
 // SearchGroup calls rankquantity.voyager.api.TeamsAPI.SearchGroup.
-func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error) {
+func (c *teamsAPIClient) SearchGroup(ctx context.Context, req *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error) {
 	return c.searchGroup.CallUnary(ctx, req)
 }
 
 // SearchRoles calls rankquantity.voyager.api.TeamsAPI.SearchRoles.
-func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error) {
+func (c *teamsAPIClient) SearchRoles(ctx context.Context, req *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error) {
 	return c.searchRoles.CallUnary(ctx, req)
 }
 
 // RestoreStoryboard calls rankquantity.voyager.api.TeamsAPI.RestoreStoryboard.
-func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, req *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error) {
+func (c *teamsAPIClient) RestoreStoryboard(ctx context.Context, req *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error) {
 	return c.restoreStoryboard.CallUnary(ctx, req)
 }
 
 // GetUserCreatedStoryboards calls rankquantity.voyager.api.TeamsAPI.GetUserCreatedStoryboards.
-func (c *teamsAPIClient) GetUserCreatedStoryboards(ctx context.Context, req *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error) {
+func (c *teamsAPIClient) GetUserCreatedStoryboards(ctx context.Context, req *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error) {
 	return c.getUserCreatedStoryboards.CallUnary(ctx, req)
 }
 
 // GetUserCreatedRoles calls rankquantity.voyager.api.TeamsAPI.GetUserCreatedRoles.
-func (c *teamsAPIClient) GetUserCreatedRoles(ctx context.Context, req *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error) {
+func (c *teamsAPIClient) GetUserCreatedRoles(ctx context.Context, req *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error) {
 	return c.getUserCreatedRoles.CallUnary(ctx, req)
 }
 
 // GetStoryRoleStoryboards calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleStoryboards.
-func (c *teamsAPIClient) GetStoryRoleStoryboards(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error) {
+func (c *teamsAPIClient) GetStoryRoleStoryboards(ctx context.Context, req *connect.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect.Response[gen.GetStoryRoleStoryboardsResponse], error) {
 	return c.getStoryRoleStoryboards.CallUnary(ctx, req)
 }
 
 // GetStoryRoleStories calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleStories.
-func (c *teamsAPIClient) GetStoryRoleStories(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error) {
+func (c *teamsAPIClient) GetStoryRoleStories(ctx context.Context, req *connect.Request[gen.GetStoryRoleStoriesRequest]) (*connect.Response[gen.GetStoryRoleStoriesResponse], error) {
 	return c.getStoryRoleStories.CallUnary(ctx, req)
 }
 
 // CreateStoryRoleChat calls rankquantity.voyager.api.TeamsAPI.CreateStoryRoleChat.
-func (c *teamsAPIClient) CreateStoryRoleChat(ctx context.Context, req *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error) {
+func (c *teamsAPIClient) CreateStoryRoleChat(ctx context.Context, req *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error) {
 	return c.createStoryRoleChat.CallUnary(ctx, req)
 }
 
 // ChatWithStoryRole calls rankquantity.voyager.api.TeamsAPI.ChatWithStoryRole.
-func (c *teamsAPIClient) ChatWithStoryRole(ctx context.Context, req *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error) {
+func (c *teamsAPIClient) ChatWithStoryRole(ctx context.Context, req *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error) {
 	return c.chatWithStoryRole.CallUnary(ctx, req)
 }
 
 // UpdateStoryRoleAvator calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleAvator.
-func (c *teamsAPIClient) UpdateStoryRoleAvator(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRoleAvator(ctx context.Context, req *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error) {
 	return c.updateStoryRoleAvator.CallUnary(ctx, req)
 }
 
 // UpdateStoryRoleDetail calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDetail.
-func (c *teamsAPIClient) UpdateStoryRoleDetail(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRoleDetail(ctx context.Context, req *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error) {
 	return c.updateStoryRoleDetail.CallUnary(ctx, req)
 }
 
 // GetUserWithRoleChatList calls rankquantity.voyager.api.TeamsAPI.GetUserWithRoleChatList.
-func (c *teamsAPIClient) GetUserWithRoleChatList(ctx context.Context, req *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error) {
+func (c *teamsAPIClient) GetUserWithRoleChatList(ctx context.Context, req *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error) {
 	return c.getUserWithRoleChatList.CallUnary(ctx, req)
 }
 
 // GetUserChatWithRole calls rankquantity.voyager.api.TeamsAPI.GetUserChatWithRole.
-func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, req *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error) {
+func (c *teamsAPIClient) GetUserChatWithRole(ctx context.Context, req *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error) {
 	return c.getUserChatWithRole.CallUnary(ctx, req)
 }
 
 // GetUserChatMessages calls rankquantity.voyager.api.TeamsAPI.GetUserChatMessages.
-func (c *teamsAPIClient) GetUserChatMessages(ctx context.Context, req *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error) {
+func (c *teamsAPIClient) GetUserChatMessages(ctx context.Context, req *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error) {
 	return c.getUserChatMessages.CallUnary(ctx, req)
 }
 
 // FetchActives calls rankquantity.voyager.api.TeamsAPI.FetchActives.
-func (c *teamsAPIClient) FetchActives(ctx context.Context, req *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error) {
+func (c *teamsAPIClient) FetchActives(ctx context.Context, req *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error) {
 	return c.fetchActives.CallUnary(ctx, req)
 }
 
 // GetNextStoryboard calls rankquantity.voyager.api.TeamsAPI.GetNextStoryboard.
-func (c *teamsAPIClient) GetNextStoryboard(ctx context.Context, req *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error) {
+func (c *teamsAPIClient) GetNextStoryboard(ctx context.Context, req *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error) {
 	return c.getNextStoryboard.CallUnary(ctx, req)
 }
 
 // RenderStoryRoleContinuously calls rankquantity.voyager.api.TeamsAPI.RenderStoryRoleContinuously.
-func (c *teamsAPIClient) RenderStoryRoleContinuously(ctx context.Context, req *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
+func (c *teamsAPIClient) RenderStoryRoleContinuously(ctx context.Context, req *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
 	return c.renderStoryRoleContinuously.CallUnary(ctx, req)
 }
 
 // PublishStoryboard calls rankquantity.voyager.api.TeamsAPI.PublishStoryboard.
-func (c *teamsAPIClient) PublishStoryboard(ctx context.Context, req *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error) {
+func (c *teamsAPIClient) PublishStoryboard(ctx context.Context, req *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error) {
 	return c.publishStoryboard.CallUnary(ctx, req)
 }
 
 // CancelStoryboard calls rankquantity.voyager.api.TeamsAPI.CancelStoryboard.
-func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, req *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error) {
+func (c *teamsAPIClient) CancelStoryboard(ctx context.Context, req *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error) {
 	return c.cancelStoryboard.CallUnary(ctx, req)
 }
 
 // GetUserWatchStoryActiveStoryBoards calls
 // rankquantity.voyager.api.TeamsAPI.GetUserWatchStoryActiveStoryBoards.
-func (c *teamsAPIClient) GetUserWatchStoryActiveStoryBoards(ctx context.Context, req *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
+func (c *teamsAPIClient) GetUserWatchStoryActiveStoryBoards(ctx context.Context, req *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
 	return c.getUserWatchStoryActiveStoryBoards.CallUnary(ctx, req)
 }
 
 // GetUserWatchRoleActiveStoryBoards calls
 // rankquantity.voyager.api.TeamsAPI.GetUserWatchRoleActiveStoryBoards.
-func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, req *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
+func (c *teamsAPIClient) GetUserWatchRoleActiveStoryBoards(ctx context.Context, req *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
 	return c.getUserWatchRoleActiveStoryBoards.CallUnary(ctx, req)
 }
 
 // GetUnPublishStoryboard calls rankquantity.voyager.api.TeamsAPI.GetUnPublishStoryboard.
-func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, req *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error) {
+func (c *teamsAPIClient) GetUnPublishStoryboard(ctx context.Context, req *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error) {
 	return c.getUnPublishStoryboard.CallUnary(ctx, req)
 }
 
 // GenerateRoleDescription calls rankquantity.voyager.api.TeamsAPI.GenerateRoleDescription.
-func (c *teamsAPIClient) GenerateRoleDescription(ctx context.Context, req *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error) {
+func (c *teamsAPIClient) GenerateRoleDescription(ctx context.Context, req *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error) {
 	return c.generateRoleDescription.CallUnary(ctx, req)
 }
 
 // UpdateRoleDescription calls rankquantity.voyager.api.TeamsAPI.UpdateRoleDescription.
-func (c *teamsAPIClient) UpdateRoleDescription(ctx context.Context, req *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error) {
+func (c *teamsAPIClient) UpdateRoleDescription(ctx context.Context, req *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error) {
 	return c.updateRoleDescription.CallUnary(ctx, req)
 }
 
 // GenerateRolePrompt calls rankquantity.voyager.api.TeamsAPI.GenerateRolePrompt.
-func (c *teamsAPIClient) GenerateRolePrompt(ctx context.Context, req *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error) {
+func (c *teamsAPIClient) GenerateRolePrompt(ctx context.Context, req *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error) {
 	return c.generateRolePrompt.CallUnary(ctx, req)
 }
 
 // UpdateRolePrompt calls rankquantity.voyager.api.TeamsAPI.UpdateRolePrompt.
-func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error) {
+func (c *teamsAPIClient) UpdateRolePrompt(ctx context.Context, req *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error) {
 	return c.updateRolePrompt.CallUnary(ctx, req)
 }
 
 // CreateStoryComment calls rankquantity.voyager.api.TeamsAPI.CreateStoryComment.
-func (c *teamsAPIClient) CreateStoryComment(ctx context.Context, req *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error) {
+func (c *teamsAPIClient) CreateStoryComment(ctx context.Context, req *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error) {
 	return c.createStoryComment.CallUnary(ctx, req)
 }
 
 // GetStoryComments calls rankquantity.voyager.api.TeamsAPI.GetStoryComments.
-func (c *teamsAPIClient) GetStoryComments(ctx context.Context, req *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error) {
+func (c *teamsAPIClient) GetStoryComments(ctx context.Context, req *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error) {
 	return c.getStoryComments.CallUnary(ctx, req)
 }
 
 // DeleteStoryComment calls rankquantity.voyager.api.TeamsAPI.DeleteStoryComment.
-func (c *teamsAPIClient) DeleteStoryComment(ctx context.Context, req *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error) {
+func (c *teamsAPIClient) DeleteStoryComment(ctx context.Context, req *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error) {
 	return c.deleteStoryComment.CallUnary(ctx, req)
 }
 
 // GetStoryCommentReplies calls rankquantity.voyager.api.TeamsAPI.GetStoryCommentReplies.
-func (c *teamsAPIClient) GetStoryCommentReplies(ctx context.Context, req *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error) {
+func (c *teamsAPIClient) GetStoryCommentReplies(ctx context.Context, req *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error) {
 	return c.getStoryCommentReplies.CallUnary(ctx, req)
 }
 
 // CreateStoryCommentReply calls rankquantity.voyager.api.TeamsAPI.CreateStoryCommentReply.
-func (c *teamsAPIClient) CreateStoryCommentReply(ctx context.Context, req *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error) {
+func (c *teamsAPIClient) CreateStoryCommentReply(ctx context.Context, req *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error) {
 	return c.createStoryCommentReply.CallUnary(ctx, req)
 }
 
 // DeleteStoryCommentReply calls rankquantity.voyager.api.TeamsAPI.DeleteStoryCommentReply.
-func (c *teamsAPIClient) DeleteStoryCommentReply(ctx context.Context, req *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error) {
+func (c *teamsAPIClient) DeleteStoryCommentReply(ctx context.Context, req *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error) {
 	return c.deleteStoryCommentReply.CallUnary(ctx, req)
 }
 
 // GetStoryBoardComments calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardComments.
-func (c *teamsAPIClient) GetStoryBoardComments(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardComments(ctx context.Context, req *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error) {
 	return c.getStoryBoardComments.CallUnary(ctx, req)
 }
 
 // CreateStoryBoardComment calls rankquantity.voyager.api.TeamsAPI.CreateStoryBoardComment.
-func (c *teamsAPIClient) CreateStoryBoardComment(ctx context.Context, req *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error) {
+func (c *teamsAPIClient) CreateStoryBoardComment(ctx context.Context, req *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error) {
 	return c.createStoryBoardComment.CallUnary(ctx, req)
 }
 
 // DeleteStoryBoardComment calls rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardComment.
-func (c *teamsAPIClient) DeleteStoryBoardComment(ctx context.Context, req *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error) {
+func (c *teamsAPIClient) DeleteStoryBoardComment(ctx context.Context, req *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error) {
 	return c.deleteStoryBoardComment.CallUnary(ctx, req)
 }
 
 // GetStoryBoardCommentReplies calls rankquantity.voyager.api.TeamsAPI.GetStoryBoardCommentReplies.
-func (c *teamsAPIClient) GetStoryBoardCommentReplies(ctx context.Context, req *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
+func (c *teamsAPIClient) GetStoryBoardCommentReplies(ctx context.Context, req *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
 	return c.getStoryBoardCommentReplies.CallUnary(ctx, req)
 }
 
 // LikeComment calls rankquantity.voyager.api.TeamsAPI.LikeComment.
-func (c *teamsAPIClient) LikeComment(ctx context.Context, req *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error) {
+func (c *teamsAPIClient) LikeComment(ctx context.Context, req *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error) {
 	return c.likeComment.CallUnary(ctx, req)
 }
 
 // DislikeComment calls rankquantity.voyager.api.TeamsAPI.DislikeComment.
-func (c *teamsAPIClient) DislikeComment(ctx context.Context, req *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error) {
+func (c *teamsAPIClient) DislikeComment(ctx context.Context, req *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error) {
 	return c.dislikeComment.CallUnary(ctx, req)
 }
 
 // GetStoryRoleList calls rankquantity.voyager.api.TeamsAPI.GetStoryRoleList.
-func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, req *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error) {
+func (c *teamsAPIClient) GetStoryRoleList(ctx context.Context, req *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error) {
 	return c.getStoryRoleList.CallUnary(ctx, req)
 }
 
 // TrendingStory calls rankquantity.voyager.api.TeamsAPI.TrendingStory.
-func (c *teamsAPIClient) TrendingStory(ctx context.Context, req *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error) {
+func (c *teamsAPIClient) TrendingStory(ctx context.Context, req *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error) {
 	return c.trendingStory.CallUnary(ctx, req)
 }
 
 // TrendingStoryRole calls rankquantity.voyager.api.TeamsAPI.TrendingStoryRole.
-func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, req *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error) {
+func (c *teamsAPIClient) TrendingStoryRole(ctx context.Context, req *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error) {
 	return c.trendingStoryRole.CallUnary(ctx, req)
 }
 
 // FollowUser calls rankquantity.voyager.api.TeamsAPI.FollowUser.
-func (c *teamsAPIClient) FollowUser(ctx context.Context, req *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error) {
+func (c *teamsAPIClient) FollowUser(ctx context.Context, req *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error) {
 	return c.followUser.CallUnary(ctx, req)
 }
 
 // UnfollowUser calls rankquantity.voyager.api.TeamsAPI.UnfollowUser.
-func (c *teamsAPIClient) UnfollowUser(ctx context.Context, req *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error) {
+func (c *teamsAPIClient) UnfollowUser(ctx context.Context, req *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error) {
 	return c.unfollowUser.CallUnary(ctx, req)
 }
 
 // GetFollowList calls rankquantity.voyager.api.TeamsAPI.GetFollowList.
-func (c *teamsAPIClient) GetFollowList(ctx context.Context, req *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error) {
+func (c *teamsAPIClient) GetFollowList(ctx context.Context, req *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error) {
 	return c.getFollowList.CallUnary(ctx, req)
 }
 
 // GetFollowerList calls rankquantity.voyager.api.TeamsAPI.GetFollowerList.
-func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error) {
+func (c *teamsAPIClient) GetFollowerList(ctx context.Context, req *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error) {
 	return c.getFollowerList.CallUnary(ctx, req)
 }
 
 // UpdateStoryRolePrompt calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePrompt.
-func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRolePrompt(ctx context.Context, req *connect.Request[gen.UpdateStoryRolePromptRequest]) (*connect.Response[gen.UpdateStoryRolePromptResponse], error) {
 	return c.updateStoryRolePrompt.CallUnary(ctx, req)
 }
 
 // UpdateStoryRoleDescriptionDetail calls
 // rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDescriptionDetail.
-func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRoleDescriptionDetail(ctx context.Context, req *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
 	return c.updateStoryRoleDescriptionDetail.CallUnary(ctx, req)
 }
 
 // QueryTaskStatus calls rankquantity.voyager.api.TeamsAPI.QueryTaskStatus.
-func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, req *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
+func (c *teamsAPIClient) QueryTaskStatus(ctx context.Context, req *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error) {
 	return c.queryTaskStatus.CallUnary(ctx, req)
 }
 
 // GetStoryImageStyle calls rankquantity.voyager.api.TeamsAPI.GetStoryImageStyle.
-func (c *teamsAPIClient) GetStoryImageStyle(ctx context.Context, req *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error) {
+func (c *teamsAPIClient) GetStoryImageStyle(ctx context.Context, req *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error) {
 	return c.getStoryImageStyle.CallUnary(ctx, req)
 }
 
 // UpdateStoryImageStyle calls rankquantity.voyager.api.TeamsAPI.UpdateStoryImageStyle.
-func (c *teamsAPIClient) UpdateStoryImageStyle(ctx context.Context, req *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error) {
+func (c *teamsAPIClient) UpdateStoryImageStyle(ctx context.Context, req *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error) {
 	return c.updateStoryImageStyle.CallUnary(ctx, req)
 }
 
 // UpdateStorySenceMaxNumber calls rankquantity.voyager.api.TeamsAPI.UpdateStorySenceMaxNumber.
-func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, req *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
+func (c *teamsAPIClient) UpdateStorySenceMaxNumber(ctx context.Context, req *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
 	return c.updateStorySenceMaxNumber.CallUnary(ctx, req)
 }
 
 // UpdateStoryAvatar calls rankquantity.voyager.api.TeamsAPI.UpdateStoryAvatar.
-func (c *teamsAPIClient) UpdateStoryAvatar(ctx context.Context, req *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error) {
+func (c *teamsAPIClient) UpdateStoryAvatar(ctx context.Context, req *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error) {
 	return c.updateStoryAvatar.CallUnary(ctx, req)
 }
 
 // UpdateStoryCover calls rankquantity.voyager.api.TeamsAPI.UpdateStoryCover.
-func (c *teamsAPIClient) UpdateStoryCover(ctx context.Context, req *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error) {
+func (c *teamsAPIClient) UpdateStoryCover(ctx context.Context, req *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error) {
 	return c.updateStoryCover.CallUnary(ctx, req)
 }
 
 // SaveStoryboardCraft calls rankquantity.voyager.api.TeamsAPI.SaveStoryboardCraft.
-func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, req *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error) {
+func (c *teamsAPIClient) SaveStoryboardCraft(ctx context.Context, req *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error) {
 	return c.saveStoryboardCraft.CallUnary(ctx, req)
 }
 
 // GetStoryParticipants calls rankquantity.voyager.api.TeamsAPI.GetStoryParticipants.
-func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, req *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error) {
+func (c *teamsAPIClient) GetStoryParticipants(ctx context.Context, req *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error) {
 	return c.getStoryParticipants.CallUnary(ctx, req)
 }
 
 // GenerateStorySceneVideo calls rankquantity.voyager.api.TeamsAPI.GenerateStorySceneVideo.
-func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
+func (c *teamsAPIClient) GenerateStorySceneVideo(ctx context.Context, req *connect.Request[gen.GenerateStorySceneVideoRequest]) (*connect.Response[gen.GenerateStorySceneVideoResponse], error) {
 	return c.generateStorySceneVideo.CallUnary(ctx, req)
 }
 
 // GenerateRoleAvatar calls rankquantity.voyager.api.TeamsAPI.GenerateRoleAvatar.
-func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, req *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error) {
+func (c *teamsAPIClient) GenerateRoleAvatar(ctx context.Context, req *connect.Request[gen.GenerateRoleAvatarRequest]) (*connect.Response[gen.GenerateRoleAvatarResponse], error) {
 	return c.generateRoleAvatar.CallUnary(ctx, req)
 }
 
 // FetchUserGenTaskStatus calls rankquantity.voyager.api.TeamsAPI.FetchUserGenTaskStatus.
-func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, req *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
+func (c *teamsAPIClient) FetchUserGenTaskStatus(ctx context.Context, req *connect.Request[gen.FetchUserGenTaskStatusRequest]) (*connect.Response[gen.FetchUserGenTaskStatusResponse], error) {
 	return c.fetchUserGenTaskStatus.CallUnary(ctx, req)
 }
 
 // GenerateStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.GenerateStoryRolePoster.
-func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
+func (c *teamsAPIClient) GenerateStoryRolePoster(ctx context.Context, req *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error) {
 	return c.generateStoryRolePoster.CallUnary(ctx, req)
 }
 
 // UpdateStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePoster.
-func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
+func (c *teamsAPIClient) UpdateStoryRolePoster(ctx context.Context, req *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error) {
 	return c.updateStoryRolePoster.CallUnary(ctx, req)
 }
 
 // LikeStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.LikeStoryRolePoster.
-func (c *teamsAPIClient) LikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
+func (c *teamsAPIClient) LikeStoryRolePoster(ctx context.Context, req *connect.Request[gen.LikeStoryRolePosterRequest]) (*connect.Response[gen.LikeStoryRolePosterResponse], error) {
 	return c.likeStoryRolePoster.CallUnary(ctx, req)
 }
 
 // UnLikeStoryRolePoster calls rankquantity.voyager.api.TeamsAPI.UnLikeStoryRolePoster.
-func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, req *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
+func (c *teamsAPIClient) UnLikeStoryRolePoster(ctx context.Context, req *connect.Request[gen.UnLikeStoryRolePosterRequest]) (*connect.Response[gen.UnLikeStoryRolePosterResponse], error) {
 	return c.unLikeStoryRolePoster.CallUnary(ctx, req)
 }
 
 // GetStoryRolePosterList calls rankquantity.voyager.api.TeamsAPI.GetStoryRolePosterList.
-func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, req *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
+func (c *teamsAPIClient) GetStoryRolePosterList(ctx context.Context, req *connect.Request[gen.GetStoryRolePosterListRequest]) (*connect.Response[gen.GetStoryRolePosterListResponse], error) {
 	return c.getStoryRolePosterList.CallUnary(ctx, req)
 }
 
 // GenerateStoryRoleVideo calls rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo.
-func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
+func (c *teamsAPIClient) GenerateStoryRoleVideo(ctx context.Context, req *connect.Request[gen.GenerateStoryRoleVideoRequest]) (*connect.Response[gen.GenerateStoryRoleVideoResponse], error) {
 	return c.generateStoryRoleVideo.CallUnary(ctx, req)
 }
 
 // UpdateStoryboardForkAble calls rankquantity.voyager.api.TeamsAPI.UpdateStoryboardForkAble.
-func (c *teamsAPIClient) UpdateStoryboardForkAble(ctx context.Context, req *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error) {
+func (c *teamsAPIClient) UpdateStoryboardForkAble(ctx context.Context, req *connect.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect.Response[gen.UpdateStoryboardForkAbleResponse], error) {
 	return c.updateStoryboardForkAble.CallUnary(ctx, req)
 }
 
 // UserStoryboardDraftlist calls rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftlist.
-func (c *teamsAPIClient) UserStoryboardDraftlist(ctx context.Context, req *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error) {
+func (c *teamsAPIClient) UserStoryboardDraftlist(ctx context.Context, req *connect.Request[gen.UserStoryboardDraftlistRequest]) (*connect.Response[gen.UserStoryboardDraftlistResponse], error) {
 	return c.userStoryboardDraftlist.CallUnary(ctx, req)
 }
 
 // UserStoryboardDraftDetail calls rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftDetail.
-func (c *teamsAPIClient) UserStoryboardDraftDetail(ctx context.Context, req *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error) {
+func (c *teamsAPIClient) UserStoryboardDraftDetail(ctx context.Context, req *connect.Request[gen.UserDraftStoryboardDetailRequest]) (*connect.Response[gen.UserDraftStoryboardDetailResponse], error) {
 	return c.userStoryboardDraftDetail.CallUnary(ctx, req)
 }
 
 // DeleteUserStoryboardDraft calls rankquantity.voyager.api.TeamsAPI.DeleteUserStoryboardDraft.
-func (c *teamsAPIClient) DeleteUserStoryboardDraft(ctx context.Context, req *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error) {
+func (c *teamsAPIClient) DeleteUserStoryboardDraft(ctx context.Context, req *connect.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect.Response[gen.DeleteUserStoryboardDraftResponse], error) {
 	return c.deleteUserStoryboardDraft.CallUnary(ctx, req)
 }
 
 // UserActiveHeatmap calls rankquantity.voyager.api.TeamsAPI.UserActiveHeatmap.
-func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, req *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error) {
+func (c *teamsAPIClient) UserActiveHeatmap(ctx context.Context, req *connect.Request[gen.UserActiveHeamapRequest]) (*connect.Response[gen.UserActiveHeamapResponse], error) {
 	return c.userActiveHeatmap.CallUnary(ctx, req)
 }
 
 // GroupActiveHeatmap calls rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap.
-func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error) {
+func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error) {
 	return c.groupActiveHeatmap.CallUnary(ctx, req)
+}
+
+// GetStoryGenerationHistory calls rankquantity.voyager.api.TeamsAPI.GetStoryGenerationHistory.
+func (c *teamsAPIClient) GetStoryGenerationHistory(ctx context.Context, req *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error) {
+	return c.getStoryGenerationHistory.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the rankquantity.voyager.api.TeamsAPI service.
@@ -4154,17 +4316,17 @@ type TeamsAPIHandler interface {
 	// / 获取平台推荐的热门和优质内容，帮助用户发现有趣的故事和角色
 	// / HTTP GET /common.TeamsAPI/Explore
 	// / 响应：ExploreResponse (JSON，返回推荐内容列表)
-	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
+	Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error)
 	// / 获取API版本信息
 	// / 返回当前API的版本号和构建时间信息
 	// / HTTP GET /common.TeamsAPI/Version
 	// / 响应：VersionResponse (JSON，包含version和build_time)
-	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
+	Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error)
 	// / 获取服务关于信息
 	// / 返回服务的基本介绍和说明信息
 	// / HTTP GET /common.TeamsAPI/About
 	// / 响应：AboutResponse (JSON，包含服务描述)
-	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
+	About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error)
 	// / 用户登录
 	// /
 	// / 【功能说明】
@@ -4201,25 +4363,25 @@ type TeamsAPIHandler interface {
 	// /   "login_type": 1
 	// / }
 	// / ```
-	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
+	Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error)
 	// / 用户登出
 	// / 使当前会话token失效，退出登录状态
 	// / HTTP POST /common.TeamsAPI/Logout
 	// / 请求体：LogoutRequest (JSON，包含token和用户ID)
 	// / 响应：LogoutResponse (JSON)
-	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
+	Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error)
 	// / 刷新访问令牌
 	// / 使用当前有效token生成新的访问令牌，延长会话时间
 	// / HTTP POST /common.TeamsAPI/RefreshToken
 	// / 请求体：RefreshTokenRequest (JSON，包含当前token)
 	// / 响应：RefreshTokenResponse (JSON，返回新的token和用户ID)
-	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
+	RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error)
 	// / 用户注册
 	// / 创建新的用户账号，需要提供账号、密码、邮箱等信息
 	// / HTTP POST /common.TeamsAPI/Register
 	// / 请求体：RegisterRequest (JSON，包含账号、密码、昵称、邮箱、手机号)
 	// / 响应：RegisterResponse (JSON)
-	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
+	Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error)
 	// / 重置密码
 	// /
 	// / 【功能说明】
@@ -4244,7 +4406,7 @@ type TeamsAPIHandler interface {
 	// / - account: 用户账号
 	// / - status: 重置状态（0-成功）
 	// / - timestamp: 操作时间戳
-	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
+	ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error)
 	// / 用户初始化
 	// /
 	// / 【功能说明】
@@ -4270,7 +4432,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 初始化后的用户信息
-	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
+	UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error)
 	// / 获取用户信息
 	// /
 	// / 【功能说明】
@@ -4294,7 +4456,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 用户详细信息对象
-	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
+	UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error)
 	// / 更新用户头像
 	// /
 	// / 【功能说明】
@@ -4317,7 +4479,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
+	UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error)
 	// / 获取用户关注的项目
 	// /
 	// / 【功能说明】
@@ -4343,7 +4505,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - projects: 关注的项目列表
 	// / - total: 总数量
-	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
+	UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error)
 	// / 获取用户所属群组
 	// /
 	// / 【功能说明】
@@ -4369,7 +4531,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - groups: 群组列表
 	// / - total: 总数量
-	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
+	UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error)
 	// / 获取用户关注的群组
 	// /
 	// / 【功能说明】
@@ -4395,7 +4557,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - groups: 关注的群组列表
 	// / - total: 总数量
-	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
+	UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error)
 	// / 更新用户信息
 	// /
 	// / 【功能说明】
@@ -4422,61 +4584,61 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - user: 更新后的用户信息
-	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
+	UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error)
 	// / 搜索用户
 	// / 根据名称搜索用户，支持模糊搜索和精确匹配
 	// / HTTP POST /common.TeamsAPI/SearchUser
 	// / 请求体：SearchUserRequest (JSON，包含搜索关键词、群组ID和分页参数)
 	// / 响应：SearchUserResponse (JSON，返回匹配的用户列表)
-	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
+	SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error)
 	// / 创建群组
 	// / 创建新的协作群组或团队，设置名称、描述和头像
 	// / HTTP POST /common.TeamsAPI/CreateGroup
 	// / 请求体：CreateGroupRequest (JSON，包含群组名称、描述和头像)
 	// / 响应：CreateGroupResponse (JSON，返回创建的群组信息)
-	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
+	CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error)
 	// / 获取群组信息
 	// / 获取指定群组的详细信息，支持同时获取资料信息
 	// / HTTP POST /common.TeamsAPI/GetGroup
 	// / 请求体：GetGroupRequest (JSON，包含群组ID和是否获取资料标志)
 	// / 响应：GetGroupResponse (JSON，返回群组详细信息)
-	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
+	GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error)
 	// / 获取群组动态
 	// / 获取群组内的最新活动动态
 	// / HTTP POST /common.TeamsAPI/GetGroupActives
 	// / 请求体：GetGroupActivesRequest (JSON，包含群组ID和分页参数)
 	// / 响应：GetGroupActivesResponse (JSON，返回群组活动列表)
-	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
+	GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error)
 	// / 更新群组信息
 	// / 更新群组的基本信息，如名称、描述等
 	// / HTTP POST /common.TeamsAPI/UpdateGroupInfo
 	// / 请求体：UpdateGroupInfoRequest (JSON，包含群组ID和更新信息)
 	// / 响应：UpdateGroupInfoResponse (JSON，返回更新后的群组信息)
-	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
+	UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error)
 	// GetGroupProfile retrieves the group's profile information
-	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
+	GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error)
 	// UpdateGroupProfile updates the group's profile information
-	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
+	UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error)
 	// DeleteGroup removes a group
-	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
+	DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error)
 	// / 获取群组成员列表
 	// / 分页获取指定群组的所有成员用户列表
 	// / HTTP POST /common.TeamsAPI/FetchGroupMembers
 	// / 请求体：FetchGroupMembersRequest (JSON，包含群组ID和分页参数)
 	// / 响应：FetchGroupMembersResponse (JSON，返回成员列表和总数)
-	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
+	FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error)
 	// / 加入群组
 	// / 用户申请加入指定群组，成为群组成员
 	// / HTTP POST /common.TeamsAPI/JoinGroup
 	// / 请求体：JoinGroupRequest (JSON，包含群组ID和用户ID)
 	// / 响应：JoinGroupResponse (JSON)
-	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
+	JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error)
 	// / 离开群组
 	// / 用户退出指定群组，解除成员关系
 	// / HTTP POST /common.TeamsAPI/LeaveGroup
 	// / 请求体：LeaveGroupRequest (JSON，包含群组ID和用户ID)
 	// / 响应：LeaveGroupResponse (JSON)
-	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
+	LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error)
 	// / 创建故事
 	// /
 	// / 【功能说明】
@@ -4505,7 +4667,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - story: 创建的故事对象
 	// / - story_id: 故事ID
-	CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error)
+	CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error)
 	// / 获取故事信息
 	// /
 	// / 【功能说明】
@@ -4530,7 +4692,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - story: 故事详细信息
 	// / - stats: 统计数据（浏览、点赞、评论数等）
-	GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error)
+	GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error)
 	// / 渲染故事
 	// /
 	// / 【功能说明】
@@ -4557,7 +4719,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - render_id: 渲染任务ID
 	// / - status: 任务状态
-	RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error)
+	RenderStory(context.Context, *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error)
 	// / 更新故事
 	// /
 	// / 【功能说明】
@@ -4585,7 +4747,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - story: 更新后的故事信息
-	UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error)
+	UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error)
 	// / 关注故事
 	// /
 	// / 【功能说明】
@@ -4609,13 +4771,13 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - is_watching: 关注状态（true表示已关注）
-	WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error)
+	WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error)
 	// / 收藏故事
 	// / 将故事添加到用户的个人收藏夹，方便后续查看
 	// / HTTP POST /common.TeamsAPI/ArchiveStory
 	// / 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID)
 	// / 响应：ArchiveStoryResponse (JSON)
-	ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error)
+	ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error)
 	// / 创建故事板
 	// /
 	// / 【功能说明】
@@ -4643,7 +4805,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - storyboard: 创建的故事板对象
 	// / - storyboard_id: 故事板ID
-	CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error)
+	CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error)
 	// / 获取故事板
 	// /
 	// / 【功能说明】
@@ -4669,7 +4831,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - storyboard: 故事板详细信息
 	// / - scenes: 场景列表（如果 include_scenes=true）
-	GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error)
+	GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error)
 	// / 渲染故事板
 	// /
 	// / 【功能说明】
@@ -4699,7 +4861,7 @@ type TeamsAPIHandler interface {
 	// / - render_id: 渲染任务ID
 	// / - status: 渲染状态
 	// / - progress: 渲染进度（0-100）
-	RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error)
+	RenderStoryboard(context.Context, *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error)
 	// / 生成故事板文本
 	// /
 	// / 【功能说明】
@@ -4728,7 +4890,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - generated_text: 生成的文本内容
 	// / - task_id: 生成任务ID
-	GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error)
+	GenStoryboardText(context.Context, *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error)
 	// / 生成故事板图片
 	// /
 	// / 【功能说明】
@@ -4757,7 +4919,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - task_ids: 图片生成任务ID列表
 	// / - estimated_time: 预计完成时间（秒）
-	GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error)
+	GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error)
 	// / 获取故事板列表
 	// /
 	// / 【功能说明】
@@ -4786,7 +4948,7 @@ type TeamsAPIHandler interface {
 	// / - storyboards: 故事板列表
 	// / - total: 总数量
 	// / - have_more: 是否有更多数据
-	GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error)
+	GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error)
 	// / 删除故事板
 	// /
 	// / 【功能说明】
@@ -4816,7 +4978,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error)
+	DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error)
 	// / 复制故事板（分叉）
 	// /
 	// / 【功能说明】
@@ -4844,7 +5006,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - new_storyboard: 新创建的分支故事板
 	// / - new_storyboard_id: 新故事板ID
-	ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error)
+	ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error)
 	// / 更新故事板
 	// /
 	// / 【功能说明】
@@ -4871,7 +5033,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - storyboard: 更新后的故事板信息
-	UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error)
+	UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error)
 	// / 点赞故事板
 	// /
 	// / 【功能说明】
@@ -4895,7 +5057,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - like_count: 最新点赞总数
-	LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error)
+	LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error)
 	// / 取消点赞故事板
 	// /
 	// / 【功能说明】
@@ -4919,7 +5081,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - like_count: 最新点赞总数
-	UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error)
+	UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error)
 	// / 分享故事板
 	// /
 	// / 【功能说明】
@@ -4947,7 +5109,7 @@ type TeamsAPIHandler interface {
 	// / - share_url: 分享链接URL
 	// / - qr_code: 二维码图片URL（可选）
 	// / - share_id: 分享记录ID
-	ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error)
+	ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error)
 	// / 获取群组故事列表
 	// /
 	// / 【功能说明】
@@ -4975,7 +5137,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - stories: 故事列表
 	// / - total: 总数量
-	FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error)
+	FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error)
 	// / 上传图片文件
 	// /
 	// / 【功能说明】
@@ -5009,7 +5171,7 @@ type TeamsAPIHandler interface {
 	// / - url: 上传后的图片URL
 	// / - file_id: 文件ID
 	// / - size: 文件大小（字节）
-	UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error)
+	UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error)
 	// / 获取故事渲染记录
 	// /
 	// / 【功能说明】
@@ -5038,7 +5200,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - renders: 渲染记录列表
 	// / - total: 总数量
-	GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error)
+	GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error)
 	// / 获取故事板渲染记录
 	// /
 	// / 【功能说明】
@@ -5067,13 +5229,13 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - renders: 渲染记录列表
 	// / - total: 总数量
-	GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error)
+	GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error)
 	// / 获取故事贡献者列表
 	// / 获取参与故事创作的所有贡献者，按贡献度排序
 	// / HTTP POST /common.TeamsAPI/GetStoryContributors
 	// / 请求体：GetStoryContributorsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryContributorsResponse (JSON，返回贡献者列表和VIP等级信息)
-	GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error)
+	GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error)
 	// / 继续渲染故事
 	// /
 	// / 【功能说明】
@@ -5101,9 +5263,9 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - new_boards: 新生成的故事板列表
 	// / - render_id: 渲染任务ID
-	ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error)
+	ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error)
 	// 渲���故事角色
-	RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error)
+	RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error)
 	// / 更新故事角色
 	// /
 	// / 【功能说明】
@@ -5130,7 +5292,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - role: 更新后的角色信息
-	UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error)
+	UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error)
 	// / 渲染故事角色详情
 	// /
 	// / 【功能说明】
@@ -5158,7 +5320,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - character_detail: 角色详细信息对象
 	// / - render_id: 渲染任务ID
-	RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error)
+	RenderStoryRoleDetail(context.Context, *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error)
 	// / 获取故事角色列表
 	// /
 	// / 【功能说明】
@@ -5186,7 +5348,7 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - roles: 角色列表
 	// / - total: 总数量
-	GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error)
+	GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error)
 	// / 获取故事板角色列表
 	// /
 	// / 【功能说明】
@@ -5212,55 +5374,55 @@ type TeamsAPIHandler interface {
 	// / - message: 响应消息
 	// / - roles: 角色列表
 	// / - total: 角色总数
-	GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error)
+	GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error)
 	// / 获取用户资料
 	// / 获取指定用户的详细个人资料信息
 	// / HTTP POST /common.TeamsAPI/GetUserProfile
 	// / 请求体：GetUserProfileRequest (JSON，包含用户ID)
 	// / 响应：GetUserProfileResponse (JSON，返回用户完整资料)
-	GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error)
+	GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error)
 	// / 更新用户资料
 	// / 更新用户的个人资料信息，包括昵称、描述、位置等
 	// / HTTP POST /common.TeamsAPI/UpdateUserProfile
 	// / 请求体：UpdateUserProfileRequest (JSON，包含要更新的资料字段)
 	// / 响应：UpdateUserProfileResponse (JSON)
-	UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error)
+	UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error)
 	// / 更新用户背景图片
 	// / 更新用户个人主页的背景图片
 	// / HTTP POST /common.TeamsAPI/UpdateUserBackgroundImage
 	// / 请求体：UpdateUserBackgroundImageRequest (JSON，包含背景图片URL)
 	// / 响应：UpdateUserBackgroundImageResponse (JSON)
-	UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error)
+	UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error)
 	// / 创建新的故事角色
 	// / 在故事中创建一个新的角色，设置角色的基本信息
 	// / HTTP POST /common.TeamsAPI/CreateStoryRole
 	// / 请求体：CreateStoryRoleRequest (JSON，包含角色详细信息)
 	// / 响应：CreateStoryRoleResponse (JSON)
-	CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error)
+	CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error)
 	// / 获取角色详情
 	// / 获取故事角色的完整详细信息
 	// / HTTP POST /common.TeamsAPI/GetStoryRoleDetail
 	// / 请求体：GetStoryRoleDetailRequest (JSON，包含角色ID)
 	// / 响应：GetStoryRoleDetailResponse (JSON，返回角色完整信息)
-	GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error)
+	GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error)
 	// / 渲染生成角色图片
 	// / 使用AI为故事角色生成高质量的形象图片
 	// / HTTP POST /common.TeamsAPI/RenderStoryRole
 	// / 请求体：RenderStoryRoleRequest (JSON，包含渲染提示词和参考图片)
 	// / 响应：RenderStoryRoleResponse (JSON，返回渲染详情和图片URL)
-	RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error)
+	RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error)
 	// / 点赞故事
 	// / 为故事点赞表示喜欢，增加故事人气
 	// / HTTP POST /common.TeamsAPI/LikeStory
 	// / 请求体：LikeStoryRequest (JSON，包含故事ID和用户ID)
 	// / 响应：LikeStoryResponse (JSON)
-	LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error)
+	LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error)
 	// / 取消点赞故事
 	// / 取消对故事的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStory
 	// / 请求体：UnLikeStoryRequest (JSON)
 	// / 响应：UnLikeStoryResponse (JSON)
-	UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error)
+	UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error)
 	// / 获取故事板场景列表
 	// /
 	// / 【功能说明】
@@ -5283,7 +5445,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - scenes: 场景列表（按顺序排列）
-	GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error)
+	GetStoryBoardSences(context.Context, *connect.Request[gen.GetStoryBoardSencesRequest]) (*connect.Response[gen.GetStoryBoardSencesResponse], error)
 	// / 创建故事板场景
 	// /
 	// / 【功能说明】
@@ -5310,7 +5472,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - scene: 创建的场景对象
 	// / - scene_id: 场景ID
-	CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error)
+	CreateStoryBoardSence(context.Context, *connect.Request[gen.CreateStoryBoardSenceRequest]) (*connect.Response[gen.CreateStoryBoardSenceResponse], error)
 	// / 更新故事板场景
 	// /
 	// / 【功能说明】
@@ -5336,7 +5498,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - scene: 更新后的场景信息
-	UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error)
+	UpdateStoryBoardSence(context.Context, *connect.Request[gen.UpdateStoryBoardSenceRequest]) (*connect.Response[gen.UpdateStoryBoardSenceResponse], error)
 	// / 删除故事板场景
 	// /
 	// / 【功能说明】
@@ -5360,7 +5522,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error)
+	DeleteStoryBoardSence(context.Context, *connect.Request[gen.DeleteStoryBoardSenceRequest]) (*connect.Response[gen.DeleteStoryBoardSenceResponse], error)
 	// / 渲染故事板指定场景
 	// /
 	// / 【功能说明】
@@ -5388,7 +5550,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - image_url: 生成的场景图片URL
 	// / - task_id: 渲染任务ID
-	RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error)
+	RenderStoryBoardSence(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error)
 	// / 批量渲染故事板场景
 	// /
 	// / 【功能说明】
@@ -5415,7 +5577,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - task_ids: 批量渲染任务ID列表
 	// / - estimated_time: 预计完成时间（秒）
-	RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error)
+	RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error)
 	// / 获取场景生成状态
 	// /
 	// / 【功能说明】
@@ -5441,7 +5603,7 @@ type TeamsAPIHandler interface {
 	// / - status: 生成状态（0-队列中，1-生成中，2-完成，3-失败）
 	// / - progress: 进度百分比（0-100）
 	// / - result_url: 生成结果URL（完成时）
-	GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error)
+	GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error)
 	// / 获取故事板生成状态
 	// /
 	// / 【功能说明】
@@ -5467,111 +5629,111 @@ type TeamsAPIHandler interface {
 	// / - status: 整体生成状态
 	// / - progress: 总体进度百分比
 	// / - scene_status: 各场景的生成状态列表
-	GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error)
+	GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error)
 	// / 点赞故事角色
 	// / 为故事角色点赞，表达对角色的喜爱
 	// / HTTP POST /common.TeamsAPI/LikeStoryRole
 	// / 请求体：LikeStoryRoleRequest (JSON，包含角色ID和用户ID)
 	// / 响应：LikeStoryRoleResponse (JSON)
-	LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error)
+	LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error)
 	// / 取消点赞故事角色
 	// / 取消对故事角色的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStoryRole
 	// / 请求体：UnLikeStoryRoleRequest (JSON)
 	// / 响应：UnLikeStoryRoleResponse (JSON)
-	UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error)
+	UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error)
 	// / 关注故事角色
 	// / 关注指定的故事角色，接收该角色的最新动态通知
 	// / HTTP POST /common.TeamsAPI/FollowStoryRole
 	// / 请求体：FollowStoryRoleRequest (JSON)
 	// / 响应：FollowStoryRoleResponse (JSON)
-	FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error)
+	FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error)
 	// / 取消关注故事角色
 	// / 取消对故事角色的关注，停止接收动态通知
 	// / HTTP POST /common.TeamsAPI/UnFollowStoryRole
 	// / 请求体：UnFollowStoryRoleRequest (JSON)
 	// / 响应：UnFollowStoryRoleResponse (JSON)
-	UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error)
+	UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error)
 	// / 搜索故事
 	// / 根据关键词搜索故事，支持全局搜索和群组内搜索
 	// / HTTP POST /common.TeamsAPI/SearchStories
 	// / 请求体：SearchStoriesRequest (JSON，包含关键词、范围和分页参数)
 	// / 响应：SearchStoriesResponse (JSON，返回匹配的故事列表)
-	SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error)
+	SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error)
 	// / 搜索群组
 	// / 根据名称搜索群组，支持模糊搜索
 	// / HTTP POST /common.TeamsAPI/SearchGroup
 	// / 请求体：SearchGroupRequest (JSON，包含搜索关键词和范围)
 	// / 响应：SearchGroupResponse (JSON，返回匹配的群组列表)
-	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error)
+	SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error)
 	// / 搜索故事角色
 	// / 根据关键词搜索故事角色，支持在故事内或全局搜索
 	// / HTTP POST /common.TeamsAPI/SearchRoles
 	// / 请求体：SearchRolesRequest (JSON，包含关键词、范围和分页参数)
 	// / 响应：SearchRolesResponse (JSON，返回匹配的角色列表)
-	SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error)
+	SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error)
 	// / 恢复故事板状态
 	// / 从草稿或历史版本恢复故事板到指定状态
 	// / HTTP POST /common.TeamsAPI/RestoreStoryboard
 	// / 请求体：RestoreStoryboardRequest (JSON，包含故事板ID和版本信息)
 	// / 响应：RestoreStoryboardResponse (JSON，返回恢复后的完整故事板数据)
-	RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error)
+	RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error)
 	// 获取用户创建的故事板
-	GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error)
+	GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error)
 	// 获取用户创建的角色
-	GetUserCreatedRoles(context.Context, *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error)
+	GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error)
 	// 获取角色参与的故事板
-	GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error)
+	GetStoryRoleStoryboards(context.Context, *connect.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect.Response[gen.GetStoryRoleStoryboardsResponse], error)
 	// 获取角色参与的故事
-	GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error)
+	GetStoryRoleStories(context.Context, *connect.Request[gen.GetStoryRoleStoriesRequest]) (*connect.Response[gen.GetStoryRoleStoriesResponse], error)
 	// / 创建与角色的对话
 	// / 开始一个新的与故事角色的AI聊天会话
 	// / HTTP POST /common.TeamsAPI/CreateStoryRoleChat
 	// / 请求体：CreateStoryRoleChatRequest (JSON，包含角色ID和用户ID)
 	// / 响应：CreateStoryRoleChatResponse (JSON，返回聊天上下文信息)
-	CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error)
+	CreateStoryRoleChat(context.Context, *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error)
 	// / 与角色聊天
 	// / 发送消息并获取AI角色的智能回复
 	// / HTTP POST /common.TeamsAPI/ChatWithStoryRole
 	// / 请求体：ChatWithStoryRoleRequest (JSON，包含历史消息列表)
 	// / 响应：ChatWithStoryRoleResponse (JSON，返回角色的回复消息)
-	ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error)
+	ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error)
 	// / 更新角色头像
 	// / 更新故事角色的头像图片
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleAvator
 	// / 请求体：UpdateStoryRoleAvatorRequest (JSON，包含新头像URL)
 	// / 响应：UpdateStoryRoleAvatorResponse (JSON)
-	UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error)
+	UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error)
 	// / 更新角色详情
 	// / 更新故事角色的完整信息，包括描述、性格、能力等
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleDetail
 	// / 请求体：UpdateStoryRoleDetailRequest (JSON，包含角色完整信息)
 	// / 响应：UpdateStoryRoleDetailResponse (JSON)
-	UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error)
+	UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error)
 	// / 获取用户的对话列表
 	// / 获取用户与各个角色的所有聊天会话列表
 	// / HTTP POST /common.TeamsAPI/GetUserWithRoleChatList
 	// / 请求体：GetUserWithRoleChatListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetUserWithRoleChatListResponse (JSON，返回聊天会话列表)
-	GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error)
+	GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error)
 	// / 获取用户与角色的对话
 	// / 获取用户与指定角色的完整聊天记录
 	// / HTTP POST /common.TeamsAPI/GetUserChatWithRole
 	// / 请求体：GetUserChatWithRoleRequest (JSON，包含角色ID和用户ID)
 	// / 响应：GetUserChatWithRoleResponse (JSON，返回聊天消息列表和上下文)
-	GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error)
+	GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error)
 	// / 获取用户的消息列表
 	// / 获取指定聊天会话中的所有消息记录
 	// / HTTP POST /common.TeamsAPI/GetUserChatMessages
 	// / 请求体：GetUserChatMessagesRequest (JSON，包含聊天ID和时间戳)
 	// / 响应：GetUserChatMessagesResponse (JSON，返回消息列表)
-	GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error)
+	GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error)
 	// / 获取活动动态列表
 	// / 获取用户、群组或故事的最新活动动态信息
 	// / HTTP POST /common.TeamsAPI/FetchActives
 	// / 请求体：FetchActivesRequest (JSON，包含筛选条件和分页参数)
 	// / 响应：FetchActivesResponse (JSON，返回活动动态列表)
-	FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error)
+	FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error)
 	// / 获取下一个故事板
 	// /
 	// / 【功能说明】
@@ -5605,7 +5767,7 @@ type TeamsAPIHandler interface {
 	// / - storyboards: 后续故事板列表
 	// / - is_multi_branch: 是否为多分支
 	// / - total: 分支总数
-	GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error)
+	GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error)
 	// / 持续渲染故事角色
 	// /
 	// / 【功能说明】
@@ -5632,7 +5794,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - detail: 渲染详情对象
 	// / - have_more: 是否还有更多迭代空间
-	RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error)
+	RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error)
 	// / 发布故事板
 	// /
 	// / 【功能说明】
@@ -5656,7 +5818,7 @@ type TeamsAPIHandler interface {
 	// / - code: 响应状态码
 	// / - message: 响应消息
 	// / - publish_time: 发布时间戳
-	PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error)
+	PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error)
 	// / 撤销故事板
 	// /
 	// / 【功能说明】
@@ -5684,7 +5846,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - code: 响应状态码
 	// / - message: 响应消息
-	CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error)
+	CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error)
 	// / 获取用户关注故事的活跃故事板
 	// /
 	// / 【功能说明】
@@ -5710,7 +5872,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - storyboards: 活跃故事板列表
 	// / - total: 总数量
-	GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
 	// / 获取用户关注角色的活跃故事板
 	// /
 	// / 【功能说明】
@@ -5736,7 +5898,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - storyboards: 活跃故事板列表
 	// / - total: 总数量
-	GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
 	// / 获取未发布故事板列表
 	// /
 	// / 【功能说明】
@@ -5760,7 +5922,7 @@ type TeamsAPIHandler interface {
 	// / 【响应字段】
 	// / - storyboardactives: 草稿故事板列表
 	// / - total: 总数量
-	GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error)
+	GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error)
 	// / 生成角色描述
 	// /
 	// / 【功能说明】
@@ -5784,7 +5946,7 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - character_detail: AI生成的详细角色描述
-	GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error)
+	GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error)
 	// / 更新角色描述
 	// /
 	// / 【功能说明】
@@ -5807,7 +5969,7 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error)
+	UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error)
 	// / 生成角色提示词
 	// /
 	// / 【功能说明】
@@ -5831,7 +5993,7 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - prompt: AI生成的优化提示词
-	GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error)
+	GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error)
 	// / 更新角色提示词
 	// /
 	// / 【功能说明】
@@ -5854,97 +6016,97 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error)
+	UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error)
 	// / 创建故事评论
 	// / 在故事下发表新的评论，支持富文本内容
 	// / HTTP POST /common.TeamsAPI/CreateStoryComment
 	// / 请求体：CreateStoryCommentRequest (JSON，包含故事ID和评论内容)
 	// / 响应：CreateStoryCommentResponse (JSON，返回创建的评论信息)
-	CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error)
+	CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error)
 	// / 获取故事评论列表
 	// / 分页获取指定故事的所有评论
 	// / HTTP POST /common.TeamsAPI/GetStoryComments
 	// / 请求体：GetStoryCommentsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryCommentsResponse (JSON，返回评论列表和分页信息)
-	GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error)
+	GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error)
 	// / 删除故事评论
 	// / 删除指定的故事评论，仅评论作者或管理员可删除
 	// / HTTP POST /common.TeamsAPI/DeleteStoryComment
 	// / 请求体：DeleteStoryCommentRequest (JSON)
 	// / 响应：DeleteStoryCommentResponse (JSON)
-	DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error)
+	DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error)
 	// / 获取故事评论回复列表
 	// / 获取指定评论的所有回复
 	// / HTTP POST /common.TeamsAPI/GetStoryCommentReplies
 	// / 请求体：GetStoryCommentRepliesRequest (JSON，包含评论ID和分页参数)
 	// / 响应：GetStoryCommentRepliesResponse (JSON，返回回复列表)
-	GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error)
+	GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error)
 	// / 创建故事评论回复
 	// / 回复指定的故事评论
 	// / HTTP POST /common.TeamsAPI/CreateStoryCommentReply
 	// / 请求体：CreateStoryCommentReplyRequest (JSON，包含评论ID和回复内容)
 	// / 响应：CreateStoryCommentReplyResponse (JSON，返回创建的回复信息)
-	CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error)
+	CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error)
 	// / 删除故事评论回复
 	// / 删除指定的评论回复，仅回复作者或管理员可删除
 	// / HTTP POST /common.TeamsAPI/DeleteStoryCommentReply
 	// / 请求体：DeleteStoryCommentReplyRequest (JSON)
 	// / 响应：DeleteStoryCommentReplyResponse (JSON)
-	DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error)
+	DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error)
 	// 获取故事板评论
-	GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error)
+	GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error)
 	// 创建故事板评论
-	CreateStoryBoardComment(context.Context, *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error)
+	CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error)
 	// 删除故事板评论
-	DeleteStoryBoardComment(context.Context, *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error)
+	DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error)
 	// 获取故事板评论回复
-	GetStoryBoardCommentReplies(context.Context, *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error)
+	GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error)
 	// 点赞故事评论
-	LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error)
+	LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
-	DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error)
+	DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error)
 	// / 获取故事角色列表
 	// / 获取指定故事的所有角色列表，支持搜索和筛选
 	// / HTTP POST /common.TeamsAPI/GetStoryRoleList
 	// / 请求体：GetStoryRoleListRequest (JSON，包含故事ID、搜索关键词和分页参数)
 	// / 响应：GetStoryRoleListResponse (JSON，返回角色列表和总数)
-	GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error)
+	GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error)
 	// / 获取热门故事
 	// / 获取指定时间段内最热门的故事列表，按热度排序
 	// / HTTP POST /common.TeamsAPI/TrendingStory
 	// / 请求体：TrendingStoryRequest (JSON，包含时间范围和分页参数)
 	// / 响应：TrendingStoryResponse (JSON，返回热门故事列表)
-	TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error)
+	TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error)
 	// / 获取热门角色
 	// / 获取指定时间段内最热门的故事角色列表，按人气排序
 	// / HTTP POST /common.TeamsAPI/TrendingStoryRole
 	// / 请求体：TrendingStoryRoleRequest (JSON，包含时间范围和分页参数)
 	// / 响应：TrendingStoryRoleResponse (JSON，返回热门角色列表)
-	TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error)
+	TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error)
 	// / 关注用户
 	// / 关注另一个用户，建立关注关系并接收其动态
 	// / HTTP POST /common.TeamsAPI/FollowUser
 	// / 请求体：FollowUserRequest (JSON，包含被关注用户的ID)
 	// / 响应：FollowUserResponse (JSON)
-	FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error)
+	FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error)
 	// / 取消关注用户
 	// / 取消对另一个用户的关注，停止接收其动态
 	// / HTTP POST /common.TeamsAPI/UnfollowUser
 	// / 请求体：UnfollowUserRequest (JSON)
 	// / 响应：UnfollowUserResponse (JSON)
-	UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error)
+	UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error)
 	// / 获取用户关注列表
 	// / 获取用户关注的所有其他用户列表
 	// / HTTP POST /common.TeamsAPI/GetFollowList
 	// / 请求体：GetFollowListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetFollowListResponse (JSON，返回关注的用户列表)
-	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
+	GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error)
 	// / 获取用户粉丝列表
 	// / 获取关注该用户的所有粉丝列表
 	// / HTTP POST /common.TeamsAPI/GetFollowerList
 	// / 请求体：GetFollowerListRequest (JSON，包含用户ID和分页参数)
 	// / 响应：GetFollowerListResponse (JSON，返回粉丝用户列表)
-	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
+	GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error)
 	// / 更新故事角色提示词
 	// /
 	// / 【功能说明】
@@ -5968,7 +6130,7 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
+	UpdateStoryRolePrompt(context.Context, *connect.Request[gen.UpdateStoryRolePromptRequest]) (*connect.Response[gen.UpdateStoryRolePromptResponse], error)
 	// / 更新故事角色描述详情
 	// /
 	// / 【功能说明】
@@ -5996,7 +6158,7 @@ type TeamsAPIHandler interface {
 	// /
 	// / 【响应字段】
 	// / - code: 响应状态码
-	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
+	UpdateStoryRoleDescriptionDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
 	// / 查询任务状态
 	// /
 	// / 【功能说明】
@@ -6023,121 +6185,121 @@ type TeamsAPIHandler interface {
 	// / - progress: 进度百分比（0-100）
 	// / - result_data: 任务结果数据（完成时）
 	// / - error_message: 错误消息（失败时）
-	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
+	QueryTaskStatus(context.Context, *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error)
 	// / 获取故事图片风格
 	// / 获取故事可用的所有图片生成风格列表
 	// / HTTP POST /common.TeamsAPI/GetStoryImageStyle
 	// / 请求体：GetStoryImageStyleRequest (JSON，包含故事ID)
 	// / 响应：GetStoryImageStyleResponse (JSON，返回风格列表和描述)
-	GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error)
+	GetStoryImageStyle(context.Context, *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error)
 	// / 更新故事图片风格
 	// / 设置故事使用的图片生成风格
 	// / HTTP POST /common.TeamsAPI/UpdateStoryImageStyle
 	// / 请求体：UpdateStoryImageStyleRequest (JSON，包含风格ID和名称)
 	// / 响应：UpdateStoryImageStyleResponse (JSON)
-	UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error)
+	UpdateStoryImageStyle(context.Context, *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error)
 	// / 更新故事最大场景数
 	// / 设置故事允许创建的最大场景数量限制
 	// / HTTP POST /common.TeamsAPI/UpdateStorySenceMaxNumber
 	// / 请求体：UpdateStorySenceMaxNumberRequest (JSON，包含最大场景数)
 	// / 响应：UpdateStorySenceMaxNumberResponse (JSON)
-	UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error)
+	UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error)
 	// / 更新故事头像
 	// / 更新故事的头像图片，用于故事展示
 	// / HTTP POST /common.TeamsAPI/UpdateStoryAvatar
 	// / 请求体：UpdateStoryAvatarRequest (JSON，包含新头像URL)
 	// / 响应：UpdateStoryAvatarResponse (JSON)
-	UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error)
+	UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error)
 	// / 更新故事封面
 	// / 更新故事的封面图片，支持使用AI生成的封面
 	// / HTTP POST /common.TeamsAPI/UpdateStoryCover
 	// / 请求体：UpdateStoryCoverRequest (JSON，包含封面URL和AI生成标志)
 	// / 响应：UpdateStoryCoverResponse (JSON)
-	UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error)
+	UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error)
 	// / 保存故事板草稿
 	// / 将当前故事板保存为草稿，便于后续继续编辑
 	// / HTTP POST /common.TeamsAPI/SaveStoryboardCraft
 	// / 请求体：SaveStoryboardCraftRequest (JSON，包含故事板ID)
 	// / 响应：SaveStoryboardCraftResponse (JSON)
-	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
+	SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error)
 	// / 获取故事参与者列表
 	// / 获取参与故事创作和编辑的所有用户列表
 	// / HTTP POST /common.TeamsAPI/GetStoryParticipants
 	// / 请求体：GetStoryParticipantsRequest (JSON，包含故事ID和分页参数)
 	// / 响应：GetStoryParticipantsResponse (JSON，返回参与者用户列表)
-	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
+	GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error)
 	// / 生成故事场景视频
 	// / 为指定的故事场景生成动态视频内容，支持自定义提示词和风格
 	// / HTTP POST /common.TeamsAPI/GenerateStorySceneVideo
 	// / 请求体：GenerateStorySceneVideoRequest (JSON，包含场景ID、提示词和token来源)
 	// / 响应：GenerateStorySceneVideoResponse (JSON，返回生成任务详情和视频URL)
-	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
+	GenerateStorySceneVideo(context.Context, *connect.Request[gen.GenerateStorySceneVideoRequest]) (*connect.Response[gen.GenerateStorySceneVideoResponse], error)
 	// / 生成角色头像
 	// / 使用AI为故事角色生成个性化头像图片
 	// / HTTP POST /common.TeamsAPI/GenerateRoleAvatar
 	// / 请求体：GenerateRoleAvatarRequest (JSON，包含角色描述和风格)
 	// / 响应：GenerateRoleAvatarResponse (JSON，返回头像URL)
-	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	GenerateRoleAvatar(context.Context, *connect.Request[gen.GenerateRoleAvatarRequest]) (*connect.Response[gen.GenerateRoleAvatarResponse], error)
 	// / 查询用户生成任务状态
 	// / 获取用户的所有AI生成任务的实时状态和进度
 	// / HTTP POST /common.TeamsAPI/QueryGenTaskStatus
 	// / 请求体：FetchUserGenTaskStatusRequest (JSON)
 	// / 响应：FetchUserGenTaskStatusResponse (JSON，包含任务列表和状态)
-	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
+	FetchUserGenTaskStatus(context.Context, *connect.Request[gen.FetchUserGenTaskStatusRequest]) (*connect.Response[gen.FetchUserGenTaskStatusResponse], error)
 	// / 生成角色海报图片
 	// / 为故事角色生成精美的宣传海报
 	// / HTTP POST /common.TeamsAPI/GenerateStoryRolePoster
 	// / 请求体：GenerateStoryRolePosterRequest (JSON，包含生成参数和风格)
 	// / 响应：GenerateStoryRolePosterResponse (JSON，返回海报URL和ID)
-	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
+	GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error)
 	// / 更新角色海报图片
 	// / 更新角色海报的图片或可见性设置
 	// / HTTP POST /common.TeamsAPI/UpdateStoryRolePoster
 	// / 请求体：UpdateStoryRolePosterRequest (JSON)
 	// / 响应：UpdateStoryRolePosterResponse (JSON)
-	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error)
 	// / 点赞角色海报
 	// / 为角色海报点赞，增加人气值
 	// / HTTP POST /common.TeamsAPI/LikeStoryRolePoster
 	// / 请求体：LikeStoryRolePosterRequest (JSON)
 	// / 响应：LikeStoryRolePosterResponse (JSON，返回最新点赞数)
-	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	LikeStoryRolePoster(context.Context, *connect.Request[gen.LikeStoryRolePosterRequest]) (*connect.Response[gen.LikeStoryRolePosterResponse], error)
 	// / 取消点赞角色海报
 	// / 取消对角色海报的点赞
 	// / HTTP POST /common.TeamsAPI/UnLikeStoryRolePoster
 	// / 请求体：UnLikeStoryRolePosterRequest (JSON)
 	// / 响应：UnLikeStoryRolePosterResponse (JSON，返回最新点赞数)
-	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	UnLikeStoryRolePoster(context.Context, *connect.Request[gen.UnLikeStoryRolePosterRequest]) (*connect.Response[gen.UnLikeStoryRolePosterResponse], error)
 	// / 获取角色海报列表
 	// / 获取指定故事角色的所有海报图片列表
 	// / HTTP POST /common.TeamsAPI/GetStoryRolePosterList
 	// / 请求体：GetStoryRolePosterListRequest (JSON，包含分页参数)
 	// / 响应：GetStoryRolePosterListResponse (JSON，返回海报列表)
-	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
+	GetStoryRolePosterList(context.Context, *connect.Request[gen.GetStoryRolePosterListRequest]) (*connect.Response[gen.GetStoryRolePosterListResponse], error)
 	// / 生成故事角色视频
 	// / 为故事角色生成动态宣传视频
 	// / HTTP POST /common.TeamsAPI/GenerateStoryRoleVideo
 	// / 请求体：GenerateStoryRoleVideoRequest (JSON，包含视频参数和风格)
 	// / 响应：GenerateStoryRoleVideoResponse (JSON，返回任务详情和视频URL)
-	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	GenerateStoryRoleVideo(context.Context, *connect.Request[gen.GenerateStoryRoleVideoRequest]) (*connect.Response[gen.GenerateStoryRoleVideoResponse], error)
 	// / 更新故事板分叉权限
 	// / 设置故事板是否允许其他用户进行分叉创建分支
 	// / HTTP POST /common.TeamsAPI/UpdateStoryboardForkAble
 	// / 请求体：UpdateStoryboardForkAbleRequest (JSON)
 	// / 响应：UpdateStoryboardForkAbleResponse (JSON)
-	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	UpdateStoryboardForkAble(context.Context, *connect.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect.Response[gen.UpdateStoryboardForkAbleResponse], error)
 	// / 获取用户故事板草稿列表
 	// / 分页获取指定用户的所有故事板草稿，支持按故事筛选
 	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftlist
 	// / 请求体：UserStoryboardDraftlistRequest (JSON)
 	// / 响应：UserStoryboardDraftlistResponse (JSON)
-	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	UserStoryboardDraftlist(context.Context, *connect.Request[gen.UserStoryboardDraftlistRequest]) (*connect.Response[gen.UserStoryboardDraftlistResponse], error)
 	// / 获取用户故事板草稿详情
 	// / 获取指定草稿的完整详细信息，包括内容、角色、场景等
 	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftDetail
 	// / 请求体：UserDraftStoryboardDetailRequest (JSON)
 	// / 响应：UserDraftStoryboardDetailResponse (JSON)
-	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	UserStoryboardDraftDetail(context.Context, *connect.Request[gen.UserDraftStoryboardDetailRequest]) (*connect.Response[gen.UserDraftStoryboardDetailResponse], error)
 	// / 删除用户故事板草稿
 	// /
 	// / 【功能说明】
@@ -6170,7 +6332,7 @@ type TeamsAPIHandler interface {
 	// /   "story_id": 789
 	// / }
 	// / ```
-	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	DeleteUserStoryboardDraft(context.Context, *connect.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect.Response[gen.DeleteUserStoryboardDraftResponse], error)
 	// / 获取用户活跃热力图
 	// /
 	// / 【功能说明】
@@ -6202,7 +6364,7 @@ type TeamsAPIHandler interface {
 	// / - 用户个人主页展示活跃度
 	// / - 统计用户贡献度
 	// / - 活跃度排行榜
-	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	UserActiveHeatmap(context.Context, *connect.Request[gen.UserActiveHeamapRequest]) (*connect.Response[gen.UserActiveHeamapResponse], error)
 	// / 获取群组活跃热力图
 	// /
 	// / 【功能说明】
@@ -6239,7 +6401,8 @@ type TeamsAPIHandler interface {
 	// / - 群组主页展示活跃度
 	// / - 分析群组健康度
 	// / - 活跃群组排行
-	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
+	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
+	GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -6247,736 +6410,889 @@ type TeamsAPIHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	teamsAPIExploreHandler := connect_go.NewUnaryHandler(
+func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	teamsAPIMethods := gen.File_service_proto.Services().ByName("TeamsAPI").Methods()
+	teamsAPIExploreHandler := connect.NewUnaryHandler(
 		TeamsAPIExploreProcedure,
 		svc.Explore,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("Explore")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIVersionHandler := connect_go.NewUnaryHandler(
+	teamsAPIVersionHandler := connect.NewUnaryHandler(
 		TeamsAPIVersionProcedure,
 		svc.Version,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("Version")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIAboutHandler := connect_go.NewUnaryHandler(
+	teamsAPIAboutHandler := connect.NewUnaryHandler(
 		TeamsAPIAboutProcedure,
 		svc.About,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("About")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILoginHandler := connect_go.NewUnaryHandler(
+	teamsAPILoginHandler := connect.NewUnaryHandler(
 		TeamsAPILoginProcedure,
 		svc.Login,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("Login")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILogoutHandler := connect_go.NewUnaryHandler(
+	teamsAPILogoutHandler := connect.NewUnaryHandler(
 		TeamsAPILogoutProcedure,
 		svc.Logout,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("Logout")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRefreshTokenHandler := connect_go.NewUnaryHandler(
+	teamsAPIRefreshTokenHandler := connect.NewUnaryHandler(
 		TeamsAPIRefreshTokenProcedure,
 		svc.RefreshToken,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RefreshToken")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRegisterHandler := connect_go.NewUnaryHandler(
+	teamsAPIRegisterHandler := connect.NewUnaryHandler(
 		TeamsAPIRegisterProcedure,
 		svc.Register,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("Register")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIResetPwdHandler := connect_go.NewUnaryHandler(
+	teamsAPIResetPwdHandler := connect.NewUnaryHandler(
 		TeamsAPIResetPwdProcedure,
 		svc.ResetPwd,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ResetPwd")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserInitHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserInitHandler := connect.NewUnaryHandler(
 		TeamsAPIUserInitProcedure,
 		svc.UserInit,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserInit")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIUserInfoProcedure,
 		svc.UserInfo,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserInfo")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateUserAvatorHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateUserAvatorHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateUserAvatorProcedure,
 		svc.UpdateUserAvator,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateUserAvator")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserWatchingHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserWatchingHandler := connect.NewUnaryHandler(
 		TeamsAPIUserWatchingProcedure,
 		svc.UserWatching,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserWatching")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIUserGroupProcedure,
 		svc.UserGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserFollowingGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserFollowingGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIUserFollowingGroupProcedure,
 		svc.UserFollowingGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserFollowingGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserUpdateHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserUpdateHandler := connect.NewUnaryHandler(
 		TeamsAPIUserUpdateProcedure,
 		svc.UserUpdate,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserUpdate")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPISearchUserHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchUserHandler := connect.NewUnaryHandler(
 		TeamsAPISearchUserProcedure,
 		svc.SearchUser,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("SearchUser")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateGroupHandler := connect.NewUnaryHandler(
 		TeamsAPICreateGroupProcedure,
 		svc.CreateGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupProcedure,
 		svc.GetGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetGroupActivesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupActivesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupActivesProcedure,
 		svc.GetGroupActives,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetGroupActives")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateGroupInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateGroupInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateGroupInfoProcedure,
 		svc.UpdateGroupInfo,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateGroupInfo")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetGroupProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetGroupProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIGetGroupProfileProcedure,
 		svc.GetGroupProfile,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetGroupProfile")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateGroupProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateGroupProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateGroupProfileProcedure,
 		svc.UpdateGroupProfile,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateGroupProfile")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteGroupProcedure,
 		svc.DeleteGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFetchGroupMembersHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchGroupMembersHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchGroupMembersProcedure,
 		svc.FetchGroupMembers,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FetchGroupMembers")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIJoinGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPIJoinGroupHandler := connect.NewUnaryHandler(
 		TeamsAPIJoinGroupProcedure,
 		svc.JoinGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("JoinGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILeaveGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPILeaveGroupHandler := connect.NewUnaryHandler(
 		TeamsAPILeaveGroupProcedure,
 		svc.LeaveGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LeaveGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryProcedure,
 		svc.CreateStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryInfoHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryInfoHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryInfoProcedure,
 		svc.GetStoryInfo,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryInfo")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryProcedure,
 		svc.RenderStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryProcedure,
 		svc.UpdateStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIWatchStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIWatchStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIWatchStoryProcedure,
 		svc.WatchStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("WatchStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIArchiveStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIArchiveStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIArchiveStoryProcedure,
 		svc.ArchiveStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ArchiveStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryboardProcedure,
 		svc.CreateStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryboardProcedure,
 		svc.GetStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryboardProcedure,
 		svc.RenderStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenStoryboardTextHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenStoryboardTextHandler := connect.NewUnaryHandler(
 		TeamsAPIGenStoryboardTextProcedure,
 		svc.GenStoryboardText,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenStoryboardText")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenStoryboardImagesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenStoryboardImagesHandler := connect.NewUnaryHandler(
 		TeamsAPIGenStoryboardImagesProcedure,
 		svc.GenStoryboardImages,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenStoryboardImages")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryboardsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryboardsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryboardsProcedure,
 		svc.GetStoryboards,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryboards")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDelStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIDelStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIDelStoryboardProcedure,
 		svc.DelStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DelStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIForkStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIForkStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIForkStoryboardProcedure,
 		svc.ForkStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ForkStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryboardProcedure,
 		svc.UpdateStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILikeStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPILikeStoryboardProcedure,
 		svc.LikeStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LikeStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnLikeStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnLikeStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIUnLikeStoryboardProcedure,
 		svc.UnLikeStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIShareStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIShareStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIShareStoryboardProcedure,
 		svc.ShareStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ShareStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFetchGroupStorysHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchGroupStorysHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchGroupStorysProcedure,
 		svc.FetchGroupStorys,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FetchGroupStorys")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUploadImageFileHandler := connect_go.NewUnaryHandler(
+	teamsAPIUploadImageFileHandler := connect.NewUnaryHandler(
 		TeamsAPIUploadImageFileProcedure,
 		svc.UploadImageFile,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UploadImageFile")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRenderHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRenderHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRenderProcedure,
 		svc.GetStoryRender,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRender")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardRenderHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardRenderHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardRenderProcedure,
 		svc.GetStoryBoardRender,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardRender")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryContributorsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryContributorsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryContributorsProcedure,
 		svc.GetStoryContributors,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryContributors")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIContinueRenderStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIContinueRenderStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIContinueRenderStoryProcedure,
 		svc.ContinueRenderStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ContinueRenderStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryRolesHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryRolesHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryRolesProcedure,
 		svc.RenderStoryRoles,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoles")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRoleProcedure,
 		svc.UpdateStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryRoleDetailHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryRoleDetailHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryRoleDetailProcedure,
 		svc.RenderStoryRoleDetail,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoleDetail")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRolesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRolesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRolesProcedure,
 		svc.GetStoryRoles,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoles")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardRolesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardRolesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardRolesProcedure,
 		svc.GetStoryBoardRoles,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardRoles")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserProfileProcedure,
 		svc.GetUserProfile,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserProfile")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateUserProfileHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateUserProfileHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateUserProfileProcedure,
 		svc.UpdateUserProfile,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateUserProfile")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateUserBackgroundImageHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateUserBackgroundImageHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateUserBackgroundImageProcedure,
 		svc.UpdateUserBackgroundImage,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateUserBackgroundImage")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryRoleProcedure,
 		svc.CreateStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRoleDetailHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRoleDetailHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRoleDetailProcedure,
 		svc.GetStoryRoleDetail,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleDetail")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryRoleProcedure,
 		svc.RenderStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILikeStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeStoryHandler := connect.NewUnaryHandler(
 		TeamsAPILikeStoryProcedure,
 		svc.LikeStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LikeStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnLikeStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnLikeStoryHandler := connect.NewUnaryHandler(
 		TeamsAPIUnLikeStoryProcedure,
 		svc.UnLikeStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnLikeStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardSencesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardSencesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardSencesProcedure,
 		svc.GetStoryBoardSences,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardSences")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryBoardSenceHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryBoardSenceHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryBoardSenceProcedure,
 		svc.CreateStoryBoardSence,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryBoardSence")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryBoardSenceHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryBoardSenceHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryBoardSenceProcedure,
 		svc.UpdateStoryBoardSence,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryBoardSence")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteStoryBoardSenceHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteStoryBoardSenceHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteStoryBoardSenceProcedure,
 		svc.DeleteStoryBoardSence,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryBoardSence")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryBoardSenceHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryBoardSenceHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryBoardSenceProcedure,
 		svc.RenderStoryBoardSence,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryBoardSence")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryBoardSencesHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryBoardSencesHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryBoardSencesProcedure,
 		svc.RenderStoryBoardSences,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryBoardSences")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardSenceGenerateHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardSenceGenerateHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardSenceGenerateProcedure,
 		svc.GetStoryBoardSenceGenerate,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardSenceGenerate")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardGenerateHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardGenerateHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardGenerateProcedure,
 		svc.GetStoryBoardGenerate,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardGenerate")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILikeStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPILikeStoryRoleProcedure,
 		svc.LikeStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LikeStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnLikeStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnLikeStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIUnLikeStoryRoleProcedure,
 		svc.UnLikeStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFollowStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIFollowStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIFollowStoryRoleProcedure,
 		svc.FollowStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FollowStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnFollowStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnFollowStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIUnFollowStoryRoleProcedure,
 		svc.UnFollowStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnFollowStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPISearchStoriesHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchStoriesHandler := connect.NewUnaryHandler(
 		TeamsAPISearchStoriesProcedure,
 		svc.SearchStories,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("SearchStories")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPISearchGroupHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchGroupHandler := connect.NewUnaryHandler(
 		TeamsAPISearchGroupProcedure,
 		svc.SearchGroup,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("SearchGroup")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPISearchRolesHandler := connect_go.NewUnaryHandler(
+	teamsAPISearchRolesHandler := connect.NewUnaryHandler(
 		TeamsAPISearchRolesProcedure,
 		svc.SearchRoles,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("SearchRoles")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRestoreStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIRestoreStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIRestoreStoryboardProcedure,
 		svc.RestoreStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RestoreStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserCreatedStoryboardsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserCreatedStoryboardsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserCreatedStoryboardsProcedure,
 		svc.GetUserCreatedStoryboards,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserCreatedStoryboards")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserCreatedRolesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserCreatedRolesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserCreatedRolesProcedure,
 		svc.GetUserCreatedRoles,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserCreatedRoles")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRoleStoryboardsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRoleStoryboardsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRoleStoryboardsProcedure,
 		svc.GetStoryRoleStoryboards,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleStoryboards")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRoleStoriesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRoleStoriesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRoleStoriesProcedure,
 		svc.GetStoryRoleStories,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleStories")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryRoleChatHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryRoleChatHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryRoleChatProcedure,
 		svc.CreateStoryRoleChat,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryRoleChat")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIChatWithStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIChatWithStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIChatWithStoryRoleProcedure,
 		svc.ChatWithStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("ChatWithStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRoleAvatorHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRoleAvatorHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRoleAvatorProcedure,
 		svc.UpdateStoryRoleAvator,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleAvator")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRoleDetailHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRoleDetailHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRoleDetailProcedure,
 		svc.UpdateStoryRoleDetail,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleDetail")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserWithRoleChatListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserWithRoleChatListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserWithRoleChatListProcedure,
 		svc.GetUserWithRoleChatList,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserWithRoleChatList")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserChatWithRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserChatWithRoleHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserChatWithRoleProcedure,
 		svc.GetUserChatWithRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserChatWithRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserChatMessagesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserChatMessagesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserChatMessagesProcedure,
 		svc.GetUserChatMessages,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserChatMessages")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFetchActivesHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchActivesHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchActivesProcedure,
 		svc.FetchActives,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FetchActives")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetNextStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetNextStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIGetNextStoryboardProcedure,
 		svc.GetNextStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetNextStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIRenderStoryRoleContinuouslyHandler := connect_go.NewUnaryHandler(
+	teamsAPIRenderStoryRoleContinuouslyHandler := connect.NewUnaryHandler(
 		TeamsAPIRenderStoryRoleContinuouslyProcedure,
 		svc.RenderStoryRoleContinuously,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("RenderStoryRoleContinuously")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIPublishStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIPublishStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIPublishStoryboardProcedure,
 		svc.PublishStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("PublishStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICancelStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPICancelStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPICancelStoryboardProcedure,
 		svc.CancelStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CancelStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserWatchStoryActiveStoryBoardsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserWatchStoryActiveStoryBoardsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserWatchStoryActiveStoryBoardsProcedure,
 		svc.GetUserWatchStoryActiveStoryBoards,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserWatchStoryActiveStoryBoards")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUserWatchRoleActiveStoryBoardsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUserWatchRoleActiveStoryBoardsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUserWatchRoleActiveStoryBoardsProcedure,
 		svc.GetUserWatchRoleActiveStoryBoards,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUserWatchRoleActiveStoryBoards")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetUnPublishStoryboardHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetUnPublishStoryboardHandler := connect.NewUnaryHandler(
 		TeamsAPIGetUnPublishStoryboardProcedure,
 		svc.GetUnPublishStoryboard,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetUnPublishStoryboard")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateRoleDescriptionHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateRoleDescriptionHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateRoleDescriptionProcedure,
 		svc.GenerateRoleDescription,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateRoleDescription")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateRoleDescriptionHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateRoleDescriptionHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateRoleDescriptionProcedure,
 		svc.UpdateRoleDescription,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateRoleDescription")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateRolePromptHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateRolePromptHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateRolePromptProcedure,
 		svc.GenerateRolePrompt,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateRolePrompt")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateRolePromptHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateRolePromptHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateRolePromptProcedure,
 		svc.UpdateRolePrompt,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateRolePrompt")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryCommentHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryCommentProcedure,
 		svc.CreateStoryComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryCommentsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryCommentsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryCommentsProcedure,
 		svc.GetStoryComments,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryComments")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteStoryCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteStoryCommentHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteStoryCommentProcedure,
 		svc.DeleteStoryComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryCommentRepliesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryCommentRepliesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryCommentRepliesProcedure,
 		svc.GetStoryCommentReplies,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryCommentReplies")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryCommentReplyHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryCommentReplyHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryCommentReplyProcedure,
 		svc.CreateStoryCommentReply,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryCommentReply")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteStoryCommentReplyHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteStoryCommentReplyHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteStoryCommentReplyProcedure,
 		svc.DeleteStoryCommentReply,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryCommentReply")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardCommentsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardCommentsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardCommentsProcedure,
 		svc.GetStoryBoardComments,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardComments")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPICreateStoryBoardCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPICreateStoryBoardCommentHandler := connect.NewUnaryHandler(
 		TeamsAPICreateStoryBoardCommentProcedure,
 		svc.CreateStoryBoardComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("CreateStoryBoardComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteStoryBoardCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteStoryBoardCommentHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteStoryBoardCommentProcedure,
 		svc.DeleteStoryBoardComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteStoryBoardComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryBoardCommentRepliesHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryBoardCommentRepliesHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryBoardCommentRepliesProcedure,
 		svc.GetStoryBoardCommentReplies,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryBoardCommentReplies")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILikeCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeCommentHandler := connect.NewUnaryHandler(
 		TeamsAPILikeCommentProcedure,
 		svc.LikeComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LikeComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDislikeCommentHandler := connect_go.NewUnaryHandler(
+	teamsAPIDislikeCommentHandler := connect.NewUnaryHandler(
 		TeamsAPIDislikeCommentProcedure,
 		svc.DislikeComment,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DislikeComment")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRoleListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRoleListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRoleListProcedure,
 		svc.GetStoryRoleList,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRoleList")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPITrendingStoryHandler := connect_go.NewUnaryHandler(
+	teamsAPITrendingStoryHandler := connect.NewUnaryHandler(
 		TeamsAPITrendingStoryProcedure,
 		svc.TrendingStory,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("TrendingStory")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPITrendingStoryRoleHandler := connect_go.NewUnaryHandler(
+	teamsAPITrendingStoryRoleHandler := connect.NewUnaryHandler(
 		TeamsAPITrendingStoryRoleProcedure,
 		svc.TrendingStoryRole,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("TrendingStoryRole")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFollowUserHandler := connect_go.NewUnaryHandler(
+	teamsAPIFollowUserHandler := connect.NewUnaryHandler(
 		TeamsAPIFollowUserProcedure,
 		svc.FollowUser,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FollowUser")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnfollowUserHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnfollowUserHandler := connect.NewUnaryHandler(
 		TeamsAPIUnfollowUserProcedure,
 		svc.UnfollowUser,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnfollowUser")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetFollowListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetFollowListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetFollowListProcedure,
 		svc.GetFollowList,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetFollowList")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetFollowerListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetFollowerListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetFollowerListProcedure,
 		svc.GetFollowerList,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetFollowerList")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRolePromptHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRolePromptHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRolePromptProcedure,
 		svc.UpdateStoryRolePrompt,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRolePrompt")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRoleDescriptionDetailHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRoleDescriptionDetailHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRoleDescriptionDetailProcedure,
 		svc.UpdateStoryRoleDescriptionDetail,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRoleDescriptionDetail")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIQueryTaskStatusHandler := connect_go.NewUnaryHandler(
+	teamsAPIQueryTaskStatusHandler := connect.NewUnaryHandler(
 		TeamsAPIQueryTaskStatusProcedure,
 		svc.QueryTaskStatus,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("QueryTaskStatus")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryImageStyleHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryImageStyleHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryImageStyleProcedure,
 		svc.GetStoryImageStyle,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryImageStyle")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryImageStyleHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryImageStyleHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryImageStyleProcedure,
 		svc.UpdateStoryImageStyle,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryImageStyle")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStorySenceMaxNumberHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStorySenceMaxNumberHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStorySenceMaxNumberProcedure,
 		svc.UpdateStorySenceMaxNumber,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStorySenceMaxNumber")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryAvatarHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryAvatarHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryAvatarProcedure,
 		svc.UpdateStoryAvatar,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryAvatar")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryCoverHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryCoverHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryCoverProcedure,
 		svc.UpdateStoryCover,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryCover")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPISaveStoryboardCraftHandler := connect_go.NewUnaryHandler(
+	teamsAPISaveStoryboardCraftHandler := connect.NewUnaryHandler(
 		TeamsAPISaveStoryboardCraftProcedure,
 		svc.SaveStoryboardCraft,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("SaveStoryboardCraft")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryParticipantsHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryParticipantsHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryParticipantsProcedure,
 		svc.GetStoryParticipants,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryParticipants")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateStorySceneVideoHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateStorySceneVideoHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateStorySceneVideoProcedure,
 		svc.GenerateStorySceneVideo,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateStorySceneVideo")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateRoleAvatarHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateRoleAvatarHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateRoleAvatarProcedure,
 		svc.GenerateRoleAvatar,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateRoleAvatar")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIFetchUserGenTaskStatusHandler := connect_go.NewUnaryHandler(
+	teamsAPIFetchUserGenTaskStatusHandler := connect.NewUnaryHandler(
 		TeamsAPIFetchUserGenTaskStatusProcedure,
 		svc.FetchUserGenTaskStatus,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("FetchUserGenTaskStatus")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateStoryRolePosterHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateStoryRolePosterHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateStoryRolePosterProcedure,
 		svc.GenerateStoryRolePoster,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateStoryRolePoster")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryRolePosterHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryRolePosterHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryRolePosterProcedure,
 		svc.UpdateStoryRolePoster,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryRolePoster")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPILikeStoryRolePosterHandler := connect_go.NewUnaryHandler(
+	teamsAPILikeStoryRolePosterHandler := connect.NewUnaryHandler(
 		TeamsAPILikeStoryRolePosterProcedure,
 		svc.LikeStoryRolePoster,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("LikeStoryRolePoster")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUnLikeStoryRolePosterHandler := connect_go.NewUnaryHandler(
+	teamsAPIUnLikeStoryRolePosterHandler := connect.NewUnaryHandler(
 		TeamsAPIUnLikeStoryRolePosterProcedure,
 		svc.UnLikeStoryRolePoster,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UnLikeStoryRolePoster")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryRolePosterListHandler := connect_go.NewUnaryHandler(
+	teamsAPIGetStoryRolePosterListHandler := connect.NewUnaryHandler(
 		TeamsAPIGetStoryRolePosterListProcedure,
 		svc.GetStoryRolePosterList,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryRolePosterList")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGenerateStoryRoleVideoHandler := connect_go.NewUnaryHandler(
+	teamsAPIGenerateStoryRoleVideoHandler := connect.NewUnaryHandler(
 		TeamsAPIGenerateStoryRoleVideoProcedure,
 		svc.GenerateStoryRoleVideo,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GenerateStoryRoleVideo")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUpdateStoryboardForkAbleHandler := connect_go.NewUnaryHandler(
+	teamsAPIUpdateStoryboardForkAbleHandler := connect.NewUnaryHandler(
 		TeamsAPIUpdateStoryboardForkAbleProcedure,
 		svc.UpdateStoryboardForkAble,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UpdateStoryboardForkAble")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserStoryboardDraftlistHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserStoryboardDraftlistHandler := connect.NewUnaryHandler(
 		TeamsAPIUserStoryboardDraftlistProcedure,
 		svc.UserStoryboardDraftlist,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserStoryboardDraftlist")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserStoryboardDraftDetailHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserStoryboardDraftDetailHandler := connect.NewUnaryHandler(
 		TeamsAPIUserStoryboardDraftDetailProcedure,
 		svc.UserStoryboardDraftDetail,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserStoryboardDraftDetail")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIDeleteUserStoryboardDraftHandler := connect_go.NewUnaryHandler(
+	teamsAPIDeleteUserStoryboardDraftHandler := connect.NewUnaryHandler(
 		TeamsAPIDeleteUserStoryboardDraftProcedure,
 		svc.DeleteUserStoryboardDraft,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("DeleteUserStoryboardDraft")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIUserActiveHeatmapHandler := connect_go.NewUnaryHandler(
+	teamsAPIUserActiveHeatmapHandler := connect.NewUnaryHandler(
 		TeamsAPIUserActiveHeatmapProcedure,
 		svc.UserActiveHeatmap,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("UserActiveHeatmap")),
+		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGroupActiveHeatmapHandler := connect_go.NewUnaryHandler(
+	teamsAPIGroupActiveHeatmapHandler := connect.NewUnaryHandler(
 		TeamsAPIGroupActiveHeatmapProcedure,
 		svc.GroupActiveHeatmap,
-		opts...,
+		connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
+		connect.WithHandlerOptions(opts...),
+	)
+	teamsAPIGetStoryGenerationHistoryHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryGenerationHistoryProcedure,
+		svc.GetStoryGenerationHistory,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryGenerationHistory")),
+		connect.WithHandlerOptions(opts...),
 	)
 	return "/rankquantity.voyager.api.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -7272,6 +7588,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 			teamsAPIUserActiveHeatmapHandler.ServeHTTP(w, r)
 		case TeamsAPIGroupActiveHeatmapProcedure:
 			teamsAPIGroupActiveHeatmapHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryGenerationHistoryProcedure:
+			teamsAPIGetStoryGenerationHistoryHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -7281,586 +7599,590 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect_go.HandlerOption) (
 // UnimplementedTeamsAPIHandler returns CodeUnimplemented from all methods.
 type UnimplementedTeamsAPIHandler struct{}
 
-func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Explore is not implemented"))
+func (UnimplementedTeamsAPIHandler) Explore(context.Context, *connect.Request[gen.ExploreRequest]) (*connect.Response[gen.ExploreResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Explore is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Version is not implemented"))
+func (UnimplementedTeamsAPIHandler) Version(context.Context, *connect.Request[gen.VersionRequest]) (*connect.Response[gen.VersionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Version is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.About is not implemented"))
+func (UnimplementedTeamsAPIHandler) About(context.Context, *connect.Request[gen.AboutRequest]) (*connect.Response[gen.AboutResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.About is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Login is not implemented"))
+func (UnimplementedTeamsAPIHandler) Login(context.Context, *connect.Request[gen.LoginRequest]) (*connect.Response[gen.LoginResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Login is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Logout is not implemented"))
+func (UnimplementedTeamsAPIHandler) Logout(context.Context, *connect.Request[gen.LogoutRequest]) (*connect.Response[gen.LogoutResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Logout is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RefreshToken is not implemented"))
+func (UnimplementedTeamsAPIHandler) RefreshToken(context.Context, *connect.Request[gen.RefreshTokenRequest]) (*connect.Response[gen.RefreshTokenResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RefreshToken is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Register is not implemented"))
+func (UnimplementedTeamsAPIHandler) Register(context.Context, *connect.Request[gen.RegisterRequest]) (*connect.Response[gen.RegisterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.Register is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ResetPwd is not implemented"))
+func (UnimplementedTeamsAPIHandler) ResetPwd(context.Context, *connect.Request[gen.ResetPasswordRequest]) (*connect.Response[gen.ResetPasswordResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ResetPwd is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInit is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserInit(context.Context, *connect.Request[gen.UserInitRequest]) (*connect.Response[gen.UserInitResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInit is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserInfo(context.Context, *connect.Request[gen.UserInfoRequest]) (*connect.Response[gen.UserInfoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserAvator is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateUserAvator(context.Context, *connect.Request[gen.UpdateUserAvatorRequest]) (*connect.Response[gen.UpdateUserAvatorResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserAvator is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserWatching is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserWatching(context.Context, *connect.Request[gen.UserWatchingRequest]) (*connect.Response[gen.UserWatchingResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserWatching is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserGroup(context.Context, *connect.Request[gen.UserGroupRequest]) (*connect.Response[gen.UserGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserFollowingGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserFollowingGroup(context.Context, *connect.Request[gen.UserFollowingGroupRequest]) (*connect.Response[gen.UserFollowingGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserFollowingGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserUpdate is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserUpdate(context.Context, *connect.Request[gen.UserUpdateRequest]) (*connect.Response[gen.UserUpdateResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserUpdate is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchUser is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchUser(context.Context, *connect.Request[gen.SearchUserRequest]) (*connect.Response[gen.SearchUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchUser is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateGroup(context.Context, *connect.Request[gen.CreateGroupRequest]) (*connect.Response[gen.CreateGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroup(context.Context, *connect.Request[gen.GetGroupRequest]) (*connect.Response[gen.GetGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupActives is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroupActives(context.Context, *connect.Request[gen.GetGroupActivesRequest]) (*connect.Response[gen.GetGroupActivesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupActives is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateGroupInfo(context.Context, *connect.Request[gen.UpdateGroupInfoRequest]) (*connect.Response[gen.UpdateGroupInfoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetGroupProfile(context.Context, *connect.Request[gen.GetGroupProfileRequest]) (*connect.Response[gen.GetGroupProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetGroupProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateGroupProfile(context.Context, *connect.Request[gen.UpdateGroupProfileRequest]) (*connect.Response[gen.UpdateGroupProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateGroupProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteGroup(context.Context, *connect.Request[gen.DeleteGroupRequest]) (*connect.Response[gen.DeleteGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupMembers is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchGroupMembers(context.Context, *connect.Request[gen.FetchGroupMembersRequest]) (*connect.Response[gen.FetchGroupMembersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupMembers is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.JoinGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) JoinGroup(context.Context, *connect.Request[gen.JoinGroupRequest]) (*connect.Response[gen.JoinGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.JoinGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LeaveGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) LeaveGroup(context.Context, *connect.Request[gen.LeaveGroupRequest]) (*connect.Response[gen.LeaveGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LeaveGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStory(context.Context, *connect.Request[gen.CreateStoryRequest]) (*connect.Response[gen.CreateStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryInfo is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryInfo(context.Context, *connect.Request[gen.GetStoryInfoRequest]) (*connect.Response[gen.GetStoryInfoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryInfo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStory(context.Context, *connect.Request[gen.RenderStoryRequest]) (*connect.Response[gen.RenderStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStory(context.Context, *connect.Request[gen.UpdateStoryRequest]) (*connect.Response[gen.UpdateStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.WatchStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) WatchStory(context.Context, *connect.Request[gen.WatchStoryRequest]) (*connect.Response[gen.WatchStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.WatchStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ArchiveStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) ArchiveStory(context.Context, *connect.Request[gen.ArchiveStoryRequest]) (*connect.Response[gen.ArchiveStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ArchiveStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryboard(context.Context, *connect.Request[gen.CreateStoryboardRequest]) (*connect.Response[gen.CreateStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryboard(context.Context, *connect.Request[gen.GetStoryboardRequest]) (*connect.Response[gen.GetStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryboard(context.Context, *connect.Request[gen.RenderStoryboardRequest]) (*connect.Response[gen.RenderStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardText is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenStoryboardText(context.Context, *connect.Request[gen.GenStoryboardTextRequest]) (*connect.Response[gen.GenStoryboardTextResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardText is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardImages is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenStoryboardImages(context.Context, *connect.Request[gen.GenStoryboardImagesRequest]) (*connect.Response[gen.GenStoryboardImagesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenStoryboardImages is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboards is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryboards(context.Context, *connect.Request[gen.GetStoryboardsRequest]) (*connect.Response[gen.GetStoryboardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DelStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) DelStoryboard(context.Context, *connect.Request[gen.DelStoryboardRequest]) (*connect.Response[gen.DelStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DelStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ForkStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) ForkStoryboard(context.Context, *connect.Request[gen.ForkStoryboardRequest]) (*connect.Response[gen.ForkStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ForkStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryboard(context.Context, *connect.Request[gen.UpdateStoryboardRequest]) (*connect.Response[gen.UpdateStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeStoryboard(context.Context, *connect.Request[gen.LikeStoryboardRequest]) (*connect.Response[gen.LikeStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnLikeStoryboard(context.Context, *connect.Request[gen.UnLikeStoryboardRequest]) (*connect.Response[gen.UnLikeStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ShareStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) ShareStoryboard(context.Context, *connect.Request[gen.ShareStoryboardRequest]) (*connect.Response[gen.ShareStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ShareStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupStorys is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchGroupStorys(context.Context, *connect.Request[gen.FetchGroupStorysRequest]) (*connect.Response[gen.FetchGroupStorysResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchGroupStorys is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UploadImageFile is not implemented"))
+func (UnimplementedTeamsAPIHandler) UploadImageFile(context.Context, *connect.Request[gen.UploadImageRequest]) (*connect.Response[gen.UploadImageResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UploadImageFile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRender is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRender(context.Context, *connect.Request[gen.GetStoryRenderRequest]) (*connect.Response[gen.GetStoryRenderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRender is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRender is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardRender(context.Context, *connect.Request[gen.GetStoryBoardRenderRequest]) (*connect.Response[gen.GetStoryBoardRenderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRender is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryContributors is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryContributors(context.Context, *connect.Request[gen.GetStoryContributorsRequest]) (*connect.Response[gen.GetStoryContributorsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryContributors is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ContinueRenderStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) ContinueRenderStory(context.Context, *connect.Request[gen.ContinueRenderStoryRequest]) (*connect.Response[gen.ContinueRenderStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ContinueRenderStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoles is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryRoles(context.Context, *connect.Request[gen.RenderStoryRolesRequest]) (*connect.Response[gen.RenderStoryRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoles is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRole(context.Context, *connect.Request[gen.UpdateStoryRoleRequest]) (*connect.Response[gen.UpdateStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleDetail is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryRoleDetail(context.Context, *connect.Request[gen.RenderStoryRoleDetailRequest]) (*connect.Response[gen.RenderStoryRoleDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleDetail is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoles is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRoles(context.Context, *connect.Request[gen.GetStoryRolesRequest]) (*connect.Response[gen.GetStoryRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoles is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRoles is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardRoles(context.Context, *connect.Request[gen.GetStoryBoardRolesRequest]) (*connect.Response[gen.GetStoryBoardRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardRoles is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserProfile(context.Context, *connect.Request[gen.GetUserProfileRequest]) (*connect.Response[gen.GetUserProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserProfile is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateUserProfile(context.Context, *connect.Request[gen.UpdateUserProfileRequest]) (*connect.Response[gen.UpdateUserProfileResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserProfile is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserBackgroundImage is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateUserBackgroundImage(context.Context, *connect.Request[gen.UpdateUserBackgroundImageRequest]) (*connect.Response[gen.UpdateUserBackgroundImageResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateUserBackgroundImage is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryRole(context.Context, *connect.Request[gen.CreateStoryRoleRequest]) (*connect.Response[gen.CreateStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleDetail is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRoleDetail(context.Context, *connect.Request[gen.GetStoryRoleDetailRequest]) (*connect.Response[gen.GetStoryRoleDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleDetail is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryRole(context.Context, *connect.Request[gen.RenderStoryRoleRequest]) (*connect.Response[gen.RenderStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeStory(context.Context, *connect.Request[gen.LikeStoryRequest]) (*connect.Response[gen.LikeStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnLikeStory(context.Context, *connect.Request[gen.UnLikeStoryRequest]) (*connect.Response[gen.UnLikeStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSences is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardSences(context.Context, *connect.Request[gen.GetStoryBoardSencesRequest]) (*connect.Response[gen.GetStoryBoardSencesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSences is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardSence is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryBoardSence(context.Context, *connect.Request[gen.CreateStoryBoardSenceRequest]) (*connect.Response[gen.CreateStoryBoardSenceResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardSence is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryBoardSence is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryBoardSence(context.Context, *connect.Request[gen.UpdateStoryBoardSenceRequest]) (*connect.Response[gen.UpdateStoryBoardSenceResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryBoardSence is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardSence is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteStoryBoardSence(context.Context, *connect.Request[gen.DeleteStoryBoardSenceRequest]) (*connect.Response[gen.DeleteStoryBoardSenceResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardSence is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSence is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryBoardSence(context.Context, *connect.Request[gen.RenderStoryBoardSenceRequest]) (*connect.Response[gen.RenderStoryBoardSenceResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSence is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSences is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryBoardSences(context.Context, *connect.Request[gen.RenderStoryBoardSencesRequest]) (*connect.Response[gen.RenderStoryBoardSencesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryBoardSences is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSenceGenerate is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardSenceGenerate(context.Context, *connect.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect.Response[gen.GetStoryBoardSenceGenerateResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardSenceGenerate is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardGenerate is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardGenerate(context.Context, *connect.Request[gen.GetStoryBoardGenerateRequest]) (*connect.Response[gen.GetStoryBoardGenerateResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardGenerate is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeStoryRole(context.Context, *connect.Request[gen.LikeStoryRoleRequest]) (*connect.Response[gen.LikeStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnLikeStoryRole(context.Context, *connect.Request[gen.UnLikeStoryRoleRequest]) (*connect.Response[gen.UnLikeStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) FollowStoryRole(context.Context, *connect.Request[gen.FollowStoryRoleRequest]) (*connect.Response[gen.FollowStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnFollowStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnFollowStoryRole(context.Context, *connect.Request[gen.UnFollowStoryRoleRequest]) (*connect.Response[gen.UnFollowStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnFollowStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchStories is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchStories(context.Context, *connect.Request[gen.SearchStoriesRequest]) (*connect.Response[gen.SearchStoriesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchStories is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchGroup is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchGroup(context.Context, *connect.Request[gen.SearchGroupRequest]) (*connect.Response[gen.SearchGroupResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchGroup is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchRoles is not implemented"))
+func (UnimplementedTeamsAPIHandler) SearchRoles(context.Context, *connect.Request[gen.SearchRolesRequest]) (*connect.Response[gen.SearchRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SearchRoles is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RestoreStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) RestoreStoryboard(context.Context, *connect.Request[gen.RestoreStoryboardRequest]) (*connect.Response[gen.RestoreStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RestoreStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedStoryboards is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserCreatedStoryboards(context.Context, *connect.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect.Response[gen.GetUserCreatedStoryboardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedStoryboards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserCreatedRoles(context.Context, *connect_go.Request[gen.GetUserCreatedRolesRequest]) (*connect_go.Response[gen.GetUserCreatedRolesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedRoles is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserCreatedRoles(context.Context, *connect.Request[gen.GetUserCreatedRolesRequest]) (*connect.Response[gen.GetUserCreatedRolesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserCreatedRoles is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStoryboards is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRoleStoryboards(context.Context, *connect.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect.Response[gen.GetStoryRoleStoryboardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStoryboards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStories is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRoleStories(context.Context, *connect.Request[gen.GetStoryRoleStoriesRequest]) (*connect.Response[gen.GetStoryRoleStoriesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleStories is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRoleChat is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryRoleChat(context.Context, *connect.Request[gen.CreateStoryRoleChatRequest]) (*connect.Response[gen.CreateStoryRoleChatResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryRoleChat is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ChatWithStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) ChatWithStoryRole(context.Context, *connect.Request[gen.ChatWithStoryRoleRequest]) (*connect.Response[gen.ChatWithStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.ChatWithStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleAvator is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleAvator(context.Context, *connect.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect.Response[gen.UpdateStoryRoleAvatorResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleAvator is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDetail is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDetail is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWithRoleChatList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserWithRoleChatList(context.Context, *connect.Request[gen.GetUserWithRoleChatListRequest]) (*connect.Response[gen.GetUserWithRoleChatListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWithRoleChatList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatWithRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserChatWithRole(context.Context, *connect.Request[gen.GetUserChatWithRoleRequest]) (*connect.Response[gen.GetUserChatWithRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatWithRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatMessages is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserChatMessages(context.Context, *connect.Request[gen.GetUserChatMessagesRequest]) (*connect.Response[gen.GetUserChatMessagesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserChatMessages is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchActives is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchActives(context.Context, *connect.Request[gen.FetchActivesRequest]) (*connect.Response[gen.FetchActivesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchActives is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetNextStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetNextStoryboard(context.Context, *connect.Request[gen.GetNextStoryboardRequest]) (*connect.Response[gen.GetNextStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetNextStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleContinuously is not implemented"))
+func (UnimplementedTeamsAPIHandler) RenderStoryRoleContinuously(context.Context, *connect.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect.Response[gen.RenderStoryRoleContinuouslyResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.RenderStoryRoleContinuously is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.PublishStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) PublishStoryboard(context.Context, *connect.Request[gen.PublishStoryboardRequest]) (*connect.Response[gen.PublishStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.PublishStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CancelStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) CancelStoryboard(context.Context, *connect.Request[gen.CancelStoryboardRequest]) (*connect.Response[gen.CancelStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CancelStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchStoryActiveStoryBoards is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserWatchStoryActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchStoryActiveStoryBoards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUserWatchRoleActiveStoryBoards(context.Context, *connect.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUserWatchRoleActiveStoryBoards is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUnPublishStoryboard is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetUnPublishStoryboard(context.Context, *connect.Request[gen.GetUnPublishStoryboardRequest]) (*connect.Response[gen.GetUnPublishStoryboardResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetUnPublishStoryboard is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleDescription is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateRoleDescription(context.Context, *connect.Request[gen.GenerateRoleDescriptionRequest]) (*connect.Response[gen.GenerateRoleDescriptionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleDescription is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRoleDescription is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateRoleDescription(context.Context, *connect.Request[gen.UpdateRoleDescriptionRequest]) (*connect.Response[gen.UpdateRoleDescriptionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRoleDescription is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRolePrompt is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateRolePrompt(context.Context, *connect.Request[gen.GenerateRolePromptRequest]) (*connect.Response[gen.GenerateRolePromptResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRolePrompt is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRolePrompt is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateRolePrompt(context.Context, *connect.Request[gen.UpdateRolePromptRequest]) (*connect.Response[gen.UpdateRolePromptResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateRolePrompt is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryComment(context.Context, *connect.Request[gen.CreateStoryCommentRequest]) (*connect.Response[gen.CreateStoryCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryComments is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryComments(context.Context, *connect.Request[gen.GetStoryCommentsRequest]) (*connect.Response[gen.GetStoryCommentsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryComments is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteStoryComment(context.Context, *connect.Request[gen.DeleteStoryCommentRequest]) (*connect.Response[gen.DeleteStoryCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryCommentReplies is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryCommentReplies(context.Context, *connect.Request[gen.GetStoryCommentRepliesRequest]) (*connect.Response[gen.GetStoryCommentRepliesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryCommentReplies is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryCommentReply is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryCommentReply(context.Context, *connect.Request[gen.CreateStoryCommentReplyRequest]) (*connect.Response[gen.CreateStoryCommentReplyResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryCommentReply is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryCommentReply is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteStoryCommentReply(context.Context, *connect.Request[gen.DeleteStoryCommentReplyRequest]) (*connect.Response[gen.DeleteStoryCommentReplyResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryCommentReply is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardComments is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardComments(context.Context, *connect.Request[gen.GetStoryBoardCommentsRequest]) (*connect.Response[gen.GetStoryBoardCommentsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardComments is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) CreateStoryBoardComment(context.Context, *connect_go.Request[gen.CreateStoryBoardCommentRequest]) (*connect_go.Response[gen.CreateStoryBoardCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) CreateStoryBoardComment(context.Context, *connect.Request[gen.CreateStoryBoardCommentRequest]) (*connect.Response[gen.CreateStoryBoardCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.CreateStoryBoardComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteStoryBoardComment(context.Context, *connect_go.Request[gen.DeleteStoryBoardCommentRequest]) (*connect_go.Response[gen.DeleteStoryBoardCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteStoryBoardComment(context.Context, *connect.Request[gen.DeleteStoryBoardCommentRequest]) (*connect.Response[gen.DeleteStoryBoardCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteStoryBoardComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryBoardCommentReplies(context.Context, *connect_go.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardCommentReplies is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryBoardCommentReplies(context.Context, *connect.Request[gen.GetStoryBoardCommentRepliesRequest]) (*connect.Response[gen.GetStoryBoardCommentRepliesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryBoardCommentReplies is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeComment(context.Context, *connect.Request[gen.LikeCommentRequest]) (*connect.Response[gen.LikeCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DislikeComment is not implemented"))
+func (UnimplementedTeamsAPIHandler) DislikeComment(context.Context, *connect.Request[gen.DislikeCommentRequest]) (*connect.Response[gen.DislikeCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DislikeComment is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRoleList(context.Context, *connect.Request[gen.GetStoryRoleListRequest]) (*connect.Response[gen.GetStoryRoleListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRoleList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStory is not implemented"))
+func (UnimplementedTeamsAPIHandler) TrendingStory(context.Context, *connect.Request[gen.TrendingStoryRequest]) (*connect.Response[gen.TrendingStoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStory is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStoryRole is not implemented"))
+func (UnimplementedTeamsAPIHandler) TrendingStoryRole(context.Context, *connect.Request[gen.TrendingStoryRoleRequest]) (*connect.Response[gen.TrendingStoryRoleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.TrendingStoryRole is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowUser is not implemented"))
+func (UnimplementedTeamsAPIHandler) FollowUser(context.Context, *connect.Request[gen.FollowUserRequest]) (*connect.Response[gen.FollowUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FollowUser is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnfollowUser is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnfollowUser(context.Context, *connect.Request[gen.UnfollowUserRequest]) (*connect.Response[gen.UnfollowUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnfollowUser is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetFollowList(context.Context, *connect.Request[gen.GetFollowListRequest]) (*connect.Response[gen.GetFollowListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowerList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetFollowerList(context.Context, *connect.Request[gen.GetFollowerListRequest]) (*connect.Response[gen.GetFollowerListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetFollowerList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRolePrompt(context.Context, *connect.Request[gen.UpdateStoryRolePromptRequest]) (*connect.Response[gen.UpdateStoryRolePromptResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePrompt is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRoleDescriptionDetail(context.Context, *connect.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRoleDescriptionDetail is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.QueryTaskStatus is not implemented"))
+func (UnimplementedTeamsAPIHandler) QueryTaskStatus(context.Context, *connect.Request[gen.QueryTaskStatusRequest]) (*connect.Response[gen.QueryTaskStatusResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.QueryTaskStatus is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryImageStyle is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryImageStyle(context.Context, *connect.Request[gen.GetStoryImageStyleRequest]) (*connect.Response[gen.GetStoryImageStyleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryImageStyle is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryImageStyle is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryImageStyle(context.Context, *connect.Request[gen.UpdateStoryImageStyleRequest]) (*connect.Response[gen.UpdateStoryImageStyleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryImageStyle is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStorySenceMaxNumber is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStorySenceMaxNumber(context.Context, *connect.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect.Response[gen.UpdateStorySenceMaxNumberResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStorySenceMaxNumber is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryAvatar is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryAvatar(context.Context, *connect.Request[gen.UpdateStoryAvatarRequest]) (*connect.Response[gen.UpdateStoryAvatarResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryAvatar is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryCover is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryCover(context.Context, *connect.Request[gen.UpdateStoryCoverRequest]) (*connect.Response[gen.UpdateStoryCoverResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryCover is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SaveStoryboardCraft is not implemented"))
+func (UnimplementedTeamsAPIHandler) SaveStoryboardCraft(context.Context, *connect.Request[gen.SaveStoryboardCraftRequest]) (*connect.Response[gen.SaveStoryboardCraftResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.SaveStoryboardCraft is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryParticipants is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryParticipants(context.Context, *connect.Request[gen.GetStoryParticipantsRequest]) (*connect.Response[gen.GetStoryParticipantsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryParticipants is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStorySceneVideo is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateStorySceneVideo(context.Context, *connect.Request[gen.GenerateStorySceneVideoRequest]) (*connect.Response[gen.GenerateStorySceneVideoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStorySceneVideo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleAvatar is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateRoleAvatar(context.Context, *connect.Request[gen.GenerateRoleAvatarRequest]) (*connect.Response[gen.GenerateRoleAvatarResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateRoleAvatar is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
+func (UnimplementedTeamsAPIHandler) FetchUserGenTaskStatus(context.Context, *connect.Request[gen.FetchUserGenTaskStatusRequest]) (*connect.Response[gen.FetchUserGenTaskStatusResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.FetchUserGenTaskStatus is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRolePoster is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateStoryRolePoster(context.Context, *connect.Request[gen.GenerateStoryRolePosterRequest]) (*connect.Response[gen.GenerateStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRolePoster is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePoster is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryRolePoster(context.Context, *connect.Request[gen.UpdateStoryRolePosterRequest]) (*connect.Response[gen.UpdateStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryRolePoster is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRolePoster is not implemented"))
+func (UnimplementedTeamsAPIHandler) LikeStoryRolePoster(context.Context, *connect.Request[gen.LikeStoryRolePosterRequest]) (*connect.Response[gen.LikeStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.LikeStoryRolePoster is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRolePoster is not implemented"))
+func (UnimplementedTeamsAPIHandler) UnLikeStoryRolePoster(context.Context, *connect.Request[gen.UnLikeStoryRolePosterRequest]) (*connect.Response[gen.UnLikeStoryRolePosterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UnLikeStoryRolePoster is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRolePosterList is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryRolePosterList(context.Context, *connect.Request[gen.GetStoryRolePosterListRequest]) (*connect.Response[gen.GetStoryRolePosterListResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryRolePosterList is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
+func (UnimplementedTeamsAPIHandler) GenerateStoryRoleVideo(context.Context, *connect.Request[gen.GenerateStoryRoleVideoRequest]) (*connect.Response[gen.GenerateStoryRoleVideoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GenerateStoryRoleVideo is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboardForkAble is not implemented"))
+func (UnimplementedTeamsAPIHandler) UpdateStoryboardForkAble(context.Context, *connect.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect.Response[gen.UpdateStoryboardForkAbleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UpdateStoryboardForkAble is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftlist is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserStoryboardDraftlist(context.Context, *connect.Request[gen.UserStoryboardDraftlistRequest]) (*connect.Response[gen.UserStoryboardDraftlistResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftlist is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftDetail is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserStoryboardDraftDetail(context.Context, *connect.Request[gen.UserDraftStoryboardDetailRequest]) (*connect.Response[gen.UserDraftStoryboardDetailResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserStoryboardDraftDetail is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteUserStoryboardDraft is not implemented"))
+func (UnimplementedTeamsAPIHandler) DeleteUserStoryboardDraft(context.Context, *connect.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect.Response[gen.DeleteUserStoryboardDraftResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.DeleteUserStoryboardDraft is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserActiveHeatmap is not implemented"))
+func (UnimplementedTeamsAPIHandler) UserActiveHeatmap(context.Context, *connect.Request[gen.UserActiveHeamapRequest]) (*connect.Response[gen.UserActiveHeamapResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.UserActiveHeatmap is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap is not implemented"))
+func (UnimplementedTeamsAPIHandler) GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap is not implemented"))
+}
+
+func (UnimplementedTeamsAPIHandler) GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryGenerationHistory is not implemented"))
 }

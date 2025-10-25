@@ -1422,6 +1422,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryGenerationHistory:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetStoryGenerationHistory
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryGenerationHistoryRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryGenerationHistoryResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryImageStyle:
         post:
             tags:
@@ -4021,6 +4045,28 @@ paths:
                                 $ref: '#/components/schemas/Status'
 components:
     schemas:
+        AIPolishRecord:
+            type: object
+            properties:
+                originalContent:
+                    type: string
+                    description: / 原始内容
+                polishedContent:
+                    type: string
+                    description: / 润色后的内容
+                polishedAt:
+                    type: string
+                    description: / 润色时间戳
+                polishType:
+                    type: string
+                    description: / 润色类型（如：标题润色、描述润色、内容润色）
+                tokenConsumption:
+                    allOf:
+                        - $ref: '#/components/schemas/TokenConsumption'
+                    description: / Token消耗
+            description: |-
+                / AI润色内容记录
+                / 记录使用AI润色的原始内容和润色后的内容
         AboutResponse:
             type: object
             properties:
@@ -4134,6 +4180,37 @@ components:
                         $ref: '#/components/schemas/Character'
                     description: 参与人物
             description: ChapterSummary 表示章节的基本信息
+        ChapterTranslationRecord:
+            type: object
+            properties:
+                chapterId:
+                    type: string
+                    description: / 章节ID
+                chapterTitle:
+                    type: string
+                    description: / 章节标题
+                originalScene:
+                    type: string
+                    description: / 原始场景描述
+                translatedScene:
+                    type: string
+                    description: / 转译后的场景描述
+                originalImageDesc:
+                    type: string
+                    description: / 原始图片描述
+                translatedImageDesc:
+                    type: string
+                    description: / 转译后的图片描述
+                translatedAt:
+                    type: string
+                    description: / 转译时间戳
+                tokenConsumption:
+                    allOf:
+                        - $ref: '#/components/schemas/TokenConsumption'
+                    description: / Token消耗
+            description: |-
+                / 章节AI转译记录
+                / 记录章节使用AI转译的场景和图片描述
         Character:
             type: object
             properties:
@@ -5542,6 +5619,39 @@ components:
             description: |-
                 / 生成故事场景视频任务详情
                 / 包含视频生成任务的状态和结果信息
+        GenerationPromptRecord:
+            type: object
+            properties:
+                contentType:
+                    type: string
+                    description: / 内容类型（image/video）
+                contentId:
+                    type: string
+                    description: / 内容ID（场景ID或其他相关ID）
+                imagePrompt:
+                    type: string
+                    description: / 图片提示词
+                videoPrompt:
+                    type: string
+                    description: / 视频提示词
+                generatedImages:
+                    type: array
+                    items:
+                        type: string
+                    description: / 生成的图片URL列表
+                generatedVideo:
+                    type: string
+                    description: / 生成的视频URL
+                generatedAt:
+                    type: string
+                    description: / 生成时间戳
+                tokenConsumption:
+                    allOf:
+                        - $ref: '#/components/schemas/TokenConsumption'
+                    description: / Token消耗
+            description: |-
+                / 生成提示词记录
+                / 记录故事图片和视频生成使用的提示词
         GetFollowListRequest:
             type: object
             properties:
@@ -6131,6 +6241,38 @@ components:
                     type: boolean
                     description: / 是否有更多数据
             description: / 返回数据
+        GetStoryGenerationHistoryRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                    description: / 故事ID，必须大于0
+                userId:
+                    type: string
+                    description: / 用户ID，必须大于0
+                storyboardId:
+                    type: string
+                    description: / 故事板ID，必须大于0
+            description: |-
+                / 获取故事生成历史请求
+                / 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
+        GetStoryGenerationHistoryResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: / 响应状态码
+                    format: enum
+                message:
+                    type: string
+                    description: / 响应消息描述
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/StoryGenerationHistory'
+                    description: / 故事生成历史数据
+            description: |-
+                / 获取故事生成历史响应
+                / 返回故事的完整生成历史记录
         GetStoryImageStyleRequest:
             type: object
             properties:
@@ -8568,6 +8710,63 @@ components:
             description: |-
                 / 故事贡献者信息
                 / 表示参与故事创作的用户信息
+        StoryGenerationHistory:
+            type: object
+            properties:
+                storyInfo:
+                    allOf:
+                        - $ref: '#/components/schemas/Story'
+                    description: / 故事基本信息
+                roles:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryRole'
+                    description: / 参与的角色信息列表
+                polishRecords:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/AIPolishRecord'
+                    description: / AI润色记录列表（标题、描述等润色记录）
+                chapterInfo:
+                    allOf:
+                        - $ref: '#/components/schemas/StoryInfo'
+                    description: / 故事章节信息
+                translationRecords:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChapterTranslationRecord'
+                    description: / 章节AI转译记录列表
+                promptRecords:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GenerationPromptRecord'
+                    description: / 生成提示词记录列表（图片、视频提示词）
+                finalContent:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/StoryBoard'
+                    description: / 最终内容（包含所有场景的完整内容）
+                creator:
+                    allOf:
+                        - $ref: '#/components/schemas/UserInfo'
+                    description: / 创建者信息
+                totalTokenConsumptions:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/TokenConsumption'
+                    description: / Token总消耗记录
+                childStoryboardCount:
+                    type: string
+                    description: / 子故事板数量
+                createdAt:
+                    type: string
+                    description: / 创建时间戳
+                updatedAt:
+                    type: string
+                    description: / 最后更新时间戳
+            description: |-
+                / 故事生成历史详情
+                / 包含故事生成过程中的所有历史记录
         StoryGentaskDetail:
             type: object
             properties:
@@ -8903,6 +9102,28 @@ components:
                     type: string
                 Mtime:
                     type: string
+        TokenConsumption:
+            type: object
+            properties:
+                tokenCount:
+                    type: string
+                    description: / Token消耗数量
+                sourceType:
+                    type: integer
+                    description: / Token来源类型
+                    format: enum
+                sourceId:
+                    type: string
+                    description: / 来源ID（个人用户ID或机构ID）
+                consumedAt:
+                    type: string
+                    description: / 消耗时间戳
+                purpose:
+                    type: string
+                    description: / 消耗用途描述
+            description: |-
+                / Token消耗记录
+                / 记录AI功能使用的Token消耗情况
         TrendingStoryRequest:
             type: object
             properties:

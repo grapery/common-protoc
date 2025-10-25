@@ -4005,4 +4005,16 @@ public class TeamsAPIClient(
     ),
   )
 
+
+  override suspend fun getStoryGenerationHistory(request: GetStoryGenerationHistoryRequest, headers: Headers): ResponseMessage<GetStoryGenerationHistoryResponse> = client.unary(
+    request,
+    headers,
+    MethodSpec(
+    "rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory",
+      com.rankquantity.voyager.api.GetStoryGenerationHistoryRequest::class,
+      com.rankquantity.voyager.api.GetStoryGenerationHistoryResponse::class,
+      StreamType.UNARY,
+    ),
+  )
+
 }
