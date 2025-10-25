@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事角色详情请求
+ * / 更新角色的完整详细信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleDetailRequest}
  */
 @com.google.protobuf.Generated
@@ -48,7 +53,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -59,7 +68,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_FIELD_NUMBER = 2;
   private com.rankquantity.voyager.api.StoryRole role_;
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return Whether the role field is set.
    */
   @java.lang.Override
@@ -67,7 +80,11 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return The role.
    */
   @java.lang.Override
@@ -75,7 +92,11 @@ private static final long serialVersionUID = 0L;
     return role_ == null ? com.rankquantity.voyager.api.StoryRole.getDefaultInstance() : role_;
   }
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder() {
@@ -85,7 +106,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -96,6 +121,10 @@ private static final long serialVersionUID = 0L;
   public static final int NEED_REGEN_FIELD_NUMBER = 4;
   private boolean needRegen_ = false;
   /**
+   * <pre>
+   * &#47; 是否需要重新生成
+   * </pre>
+   *
    * <code>bool need_regen = 4 [json_name = "needRegen"];</code>
    * @return The needRegen.
    */
@@ -108,6 +137,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object backgroundImage_ = "";
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
@@ -125,6 +158,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */
@@ -352,6 +389,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事角色详情请求
+   * / 更新角色的完整详细信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleDetailRequest}
    */
   public static final class Builder extends
@@ -556,7 +598,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -564,7 +610,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -576,7 +626,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -590,14 +644,22 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryRole, com.rankquantity.voyager.api.StoryRole.Builder, com.rankquantity.voyager.api.StoryRoleOrBuilder> roleBuilder_;
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      * @return Whether the role field is set.
      */
     public boolean hasRole() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      * @return The role.
      */
     public com.rankquantity.voyager.api.StoryRole getRole() {
@@ -608,7 +670,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public Builder setRole(com.rankquantity.voyager.api.StoryRole value) {
       if (roleBuilder_ == null) {
@@ -624,7 +690,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public Builder setRole(
         com.rankquantity.voyager.api.StoryRole.Builder builderForValue) {
@@ -638,7 +708,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public Builder mergeRole(com.rankquantity.voyager.api.StoryRole value) {
       if (roleBuilder_ == null) {
@@ -659,7 +733,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public Builder clearRole() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -672,7 +750,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.StoryRole.Builder getRoleBuilder() {
       bitField0_ |= 0x00000002;
@@ -680,7 +762,11 @@ private static final long serialVersionUID = 0L;
       return internalGetRoleFieldBuilder().getBuilder();
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder() {
       if (roleBuilder_ != null) {
@@ -691,7 +777,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+     * <pre>
+     * &#47; 角色信息，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryRole, com.rankquantity.voyager.api.StoryRole.Builder, com.rankquantity.voyager.api.StoryRoleOrBuilder> 
@@ -709,7 +799,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -717,7 +811,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -729,7 +827,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -741,6 +843,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean needRegen_ ;
     /**
+     * <pre>
+     * &#47; 是否需要重新生成
+     * </pre>
+     *
      * <code>bool need_regen = 4 [json_name = "needRegen"];</code>
      * @return The needRegen.
      */
@@ -749,6 +855,10 @@ private static final long serialVersionUID = 0L;
       return needRegen_;
     }
     /**
+     * <pre>
+     * &#47; 是否需要重新生成
+     * </pre>
+     *
      * <code>bool need_regen = 4 [json_name = "needRegen"];</code>
      * @param value The needRegen to set.
      * @return This builder for chaining.
@@ -761,6 +871,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否需要重新生成
+     * </pre>
+     *
      * <code>bool need_regen = 4 [json_name = "needRegen"];</code>
      * @return This builder for chaining.
      */
@@ -773,6 +887,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object backgroundImage_ = "";
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
      * @return The backgroundImage.
      */
@@ -789,6 +907,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
      * @return The bytes for backgroundImage.
      */
@@ -806,6 +928,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
      * @param value The backgroundImage to set.
      * @return This builder for chaining.
@@ -819,6 +945,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
      * @return This builder for chaining.
      */
@@ -829,6 +959,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
      * @param value The bytes for backgroundImage to set.
      * @return This builder for chaining.

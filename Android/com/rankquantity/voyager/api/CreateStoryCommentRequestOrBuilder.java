@@ -11,24 +11,57 @@ public interface CreateStoryCommentRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; [必填] 故事ID
+   * / 
+   * / 要评论的故事唯一标识
+   * / 验证规则：必须大于 0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; [必填] 评论者用户ID
+   * / 
+   * / 发表评论的用户ID
+   * / 验证规则：必须大于 0
+   * / 权限要求：用户必须已登录
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; [必填] 评论内容
+   * / 
+   * / 评论的文本内容
+   * / 长度限制：1-2000 字符
+   * / 支持：纯文本、Markdown、&#64;用户提及
+   * / 内容要求：不能包含违规内容
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The content.
    */
   java.lang.String getContent();
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; [必填] 评论内容
+   * / 
+   * / 评论的文本内容
+   * / 长度限制：1-2000 字符
+   * / 支持：纯文本、Markdown、&#64;用户提及
+   * / 内容要求：不能包含违规内容
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   com.google.protobuf.ByteString

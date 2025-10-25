@@ -12,7 +12,7 @@ public interface DeleteUserStoryboardDraftResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -21,7 +21,7 @@ public interface DeleteUserStoryboardDraftResponseOrBuilder extends
   int getCodeValue();
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -31,7 +31,7 @@ public interface DeleteUserStoryboardDraftResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -40,7 +40,7 @@ public interface DeleteUserStoryboardDraftResponseOrBuilder extends
   java.lang.String getMessage();
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>

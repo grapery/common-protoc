@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; Token来源枚举
+ * / 指定生成任务使用的额度来源
+ * </pre>
+ *
  * Protobuf enum {@code rankquantity.voyager.api.TokenSource}
  */
 @com.google.protobuf.Generated
@@ -13,7 +18,7 @@ public enum TokenSource
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   * 用户自己的token
+   * &#47; 使用用户自己的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_USER_SELF = 0;</code>
@@ -21,7 +26,7 @@ public enum TokenSource
   TOKEN_SOURCE_USER_SELF(0),
   /**
    * <pre>
-   * 故事存储的token
+   * &#47; 使用故事存储的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_STORY_STORE = 1;</code>
@@ -29,7 +34,7 @@ public enum TokenSource
   TOKEN_SOURCE_STORY_STORE(1),
   /**
    * <pre>
-   * 三方赞助的token
+   * &#47; 使用第三方赞助的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_THIRD_PARTY = 2;</code>
@@ -49,7 +54,7 @@ public enum TokenSource
   }
   /**
    * <pre>
-   * 用户自己的token
+   * &#47; 使用用户自己的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_USER_SELF = 0;</code>
@@ -57,7 +62,7 @@ public enum TokenSource
   public static final int TOKEN_SOURCE_USER_SELF_VALUE = 0;
   /**
    * <pre>
-   * 故事存储的token
+   * &#47; 使用故事存储的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_STORY_STORE = 1;</code>
@@ -65,7 +70,7 @@ public enum TokenSource
   public static final int TOKEN_SOURCE_STORY_STORE_VALUE = 1;
   /**
    * <pre>
-   * 三方赞助的token
+   * &#47; 使用第三方赞助的token额度
    * </pre>
    *
    * <code>TOKEN_SOURCE_THIRD_PARTY = 2;</code>

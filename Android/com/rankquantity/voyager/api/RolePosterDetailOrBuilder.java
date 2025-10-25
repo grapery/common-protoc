@@ -11,29 +11,49 @@ public interface RolePosterDetailOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 海报ID
+   * </pre>
+   *
    * <code>int64 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   long getId();
 
   /**
+   * <pre>
+   * &#47; 所属故事ID
+   * </pre>
+   *
    * <code>int64 story_id = 2 [json_name = "storyId"];</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
+   * <pre>
+   * &#47; 所属角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 3 [json_name = "roleId"];</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
+   * <pre>
+   * &#47; 海报图片URL
+   * </pre>
+   *
    * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
    * @return The posterUrl.
    */
   java.lang.String getPosterUrl();
   /**
+   * <pre>
+   * &#47; 海报图片URL
+   * </pre>
+   *
    * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
    * @return The bytes for posterUrl.
    */
@@ -41,11 +61,19 @@ public interface RolePosterDetailOrBuilder extends
       getPosterUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 5 [json_name = "prompt"];</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 5 [json_name = "prompt"];</code>
    * @return The bytes for prompt.
    */
@@ -53,39 +81,67 @@ public interface RolePosterDetailOrBuilder extends
       getPromptBytes();
 
   /**
+   * <pre>
+   * &#47; 点赞数
+   * </pre>
+   *
    * <code>int64 like_count = 6 [json_name = "likeCount"];</code>
    * @return The likeCount.
    */
   long getLikeCount();
 
   /**
+   * <pre>
+   * &#47; 当前用户是否已点赞
+   * </pre>
+   *
    * <code>bool is_liked_by_user = 7 [json_name = "isLikedByUser"];</code>
    * @return The isLikedByUser.
    */
   boolean getIsLikedByUser();
 
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    * @return Whether the creator field is set.
    */
   boolean hasCreator();
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    * @return The creator.
    */
   com.rankquantity.voyager.api.UserInfo getCreator();
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    */
   com.rankquantity.voyager.api.UserInfoOrBuilder getCreatorOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 创建时间戳
+   * </pre>
+   *
    * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   long getCreatedAt();
 
   /**
+   * <pre>
+   * &#47; 更新时间戳
+   * </pre>
+   *
    * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */

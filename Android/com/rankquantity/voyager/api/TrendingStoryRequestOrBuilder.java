@@ -11,25 +11,41 @@ public interface TrendingStoryRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 start = 1 [json_name = "start"];</code>
+   * <pre>
+   * &#47; 开始时间戳（秒），必须大于0
+   * </pre>
+   *
+   * <code>int64 start = 1 [json_name = "start", (.validate.rules) = { ... }</code>
    * @return The start.
    */
   long getStart();
 
   /**
-   * <code>int64 end = 2 [json_name = "end"];</code>
+   * <pre>
+   * &#47; 结束时间戳（秒），必须大于开始时间
+   * </pre>
+   *
+   * <code>int64 end = 2 [json_name = "end", (.validate.rules) = { ... }</code>
    * @return The end.
    */
   long getEnd();
 
   /**
-   * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();
 
   /**
-   * <code>int64 page_number = 4 [json_name = "pageNumber"];</code>
+   * <pre>
+   * &#47; 页码，从1开始
+   * </pre>
+   *
+   * <code>int64 page_number = 4 [json_name = "pageNumber", (.validate.rules) = { ... }</code>
    * @return The pageNumber.
    */
   long getPageNumber();

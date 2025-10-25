@@ -11,37 +11,61 @@ public interface GetStoryRoleStoriesRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string filter = 3 [json_name = "filter"];</code>
+   * <pre>
+   * &#47; 筛选条件，最大长度50字符
+   * </pre>
+   *
+   * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
    * @return The filter.
    */
   java.lang.String getFilter();
   /**
-   * <code>string filter = 3 [json_name = "filter"];</code>
+   * <pre>
+   * &#47; 筛选条件，最大长度50字符
+   * </pre>
+   *
+   * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
    * @return The bytes for filter.
    */
   com.google.protobuf.ByteString
       getFilterBytes();
 
   /**
-   * <code>int64 offset = 4 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

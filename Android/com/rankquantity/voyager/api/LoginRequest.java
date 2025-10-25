@@ -6,6 +6,12 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 用户登录请求
+ * / 
+ * / 支持多种登录方式的用户认证，包括密码登录、验证码登录和第三方登录
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.LoginRequest}
  */
 @com.google.protobuf.Generated
@@ -49,7 +55,14 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object account_ = "";
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 支持邮箱、手机号或用户名
+   * / 长度限制：3-100 字符
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The account.
    */
   @java.lang.Override
@@ -66,7 +79,14 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 支持邮箱、手机号或用户名
+   * / 长度限制：3-100 字符
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for account.
    */
   @java.lang.Override
@@ -88,7 +108,14 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object password_ = "";
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The password.
    */
   @java.lang.Override
@@ -105,7 +132,14 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for password.
    */
   @java.lang.Override
@@ -126,7 +160,17 @@ private static final long serialVersionUID = 0L;
   public static final int LOGIN_TYPE_FIELD_NUMBER = 3;
   private int loginType_ = 0;
   /**
-   * <code>int32 login_type = 3 [json_name = "loginType"];</code>
+   * <pre>
+   * &#47; [必填] 登录类型
+   * / 
+   * / 指定使用的登录方式：
+   * / - 1: 密码登录
+   * / - 2: 验证码登录
+   * / - 3: 第三方登录
+   * / 取值范围：1-3
+   * </pre>
+   *
+   * <code>int32 login_type = 3 [json_name = "loginType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The loginType.
    */
   @java.lang.Override
@@ -312,6 +356,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 用户登录请求
+   * / 
+   * / 支持多种登录方式的用户认证，包括密码登录、验证码登录和第三方登录
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.LoginRequest}
    */
   public static final class Builder extends
@@ -477,7 +527,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object account_ = "";
     /**
-     * <code>string account = 1 [json_name = "account"];</code>
+     * <pre>
+     * &#47; [必填] 账号
+     * / 
+     * / 支持邮箱、手机号或用户名
+     * / 长度限制：3-100 字符
+     * </pre>
+     *
+     * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The account.
      */
     public java.lang.String getAccount() {
@@ -493,7 +550,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string account = 1 [json_name = "account"];</code>
+     * <pre>
+     * &#47; [必填] 账号
+     * / 
+     * / 支持邮箱、手机号或用户名
+     * / 长度限制：3-100 字符
+     * </pre>
+     *
+     * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for account.
      */
     public com.google.protobuf.ByteString
@@ -510,7 +574,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string account = 1 [json_name = "account"];</code>
+     * <pre>
+     * &#47; [必填] 账号
+     * / 
+     * / 支持邮箱、手机号或用户名
+     * / 长度限制：3-100 字符
+     * </pre>
+     *
+     * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The account to set.
      * @return This builder for chaining.
      */
@@ -523,7 +594,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string account = 1 [json_name = "account"];</code>
+     * <pre>
+     * &#47; [必填] 账号
+     * / 
+     * / 支持邮箱、手机号或用户名
+     * / 长度限制：3-100 字符
+     * </pre>
+     *
+     * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAccount() {
@@ -533,7 +611,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string account = 1 [json_name = "account"];</code>
+     * <pre>
+     * &#47; [必填] 账号
+     * / 
+     * / 支持邮箱、手机号或用户名
+     * / 长度限制：3-100 字符
+     * </pre>
+     *
+     * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for account to set.
      * @return This builder for chaining.
      */
@@ -549,7 +634,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object password_ = "";
     /**
-     * <code>string password = 2 [json_name = "password"];</code>
+     * <pre>
+     * &#47; [必填] 密码
+     * / 
+     * / 用户登录密码
+     * / 长度限制：6-128 字符
+     * </pre>
+     *
+     * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The password.
      */
     public java.lang.String getPassword() {
@@ -565,7 +657,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string password = 2 [json_name = "password"];</code>
+     * <pre>
+     * &#47; [必填] 密码
+     * / 
+     * / 用户登录密码
+     * / 长度限制：6-128 字符
+     * </pre>
+     *
+     * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for password.
      */
     public com.google.protobuf.ByteString
@@ -582,7 +681,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string password = 2 [json_name = "password"];</code>
+     * <pre>
+     * &#47; [必填] 密码
+     * / 
+     * / 用户登录密码
+     * / 长度限制：6-128 字符
+     * </pre>
+     *
+     * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The password to set.
      * @return This builder for chaining.
      */
@@ -595,7 +701,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string password = 2 [json_name = "password"];</code>
+     * <pre>
+     * &#47; [必填] 密码
+     * / 
+     * / 用户登录密码
+     * / 长度限制：6-128 字符
+     * </pre>
+     *
+     * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPassword() {
@@ -605,7 +718,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string password = 2 [json_name = "password"];</code>
+     * <pre>
+     * &#47; [必填] 密码
+     * / 
+     * / 用户登录密码
+     * / 长度限制：6-128 字符
+     * </pre>
+     *
+     * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for password to set.
      * @return This builder for chaining.
      */
@@ -621,7 +741,17 @@ private static final long serialVersionUID = 0L;
 
     private int loginType_ ;
     /**
-     * <code>int32 login_type = 3 [json_name = "loginType"];</code>
+     * <pre>
+     * &#47; [必填] 登录类型
+     * / 
+     * / 指定使用的登录方式：
+     * / - 1: 密码登录
+     * / - 2: 验证码登录
+     * / - 3: 第三方登录
+     * / 取值范围：1-3
+     * </pre>
+     *
+     * <code>int32 login_type = 3 [json_name = "loginType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The loginType.
      */
     @java.lang.Override
@@ -629,7 +759,17 @@ private static final long serialVersionUID = 0L;
       return loginType_;
     }
     /**
-     * <code>int32 login_type = 3 [json_name = "loginType"];</code>
+     * <pre>
+     * &#47; [必填] 登录类型
+     * / 
+     * / 指定使用的登录方式：
+     * / - 1: 密码登录
+     * / - 2: 验证码登录
+     * / - 3: 第三方登录
+     * / 取值范围：1-3
+     * </pre>
+     *
+     * <code>int32 login_type = 3 [json_name = "loginType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The loginType to set.
      * @return This builder for chaining.
      */
@@ -641,7 +781,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 login_type = 3 [json_name = "loginType"];</code>
+     * <pre>
+     * &#47; [必填] 登录类型
+     * / 
+     * / 指定使用的登录方式：
+     * / - 1: 密码登录
+     * / - 2: 验证码登录
+     * / - 3: 第三方登录
+     * / 取值范围：1-3
+     * </pre>
+     *
+     * <code>int32 login_type = 3 [json_name = "loginType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearLoginType() {

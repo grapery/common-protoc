@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 创建与角色的对话响应
+ * / 返回创建的聊天会话信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.CreateStoryRoleChatResponse}
  */
 @com.google.protobuf.Generated
@@ -49,6 +54,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -56,6 +65,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -68,6 +81,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
@@ -85,6 +102,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -106,6 +127,10 @@ private static final long serialVersionUID = 0L;
   public static final int CHAT_CONTEXT_FIELD_NUMBER = 3;
   private com.rankquantity.voyager.api.ChatContext chatContext_;
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
    * @return Whether the chatContext field is set.
    */
@@ -114,6 +139,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
    * @return The chatContext.
    */
@@ -122,6 +151,10 @@ private static final long serialVersionUID = 0L;
     return chatContext_ == null ? com.rankquantity.voyager.api.ChatContext.getDefaultInstance() : chatContext_;
   }
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
    */
   @java.lang.Override
@@ -312,6 +345,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 创建与角色的对话响应
+   * / 返回创建的聊天会话信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.CreateStoryRoleChatResponse}
    */
   public static final class Builder extends
@@ -492,6 +530,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -499,6 +541,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -510,6 +556,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -519,6 +569,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -531,6 +585,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -543,6 +601,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
@@ -559,6 +621,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -576,6 +642,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -589,6 +659,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -599,6 +673,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
@@ -617,6 +695,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.ChatContext, com.rankquantity.voyager.api.ChatContext.Builder, com.rankquantity.voyager.api.ChatContextOrBuilder> chatContextBuilder_;
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      * @return Whether the chatContext field is set.
      */
@@ -624,6 +706,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      * @return The chatContext.
      */
@@ -635,6 +721,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public Builder setChatContext(com.rankquantity.voyager.api.ChatContext value) {
@@ -651,6 +741,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public Builder setChatContext(
@@ -665,6 +759,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public Builder mergeChatContext(com.rankquantity.voyager.api.ChatContext value) {
@@ -686,6 +784,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public Builder clearChatContext() {
@@ -699,6 +801,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public com.rankquantity.voyager.api.ChatContext.Builder getChatContextBuilder() {
@@ -707,6 +813,10 @@ private static final long serialVersionUID = 0L;
       return internalGetChatContextFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     public com.rankquantity.voyager.api.ChatContextOrBuilder getChatContextOrBuilder() {
@@ -718,6 +828,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 聊天上下文信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatContext chat_context = 3 [json_name = "chatContext"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<

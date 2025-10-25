@@ -11,59 +11,142 @@ public interface GenerateStorySceneVideoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; [必填] 故事ID
+   * / 
+   * / 场景所属的故事ID
+   * / 验证规则：必须大于 0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 board_id = 2 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; [必填] 故事板ID
+   * / 
+   * / 场景所属的故事板ID
+   * / 验证规则：必须大于 0
+   * </pre>
+   *
+   * <code>int64 board_id = 2 [json_name = "boardId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
-   * <code>int64 sence_id = 3 [json_name = "senceId"];</code>
+   * <pre>
+   * &#47; [必填] 场景ID
+   * / 
+   * / 要生成视频的场景唯一标识
+   * / 验证规则：必须大于 0
+   * </pre>
+   *
+   * <code>int64 sence_id = 3 [json_name = "senceId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The senceId.
    */
   long getSenceId();
 
   /**
-   * <code>int64 user_id = 4 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; [必填] 用户ID
+   * / 
+   * / 发起生成请求的用户ID
+   * / 验证规则：必须大于 0
+   * / 用途：用于计费和权限验证
+   * </pre>
+   *
+   * <code>int64 user_id = 4 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>.rankquantity.voyager.api.TokenSource token_source = 5 [json_name = "tokenSource"];</code>
+   * <pre>
+   * &#47; [必填] Token来源
+   * / 
+   * / 指定使用哪种额度来支付生成费用
+   * / 取值说明：
+   * / - TOKEN_SOURCE_USER_SELF: 使用用户自己的token
+   * / - TOKEN_SOURCE_STORY_STORE: 使用故事存储的token
+   * / - TOKEN_SOURCE_THIRD_PARTY: 使用第三方赞助token
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.TokenSource token_source = 5 [json_name = "tokenSource", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The enum numeric value on the wire for tokenSource.
    */
   int getTokenSourceValue();
   /**
-   * <code>.rankquantity.voyager.api.TokenSource token_source = 5 [json_name = "tokenSource"];</code>
+   * <pre>
+   * &#47; [必填] Token来源
+   * / 
+   * / 指定使用哪种额度来支付生成费用
+   * / 取值说明：
+   * / - TOKEN_SOURCE_USER_SELF: 使用用户自己的token
+   * / - TOKEN_SOURCE_STORY_STORE: 使用故事存储的token
+   * / - TOKEN_SOURCE_THIRD_PARTY: 使用第三方赞助token
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.TokenSource token_source = 5 [json_name = "tokenSource", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The tokenSource.
    */
   com.rankquantity.voyager.api.TokenSource getTokenSource();
 
   /**
-   * <code>string prompt = 6 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; [可选] 生成提示词
+   * / 
+   * / 视频生成的提示词描述
+   * / 长度限制：最大 2000 字符
+   * / 用途：控制视频的内容、风格和细节
+   * / 默认值：使用场景描述自动生成
+   * </pre>
+   *
+   * <code>string prompt = 6 [json_name = "prompt", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
-   * <code>string prompt = 6 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; [可选] 生成提示词
+   * / 
+   * / 视频生成的提示词描述
+   * / 长度限制：最大 2000 字符
+   * / 用途：控制视频的内容、风格和细节
+   * / 默认值：使用场景描述自动生成
+   * </pre>
+   *
+   * <code>string prompt = 6 [json_name = "prompt", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The bytes for prompt.
    */
   com.google.protobuf.ByteString
       getPromptBytes();
 
   /**
-   * <code>string negative_prompt = 7 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; [可选] 负面提示词
+   * / 
+   * / 指定不希望出现的元素
+   * / 长度限制：最大 1000 字符
+   * / 用途：避免生成不想要的内容（如暴力、血腥等）
+   * </pre>
+   *
+   * <code>string negative_prompt = 7 [json_name = "negativePrompt", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The negativePrompt.
    */
   java.lang.String getNegativePrompt();
   /**
-   * <code>string negative_prompt = 7 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; [可选] 负面提示词
+   * / 
+   * / 指定不希望出现的元素
+   * / 长度限制：最大 1000 字符
+   * / 用途：避免生成不想要的内容（如暴力、血腥等）
+   * </pre>
+   *
+   * <code>string negative_prompt = 7 [json_name = "negativePrompt", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The bytes for negativePrompt.
    */
   com.google.protobuf.ByteString

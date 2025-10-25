@@ -11,27 +11,31 @@ public interface UpdateStorySenceMaxNumberRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
    * <pre>
-   * 最大场景数
+   * &#47; 最大场景数，范围1-1000
    * </pre>
    *
-   * <code>int64 max_number = 2 [json_name = "maxNumber"];</code>
+   * <code>int64 max_number = 2 [json_name = "maxNumber", (.validate.rules) = { ... }</code>
    * @return The maxNumber.
    */
   long getMaxNumber();
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

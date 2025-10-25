@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 生成故事角色视频任务详情
+ * / 包含角色视频生成任务的状态和结果信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleVideoTaskDetail}
  */
 @com.google.protobuf.Generated
@@ -53,6 +58,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object taskId_ = "";
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The taskId.
    */
@@ -70,6 +79,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The bytes for taskId.
    */
@@ -91,6 +104,10 @@ private static final long serialVersionUID = 0L;
   public static final int TASK_STATUS_FIELD_NUMBER = 2;
   private int taskStatus_ = 0;
   /**
+   * <pre>
+   * &#47; 任务状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
    * @return The enum numeric value on the wire for taskStatus.
    */
@@ -98,6 +115,10 @@ private static final long serialVersionUID = 0L;
     return taskStatus_;
   }
   /**
+   * <pre>
+   * &#47; 任务状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
    * @return The taskStatus.
    */
@@ -110,6 +131,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object videoUrl_ = "";
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 3 [json_name = "videoUrl"];</code>
    * @return The videoUrl.
    */
@@ -127,6 +152,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 3 [json_name = "videoUrl"];</code>
    * @return The bytes for videoUrl.
    */
@@ -149,6 +178,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object videoThumbnailUrl_ = "";
   /**
+   * <pre>
+   * &#47; 视频缩略图URL
+   * </pre>
+   *
    * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
    * @return The videoThumbnailUrl.
    */
@@ -166,6 +199,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 视频缩略图URL
+   * </pre>
+   *
    * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
    * @return The bytes for videoThumbnailUrl.
    */
@@ -187,6 +224,10 @@ private static final long serialVersionUID = 0L;
   public static final int DURATION_FIELD_NUMBER = 5;
   private long duration_ = 0L;
   /**
+   * <pre>
+   * &#47; 视频时长（秒）
+   * </pre>
+   *
    * <code>int64 duration = 5 [json_name = "duration"];</code>
    * @return The duration.
    */
@@ -199,6 +240,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object resolution_ = "";
   /**
+   * <pre>
+   * &#47; 视频分辨率，如 1920x1080
+   * </pre>
+   *
    * <code>string resolution = 6 [json_name = "resolution"];</code>
    * @return The resolution.
    */
@@ -216,6 +261,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 视频分辨率，如 1920x1080
+   * </pre>
+   *
    * <code>string resolution = 6 [json_name = "resolution"];</code>
    * @return The bytes for resolution.
    */
@@ -238,6 +287,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object videoFormat_ = "";
   /**
+   * <pre>
+   * &#47; 视频格式，如 mp4, webm
+   * </pre>
+   *
    * <code>string video_format = 7 [json_name = "videoFormat"];</code>
    * @return The videoFormat.
    */
@@ -255,6 +308,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 视频格式，如 mp4, webm
+   * </pre>
+   *
    * <code>string video_format = 7 [json_name = "videoFormat"];</code>
    * @return The bytes for videoFormat.
    */
@@ -492,6 +549,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 生成故事角色视频任务详情
+   * / 包含角色视频生成任务的状态和结果信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleVideoTaskDetail}
    */
   public static final class Builder extends
@@ -711,6 +773,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object taskId_ = "";
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return The taskId.
      */
@@ -727,6 +793,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return The bytes for taskId.
      */
@@ -744,6 +814,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @param value The taskId to set.
      * @return This builder for chaining.
@@ -757,6 +831,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return This builder for chaining.
      */
@@ -767,6 +845,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @param value The bytes for taskId to set.
      * @return This builder for chaining.
@@ -783,6 +865,10 @@ private static final long serialVersionUID = 0L;
 
     private int taskStatus_ = 0;
     /**
+     * <pre>
+     * &#47; 任务状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
      * @return The enum numeric value on the wire for taskStatus.
      */
@@ -790,6 +876,10 @@ private static final long serialVersionUID = 0L;
       return taskStatus_;
     }
     /**
+     * <pre>
+     * &#47; 任务状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
      * @param value The enum numeric value on the wire for taskStatus to set.
      * @return This builder for chaining.
@@ -801,6 +891,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
      * @return The taskStatus.
      */
@@ -810,6 +904,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.StoryGenStatus.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 任务状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
      * @param value The taskStatus to set.
      * @return This builder for chaining.
@@ -822,6 +920,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
      * @return This builder for chaining.
      */
@@ -834,6 +936,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object videoUrl_ = "";
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 3 [json_name = "videoUrl"];</code>
      * @return The videoUrl.
      */
@@ -850,6 +956,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 3 [json_name = "videoUrl"];</code>
      * @return The bytes for videoUrl.
      */
@@ -867,6 +977,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 3 [json_name = "videoUrl"];</code>
      * @param value The videoUrl to set.
      * @return This builder for chaining.
@@ -880,6 +994,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 3 [json_name = "videoUrl"];</code>
      * @return This builder for chaining.
      */
@@ -890,6 +1008,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 3 [json_name = "videoUrl"];</code>
      * @param value The bytes for videoUrl to set.
      * @return This builder for chaining.
@@ -906,6 +1028,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object videoThumbnailUrl_ = "";
     /**
+     * <pre>
+     * &#47; 视频缩略图URL
+     * </pre>
+     *
      * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
      * @return The videoThumbnailUrl.
      */
@@ -922,6 +1048,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频缩略图URL
+     * </pre>
+     *
      * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
      * @return The bytes for videoThumbnailUrl.
      */
@@ -939,6 +1069,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频缩略图URL
+     * </pre>
+     *
      * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
      * @param value The videoThumbnailUrl to set.
      * @return This builder for chaining.
@@ -952,6 +1086,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频缩略图URL
+     * </pre>
+     *
      * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
      * @return This builder for chaining.
      */
@@ -962,6 +1100,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频缩略图URL
+     * </pre>
+     *
      * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
      * @param value The bytes for videoThumbnailUrl to set.
      * @return This builder for chaining.
@@ -978,6 +1120,10 @@ private static final long serialVersionUID = 0L;
 
     private long duration_ ;
     /**
+     * <pre>
+     * &#47; 视频时长（秒）
+     * </pre>
+     *
      * <code>int64 duration = 5 [json_name = "duration"];</code>
      * @return The duration.
      */
@@ -986,6 +1132,10 @@ private static final long serialVersionUID = 0L;
       return duration_;
     }
     /**
+     * <pre>
+     * &#47; 视频时长（秒）
+     * </pre>
+     *
      * <code>int64 duration = 5 [json_name = "duration"];</code>
      * @param value The duration to set.
      * @return This builder for chaining.
@@ -998,6 +1148,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频时长（秒）
+     * </pre>
+     *
      * <code>int64 duration = 5 [json_name = "duration"];</code>
      * @return This builder for chaining.
      */
@@ -1010,6 +1164,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object resolution_ = "";
     /**
+     * <pre>
+     * &#47; 视频分辨率，如 1920x1080
+     * </pre>
+     *
      * <code>string resolution = 6 [json_name = "resolution"];</code>
      * @return The resolution.
      */
@@ -1026,6 +1184,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频分辨率，如 1920x1080
+     * </pre>
+     *
      * <code>string resolution = 6 [json_name = "resolution"];</code>
      * @return The bytes for resolution.
      */
@@ -1043,6 +1205,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频分辨率，如 1920x1080
+     * </pre>
+     *
      * <code>string resolution = 6 [json_name = "resolution"];</code>
      * @param value The resolution to set.
      * @return This builder for chaining.
@@ -1056,6 +1222,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频分辨率，如 1920x1080
+     * </pre>
+     *
      * <code>string resolution = 6 [json_name = "resolution"];</code>
      * @return This builder for chaining.
      */
@@ -1066,6 +1236,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频分辨率，如 1920x1080
+     * </pre>
+     *
      * <code>string resolution = 6 [json_name = "resolution"];</code>
      * @param value The bytes for resolution to set.
      * @return This builder for chaining.
@@ -1082,6 +1256,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object videoFormat_ = "";
     /**
+     * <pre>
+     * &#47; 视频格式，如 mp4, webm
+     * </pre>
+     *
      * <code>string video_format = 7 [json_name = "videoFormat"];</code>
      * @return The videoFormat.
      */
@@ -1098,6 +1276,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频格式，如 mp4, webm
+     * </pre>
+     *
      * <code>string video_format = 7 [json_name = "videoFormat"];</code>
      * @return The bytes for videoFormat.
      */
@@ -1115,6 +1297,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频格式，如 mp4, webm
+     * </pre>
+     *
      * <code>string video_format = 7 [json_name = "videoFormat"];</code>
      * @param value The videoFormat to set.
      * @return This builder for chaining.
@@ -1128,6 +1314,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频格式，如 mp4, webm
+     * </pre>
+     *
      * <code>string video_format = 7 [json_name = "videoFormat"];</code>
      * @return This builder for chaining.
      */
@@ -1138,6 +1328,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频格式，如 mp4, webm
+     * </pre>
+     *
      * <code>string video_format = 7 [json_name = "videoFormat"];</code>
      * @param value The bytes for videoFormat to set.
      * @return This builder for chaining.

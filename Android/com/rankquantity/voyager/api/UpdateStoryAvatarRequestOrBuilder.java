@@ -11,24 +11,40 @@ public interface UpdateStoryAvatarRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+   * <pre>
+   * &#47; 头像图片URL，必填
+   * </pre>
+   *
+   * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
    * @return The avatarUrl.
    */
   java.lang.String getAvatarUrl();
   /**
-   * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+   * <pre>
+   * &#47; 头像图片URL，必填
+   * </pre>
+   *
+   * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
    * @return The bytes for avatarUrl.
    */
   com.google.protobuf.ByteString

@@ -11,17 +11,29 @@ public interface FetchUserGenTaskStatusRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 任务ID（可选），用于查询特定任务
+   * </pre>
+   *
    * <code>string task_id = 2 [json_name = "taskId"];</code>
    * @return The taskId.
    */
   java.lang.String getTaskId();
   /**
+   * <pre>
+   * &#47; 任务ID（可选），用于查询特定任务
+   * </pre>
+   *
    * <code>string task_id = 2 [json_name = "taskId"];</code>
    * @return The bytes for taskId.
    */
@@ -29,19 +41,31 @@ public interface FetchUserGenTaskStatusRequestOrBuilder extends
       getTaskIdBytes();
 
   /**
-   * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
+   * <pre>
+   * &#47; 时间戳，用于时间筛选
+   * </pre>
+   *
+   * <code>int64 timestamp = 3 [json_name = "timestamp", (.validate.rules) = { ... }</code>
    * @return The timestamp.
    */
   long getTimestamp();
 
   /**
-   * <code>int64 page_num = 4 [json_name = "pageNum"];</code>
+   * <pre>
+   * &#47; 页码，从1开始
+   * </pre>
+   *
+   * <code>int64 page_num = 4 [json_name = "pageNum", (.validate.rules) = { ... }</code>
    * @return The pageNum.
    */
   long getPageNum();
 
   /**
-   * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

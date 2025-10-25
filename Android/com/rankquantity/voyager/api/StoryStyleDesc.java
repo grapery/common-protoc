@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 故事风格描述
+ * / 表示一个图片风格的信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.StoryStyleDesc}
  */
 @com.google.protobuf.Generated
@@ -49,7 +54,7 @@ private static final long serialVersionUID = 0L;
   private long id_ = 0L;
   /**
    * <pre>
-   * 风格ID
+   * &#47; 风格ID
    * </pre>
    *
    * <code>int64 id = 1 [json_name = "id"];</code>
@@ -65,7 +70,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object style_ = "";
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 2 [json_name = "style"];</code>
@@ -86,7 +91,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 2 [json_name = "style"];</code>
@@ -112,7 +117,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * 风格描述
+   * &#47; 风格描述
    * </pre>
    *
    * <code>string description = 3 [json_name = "description"];</code>
@@ -133,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 风格描述
+   * &#47; 风格描述
    * </pre>
    *
    * <code>string description = 3 [json_name = "description"];</code>
@@ -333,6 +338,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 故事风格描述
+   * / 表示一个图片风格的信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.StoryStyleDesc}
    */
   public static final class Builder extends
@@ -499,7 +509,7 @@ private static final long serialVersionUID = 0L;
     private long id_ ;
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID
      * </pre>
      *
      * <code>int64 id = 1 [json_name = "id"];</code>
@@ -511,7 +521,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID
      * </pre>
      *
      * <code>int64 id = 1 [json_name = "id"];</code>
@@ -527,7 +537,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID
      * </pre>
      *
      * <code>int64 id = 1 [json_name = "id"];</code>
@@ -543,7 +553,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object style_ = "";
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 2 [json_name = "style"];</code>
@@ -563,7 +573,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 2 [json_name = "style"];</code>
@@ -584,7 +594,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 2 [json_name = "style"];</code>
@@ -601,7 +611,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 2 [json_name = "style"];</code>
@@ -615,7 +625,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 2 [json_name = "style"];</code>
@@ -635,7 +645,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * 风格描述
+     * &#47; 风格描述
      * </pre>
      *
      * <code>string description = 3 [json_name = "description"];</code>
@@ -655,7 +665,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格描述
+     * &#47; 风格描述
      * </pre>
      *
      * <code>string description = 3 [json_name = "description"];</code>
@@ -676,7 +686,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格描述
+     * &#47; 风格描述
      * </pre>
      *
      * <code>string description = 3 [json_name = "description"];</code>
@@ -693,7 +703,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格描述
+     * &#47; 风格描述
      * </pre>
      *
      * <code>string description = 3 [json_name = "description"];</code>
@@ -707,7 +717,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格描述
+     * &#47; 风格描述
      * </pre>
      *
      * <code>string description = 3 [json_name = "description"];</code>

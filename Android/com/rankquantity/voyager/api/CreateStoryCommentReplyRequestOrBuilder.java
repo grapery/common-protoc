@@ -11,24 +11,40 @@ public interface CreateStoryCommentReplyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
+   * <pre>
+   * &#47; 评论ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 comment_id = 1 [json_name = "commentId", (.validate.rules) = { ... }</code>
    * @return The commentId.
    */
   long getCommentId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 回复者用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; 回复内容，必填且长度1-2000字符
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The content.
    */
   java.lang.String getContent();
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; 回复内容，必填且长度1-2000字符
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   com.google.protobuf.ByteString

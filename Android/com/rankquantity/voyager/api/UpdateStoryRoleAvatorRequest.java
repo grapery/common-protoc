@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事角色头像请求
+ * / 更新角色的头像图片
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleAvatorRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -59,7 +68,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avator_ = "";
   /**
-   * <code>string avator = 2 [json_name = "avator"];</code>
+   * <pre>
+   * &#47; 头像URL，必填
+   * </pre>
+   *
+   * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
    * @return The avator.
    */
   @java.lang.Override
@@ -76,7 +89,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string avator = 2 [json_name = "avator"];</code>
+   * <pre>
+   * &#47; 头像URL，必填
+   * </pre>
+   *
+   * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
    * @return The bytes for avator.
    */
   @java.lang.Override
@@ -97,7 +114,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -286,6 +307,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事角色头像请求
+   * / 更新角色的头像图片
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleAvatorRequest}
    */
   public static final class Builder extends
@@ -449,7 +475,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -457,7 +487,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -469,7 +503,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -481,7 +519,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avator_ = "";
     /**
-     * <code>string avator = 2 [json_name = "avator"];</code>
+     * <pre>
+     * &#47; 头像URL，必填
+     * </pre>
+     *
+     * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
      * @return The avator.
      */
     public java.lang.String getAvator() {
@@ -497,7 +539,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avator = 2 [json_name = "avator"];</code>
+     * <pre>
+     * &#47; 头像URL，必填
+     * </pre>
+     *
+     * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
      * @return The bytes for avator.
      */
     public com.google.protobuf.ByteString
@@ -514,7 +560,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avator = 2 [json_name = "avator"];</code>
+     * <pre>
+     * &#47; 头像URL，必填
+     * </pre>
+     *
+     * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
      * @param value The avator to set.
      * @return This builder for chaining.
      */
@@ -527,7 +577,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avator = 2 [json_name = "avator"];</code>
+     * <pre>
+     * &#47; 头像URL，必填
+     * </pre>
+     *
+     * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAvator() {
@@ -537,7 +591,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avator = 2 [json_name = "avator"];</code>
+     * <pre>
+     * &#47; 头像URL，必填
+     * </pre>
+     *
+     * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
      * @param value The bytes for avator to set.
      * @return This builder for chaining.
      */
@@ -553,7 +611,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -561,7 +623,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -573,7 +639,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {

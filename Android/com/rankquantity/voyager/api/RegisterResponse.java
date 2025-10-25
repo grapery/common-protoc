@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 用户注册响应
+ * / 返回注册结果
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.RegisterResponse}
  */
 @com.google.protobuf.Generated
@@ -48,6 +53,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -55,6 +64,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -67,6 +80,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object msg_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The msg.
    */
@@ -84,6 +101,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The bytes for msg.
    */
@@ -269,6 +290,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 用户注册响应
+   * / 返回注册结果
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.RegisterResponse}
    */
   public static final class Builder extends
@@ -420,6 +446,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -427,6 +457,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -438,6 +472,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -447,6 +485,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -459,6 +501,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -471,6 +517,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object msg_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The msg.
      */
@@ -487,6 +537,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The bytes for msg.
      */
@@ -504,6 +558,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The msg to set.
      * @return This builder for chaining.
@@ -517,6 +575,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return This builder for chaining.
      */
@@ -527,6 +589,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The bytes for msg to set.
      * @return This builder for chaining.

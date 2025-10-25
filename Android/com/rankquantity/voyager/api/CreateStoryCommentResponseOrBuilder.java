@@ -11,22 +11,38 @@ public interface CreateStoryCommentResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,16 +50,28 @@ public interface CreateStoryCommentResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 创建的评论信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.CommentInfo comment = 3 [json_name = "comment"];</code>
    * @return Whether the comment field is set.
    */
   boolean hasComment();
   /**
+   * <pre>
+   * &#47; 创建的评论信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.CommentInfo comment = 3 [json_name = "comment"];</code>
    * @return The comment.
    */
   com.rankquantity.voyager.api.CommentInfo getComment();
   /**
+   * <pre>
+   * &#47; 创建的评论信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.CommentInfo comment = 3 [json_name = "comment"];</code>
    */
   com.rankquantity.voyager.api.CommentInfoOrBuilder getCommentOrBuilder();

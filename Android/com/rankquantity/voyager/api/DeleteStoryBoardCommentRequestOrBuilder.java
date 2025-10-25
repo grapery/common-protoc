@@ -11,19 +11,31 @@ public interface DeleteStoryBoardCommentRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 board_id = 1 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 board_id = 1 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
-   * <code>int64 comment_id = 2 [json_name = "commentId"];</code>
+   * <pre>
+   * &#47; 评论ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 comment_id = 2 [json_name = "commentId", (.validate.rules) = { ... }</code>
    * @return The commentId.
    */
   long getCommentId();
 
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

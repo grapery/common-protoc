@@ -11,53 +11,89 @@ public interface StoryCommentOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 评论ID
+   * </pre>
+   *
    * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
    * @return The commentId.
    */
   long getCommentId();
 
   /**
+   * <pre>
+   * &#47; 所属故事ID
+   * </pre>
+   *
    * <code>int64 story_id = 2 [json_name = "storyId"];</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
+   * <pre>
+   * &#47; 所属故事板ID（可选）
+   * </pre>
+   *
    * <code>int64 board_id = 3 [json_name = "boardId"];</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
+   * <pre>
+   * &#47; 相关角色ID（可选）
+   * </pre>
+   *
    * <code>int64 role_id = 4 [json_name = "roleId"];</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
+   * <pre>
+   * &#47; 上一条评论ID（用于回复链）
+   * </pre>
+   *
    * <code>int64 prev_id = 5 [json_name = "prevId"];</code>
    * @return The prevId.
    */
   long getPrevId();
 
   /**
+   * <pre>
+   * &#47; 根评论ID（用于楼层结构）
+   * </pre>
+   *
    * <code>int64 root_comment_id = 6 [json_name = "rootCommentId"];</code>
    * @return The rootCommentId.
    */
   long getRootCommentId();
 
   /**
+   * <pre>
+   * &#47; 评论者用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 7 [json_name = "userId"];</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 评论内容
+   * </pre>
+   *
    * <code>string content = 8 [json_name = "content"];</code>
    * @return The content.
    */
   java.lang.String getContent();
   /**
+   * <pre>
+   * &#47; 评论内容
+   * </pre>
+   *
    * <code>string content = 8 [json_name = "content"];</code>
    * @return The bytes for content.
    */
@@ -65,51 +101,87 @@ public interface StoryCommentOrBuilder extends
       getContentBytes();
 
   /**
+   * <pre>
+   * &#47; 创建时间
+   * </pre>
+   *
    * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   long getCreatedAt();
 
   /**
+   * <pre>
+   * &#47; 更新时间
+   * </pre>
+   *
    * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   long getUpdatedAt();
 
   /**
+   * <pre>
+   * &#47; 点赞数
+   * </pre>
+   *
    * <code>int64 like_count = 11 [json_name = "likeCount"];</code>
    * @return The likeCount.
    */
   long getLikeCount();
 
   /**
+   * <pre>
+   * &#47; 回复数
+   * </pre>
+   *
    * <code>int64 reply_count = 12 [json_name = "replyCount"];</code>
    * @return The replyCount.
    */
   long getReplyCount();
 
   /**
+   * <pre>
+   * &#47; 当前用户是否已点赞，1-已点赞，0-未点赞
+   * </pre>
+   *
    * <code>int64 is_liked = 13 [json_name = "isLiked"];</code>
    * @return The isLiked.
    */
   long getIsLiked();
 
   /**
+   * <pre>
+   * &#47; 评论创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 14 [json_name = "creator"];</code>
    * @return Whether the creator field is set.
    */
   boolean hasCreator();
   /**
+   * <pre>
+   * &#47; 评论创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 14 [json_name = "creator"];</code>
    * @return The creator.
    */
   com.rankquantity.voyager.api.UserInfo getCreator();
   /**
+   * <pre>
+   * &#47; 评论创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 14 [json_name = "creator"];</code>
    */
   com.rankquantity.voyager.api.UserInfoOrBuilder getCreatorOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 创建时间戳
+   * </pre>
+   *
    * <code>int64 created_at_timestamp = 15 [json_name = "createdAtTimestamp"];</code>
    * @return The createdAtTimestamp.
    */

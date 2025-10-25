@@ -11,24 +11,28 @@ public interface UpdateStoryImageStyleRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
    * <pre>
-   * 风格ID
+   * &#47; 风格ID，必须大于0
    * </pre>
    *
-   * <code>int64 style_id = 2 [json_name = "styleId"];</code>
+   * <code>int64 style_id = 2 [json_name = "styleId", (.validate.rules) = { ... }</code>
    * @return The styleId.
    */
   long getStyleId();
 
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 3 [json_name = "style"];</code>
@@ -37,7 +41,7 @@ public interface UpdateStoryImageStyleRequestOrBuilder extends
   java.lang.String getStyle();
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 3 [json_name = "style"];</code>
@@ -48,10 +52,10 @@ public interface UpdateStoryImageStyleRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 4 [json_name = "userId"];</code>
+   * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

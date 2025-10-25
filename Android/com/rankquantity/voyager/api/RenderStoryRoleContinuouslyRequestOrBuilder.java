@@ -11,41 +11,69 @@ public interface RenderStoryRoleContinuouslyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>string prompt = 4 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
-   * <code>string prompt = 4 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The bytes for prompt.
    */
   com.google.protobuf.ByteString
       getPromptBytes();
 
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
    * @return The referenceImage.
    */
   java.lang.String getReferenceImage();
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
    * @return The bytes for referenceImage.
    */

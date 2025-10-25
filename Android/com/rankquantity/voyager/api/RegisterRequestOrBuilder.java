@@ -11,60 +11,134 @@ public interface RegisterRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 用户登录账号，用于身份标识
+   * / 长度限制：3-50 字符
+   * / 格式要求：字母、数字、下划线
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The account.
    */
   java.lang.String getAccount();
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 用户登录账号，用于身份标识
+   * / 长度限制：3-50 字符
+   * / 格式要求：字母、数字、下划线
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for account.
    */
   com.google.protobuf.ByteString
       getAccountBytes();
 
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * / 安全建议：包含字母、数字和特殊字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The password.
    */
   java.lang.String getPassword();
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * / 安全建议：包含字母、数字和特殊字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for password.
    */
   com.google.protobuf.ByteString
       getPasswordBytes();
 
   /**
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 用户昵称
+   * / 
+   * / 显示名称，用于界面展示
+   * / 长度限制：1-50 字符
+   * </pre>
+   *
+   * <code>string name = 3 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 3 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 用户昵称
+   * / 
+   * / 显示名称，用于界面展示
+   * / 长度限制：1-50 字符
+   * </pre>
+   *
+   * <code>string name = 3 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string email = 4 [json_name = "email"];</code>
+   * <pre>
+   * &#47; [必填] 邮箱地址
+   * / 
+   * / 用于接收通知和找回密码
+   * / 格式要求：符合邮箱格式规范（如 user&#64;example.com）
+   * </pre>
+   *
+   * <code>string email = 4 [json_name = "email", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 4 [json_name = "email"];</code>
+   * <pre>
+   * &#47; [必填] 邮箱地址
+   * / 
+   * / 用于接收通知和找回密码
+   * / 格式要求：符合邮箱格式规范（如 user&#64;example.com）
+   * </pre>
+   *
+   * <code>string email = 4 [json_name = "email", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>string phone = 5 [json_name = "phone"];</code>
+   * <pre>
+   * &#47; [必填] 手机号
+   * / 
+   * / 用于接收验证码和通知
+   * / 长度限制：8-20 字符
+   * </pre>
+   *
+   * <code>string phone = 5 [json_name = "phone", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>string phone = 5 [json_name = "phone"];</code>
+   * <pre>
+   * &#47; [必填] 手机号
+   * / 
+   * / 用于接收验证码和通知
+   * / 长度限制：8-20 字符
+   * </pre>
+   *
+   * <code>string phone = 5 [json_name = "phone", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString

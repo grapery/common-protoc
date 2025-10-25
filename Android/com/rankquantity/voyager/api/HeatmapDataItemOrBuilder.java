@@ -12,19 +12,27 @@ public interface HeatmapDataItemOrBuilder extends
 
   /**
    * <pre>
-   * 日期，格式：YYYY-MM-DD
+   * &#47; [必填] 日期
+   * / 
+   * / 活跃度数据对应的日期
+   * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+   * / 验证规则：必须符合日期格式正则表达式
    * </pre>
    *
-   * <code>string date = 1 [json_name = "date"];</code>
+   * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
    * @return The date.
    */
   java.lang.String getDate();
   /**
    * <pre>
-   * 日期，格式：YYYY-MM-DD
+   * &#47; [必填] 日期
+   * / 
+   * / 活跃度数据对应的日期
+   * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+   * / 验证规则：必须符合日期格式正则表达式
    * </pre>
    *
-   * <code>string date = 1 [json_name = "date"];</code>
+   * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
    * @return The bytes for date.
    */
   com.google.protobuf.ByteString
@@ -32,20 +40,33 @@ public interface HeatmapDataItemOrBuilder extends
 
   /**
    * <pre>
-   * 活跃次数/数量
+   * &#47; [必填] 活跃次数
+   * / 
+   * / 该日期的活跃操作次数（如创建、更新、评论等）
+   * / 验证规则：必须大于等于 0
+   * / 默认值：0
    * </pre>
    *
-   * <code>int64 count = 2 [json_name = "count"];</code>
+   * <code>int64 count = 2 [json_name = "count", (.validate.rules) = { ... }</code>
    * @return The count.
    */
   long getCount();
 
   /**
    * <pre>
-   * 热力等级（0-4，用于显示不同颜色深度）
+   * &#47; [必填] 热力等级
+   * / 
+   * / 用于显示不同颜色深度的等级值
+   * / 取值说明：
+   * / - 0: 无活跃（灰色）
+   * / - 1: 低活跃（浅绿）
+   * / - 2: 中活跃（绿色）
+   * / - 3: 高活跃（深绿）
+   * / - 4: 极高活跃（最深绿）
+   * / 验证规则：0-4
    * </pre>
    *
-   * <code>int64 level = 3 [json_name = "level"];</code>
+   * <code>int64 level = 3 [json_name = "level", (.validate.rules) = { ... }</code>
    * @return The level.
    */
   long getLevel();

@@ -11,54 +11,90 @@ public interface FetchActivesRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; 群组ID，可选，用于筛选特定群组的动态
+   * </pre>
+   *
+   * <code>int64 group_id = 2 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   long getGroupId();
 
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，可选，用于筛选特定故事的动态
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，可选，用于筛选特定故事板的动态
+   * </pre>
+   *
+   * <code>int64 board_id = 4 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
+   * <pre>
+   * &#47; 动态流类型，指定要获取的动态类型
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
    * @return The enum numeric value on the wire for atype.
    */
   int getAtypeValue();
   /**
+   * <pre>
+   * &#47; 动态流类型，指定要获取的动态类型
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
    * @return The atype.
    */
   com.rankquantity.voyager.api.ActiveFlowType getAtype();
 
   /**
-   * <code>int64 timestamp = 6 [json_name = "timestamp"];</code>
+   * <pre>
+   * &#47; 时间戳，用于时间范围筛选，必须大于0
+   * </pre>
+   *
+   * <code>int64 timestamp = 6 [json_name = "timestamp", (.validate.rules) = { ... }</code>
    * @return The timestamp.
    */
   long getTimestamp();
 
   /**
-   * <code>int64 offset = 7 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 7 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

@@ -8,7 +8,9 @@ package com.rankquantity.voyager.api;
 /**
  * <pre>
  * ==================== 群组活跃热力图 ====================
- * 群组活跃热力图请求
+ * / 群组活跃热力图请求
+ * / 
+ * / 获取指定群组在指定时间范围内的活跃度热力图数据，展示群组整体活跃情况
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.GroupActiveHeamapRequest}
@@ -52,10 +54,13 @@ private static final long serialVersionUID = 0L;
   private long groupId_ = 0L;
   /**
    * <pre>
-   * 群组ID
+   * &#47; [必填] 群组ID
+   * / 
+   * / 要查询活跃度的群组唯一标识
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+   * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   @java.lang.Override
@@ -67,10 +72,14 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 请求用户ID（用于权限验证）
+   * &#47; [必填] 请求用户ID
+   * / 
+   * / 发起请求的用户ID，用于权限验证
+   * / 验证规则：必须大于 0
+   * / 用途：确认用户有权查看该群组的活跃数据
    * </pre>
    *
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -82,10 +91,13 @@ private static final long serialVersionUID = 0L;
   private long startTime_ = 0L;
   /**
    * <pre>
-   * 开始时间戳（秒）
+   * &#47; [必填] 开始时间
+   * / 
+   * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 start_time = 3 [json_name = "startTime"];</code>
+   * <code>int64 start_time = 3 [json_name = "startTime", (.validate.rules) = { ... }</code>
    * @return The startTime.
    */
   @java.lang.Override
@@ -97,10 +109,14 @@ private static final long serialVersionUID = 0L;
   private long endTime_ = 0L;
   /**
    * <pre>
-   * 结束时间戳（秒）
+   * &#47; [必填] 结束时间
+   * / 
+   * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0，且应大于 start_time
+   * / 建议范围：不超过1年
    * </pre>
    *
-   * <code>int64 end_time = 4 [json_name = "endTime"];</code>
+   * <code>int64 end_time = 4 [json_name = "endTime", (.validate.rules) = { ... }</code>
    * @return The endTime.
    */
   @java.lang.Override
@@ -305,7 +321,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ==================== 群组活跃热力图 ====================
-   * 群组活跃热力图请求
+   * / 群组活跃热力图请求
+   * / 
+   * / 获取指定群组在指定时间范围内的活跃度热力图数据，展示群组整体活跃情况
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.GroupActiveHeamapRequest}
@@ -482,10 +500,13 @@ private static final long serialVersionUID = 0L;
     private long groupId_ ;
     /**
      * <pre>
-     * 群组ID
+     * &#47; [必填] 群组ID
+     * / 
+     * / 要查询活跃度的群组唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return The groupId.
      */
     @java.lang.Override
@@ -494,10 +515,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 群组ID
+     * &#47; [必填] 群组ID
+     * / 
+     * / 要查询活跃度的群组唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @param value The groupId to set.
      * @return This builder for chaining.
      */
@@ -510,10 +534,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 群组ID
+     * &#47; [必填] 群组ID
+     * / 
+     * / 要查询活跃度的群组唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGroupId() {
@@ -526,10 +553,14 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 请求用户ID（用于权限验证）
+     * &#47; [必填] 请求用户ID
+     * / 
+     * / 发起请求的用户ID，用于权限验证
+     * / 验证规则：必须大于 0
+     * / 用途：确认用户有权查看该群组的活跃数据
      * </pre>
      *
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -538,10 +569,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 请求用户ID（用于权限验证）
+     * &#47; [必填] 请求用户ID
+     * / 
+     * / 发起请求的用户ID，用于权限验证
+     * / 验证规则：必须大于 0
+     * / 用途：确认用户有权查看该群组的活跃数据
      * </pre>
      *
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -554,10 +589,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 请求用户ID（用于权限验证）
+     * &#47; [必填] 请求用户ID
+     * / 
+     * / 发起请求的用户ID，用于权限验证
+     * / 验证规则：必须大于 0
+     * / 用途：确认用户有权查看该群组的活跃数据
      * </pre>
      *
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -570,10 +609,13 @@ private static final long serialVersionUID = 0L;
     private long startTime_ ;
     /**
      * <pre>
-     * 开始时间戳（秒）
+     * &#47; [必填] 开始时间
+     * / 
+     * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 start_time = 3 [json_name = "startTime"];</code>
+     * <code>int64 start_time = 3 [json_name = "startTime", (.validate.rules) = { ... }</code>
      * @return The startTime.
      */
     @java.lang.Override
@@ -582,10 +624,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 开始时间戳（秒）
+     * &#47; [必填] 开始时间
+     * / 
+     * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 start_time = 3 [json_name = "startTime"];</code>
+     * <code>int64 start_time = 3 [json_name = "startTime", (.validate.rules) = { ... }</code>
      * @param value The startTime to set.
      * @return This builder for chaining.
      */
@@ -598,10 +643,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 开始时间戳（秒）
+     * &#47; [必填] 开始时间
+     * / 
+     * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 start_time = 3 [json_name = "startTime"];</code>
+     * <code>int64 start_time = 3 [json_name = "startTime", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
@@ -614,10 +662,14 @@ private static final long serialVersionUID = 0L;
     private long endTime_ ;
     /**
      * <pre>
-     * 结束时间戳（秒）
+     * &#47; [必填] 结束时间
+     * / 
+     * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0，且应大于 start_time
+     * / 建议范围：不超过1年
      * </pre>
      *
-     * <code>int64 end_time = 4 [json_name = "endTime"];</code>
+     * <code>int64 end_time = 4 [json_name = "endTime", (.validate.rules) = { ... }</code>
      * @return The endTime.
      */
     @java.lang.Override
@@ -626,10 +678,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 结束时间戳（秒）
+     * &#47; [必填] 结束时间
+     * / 
+     * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0，且应大于 start_time
+     * / 建议范围：不超过1年
      * </pre>
      *
-     * <code>int64 end_time = 4 [json_name = "endTime"];</code>
+     * <code>int64 end_time = 4 [json_name = "endTime", (.validate.rules) = { ... }</code>
      * @param value The endTime to set.
      * @return This builder for chaining.
      */
@@ -642,10 +698,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 结束时间戳（秒）
+     * &#47; [必填] 结束时间
+     * / 
+     * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+     * / 验证规则：必须大于 0，且应大于 start_time
+     * / 建议范围：不超过1年
      * </pre>
      *
-     * <code>int64 end_time = 4 [json_name = "endTime"];</code>
+     * <code>int64 end_time = 4 [json_name = "endTime", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEndTime() {

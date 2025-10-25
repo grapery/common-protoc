@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事角色海报响应
+ * / 返回更新后的海报ID
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRolePosterResponse}
  */
 @com.google.protobuf.Generated
@@ -48,6 +53,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -55,6 +64,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -67,6 +80,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
@@ -84,6 +101,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -105,6 +126,10 @@ private static final long serialVersionUID = 0L;
   public static final int POSTER_ID_FIELD_NUMBER = 3;
   private long posterId_ = 0L;
   /**
+   * <pre>
+   * &#47; 海报ID
+   * </pre>
+   *
    * <code>int64 poster_id = 3 [json_name = "posterId"];</code>
    * @return The posterId.
    */
@@ -292,6 +317,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事角色海报响应
+   * / 返回更新后的海报ID
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRolePosterResponse}
    */
   public static final class Builder extends
@@ -455,6 +485,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -462,6 +496,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -473,6 +511,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -482,6 +524,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -494,6 +540,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -506,6 +556,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
@@ -522,6 +576,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -539,6 +597,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -552,6 +614,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -562,6 +628,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
@@ -578,6 +648,10 @@ private static final long serialVersionUID = 0L;
 
     private long posterId_ ;
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 poster_id = 3 [json_name = "posterId"];</code>
      * @return The posterId.
      */
@@ -586,6 +660,10 @@ private static final long serialVersionUID = 0L;
       return posterId_;
     }
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 poster_id = 3 [json_name = "posterId"];</code>
      * @param value The posterId to set.
      * @return This builder for chaining.
@@ -598,6 +676,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 poster_id = 3 [json_name = "posterId"];</code>
      * @return This builder for chaining.
      */

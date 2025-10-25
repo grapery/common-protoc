@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 聊天上下文信息
+ * / 表示一个聊天会话的完整状态
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.ChatContext}
  */
 @com.google.protobuf.Generated
@@ -47,6 +52,10 @@ private static final long serialVersionUID = 0L;
   public static final int CHAT_ID_FIELD_NUMBER = 1;
   private long chatId_ = 0L;
   /**
+   * <pre>
+   * &#47; 聊天会话ID
+   * </pre>
+   *
    * <code>int64 chat_id = 1 [json_name = "chatId"];</code>
    * @return The chatId.
    */
@@ -58,6 +67,10 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 2;
   private long roleId_ = 0L;
   /**
+   * <pre>
+   * &#47; 角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 2 [json_name = "roleId"];</code>
    * @return The roleId.
    */
@@ -69,6 +82,10 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 3 [json_name = "userId"];</code>
    * @return The userId.
    */
@@ -80,6 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int TIMESTAMP_FIELD_NUMBER = 4;
   private long timestamp_ = 0L;
   /**
+   * <pre>
+   * &#47; 会话开始时间戳
+   * </pre>
+   *
    * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
    * @return The timestamp.
    */
@@ -91,6 +112,10 @@ private static final long serialVersionUID = 0L;
   public static final int LAST_UPDATE_TIME_FIELD_NUMBER = 5;
   private long lastUpdateTime_ = 0L;
   /**
+   * <pre>
+   * &#47; 最后更新时间戳
+   * </pre>
+   *
    * <code>int64 last_update_time = 5 [json_name = "lastUpdateTime"];</code>
    * @return The lastUpdateTime.
    */
@@ -102,6 +127,10 @@ private static final long serialVersionUID = 0L;
   public static final int TOTAL_TOKENS_FIELD_NUMBER = 6;
   private long totalTokens_ = 0L;
   /**
+   * <pre>
+   * &#47; 总消耗token数
+   * </pre>
+   *
    * <code>int64 total_tokens = 6 [json_name = "totalTokens"];</code>
    * @return The totalTokens.
    */
@@ -113,6 +142,10 @@ private static final long serialVersionUID = 0L;
   public static final int TOTAL_MESSAGES_FIELD_NUMBER = 7;
   private long totalMessages_ = 0L;
   /**
+   * <pre>
+   * &#47; 总消息数
+   * </pre>
+   *
    * <code>int64 total_messages = 7 [json_name = "totalMessages"];</code>
    * @return The totalMessages.
    */
@@ -124,6 +157,10 @@ private static final long serialVersionUID = 0L;
   public static final int LAST_MESSAGE_FIELD_NUMBER = 8;
   private com.rankquantity.voyager.api.ChatMessage lastMessage_;
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    * @return Whether the lastMessage field is set.
    */
@@ -132,6 +169,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    * @return The lastMessage.
    */
@@ -140,6 +181,10 @@ private static final long serialVersionUID = 0L;
     return lastMessage_ == null ? com.rankquantity.voyager.api.ChatMessage.getDefaultInstance() : lastMessage_;
   }
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    */
   @java.lang.Override
@@ -150,6 +195,10 @@ private static final long serialVersionUID = 0L;
   public static final int USER_FIELD_NUMBER = 9;
   private com.rankquantity.voyager.api.UserInfo user_;
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    * @return Whether the user field is set.
    */
@@ -158,6 +207,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    * @return The user.
    */
@@ -166,6 +219,10 @@ private static final long serialVersionUID = 0L;
     return user_ == null ? com.rankquantity.voyager.api.UserInfo.getDefaultInstance() : user_;
   }
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    */
   @java.lang.Override
@@ -176,6 +233,10 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_FIELD_NUMBER = 10;
   private com.rankquantity.voyager.api.StoryRole role_;
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    * @return Whether the role field is set.
    */
@@ -184,6 +245,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    * @return The role.
    */
@@ -192,6 +257,10 @@ private static final long serialVersionUID = 0L;
     return role_ == null ? com.rankquantity.voyager.api.StoryRole.getDefaultInstance() : role_;
   }
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    */
   @java.lang.Override
@@ -478,6 +547,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * / 表示一个聊天会话的完整状态
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.ChatContext}
    */
   public static final class Builder extends
@@ -760,6 +834,10 @@ private static final long serialVersionUID = 0L;
 
     private long chatId_ ;
     /**
+     * <pre>
+     * &#47; 聊天会话ID
+     * </pre>
+     *
      * <code>int64 chat_id = 1 [json_name = "chatId"];</code>
      * @return The chatId.
      */
@@ -768,6 +846,10 @@ private static final long serialVersionUID = 0L;
       return chatId_;
     }
     /**
+     * <pre>
+     * &#47; 聊天会话ID
+     * </pre>
+     *
      * <code>int64 chat_id = 1 [json_name = "chatId"];</code>
      * @param value The chatId to set.
      * @return This builder for chaining.
@@ -780,6 +862,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 聊天会话ID
+     * </pre>
+     *
      * <code>int64 chat_id = 1 [json_name = "chatId"];</code>
      * @return This builder for chaining.
      */
@@ -792,6 +878,10 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 2 [json_name = "roleId"];</code>
      * @return The roleId.
      */
@@ -800,6 +890,10 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 2 [json_name = "roleId"];</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
@@ -812,6 +906,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 2 [json_name = "roleId"];</code>
      * @return This builder for chaining.
      */
@@ -824,6 +922,10 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 3 [json_name = "userId"];</code>
      * @return The userId.
      */
@@ -832,6 +934,10 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 3 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
@@ -844,6 +950,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 3 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
@@ -856,6 +966,10 @@ private static final long serialVersionUID = 0L;
 
     private long timestamp_ ;
     /**
+     * <pre>
+     * &#47; 会话开始时间戳
+     * </pre>
+     *
      * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
      * @return The timestamp.
      */
@@ -864,6 +978,10 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
+     * <pre>
+     * &#47; 会话开始时间戳
+     * </pre>
+     *
      * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
@@ -876,6 +994,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 会话开始时间戳
+     * </pre>
+     *
      * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
      * @return This builder for chaining.
      */
@@ -888,6 +1010,10 @@ private static final long serialVersionUID = 0L;
 
     private long lastUpdateTime_ ;
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 5 [json_name = "lastUpdateTime"];</code>
      * @return The lastUpdateTime.
      */
@@ -896,6 +1022,10 @@ private static final long serialVersionUID = 0L;
       return lastUpdateTime_;
     }
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 5 [json_name = "lastUpdateTime"];</code>
      * @param value The lastUpdateTime to set.
      * @return This builder for chaining.
@@ -908,6 +1038,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 5 [json_name = "lastUpdateTime"];</code>
      * @return This builder for chaining.
      */
@@ -920,6 +1054,10 @@ private static final long serialVersionUID = 0L;
 
     private long totalTokens_ ;
     /**
+     * <pre>
+     * &#47; 总消耗token数
+     * </pre>
+     *
      * <code>int64 total_tokens = 6 [json_name = "totalTokens"];</code>
      * @return The totalTokens.
      */
@@ -928,6 +1066,10 @@ private static final long serialVersionUID = 0L;
       return totalTokens_;
     }
     /**
+     * <pre>
+     * &#47; 总消耗token数
+     * </pre>
+     *
      * <code>int64 total_tokens = 6 [json_name = "totalTokens"];</code>
      * @param value The totalTokens to set.
      * @return This builder for chaining.
@@ -940,6 +1082,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 总消耗token数
+     * </pre>
+     *
      * <code>int64 total_tokens = 6 [json_name = "totalTokens"];</code>
      * @return This builder for chaining.
      */
@@ -952,6 +1098,10 @@ private static final long serialVersionUID = 0L;
 
     private long totalMessages_ ;
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total_messages = 7 [json_name = "totalMessages"];</code>
      * @return The totalMessages.
      */
@@ -960,6 +1110,10 @@ private static final long serialVersionUID = 0L;
       return totalMessages_;
     }
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total_messages = 7 [json_name = "totalMessages"];</code>
      * @param value The totalMessages to set.
      * @return This builder for chaining.
@@ -972,6 +1126,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total_messages = 7 [json_name = "totalMessages"];</code>
      * @return This builder for chaining.
      */
@@ -986,6 +1144,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.ChatMessage, com.rankquantity.voyager.api.ChatMessage.Builder, com.rankquantity.voyager.api.ChatMessageOrBuilder> lastMessageBuilder_;
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      * @return Whether the lastMessage field is set.
      */
@@ -993,6 +1155,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      * @return The lastMessage.
      */
@@ -1004,6 +1170,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public Builder setLastMessage(com.rankquantity.voyager.api.ChatMessage value) {
@@ -1020,6 +1190,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public Builder setLastMessage(
@@ -1034,6 +1208,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public Builder mergeLastMessage(com.rankquantity.voyager.api.ChatMessage value) {
@@ -1055,6 +1233,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public Builder clearLastMessage() {
@@ -1068,6 +1250,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public com.rankquantity.voyager.api.ChatMessage.Builder getLastMessageBuilder() {
@@ -1076,6 +1262,10 @@ private static final long serialVersionUID = 0L;
       return internalGetLastMessageFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     public com.rankquantity.voyager.api.ChatMessageOrBuilder getLastMessageOrBuilder() {
@@ -1087,6 +1277,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 最后一条消息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -1107,6 +1301,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.UserInfo, com.rankquantity.voyager.api.UserInfo.Builder, com.rankquantity.voyager.api.UserInfoOrBuilder> userBuilder_;
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      * @return Whether the user field is set.
      */
@@ -1114,6 +1312,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000100) != 0);
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      * @return The user.
      */
@@ -1125,6 +1327,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public Builder setUser(com.rankquantity.voyager.api.UserInfo value) {
@@ -1141,6 +1347,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public Builder setUser(
@@ -1155,6 +1365,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public Builder mergeUser(com.rankquantity.voyager.api.UserInfo value) {
@@ -1176,6 +1390,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public Builder clearUser() {
@@ -1189,6 +1407,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public com.rankquantity.voyager.api.UserInfo.Builder getUserBuilder() {
@@ -1197,6 +1419,10 @@ private static final long serialVersionUID = 0L;
       return internalGetUserFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     public com.rankquantity.voyager.api.UserInfoOrBuilder getUserOrBuilder() {
@@ -1208,6 +1434,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 用户信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -1228,6 +1458,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryRole, com.rankquantity.voyager.api.StoryRole.Builder, com.rankquantity.voyager.api.StoryRoleOrBuilder> roleBuilder_;
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      * @return Whether the role field is set.
      */
@@ -1235,6 +1469,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000200) != 0);
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      * @return The role.
      */
@@ -1246,6 +1484,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public Builder setRole(com.rankquantity.voyager.api.StoryRole value) {
@@ -1262,6 +1504,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public Builder setRole(
@@ -1276,6 +1522,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public Builder mergeRole(com.rankquantity.voyager.api.StoryRole value) {
@@ -1297,6 +1547,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public Builder clearRole() {
@@ -1310,6 +1564,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public com.rankquantity.voyager.api.StoryRole.Builder getRoleBuilder() {
@@ -1318,6 +1576,10 @@ private static final long serialVersionUID = 0L;
       return internalGetRoleFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     public com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder() {
@@ -1329,6 +1591,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<

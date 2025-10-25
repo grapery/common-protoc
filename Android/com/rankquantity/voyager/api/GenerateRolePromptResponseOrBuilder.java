@@ -11,22 +11,38 @@ public interface GenerateRolePromptResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,11 +50,19 @@ public interface GenerateRolePromptResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 生成的提示词
+   * </pre>
+   *
    * <code>string prompt = 3 [json_name = "prompt"];</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
+   * <pre>
+   * &#47; 生成的提示词
+   * </pre>
+   *
    * <code>string prompt = 3 [json_name = "prompt"];</code>
    * @return The bytes for prompt.
    */

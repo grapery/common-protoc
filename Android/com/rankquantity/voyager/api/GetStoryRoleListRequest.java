@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取故事角色列表请求
+ * / 获取指定故事的角色列表，支持搜索筛选
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GetStoryRoleListRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 请求用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -69,7 +82,11 @@ private static final long serialVersionUID = 0L;
   public static final int BOARD_ID_FIELD_NUMBER = 3;
   private long boardId_ = 0L;
   /**
-   * <code>int64 board_id = 3 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID（可选），用于筛选特定故事板的角色
+   * </pre>
+   *
+   * <code>int64 board_id = 3 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   @java.lang.Override
@@ -81,7 +98,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object searchKey_ = "";
   /**
-   * <code>string search_key = 4 [json_name = "searchKey"];</code>
+   * <pre>
+   * &#47; 搜索关键词（可选），用于搜索角色名称
+   * </pre>
+   *
+   * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
    * @return The searchKey.
    */
   @java.lang.Override
@@ -98,7 +119,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string search_key = 4 [json_name = "searchKey"];</code>
+   * <pre>
+   * &#47; 搜索关键词（可选），用于搜索角色名称
+   * </pre>
+   *
+   * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
    * @return The bytes for searchKey.
    */
   @java.lang.Override
@@ -119,7 +144,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 5;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 5 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -130,7 +159,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 6;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -355,6 +388,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取故事角色列表请求
+   * / 获取指定故事的角色列表，支持搜索筛选
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GetStoryRoleListRequest}
    */
   public static final class Builder extends
@@ -554,7 +592,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -562,7 +604,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -574,7 +620,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -586,7 +636,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -594,7 +648,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -606,7 +664,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -618,7 +680,11 @@ private static final long serialVersionUID = 0L;
 
     private long boardId_ ;
     /**
-     * <code>int64 board_id = 3 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID（可选），用于筛选特定故事板的角色
+     * </pre>
+     *
+     * <code>int64 board_id = 3 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return The boardId.
      */
     @java.lang.Override
@@ -626,7 +692,11 @@ private static final long serialVersionUID = 0L;
       return boardId_;
     }
     /**
-     * <code>int64 board_id = 3 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID（可选），用于筛选特定故事板的角色
+     * </pre>
+     *
+     * <code>int64 board_id = 3 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @param value The boardId to set.
      * @return This builder for chaining.
      */
@@ -638,7 +708,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 board_id = 3 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID（可选），用于筛选特定故事板的角色
+     * </pre>
+     *
+     * <code>int64 board_id = 3 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBoardId() {
@@ -650,7 +724,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object searchKey_ = "";
     /**
-     * <code>string search_key = 4 [json_name = "searchKey"];</code>
+     * <pre>
+     * &#47; 搜索关键词（可选），用于搜索角色名称
+     * </pre>
+     *
+     * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
      * @return The searchKey.
      */
     public java.lang.String getSearchKey() {
@@ -666,7 +744,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string search_key = 4 [json_name = "searchKey"];</code>
+     * <pre>
+     * &#47; 搜索关键词（可选），用于搜索角色名称
+     * </pre>
+     *
+     * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
      * @return The bytes for searchKey.
      */
     public com.google.protobuf.ByteString
@@ -683,7 +765,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string search_key = 4 [json_name = "searchKey"];</code>
+     * <pre>
+     * &#47; 搜索关键词（可选），用于搜索角色名称
+     * </pre>
+     *
+     * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
      * @param value The searchKey to set.
      * @return This builder for chaining.
      */
@@ -696,7 +782,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string search_key = 4 [json_name = "searchKey"];</code>
+     * <pre>
+     * &#47; 搜索关键词（可选），用于搜索角色名称
+     * </pre>
+     *
+     * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearSearchKey() {
@@ -706,7 +796,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string search_key = 4 [json_name = "searchKey"];</code>
+     * <pre>
+     * &#47; 搜索关键词（可选），用于搜索角色名称
+     * </pre>
+     *
+     * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
      * @param value The bytes for searchKey to set.
      * @return This builder for chaining.
      */
@@ -722,7 +816,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 5 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -730,7 +828,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 5 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -742,7 +844,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 5 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -754,7 +860,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -762,7 +872,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -774,7 +888,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

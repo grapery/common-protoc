@@ -11,25 +11,41 @@ public interface GetUserWithRoleChatListRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 story_id = 2 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID（可选），用于筛选特定故事的角色对话
+   * </pre>
+   *
+   * <code>int64 story_id = 2 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 offset = 3 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

@@ -8,7 +8,8 @@ package com.rankquantity.voyager.api;
 /**
  * <pre>
  * ==================== 用户故事板草稿详情 ====================
- * 故事板草稿详细信息
+ * / 故事板草稿详细信息
+ * / 包含故事板草稿的完整信息，包括内容、角色、场景等
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.StoryboardDraftDetail}
@@ -37,6 +38,7 @@ private static final long serialVersionUID = 0L;
     content_ = "";
     background_ = "";
     roles_ = java.util.Collections.emptyList();
+    stage_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -57,7 +59,7 @@ private static final long serialVersionUID = 0L;
   private long draftId_ = 0L;
   /**
    * <pre>
-   * 草稿ID
+   * &#47; 草稿ID，唯一标识符
    * </pre>
    *
    * <code>int64 draft_id = 1 [json_name = "draftId"];</code>
@@ -72,7 +74,7 @@ private static final long serialVersionUID = 0L;
   private long storyId_ = 0L;
   /**
    * <pre>
-   * 故事ID
+   * &#47; 所属故事ID
    * </pre>
    *
    * <code>int64 story_id = 2 [json_name = "storyId"];</code>
@@ -87,7 +89,7 @@ private static final long serialVersionUID = 0L;
   private long storyboardId_ = 0L;
   /**
    * <pre>
-   * 故事板ID
+   * &#47; 关联的故事板ID
    * </pre>
    *
    * <code>int64 storyboard_id = 3 [json_name = "storyboardId"];</code>
@@ -103,10 +105,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object title_ = "";
   /**
    * <pre>
-   * 标题
+   * &#47; 草稿标题，最大长度200字符
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title"];</code>
+   * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
    * @return The title.
    */
   @java.lang.Override
@@ -124,10 +126,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 标题
+   * &#47; 草稿标题，最大长度200字符
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title"];</code>
+   * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
    * @return The bytes for title.
    */
   @java.lang.Override
@@ -150,10 +152,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object content_ = "";
   /**
    * <pre>
-   * 内容
+   * &#47; 草稿内容，最大长度10000字符
    * </pre>
    *
-   * <code>string content = 5 [json_name = "content"];</code>
+   * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The content.
    */
   @java.lang.Override
@@ -171,10 +173,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 内容
+   * &#47; 草稿内容，最大长度10000字符
    * </pre>
    *
-   * <code>string content = 5 [json_name = "content"];</code>
+   * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   @java.lang.Override
@@ -197,7 +199,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object background_ = "";
   /**
    * <pre>
-   * 背景
+   * &#47; 背景描述
    * </pre>
    *
    * <code>string background = 6 [json_name = "background"];</code>
@@ -218,7 +220,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 背景
+   * &#47; 背景描述
    * </pre>
    *
    * <code>string background = 6 [json_name = "background"];</code>
@@ -244,7 +246,7 @@ private static final long serialVersionUID = 0L;
   private java.util.List<com.rankquantity.voyager.api.StoryRole> roles_;
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -255,7 +257,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -267,7 +269,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -278,7 +280,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -289,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -304,7 +306,7 @@ private static final long serialVersionUID = 0L;
   private com.rankquantity.voyager.api.StoryBoardSences sences_;
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -316,7 +318,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -328,7 +330,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -342,7 +344,7 @@ private static final long serialVersionUID = 0L;
   private com.rankquantity.voyager.api.StoryBoardParams params_;
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -354,7 +356,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -366,7 +368,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -380,7 +382,7 @@ private static final long serialVersionUID = 0L;
   private long createdAt_ = 0L;
   /**
    * <pre>
-   * 创建时间戳
+   * &#47; 创建时间戳（秒）
    * </pre>
    *
    * <code>int64 created_at = 10 [json_name = "createdAt"];</code>
@@ -395,7 +397,7 @@ private static final long serialVersionUID = 0L;
   private long updatedAt_ = 0L;
   /**
    * <pre>
-   * 更新时间戳
+   * &#47; 最后更新时间戳（秒）
    * </pre>
    *
    * <code>int64 updated_at = 11 [json_name = "updatedAt"];</code>
@@ -406,26 +408,37 @@ private static final long serialVersionUID = 0L;
     return updatedAt_;
   }
 
-  public static final int VERSION_FIELD_NUMBER = 12;
-  private long version_ = 0L;
+  public static final int STAGE_FIELD_NUMBER = 12;
+  private int stage_ = 0;
   /**
    * <pre>
-   * 版本号
+   * &#47; 生成阶段状态
    * </pre>
    *
-   * <code>int64 version = 12 [json_name = "version"];</code>
-   * @return The version.
+   * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+   * @return The enum numeric value on the wire for stage.
    */
-  @java.lang.Override
-  public long getVersion() {
-    return version_;
+  @java.lang.Override public int getStageValue() {
+    return stage_;
+  }
+  /**
+   * <pre>
+   * &#47; 生成阶段状态
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+   * @return The stage.
+   */
+  @java.lang.Override public com.rankquantity.voyager.api.StoryboardStage getStage() {
+    com.rankquantity.voyager.api.StoryboardStage result = com.rankquantity.voyager.api.StoryboardStage.forNumber(stage_);
+    return result == null ? com.rankquantity.voyager.api.StoryboardStage.UNRECOGNIZED : result;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 13;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; 草稿所有者用户ID
    * </pre>
    *
    * <code>int64 user_id = 13 [json_name = "userId"];</code>
@@ -483,8 +496,8 @@ private static final long serialVersionUID = 0L;
     if (updatedAt_ != 0L) {
       output.writeInt64(11, updatedAt_);
     }
-    if (version_ != 0L) {
-      output.writeInt64(12, version_);
+    if (stage_ != com.rankquantity.voyager.api.StoryboardStage.STORYBOARD_STAGE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(12, stage_);
     }
     if (userId_ != 0L) {
       output.writeInt64(13, userId_);
@@ -539,9 +552,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(11, updatedAt_);
     }
-    if (version_ != 0L) {
+    if (stage_ != com.rankquantity.voyager.api.StoryboardStage.STORYBOARD_STAGE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(12, version_);
+        .computeEnumSize(12, stage_);
     }
     if (userId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -590,8 +603,7 @@ private static final long serialVersionUID = 0L;
         != other.getCreatedAt()) return false;
     if (getUpdatedAt()
         != other.getUpdatedAt()) return false;
-    if (getVersion()
-        != other.getVersion()) return false;
+    if (stage_ != other.stage_) return false;
     if (getUserId()
         != other.getUserId()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -638,9 +650,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUpdatedAt());
-    hash = (37 * hash) + VERSION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getVersion());
+    hash = (37 * hash) + STAGE_FIELD_NUMBER;
+    hash = (53 * hash) + stage_;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
@@ -744,7 +755,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ==================== 用户故事板草稿详情 ====================
-   * 故事板草稿详细信息
+   * / 故事板草稿详细信息
+   * / 包含故事板草稿的完整信息，包括内容、角色、场景等
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.StoryboardDraftDetail}
@@ -813,7 +825,7 @@ private static final long serialVersionUID = 0L;
       }
       createdAt_ = 0L;
       updatedAt_ = 0L;
-      version_ = 0L;
+      stage_ = 0;
       userId_ = 0L;
       return this;
     }
@@ -899,7 +911,7 @@ private static final long serialVersionUID = 0L;
         result.updatedAt_ = updatedAt_;
       }
       if (((from_bitField0_ & 0x00000800) != 0)) {
-        result.version_ = version_;
+        result.stage_ = stage_;
       }
       if (((from_bitField0_ & 0x00001000) != 0)) {
         result.userId_ = userId_;
@@ -981,8 +993,8 @@ private static final long serialVersionUID = 0L;
       if (other.getUpdatedAt() != 0L) {
         setUpdatedAt(other.getUpdatedAt());
       }
-      if (other.getVersion() != 0L) {
-        setVersion(other.getVersion());
+      if (other.stage_ != 0) {
+        setStageValue(other.getStageValue());
       }
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
@@ -1081,7 +1093,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 88
             case 96: {
-              version_ = input.readInt64();
+              stage_ = input.readEnum();
               bitField0_ |= 0x00000800;
               break;
             } // case 96
@@ -1110,7 +1122,7 @@ private static final long serialVersionUID = 0L;
     private long draftId_ ;
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，唯一标识符
      * </pre>
      *
      * <code>int64 draft_id = 1 [json_name = "draftId"];</code>
@@ -1122,7 +1134,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，唯一标识符
      * </pre>
      *
      * <code>int64 draft_id = 1 [json_name = "draftId"];</code>
@@ -1138,7 +1150,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，唯一标识符
      * </pre>
      *
      * <code>int64 draft_id = 1 [json_name = "draftId"];</code>
@@ -1154,7 +1166,7 @@ private static final long serialVersionUID = 0L;
     private long storyId_ ;
     /**
      * <pre>
-     * 故事ID
+     * &#47; 所属故事ID
      * </pre>
      *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
@@ -1166,7 +1178,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事ID
+     * &#47; 所属故事ID
      * </pre>
      *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
@@ -1182,7 +1194,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事ID
+     * &#47; 所属故事ID
      * </pre>
      *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
@@ -1198,7 +1210,7 @@ private static final long serialVersionUID = 0L;
     private long storyboardId_ ;
     /**
      * <pre>
-     * 故事板ID
+     * &#47; 关联的故事板ID
      * </pre>
      *
      * <code>int64 storyboard_id = 3 [json_name = "storyboardId"];</code>
@@ -1210,7 +1222,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板ID
+     * &#47; 关联的故事板ID
      * </pre>
      *
      * <code>int64 storyboard_id = 3 [json_name = "storyboardId"];</code>
@@ -1226,7 +1238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板ID
+     * &#47; 关联的故事板ID
      * </pre>
      *
      * <code>int64 storyboard_id = 3 [json_name = "storyboardId"];</code>
@@ -1242,10 +1254,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object title_ = "";
     /**
      * <pre>
-     * 标题
+     * &#47; 草稿标题，最大长度200字符
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title"];</code>
+     * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
      * @return The title.
      */
     public java.lang.String getTitle() {
@@ -1262,10 +1274,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * &#47; 草稿标题，最大长度200字符
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title"];</code>
+     * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
      * @return The bytes for title.
      */
     public com.google.protobuf.ByteString
@@ -1283,10 +1295,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * &#47; 草稿标题，最大长度200字符
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title"];</code>
+     * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
      * @param value The title to set.
      * @return This builder for chaining.
      */
@@ -1300,10 +1312,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * &#47; 草稿标题，最大长度200字符
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title"];</code>
+     * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
@@ -1314,10 +1326,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 标题
+     * &#47; 草稿标题，最大长度200字符
      * </pre>
      *
-     * <code>string title = 4 [json_name = "title"];</code>
+     * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
      * @param value The bytes for title to set.
      * @return This builder for chaining.
      */
@@ -1334,10 +1346,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object content_ = "";
     /**
      * <pre>
-     * 内容
+     * &#47; 草稿内容，最大长度10000字符
      * </pre>
      *
-     * <code>string content = 5 [json_name = "content"];</code>
+     * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return The content.
      */
     public java.lang.String getContent() {
@@ -1354,10 +1366,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 内容
+     * &#47; 草稿内容，最大长度10000字符
      * </pre>
      *
-     * <code>string content = 5 [json_name = "content"];</code>
+     * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return The bytes for content.
      */
     public com.google.protobuf.ByteString
@@ -1375,10 +1387,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 内容
+     * &#47; 草稿内容，最大长度10000字符
      * </pre>
      *
-     * <code>string content = 5 [json_name = "content"];</code>
+     * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
      * @param value The content to set.
      * @return This builder for chaining.
      */
@@ -1392,10 +1404,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 内容
+     * &#47; 草稿内容，最大长度10000字符
      * </pre>
      *
-     * <code>string content = 5 [json_name = "content"];</code>
+     * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContent() {
@@ -1406,10 +1418,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 内容
+     * &#47; 草稿内容，最大长度10000字符
      * </pre>
      *
-     * <code>string content = 5 [json_name = "content"];</code>
+     * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
      * @param value The bytes for content to set.
      * @return This builder for chaining.
      */
@@ -1426,7 +1438,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object background_ = "";
     /**
      * <pre>
-     * 背景
+     * &#47; 背景描述
      * </pre>
      *
      * <code>string background = 6 [json_name = "background"];</code>
@@ -1446,7 +1458,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 背景
+     * &#47; 背景描述
      * </pre>
      *
      * <code>string background = 6 [json_name = "background"];</code>
@@ -1467,7 +1479,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 背景
+     * &#47; 背景描述
      * </pre>
      *
      * <code>string background = 6 [json_name = "background"];</code>
@@ -1484,7 +1496,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 背景
+     * &#47; 背景描述
      * </pre>
      *
      * <code>string background = 6 [json_name = "background"];</code>
@@ -1498,7 +1510,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 背景
+     * &#47; 背景描述
      * </pre>
      *
      * <code>string background = 6 [json_name = "background"];</code>
@@ -1529,7 +1541,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1543,7 +1555,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1557,7 +1569,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1571,7 +1583,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1592,7 +1604,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1610,7 +1622,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1630,7 +1642,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1651,7 +1663,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1669,7 +1681,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1687,7 +1699,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1706,7 +1718,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1723,7 +1735,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1740,7 +1752,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1751,7 +1763,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1765,7 +1777,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1780,7 +1792,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1791,7 +1803,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1803,7 +1815,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 角色列表
+     * &#47; 参与的角色列表
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -1832,7 +1844,7 @@ private static final long serialVersionUID = 0L;
         com.rankquantity.voyager.api.StoryBoardSences, com.rankquantity.voyager.api.StoryBoardSences.Builder, com.rankquantity.voyager.api.StoryBoardSencesOrBuilder> sencesBuilder_;
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1843,7 +1855,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1858,7 +1870,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1878,7 +1890,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1896,7 +1908,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1921,7 +1933,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1938,7 +1950,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1950,7 +1962,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1965,7 +1977,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 场景列表
+     * &#47; 场景列表
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -1989,7 +2001,7 @@ private static final long serialVersionUID = 0L;
         com.rankquantity.voyager.api.StoryBoardParams, com.rankquantity.voyager.api.StoryBoardParams.Builder, com.rankquantity.voyager.api.StoryBoardParamsOrBuilder> paramsBuilder_;
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2000,7 +2012,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2015,7 +2027,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2035,7 +2047,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2053,7 +2065,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2078,7 +2090,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2095,7 +2107,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2107,7 +2119,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2122,7 +2134,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板参数
+     * &#47; 故事板渲染参数
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -2144,7 +2156,7 @@ private static final long serialVersionUID = 0L;
     private long createdAt_ ;
     /**
      * <pre>
-     * 创建时间戳
+     * &#47; 创建时间戳（秒）
      * </pre>
      *
      * <code>int64 created_at = 10 [json_name = "createdAt"];</code>
@@ -2156,7 +2168,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建时间戳
+     * &#47; 创建时间戳（秒）
      * </pre>
      *
      * <code>int64 created_at = 10 [json_name = "createdAt"];</code>
@@ -2172,7 +2184,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 创建时间戳
+     * &#47; 创建时间戳（秒）
      * </pre>
      *
      * <code>int64 created_at = 10 [json_name = "createdAt"];</code>
@@ -2188,7 +2200,7 @@ private static final long serialVersionUID = 0L;
     private long updatedAt_ ;
     /**
      * <pre>
-     * 更新时间戳
+     * &#47; 最后更新时间戳（秒）
      * </pre>
      *
      * <code>int64 updated_at = 11 [json_name = "updatedAt"];</code>
@@ -2200,7 +2212,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 更新时间戳
+     * &#47; 最后更新时间戳（秒）
      * </pre>
      *
      * <code>int64 updated_at = 11 [json_name = "updatedAt"];</code>
@@ -2216,7 +2228,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 更新时间戳
+     * &#47; 最后更新时间戳（秒）
      * </pre>
      *
      * <code>int64 updated_at = 11 [json_name = "updatedAt"];</code>
@@ -2229,46 +2241,73 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long version_ ;
+    private int stage_ = 0;
     /**
      * <pre>
-     * 版本号
+     * &#47; 生成阶段状态
      * </pre>
      *
-     * <code>int64 version = 12 [json_name = "version"];</code>
-     * @return The version.
+     * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+     * @return The enum numeric value on the wire for stage.
      */
-    @java.lang.Override
-    public long getVersion() {
-      return version_;
+    @java.lang.Override public int getStageValue() {
+      return stage_;
     }
     /**
      * <pre>
-     * 版本号
+     * &#47; 生成阶段状态
      * </pre>
      *
-     * <code>int64 version = 12 [json_name = "version"];</code>
-     * @param value The version to set.
+     * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+     * @param value The enum numeric value on the wire for stage to set.
      * @return This builder for chaining.
      */
-    public Builder setVersion(long value) {
-
-      version_ = value;
+    public Builder setStageValue(int value) {
+      stage_ = value;
       bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 版本号
+     * &#47; 生成阶段状态
      * </pre>
      *
-     * <code>int64 version = 12 [json_name = "version"];</code>
+     * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+     * @return The stage.
+     */
+    @java.lang.Override
+    public com.rankquantity.voyager.api.StoryboardStage getStage() {
+      com.rankquantity.voyager.api.StoryboardStage result = com.rankquantity.voyager.api.StoryboardStage.forNumber(stage_);
+      return result == null ? com.rankquantity.voyager.api.StoryboardStage.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * &#47; 生成阶段状态
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+     * @param value The stage to set.
      * @return This builder for chaining.
      */
-    public Builder clearVersion() {
+    public Builder setStage(com.rankquantity.voyager.api.StoryboardStage value) {
+      if (value == null) { throw new NullPointerException(); }
+      bitField0_ |= 0x00000800;
+      stage_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#47; 生成阶段状态
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStage() {
       bitField0_ = (bitField0_ & ~0x00000800);
-      version_ = 0L;
+      stage_ = 0;
       onChanged();
       return this;
     }
@@ -2276,7 +2315,7 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; 草稿所有者用户ID
      * </pre>
      *
      * <code>int64 user_id = 13 [json_name = "userId"];</code>
@@ -2288,7 +2327,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 草稿所有者用户ID
      * </pre>
      *
      * <code>int64 user_id = 13 [json_name = "userId"];</code>
@@ -2304,7 +2343,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 草稿所有者用户ID
      * </pre>
      *
      * <code>int64 user_id = 13 [json_name = "userId"];</code>

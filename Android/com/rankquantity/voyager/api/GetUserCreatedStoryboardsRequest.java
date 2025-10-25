@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取用户创建的故事板请求
+ * / 获取指定用户创建的所有故事板列表
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GetUserCreatedStoryboardsRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 2;
   private int storyId_ = 0;
   /**
-   * <code>int32 story_id = 2 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID（可选），用于筛选特定故事的故事板
+   * </pre>
+   *
+   * <code>int32 story_id = 2 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -68,7 +81,11 @@ private static final long serialVersionUID = 0L;
   public static final int STAGE_FIELD_NUMBER = 3;
   private int stage_ = 0;
   /**
-   * <code>int32 stage = 3 [json_name = "stage"];</code>
+   * <pre>
+   * &#47; 阶段状态筛选，0表示不筛选
+   * </pre>
+   *
+   * <code>int32 stage = 3 [json_name = "stage", (.validate.rules) = { ... }</code>
    * @return The stage.
    */
   @java.lang.Override
@@ -79,7 +96,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 4;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 4 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -90,7 +111,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 5;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -303,6 +328,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取用户创建的故事板请求
+   * / 获取指定用户创建的所有故事板列表
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GetUserCreatedStoryboardsRequest}
    */
   public static final class Builder extends
@@ -488,7 +518,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -496,7 +530,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -508,7 +546,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -520,7 +562,11 @@ private static final long serialVersionUID = 0L;
 
     private int storyId_ ;
     /**
-     * <code>int32 story_id = 2 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID（可选），用于筛选特定故事的故事板
+     * </pre>
+     *
+     * <code>int32 story_id = 2 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -528,7 +574,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int32 story_id = 2 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID（可选），用于筛选特定故事的故事板
+     * </pre>
+     *
+     * <code>int32 story_id = 2 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -540,7 +590,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 story_id = 2 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID（可选），用于筛选特定故事的故事板
+     * </pre>
+     *
+     * <code>int32 story_id = 2 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -552,7 +606,11 @@ private static final long serialVersionUID = 0L;
 
     private int stage_ ;
     /**
-     * <code>int32 stage = 3 [json_name = "stage"];</code>
+     * <pre>
+     * &#47; 阶段状态筛选，0表示不筛选
+     * </pre>
+     *
+     * <code>int32 stage = 3 [json_name = "stage", (.validate.rules) = { ... }</code>
      * @return The stage.
      */
     @java.lang.Override
@@ -560,7 +618,11 @@ private static final long serialVersionUID = 0L;
       return stage_;
     }
     /**
-     * <code>int32 stage = 3 [json_name = "stage"];</code>
+     * <pre>
+     * &#47; 阶段状态筛选，0表示不筛选
+     * </pre>
+     *
+     * <code>int32 stage = 3 [json_name = "stage", (.validate.rules) = { ... }</code>
      * @param value The stage to set.
      * @return This builder for chaining.
      */
@@ -572,7 +634,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 stage = 3 [json_name = "stage"];</code>
+     * <pre>
+     * &#47; 阶段状态筛选，0表示不筛选
+     * </pre>
+     *
+     * <code>int32 stage = 3 [json_name = "stage", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStage() {
@@ -584,7 +650,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -592,7 +662,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -604,7 +678,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -616,7 +694,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -624,7 +706,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -636,7 +722,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

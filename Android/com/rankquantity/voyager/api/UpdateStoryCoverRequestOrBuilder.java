@@ -11,23 +11,39 @@ public interface UpdateStoryCoverRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 封面图片URL
+   * </pre>
+   *
    * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
    * @return The coverUrl.
    */
   java.lang.String getCoverUrl();
   /**
+   * <pre>
+   * &#47; 封面图片URL
+   * </pre>
+   *
    * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
    * @return The bytes for coverUrl.
    */
@@ -35,6 +51,10 @@ public interface UpdateStoryCoverRequestOrBuilder extends
       getCoverUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 是否使用AI生成的封面
+   * </pre>
+   *
    * <code>bool use_ai_cover = 4 [json_name = "useAiCover"];</code>
    * @return The useAiCover.
    */

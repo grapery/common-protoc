@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取动态列表请求
+ * / 获取用户、群组或故事的活动动态
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.FetchActivesRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int GROUP_ID_FIELD_NUMBER = 2;
   private long groupId_ = 0L;
   /**
-   * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; 群组ID，可选，用于筛选特定群组的动态
+   * </pre>
+   *
+   * <code>int64 group_id = 2 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   @java.lang.Override
@@ -69,7 +82,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 3;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，可选，用于筛选特定故事的动态
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -80,7 +97,11 @@ private static final long serialVersionUID = 0L;
   public static final int BOARD_ID_FIELD_NUMBER = 4;
   private long boardId_ = 0L;
   /**
-   * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，可选，用于筛选特定故事板的动态
+   * </pre>
+   *
+   * <code>int64 board_id = 4 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   @java.lang.Override
@@ -91,6 +112,10 @@ private static final long serialVersionUID = 0L;
   public static final int ATYPE_FIELD_NUMBER = 5;
   private int atype_ = 0;
   /**
+   * <pre>
+   * &#47; 动态流类型，指定要获取的动态类型
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
    * @return The enum numeric value on the wire for atype.
    */
@@ -98,6 +123,10 @@ private static final long serialVersionUID = 0L;
     return atype_;
   }
   /**
+   * <pre>
+   * &#47; 动态流类型，指定要获取的动态类型
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
    * @return The atype.
    */
@@ -109,7 +138,11 @@ private static final long serialVersionUID = 0L;
   public static final int TIMESTAMP_FIELD_NUMBER = 6;
   private long timestamp_ = 0L;
   /**
-   * <code>int64 timestamp = 6 [json_name = "timestamp"];</code>
+   * <pre>
+   * &#47; 时间戳，用于时间范围筛选，必须大于0
+   * </pre>
+   *
+   * <code>int64 timestamp = 6 [json_name = "timestamp", (.validate.rules) = { ... }</code>
    * @return The timestamp.
    */
   @java.lang.Override
@@ -120,7 +153,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 7;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 7 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 7 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -131,7 +168,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 8;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -380,6 +421,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取动态列表请求
+   * / 获取用户、群组或故事的活动动态
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.FetchActivesRequest}
    */
   public static final class Builder extends
@@ -601,7 +647,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -609,7 +659,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -621,7 +675,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -633,7 +691,11 @@ private static final long serialVersionUID = 0L;
 
     private long groupId_ ;
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，可选，用于筛选特定群组的动态
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return The groupId.
      */
     @java.lang.Override
@@ -641,7 +703,11 @@ private static final long serialVersionUID = 0L;
       return groupId_;
     }
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，可选，用于筛选特定群组的动态
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @param value The groupId to set.
      * @return This builder for chaining.
      */
@@ -653,7 +719,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，可选，用于筛选特定群组的动态
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGroupId() {
@@ -665,7 +735,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，可选，用于筛选特定故事的动态
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -673,7 +747,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，可选，用于筛选特定故事的动态
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -685,7 +763,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，可选，用于筛选特定故事的动态
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -697,7 +779,11 @@ private static final long serialVersionUID = 0L;
 
     private long boardId_ ;
     /**
-     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，可选，用于筛选特定故事板的动态
+     * </pre>
+     *
+     * <code>int64 board_id = 4 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return The boardId.
      */
     @java.lang.Override
@@ -705,7 +791,11 @@ private static final long serialVersionUID = 0L;
       return boardId_;
     }
     /**
-     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，可选，用于筛选特定故事板的动态
+     * </pre>
+     *
+     * <code>int64 board_id = 4 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @param value The boardId to set.
      * @return This builder for chaining.
      */
@@ -717,7 +807,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 board_id = 4 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，可选，用于筛选特定故事板的动态
+     * </pre>
+     *
+     * <code>int64 board_id = 4 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBoardId() {
@@ -729,6 +823,10 @@ private static final long serialVersionUID = 0L;
 
     private int atype_ = 0;
     /**
+     * <pre>
+     * &#47; 动态流类型，指定要获取的动态类型
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
      * @return The enum numeric value on the wire for atype.
      */
@@ -736,6 +834,10 @@ private static final long serialVersionUID = 0L;
       return atype_;
     }
     /**
+     * <pre>
+     * &#47; 动态流类型，指定要获取的动态类型
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
      * @param value The enum numeric value on the wire for atype to set.
      * @return This builder for chaining.
@@ -747,6 +849,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 动态流类型，指定要获取的动态类型
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
      * @return The atype.
      */
@@ -756,6 +862,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ActiveFlowType.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 动态流类型，指定要获取的动态类型
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
      * @param value The atype to set.
      * @return This builder for chaining.
@@ -768,6 +878,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 动态流类型，指定要获取的动态类型
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ActiveFlowType atype = 5 [json_name = "atype"];</code>
      * @return This builder for chaining.
      */
@@ -780,7 +894,11 @@ private static final long serialVersionUID = 0L;
 
     private long timestamp_ ;
     /**
-     * <code>int64 timestamp = 6 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于时间范围筛选，必须大于0
+     * </pre>
+     *
+     * <code>int64 timestamp = 6 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @return The timestamp.
      */
     @java.lang.Override
@@ -788,7 +906,11 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
-     * <code>int64 timestamp = 6 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于时间范围筛选，必须大于0
+     * </pre>
+     *
+     * <code>int64 timestamp = 6 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
      */
@@ -800,7 +922,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 timestamp = 6 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于时间范围筛选，必须大于0
+     * </pre>
+     *
+     * <code>int64 timestamp = 6 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {
@@ -812,7 +938,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -820,7 +950,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -832,7 +966,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -844,7 +982,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -852,7 +994,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -864,7 +1010,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 删除故事板评论请求
+ * / 删除指定的故事板评论
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardCommentRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int BOARD_ID_FIELD_NUMBER = 1;
   private long boardId_ = 0L;
   /**
-   * <code>int64 board_id = 1 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 board_id = 1 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int COMMENT_ID_FIELD_NUMBER = 2;
   private long commentId_ = 0L;
   /**
-   * <code>int64 comment_id = 2 [json_name = "commentId"];</code>
+   * <pre>
+   * &#47; 评论ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 comment_id = 2 [json_name = "commentId", (.validate.rules) = { ... }</code>
    * @return The commentId.
    */
   @java.lang.Override
@@ -68,7 +81,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -259,6 +276,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 删除故事板评论请求
+   * / 删除指定的故事板评论
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.DeleteStoryBoardCommentRequest}
    */
   public static final class Builder extends
@@ -420,7 +442,11 @@ private static final long serialVersionUID = 0L;
 
     private long boardId_ ;
     /**
-     * <code>int64 board_id = 1 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 board_id = 1 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return The boardId.
      */
     @java.lang.Override
@@ -428,7 +454,11 @@ private static final long serialVersionUID = 0L;
       return boardId_;
     }
     /**
-     * <code>int64 board_id = 1 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 board_id = 1 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @param value The boardId to set.
      * @return This builder for chaining.
      */
@@ -440,7 +470,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 board_id = 1 [json_name = "boardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 board_id = 1 [json_name = "boardId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBoardId() {
@@ -452,7 +486,11 @@ private static final long serialVersionUID = 0L;
 
     private long commentId_ ;
     /**
-     * <code>int64 comment_id = 2 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 2 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @return The commentId.
      */
     @java.lang.Override
@@ -460,7 +498,11 @@ private static final long serialVersionUID = 0L;
       return commentId_;
     }
     /**
-     * <code>int64 comment_id = 2 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 2 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @param value The commentId to set.
      * @return This builder for chaining.
      */
@@ -472,7 +514,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 comment_id = 2 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 2 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearCommentId() {
@@ -484,7 +530,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -492,7 +542,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -504,7 +558,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {

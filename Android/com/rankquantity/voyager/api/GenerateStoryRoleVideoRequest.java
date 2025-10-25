@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 生成故事角色视频请求
+ * / 为指定的故事角色生成宣传视频
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleVideoRequest}
  */
 @com.google.protobuf.Generated
@@ -51,7 +56,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -62,7 +71,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 2;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -73,7 +86,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -84,7 +101,11 @@ private static final long serialVersionUID = 0L;
   public static final int POSTER_ID_FIELD_NUMBER = 4;
   private long posterId_ = 0L;
   /**
-   * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+   * <pre>
+   * &#47; 海报ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
    * @return The posterId.
    */
   @java.lang.Override
@@ -96,6 +117,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object refBackgroundUrl_ = "";
   /**
+   * <pre>
+   * &#47; 参考背景图片URL
+   * </pre>
+   *
    * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
    * @return The refBackgroundUrl.
    */
@@ -113,6 +138,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 参考背景图片URL
+   * </pre>
+   *
    * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
    * @return The bytes for refBackgroundUrl.
    */
@@ -135,6 +164,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object refAvatarUrl_ = "";
   /**
+   * <pre>
+   * &#47; 参考头像图片URL
+   * </pre>
+   *
    * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
    * @return The refAvatarUrl.
    */
@@ -152,6 +185,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 参考头像图片URL
+   * </pre>
+   *
    * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
    * @return The bytes for refAvatarUrl.
    */
@@ -174,7 +211,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object textPrompt_ = "";
   /**
-   * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The textPrompt.
    */
   @java.lang.Override
@@ -191,7 +232,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for textPrompt.
    */
   @java.lang.Override
@@ -212,6 +257,10 @@ private static final long serialVersionUID = 0L;
   public static final int IMAGE_RATIOS_FIELD_NUMBER = 8;
   private int imageRatios_ = 0;
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
    * @return The enum numeric value on the wire for imageRatios.
    */
@@ -219,6 +268,10 @@ private static final long serialVersionUID = 0L;
     return imageRatios_;
   }
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
    * @return The imageRatios.
    */
@@ -231,6 +284,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object style_ = "";
   /**
+   * <pre>
+   * &#47; 视频风格
+   * </pre>
+   *
    * <code>string style = 9 [json_name = "style"];</code>
    * @return The style.
    */
@@ -248,6 +305,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 视频风格
+   * </pre>
+   *
    * <code>string style = 9 [json_name = "style"];</code>
    * @return The bytes for style.
    */
@@ -511,6 +572,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 生成故事角色视频请求
+   * / 为指定的故事角色生成宣传视频
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleVideoRequest}
    */
   public static final class Builder extends
@@ -752,7 +818,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -760,7 +830,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -772,7 +846,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -784,7 +862,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -792,7 +874,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -804,7 +890,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -816,7 +906,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -824,7 +918,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -836,7 +934,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -848,7 +950,11 @@ private static final long serialVersionUID = 0L;
 
     private long posterId_ ;
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @return The posterId.
      */
     @java.lang.Override
@@ -856,7 +962,11 @@ private static final long serialVersionUID = 0L;
       return posterId_;
     }
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @param value The posterId to set.
      * @return This builder for chaining.
      */
@@ -868,7 +978,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPosterId() {
@@ -880,6 +994,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object refBackgroundUrl_ = "";
     /**
+     * <pre>
+     * &#47; 参考背景图片URL
+     * </pre>
+     *
      * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
      * @return The refBackgroundUrl.
      */
@@ -896,6 +1014,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考背景图片URL
+     * </pre>
+     *
      * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
      * @return The bytes for refBackgroundUrl.
      */
@@ -913,6 +1035,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考背景图片URL
+     * </pre>
+     *
      * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
      * @param value The refBackgroundUrl to set.
      * @return This builder for chaining.
@@ -926,6 +1052,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考背景图片URL
+     * </pre>
+     *
      * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
      * @return This builder for chaining.
      */
@@ -936,6 +1066,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考背景图片URL
+     * </pre>
+     *
      * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
      * @param value The bytes for refBackgroundUrl to set.
      * @return This builder for chaining.
@@ -952,6 +1086,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object refAvatarUrl_ = "";
     /**
+     * <pre>
+     * &#47; 参考头像图片URL
+     * </pre>
+     *
      * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
      * @return The refAvatarUrl.
      */
@@ -968,6 +1106,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考头像图片URL
+     * </pre>
+     *
      * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
      * @return The bytes for refAvatarUrl.
      */
@@ -985,6 +1127,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考头像图片URL
+     * </pre>
+     *
      * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
      * @param value The refAvatarUrl to set.
      * @return This builder for chaining.
@@ -998,6 +1144,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考头像图片URL
+     * </pre>
+     *
      * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
      * @return This builder for chaining.
      */
@@ -1008,6 +1158,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考头像图片URL
+     * </pre>
+     *
      * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
      * @param value The bytes for refAvatarUrl to set.
      * @return This builder for chaining.
@@ -1024,7 +1178,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object textPrompt_ = "";
     /**
-     * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return The textPrompt.
      */
     public java.lang.String getTextPrompt() {
@@ -1040,7 +1198,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return The bytes for textPrompt.
      */
     public com.google.protobuf.ByteString
@@ -1057,7 +1219,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @param value The textPrompt to set.
      * @return This builder for chaining.
      */
@@ -1070,7 +1236,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTextPrompt() {
@@ -1080,7 +1250,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @param value The bytes for textPrompt to set.
      * @return This builder for chaining.
      */
@@ -1096,6 +1270,10 @@ private static final long serialVersionUID = 0L;
 
     private int imageRatios_ = 0;
     /**
+     * <pre>
+     * &#47; 图片宽高比设置
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
      * @return The enum numeric value on the wire for imageRatios.
      */
@@ -1103,6 +1281,10 @@ private static final long serialVersionUID = 0L;
       return imageRatios_;
     }
     /**
+     * <pre>
+     * &#47; 图片宽高比设置
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
      * @param value The enum numeric value on the wire for imageRatios to set.
      * @return This builder for chaining.
@@ -1114,6 +1296,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 图片宽高比设置
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
      * @return The imageRatios.
      */
@@ -1123,6 +1309,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ImageRatios.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 图片宽高比设置
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
      * @param value The imageRatios to set.
      * @return This builder for chaining.
@@ -1135,6 +1325,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 图片宽高比设置
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
      * @return This builder for chaining.
      */
@@ -1147,6 +1341,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object style_ = "";
     /**
+     * <pre>
+     * &#47; 视频风格
+     * </pre>
+     *
      * <code>string style = 9 [json_name = "style"];</code>
      * @return The style.
      */
@@ -1163,6 +1361,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频风格
+     * </pre>
+     *
      * <code>string style = 9 [json_name = "style"];</code>
      * @return The bytes for style.
      */
@@ -1180,6 +1382,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 视频风格
+     * </pre>
+     *
      * <code>string style = 9 [json_name = "style"];</code>
      * @param value The style to set.
      * @return This builder for chaining.
@@ -1193,6 +1399,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频风格
+     * </pre>
+     *
      * <code>string style = 9 [json_name = "style"];</code>
      * @return This builder for chaining.
      */
@@ -1203,6 +1413,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 视频风格
+     * </pre>
+     *
      * <code>string style = 9 [json_name = "style"];</code>
      * @param value The bytes for style to set.
      * @return This builder for chaining.

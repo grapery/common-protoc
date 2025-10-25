@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 生成故事角色参数
+ * / 包含角色海报生成所需的所有参数
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleParams}
  */
 @com.google.protobuf.Generated
@@ -53,6 +58,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object originImageUrl_ = "";
   /**
+   * <pre>
+   * &#47; 原始参考图片URL
+   * </pre>
+   *
    * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
    * @return The originImageUrl.
    */
@@ -70,6 +79,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 原始参考图片URL
+   * </pre>
+   *
    * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
    * @return The bytes for originImageUrl.
    */
@@ -93,7 +106,11 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringArrayList additionalImageUrls_ =
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @return A list containing the additionalImageUrls.
    */
   public com.google.protobuf.ProtocolStringList
@@ -101,14 +118,22 @@ private static final long serialVersionUID = 0L;
     return additionalImageUrls_;
   }
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @return The count of additionalImageUrls.
    */
   public int getAdditionalImageUrlsCount() {
     return additionalImageUrls_.size();
   }
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @param index The index of the element to return.
    * @return The additionalImageUrls at the given index.
    */
@@ -116,7 +141,11 @@ private static final long serialVersionUID = 0L;
     return additionalImageUrls_.get(index);
   }
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @param index The index of the value to return.
    * @return The bytes of the additionalImageUrls at the given index.
    */
@@ -129,7 +158,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object textPrompt_ = "";
   /**
-   * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The textPrompt.
    */
   @java.lang.Override
@@ -146,7 +179,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for textPrompt.
    */
   @java.lang.Override
@@ -168,7 +205,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object negativePrompt_ = "";
   /**
-   * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; 负面提示词，最大长度1000字符
+   * </pre>
+   *
+   * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
    * @return The negativePrompt.
    */
   @java.lang.Override
@@ -185,7 +226,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; 负面提示词，最大长度1000字符
+   * </pre>
+   *
+   * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for negativePrompt.
    */
   @java.lang.Override
@@ -207,6 +252,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object style_ = "";
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The style.
    */
@@ -224,6 +273,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The bytes for style.
    */
@@ -446,6 +499,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 生成故事角色参数
+   * / 包含角色海报生成所需的所有参数
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRoleParams}
    */
   public static final class Builder extends
@@ -649,6 +707,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object originImageUrl_ = "";
     /**
+     * <pre>
+     * &#47; 原始参考图片URL
+     * </pre>
+     *
      * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
      * @return The originImageUrl.
      */
@@ -665,6 +727,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 原始参考图片URL
+     * </pre>
+     *
      * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
      * @return The bytes for originImageUrl.
      */
@@ -682,6 +748,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 原始参考图片URL
+     * </pre>
+     *
      * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
      * @param value The originImageUrl to set.
      * @return This builder for chaining.
@@ -695,6 +765,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 原始参考图片URL
+     * </pre>
+     *
      * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
      * @return This builder for chaining.
      */
@@ -705,6 +779,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 原始参考图片URL
+     * </pre>
+     *
      * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
      * @param value The bytes for originImageUrl to set.
      * @return This builder for chaining.
@@ -728,7 +806,11 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @return A list containing the additionalImageUrls.
      */
     public com.google.protobuf.ProtocolStringList
@@ -737,14 +819,22 @@ private static final long serialVersionUID = 0L;
       return additionalImageUrls_;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @return The count of additionalImageUrls.
      */
     public int getAdditionalImageUrlsCount() {
       return additionalImageUrls_.size();
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param index The index of the element to return.
      * @return The additionalImageUrls at the given index.
      */
@@ -752,7 +842,11 @@ private static final long serialVersionUID = 0L;
       return additionalImageUrls_.get(index);
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param index The index of the value to return.
      * @return The bytes of the additionalImageUrls at the given index.
      */
@@ -761,7 +855,11 @@ private static final long serialVersionUID = 0L;
       return additionalImageUrls_.getByteString(index);
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param index The index to set the value at.
      * @param value The additionalImageUrls to set.
      * @return This builder for chaining.
@@ -776,7 +874,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param value The additionalImageUrls to add.
      * @return This builder for chaining.
      */
@@ -790,7 +892,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param values The additionalImageUrls to add.
      * @return This builder for chaining.
      */
@@ -804,7 +910,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAdditionalImageUrls() {
@@ -815,7 +925,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+     * <pre>
+     * &#47; 附加参考图片URL列表，最多5张
+     * </pre>
+     *
+     * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
      * @param value The bytes of the additionalImageUrls to add.
      * @return This builder for chaining.
      */
@@ -832,7 +946,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object textPrompt_ = "";
     /**
-     * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return The textPrompt.
      */
     public java.lang.String getTextPrompt() {
@@ -848,7 +966,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return The bytes for textPrompt.
      */
     public com.google.protobuf.ByteString
@@ -865,7 +987,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @param value The textPrompt to set.
      * @return This builder for chaining.
      */
@@ -878,7 +1004,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTextPrompt() {
@@ -888,7 +1018,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+     * <pre>
+     * &#47; 文本提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
      * @param value The bytes for textPrompt to set.
      * @return This builder for chaining.
      */
@@ -904,7 +1038,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object negativePrompt_ = "";
     /**
-     * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+     * <pre>
+     * &#47; 负面提示词，最大长度1000字符
+     * </pre>
+     *
+     * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
      * @return The negativePrompt.
      */
     public java.lang.String getNegativePrompt() {
@@ -920,7 +1058,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+     * <pre>
+     * &#47; 负面提示词，最大长度1000字符
+     * </pre>
+     *
+     * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
      * @return The bytes for negativePrompt.
      */
     public com.google.protobuf.ByteString
@@ -937,7 +1079,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+     * <pre>
+     * &#47; 负面提示词，最大长度1000字符
+     * </pre>
+     *
+     * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
      * @param value The negativePrompt to set.
      * @return This builder for chaining.
      */
@@ -950,7 +1096,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+     * <pre>
+     * &#47; 负面提示词，最大长度1000字符
+     * </pre>
+     *
+     * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNegativePrompt() {
@@ -960,7 +1110,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+     * <pre>
+     * &#47; 负面提示词，最大长度1000字符
+     * </pre>
+     *
+     * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
      * @param value The bytes for negativePrompt to set.
      * @return This builder for chaining.
      */
@@ -976,6 +1130,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object style_ = "";
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 5 [json_name = "style"];</code>
      * @return The style.
      */
@@ -992,6 +1150,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 5 [json_name = "style"];</code>
      * @return The bytes for style.
      */
@@ -1009,6 +1171,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 5 [json_name = "style"];</code>
      * @param value The style to set.
      * @return This builder for chaining.
@@ -1022,6 +1188,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 5 [json_name = "style"];</code>
      * @return This builder for chaining.
      */
@@ -1032,6 +1202,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 5 [json_name = "style"];</code>
      * @param value The bytes for style to set.
      * @return This builder for chaining.

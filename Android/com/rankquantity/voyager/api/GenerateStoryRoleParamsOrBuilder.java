@@ -11,11 +11,19 @@ public interface GenerateStoryRoleParamsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 原始参考图片URL
+   * </pre>
+   *
    * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
    * @return The originImageUrl.
    */
   java.lang.String getOriginImageUrl();
   /**
+   * <pre>
+   * &#47; 原始参考图片URL
+   * </pre>
+   *
    * <code>string origin_image_url = 1 [json_name = "originImageUrl"];</code>
    * @return The bytes for originImageUrl.
    */
@@ -23,24 +31,40 @@ public interface GenerateStoryRoleParamsOrBuilder extends
       getOriginImageUrlBytes();
 
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @return A list containing the additionalImageUrls.
    */
   java.util.List<java.lang.String>
       getAdditionalImageUrlsList();
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @return The count of additionalImageUrls.
    */
   int getAdditionalImageUrlsCount();
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @param index The index of the element to return.
    * @return The additionalImageUrls at the given index.
    */
   java.lang.String getAdditionalImageUrls(int index);
   /**
-   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls"];</code>
+   * <pre>
+   * &#47; 附加参考图片URL列表，最多5张
+   * </pre>
+   *
+   * <code>repeated string additional_image_urls = 2 [json_name = "additionalImageUrls", (.validate.rules) = { ... }</code>
    * @param index The index of the value to return.
    * @return The bytes of the additionalImageUrls at the given index.
    */
@@ -48,35 +72,59 @@ public interface GenerateStoryRoleParamsOrBuilder extends
       getAdditionalImageUrlsBytes(int index);
 
   /**
-   * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The textPrompt.
    */
   java.lang.String getTextPrompt();
   /**
-   * <code>string text_prompt = 3 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 3 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for textPrompt.
    */
   com.google.protobuf.ByteString
       getTextPromptBytes();
 
   /**
-   * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; 负面提示词，最大长度1000字符
+   * </pre>
+   *
+   * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
    * @return The negativePrompt.
    */
   java.lang.String getNegativePrompt();
   /**
-   * <code>string negative_prompt = 4 [json_name = "negativePrompt"];</code>
+   * <pre>
+   * &#47; 负面提示词，最大长度1000字符
+   * </pre>
+   *
+   * <code>string negative_prompt = 4 [json_name = "negativePrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for negativePrompt.
    */
   com.google.protobuf.ByteString
       getNegativePromptBytes();
 
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The style.
    */
   java.lang.String getStyle();
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The bytes for style.
    */

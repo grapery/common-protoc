@@ -11,11 +11,19 @@ public interface UserGenTaskStatusOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The taskId.
    */
   java.lang.String getTaskId();
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The bytes for taskId.
    */
@@ -23,17 +31,29 @@ public interface UserGenTaskStatusOrBuilder extends
       getTaskIdBytes();
 
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 任务状态：pending, running, success, failed
+   * </pre>
+   *
    * <code>string status = 3 [json_name = "status"];</code>
    * @return The status.
    */
   java.lang.String getStatus();
   /**
+   * <pre>
+   * &#47; 任务状态：pending, running, success, failed
+   * </pre>
+   *
    * <code>string status = 3 [json_name = "status"];</code>
    * @return The bytes for status.
    */
@@ -41,27 +61,47 @@ public interface UserGenTaskStatusOrBuilder extends
       getStatusBytes();
 
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    * @return Whether the detail field is set.
    */
   boolean hasDetail();
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    * @return The detail.
    */
   com.rankquantity.voyager.api.StoryGentaskDetail getDetail();
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    */
   com.rankquantity.voyager.api.StoryGentaskDetailOrBuilder getDetailOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 创建时间戳
+   * </pre>
+   *
    * <code>int64 create_time = 5 [json_name = "createTime"];</code>
    * @return The createTime.
    */
   long getCreateTime();
 
   /**
+   * <pre>
+   * &#47; 更新时间戳
+   * </pre>
+   *
    * <code>int64 update_time = 6 [json_name = "updateTime"];</code>
    * @return The updateTime.
    */

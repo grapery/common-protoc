@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事角色海报请求
+ * / 更新角色海报的信息或可见性
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRolePosterRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 2;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -69,7 +82,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -80,7 +97,11 @@ private static final long serialVersionUID = 0L;
   public static final int POSTER_ID_FIELD_NUMBER = 4;
   private long posterId_ = 0L;
   /**
-   * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+   * <pre>
+   * &#47; 海报ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
    * @return The posterId.
    */
   @java.lang.Override
@@ -92,6 +113,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object imageUrl_ = "";
   /**
+   * <pre>
+   * &#47; 新的图片URL
+   * </pre>
+   *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
    * @return The imageUrl.
    */
@@ -109,6 +134,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 新的图片URL
+   * </pre>
+   *
    * <code>string image_url = 5 [json_name = "imageUrl"];</code>
    * @return The bytes for imageUrl.
    */
@@ -130,6 +159,10 @@ private static final long serialVersionUID = 0L;
   public static final int IS_PUBLIC_FIELD_NUMBER = 6;
   private boolean isPublic_ = false;
   /**
+   * <pre>
+   * &#47; 是否公开，true表示公开可见
+   * </pre>
+   *
    * <code>bool is_public = 6 [json_name = "isPublic"];</code>
    * @return The isPublic.
    */
@@ -355,6 +388,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事角色海报请求
+   * / 更新角色海报的信息或可见性
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRolePosterRequest}
    */
   public static final class Builder extends
@@ -554,7 +592,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -562,7 +604,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -574,7 +620,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -586,7 +636,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -594,7 +648,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -606,7 +664,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -618,7 +680,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -626,7 +692,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -638,7 +708,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -650,7 +724,11 @@ private static final long serialVersionUID = 0L;
 
     private long posterId_ ;
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @return The posterId.
      */
     @java.lang.Override
@@ -658,7 +736,11 @@ private static final long serialVersionUID = 0L;
       return posterId_;
     }
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @param value The posterId to set.
      * @return This builder for chaining.
      */
@@ -670,7 +752,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+     * <pre>
+     * &#47; 海报ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPosterId() {
@@ -682,6 +768,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object imageUrl_ = "";
     /**
+     * <pre>
+     * &#47; 新的图片URL
+     * </pre>
+     *
      * <code>string image_url = 5 [json_name = "imageUrl"];</code>
      * @return The imageUrl.
      */
@@ -698,6 +788,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 新的图片URL
+     * </pre>
+     *
      * <code>string image_url = 5 [json_name = "imageUrl"];</code>
      * @return The bytes for imageUrl.
      */
@@ -715,6 +809,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 新的图片URL
+     * </pre>
+     *
      * <code>string image_url = 5 [json_name = "imageUrl"];</code>
      * @param value The imageUrl to set.
      * @return This builder for chaining.
@@ -728,6 +826,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 新的图片URL
+     * </pre>
+     *
      * <code>string image_url = 5 [json_name = "imageUrl"];</code>
      * @return This builder for chaining.
      */
@@ -738,6 +840,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 新的图片URL
+     * </pre>
+     *
      * <code>string image_url = 5 [json_name = "imageUrl"];</code>
      * @param value The bytes for imageUrl to set.
      * @return This builder for chaining.
@@ -754,6 +860,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean isPublic_ ;
     /**
+     * <pre>
+     * &#47; 是否公开，true表示公开可见
+     * </pre>
+     *
      * <code>bool is_public = 6 [json_name = "isPublic"];</code>
      * @return The isPublic.
      */
@@ -762,6 +872,10 @@ private static final long serialVersionUID = 0L;
       return isPublic_;
     }
     /**
+     * <pre>
+     * &#47; 是否公开，true表示公开可见
+     * </pre>
+     *
      * <code>bool is_public = 6 [json_name = "isPublic"];</code>
      * @param value The isPublic to set.
      * @return This builder for chaining.
@@ -774,6 +888,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否公开，true表示公开可见
+     * </pre>
+     *
      * <code>bool is_public = 6 [json_name = "isPublic"];</code>
      * @return This builder for chaining.
      */

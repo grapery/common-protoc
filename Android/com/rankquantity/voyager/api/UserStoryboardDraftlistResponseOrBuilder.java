@@ -12,7 +12,7 @@ public interface UserStoryboardDraftlistResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -21,7 +21,7 @@ public interface UserStoryboardDraftlistResponseOrBuilder extends
   int getCodeValue();
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -31,7 +31,7 @@ public interface UserStoryboardDraftlistResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -40,7 +40,7 @@ public interface UserStoryboardDraftlistResponseOrBuilder extends
   java.lang.String getMessage();
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -51,61 +51,61 @@ public interface UserStoryboardDraftlistResponseOrBuilder extends
 
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
-  java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem> 
+  java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail> 
       getDraftsList();
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
-  com.rankquantity.voyager.api.StoryboardDraftItem getDrafts(int index);
+  com.rankquantity.voyager.api.StoryboardDraftDetail getDrafts(int index);
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   int getDraftsCount();
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
-  java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder> 
+  java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> 
       getDraftsOrBuilderList();
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
-  com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder getDraftsOrBuilder(
+  com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder getDraftsOrBuilder(
       int index);
 
   /**
    * <pre>
-   * 草稿总数
+   * &#47; 草稿总数
    * </pre>
    *
-   * <code>int64 total = 4 [json_name = "total"];</code>
+   * <code>int64 total = 4 [json_name = "total", (.validate.rules) = { ... }</code>
    * @return The total.
    */
   long getTotal();
 
   /**
    * <pre>
-   * 是否有更多
+   * &#47; 是否有更多数据
    * </pre>
    *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>

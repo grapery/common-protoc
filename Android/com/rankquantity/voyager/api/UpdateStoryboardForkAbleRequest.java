@@ -8,7 +8,9 @@ package com.rankquantity.voyager.api;
 /**
  * <pre>
  * ==================== 更新故事板是否可分叉 ====================
- * 更新故事板是否可分叉请求
+ * / 更新故事板分叉权限请求
+ * / 
+ * / 设置故事板的分叉权限，控制其他用户是否可以基于此故事板创建分支版本
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryboardForkAbleRequest}
@@ -52,10 +54,14 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; [必填] 用户ID
+   * / 
+   * / 故事板所有者的用户ID
+   * / 验证规则：必须大于 0
+   * / 权限要求：仅所有者可修改分叉权限
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -67,10 +73,13 @@ private static final long serialVersionUID = 0L;
   private long storyboardId_ = 0L;
   /**
    * <pre>
-   * 故事板ID
+   * &#47; [必填] 故事板ID
+   * / 
+   * / 要设置权限的故事板唯一标识
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 storyboard_id = 2 [json_name = "storyboardId"];</code>
+   * <code>int64 storyboard_id = 2 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
    * @return The storyboardId.
    */
   @java.lang.Override
@@ -82,7 +91,13 @@ private static final long serialVersionUID = 0L;
   private boolean forkAble_ = false;
   /**
    * <pre>
-   * 是否可分叉
+   * &#47; [必填] 是否允许分叉
+   * / 
+   * / 分叉权限开关
+   * / 取值说明：
+   * / - true: 允许其他用户分叉此故事板
+   * / - false: 禁止分叉，仅所有者可访问
+   * / 默认值：false
    * </pre>
    *
    * <code>bool fork_able = 3 [json_name = "forkAble"];</code>
@@ -278,7 +293,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ==================== 更新故事板是否可分叉 ====================
-   * 更新故事板是否可分叉请求
+   * / 更新故事板分叉权限请求
+   * / 
+   * / 设置故事板的分叉权限，控制其他用户是否可以基于此故事板创建分支版本
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryboardForkAbleRequest}
@@ -443,10 +460,14 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; [必填] 用户ID
+     * / 
+     * / 故事板所有者的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：仅所有者可修改分叉权限
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -455,10 +476,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; [必填] 用户ID
+     * / 
+     * / 故事板所有者的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：仅所有者可修改分叉权限
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -471,10 +496,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; [必填] 用户ID
+     * / 
+     * / 故事板所有者的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：仅所有者可修改分叉权限
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -487,10 +516,13 @@ private static final long serialVersionUID = 0L;
     private long storyboardId_ ;
     /**
      * <pre>
-     * 故事板ID
+     * &#47; [必填] 故事板ID
+     * / 
+     * / 要设置权限的故事板唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 storyboard_id = 2 [json_name = "storyboardId"];</code>
+     * <code>int64 storyboard_id = 2 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @return The storyboardId.
      */
     @java.lang.Override
@@ -499,10 +531,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板ID
+     * &#47; [必填] 故事板ID
+     * / 
+     * / 要设置权限的故事板唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 storyboard_id = 2 [json_name = "storyboardId"];</code>
+     * <code>int64 storyboard_id = 2 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @param value The storyboardId to set.
      * @return This builder for chaining.
      */
@@ -515,10 +550,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事板ID
+     * &#47; [必填] 故事板ID
+     * / 
+     * / 要设置权限的故事板唯一标识
+     * / 验证规则：必须大于 0
      * </pre>
      *
-     * <code>int64 storyboard_id = 2 [json_name = "storyboardId"];</code>
+     * <code>int64 storyboard_id = 2 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryboardId() {
@@ -531,7 +569,13 @@ private static final long serialVersionUID = 0L;
     private boolean forkAble_ ;
     /**
      * <pre>
-     * 是否可分叉
+     * &#47; [必填] 是否允许分叉
+     * / 
+     * / 分叉权限开关
+     * / 取值说明：
+     * / - true: 允许其他用户分叉此故事板
+     * / - false: 禁止分叉，仅所有者可访问
+     * / 默认值：false
      * </pre>
      *
      * <code>bool fork_able = 3 [json_name = "forkAble"];</code>
@@ -543,7 +587,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否可分叉
+     * &#47; [必填] 是否允许分叉
+     * / 
+     * / 分叉权限开关
+     * / 取值说明：
+     * / - true: 允许其他用户分叉此故事板
+     * / - false: 禁止分叉，仅所有者可访问
+     * / 默认值：false
      * </pre>
      *
      * <code>bool fork_able = 3 [json_name = "forkAble"];</code>
@@ -559,7 +609,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否可分叉
+     * &#47; [必填] 是否允许分叉
+     * / 
+     * / 分叉权限开关
+     * / 取值说明：
+     * / - true: 允许其他用户分叉此故事板
+     * / - false: 禁止分叉，仅所有者可访问
+     * / 默认值：false
      * </pre>
      *
      * <code>bool fork_able = 3 [json_name = "forkAble"];</code>

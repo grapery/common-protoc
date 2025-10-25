@@ -11,25 +11,41 @@ public interface UpdateStoryRoleAvatorRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>string avator = 2 [json_name = "avator"];</code>
+   * <pre>
+   * &#47; 头像URL，必填
+   * </pre>
+   *
+   * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
    * @return The avator.
    */
   java.lang.String getAvator();
   /**
-   * <code>string avator = 2 [json_name = "avator"];</code>
+   * <pre>
+   * &#47; 头像URL，必填
+   * </pre>
+   *
+   * <code>string avator = 2 [json_name = "avator", (.validate.rules) = { ... }</code>
    * @return The bytes for avator.
    */
   com.google.protobuf.ByteString
       getAvatorBytes();
 
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

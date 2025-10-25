@@ -11,22 +11,38 @@ public interface RestoreStoryboardResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,16 +50,28 @@ public interface RestoreStoryboardResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 故事板状态存储信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStageStore store = 3 [json_name = "store"];</code>
    * @return Whether the store field is set.
    */
   boolean hasStore();
   /**
+   * <pre>
+   * &#47; 故事板状态存储信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStageStore store = 3 [json_name = "store"];</code>
    * @return The store.
    */
   com.rankquantity.voyager.api.StoryboardStageStore getStore();
   /**
+   * <pre>
+   * &#47; 故事板状态存储信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStageStore store = 3 [json_name = "store"];</code>
    */
   com.rankquantity.voyager.api.StoryboardStageStoreOrBuilder getStoreOrBuilder();

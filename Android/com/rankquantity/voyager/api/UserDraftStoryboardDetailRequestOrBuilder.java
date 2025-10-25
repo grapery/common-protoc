@@ -12,20 +12,20 @@ public interface UserDraftStoryboardDetailRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 草稿ID
+   * &#47; 草稿ID，必须大于0
    * </pre>
    *
-   * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+   * <code>int64 draft_id = 2 [json_name = "draftId", (.validate.rules) = { ... }</code>
    * @return The draftId.
    */
   long getDraftId();

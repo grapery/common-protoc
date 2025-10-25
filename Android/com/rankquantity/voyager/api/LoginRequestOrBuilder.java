@@ -11,31 +11,69 @@ public interface LoginRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 支持邮箱、手机号或用户名
+   * / 长度限制：3-100 字符
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The account.
    */
   java.lang.String getAccount();
   /**
-   * <code>string account = 1 [json_name = "account"];</code>
+   * <pre>
+   * &#47; [必填] 账号
+   * / 
+   * / 支持邮箱、手机号或用户名
+   * / 长度限制：3-100 字符
+   * </pre>
+   *
+   * <code>string account = 1 [json_name = "account", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for account.
    */
   com.google.protobuf.ByteString
       getAccountBytes();
 
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The password.
    */
   java.lang.String getPassword();
   /**
-   * <code>string password = 2 [json_name = "password"];</code>
+   * <pre>
+   * &#47; [必填] 密码
+   * / 
+   * / 用户登录密码
+   * / 长度限制：6-128 字符
+   * </pre>
+   *
+   * <code>string password = 2 [json_name = "password", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for password.
    */
   com.google.protobuf.ByteString
       getPasswordBytes();
 
   /**
-   * <code>int32 login_type = 3 [json_name = "loginType"];</code>
+   * <pre>
+   * &#47; [必填] 登录类型
+   * / 
+   * / 指定使用的登录方式：
+   * / - 1: 密码登录
+   * / - 2: 验证码登录
+   * / - 3: 第三方登录
+   * / 取值范围：1-3
+   * </pre>
+   *
+   * <code>int32 login_type = 3 [json_name = "loginType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The loginType.
    */
   int getLoginType();

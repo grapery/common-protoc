@@ -11,29 +11,49 @@ public interface RenderStoryRoleDetailOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 1 [json_name = "roleId"];</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
+   * <pre>
+   * &#47; 生成任务ID
+   * </pre>
+   *
    * <code>int64 gen_id = 2 [json_name = "genId"];</code>
    * @return The genId.
    */
   long getGenId();
 
   /**
+   * <pre>
+   * &#47; 是否渲染完成
+   * </pre>
+   *
    * <code>bool is_finished = 3 [json_name = "isFinished"];</code>
    * @return The isFinished.
    */
   boolean getIsFinished();
 
   /**
+   * <pre>
+   * &#47; 角色描述
+   * </pre>
+   *
    * <code>string role_description = 4 [json_name = "roleDescription"];</code>
    * @return The roleDescription.
    */
   java.lang.String getRoleDescription();
   /**
+   * <pre>
+   * &#47; 角色描述
+   * </pre>
+   *
    * <code>string role_description = 4 [json_name = "roleDescription"];</code>
    * @return The bytes for roleDescription.
    */
@@ -41,11 +61,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getRoleDescriptionBytes();
 
   /**
+   * <pre>
+   * &#47; 角色性格特征
+   * </pre>
+   *
    * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
    * @return The roleCharacter.
    */
   java.lang.String getRoleCharacter();
   /**
+   * <pre>
+   * &#47; 角色性格特征
+   * </pre>
+   *
    * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
    * @return The bytes for roleCharacter.
    */
@@ -53,11 +81,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getRoleCharacterBytes();
 
   /**
+   * <pre>
+   * &#47; 角色行为特点
+   * </pre>
+   *
    * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
    * @return The roleBehavior.
    */
   java.lang.String getRoleBehavior();
   /**
+   * <pre>
+   * &#47; 角色行为特点
+   * </pre>
+   *
    * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
    * @return The bytes for roleBehavior.
    */
@@ -65,11 +101,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getRoleBehaviorBytes();
 
   /**
+   * <pre>
+   * &#47; 角色目标
+   * </pre>
+   *
    * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
    * @return The roleGoal.
    */
   java.lang.String getRoleGoal();
   /**
+   * <pre>
+   * &#47; 角色目标
+   * </pre>
+   *
    * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
    * @return The bytes for roleGoal.
    */
@@ -77,11 +121,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getRoleGoalBytes();
 
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
   java.lang.String getBackgroundImage();
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */
@@ -89,11 +141,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getBackgroundImageBytes();
 
   /**
+   * <pre>
+   * &#47; 头像图片URL
+   * </pre>
+   *
    * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
    * @return The avatarImage.
    */
   java.lang.String getAvatarImage();
   /**
+   * <pre>
+   * &#47; 头像图片URL
+   * </pre>
+   *
    * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
    * @return The bytes for avatarImage.
    */
@@ -101,11 +161,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getAvatarImageBytes();
 
   /**
+   * <pre>
+   * &#47; 背景故事
+   * </pre>
+   *
    * <code>string background = 10 [json_name = "background"];</code>
    * @return The background.
    */
   java.lang.String getBackground();
   /**
+   * <pre>
+   * &#47; 背景故事
+   * </pre>
+   *
    * <code>string background = 10 [json_name = "background"];</code>
    * @return The bytes for background.
    */
@@ -113,11 +181,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getBackgroundBytes();
 
   /**
+   * <pre>
+   * &#47; 外观描述
+   * </pre>
+   *
    * <code>string appearance = 11 [json_name = "appearance"];</code>
    * @return The appearance.
    */
   java.lang.String getAppearance();
   /**
+   * <pre>
+   * &#47; 外观描述
+   * </pre>
+   *
    * <code>string appearance = 11 [json_name = "appearance"];</code>
    * @return The bytes for appearance.
    */
@@ -125,11 +201,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getAppearanceBytes();
 
   /**
+   * <pre>
+   * &#47; 性格描述
+   * </pre>
+   *
    * <code>string personality = 12 [json_name = "personality"];</code>
    * @return The personality.
    */
   java.lang.String getPersonality();
   /**
+   * <pre>
+   * &#47; 性格描述
+   * </pre>
+   *
    * <code>string personality = 12 [json_name = "personality"];</code>
    * @return The bytes for personality.
    */
@@ -137,11 +221,19 @@ public interface RenderStoryRoleDetailOrBuilder extends
       getPersonalityBytes();
 
   /**
+   * <pre>
+   * &#47; 能力特征
+   * </pre>
+   *
    * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
    * @return The abilityFeatures.
    */
   java.lang.String getAbilityFeatures();
   /**
+   * <pre>
+   * &#47; 能力特征
+   * </pre>
+   *
    * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
    * @return The bytes for abilityFeatures.
    */

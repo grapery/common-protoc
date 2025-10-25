@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 角色海报详细信息
+ * / 表示角色海报图片的完整信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.RolePosterDetail}
  */
 @com.google.protobuf.Generated
@@ -49,6 +54,10 @@ private static final long serialVersionUID = 0L;
   public static final int ID_FIELD_NUMBER = 1;
   private long id_ = 0L;
   /**
+   * <pre>
+   * &#47; 海报ID
+   * </pre>
+   *
    * <code>int64 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
@@ -60,6 +69,10 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 2;
   private long storyId_ = 0L;
   /**
+   * <pre>
+   * &#47; 所属故事ID
+   * </pre>
+   *
    * <code>int64 story_id = 2 [json_name = "storyId"];</code>
    * @return The storyId.
    */
@@ -71,6 +84,10 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 3;
   private long roleId_ = 0L;
   /**
+   * <pre>
+   * &#47; 所属角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 3 [json_name = "roleId"];</code>
    * @return The roleId.
    */
@@ -83,6 +100,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object posterUrl_ = "";
   /**
+   * <pre>
+   * &#47; 海报图片URL
+   * </pre>
+   *
    * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
    * @return The posterUrl.
    */
@@ -100,6 +121,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 海报图片URL
+   * </pre>
+   *
    * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
    * @return The bytes for posterUrl.
    */
@@ -122,6 +147,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object prompt_ = "";
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 5 [json_name = "prompt"];</code>
    * @return The prompt.
    */
@@ -139,6 +168,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 5 [json_name = "prompt"];</code>
    * @return The bytes for prompt.
    */
@@ -160,6 +193,10 @@ private static final long serialVersionUID = 0L;
   public static final int LIKE_COUNT_FIELD_NUMBER = 6;
   private long likeCount_ = 0L;
   /**
+   * <pre>
+   * &#47; 点赞数
+   * </pre>
+   *
    * <code>int64 like_count = 6 [json_name = "likeCount"];</code>
    * @return The likeCount.
    */
@@ -171,6 +208,10 @@ private static final long serialVersionUID = 0L;
   public static final int IS_LIKED_BY_USER_FIELD_NUMBER = 7;
   private boolean isLikedByUser_ = false;
   /**
+   * <pre>
+   * &#47; 当前用户是否已点赞
+   * </pre>
+   *
    * <code>bool is_liked_by_user = 7 [json_name = "isLikedByUser"];</code>
    * @return The isLikedByUser.
    */
@@ -182,6 +223,10 @@ private static final long serialVersionUID = 0L;
   public static final int CREATOR_FIELD_NUMBER = 8;
   private com.rankquantity.voyager.api.UserInfo creator_;
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    * @return Whether the creator field is set.
    */
@@ -190,6 +235,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    * @return The creator.
    */
@@ -198,6 +247,10 @@ private static final long serialVersionUID = 0L;
     return creator_ == null ? com.rankquantity.voyager.api.UserInfo.getDefaultInstance() : creator_;
   }
   /**
+   * <pre>
+   * &#47; 海报创建者信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
    */
   @java.lang.Override
@@ -208,6 +261,10 @@ private static final long serialVersionUID = 0L;
   public static final int CREATED_AT_FIELD_NUMBER = 9;
   private long createdAt_ = 0L;
   /**
+   * <pre>
+   * &#47; 创建时间戳
+   * </pre>
+   *
    * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
@@ -219,6 +276,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPDATED_AT_FIELD_NUMBER = 10;
   private long updatedAt_ = 0L;
   /**
+   * <pre>
+   * &#47; 更新时间戳
+   * </pre>
+   *
    * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
@@ -494,6 +555,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 角色海报详细信息
+   * / 表示角色海报图片的完整信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.RolePosterDetail}
    */
   public static final class Builder extends
@@ -760,6 +826,10 @@ private static final long serialVersionUID = 0L;
 
     private long id_ ;
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 id = 1 [json_name = "id"];</code>
      * @return The id.
      */
@@ -768,6 +838,10 @@ private static final long serialVersionUID = 0L;
       return id_;
     }
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
@@ -780,6 +854,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报ID
+     * </pre>
+     *
      * <code>int64 id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
@@ -792,6 +870,10 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
+     * <pre>
+     * &#47; 所属故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
      * @return The storyId.
      */
@@ -800,6 +882,10 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
+     * <pre>
+     * &#47; 所属故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
@@ -812,6 +898,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 所属故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 2 [json_name = "storyId"];</code>
      * @return This builder for chaining.
      */
@@ -824,6 +914,10 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
+     * <pre>
+     * &#47; 所属角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 3 [json_name = "roleId"];</code>
      * @return The roleId.
      */
@@ -832,6 +926,10 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
+     * <pre>
+     * &#47; 所属角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 3 [json_name = "roleId"];</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
@@ -844,6 +942,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 所属角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 3 [json_name = "roleId"];</code>
      * @return This builder for chaining.
      */
@@ -856,6 +958,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object posterUrl_ = "";
     /**
+     * <pre>
+     * &#47; 海报图片URL
+     * </pre>
+     *
      * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
      * @return The posterUrl.
      */
@@ -872,6 +978,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 海报图片URL
+     * </pre>
+     *
      * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
      * @return The bytes for posterUrl.
      */
@@ -889,6 +999,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 海报图片URL
+     * </pre>
+     *
      * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
      * @param value The posterUrl to set.
      * @return This builder for chaining.
@@ -902,6 +1016,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报图片URL
+     * </pre>
+     *
      * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
      * @return This builder for chaining.
      */
@@ -912,6 +1030,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报图片URL
+     * </pre>
+     *
      * <code>string poster_url = 4 [json_name = "posterUrl"];</code>
      * @param value The bytes for posterUrl to set.
      * @return This builder for chaining.
@@ -928,6 +1050,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object prompt_ = "";
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 5 [json_name = "prompt"];</code>
      * @return The prompt.
      */
@@ -944,6 +1070,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 5 [json_name = "prompt"];</code>
      * @return The bytes for prompt.
      */
@@ -961,6 +1091,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 5 [json_name = "prompt"];</code>
      * @param value The prompt to set.
      * @return This builder for chaining.
@@ -974,6 +1108,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 5 [json_name = "prompt"];</code>
      * @return This builder for chaining.
      */
@@ -984,6 +1122,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 5 [json_name = "prompt"];</code>
      * @param value The bytes for prompt to set.
      * @return This builder for chaining.
@@ -1000,6 +1142,10 @@ private static final long serialVersionUID = 0L;
 
     private long likeCount_ ;
     /**
+     * <pre>
+     * &#47; 点赞数
+     * </pre>
+     *
      * <code>int64 like_count = 6 [json_name = "likeCount"];</code>
      * @return The likeCount.
      */
@@ -1008,6 +1154,10 @@ private static final long serialVersionUID = 0L;
       return likeCount_;
     }
     /**
+     * <pre>
+     * &#47; 点赞数
+     * </pre>
+     *
      * <code>int64 like_count = 6 [json_name = "likeCount"];</code>
      * @param value The likeCount to set.
      * @return This builder for chaining.
@@ -1020,6 +1170,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 点赞数
+     * </pre>
+     *
      * <code>int64 like_count = 6 [json_name = "likeCount"];</code>
      * @return This builder for chaining.
      */
@@ -1032,6 +1186,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean isLikedByUser_ ;
     /**
+     * <pre>
+     * &#47; 当前用户是否已点赞
+     * </pre>
+     *
      * <code>bool is_liked_by_user = 7 [json_name = "isLikedByUser"];</code>
      * @return The isLikedByUser.
      */
@@ -1040,6 +1198,10 @@ private static final long serialVersionUID = 0L;
       return isLikedByUser_;
     }
     /**
+     * <pre>
+     * &#47; 当前用户是否已点赞
+     * </pre>
+     *
      * <code>bool is_liked_by_user = 7 [json_name = "isLikedByUser"];</code>
      * @param value The isLikedByUser to set.
      * @return This builder for chaining.
@@ -1052,6 +1214,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 当前用户是否已点赞
+     * </pre>
+     *
      * <code>bool is_liked_by_user = 7 [json_name = "isLikedByUser"];</code>
      * @return This builder for chaining.
      */
@@ -1066,6 +1232,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.UserInfo, com.rankquantity.voyager.api.UserInfo.Builder, com.rankquantity.voyager.api.UserInfoOrBuilder> creatorBuilder_;
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      * @return Whether the creator field is set.
      */
@@ -1073,6 +1243,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      * @return The creator.
      */
@@ -1084,6 +1258,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public Builder setCreator(com.rankquantity.voyager.api.UserInfo value) {
@@ -1100,6 +1278,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public Builder setCreator(
@@ -1114,6 +1296,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public Builder mergeCreator(com.rankquantity.voyager.api.UserInfo value) {
@@ -1135,6 +1321,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public Builder clearCreator() {
@@ -1148,6 +1338,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public com.rankquantity.voyager.api.UserInfo.Builder getCreatorBuilder() {
@@ -1156,6 +1350,10 @@ private static final long serialVersionUID = 0L;
       return internalGetCreatorFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     public com.rankquantity.voyager.api.UserInfoOrBuilder getCreatorOrBuilder() {
@@ -1167,6 +1365,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 海报创建者信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.UserInfo creator = 8 [json_name = "creator"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -1185,6 +1387,10 @@ private static final long serialVersionUID = 0L;
 
     private long createdAt_ ;
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
@@ -1193,6 +1399,10 @@ private static final long serialVersionUID = 0L;
       return createdAt_;
     }
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
      * @param value The createdAt to set.
      * @return This builder for chaining.
@@ -1205,6 +1415,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 created_at = 9 [json_name = "createdAt"];</code>
      * @return This builder for chaining.
      */
@@ -1217,6 +1431,10 @@ private static final long serialVersionUID = 0L;
 
     private long updatedAt_ ;
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
@@ -1225,6 +1443,10 @@ private static final long serialVersionUID = 0L;
       return updatedAt_;
     }
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
      * @param value The updatedAt to set.
      * @return This builder for chaining.
@@ -1237,6 +1459,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 updated_at = 10 [json_name = "updatedAt"];</code>
      * @return This builder for chaining.
      */

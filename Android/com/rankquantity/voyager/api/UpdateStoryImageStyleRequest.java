@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事图片风格请求
+ * / 设置故事使用的图片风格
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryImageStyleRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -59,10 +68,10 @@ private static final long serialVersionUID = 0L;
   private long styleId_ = 0L;
   /**
    * <pre>
-   * 风格ID
+   * &#47; 风格ID，必须大于0
    * </pre>
    *
-   * <code>int64 style_id = 2 [json_name = "styleId"];</code>
+   * <code>int64 style_id = 2 [json_name = "styleId", (.validate.rules) = { ... }</code>
    * @return The styleId.
    */
   @java.lang.Override
@@ -75,7 +84,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object style_ = "";
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 3 [json_name = "style"];</code>
@@ -96,7 +105,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 3 [json_name = "style"];</code>
@@ -121,10 +130,10 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 4 [json_name = "userId"];</code>
+   * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -325,6 +334,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事图片风格请求
+   * / 设置故事使用的图片风格
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryImageStyleRequest}
    */
   public static final class Builder extends
@@ -500,7 +514,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -508,7 +526,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -520,7 +542,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -533,10 +559,10 @@ private static final long serialVersionUID = 0L;
     private long styleId_ ;
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID，必须大于0
      * </pre>
      *
-     * <code>int64 style_id = 2 [json_name = "styleId"];</code>
+     * <code>int64 style_id = 2 [json_name = "styleId", (.validate.rules) = { ... }</code>
      * @return The styleId.
      */
     @java.lang.Override
@@ -545,10 +571,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID，必须大于0
      * </pre>
      *
-     * <code>int64 style_id = 2 [json_name = "styleId"];</code>
+     * <code>int64 style_id = 2 [json_name = "styleId", (.validate.rules) = { ... }</code>
      * @param value The styleId to set.
      * @return This builder for chaining.
      */
@@ -561,10 +587,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格ID
+     * &#47; 风格ID，必须大于0
      * </pre>
      *
-     * <code>int64 style_id = 2 [json_name = "styleId"];</code>
+     * <code>int64 style_id = 2 [json_name = "styleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStyleId() {
@@ -577,7 +603,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object style_ = "";
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 3 [json_name = "style"];</code>
@@ -597,7 +623,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 3 [json_name = "style"];</code>
@@ -618,7 +644,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 3 [json_name = "style"];</code>
@@ -635,7 +661,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 3 [json_name = "style"];</code>
@@ -649,7 +675,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 风格名称
+     * &#47; 风格名称
      * </pre>
      *
      * <code>string style = 3 [json_name = "style"];</code>
@@ -669,10 +695,10 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 4 [json_name = "userId"];</code>
+     * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -681,10 +707,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 4 [json_name = "userId"];</code>
+     * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -697,10 +723,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 4 [json_name = "userId"];</code>
+     * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {

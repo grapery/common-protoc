@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事头像请求
+ * / 更新故事的头像图片
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryAvatarRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,7 +83,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avatarUrl_ = "";
   /**
-   * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+   * <pre>
+   * &#47; 头像图片URL，必填
+   * </pre>
+   *
+   * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
    * @return The avatarUrl.
    */
   @java.lang.Override
@@ -87,7 +104,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+   * <pre>
+   * &#47; 头像图片URL，必填
+   * </pre>
+   *
+   * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
    * @return The bytes for avatarUrl.
    */
   @java.lang.Override
@@ -286,6 +307,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事头像请求
+   * / 更新故事的头像图片
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryAvatarRequest}
    */
   public static final class Builder extends
@@ -449,7 +475,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -457,7 +487,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -469,7 +503,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -481,7 +519,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -489,7 +531,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -501,7 +547,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -513,7 +563,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avatarUrl_ = "";
     /**
-     * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+     * <pre>
+     * &#47; 头像图片URL，必填
+     * </pre>
+     *
+     * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
      * @return The avatarUrl.
      */
     public java.lang.String getAvatarUrl() {
@@ -529,7 +583,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+     * <pre>
+     * &#47; 头像图片URL，必填
+     * </pre>
+     *
+     * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
      * @return The bytes for avatarUrl.
      */
     public com.google.protobuf.ByteString
@@ -546,7 +604,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+     * <pre>
+     * &#47; 头像图片URL，必填
+     * </pre>
+     *
+     * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
      * @param value The avatarUrl to set.
      * @return This builder for chaining.
      */
@@ -559,7 +621,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+     * <pre>
+     * &#47; 头像图片URL，必填
+     * </pre>
+     *
+     * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAvatarUrl() {
@@ -569,7 +635,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avatar_url = 3 [json_name = "avatarUrl"];</code>
+     * <pre>
+     * &#47; 头像图片URL，必填
+     * </pre>
+     *
+     * <code>string avatar_url = 3 [json_name = "avatarUrl", (.validate.rules) = { ... }</code>
      * @param value The bytes for avatarUrl to set.
      * @return This builder for chaining.
      */

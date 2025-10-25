@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取用户聊天消息请求
+ * / 获取指定聊天会话中的消息记录
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GetUserChatMessagesRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int CHAT_ID_FIELD_NUMBER = 2;
   private long chatId_ = 0L;
   /**
-   * <code>int64 chat_id = 2 [json_name = "chatId"];</code>
+   * <pre>
+   * &#47; 聊天会话ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 chat_id = 2 [json_name = "chatId", (.validate.rules) = { ... }</code>
    * @return The chatId.
    */
   @java.lang.Override
@@ -68,7 +81,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 3;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 3 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 3 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -79,7 +96,11 @@ private static final long serialVersionUID = 0L;
   public static final int TIMESTAMP_FIELD_NUMBER = 4;
   private long timestamp_ = 0L;
   /**
-   * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
+   * <pre>
+   * &#47; 时间戳，用于获取指定时间之前的消息
+   * </pre>
+   *
+   * <code>int64 timestamp = 4 [json_name = "timestamp", (.validate.rules) = { ... }</code>
    * @return The timestamp.
    */
   @java.lang.Override
@@ -282,6 +303,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取用户聊天消息请求
+   * / 获取指定聊天会话中的消息记录
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GetUserChatMessagesRequest}
    */
   public static final class Builder extends
@@ -455,7 +481,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -463,7 +493,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -475,7 +509,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -487,7 +525,11 @@ private static final long serialVersionUID = 0L;
 
     private long chatId_ ;
     /**
-     * <code>int64 chat_id = 2 [json_name = "chatId"];</code>
+     * <pre>
+     * &#47; 聊天会话ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 chat_id = 2 [json_name = "chatId", (.validate.rules) = { ... }</code>
      * @return The chatId.
      */
     @java.lang.Override
@@ -495,7 +537,11 @@ private static final long serialVersionUID = 0L;
       return chatId_;
     }
     /**
-     * <code>int64 chat_id = 2 [json_name = "chatId"];</code>
+     * <pre>
+     * &#47; 聊天会话ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 chat_id = 2 [json_name = "chatId", (.validate.rules) = { ... }</code>
      * @param value The chatId to set.
      * @return This builder for chaining.
      */
@@ -507,7 +553,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 chat_id = 2 [json_name = "chatId"];</code>
+     * <pre>
+     * &#47; 聊天会话ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 chat_id = 2 [json_name = "chatId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearChatId() {
@@ -519,7 +569,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 3 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 3 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -527,7 +581,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 3 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 3 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -539,7 +597,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 3 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 3 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -551,7 +613,11 @@ private static final long serialVersionUID = 0L;
 
     private long timestamp_ ;
     /**
-     * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于获取指定时间之前的消息
+     * </pre>
+     *
+     * <code>int64 timestamp = 4 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @return The timestamp.
      */
     @java.lang.Override
@@ -559,7 +625,11 @@ private static final long serialVersionUID = 0L;
       return timestamp_;
     }
     /**
-     * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于获取指定时间之前的消息
+     * </pre>
+     *
+     * <code>int64 timestamp = 4 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @param value The timestamp to set.
      * @return This builder for chaining.
      */
@@ -571,7 +641,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
+     * <pre>
+     * &#47; 时间戳，用于获取指定时间之前的消息
+     * </pre>
+     *
+     * <code>int64 timestamp = 4 [json_name = "timestamp", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {

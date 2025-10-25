@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取角色参与的故事请求
+ * / 获取指定角色出现的所有故事列表
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GetStoryRoleStoriesRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,7 +83,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object filter_ = "";
   /**
-   * <code>string filter = 3 [json_name = "filter"];</code>
+   * <pre>
+   * &#47; 筛选条件，最大长度50字符
+   * </pre>
+   *
+   * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
    * @return The filter.
    */
   @java.lang.Override
@@ -87,7 +104,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string filter = 3 [json_name = "filter"];</code>
+   * <pre>
+   * &#47; 筛选条件，最大长度50字符
+   * </pre>
+   *
+   * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
    * @return The bytes for filter.
    */
   @java.lang.Override
@@ -108,7 +129,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 4;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 4 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -119,7 +144,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 5;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -332,6 +361,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取角色参与的故事请求
+   * / 获取指定角色出现的所有故事列表
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GetStoryRoleStoriesRequest}
    */
   public static final class Builder extends
@@ -519,7 +553,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -527,7 +565,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -539,7 +581,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -551,7 +597,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -559,7 +609,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -571,7 +625,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -583,7 +641,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object filter_ = "";
     /**
-     * <code>string filter = 3 [json_name = "filter"];</code>
+     * <pre>
+     * &#47; 筛选条件，最大长度50字符
+     * </pre>
+     *
+     * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
      * @return The filter.
      */
     public java.lang.String getFilter() {
@@ -599,7 +661,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string filter = 3 [json_name = "filter"];</code>
+     * <pre>
+     * &#47; 筛选条件，最大长度50字符
+     * </pre>
+     *
+     * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
      * @return The bytes for filter.
      */
     public com.google.protobuf.ByteString
@@ -616,7 +682,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string filter = 3 [json_name = "filter"];</code>
+     * <pre>
+     * &#47; 筛选条件，最大长度50字符
+     * </pre>
+     *
+     * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
      * @param value The filter to set.
      * @return This builder for chaining.
      */
@@ -629,7 +699,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string filter = 3 [json_name = "filter"];</code>
+     * <pre>
+     * &#47; 筛选条件，最大长度50字符
+     * </pre>
+     *
+     * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
@@ -639,7 +713,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string filter = 3 [json_name = "filter"];</code>
+     * <pre>
+     * &#47; 筛选条件，最大长度50字符
+     * </pre>
+     *
+     * <code>string filter = 3 [json_name = "filter", (.validate.rules) = { ... }</code>
      * @param value The bytes for filter to set.
      * @return This builder for chaining.
      */
@@ -655,7 +733,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -663,7 +745,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -675,7 +761,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 4 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 4 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -687,7 +777,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -695,7 +789,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -707,7 +805,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 5 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

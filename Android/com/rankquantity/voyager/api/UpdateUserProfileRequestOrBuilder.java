@@ -11,17 +11,29 @@ public interface UpdateUserProfileRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
   java.lang.String getBackgroundImage();
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */
@@ -29,11 +41,19 @@ public interface UpdateUserProfileRequestOrBuilder extends
       getBackgroundImageBytes();
 
   /**
+   * <pre>
+   * &#47; 头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The avatar.
    */
   java.lang.String getAvatar();
   /**
+   * <pre>
+   * &#47; 头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The bytes for avatar.
    */
@@ -41,48 +61,80 @@ public interface UpdateUserProfileRequestOrBuilder extends
       getAvatarBytes();
 
   /**
-   * <code>string name = 4 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 用户昵称，最大长度50字符
+   * </pre>
+   *
+   * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 4 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 用户昵称，最大长度50字符
+   * </pre>
+   *
+   * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string description = 5 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 个人描述，最大长度500字符
+   * </pre>
+   *
+   * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 5 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 个人描述，最大长度500字符
+   * </pre>
+   *
+   * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
-   * <code>string location = 6 [json_name = "location"];</code>
+   * <pre>
+   * &#47; 所在地，最大长度100字符
+   * </pre>
+   *
+   * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
    * @return The location.
    */
   java.lang.String getLocation();
   /**
-   * <code>string location = 6 [json_name = "location"];</code>
+   * <pre>
+   * &#47; 所在地，最大长度100字符
+   * </pre>
+   *
+   * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
    * @return The bytes for location.
    */
   com.google.protobuf.ByteString
       getLocationBytes();
 
   /**
-   * <code>string email = 7 [json_name = "email"];</code>
+   * <pre>
+   * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+   * </pre>
+   *
+   * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 7 [json_name = "email"];</code>
+   * <pre>
+   * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+   * </pre>
+   *
+   * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString

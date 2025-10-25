@@ -2,6 +2,7 @@ version: v1
 name: buf.build/grapery/protoc-define
 deps:
   - buf.build/googleapis/googleapis
+  - buf.build/envoyproxy/protoc-gen-validate
 breaking:
   use:
     - FILE

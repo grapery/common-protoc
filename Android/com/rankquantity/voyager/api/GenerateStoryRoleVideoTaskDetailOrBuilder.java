@@ -11,11 +11,19 @@ public interface GenerateStoryRoleVideoTaskDetailOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The taskId.
    */
   java.lang.String getTaskId();
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The bytes for taskId.
    */
@@ -23,22 +31,38 @@ public interface GenerateStoryRoleVideoTaskDetailOrBuilder extends
       getTaskIdBytes();
 
   /**
+   * <pre>
+   * &#47; 任务状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
    * @return The enum numeric value on the wire for taskStatus.
    */
   int getTaskStatusValue();
   /**
+   * <pre>
+   * &#47; 任务状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGenStatus task_status = 2 [json_name = "taskStatus"];</code>
    * @return The taskStatus.
    */
   com.rankquantity.voyager.api.StoryGenStatus getTaskStatus();
 
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 3 [json_name = "videoUrl"];</code>
    * @return The videoUrl.
    */
   java.lang.String getVideoUrl();
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 3 [json_name = "videoUrl"];</code>
    * @return The bytes for videoUrl.
    */
@@ -46,11 +70,19 @@ public interface GenerateStoryRoleVideoTaskDetailOrBuilder extends
       getVideoUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 视频缩略图URL
+   * </pre>
+   *
    * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
    * @return The videoThumbnailUrl.
    */
   java.lang.String getVideoThumbnailUrl();
   /**
+   * <pre>
+   * &#47; 视频缩略图URL
+   * </pre>
+   *
    * <code>string video_thumbnail_url = 4 [json_name = "videoThumbnailUrl"];</code>
    * @return The bytes for videoThumbnailUrl.
    */
@@ -58,17 +90,29 @@ public interface GenerateStoryRoleVideoTaskDetailOrBuilder extends
       getVideoThumbnailUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 视频时长（秒）
+   * </pre>
+   *
    * <code>int64 duration = 5 [json_name = "duration"];</code>
    * @return The duration.
    */
   long getDuration();
 
   /**
+   * <pre>
+   * &#47; 视频分辨率，如 1920x1080
+   * </pre>
+   *
    * <code>string resolution = 6 [json_name = "resolution"];</code>
    * @return The resolution.
    */
   java.lang.String getResolution();
   /**
+   * <pre>
+   * &#47; 视频分辨率，如 1920x1080
+   * </pre>
+   *
    * <code>string resolution = 6 [json_name = "resolution"];</code>
    * @return The bytes for resolution.
    */
@@ -76,11 +120,19 @@ public interface GenerateStoryRoleVideoTaskDetailOrBuilder extends
       getResolutionBytes();
 
   /**
+   * <pre>
+   * &#47; 视频格式，如 mp4, webm
+   * </pre>
+   *
    * <code>string video_format = 7 [json_name = "videoFormat"];</code>
    * @return The videoFormat.
    */
   java.lang.String getVideoFormat();
   /**
+   * <pre>
+   * &#47; 视频格式，如 mp4, webm
+   * </pre>
+   *
    * <code>string video_format = 7 [json_name = "videoFormat"];</code>
    * @return The bytes for videoFormat.
    */

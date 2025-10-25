@@ -11,30 +11,81 @@ public interface UploadImageRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bytes image_data = 1 [json_name = "imageData"];</code>
+   * <pre>
+   * &#47; [必填] 图片数据
+   * / 
+   * / 图片的二进制内容
+   * / 大小限制：最大 10MB (10485760 字节)
+   * / 支持格式：JPEG、PNG、GIF、WebP、BMP
+   * / 建议：上传前进行客户端压缩以提高速度
+   * </pre>
+   *
+   * <code>bytes image_data = 1 [json_name = "imageData", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The imageData.
    */
   com.google.protobuf.ByteString getImageData();
 
   /**
-   * <code>string filename = 2 [json_name = "filename"];</code>
+   * <pre>
+   * &#47; [必填] 文件名
+   * / 
+   * / 包含扩展名的文件名
+   * / 长度限制：1-255 字符
+   * / 示例：avatar.jpg, cover.png
+   * </pre>
+   *
+   * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The filename.
    */
   java.lang.String getFilename();
   /**
-   * <code>string filename = 2 [json_name = "filename"];</code>
+   * <pre>
+   * &#47; [必填] 文件名
+   * / 
+   * / 包含扩展名的文件名
+   * / 长度限制：1-255 字符
+   * / 示例：avatar.jpg, cover.png
+   * </pre>
+   *
+   * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for filename.
    */
   com.google.protobuf.ByteString
       getFilenameBytes();
 
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <pre>
+   * &#47; [必填] 文件MIME类型
+   * / 
+   * / 图片的内容类型标识
+   * / 格式要求：必须为有效的图片MIME类型
+   * / 允许值：
+   * / - image/jpeg 或 image/jpg
+   * / - image/png
+   * / - image/gif
+   * / - image/webp
+   * / - image/bmp
+   * </pre>
+   *
+   * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The contentType.
    */
   java.lang.String getContentType();
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <pre>
+   * &#47; [必填] 文件MIME类型
+   * / 
+   * / 图片的内容类型标识
+   * / 格式要求：必须为有效的图片MIME类型
+   * / 允许值：
+   * / - image/jpeg 或 image/jpg
+   * / - image/png
+   * / - image/gif
+   * / - image/webp
+   * / - image/bmp
+   * </pre>
+   *
+   * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for contentType.
    */
   com.google.protobuf.ByteString

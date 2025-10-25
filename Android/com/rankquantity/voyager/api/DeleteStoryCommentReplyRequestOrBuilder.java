@@ -11,13 +11,21 @@ public interface DeleteStoryCommentReplyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 reply_id = 1 [json_name = "replyId"];</code>
+   * <pre>
+   * &#47; 回复ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 reply_id = 1 [json_name = "replyId", (.validate.rules) = { ... }</code>
    * @return The replyId.
    */
   long getReplyId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

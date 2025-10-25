@@ -11,59 +11,103 @@ public interface StoryboardStageStoreOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    * @return Whether the storyboard field is set.
    */
   boolean hasStoryboard();
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    * @return The storyboard.
    */
   com.rankquantity.voyager.api.StoryBoard getStoryboard();
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    */
   com.rankquantity.voyager.api.StoryBoardOrBuilder getStoryboardOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    * @return Whether the sences field is set.
    */
   boolean hasSences();
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    * @return The sences.
    */
   com.rankquantity.voyager.api.StoryBoardSences getSences();
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    */
   com.rankquantity.voyager.api.StoryBoardSencesOrBuilder getSencesOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 当前阶段状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
    * @return The enum numeric value on the wire for stage.
    */
   int getStageValue();
   /**
+   * <pre>
+   * &#47; 当前阶段状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
    * @return The stage.
    */
   com.rankquantity.voyager.api.StoryboardStage getStage();
 
   /**
+   * <pre>
+   * &#47; 最后更新时间戳
+   * </pre>
+   *
    * <code>int64 last_update_time = 4 [json_name = "lastUpdateTime"];</code>
    * @return The lastUpdateTime.
    */
   long getLastUpdateTime();
 
   /**
+   * <pre>
+   * &#47; 版本号
+   * </pre>
+   *
    * <code>int64 version = 5 [json_name = "version"];</code>
    * @return The version.
    */
   long getVersion();
 
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 6 [json_name = "userId"];</code>
    * @return The userId.
    */

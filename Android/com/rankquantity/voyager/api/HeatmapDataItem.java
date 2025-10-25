@@ -8,7 +8,9 @@ package com.rankquantity.voyager.api;
 /**
  * <pre>
  * ==================== 用户活跃热力图 ====================
- * 用户活跃热力图数据项
+ * / 热力图数据项
+ * / 
+ * / 表示单个日期的活跃度数据，用于生成GitHub风格的热力图可视化
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.HeatmapDataItem}
@@ -54,10 +56,14 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object date_ = "";
   /**
    * <pre>
-   * 日期，格式：YYYY-MM-DD
+   * &#47; [必填] 日期
+   * / 
+   * / 活跃度数据对应的日期
+   * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+   * / 验证规则：必须符合日期格式正则表达式
    * </pre>
    *
-   * <code>string date = 1 [json_name = "date"];</code>
+   * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
    * @return The date.
    */
   @java.lang.Override
@@ -75,10 +81,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 日期，格式：YYYY-MM-DD
+   * &#47; [必填] 日期
+   * / 
+   * / 活跃度数据对应的日期
+   * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+   * / 验证规则：必须符合日期格式正则表达式
    * </pre>
    *
-   * <code>string date = 1 [json_name = "date"];</code>
+   * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
    * @return The bytes for date.
    */
   @java.lang.Override
@@ -100,10 +110,14 @@ private static final long serialVersionUID = 0L;
   private long count_ = 0L;
   /**
    * <pre>
-   * 活跃次数/数量
+   * &#47; [必填] 活跃次数
+   * / 
+   * / 该日期的活跃操作次数（如创建、更新、评论等）
+   * / 验证规则：必须大于等于 0
+   * / 默认值：0
    * </pre>
    *
-   * <code>int64 count = 2 [json_name = "count"];</code>
+   * <code>int64 count = 2 [json_name = "count", (.validate.rules) = { ... }</code>
    * @return The count.
    */
   @java.lang.Override
@@ -115,10 +129,19 @@ private static final long serialVersionUID = 0L;
   private long level_ = 0L;
   /**
    * <pre>
-   * 热力等级（0-4，用于显示不同颜色深度）
+   * &#47; [必填] 热力等级
+   * / 
+   * / 用于显示不同颜色深度的等级值
+   * / 取值说明：
+   * / - 0: 无活跃（灰色）
+   * / - 1: 低活跃（浅绿）
+   * / - 2: 中活跃（绿色）
+   * / - 3: 高活跃（深绿）
+   * / - 4: 极高活跃（最深绿）
+   * / 验证规则：0-4
    * </pre>
    *
-   * <code>int64 level = 3 [json_name = "level"];</code>
+   * <code>int64 level = 3 [json_name = "level", (.validate.rules) = { ... }</code>
    * @return The level.
    */
   @java.lang.Override
@@ -309,7 +332,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * ==================== 用户活跃热力图 ====================
-   * 用户活跃热力图数据项
+   * / 热力图数据项
+   * / 
+   * / 表示单个日期的活跃度数据，用于生成GitHub风格的热力图可视化
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.HeatmapDataItem}
@@ -476,10 +501,14 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object date_ = "";
     /**
      * <pre>
-     * 日期，格式：YYYY-MM-DD
+     * &#47; [必填] 日期
+     * / 
+     * / 活跃度数据对应的日期
+     * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+     * / 验证规则：必须符合日期格式正则表达式
      * </pre>
      *
-     * <code>string date = 1 [json_name = "date"];</code>
+     * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
      * @return The date.
      */
     public java.lang.String getDate() {
@@ -496,10 +525,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 日期，格式：YYYY-MM-DD
+     * &#47; [必填] 日期
+     * / 
+     * / 活跃度数据对应的日期
+     * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+     * / 验证规则：必须符合日期格式正则表达式
      * </pre>
      *
-     * <code>string date = 1 [json_name = "date"];</code>
+     * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
      * @return The bytes for date.
      */
     public com.google.protobuf.ByteString
@@ -517,10 +550,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 日期，格式：YYYY-MM-DD
+     * &#47; [必填] 日期
+     * / 
+     * / 活跃度数据对应的日期
+     * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+     * / 验证规则：必须符合日期格式正则表达式
      * </pre>
      *
-     * <code>string date = 1 [json_name = "date"];</code>
+     * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
      * @param value The date to set.
      * @return This builder for chaining.
      */
@@ -534,10 +571,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 日期，格式：YYYY-MM-DD
+     * &#47; [必填] 日期
+     * / 
+     * / 活跃度数据对应的日期
+     * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+     * / 验证规则：必须符合日期格式正则表达式
      * </pre>
      *
-     * <code>string date = 1 [json_name = "date"];</code>
+     * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDate() {
@@ -548,10 +589,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 日期，格式：YYYY-MM-DD
+     * &#47; [必填] 日期
+     * / 
+     * / 活跃度数据对应的日期
+     * / 格式要求：YYYY-MM-DD（如 2024-01-15）
+     * / 验证规则：必须符合日期格式正则表达式
      * </pre>
      *
-     * <code>string date = 1 [json_name = "date"];</code>
+     * <code>string date = 1 [json_name = "date", (.validate.rules) = { ... }</code>
      * @param value The bytes for date to set.
      * @return This builder for chaining.
      */
@@ -568,10 +613,14 @@ private static final long serialVersionUID = 0L;
     private long count_ ;
     /**
      * <pre>
-     * 活跃次数/数量
+     * &#47; [必填] 活跃次数
+     * / 
+     * / 该日期的活跃操作次数（如创建、更新、评论等）
+     * / 验证规则：必须大于等于 0
+     * / 默认值：0
      * </pre>
      *
-     * <code>int64 count = 2 [json_name = "count"];</code>
+     * <code>int64 count = 2 [json_name = "count", (.validate.rules) = { ... }</code>
      * @return The count.
      */
     @java.lang.Override
@@ -580,10 +629,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 活跃次数/数量
+     * &#47; [必填] 活跃次数
+     * / 
+     * / 该日期的活跃操作次数（如创建、更新、评论等）
+     * / 验证规则：必须大于等于 0
+     * / 默认值：0
      * </pre>
      *
-     * <code>int64 count = 2 [json_name = "count"];</code>
+     * <code>int64 count = 2 [json_name = "count", (.validate.rules) = { ... }</code>
      * @param value The count to set.
      * @return This builder for chaining.
      */
@@ -596,10 +649,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 活跃次数/数量
+     * &#47; [必填] 活跃次数
+     * / 
+     * / 该日期的活跃操作次数（如创建、更新、评论等）
+     * / 验证规则：必须大于等于 0
+     * / 默认值：0
      * </pre>
      *
-     * <code>int64 count = 2 [json_name = "count"];</code>
+     * <code>int64 count = 2 [json_name = "count", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearCount() {
@@ -612,10 +669,19 @@ private static final long serialVersionUID = 0L;
     private long level_ ;
     /**
      * <pre>
-     * 热力等级（0-4，用于显示不同颜色深度）
+     * &#47; [必填] 热力等级
+     * / 
+     * / 用于显示不同颜色深度的等级值
+     * / 取值说明：
+     * / - 0: 无活跃（灰色）
+     * / - 1: 低活跃（浅绿）
+     * / - 2: 中活跃（绿色）
+     * / - 3: 高活跃（深绿）
+     * / - 4: 极高活跃（最深绿）
+     * / 验证规则：0-4
      * </pre>
      *
-     * <code>int64 level = 3 [json_name = "level"];</code>
+     * <code>int64 level = 3 [json_name = "level", (.validate.rules) = { ... }</code>
      * @return The level.
      */
     @java.lang.Override
@@ -624,10 +690,19 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力等级（0-4，用于显示不同颜色深度）
+     * &#47; [必填] 热力等级
+     * / 
+     * / 用于显示不同颜色深度的等级值
+     * / 取值说明：
+     * / - 0: 无活跃（灰色）
+     * / - 1: 低活跃（浅绿）
+     * / - 2: 中活跃（绿色）
+     * / - 3: 高活跃（深绿）
+     * / - 4: 极高活跃（最深绿）
+     * / 验证规则：0-4
      * </pre>
      *
-     * <code>int64 level = 3 [json_name = "level"];</code>
+     * <code>int64 level = 3 [json_name = "level", (.validate.rules) = { ... }</code>
      * @param value The level to set.
      * @return This builder for chaining.
      */
@@ -640,10 +715,19 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力等级（0-4，用于显示不同颜色深度）
+     * &#47; [必填] 热力等级
+     * / 
+     * / 用于显示不同颜色深度的等级值
+     * / 取值说明：
+     * / - 0: 无活跃（灰色）
+     * / - 1: 低活跃（浅绿）
+     * / - 2: 中活跃（绿色）
+     * / - 3: 高活跃（深绿）
+     * / - 4: 极高活跃（最深绿）
+     * / 验证规则：0-4
      * </pre>
      *
-     * <code>int64 level = 3 [json_name = "level"];</code>
+     * <code>int64 level = 3 [json_name = "level", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearLevel() {

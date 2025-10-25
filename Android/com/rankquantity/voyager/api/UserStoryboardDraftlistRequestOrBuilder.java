@@ -12,40 +12,40 @@ public interface UserStoryboardDraftlistRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 偏移量
+   * &#47; 偏移量，用于分页，必须大于等于0
    * </pre>
    *
-   * <code>int64 offset = 2 [json_name = "offset"];</code>
+   * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
    * <pre>
-   * 每页数量
+   * &#47; 每页数量，范围1-100
    * </pre>
    *
-   * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+   * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();
 
   /**
    * <pre>
-   * 故事ID（可选，用于筛选特定故事的草稿）
+   * &#47; 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
    * </pre>
    *
-   * <code>int64 story_id = 4 [json_name = "storyId"];</code>
+   * <code>int64 story_id = 4 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();

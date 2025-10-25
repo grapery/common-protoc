@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事角色描述详情请求
+ * / 更新角色的详细描述信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 2;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -69,7 +82,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -80,7 +97,11 @@ private static final long serialVersionUID = 0L;
   public static final int CHARACTER_DETAIL_FIELD_NUMBER = 4;
   private com.rankquantity.voyager.api.CharacterDetail characterDetail_;
   /**
-   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+   * <pre>
+   * &#47; 角色详细描述，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
    * @return Whether the characterDetail field is set.
    */
   @java.lang.Override
@@ -88,7 +109,11 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+   * <pre>
+   * &#47; 角色详细描述，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
    * @return The characterDetail.
    */
   @java.lang.Override
@@ -96,7 +121,11 @@ private static final long serialVersionUID = 0L;
     return characterDetail_ == null ? com.rankquantity.voyager.api.CharacterDetail.getDefaultInstance() : characterDetail_;
   }
   /**
-   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+   * <pre>
+   * &#47; 角色详细描述，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.rankquantity.voyager.api.CharacterDetailOrBuilder getCharacterDetailOrBuilder() {
@@ -302,6 +331,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事角色描述详情请求
+   * / 更新角色的详细描述信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryRoleDescriptionDetailRequest}
    */
   public static final class Builder extends
@@ -492,7 +526,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -500,7 +538,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -512,7 +554,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -524,7 +570,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -532,7 +582,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -544,7 +598,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -556,7 +614,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -564,7 +626,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -576,7 +642,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -590,14 +660,22 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.CharacterDetail, com.rankquantity.voyager.api.CharacterDetail.Builder, com.rankquantity.voyager.api.CharacterDetailOrBuilder> characterDetailBuilder_;
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      * @return Whether the characterDetail field is set.
      */
     public boolean hasCharacterDetail() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      * @return The characterDetail.
      */
     public com.rankquantity.voyager.api.CharacterDetail getCharacterDetail() {
@@ -608,7 +686,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public Builder setCharacterDetail(com.rankquantity.voyager.api.CharacterDetail value) {
       if (characterDetailBuilder_ == null) {
@@ -624,7 +706,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public Builder setCharacterDetail(
         com.rankquantity.voyager.api.CharacterDetail.Builder builderForValue) {
@@ -638,7 +724,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public Builder mergeCharacterDetail(com.rankquantity.voyager.api.CharacterDetail value) {
       if (characterDetailBuilder_ == null) {
@@ -659,7 +749,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public Builder clearCharacterDetail() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -672,7 +766,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.CharacterDetail.Builder getCharacterDetailBuilder() {
       bitField0_ |= 0x00000008;
@@ -680,7 +778,11 @@ private static final long serialVersionUID = 0L;
       return internalGetCharacterDetailFieldBuilder().getBuilder();
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.CharacterDetailOrBuilder getCharacterDetailOrBuilder() {
       if (characterDetailBuilder_ != null) {
@@ -691,7 +793,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail"];</code>
+     * <pre>
+     * &#47; 角色详细描述，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.CharacterDetail character_detail = 4 [json_name = "characterDetail", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.CharacterDetail, com.rankquantity.voyager.api.CharacterDetail.Builder, com.rankquantity.voyager.api.CharacterDetailOrBuilder> 

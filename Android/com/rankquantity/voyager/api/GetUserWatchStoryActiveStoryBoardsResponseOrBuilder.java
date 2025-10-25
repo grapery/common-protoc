@@ -11,22 +11,38 @@ public interface GetUserWatchStoryActiveStoryBoardsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,48 +50,84 @@ public interface GetUserWatchStoryActiveStoryBoardsResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 故事板列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.StoryBoardActive storyboards = 3 [json_name = "storyboards"];</code>
    */
   java.util.List<com.rankquantity.voyager.api.StoryBoardActive> 
       getStoryboardsList();
   /**
+   * <pre>
+   * &#47; 故事板列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.StoryBoardActive storyboards = 3 [json_name = "storyboards"];</code>
    */
   com.rankquantity.voyager.api.StoryBoardActive getStoryboards(int index);
   /**
+   * <pre>
+   * &#47; 故事板列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.StoryBoardActive storyboards = 3 [json_name = "storyboards"];</code>
    */
   int getStoryboardsCount();
   /**
+   * <pre>
+   * &#47; 故事板列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.StoryBoardActive storyboards = 3 [json_name = "storyboards"];</code>
    */
   java.util.List<? extends com.rankquantity.voyager.api.StoryBoardActiveOrBuilder> 
       getStoryboardsOrBuilderList();
   /**
+   * <pre>
+   * &#47; 故事板列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.StoryBoardActive storyboards = 3 [json_name = "storyboards"];</code>
    */
   com.rankquantity.voyager.api.StoryBoardActiveOrBuilder getStoryboardsOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * &#47; 总数量
+   * </pre>
+   *
    * <code>int64 total = 4 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 当前偏移量
+   * </pre>
+   *
    * <code>int64 offset = 5 [json_name = "offset"];</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
+   * <pre>
+   * &#47; 每页数量
+   * </pre>
+   *
    * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
    * @return The pageSize.
    */
   long getPageSize();
 
   /**
+   * <pre>
+   * &#47; 是否有更多数据
+   * </pre>
+   *
    * <code>bool have_more = 7 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */

@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 获取群组成员列表请求
+ * / 分页获取指定群组的所有成员
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.FetchGroupMembersRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int GROUP_ID_FIELD_NUMBER = 1;
   private long groupId_ = 0L;
   /**
-   * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; 群组ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 2;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 2 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -68,7 +81,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 3;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -259,6 +276,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 获取群组成员列表请求
+   * / 分页获取指定群组的所有成员
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.FetchGroupMembersRequest}
    */
   public static final class Builder extends
@@ -420,7 +442,11 @@ private static final long serialVersionUID = 0L;
 
     private long groupId_ ;
     /**
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return The groupId.
      */
     @java.lang.Override
@@ -428,7 +454,11 @@ private static final long serialVersionUID = 0L;
       return groupId_;
     }
     /**
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @param value The groupId to set.
      * @return This builder for chaining.
      */
@@ -440,7 +470,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGroupId() {
@@ -452,7 +486,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -460,7 +498,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -472,7 +514,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -484,7 +530,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -492,7 +542,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -504,7 +558,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 持续渲染故事角色响应
+ * / 返回渲染结果和是否需要继续渲染的标志
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleContinuouslyResponse}
  */
 @com.google.protobuf.Generated
@@ -49,6 +54,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -56,6 +65,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -68,6 +81,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
@@ -85,6 +102,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -106,6 +127,10 @@ private static final long serialVersionUID = 0L;
   public static final int DETAIL_FIELD_NUMBER = 3;
   private com.rankquantity.voyager.api.RenderStoryRoleDetail detail_;
   /**
+   * <pre>
+   * &#47; 渲染详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
    * @return Whether the detail field is set.
    */
@@ -114,6 +139,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 渲染详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
    * @return The detail.
    */
@@ -122,6 +151,10 @@ private static final long serialVersionUID = 0L;
     return detail_ == null ? com.rankquantity.voyager.api.RenderStoryRoleDetail.getDefaultInstance() : detail_;
   }
   /**
+   * <pre>
+   * &#47; 渲染详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
    */
   @java.lang.Override
@@ -132,6 +165,10 @@ private static final long serialVersionUID = 0L;
   public static final int HAVE_MORE_FIELD_NUMBER = 4;
   private boolean haveMore_ = false;
   /**
+   * <pre>
+   * &#47; 是否还有更多渲染步骤
+   * </pre>
+   *
    * <code>bool have_more = 4 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */
@@ -335,6 +372,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 持续渲染故事角色响应
+   * / 返回渲染结果和是否需要继续渲染的标志
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleContinuouslyResponse}
    */
   public static final class Builder extends
@@ -527,6 +569,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -534,6 +580,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -545,6 +595,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -554,6 +608,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -566,6 +624,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -578,6 +640,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
@@ -594,6 +660,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -611,6 +681,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -624,6 +698,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -634,6 +712,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
@@ -652,6 +734,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.RenderStoryRoleDetail, com.rankquantity.voyager.api.RenderStoryRoleDetail.Builder, com.rankquantity.voyager.api.RenderStoryRoleDetailOrBuilder> detailBuilder_;
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      * @return Whether the detail field is set.
      */
@@ -659,6 +745,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      * @return The detail.
      */
@@ -670,6 +760,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public Builder setDetail(com.rankquantity.voyager.api.RenderStoryRoleDetail value) {
@@ -686,6 +780,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public Builder setDetail(
@@ -700,6 +798,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public Builder mergeDetail(com.rankquantity.voyager.api.RenderStoryRoleDetail value) {
@@ -721,6 +823,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public Builder clearDetail() {
@@ -734,6 +840,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public com.rankquantity.voyager.api.RenderStoryRoleDetail.Builder getDetailBuilder() {
@@ -742,6 +852,10 @@ private static final long serialVersionUID = 0L;
       return internalGetDetailFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     public com.rankquantity.voyager.api.RenderStoryRoleDetailOrBuilder getDetailOrBuilder() {
@@ -753,6 +867,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 渲染详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.RenderStoryRoleDetail detail = 3 [json_name = "detail"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -771,6 +889,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean haveMore_ ;
     /**
+     * <pre>
+     * &#47; 是否还有更多渲染步骤
+     * </pre>
+     *
      * <code>bool have_more = 4 [json_name = "haveMore"];</code>
      * @return The haveMore.
      */
@@ -779,6 +901,10 @@ private static final long serialVersionUID = 0L;
       return haveMore_;
     }
     /**
+     * <pre>
+     * &#47; 是否还有更多渲染步骤
+     * </pre>
+     *
      * <code>bool have_more = 4 [json_name = "haveMore"];</code>
      * @param value The haveMore to set.
      * @return This builder for chaining.
@@ -791,6 +917,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否还有更多渲染步骤
+     * </pre>
+     *
      * <code>bool have_more = 4 [json_name = "haveMore"];</code>
      * @return This builder for chaining.
      */

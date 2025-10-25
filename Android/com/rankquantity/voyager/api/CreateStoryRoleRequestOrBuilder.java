@@ -11,23 +11,39 @@ public interface CreateStoryRoleRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 创建者用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return Whether the role field is set.
    */
   boolean hasRole();
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return The role.
    */
   com.rankquantity.voyager.api.StoryRole getRole();
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    */
   com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder();
 }

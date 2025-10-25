@@ -11,42 +11,70 @@ public interface RenderStoryRoleRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>string prompt = 2 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 2 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
-   * <code>string prompt = 2 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 2 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The bytes for prompt.
    */
   com.google.protobuf.ByteString
       getPromptBytes();
 
   /**
-   * <code>repeated string ref_images = 3 [json_name = "refImages"];</code>
+   * <pre>
+   * &#47; 参考图片URL列表，最多10张
+   * </pre>
+   *
+   * <code>repeated string ref_images = 3 [json_name = "refImages", (.validate.rules) = { ... }</code>
    * @return A list containing the refImages.
    */
   java.util.List<java.lang.String>
       getRefImagesList();
   /**
-   * <code>repeated string ref_images = 3 [json_name = "refImages"];</code>
+   * <pre>
+   * &#47; 参考图片URL列表，最多10张
+   * </pre>
+   *
+   * <code>repeated string ref_images = 3 [json_name = "refImages", (.validate.rules) = { ... }</code>
    * @return The count of refImages.
    */
   int getRefImagesCount();
   /**
-   * <code>repeated string ref_images = 3 [json_name = "refImages"];</code>
+   * <pre>
+   * &#47; 参考图片URL列表，最多10张
+   * </pre>
+   *
+   * <code>repeated string ref_images = 3 [json_name = "refImages", (.validate.rules) = { ... }</code>
    * @param index The index of the element to return.
    * @return The refImages at the given index.
    */
   java.lang.String getRefImages(int index);
   /**
-   * <code>repeated string ref_images = 3 [json_name = "refImages"];</code>
+   * <pre>
+   * &#47; 参考图片URL列表，最多10张
+   * </pre>
+   *
+   * <code>repeated string ref_images = 3 [json_name = "refImages", (.validate.rules) = { ... }</code>
    * @param index The index of the value to return.
    * @return The bytes of the refImages at the given index.
    */
@@ -54,7 +82,11 @@ public interface RenderStoryRoleRequestOrBuilder extends
       getRefImagesBytes(int index);
 
   /**
-   * <code>int64 user_id = 4 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 4 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();

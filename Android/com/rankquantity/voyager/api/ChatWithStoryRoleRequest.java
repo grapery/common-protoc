@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 与故事角色聊天请求
+ * / 发送消息并获取角色的回复
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.ChatWithStoryRoleRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,14 +83,22 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private java.util.List<com.rankquantity.voyager.api.ChatMessage> messages_;
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public java.util.List<com.rankquantity.voyager.api.ChatMessage> getMessagesList() {
     return messages_;
   }
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.rankquantity.voyager.api.ChatMessageOrBuilder> 
@@ -85,21 +106,33 @@ private static final long serialVersionUID = 0L;
     return messages_;
   }
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public int getMessagesCount() {
     return messages_.size();
   }
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.rankquantity.voyager.api.ChatMessage getMessages(int index) {
     return messages_.get(index);
   }
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.rankquantity.voyager.api.ChatMessageOrBuilder getMessagesOrBuilder(
@@ -110,6 +143,10 @@ private static final long serialVersionUID = 0L;
   public static final int TOTAL_FIELD_NUMBER = 4;
   private long total_ = 0L;
   /**
+   * <pre>
+   * &#47; 总消息数
+   * </pre>
+   *
    * <code>int64 total = 4 [json_name = "total"];</code>
    * @return The total.
    */
@@ -121,6 +158,10 @@ private static final long serialVersionUID = 0L;
   public static final int HAVE_MORE_FIELD_NUMBER = 5;
   private boolean haveMore_ = false;
   /**
+   * <pre>
+   * &#47; 是否还有更多历史消息
+   * </pre>
+   *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */
@@ -337,6 +378,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 与故事角色聊天请求
+   * / 发送消息并获取角色的回复
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.ChatWithStoryRoleRequest}
    */
   public static final class Builder extends
@@ -569,7 +615,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -577,7 +627,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -589,7 +643,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -601,7 +659,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -609,7 +671,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -621,7 +687,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -644,7 +714,11 @@ private static final long serialVersionUID = 0L;
         com.rankquantity.voyager.api.ChatMessage, com.rankquantity.voyager.api.ChatMessage.Builder, com.rankquantity.voyager.api.ChatMessageOrBuilder> messagesBuilder_;
 
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public java.util.List<com.rankquantity.voyager.api.ChatMessage> getMessagesList() {
       if (messagesBuilder_ == null) {
@@ -654,7 +728,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public int getMessagesCount() {
       if (messagesBuilder_ == null) {
@@ -664,7 +742,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.ChatMessage getMessages(int index) {
       if (messagesBuilder_ == null) {
@@ -674,7 +756,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder setMessages(
         int index, com.rankquantity.voyager.api.ChatMessage value) {
@@ -691,7 +777,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder setMessages(
         int index, com.rankquantity.voyager.api.ChatMessage.Builder builderForValue) {
@@ -705,7 +795,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder addMessages(com.rankquantity.voyager.api.ChatMessage value) {
       if (messagesBuilder_ == null) {
@@ -721,7 +815,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder addMessages(
         int index, com.rankquantity.voyager.api.ChatMessage value) {
@@ -738,7 +836,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder addMessages(
         com.rankquantity.voyager.api.ChatMessage.Builder builderForValue) {
@@ -752,7 +854,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder addMessages(
         int index, com.rankquantity.voyager.api.ChatMessage.Builder builderForValue) {
@@ -766,7 +872,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder addAllMessages(
         java.lang.Iterable<? extends com.rankquantity.voyager.api.ChatMessage> values) {
@@ -781,7 +891,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder clearMessages() {
       if (messagesBuilder_ == null) {
@@ -794,7 +908,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public Builder removeMessages(int index) {
       if (messagesBuilder_ == null) {
@@ -807,14 +925,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.ChatMessage.Builder getMessagesBuilder(
         int index) {
       return internalGetMessagesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.ChatMessageOrBuilder getMessagesOrBuilder(
         int index) {
@@ -824,7 +950,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public java.util.List<? extends com.rankquantity.voyager.api.ChatMessageOrBuilder> 
          getMessagesOrBuilderList() {
@@ -835,14 +965,22 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.ChatMessage.Builder addMessagesBuilder() {
       return internalGetMessagesFieldBuilder().addBuilder(
           com.rankquantity.voyager.api.ChatMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.ChatMessage.Builder addMessagesBuilder(
         int index) {
@@ -850,7 +988,11 @@ private static final long serialVersionUID = 0L;
           index, com.rankquantity.voyager.api.ChatMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+     * <pre>
+     * &#47; 历史消息列表，最多包含最近50条消息
+     * </pre>
+     *
+     * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
      */
     public java.util.List<com.rankquantity.voyager.api.ChatMessage.Builder> 
          getMessagesBuilderList() {
@@ -873,6 +1015,10 @@ private static final long serialVersionUID = 0L;
 
     private long total_ ;
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total = 4 [json_name = "total"];</code>
      * @return The total.
      */
@@ -881,6 +1027,10 @@ private static final long serialVersionUID = 0L;
       return total_;
     }
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total = 4 [json_name = "total"];</code>
      * @param value The total to set.
      * @return This builder for chaining.
@@ -893,6 +1043,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 总消息数
+     * </pre>
+     *
      * <code>int64 total = 4 [json_name = "total"];</code>
      * @return This builder for chaining.
      */
@@ -905,6 +1059,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean haveMore_ ;
     /**
+     * <pre>
+     * &#47; 是否还有更多历史消息
+     * </pre>
+     *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
      * @return The haveMore.
      */
@@ -913,6 +1071,10 @@ private static final long serialVersionUID = 0L;
       return haveMore_;
     }
     /**
+     * <pre>
+     * &#47; 是否还有更多历史消息
+     * </pre>
+     *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
      * @param value The haveMore to set.
      * @return This builder for chaining.
@@ -925,6 +1087,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否还有更多历史消息
+     * </pre>
+     *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
      * @return This builder for chaining.
      */

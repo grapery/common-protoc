@@ -12,40 +12,54 @@ public interface GroupActiveHeamapRequestOrBuilder extends
 
   /**
    * <pre>
-   * 群组ID
+   * &#47; [必填] 群组ID
+   * / 
+   * / 要查询活跃度的群组唯一标识
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 group_id = 1 [json_name = "groupId"];</code>
+   * <code>int64 group_id = 1 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   long getGroupId();
 
   /**
    * <pre>
-   * 请求用户ID（用于权限验证）
+   * &#47; [必填] 请求用户ID
+   * / 
+   * / 发起请求的用户ID，用于权限验证
+   * / 验证规则：必须大于 0
+   * / 用途：确认用户有权查看该群组的活跃数据
    * </pre>
    *
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 开始时间戳（秒）
+   * &#47; [必填] 开始时间
+   * / 
+   * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 start_time = 3 [json_name = "startTime"];</code>
+   * <code>int64 start_time = 3 [json_name = "startTime", (.validate.rules) = { ... }</code>
    * @return The startTime.
    */
   long getStartTime();
 
   /**
    * <pre>
-   * 结束时间戳（秒）
+   * &#47; [必填] 结束时间
+   * / 
+   * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0，且应大于 start_time
+   * / 建议范围：不超过1年
    * </pre>
    *
-   * <code>int64 end_time = 4 [json_name = "endTime"];</code>
+   * <code>int64 end_time = 4 [json_name = "endTime", (.validate.rules) = { ... }</code>
    * @return The endTime.
    */
   long getEndTime();

@@ -11,24 +11,40 @@ public interface UpdateRoleDescriptionRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>string description = 3 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 新的描述内容，最大长度2000字符
+   * </pre>
+   *
+   * <code>string description = 3 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 3 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 新的描述内容，最大长度2000字符
+   * </pre>
+   *
+   * <code>string description = 3 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString

@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新用户资料请求
+ * / 更新用户的个人资料信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateUserProfileRequest}
  */
 @com.google.protobuf.Generated
@@ -52,7 +57,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -64,6 +73,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object backgroundImage_ = "";
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
@@ -81,6 +94,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */
@@ -103,6 +120,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avatar_ = "";
   /**
+   * <pre>
+   * &#47; 头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The avatar.
    */
@@ -120,6 +141,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The bytes for avatar.
    */
@@ -142,7 +167,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
   /**
-   * <code>string name = 4 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 用户昵称，最大长度50字符
+   * </pre>
+   *
+   * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The name.
    */
   @java.lang.Override
@@ -159,7 +188,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 4 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 用户昵称，最大长度50字符
+   * </pre>
+   *
+   * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -181,7 +214,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object description_ = "";
   /**
-   * <code>string description = 5 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 个人描述，最大长度500字符
+   * </pre>
+   *
+   * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The description.
    */
   @java.lang.Override
@@ -198,7 +235,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string description = 5 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 个人描述，最大长度500字符
+   * </pre>
+   *
+   * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -220,7 +261,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object location_ = "";
   /**
-   * <code>string location = 6 [json_name = "location"];</code>
+   * <pre>
+   * &#47; 所在地，最大长度100字符
+   * </pre>
+   *
+   * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
    * @return The location.
    */
   @java.lang.Override
@@ -237,7 +282,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string location = 6 [json_name = "location"];</code>
+   * <pre>
+   * &#47; 所在地，最大长度100字符
+   * </pre>
+   *
+   * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
    * @return The bytes for location.
    */
   @java.lang.Override
@@ -259,7 +308,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object email_ = "";
   /**
-   * <code>string email = 7 [json_name = "email"];</code>
+   * <pre>
+   * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+   * </pre>
+   *
+   * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
    * @return The email.
    */
   @java.lang.Override
@@ -276,7 +329,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string email = 7 [json_name = "email"];</code>
+   * <pre>
+   * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+   * </pre>
+   *
+   * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -513,6 +570,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新用户资料请求
+   * / 更新用户的个人资料信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateUserProfileRequest}
    */
   public static final class Builder extends
@@ -734,7 +796,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -742,7 +808,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -754,7 +824,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -766,6 +840,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object backgroundImage_ = "";
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
      * @return The backgroundImage.
      */
@@ -782,6 +860,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
      * @return The bytes for backgroundImage.
      */
@@ -799,6 +881,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
      * @param value The backgroundImage to set.
      * @return This builder for chaining.
@@ -812,6 +898,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
      * @return This builder for chaining.
      */
@@ -822,6 +912,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 2 [json_name = "backgroundImage"];</code>
      * @param value The bytes for backgroundImage to set.
      * @return This builder for chaining.
@@ -838,6 +932,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avatar_ = "";
     /**
+     * <pre>
+     * &#47; 头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return The avatar.
      */
@@ -854,6 +952,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return The bytes for avatar.
      */
@@ -871,6 +973,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @param value The avatar to set.
      * @return This builder for chaining.
@@ -884,6 +990,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return This builder for chaining.
      */
@@ -894,6 +1004,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @param value The bytes for avatar to set.
      * @return This builder for chaining.
@@ -910,7 +1024,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 4 [json_name = "name"];</code>
+     * <pre>
+     * &#47; 用户昵称，最大长度50字符
+     * </pre>
+     *
+     * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -926,7 +1044,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 4 [json_name = "name"];</code>
+     * <pre>
+     * &#47; 用户昵称，最大长度50字符
+     * </pre>
+     *
+     * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -943,7 +1065,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 4 [json_name = "name"];</code>
+     * <pre>
+     * &#47; 用户昵称，最大长度50字符
+     * </pre>
+     *
+     * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -956,7 +1082,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4 [json_name = "name"];</code>
+     * <pre>
+     * &#47; 用户昵称，最大长度50字符
+     * </pre>
+     *
+     * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -966,7 +1096,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 4 [json_name = "name"];</code>
+     * <pre>
+     * &#47; 用户昵称，最大长度50字符
+     * </pre>
+     *
+     * <code>string name = 4 [json_name = "name", (.validate.rules) = { ... }</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -982,7 +1116,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object description_ = "";
     /**
-     * <code>string description = 5 [json_name = "description"];</code>
+     * <pre>
+     * &#47; 个人描述，最大长度500字符
+     * </pre>
+     *
+     * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -998,7 +1136,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 5 [json_name = "description"];</code>
+     * <pre>
+     * &#47; 个人描述，最大长度500字符
+     * </pre>
+     *
+     * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -1015,7 +1157,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 5 [json_name = "description"];</code>
+     * <pre>
+     * &#47; 个人描述，最大长度500字符
+     * </pre>
+     *
+     * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -1028,7 +1174,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 5 [json_name = "description"];</code>
+     * <pre>
+     * &#47; 个人描述，最大长度500字符
+     * </pre>
+     *
+     * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
@@ -1038,7 +1188,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 5 [json_name = "description"];</code>
+     * <pre>
+     * &#47; 个人描述，最大长度500字符
+     * </pre>
+     *
+     * <code>string description = 5 [json_name = "description", (.validate.rules) = { ... }</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
@@ -1054,7 +1208,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object location_ = "";
     /**
-     * <code>string location = 6 [json_name = "location"];</code>
+     * <pre>
+     * &#47; 所在地，最大长度100字符
+     * </pre>
+     *
+     * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
      * @return The location.
      */
     public java.lang.String getLocation() {
@@ -1070,7 +1228,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string location = 6 [json_name = "location"];</code>
+     * <pre>
+     * &#47; 所在地，最大长度100字符
+     * </pre>
+     *
+     * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
      * @return The bytes for location.
      */
     public com.google.protobuf.ByteString
@@ -1087,7 +1249,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string location = 6 [json_name = "location"];</code>
+     * <pre>
+     * &#47; 所在地，最大长度100字符
+     * </pre>
+     *
+     * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
      * @param value The location to set.
      * @return This builder for chaining.
      */
@@ -1100,7 +1266,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string location = 6 [json_name = "location"];</code>
+     * <pre>
+     * &#47; 所在地，最大长度100字符
+     * </pre>
+     *
+     * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
@@ -1110,7 +1280,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string location = 6 [json_name = "location"];</code>
+     * <pre>
+     * &#47; 所在地，最大长度100字符
+     * </pre>
+     *
+     * <code>string location = 6 [json_name = "location", (.validate.rules) = { ... }</code>
      * @param value The bytes for location to set.
      * @return This builder for chaining.
      */
@@ -1126,7 +1300,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object email_ = "";
     /**
-     * <code>string email = 7 [json_name = "email"];</code>
+     * <pre>
+     * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+     * </pre>
+     *
+     * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -1142,7 +1320,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 7 [json_name = "email"];</code>
+     * <pre>
+     * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+     * </pre>
+     *
+     * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -1159,7 +1341,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 7 [json_name = "email"];</code>
+     * <pre>
+     * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+     * </pre>
+     *
+     * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -1172,7 +1358,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 7 [json_name = "email"];</code>
+     * <pre>
+     * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+     * </pre>
+     *
+     * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -1182,7 +1372,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 7 [json_name = "email"];</code>
+     * <pre>
+     * &#47; 邮箱地址，如果提供则必须符合邮箱格式
+     * </pre>
+     *
+     * <code>string email = 7 [json_name = "email", (.validate.rules) = { ... }</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */

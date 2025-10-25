@@ -11,48 +11,84 @@ public interface ChatWithStoryRoleRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   java.util.List<com.rankquantity.voyager.api.ChatMessage> 
       getMessagesList();
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   com.rankquantity.voyager.api.ChatMessage getMessages(int index);
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   int getMessagesCount();
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   java.util.List<? extends com.rankquantity.voyager.api.ChatMessageOrBuilder> 
       getMessagesOrBuilderList();
   /**
-   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
+   * <pre>
+   * &#47; 历史消息列表，最多包含最近50条消息
+   * </pre>
+   *
+   * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages", (.validate.rules) = { ... }</code>
    */
   com.rankquantity.voyager.api.ChatMessageOrBuilder getMessagesOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * &#47; 总消息数
+   * </pre>
+   *
    * <code>int64 total = 4 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 是否还有更多历史消息
+   * </pre>
+   *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */

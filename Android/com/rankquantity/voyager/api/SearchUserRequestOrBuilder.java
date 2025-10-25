@@ -11,37 +11,86 @@ public interface SearchUserRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 搜索关键词
+   * / 
+   * / 用户名或昵称的搜索关键词
+   * / 长度限制：1-100 字符
+   * / 支持：中文、英文、数字
+   * </pre>
+   *
+   * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 搜索关键词
+   * / 
+   * / 用户名或昵称的搜索关键词
+   * / 长度限制：1-100 字符
+   * / 支持：中文、英文、数字
+   * </pre>
+   *
+   * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; [可选] 群组ID
+   * / 
+   * / 限定在特定群组内搜索用户
+   * / 验证规则：如果提供则必须大于等于 0
+   * / 默认值：0（全局搜索）
+   * </pre>
+   *
+   * <code>int64 group_id = 2 [json_name = "groupId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   long getGroupId();
 
   /**
-   * <code>bool is_fuzzy = 3 [json_name = "isFuzzy"];</code>
+   * <pre>
+   * &#47; [可选] 模糊搜索标志
+   * / 
+   * / 搜索模式选择
+   * / 取值说明：
+   * / - true: 模糊搜索（包含关键词即可）
+   * / - false: 精确匹配（完全相同）
+   * / 默认值：true
+   * </pre>
+   *
+   * <code>bool is_fuzzy = 3 [json_name = "isFuzzy", (.google.api.field_behavior) = OPTIONAL];</code>
    * @return The isFuzzy.
    */
   boolean getIsFuzzy();
 
   /**
-   * <code>int64 offset = 7 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; [必填] 偏移量
+   * / 
+   * / 分页查询的起始位置
+   * / 验证规则：必须大于等于 0
+   * </pre>
+   *
+   * <code>int64 offset = 7 [json_name = "offset", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; [必填] 每页数量
+   * / 
+   * / 单页返回的最大记录数
+   * / 验证规则：1-100
+   * / 建议值：20
+   * </pre>
+   *
+   * <code>int64 page_size = 8 [json_name = "pageSize", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

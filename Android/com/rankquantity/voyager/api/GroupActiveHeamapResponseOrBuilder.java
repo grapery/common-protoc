@@ -12,7 +12,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -21,7 +21,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
   int getCodeValue();
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -31,7 +31,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -40,7 +40,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
   java.lang.String getMessage();
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -51,7 +51,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
 
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -60,7 +60,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
       getDataList();
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -68,7 +68,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
   com.rankquantity.voyager.api.HeatmapDataItem getData(int index);
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -76,7 +76,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
   int getDataCount();
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -85,7 +85,7 @@ public interface GroupActiveHeamapResponseOrBuilder extends
       getDataOrBuilderList();
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -95,20 +95,20 @@ public interface GroupActiveHeamapResponseOrBuilder extends
 
   /**
    * <pre>
-   * 总活跃次数
+   * &#47; 总活跃次数统计
    * </pre>
    *
-   * <code>int64 total_count = 4 [json_name = "totalCount"];</code>
+   * <code>int64 total_count = 4 [json_name = "totalCount", (.validate.rules) = { ... }</code>
    * @return The totalCount.
    */
   long getTotalCount();
 
   /**
    * <pre>
-   * 活跃成员数量
+   * &#47; 参与活跃的成员数量
    * </pre>
    *
-   * <code>int64 member_count = 5 [json_name = "memberCount"];</code>
+   * <code>int64 member_count = 5 [json_name = "memberCount", (.validate.rules) = { ... }</code>
    * @return The memberCount.
    */
   long getMemberCount();

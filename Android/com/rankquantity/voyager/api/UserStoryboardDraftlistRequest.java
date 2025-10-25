@@ -7,7 +7,9 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 用户故事板草稿列表请求
+ * ==================== 用户故事板草稿列表 ====================
+ * / 用户故事板草稿列表请求
+ * / 分页获取指定用户的故事板草稿列表，支持按故事ID筛选
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UserStoryboardDraftlistRequest}
@@ -51,10 +53,10 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -66,10 +68,10 @@ private static final long serialVersionUID = 0L;
   private long offset_ = 0L;
   /**
    * <pre>
-   * 偏移量
+   * &#47; 偏移量，用于分页，必须大于等于0
    * </pre>
    *
-   * <code>int64 offset = 2 [json_name = "offset"];</code>
+   * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -81,10 +83,10 @@ private static final long serialVersionUID = 0L;
   private long pageSize_ = 0L;
   /**
    * <pre>
-   * 每页数量
+   * &#47; 每页数量，范围1-100
    * </pre>
    *
-   * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+   * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -96,10 +98,10 @@ private static final long serialVersionUID = 0L;
   private long storyId_ = 0L;
   /**
    * <pre>
-   * 故事ID（可选，用于筛选特定故事的草稿）
+   * &#47; 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
    * </pre>
    *
-   * <code>int64 story_id = 4 [json_name = "storyId"];</code>
+   * <code>int64 story_id = 4 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -303,7 +305,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 用户故事板草稿列表请求
+   * ==================== 用户故事板草稿列表 ====================
+   * / 用户故事板草稿列表请求
+   * / 分页获取指定用户的故事板草稿列表，支持按故事ID筛选
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UserStoryboardDraftlistRequest}
@@ -480,10 +484,10 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -492,10 +496,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -508,10 +512,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -524,10 +528,10 @@ private static final long serialVersionUID = 0L;
     private long offset_ ;
     /**
      * <pre>
-     * 偏移量
+     * &#47; 偏移量，用于分页，必须大于等于0
      * </pre>
      *
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -536,10 +540,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 偏移量
+     * &#47; 偏移量，用于分页，必须大于等于0
      * </pre>
      *
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -552,10 +556,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 偏移量
+     * &#47; 偏移量，用于分页，必须大于等于0
      * </pre>
      *
-     * <code>int64 offset = 2 [json_name = "offset"];</code>
+     * <code>int64 offset = 2 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -568,10 +572,10 @@ private static final long serialVersionUID = 0L;
     private long pageSize_ ;
     /**
      * <pre>
-     * 每页数量
+     * &#47; 每页数量，范围1-100
      * </pre>
      *
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -580,10 +584,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 每页数量
+     * &#47; 每页数量，范围1-100
      * </pre>
      *
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -596,10 +600,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 每页数量
+     * &#47; 每页数量，范围1-100
      * </pre>
      *
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
@@ -612,10 +616,10 @@ private static final long serialVersionUID = 0L;
     private long storyId_ ;
     /**
      * <pre>
-     * 故事ID（可选，用于筛选特定故事的草稿）
+     * &#47; 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
      * </pre>
      *
-     * <code>int64 story_id = 4 [json_name = "storyId"];</code>
+     * <code>int64 story_id = 4 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -624,10 +628,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事ID（可选，用于筛选特定故事的草稿）
+     * &#47; 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
      * </pre>
      *
-     * <code>int64 story_id = 4 [json_name = "storyId"];</code>
+     * <code>int64 story_id = 4 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -640,10 +644,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 故事ID（可选，用于筛选特定故事的草稿）
+     * &#47; 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
      * </pre>
      *
-     * <code>int64 story_id = 4 [json_name = "storyId"];</code>
+     * <code>int64 story_id = 4 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {

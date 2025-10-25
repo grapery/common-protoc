@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 热门故事角色请求
+ * / 获取指定时间范围内的热门角色列表
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.TrendingStoryRoleRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int START_FIELD_NUMBER = 1;
   private long start_ = 0L;
   /**
-   * <code>int64 start = 1 [json_name = "start"];</code>
+   * <pre>
+   * &#47; 开始时间戳（秒），必须大于0
+   * </pre>
+   *
+   * <code>int64 start = 1 [json_name = "start", (.validate.rules) = { ... }</code>
    * @return The start.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int END_FIELD_NUMBER = 2;
   private long end_ = 0L;
   /**
-   * <code>int64 end = 2 [json_name = "end"];</code>
+   * <pre>
+   * &#47; 结束时间戳（秒），必须大于开始时间
+   * </pre>
+   *
+   * <code>int64 end = 2 [json_name = "end", (.validate.rules) = { ... }</code>
    * @return The end.
    */
   @java.lang.Override
@@ -68,7 +81,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 3;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -79,7 +96,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_NUMBER_FIELD_NUMBER = 4;
   private long pageNumber_ = 0L;
   /**
-   * <code>int64 page_number = 4 [json_name = "pageNumber"];</code>
+   * <pre>
+   * &#47; 页码，从1开始
+   * </pre>
+   *
+   * <code>int64 page_number = 4 [json_name = "pageNumber", (.validate.rules) = { ... }</code>
    * @return The pageNumber.
    */
   @java.lang.Override
@@ -282,6 +303,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 热门故事角色请求
+   * / 获取指定时间范围内的热门角色列表
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.TrendingStoryRoleRequest}
    */
   public static final class Builder extends
@@ -455,7 +481,11 @@ private static final long serialVersionUID = 0L;
 
     private long start_ ;
     /**
-     * <code>int64 start = 1 [json_name = "start"];</code>
+     * <pre>
+     * &#47; 开始时间戳（秒），必须大于0
+     * </pre>
+     *
+     * <code>int64 start = 1 [json_name = "start", (.validate.rules) = { ... }</code>
      * @return The start.
      */
     @java.lang.Override
@@ -463,7 +493,11 @@ private static final long serialVersionUID = 0L;
       return start_;
     }
     /**
-     * <code>int64 start = 1 [json_name = "start"];</code>
+     * <pre>
+     * &#47; 开始时间戳（秒），必须大于0
+     * </pre>
+     *
+     * <code>int64 start = 1 [json_name = "start", (.validate.rules) = { ... }</code>
      * @param value The start to set.
      * @return This builder for chaining.
      */
@@ -475,7 +509,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 start = 1 [json_name = "start"];</code>
+     * <pre>
+     * &#47; 开始时间戳（秒），必须大于0
+     * </pre>
+     *
+     * <code>int64 start = 1 [json_name = "start", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStart() {
@@ -487,7 +525,11 @@ private static final long serialVersionUID = 0L;
 
     private long end_ ;
     /**
-     * <code>int64 end = 2 [json_name = "end"];</code>
+     * <pre>
+     * &#47; 结束时间戳（秒），必须大于开始时间
+     * </pre>
+     *
+     * <code>int64 end = 2 [json_name = "end", (.validate.rules) = { ... }</code>
      * @return The end.
      */
     @java.lang.Override
@@ -495,7 +537,11 @@ private static final long serialVersionUID = 0L;
       return end_;
     }
     /**
-     * <code>int64 end = 2 [json_name = "end"];</code>
+     * <pre>
+     * &#47; 结束时间戳（秒），必须大于开始时间
+     * </pre>
+     *
+     * <code>int64 end = 2 [json_name = "end", (.validate.rules) = { ... }</code>
      * @param value The end to set.
      * @return This builder for chaining.
      */
@@ -507,7 +553,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 end = 2 [json_name = "end"];</code>
+     * <pre>
+     * &#47; 结束时间戳（秒），必须大于开始时间
+     * </pre>
+     *
+     * <code>int64 end = 2 [json_name = "end", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearEnd() {
@@ -519,7 +569,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -527,7 +581,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -539,7 +597,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
@@ -551,7 +613,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageNumber_ ;
     /**
-     * <code>int64 page_number = 4 [json_name = "pageNumber"];</code>
+     * <pre>
+     * &#47; 页码，从1开始
+     * </pre>
+     *
+     * <code>int64 page_number = 4 [json_name = "pageNumber", (.validate.rules) = { ... }</code>
      * @return The pageNumber.
      */
     @java.lang.Override
@@ -559,7 +625,11 @@ private static final long serialVersionUID = 0L;
       return pageNumber_;
     }
     /**
-     * <code>int64 page_number = 4 [json_name = "pageNumber"];</code>
+     * <pre>
+     * &#47; 页码，从1开始
+     * </pre>
+     *
+     * <code>int64 page_number = 4 [json_name = "pageNumber", (.validate.rules) = { ... }</code>
      * @param value The pageNumber to set.
      * @return This builder for chaining.
      */
@@ -571,7 +641,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_number = 4 [json_name = "pageNumber"];</code>
+     * <pre>
+     * &#47; 页码，从1开始
+     * </pre>
+     *
+     * <code>int64 page_number = 4 [json_name = "pageNumber", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageNumber() {

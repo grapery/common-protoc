@@ -11,53 +11,89 @@ public interface GetNextStoryboardRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+   * <pre>
+   * &#47; 当前故事板ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
    * @return The storyboardId.
    */
   long getStoryboardId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
+   * <pre>
+   * &#47; 是否多分支模式
+   * </pre>
+   *
    * <code>bool is_multi_branch = 4 [json_name = "isMultiBranch"];</code>
    * @return The isMultiBranch.
    */
   boolean getIsMultiBranch();
 
   /**
-   * <code>int64 offset = 5 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();
 
   /**
+   * <pre>
+   * &#47; 总数量
+   * </pre>
+   *
    * <code>int64 total = 7 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 多分支排序方式
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.MultiBranchOrderBy order_by = 8 [json_name = "orderBy"];</code>
    * @return The enum numeric value on the wire for orderBy.
    */
   int getOrderByValue();
   /**
+   * <pre>
+   * &#47; 多分支排序方式
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.MultiBranchOrderBy order_by = 8 [json_name = "orderBy"];</code>
    * @return The orderBy.
    */

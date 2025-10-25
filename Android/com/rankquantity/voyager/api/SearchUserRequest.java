@@ -6,6 +6,12 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 搜索用户请求
+ * / 
+ * / 根据名称搜索用户，支持模糊搜索和精确搜索，可在群组范围内搜索
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.SearchUserRequest}
  */
 @com.google.protobuf.Generated
@@ -48,7 +54,15 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 搜索关键词
+   * / 
+   * / 用户名或昵称的搜索关键词
+   * / 长度限制：1-100 字符
+   * / 支持：中文、英文、数字
+   * </pre>
+   *
+   * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The name.
    */
   @java.lang.Override
@@ -65,7 +79,15 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <pre>
+   * &#47; [必填] 搜索关键词
+   * / 
+   * / 用户名或昵称的搜索关键词
+   * / 长度限制：1-100 字符
+   * / 支持：中文、英文、数字
+   * </pre>
+   *
+   * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -86,7 +108,15 @@ private static final long serialVersionUID = 0L;
   public static final int GROUP_ID_FIELD_NUMBER = 2;
   private long groupId_ = 0L;
   /**
-   * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; [可选] 群组ID
+   * / 
+   * / 限定在特定群组内搜索用户
+   * / 验证规则：如果提供则必须大于等于 0
+   * / 默认值：0（全局搜索）
+   * </pre>
+   *
+   * <code>int64 group_id = 2 [json_name = "groupId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   @java.lang.Override
@@ -97,7 +127,17 @@ private static final long serialVersionUID = 0L;
   public static final int IS_FUZZY_FIELD_NUMBER = 3;
   private boolean isFuzzy_ = false;
   /**
-   * <code>bool is_fuzzy = 3 [json_name = "isFuzzy"];</code>
+   * <pre>
+   * &#47; [可选] 模糊搜索标志
+   * / 
+   * / 搜索模式选择
+   * / 取值说明：
+   * / - true: 模糊搜索（包含关键词即可）
+   * / - false: 精确匹配（完全相同）
+   * / 默认值：true
+   * </pre>
+   *
+   * <code>bool is_fuzzy = 3 [json_name = "isFuzzy", (.google.api.field_behavior) = OPTIONAL];</code>
    * @return The isFuzzy.
    */
   @java.lang.Override
@@ -108,7 +148,14 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 7;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 7 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; [必填] 偏移量
+   * / 
+   * / 分页查询的起始位置
+   * / 验证规则：必须大于等于 0
+   * </pre>
+   *
+   * <code>int64 offset = 7 [json_name = "offset", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -119,7 +166,15 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 8;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; [必填] 每页数量
+   * / 
+   * / 单页返回的最大记录数
+   * / 验证规则：1-100
+   * / 建议值：20
+   * </pre>
+   *
+   * <code>int64 page_size = 8 [json_name = "pageSize", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -332,6 +387,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 搜索用户请求
+   * / 
+   * / 根据名称搜索用户，支持模糊搜索和精确搜索，可在群组范围内搜索
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.SearchUserRequest}
    */
   public static final class Builder extends
@@ -519,7 +580,15 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <pre>
+     * &#47; [必填] 搜索关键词
+     * / 
+     * / 用户名或昵称的搜索关键词
+     * / 长度限制：1-100 字符
+     * / 支持：中文、英文、数字
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -535,7 +604,15 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <pre>
+     * &#47; [必填] 搜索关键词
+     * / 
+     * / 用户名或昵称的搜索关键词
+     * / 长度限制：1-100 字符
+     * / 支持：中文、英文、数字
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -552,7 +629,15 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <pre>
+     * &#47; [必填] 搜索关键词
+     * / 
+     * / 用户名或昵称的搜索关键词
+     * / 长度限制：1-100 字符
+     * / 支持：中文、英文、数字
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -565,7 +650,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <pre>
+     * &#47; [必填] 搜索关键词
+     * / 
+     * / 用户名或昵称的搜索关键词
+     * / 长度限制：1-100 字符
+     * / 支持：中文、英文、数字
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -575,7 +668,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [json_name = "name"];</code>
+     * <pre>
+     * &#47; [必填] 搜索关键词
+     * / 
+     * / 用户名或昵称的搜索关键词
+     * / 长度限制：1-100 字符
+     * / 支持：中文、英文、数字
+     * </pre>
+     *
+     * <code>string name = 1 [json_name = "name", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -591,7 +692,15 @@ private static final long serialVersionUID = 0L;
 
     private long groupId_ ;
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; [可选] 群组ID
+     * / 
+     * / 限定在特定群组内搜索用户
+     * / 验证规则：如果提供则必须大于等于 0
+     * / 默认值：0（全局搜索）
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
      * @return The groupId.
      */
     @java.lang.Override
@@ -599,7 +708,15 @@ private static final long serialVersionUID = 0L;
       return groupId_;
     }
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; [可选] 群组ID
+     * / 
+     * / 限定在特定群组内搜索用户
+     * / 验证规则：如果提供则必须大于等于 0
+     * / 默认值：0（全局搜索）
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
      * @param value The groupId to set.
      * @return This builder for chaining.
      */
@@ -611,7 +728,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 group_id = 2 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; [可选] 群组ID
+     * / 
+     * / 限定在特定群组内搜索用户
+     * / 验证规则：如果提供则必须大于等于 0
+     * / 默认值：0（全局搜索）
+     * </pre>
+     *
+     * <code>int64 group_id = 2 [json_name = "groupId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGroupId() {
@@ -623,7 +748,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean isFuzzy_ ;
     /**
-     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy"];</code>
+     * <pre>
+     * &#47; [可选] 模糊搜索标志
+     * / 
+     * / 搜索模式选择
+     * / 取值说明：
+     * / - true: 模糊搜索（包含关键词即可）
+     * / - false: 精确匹配（完全相同）
+     * / 默认值：true
+     * </pre>
+     *
+     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy", (.google.api.field_behavior) = OPTIONAL];</code>
      * @return The isFuzzy.
      */
     @java.lang.Override
@@ -631,7 +766,17 @@ private static final long serialVersionUID = 0L;
       return isFuzzy_;
     }
     /**
-     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy"];</code>
+     * <pre>
+     * &#47; [可选] 模糊搜索标志
+     * / 
+     * / 搜索模式选择
+     * / 取值说明：
+     * / - true: 模糊搜索（包含关键词即可）
+     * / - false: 精确匹配（完全相同）
+     * / 默认值：true
+     * </pre>
+     *
+     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy", (.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The isFuzzy to set.
      * @return This builder for chaining.
      */
@@ -643,7 +788,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy"];</code>
+     * <pre>
+     * &#47; [可选] 模糊搜索标志
+     * / 
+     * / 搜索模式选择
+     * / 取值说明：
+     * / - true: 模糊搜索（包含关键词即可）
+     * / - false: 精确匹配（完全相同）
+     * / 默认值：true
+     * </pre>
+     *
+     * <code>bool is_fuzzy = 3 [json_name = "isFuzzy", (.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearIsFuzzy() {
@@ -655,7 +810,14 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; [必填] 偏移量
+     * / 
+     * / 分页查询的起始位置
+     * / 验证规则：必须大于等于 0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -663,7 +825,14 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; [必填] 偏移量
+     * / 
+     * / 分页查询的起始位置
+     * / 验证规则：必须大于等于 0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -675,7 +844,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 7 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; [必填] 偏移量
+     * / 
+     * / 分页查询的起始位置
+     * / 验证规则：必须大于等于 0
+     * </pre>
+     *
+     * <code>int64 offset = 7 [json_name = "offset", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -687,7 +863,15 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; [必填] 每页数量
+     * / 
+     * / 单页返回的最大记录数
+     * / 验证规则：1-100
+     * / 建议值：20
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -695,7 +879,15 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; [必填] 每页数量
+     * / 
+     * / 单页返回的最大记录数
+     * / 验证规则：1-100
+     * / 建议值：20
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -707,7 +899,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 8 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; [必填] 每页数量
+     * / 
+     * / 单页返回的最大记录数
+     * / 验证规则：1-100
+     * / 建议值：20
+     * </pre>
+     *
+     * <code>int64 page_size = 8 [json_name = "pageSize", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {

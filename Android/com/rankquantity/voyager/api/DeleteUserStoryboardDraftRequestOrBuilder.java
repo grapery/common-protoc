@@ -12,30 +12,40 @@ public interface DeleteUserStoryboardDraftRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; [必填] 用户ID
+   * / 
+   * / 草稿所有者的用户ID
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 草稿ID
+   * &#47; [必填] 草稿ID
+   * / 
+   * / 要删除的草稿唯一标识符
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+   * <code>int64 draft_id = 2 [json_name = "draftId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The draftId.
    */
   long getDraftId();
 
   /**
    * <pre>
-   * 故事ID（可选）
+   * &#47; [可选] 故事ID
+   * / 
+   * / 所属故事的ID，用于权限验证
+   * / 验证规则：如果提供则必须大于等于 0
+   * / 默认值：0（不筛选）
    * </pre>
    *
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <code>int64 story_id = 3 [json_name = "storyId", (.google.api.field_behavior) = OPTIONAL, (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();

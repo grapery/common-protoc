@@ -7,10 +7,11 @@ package genconnect
 import (
 	context "context"
 	errors "errors"
-	connect_go "github.com/bufbuild/connect-go"
-	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
+
+	connect_go "connectrpc.com/connect"
+	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -429,45 +430,308 @@ const (
 
 // TeamsAPIClient is a client for the rankquantity.voyager.api.TeamsAPI service.
 type TeamsAPIClient interface {
-	// Explore returns trending and recommended content for users to discover
+	// / 探索推荐内容
+	// / 获取平台推荐的热门和优质内容，帮助用户发现有趣的故事和角色
+	// / HTTP GET /common.TeamsAPI/Explore
+	// / 响应：ExploreResponse (JSON，返回推荐内容列表)
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	// Version returns the current API version and build information
+	// / 获取API版本信息
+	// / 返回当前API的版本号和构建时间信息
+	// / HTTP GET /common.TeamsAPI/Version
+	// / 响应：VersionResponse (JSON，包含version和build_time)
 	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	// About returns information about the service
+	// / 获取服务关于信息
+	// / 返回服务的基本介绍和说明信息
+	// / HTTP GET /common.TeamsAPI/About
+	// / 响应：AboutResponse (JSON，包含服务描述)
 	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	// Login authenticates a user and returns a session token
+	// / 用户登录
+	// /
+	// / 【功能说明】
+	// / 验证用户凭据并创建会话，支持多种登录方式
+	// /
+	// / 【支持的登录方式】
+	// / - 密码登录：使用账号+密码
+	// / - 验证码登录：使用手机号+验证码
+	// / - 第三方登录：OAuth2.0授权登录
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/Login
+	// / - 请求体：LoginRequest (JSON)
+	// / - 响应：LoginResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - account: [必填] 账号（邮箱/手机号/用户名）
+	// / - password: [必填] 密码
+	// / - login_type: [必填] 登录类型（1-3）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - msg: 响应消息
+	// / - data.user_id: 用户ID
+	// / - data.token: 访问令牌（JWT格式）
+	// / - data.expire_at: token过期时间戳
+	// /
+	// / 【使用示例】
+	// / ```json
+	// / {
+	// /   "account": "user@example.com",
+	// /   "password": "password123",
+	// /   "login_type": 1
+	// / }
+	// / ```
 	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	// Logout invalidates the user's current session token
+	// / 用户登出
+	// / 使当前会话token失效，退出登录状态
+	// / HTTP POST /common.TeamsAPI/Logout
+	// / 请求体：LogoutRequest (JSON，包含token和用户ID)
+	// / 响应：LogoutResponse (JSON)
 	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	// RefreshToken generates a new session token using the current valid token
+	// / 刷新访问令牌
+	// / 使用当前有效token生成新的访问令牌，延长会话时间
+	// / HTTP POST /common.TeamsAPI/RefreshToken
+	// / 请求体：RefreshTokenRequest (JSON，包含当前token)
+	// / 响应：RefreshTokenResponse (JSON，返回新的token和用户ID)
 	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
-	// Register creates a new user account
+	// / 用户注册
+	// / 创建新的用户账号，需要提供账号、密码、邮箱等信息
+	// / HTTP POST /common.TeamsAPI/Register
+	// / 请求体：RegisterRequest (JSON，包含账号、密码、昵称、邮箱、手机号)
+	// / 响应：RegisterResponse (JSON)
 	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	// ResetPwd allows users to reset their password
+	// / 重置密码
+	// /
+	// / 【功能说明】
+	// / 允许用户重置登录密码，需要验证原密码
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ResetPwd
+	// / - 请求体：ResetPasswordRequest (JSON)
+	// / - 响应：ResetPasswordResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "account": "用户账号（邮箱/手机号/用户名）",
+	// /   "oldPwd": "原密码（用于验证身份）",
+	// /   "newPwd": "新密码（6-128字符）"
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - account: 用户账号
+	// / - status: 重置状态（0-成功）
+	// / - timestamp: 操作时间戳
 	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	// UserInit performs initial setup for a new user
+	// / 用户初始化
+	// /
+	// / 【功能说明】
+	// / 为新注册用户执行初始化设置，创建默认资料和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserInit
+	// / - 请求体：UserInitRequest (JSON)
+	// / - 响应：UserInitResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,        // [必填] 用户ID
+	// /   "name": "用户昵称",     // [可选] 显示名称
+	// /   "avatar": "头像URL",   // [可选] 头像地址
+	// /   "timezone": "时区"     // [可选] 用户时区
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 初始化后的用户信息
 	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	// UserInfo retrieves detailed information about a user
+	// / 获取用户信息
+	// /
+	// / 【功能说明】
+	// / 获取指定用户的详细信息，包括基本资料、统计数据等
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserInfo
+	// / - 请求体：UserInfoRequest (JSON)
+	// / - 响应：UserInfoResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "account": "user@email.com"  // [可选] 用户账号（二选一）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 用户详细信息对象
 	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	// UpdateUserAvator updates the user's profile picture
+	// / 更新用户头像
+	// /
+	// / 【功能说明】
+	// / 更新用户的个人头像图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateUserAvator
+	// / - 请求体：UpdateUserAvatorRequest (JSON)
+	// / - 响应：UpdateUserAvatorResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,                      // [必填] 用户ID
+	// /   "avator": "https://cdn.com/img.jpg"  // [必填] 新头像URL
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	// UserWatching returns a list of projects the user is following
+	// / 获取用户关注的项目
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的所有项目（故事）列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserWatching
+	// / - 请求体：UserWatchingRequest (JSON)
+	// / - 响应：UserWatchingResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量，默认0
+	// /   "page_size": 20      // [可选] 每页数量，默认20
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - projects: 关注的项目列表
+	// / - total: 总数量
 	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	// UserGroup returns a list of groups the user belongs to
+	// / 获取用户所属群组
+	// /
+	// / 【功能说明】
+	// / 获取用户加入的所有群组列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserGroup
+	// / - 请求体：UserGroupRequest (JSON)
+	// / - 响应：UserGroupResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量
+	// /   "page_size": 20      // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - groups: 群组列表
+	// / - total: 总数量
 	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	// UserFollowingGroup returns a list of groups the user is following
+	// / 获取用户关注的群组
+	// /
+	// / 【功能说明】
+	// / 获取用户关注但未加入的群组列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserFollowingGroup
+	// / - 请求体：UserFollowingGroupRequest (JSON)
+	// / - 响应：UserFollowingGroupResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量
+	// /   "page_size": 20      // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - groups: 关注的群组列表
+	// / - total: 总数量
 	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	// UserUpdate updates the user's profile information
+	// / 更新用户信息
+	// /
+	// / 【功能说明】
+	// / 更新用户的基本资料信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserUpdate
+	// / - 请求体：UserUpdateRequest (JSON)
+	// / - 响应：UserUpdateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "name": "新昵称",            // [可选] 用户昵称
+	// /   "description": "个人简介",   // [可选] 个人描述
+	// /   "location": "所在地",        // [可选] 地理位置
+	// /   "email": "new@email.com"     // [可选] 邮箱地址
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 更新后的用户信息
 	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	// SearchUser searches for users based on specified criteria
+	// / 搜索用户
+	// / 根据名称搜索用户，支持模糊搜索和精确匹配
+	// / HTTP POST /common.TeamsAPI/SearchUser
+	// / 请求体：SearchUserRequest (JSON，包含搜索关键词、群组ID和分页参数)
+	// / 响应：SearchUserResponse (JSON，返回匹配的用户列表)
 	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	// CreateGroup creates a new group
+	// / 创建群组
+	// / 创建新的协作群组或团队，设置名称、描述和头像
+	// / HTTP POST /common.TeamsAPI/CreateGroup
+	// / 请求体：CreateGroupRequest (JSON，包含群组名称、描述和头像)
+	// / 响应：CreateGroupResponse (JSON，返回创建的群组信息)
 	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	// GetGroup retrieves information about a specific group
+	// / 获取群组信息
+	// / 获取指定群组的详细信息，支持同时获取资料信息
+	// / HTTP POST /common.TeamsAPI/GetGroup
+	// / 请求体：GetGroupRequest (JSON，包含群组ID和是否获取资料标志)
+	// / 响应：GetGroupResponse (JSON，返回群组详细信息)
 	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
-	// GetGroupActives returns recent activities within a group
+	// / 获取群组动态
+	// / 获取群组内的最新活动动态
+	// / HTTP POST /common.TeamsAPI/GetGroupActives
+	// / 请求体：GetGroupActivesRequest (JSON，包含群组ID和分页参数)
+	// / 响应：GetGroupActivesResponse (JSON，返回群组活动列表)
 	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	// UpdateGroupInfo updates the group's information
+	// / 更新群组信息
+	// / 更新群组的基本信息，如名称、描述等
+	// / HTTP POST /common.TeamsAPI/UpdateGroupInfo
+	// / 请求体：UpdateGroupInfoRequest (JSON，包含群组ID和更新信息)
+	// / 响应：UpdateGroupInfoResponse (JSON，返回更新后的群组信息)
 	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
 	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
@@ -475,117 +739,1062 @@ type TeamsAPIClient interface {
 	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
 	// DeleteGroup removes a group
 	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	// FetchGroupMembers retrieves the list of members in a group
+	// / 获取群组成员列表
+	// / 分页获取指定群组的所有成员用户列表
+	// / HTTP POST /common.TeamsAPI/FetchGroupMembers
+	// / 请求体：FetchGroupMembersRequest (JSON，包含群组ID和分页参数)
+	// / 响应：FetchGroupMembersResponse (JSON，返回成员列表和总数)
 	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	// JoinGroup adds a user to a group
+	// / 加入群组
+	// / 用户申请加入指定群组，成为群组成员
+	// / HTTP POST /common.TeamsAPI/JoinGroup
+	// / 请求体：JoinGroupRequest (JSON，包含群组ID和用户ID)
+	// / 响应：JoinGroupResponse (JSON)
 	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	// LeaveGroup removes a user from a group
+	// / 离开群组
+	// / 用户退出指定群组，解除成员关系
+	// / HTTP POST /common.TeamsAPI/LeaveGroup
+	// / 请求体：LeaveGroupRequest (JSON，包含群组ID和用户ID)
+	// / 响应：LeaveGroupResponse (JSON)
 	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	// 创建故事
+	// / 创建故事
+	// /
+	// / 【功能说明】
+	// / 创建一个新的故事，设置基本信息和初始配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStory
+	// / - 请求体：CreateStoryRequest (JSON)
+	// / - 响应：CreateStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 创建者用户ID
+	// /   "group_id": 456,             // [可选] 所属群组ID
+	// /   "title": "故事标题",         // [必填] 故事名称
+	// /   "description": "故事简介",   // [可选] 故事描述
+	// /   "cover": "封面URL",          // [可选] 封面图片
+	// /   "is_public": true            // [可选] 是否公开，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 创建的故事对象
+	// / - story_id: 故事ID
 	CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error)
-	// 获取故事信息
+	// / 获取故事信息
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的详细信息，包括统计数据
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryInfo
+	// / - 请求体：GetStoryInfoRequest (JSON)
+	// / - 响应：GetStoryInfoResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,     // [必填] 故事ID
+	// /   "user_id": 456       // [必填] 请求用户ID（用于权限验证）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 故事详细信息
+	// / - stats: 统计数据（浏览、点赞、评论数等）
 	GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error)
-	// 渲染故事
+	// / 渲染故事
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事生成内容、角色、场景等
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStory
+	// / - 请求体：RenderStoryRequest (JSON)
+	// / - 响应：RenderStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "prompt": "渲染提示词",      // [可选] AI生成提示
+	// /   "render_type": 1             // [可选] 渲染类型（1-完整，2-增量）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - render_id: 渲染任务ID
+	// / - status: 任务状态
 	RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error)
-	// 更新故事
+	// / 更新故事
+	// /
+	// / 【功能说明】
+	// / 更新故事的基本信息和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStory
+	// / - 请求体：UpdateStoryRequest (JSON)
+	// / - 响应：UpdateStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 故事标题
+	// /   "description": "新简介",     // [可选] 故事描述
+	// /   "cover": "新封面URL",        // [可选] 封面图片
+	// /   "is_public": true            // [可选] 公开状态
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 更新后的故事信息
 	UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error)
-	// 关注故事
+	// / 关注故事
+	// /
+	// / 【功能说明】
+	// / 关注指定故事，接收该故事的更新通知
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/WatchStory
+	// / - 请求体：WatchStoryRequest (JSON)
+	// / - 响应：WatchStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,     // [必填] 要关注的故事ID
+	// /   "user_id": 456       // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error)
-	// 收藏故事
+	// / 收藏故事
+	// / 将故事添加到用户的个人收藏夹，方便后续查看
+	// / HTTP POST /common.TeamsAPI/ArchiveStory
+	// / 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID)
+	// / 响应：ArchiveStoryResponse (JSON)
 	ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error)
-	// 创建故事板
+	// / 创建故事板
+	// /
+	// / 【功能说明】
+	// / 在故事中创建新的故事板（分支剧情）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStoryboard
+	// / - 请求体：CreateStoryboardRequest (JSON)
+	// / - 响应：CreateStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 所属故事ID
+	// /   "user_id": 456,              // [必填] 创建者用户ID
+	// /   "parent_board_id": 789,      // [可选] 父故事板ID（分支时提供）
+	// /   "title": "故事板标题",       // [必填] 故事板名称
+	// /   "content": "剧情内容"        // [可选] 故事板内容
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 创建的故事板对象
+	// / - storyboard_id: 故事板ID
 	CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error)
-	// 获取故事板
+	// / 获取故事板
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板的详细信息和内容
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryboard
+	// / - 请求体：GetStoryboardRequest (JSON)
+	// / - 响应：GetStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 请求用户ID
+	// /   "include_scenes": true   // [可选] 是否包含场景信息，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 故事板详细信息
+	// / - scenes: 场景列表（如果 include_scenes=true）
 	GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error)
-	// 渲染故事板
+	// / 渲染故事板
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板生成场景、对话和图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryboard
+	// / - 请求体：RenderStoryboardRequest (JSON)
+	// / - 响应：RenderStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "prompt": "渲染提示",        // [可选] AI生成提示词
+	// /   "render_scenes": true,       // [可选] 是否渲染场景，默认true
+	// /   "render_images": true        // [可选] 是否生成图片，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - render_id: 渲染任务ID
+	// / - status: 渲染状态
+	// / - progress: 渲染进度（0-100）
 	RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error)
-	// 生成故事板文本
+	// / 生成故事板文本
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板生成文本内容（场景描述、对话等）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenStoryboardText
+	// / - 请求体：GenStoryboardTextRequest (JSON)
+	// / - 响应：GenStoryboardTextResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "prompt": "生成提示",        // [可选] AI生成提示词
+	// /   "language": "zh-CN",         // [可选] 语言代码，默认zh-CN
+	// /   "style": "现代",             // [可选] 写作风格
+	// /   "length": "medium"           // [可选] 文本长度（short/medium/long）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - generated_text: 生成的文本内容
+	// / - task_id: 生成任务ID
 	GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error)
-	// 生成故事板图片
+	// / 生成故事板图片
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板的场景生成配图
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenStoryboardImages
+	// / - 请求体：GenStoryboardImagesRequest (JSON)
+	// / - 响应：GenStoryboardImagesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "scene_ids": [1, 2, 3],      // [可选] 要生成图片的场景ID列表
+	// /   "style_id": 5,               // [可选] 图片风格ID
+	// /   "quality": "high",           // [可选] 图片质量（low/medium/high）
+	// /   "aspect_ratio": "16:9"       // [可选] 宽高比，默认16:9
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - task_ids: 图片生成任务ID列表
+	// / - estimated_time: 预计完成时间（秒）
 	GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error)
-	// 获取故事板
+	// / 获取故事板列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的所有故事板列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryboards
+	// / - 请求体：GetStoryboardsRequest (JSON)
+	// / - 响应：GetStoryboardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,         // [必填] 故事ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "status": 1,             // [可选] 状态筛选（0-全部，1-已发布，2-草稿）
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20          // [可选] 每页数量，默认20
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboards: 故事板列表
+	// / - total: 总数量
+	// / - have_more: 是否有更多数据
 	GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error)
-	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
+	// / 删除故事板
+	// /
+	// / 【功能说明】
+	// / 删除指定的故事板
+	// /
+	// / 【删除规则】
+	// / 1. 最后一个故事板可以被删除
+	// / 2. 如果故事板是多分支之一则可以被删除
+	// / 3. 有子分支的故事板不能直接删除
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DelStoryboard
+	// / - 请求体：DelStoryboardRequest (JSON)
+	// / - 响应：DelStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要删除的故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID（权限验证）
+	// /   "story_id": 789,         // [必填] 所属故事ID
+	// /   "force": false           // [可选] 是否强制删除，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error)
-	// 复制故事板
+	// / 复制故事板（分叉）
+	// /
+	// / 【功能说明】
+	// / 基于现有故事板创建分支版本，开启新的剧情线
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ForkStoryboard
+	// / - 请求体：ForkStoryboardRequest (JSON)
+	// / - 响应：ForkStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "source_board_id": 123,      // [必填] 源故事板ID（要分叉的故事板）
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "new_title": "分支标题",     // [可选] 新故事板标题
+	// /   "copy_content": true         // [可选] 是否复制内容，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - new_storyboard: 新创建的分支故事板
+	// / - new_storyboard_id: 新故事板ID
 	ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error)
-	// 更新故事板
+	// / 更新故事板
+	// /
+	// / 【功能说明】
+	// / 更新故事板的内容和配置信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryboard
+	// / - 请求体：UpdateStoryboardRequest (JSON)
+	// / - 响应：UpdateStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 故事板标题
+	// /   "content": "新内容",         // [可选] 故事板内容
+	// /   "status": 1                  // [可选] 状态（1-草稿，2-已发布）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 更新后的故事板信息
 	UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error)
-	// 喜欢故事板
+	// / 点赞故事板
+	// /
+	// / 【功能说明】
+	// / 为故事板点赞，表达对内容的喜欢
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/LikeStoryboard
+	// / - 请求体：LikeStoryboardRequest (JSON)
+	// / - 响应：LikeStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 点赞用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - like_count: 最新点赞总数
 	LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error)
-	// 取消喜欢故事板
+	// / 取消点赞故事板
+	// /
+	// / 【功能说明】
+	// / 取消对故事板的点赞
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UnLikeStoryboard
+	// / - 请求体：UnLikeStoryboardRequest (JSON)
+	// / - 响应：UnLikeStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - like_count: 最新点赞总数
 	UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error)
-	// 分享故事板
+	// / 分享故事板
+	// /
+	// / 【功能说明】
+	// / 生成故事板的分享链接，便于在社交媒体传播
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ShareStoryboard
+	// / - 请求体：ShareStoryboardRequest (JSON)
+	// / - 响应：ShareStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 分享用户ID
+	// /   "platform": "wechat",        // [可选] 分享平台（wechat/weibo/twitter等）
+	// /   "include_images": true       // [可选] 是否包含图片预览，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - share_url: 分享链接URL
+	// / - qr_code: 二维码图片URL（可选）
+	// / - share_id: 分享记录ID
 	ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error)
-	// 获取组织故事
+	// / 获取群组故事列表
+	// /
+	// / 【功能说明】
+	// / 获取指定群组内的所有故事
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/FetchGroupStorys
+	// / - 请求体：FetchGroupStorysRequest (JSON)
+	// / - 响应：FetchGroupStorysResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "group_id": 123,         // [必填] 群组ID
+	// /   "user_id": 456,          // [必填] 请求用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20,         // [可选] 每页数量，默认20
+	// /   "status": 0              // [可选] 状态筛选（0-全部）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - stories: 故事列表
+	// / - total: 总数量
 	FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error)
-	// 用来上传文件的proto 接口
+	// / 上传图片文件
+	// /
+	// / 【功能说明】
+	// / 上传图片到服务器，支持多种图片格式
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UploadImageFile
+	// / - 请求体：UploadImageRequest (JSON，使用 base64 编码的图片数据)
+	// / - 响应：UploadImageResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "image_data": "base64编码的图片数据",  // [必填] 图片二进制数据（最大10MB）
+	// /   "filename": "avatar.jpg",             // [必填] 文件名（含扩展名）
+	// /   "content_type": "image/jpeg"          // [必填] MIME类型
+	// / }
+	// / ```
+	// /
+	// / 【支持的图片格式】
+	// / - image/jpeg, image/jpg
+	// / - image/png
+	// / - image/gif
+	// / - image/webp
+	// / - image/bmp
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - url: 上传后的图片URL
+	// / - file_id: 文件ID
+	// / - size: 文件大小（字节）
 	UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error)
-	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+	// / 获取故事渲染记录
+	// /
+	// / 【功能说明】
+	// / 获取故事的所有AI渲染记录和历史
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/StoryRender/list
+	// / - 请求体：GetStoryRenderRequest (JSON)
+	// / - 响应：GetStoryRenderResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "render_status": 0,          // [可选] 渲染状态筛选（0-全部，1-进行中，2-完成，3-失败）
+	// /   "render_type": 0,            // [可选] 渲染类型筛选（0-全部，1-角色，2-场景，3-文本）
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20              // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - renders: 渲染记录列表
+	// / - total: 总数量
 	GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error)
-	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+	// / 获取故事板渲染记录
+	// /
+	// / 【功能说明】
+	// / 获取故事板的所有AI渲染记录和历史
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/StoryBoardRender/list
+	// / - 请求体：GetStoryBoardRenderRequest (JSON)
+	// / - 响应：GetStoryBoardRenderResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "render_status": 0,          // [可选] 渲染状态筛选
+	// /   "render_type": 0,            // [可选] 渲染类型筛选
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20              // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - renders: 渲染记录列表
+	// / - total: 总数量
 	GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error)
-	// 获取故事的贡献者
+	// / 获取故事贡献者列表
+	// / 获取参与故事创作的所有贡献者，按贡献度排序
+	// / HTTP POST /common.TeamsAPI/GetStoryContributors
+	// / 请求体：GetStoryContributorsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryContributorsResponse (JSON，返回贡献者列表和VIP等级信息)
 	GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error)
-	// 继续渲染故事
+	// / 继续渲染故事
+	// /
+	// / 【功能说明】
+	// / 在现有基础上继续使用AI生成故事内容
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ContinueRenderStory
+	// / - 请求体：ContinueRenderStoryRequest (JSON)
+	// / - 响应：ContinueRenderStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "last_board_id": 789,        // [可选] 上一个故事板ID
+	// /   "continue_prompt": "继续...", // [可选] 继续的提示词
+	// /   "generate_count": 3          // [可选] 生成场景数量，默认3
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - new_boards: 新生成的故事板列表
+	// / - render_id: 渲染任务ID
 	ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error)
 	// 渲���故事角色
 	RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error)
-	// 更新 story role
+	// / 更新故事角色
+	// /
+	// / 【功能说明】
+	// / 更新故事角色的基本信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRole
+	// / - 请求体：UpdateStoryRoleRequest (JSON)
+	// / - 响应：UpdateStoryRoleResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "name": "新角色名",          // [可选] 角色名称
+	// /   "description": "角色描述",   // [可选] 角色描述
+	// /   "avatar": "头像URL"          // [可选] 角色头像
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - role: 更新后的角色信息
 	UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error)
-	// 渲染故事角色详情
+	// / 渲染故事角色详情
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成详细的背景故事和性格特征
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryRoleDetail
+	// / - 请求体：RenderStoryRoleDetailRequest (JSON)
+	// / - 响应：RenderStoryRoleDetailResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "detail_type": 1,            // [可选] 详情类型（1-完整，2-简要）
+	// /   "prompt": "生成提示"         // [可选] AI生成提示词
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - character_detail: 角色详细信息对象
+	// / - render_id: 渲染任务ID
 	RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error)
-	// 获取 story roles 的列表
+	// / 获取故事角色列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的所有角色列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryRoles
+	// / - 请求体：GetStoryRolesRequest (JSON)
+	// / - 响应：GetStoryRolesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,         // [必填] 故事ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20,         // [可选] 每页数量，默认20
+	// /   "include_detail": false  // [可选] 是否包含详细信息，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - roles: 角色列表
+	// / - total: 总数量
 	GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error)
-	// 获取 story board roles 的列表
+	// / 获取故事板角色列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板中出现的所有角色
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardRoles
+	// / - 请求体：GetStoryBoardRolesRequest (JSON)
+	// / - 响应：GetStoryBoardRolesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "story_id": 789          // [必填] 所属故事ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - roles: 角色列表
+	// / - total: 角色总数
 	GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error)
-	// 获取用户的 profile
+	// / 获取用户资料
+	// / 获取指定用户的详细个人资料信息
+	// / HTTP POST /common.TeamsAPI/GetUserProfile
+	// / 请求体：GetUserProfileRequest (JSON，包含用户ID)
+	// / 响应：GetUserProfileResponse (JSON，返回用户完整资料)
 	GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error)
-	// 更新用户的 profile
+	// / 更新用户资料
+	// / 更新用户的个人资料信息，包括昵称、描述、位置等
+	// / HTTP POST /common.TeamsAPI/UpdateUserProfile
+	// / 请求体：UpdateUserProfileRequest (JSON，包含要更新的资料字段)
+	// / 响应：UpdateUserProfileResponse (JSON)
 	UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error)
-	// 更新用户的背景图片
+	// / 更新用户背景图片
+	// / 更新用户个人主页的背景图片
+	// / HTTP POST /common.TeamsAPI/UpdateUserBackgroundImage
+	// / 请求体：UpdateUserBackgroundImageRequest (JSON，包含背景图片URL)
+	// / 响应：UpdateUserBackgroundImageResponse (JSON)
 	UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error)
-	// 创建新的故事角色
+	// / 创建新的故事角色
+	// / 在故事中创建一个新的角色，设置角色的基本信息
+	// / HTTP POST /common.TeamsAPI/CreateStoryRole
+	// / 请求体：CreateStoryRoleRequest (JSON，包含角色详细信息)
+	// / 响应：CreateStoryRoleResponse (JSON)
 	CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error)
-	// 获取角色详情
+	// / 获取角色详情
+	// / 获取故事角色的完整详细信息
+	// / HTTP POST /common.TeamsAPI/GetStoryRoleDetail
+	// / 请求体：GetStoryRoleDetailRequest (JSON，包含角色ID)
+	// / 响应：GetStoryRoleDetailResponse (JSON，返回角色完整信息)
 	GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error)
-	// 生成角色的图片
+	// / 渲染生成角色图片
+	// / 使用AI为故事角色生成高质量的形象图片
+	// / HTTP POST /common.TeamsAPI/RenderStoryRole
+	// / 请求体：RenderStoryRoleRequest (JSON，包含渲染提示词和参考图片)
+	// / 响应：RenderStoryRoleResponse (JSON，返回渲染详情和图片URL)
 	RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error)
-	// 喜欢故事
+	// / 点赞故事
+	// / 为故事点赞表示喜欢，增加故事人气
+	// / HTTP POST /common.TeamsAPI/LikeStory
+	// / 请求体：LikeStoryRequest (JSON，包含故事ID和用户ID)
+	// / 响应：LikeStoryResponse (JSON)
 	LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error)
-	// 取消喜欢故事
+	// / 取消点赞故事
+	// / 取消对故事的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStory
+	// / 请求体：UnLikeStoryRequest (JSON)
+	// / 响应：UnLikeStoryResponse (JSON)
 	UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error)
-	// 获取故事板场景
+	// / 获取故事板场景列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板的所有场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardSences
+	// / - 请求体：GetStoryBoardSencesRequest (JSON)
+	// / - 响应：GetStoryBoardSencesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scenes: 场景列表（按顺序排列）
 	GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error)
-	// 创建故事板场景
+	// / 创建故事板场景
+	// /
+	// / 【功能说明】
+	// / 在故事板中创建新的场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStoryBoardSence
+	// / - 请求体：CreateStoryBoardSenceRequest (JSON)
+	// / - 响应：CreateStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "场景标题",         // [必填] 场景名称
+	// /   "description": "场景描述",   // [必填] 场景内容
+	// /   "order": 1                   // [可选] 场景顺序
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scene: 创建的场景对象
+	// / - scene_id: 场景ID
 	CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error)
-	// 更新故事板场景
+	// / 更新故事板场景
+	// /
+	// / 【功能说明】
+	// / 更新场景的内容和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryBoardSence
+	// / - 请求体：UpdateStoryBoardSenceRequest (JSON)
+	// / - 响应：UpdateStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,             // [必填] 场景ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 场景标题
+	// /   "description": "新描述",     // [可选] 场景描述
+	// /   "image_url": "新图片URL"     // [可选] 场景图片
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scene: 更新后的场景信息
 	UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error)
-	// 删除故事板场景
+	// / 删除故事板场景
+	// /
+	// / 【功能说明】
+	// / 删除指定的故事板场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DeleteStoryBoardSence
+	// / - 请求体：DeleteStoryBoardSenceRequest (JSON)
+	// / - 响应：DeleteStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,         // [必填] 要删除的场景ID
+	// /   "user_id": 456,          // [必填] 用户ID（权限验证）
+	// /   "storyboard_id": 789     // [必填] 所属故事板ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error)
-	// 渲染故事板指定场景
+	// / 渲染故事板指定场景
+	// /
+	// / 【功能说明】
+	// / 使用AI为单个场景生成图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryBoardSence
+	// / - 请求体：RenderStoryBoardSenceRequest (JSON)
+	// / - 响应：RenderStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,             // [必填] 场景ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "storyboard_id": 789,        // [必填] 所属故事板ID
+	// /   "prompt": "渲染提示",        // [可选] AI生成提示词
+	// /   "style_id": 5,               // [可选] 图片风格ID
+	// /   "quality": "high"            // [可选] 图片质量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - image_url: 生成的场景图片URL
+	// / - task_id: 渲染任务ID
 	RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error)
-	// 渲染故事板的所有场景
+	// / 批量渲染故事板场景
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板的所有场景批量生成图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryBoardSences
+	// / - 请求体：RenderStoryBoardSencesRequest (JSON)
+	// / - 响应：RenderStoryBoardSencesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "scene_ids": [1, 2, 3],      // [可选] 要渲染的场景ID列表（不提供则渲染全部）
+	// /   "style_id": 5,               // [可选] 统一图片风格ID
+	// /   "quality": "high"            // [可选] 图片质量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - task_ids: 批量渲染任务ID列表
+	// / - estimated_time: 预计完成时间（秒）
 	RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error)
-	// 获取故事板场景生成状态
+	// / 获取场景生成状态
+	// /
+	// / 【功能说明】
+	// / 查询场景AI生成任务的实时状态和进度
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardSenceGenerate
+	// / - 请求体：GetStoryBoardSenceGenerateRequest (JSON)
+	// / - 响应：GetStoryBoardSenceGenerateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,         // [必填] 场景ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "task_id": "task_789"    // [可选] 任务ID（查询特定任务）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 生成状态（0-队列中，1-生成中，2-完成，3-失败）
+	// / - progress: 进度百分比（0-100）
+	// / - result_url: 生成结果URL（完成时）
 	GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error)
-	// 获取故事板生成状态
+	// / 获取故事板生成状态
+	// /
+	// / 【功能说明】
+	// / 查询故事板整体AI生成任务的状态
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardGenerate
+	// / - 请求体：GetStoryBoardGenerateRequest (JSON)
+	// / - 响应：GetStoryBoardGenerateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "task_id": "task_789"    // [可选] 任务ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 整体生成状态
+	// / - progress: 总体进度百分比
+	// / - scene_status: 各场景的生成状态列表
 	GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error)
-	// 点赞故事角色
+	// / 点赞故事角色
+	// / 为故事角色点赞，表达对角色的喜爱
+	// / HTTP POST /common.TeamsAPI/LikeStoryRole
+	// / 请求体：LikeStoryRoleRequest (JSON，包含角色ID和用户ID)
+	// / 响应：LikeStoryRoleResponse (JSON)
 	LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error)
-	// 取消点赞故事角色
+	// / 取消点赞故事角色
+	// / 取消对故事角色的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStoryRole
+	// / 请求体：UnLikeStoryRoleRequest (JSON)
+	// / 响应：UnLikeStoryRoleResponse (JSON)
 	UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error)
-	// 关注故事角色
+	// / 关注故事角色
+	// / 关注指定的故事角色，接收该角色的最新动态通知
+	// / HTTP POST /common.TeamsAPI/FollowStoryRole
+	// / 请求体：FollowStoryRoleRequest (JSON)
+	// / 响应：FollowStoryRoleResponse (JSON)
 	FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error)
-	// 取消关注故事角色
+	// / 取消关注故事角色
+	// / 取消对故事角色的关注，停止接收动态通知
+	// / HTTP POST /common.TeamsAPI/UnFollowStoryRole
+	// / 请求体：UnFollowStoryRoleRequest (JSON)
+	// / 响应：UnFollowStoryRoleResponse (JSON)
 	UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error)
-	// 根据关键字查询故事
+	// / 搜索故事
+	// / 根据关键词搜索故事，支持全局搜索和群组内搜索
+	// / HTTP POST /common.TeamsAPI/SearchStories
+	// / 请求体：SearchStoriesRequest (JSON，包含关键词、范围和分页参数)
+	// / 响应：SearchStoriesResponse (JSON，返回匹配的故事列表)
 	SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error)
-	// 搜索组织
+	// / 搜索群组
+	// / 根据名称搜索群组，支持模糊搜索
+	// / HTTP POST /common.TeamsAPI/SearchGroup
+	// / 请求体：SearchGroupRequest (JSON，包含搜索关键词和范围)
+	// / 响应：SearchGroupResponse (JSON，返回匹配的群组列表)
 	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error)
-	// 搜索角色
+	// / 搜索故事角色
+	// / 根据关键词搜索故事角色，支持在故事内或全局搜索
+	// / HTTP POST /common.TeamsAPI/SearchRoles
+	// / 请求体：SearchRolesRequest (JSON，包含关键词、范围和分页参数)
+	// / 响应：SearchRolesResponse (JSON，返回匹配的角色列表)
 	SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error)
-	// 恢复故事板的状态
+	// / 恢复故事板状态
+	// / 从草稿或历史版本恢复故事板到指定状态
+	// / HTTP POST /common.TeamsAPI/RestoreStoryboard
+	// / 请求体：RestoreStoryboardRequest (JSON，包含故事板ID和版本信息)
+	// / 响应：RestoreStoryboardResponse (JSON，返回恢复后的完整故事板数据)
 	RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error)
 	// 获取用户创建的故事板
 	GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error)
@@ -595,48 +1804,372 @@ type TeamsAPIClient interface {
 	GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error)
 	// 获取角色参与的故事
 	GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error)
-	// 创建与角色的对话
+	// / 创建与角色的对话
+	// / 开始一个新的与故事角色的AI聊天会话
+	// / HTTP POST /common.TeamsAPI/CreateStoryRoleChat
+	// / 请求体：CreateStoryRoleChatRequest (JSON，包含角色ID和用户ID)
+	// / 响应：CreateStoryRoleChatResponse (JSON，返回聊天上下文信息)
 	CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error)
-	// 与角色聊天
+	// / 与角色聊天
+	// / 发送消息并获取AI角色的智能回复
+	// / HTTP POST /common.TeamsAPI/ChatWithStoryRole
+	// / 请求体：ChatWithStoryRoleRequest (JSON，包含历史消息列表)
+	// / 响应：ChatWithStoryRoleResponse (JSON，返回角色的回复消息)
 	ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error)
-	// 更新角色头像
+	// / 更新角色头像
+	// / 更新故事角色的头像图片
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleAvator
+	// / 请求体：UpdateStoryRoleAvatorRequest (JSON，包含新头像URL)
+	// / 响应：UpdateStoryRoleAvatorResponse (JSON)
 	UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error)
-	// 更新角色详情
+	// / 更新角色详情
+	// / 更新故事角色的完整信息，包括描述、性格、能力等
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleDetail
+	// / 请求体：UpdateStoryRoleDetailRequest (JSON，包含角色完整信息)
+	// / 响应：UpdateStoryRoleDetailResponse (JSON)
 	UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error)
-	// 获取用户的对话列表
+	// / 获取用户的对话列表
+	// / 获取用户与各个角色的所有聊天会话列表
+	// / HTTP POST /common.TeamsAPI/GetUserWithRoleChatList
+	// / 请求体：GetUserWithRoleChatListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetUserWithRoleChatListResponse (JSON，返回聊天会话列表)
 	GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error)
-	// 获取用户与角色的对话
+	// / 获取用户与角色的对话
+	// / 获取用户与指定角色的完整聊天记录
+	// / HTTP POST /common.TeamsAPI/GetUserChatWithRole
+	// / 请求体：GetUserChatWithRoleRequest (JSON，包含角色ID和用户ID)
+	// / 响应：GetUserChatWithRoleResponse (JSON，返回聊天消息列表和上下文)
 	GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error)
-	// 获取用户的消息
+	// / 获取用户的消息列表
+	// / 获取指定聊天会话中的所有消息记录
+	// / HTTP POST /common.TeamsAPI/GetUserChatMessages
+	// / 请求体：GetUserChatMessagesRequest (JSON，包含聊天ID和时间戳)
+	// / 响应：GetUserChatMessagesResponse (JSON，返回消息列表)
 	GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error)
-	// 活动信息
+	// / 获取活动动态列表
+	// / 获取用户、群组或故事的最新活动动态信息
+	// / HTTP POST /common.TeamsAPI/FetchActives
+	// / 请求体：FetchActivesRequest (JSON，包含筛选条件和分页参数)
+	// / 响应：FetchActivesResponse (JSON，返回活动动态列表)
 	FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error)
-	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	// / 获取下一个故事板
+	// /
+	// / 【功能说明】
+	// / 根据当前故事板ID获取后续的故事板，支持多分支场景
+	// /
+	// / 【多分支说明】
+	// / - 如果有多个分叉，则返回所有分支
+	// / - 返回is_multi_branch标记位，标识是否为多分支
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetNextStoryboards
+	// / - 请求体：GetNextStoryboardRequest (JSON)
+	// / - 响应：GetNextStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 当前故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "is_multi_branch": false,    // [可选] 是否多分支模式
+	// /   "offset": 0,                 // [可选] 分页偏移量（多分支时使用）
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "order_by": "CREATE_TIME"    // [可选] 排序方式
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - storyboards: 后续故事板列表
+	// / - is_multi_branch: 是否为多分支
+	// / - total: 分支总数
 	GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error)
-	// 持续渲染故事角色
+	// / 持续渲染故事角色
+	// /
+	// / 【功能说明】
+	// / 持续优化和迭代角色形象，直到达到满意效果
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryRoleContinuously
+	// / - 请求体：RenderStoryRoleContinuouslyRequest (JSON)
+	// / - 响应：RenderStoryRoleContinuouslyResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 故事ID
+	// /   "prompt": "优化提示",        // [可选] 优化方向的提示词
+	// /   "reference_image": "参考图"  // [可选] 参考图片URL
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - detail: 渲染详情对象
+	// / - have_more: 是否还有更多迭代空间
 	RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error)
-	// 发布故事板
+	// / 发布故事板
+	// /
+	// / 【功能说明】
+	// / 将草稿状态的故事板正式发布，其他用户可见
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/PublishStoryboard
+	// / - 请求体：PublishStoryboardRequest (JSON)
+	// / - 响应：PublishStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要发布的故事板ID
+	// /   "user_id": 456           // [必填] 用户ID（仅所有者可发布）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - publish_time: 发布时间戳
 	PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error)
-	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	// / 撤销故事板
+	// /
+	// / 【功能说明】
+	// / 撤销已发布的故事板，保留文本但隐藏场景和图片
+	// /
+	// / 【撤销规则】
+	// / - 保留AI生成的故事板文本内容，用来给用户展示
+	// / - 场景和图片不会展示，以保证故事的连贯性
+	// / - 可以重新编辑后再次发布
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CancelStoryboard
+	// / - 请求体：CancelStoryboardRequest (JSON)
+	// / - 响应：CancelStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要撤销的故事板ID
+	// /   "user_id": 456           // [必填] 用户ID（仅所有者可撤销）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error)
+	// / 获取用户关注故事的活跃故事板
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的故事中最近活跃的故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards
+	// / - 请求体：GetUserWatchStoryActiveStoryBoardsRequest (JSON)
+	// / - 响应：GetUserWatchStoryActiveStoryBoardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "story_id": 456,             // [必填] 故事ID
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "filter": "published"        // [可选] 筛选条件（published/draft）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboards: 活跃故事板列表
+	// / - total: 总数量
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	// / 获取用户关注角色的活跃故事板
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的角色参与的最近活跃故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards
+	// / - 请求体：GetUserWatchRoleActiveStoryBoardsRequest (JSON)
+	// / - 响应：GetUserWatchRoleActiveStoryBoardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "filter": "all"              // [可选] 筛选条件
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboards: 活跃故事板列表
+	// / - total: 总数量
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	// / 获取未发布故事板列表
+	// /
+	// / 【功能说明】
+	// / 获取用户所有未发布（草稿）状态的故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUnPublishStoryboard
+	// / - 请求体：GetUnPublishStoryboardRequest (JSON)
+	// / - 响应：GetUnPublishStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,          // [必填] 用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量
+	// /   "page_size": 20          // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboardactives: 草稿故事板列表
+	// / - total: 总数量
 	GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error)
+	// / 生成角色描述
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成详细的背景描述和性格特征
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenerateRoleDescription
+	// / - 请求体：GenerateRoleDescriptionRequest (JSON)
+	// / - 响应：GenerateRoleDescriptionResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "role_id": 789,              // [必填] 角色ID
+	// /   "description": "基础描述"    // [可选] 基础描述（AI会扩展）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - character_detail: AI生成的详细角色描述
 	GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error)
+	// / 更新角色描述
+	// /
+	// / 【功能说明】
+	// / 更新角色的文本描述信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateRoleDescription
+	// / - 请求体：UpdateRoleDescriptionRequest (JSON)
+	// / - 响应：UpdateRoleDescriptionResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "description": "新的描述"    // [必填] 新的角色描述（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error)
+	// / 生成角色提示词
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成优化的图片生成提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenerateRolePrompt
+	// / - 请求体：GenerateRolePromptRequest (JSON)
+	// / - 响应：GenerateRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "role_id": 789,              // [必填] 角色ID
+	// /   "prompt": "基础提示词"       // [可选] 基础提示词（AI会优化）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - prompt: AI生成的优化提示词
 	GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error)
+	// / 更新角色提示词
+	// /
+	// / 【功能说明】
+	// / 更新角色的AI图片生成提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateRolePrompt
+	// / - 请求体：UpdateRolePromptRequest (JSON)
+	// / - 响应：UpdateRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error)
-	// 创建故事评论
+	// / 创建故事评论
+	// / 在故事下发表新的评论，支持富文本内容
+	// / HTTP POST /common.TeamsAPI/CreateStoryComment
+	// / 请求体：CreateStoryCommentRequest (JSON，包含故事ID和评论内容)
+	// / 响应：CreateStoryCommentResponse (JSON，返回创建的评论信息)
 	CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error)
-	// 获取故事评论
+	// / 获取故事评论列表
+	// / 分页获取指定故事的所有评论
+	// / HTTP POST /common.TeamsAPI/GetStoryComments
+	// / 请求体：GetStoryCommentsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryCommentsResponse (JSON，返回评论列表和分页信息)
 	GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error)
-	// 删除故事评论
+	// / 删除故事评论
+	// / 删除指定的故事评论，仅评论作者或管理员可删除
+	// / HTTP POST /common.TeamsAPI/DeleteStoryComment
+	// / 请求体：DeleteStoryCommentRequest (JSON)
+	// / 响应：DeleteStoryCommentResponse (JSON)
 	DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error)
-	// 获取故事评论回复
+	// / 获取故事评论回复列表
+	// / 获取指定评论的所有回复
+	// / HTTP POST /common.TeamsAPI/GetStoryCommentReplies
+	// / 请求体：GetStoryCommentRepliesRequest (JSON，包含评论ID和分页参数)
+	// / 响应：GetStoryCommentRepliesResponse (JSON，返回回复列表)
 	GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error)
-	// 创建故事评论回复
+	// / 创建故事评论回复
+	// / 回复指定的故事评论
+	// / HTTP POST /common.TeamsAPI/CreateStoryCommentReply
+	// / 请求体：CreateStoryCommentReplyRequest (JSON，包含评论ID和回复内容)
+	// / 响应：CreateStoryCommentReplyResponse (JSON，返回创建的回复信息)
 	CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error)
-	// 删除故事评论回复
+	// / 删除故事评论回复
+	// / 删除指定的评论回复，仅回复作者或管理员可删除
+	// / HTTP POST /common.TeamsAPI/DeleteStoryCommentReply
+	// / 请求体：DeleteStoryCommentReplyRequest (JSON)
+	// / 响应：DeleteStoryCommentReplyResponse (JSON)
 	DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error)
 	// 获取故事板评论
 	GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error)
@@ -650,58 +2183,342 @@ type TeamsAPIClient interface {
 	LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
 	DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error)
-	// 获取故事角色列表
+	// / 获取故事角色列表
+	// / 获取指定故事的所有角色列表，支持搜索和筛选
+	// / HTTP POST /common.TeamsAPI/GetStoryRoleList
+	// / 请求体：GetStoryRoleListRequest (JSON，包含故事ID、搜索关键词和分页参数)
+	// / 响应：GetStoryRoleListResponse (JSON，返回角色列表和总数)
 	GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error)
-	// 热门故事
+	// / 获取热门故事
+	// / 获取指定时间段内最热门的故事列表，按热度排序
+	// / HTTP POST /common.TeamsAPI/TrendingStory
+	// / 请求体：TrendingStoryRequest (JSON，包含时间范围和分页参数)
+	// / 响应：TrendingStoryResponse (JSON，返回热门故事列表)
 	TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error)
-	// 热门角色
+	// / 获取热门角色
+	// / 获取指定时间段内最热门的故事角色列表，按人气排序
+	// / HTTP POST /common.TeamsAPI/TrendingStoryRole
+	// / 请求体：TrendingStoryRoleRequest (JSON，包含时间范围和分页参数)
+	// / 响应：TrendingStoryRoleResponse (JSON，返回热门角色列表)
 	TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error)
-	// 关注另一个用户
+	// / 关注用户
+	// / 关注另一个用户，建立关注关系并接收其动态
+	// / HTTP POST /common.TeamsAPI/FollowUser
+	// / 请求体：FollowUserRequest (JSON，包含被关注用户的ID)
+	// / 响应：FollowUserResponse (JSON)
 	FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error)
-	// 取消关注另一个用户
+	// / 取消关注用户
+	// / 取消对另一个用户的关注，停止接收其动态
+	// / HTTP POST /common.TeamsAPI/UnfollowUser
+	// / 请求体：UnfollowUserRequest (JSON)
+	// / 响应：UnfollowUserResponse (JSON)
 	UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error)
-	// 获取关注列表
+	// / 获取用户关注列表
+	// / 获取用户关注的所有其他用户列表
+	// / HTTP POST /common.TeamsAPI/GetFollowList
+	// / 请求体：GetFollowListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetFollowListResponse (JSON，返回关注的用户列表)
 	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
-	// 获取粉丝列表
+	// / 获取用户粉丝列表
+	// / 获取关注该用户的所有粉丝列表
+	// / HTTP POST /common.TeamsAPI/GetFollowerList
+	// / 请求体：GetFollowerListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetFollowerListResponse (JSON，返回粉丝用户列表)
 	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
-	// 更新角色的提示词
+	// / 更新故事角色提示词
+	// /
+	// / 【功能说明】
+	// / 更新角色AI生成时使用的提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRolePrompt
+	// / - 请求体：UpdateStoryRolePromptRequest (JSON)
+	// / - 响应：UpdateStoryRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "user_id": 789,              // [必填] 用户ID
+	// /   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
-	// 更新角色的描述
+	// / 更新故事角色描述详情
+	// /
+	// / 【功能说明】
+	// / 更新角色的完整详细描述信息（CharacterDetail对象）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRoleDescriptionDetail
+	// / - 请求体：UpdateStoryRoleDescriptionDetailRequest (JSON)
+	// / - 响应：UpdateStoryRoleDescriptionDetailResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "user_id": 789,              // [必填] 用户ID
+	// /   "character_detail": {        // [必填] 角色详细信息对象
+	// /     "personality": "性格特征",
+	// /     "background": "背景故事",
+	// /     "abilities": "能力列表"
+	// /   }
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
-	// 获取生成任务状态
+	// / 查询任务状态
+	// /
+	// / 【功能说明】
+	// / 查询AI生成任务的实时状态和进度
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/QueryTaskStatus
+	// / - 请求体：QueryTaskStatusRequest (JSON)
+	// / - 响应：QueryTaskStatusResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "task_id": "task_12345",     // [必填] 任务ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "task_type": 1               // [可选] 任务类型（1-图片，2-视频，3-文本）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 任务状态（0-队列中，1-进行中，2-完成，3-失败）
+	// / - progress: 进度百分比（0-100）
+	// / - result_data: 任务结果数据（完成时）
+	// / - error_message: 错误消息（失败时）
 	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
-	// 获取故事的风格
+	// / 获取故事图片风格
+	// / 获取故事可用的所有图片生成风格列表
+	// / HTTP POST /common.TeamsAPI/GetStoryImageStyle
+	// / 请求体：GetStoryImageStyleRequest (JSON，包含故事ID)
+	// / 响应：GetStoryImageStyleResponse (JSON，返回风格列表和描述)
 	GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error)
-	// 更新故事的风格
+	// / 更新故事图片风格
+	// / 设置故事使用的图片生成风格
+	// / HTTP POST /common.TeamsAPI/UpdateStoryImageStyle
+	// / 请求体：UpdateStoryImageStyleRequest (JSON，包含风格ID和名称)
+	// / 响应：UpdateStoryImageStyleResponse (JSON)
 	UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error)
-	// 更新故事的场景数量
+	// / 更新故事最大场景数
+	// / 设置故事允许创建的最大场景数量限制
+	// / HTTP POST /common.TeamsAPI/UpdateStorySenceMaxNumber
+	// / 请求体：UpdateStorySenceMaxNumberRequest (JSON，包含最大场景数)
+	// / 响应：UpdateStorySenceMaxNumberResponse (JSON)
 	UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error)
-	// 更新故事头像
+	// / 更新故事头像
+	// / 更新故事的头像图片，用于故事展示
+	// / HTTP POST /common.TeamsAPI/UpdateStoryAvatar
+	// / 请求体：UpdateStoryAvatarRequest (JSON，包含新头像URL)
+	// / 响应：UpdateStoryAvatarResponse (JSON)
 	UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error)
-	// 更新故事封面
+	// / 更新故事封面
+	// / 更新故事的封面图片，支持使用AI生成的封面
+	// / HTTP POST /common.TeamsAPI/UpdateStoryCover
+	// / 请求体：UpdateStoryCoverRequest (JSON，包含封面URL和AI生成标志)
+	// / 响应：UpdateStoryCoverResponse (JSON)
 	UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error)
-	// 保存故事板草稿
+	// / 保存故事板草稿
+	// / 将当前故事板保存为草稿，便于后续继续编辑
+	// / HTTP POST /common.TeamsAPI/SaveStoryboardCraft
+	// / 请求体：SaveStoryboardCraftRequest (JSON，包含故事板ID)
+	// / 响应：SaveStoryboardCraftResponse (JSON)
 	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
-	// 获取故事参与者，参与故事版创建
+	// / 获取故事参与者列表
+	// / 获取参与故事创作和编辑的所有用户列表
+	// / HTTP POST /common.TeamsAPI/GetStoryParticipants
+	// / 请求体：GetStoryParticipantsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryParticipantsResponse (JSON，返回参与者用户列表)
 	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
-	// 为故事场景生成视频
+	// / 生成故事场景视频
+	// / 为指定的故事场景生成动态视频内容，支持自定义提示词和风格
+	// / HTTP POST /common.TeamsAPI/GenerateStorySceneVideo
+	// / 请求体：GenerateStorySceneVideoRequest (JSON，包含场景ID、提示词和token来源)
+	// / 响应：GenerateStorySceneVideoResponse (JSON，返回生成任务详情和视频URL)
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
+	// / 生成角色头像
+	// / 使用AI为故事角色生成个性化头像图片
+	// / HTTP POST /common.TeamsAPI/GenerateRoleAvatar
+	// / 请求体：GenerateRoleAvatarRequest (JSON，包含角色描述和风格)
+	// / 响应：GenerateRoleAvatarResponse (JSON，返回头像URL)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	// / 查询用户生成任务状态
+	// / 获取用户的所有AI生成任务的实时状态和进度
+	// / HTTP POST /common.TeamsAPI/QueryGenTaskStatus
+	// / 请求体：FetchUserGenTaskStatusRequest (JSON)
+	// / 响应：FetchUserGenTaskStatusResponse (JSON，包含任务列表和状态)
 	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
-	// 生成角色的海报图片
+	// / 生成角色海报图片
+	// / 为故事角色生成精美的宣传海报
+	// / HTTP POST /common.TeamsAPI/GenerateStoryRolePoster
+	// / 请求体：GenerateStoryRolePosterRequest (JSON，包含生成参数和风格)
+	// / 响应：GenerateStoryRolePosterResponse (JSON，返回海报URL和ID)
 	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
-	// 更新角色的海报图片
+	// / 更新角色海报图片
+	// / 更新角色海报的图片或可见性设置
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRolePoster
+	// / 请求体：UpdateStoryRolePosterRequest (JSON)
+	// / 响应：UpdateStoryRolePosterResponse (JSON)
 	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	// / 点赞角色海报
+	// / 为角色海报点赞，增加人气值
+	// / HTTP POST /common.TeamsAPI/LikeStoryRolePoster
+	// / 请求体：LikeStoryRolePosterRequest (JSON)
+	// / 响应：LikeStoryRolePosterResponse (JSON，返回最新点赞数)
 	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	// / 取消点赞角色海报
+	// / 取消对角色海报的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStoryRolePoster
+	// / 请求体：UnLikeStoryRolePosterRequest (JSON)
+	// / 响应：UnLikeStoryRolePosterResponse (JSON，返回最新点赞数)
 	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	// / 获取角色海报列表
+	// / 获取指定故事角色的所有海报图片列表
+	// / HTTP POST /common.TeamsAPI/GetStoryRolePosterList
+	// / 请求体：GetStoryRolePosterListRequest (JSON，包含分页参数)
+	// / 响应：GetStoryRolePosterListResponse (JSON，返回海报列表)
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
-	// 为故事角色生成视频
+	// / 生成故事角色视频
+	// / 为故事角色生成动态宣传视频
+	// / HTTP POST /common.TeamsAPI/GenerateStoryRoleVideo
+	// / 请求体：GenerateStoryRoleVideoRequest (JSON，包含视频参数和风格)
+	// / 响应：GenerateStoryRoleVideoResponse (JSON，返回任务详情和视频URL)
 	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	// / 更新故事板分叉权限
+	// / 设置故事板是否允许其他用户进行分叉创建分支
+	// / HTTP POST /common.TeamsAPI/UpdateStoryboardForkAble
+	// / 请求体：UpdateStoryboardForkAbleRequest (JSON)
+	// / 响应：UpdateStoryboardForkAbleResponse (JSON)
 	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	// / 获取用户故事板草稿列表
+	// / 分页获取指定用户的所有故事板草稿，支持按故事筛选
+	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftlist
+	// / 请求体：UserStoryboardDraftlistRequest (JSON)
+	// / 响应：UserStoryboardDraftlistResponse (JSON)
 	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	// / 获取用户故事板草稿详情
+	// / 获取指定草稿的完整详细信息，包括内容、角色、场景等
+	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftDetail
+	// / 请求体：UserDraftStoryboardDetailRequest (JSON)
+	// / 响应：UserDraftStoryboardDetailResponse (JSON)
 	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	// / 删除用户故事板草稿
+	// /
+	// / 【功能说明】
+	// / 删除指定用户的故事板草稿，释放存储空间
+	// /
+	// / 【权限要求】
+	// / - 仅草稿所有者可以删除自己的草稿
+	// / - 删除后不可恢复，请谨慎操作
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft
+	// / - 请求体：DeleteUserStoryboardDraftRequest (JSON)
+	// / - 响应：DeleteUserStoryboardDraftResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - user_id: [必填] 用户ID（所有者ID）
+	// / - draft_id: [必填] 草稿ID（要删除的草稿）
+	// / - story_id: [可选] 故事ID（用于权限验证）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码（0表示成功）
+	// / - message: 响应消息描述
+	// /
+	// / 【使用示例】
+	// / ```json
+	// / {
+	// /   "user_id": 123,
+	// /   "draft_id": 456,
+	// /   "story_id": 789
+	// / }
+	// / ```
 	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	// / 获取用户活跃热力图
+	// /
+	// / 【功能说明】
+	// / 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示
+	// /
+	// / 【数据统计】
+	// / - 统计用户的创建、更新、评论等所有活跃操作
+	// / - 按天聚合活跃度数据
+	// / - 自动计算热力等级（0-4级）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserActiveHeatmap
+	// / - 请求体：UserActiveHeamapRequest (JSON)
+	// / - 响应：UserActiveHeamapResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - user_id: [必填] 用户ID
+	// / - start_time: [必填] 开始时间戳（秒）
+	// / - end_time: [必填] 结束时间戳（秒）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - data: 热力图数据数组（每天一条记录）
+	// / - total_count: 时间范围内的总活跃次数
+	// /
+	// / 【使用场景】
+	// / - 用户个人主页展示活跃度
+	// / - 统计用户贡献度
+	// / - 活跃度排行榜
 	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	// / 获取群组活跃热力图
+	// /
+	// / 【功能说明】
+	// / 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况
+	// /
+	// / 【数据统计】
+	// / - 统计群组内所有成员的活跃操作
+	// / - 包括故事创建、故事板发布、评论互动等
+	// / - 返回活跃成员数量统计
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GroupActiveHeatmap
+	// / - 请求体：GroupActiveHeamapRequest (JSON)
+	// / - 响应：GroupActiveHeamapResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - group_id: [必填] 群组ID
+	// / - user_id: [必填] 请求用户ID（用于权限验证）
+	// / - start_time: [必填] 开始时间戳（秒）
+	// / - end_time: [必填] 结束时间戳（秒）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - data: 热力图数据数组
+	// / - total_count: 群组总活跃次数
+	// / - member_count: 参与活跃的成员数量
+	// /
+	// / 【权限要求】
+	// / - 用户必须是群组成员才能查看
+	// /
+	// / 【使用场景】
+	// / - 群组主页展示活跃度
+	// / - 分析群组健康度
+	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
 }
 
@@ -2333,45 +4150,308 @@ func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect_go
 
 // TeamsAPIHandler is an implementation of the rankquantity.voyager.api.TeamsAPI service.
 type TeamsAPIHandler interface {
-	// Explore returns trending and recommended content for users to discover
+	// / 探索推荐内容
+	// / 获取平台推荐的热门和优质内容，帮助用户发现有趣的故事和角色
+	// / HTTP GET /common.TeamsAPI/Explore
+	// / 响应：ExploreResponse (JSON，返回推荐内容列表)
 	Explore(context.Context, *connect_go.Request[gen.ExploreRequest]) (*connect_go.Response[gen.ExploreResponse], error)
-	// Version returns the current API version and build information
+	// / 获取API版本信息
+	// / 返回当前API的版本号和构建时间信息
+	// / HTTP GET /common.TeamsAPI/Version
+	// / 响应：VersionResponse (JSON，包含version和build_time)
 	Version(context.Context, *connect_go.Request[gen.VersionRequest]) (*connect_go.Response[gen.VersionResponse], error)
-	// About returns information about the service
+	// / 获取服务关于信息
+	// / 返回服务的基本介绍和说明信息
+	// / HTTP GET /common.TeamsAPI/About
+	// / 响应：AboutResponse (JSON，包含服务描述)
 	About(context.Context, *connect_go.Request[gen.AboutRequest]) (*connect_go.Response[gen.AboutResponse], error)
-	// Login authenticates a user and returns a session token
+	// / 用户登录
+	// /
+	// / 【功能说明】
+	// / 验证用户凭据并创建会话，支持多种登录方式
+	// /
+	// / 【支持的登录方式】
+	// / - 密码登录：使用账号+密码
+	// / - 验证码登录：使用手机号+验证码
+	// / - 第三方登录：OAuth2.0授权登录
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/Login
+	// / - 请求体：LoginRequest (JSON)
+	// / - 响应：LoginResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - account: [必填] 账号（邮箱/手机号/用户名）
+	// / - password: [必填] 密码
+	// / - login_type: [必填] 登录类型（1-3）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - msg: 响应消息
+	// / - data.user_id: 用户ID
+	// / - data.token: 访问令牌（JWT格式）
+	// / - data.expire_at: token过期时间戳
+	// /
+	// / 【使用示例】
+	// / ```json
+	// / {
+	// /   "account": "user@example.com",
+	// /   "password": "password123",
+	// /   "login_type": 1
+	// / }
+	// / ```
 	Login(context.Context, *connect_go.Request[gen.LoginRequest]) (*connect_go.Response[gen.LoginResponse], error)
-	// Logout invalidates the user's current session token
+	// / 用户登出
+	// / 使当前会话token失效，退出登录状态
+	// / HTTP POST /common.TeamsAPI/Logout
+	// / 请求体：LogoutRequest (JSON，包含token和用户ID)
+	// / 响应：LogoutResponse (JSON)
 	Logout(context.Context, *connect_go.Request[gen.LogoutRequest]) (*connect_go.Response[gen.LogoutResponse], error)
-	// RefreshToken generates a new session token using the current valid token
+	// / 刷新访问令牌
+	// / 使用当前有效token生成新的访问令牌，延长会话时间
+	// / HTTP POST /common.TeamsAPI/RefreshToken
+	// / 请求体：RefreshTokenRequest (JSON，包含当前token)
+	// / 响应：RefreshTokenResponse (JSON，返回新的token和用户ID)
 	RefreshToken(context.Context, *connect_go.Request[gen.RefreshTokenRequest]) (*connect_go.Response[gen.RefreshTokenResponse], error)
-	// Register creates a new user account
+	// / 用户注册
+	// / 创建新的用户账号，需要提供账号、密码、邮箱等信息
+	// / HTTP POST /common.TeamsAPI/Register
+	// / 请求体：RegisterRequest (JSON，包含账号、密码、昵称、邮箱、手机号)
+	// / 响应：RegisterResponse (JSON)
 	Register(context.Context, *connect_go.Request[gen.RegisterRequest]) (*connect_go.Response[gen.RegisterResponse], error)
-	// ResetPwd allows users to reset their password
+	// / 重置密码
+	// /
+	// / 【功能说明】
+	// / 允许用户重置登录密码，需要验证原密码
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ResetPwd
+	// / - 请求体：ResetPasswordRequest (JSON)
+	// / - 响应：ResetPasswordResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "account": "用户账号（邮箱/手机号/用户名）",
+	// /   "oldPwd": "原密码（用于验证身份）",
+	// /   "newPwd": "新密码（6-128字符）"
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - account: 用户账号
+	// / - status: 重置状态（0-成功）
+	// / - timestamp: 操作时间戳
 	ResetPwd(context.Context, *connect_go.Request[gen.ResetPasswordRequest]) (*connect_go.Response[gen.ResetPasswordResponse], error)
-	// UserInit performs initial setup for a new user
+	// / 用户初始化
+	// /
+	// / 【功能说明】
+	// / 为新注册用户执行初始化设置，创建默认资料和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserInit
+	// / - 请求体：UserInitRequest (JSON)
+	// / - 响应：UserInitResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,        // [必填] 用户ID
+	// /   "name": "用户昵称",     // [可选] 显示名称
+	// /   "avatar": "头像URL",   // [可选] 头像地址
+	// /   "timezone": "时区"     // [可选] 用户时区
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 初始化后的用户信息
 	UserInit(context.Context, *connect_go.Request[gen.UserInitRequest]) (*connect_go.Response[gen.UserInitResponse], error)
-	// UserInfo retrieves detailed information about a user
+	// / 获取用户信息
+	// /
+	// / 【功能说明】
+	// / 获取指定用户的详细信息，包括基本资料、统计数据等
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserInfo
+	// / - 请求体：UserInfoRequest (JSON)
+	// / - 响应：UserInfoResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "account": "user@email.com"  // [可选] 用户账号（二选一）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 用户详细信息对象
 	UserInfo(context.Context, *connect_go.Request[gen.UserInfoRequest]) (*connect_go.Response[gen.UserInfoResponse], error)
-	// UpdateUserAvator updates the user's profile picture
+	// / 更新用户头像
+	// /
+	// / 【功能说明】
+	// / 更新用户的个人头像图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateUserAvator
+	// / - 请求体：UpdateUserAvatorRequest (JSON)
+	// / - 响应：UpdateUserAvatorResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,                      // [必填] 用户ID
+	// /   "avator": "https://cdn.com/img.jpg"  // [必填] 新头像URL
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	UpdateUserAvator(context.Context, *connect_go.Request[gen.UpdateUserAvatorRequest]) (*connect_go.Response[gen.UpdateUserAvatorResponse], error)
-	// UserWatching returns a list of projects the user is following
+	// / 获取用户关注的项目
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的所有项目（故事）列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserWatching
+	// / - 请求体：UserWatchingRequest (JSON)
+	// / - 响应：UserWatchingResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量，默认0
+	// /   "page_size": 20      // [可选] 每页数量，默认20
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - projects: 关注的项目列表
+	// / - total: 总数量
 	UserWatching(context.Context, *connect_go.Request[gen.UserWatchingRequest]) (*connect_go.Response[gen.UserWatchingResponse], error)
-	// UserGroup returns a list of groups the user belongs to
+	// / 获取用户所属群组
+	// /
+	// / 【功能说明】
+	// / 获取用户加入的所有群组列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserGroup
+	// / - 请求体：UserGroupRequest (JSON)
+	// / - 响应：UserGroupResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量
+	// /   "page_size": 20      // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - groups: 群组列表
+	// / - total: 总数量
 	UserGroup(context.Context, *connect_go.Request[gen.UserGroupRequest]) (*connect_go.Response[gen.UserGroupResponse], error)
-	// UserFollowingGroup returns a list of groups the user is following
+	// / 获取用户关注的群组
+	// /
+	// / 【功能说明】
+	// / 获取用户关注但未加入的群组列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserFollowingGroup
+	// / - 请求体：UserFollowingGroupRequest (JSON)
+	// / - 响应：UserFollowingGroupResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,      // [必填] 用户ID
+	// /   "offset": 0,         // [可选] 分页偏移量
+	// /   "page_size": 20      // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - groups: 关注的群组列表
+	// / - total: 总数量
 	UserFollowingGroup(context.Context, *connect_go.Request[gen.UserFollowingGroupRequest]) (*connect_go.Response[gen.UserFollowingGroupResponse], error)
-	// UserUpdate updates the user's profile information
+	// / 更新用户信息
+	// /
+	// / 【功能说明】
+	// / 更新用户的基本资料信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserUpdate
+	// / - 请求体：UserUpdateRequest (JSON)
+	// / - 响应：UserUpdateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "name": "新昵称",            // [可选] 用户昵称
+	// /   "description": "个人简介",   // [可选] 个人描述
+	// /   "location": "所在地",        // [可选] 地理位置
+	// /   "email": "new@email.com"     // [可选] 邮箱地址
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - user: 更新后的用户信息
 	UserUpdate(context.Context, *connect_go.Request[gen.UserUpdateRequest]) (*connect_go.Response[gen.UserUpdateResponse], error)
-	// SearchUser searches for users based on specified criteria
+	// / 搜索用户
+	// / 根据名称搜索用户，支持模糊搜索和精确匹配
+	// / HTTP POST /common.TeamsAPI/SearchUser
+	// / 请求体：SearchUserRequest (JSON，包含搜索关键词、群组ID和分页参数)
+	// / 响应：SearchUserResponse (JSON，返回匹配的用户列表)
 	SearchUser(context.Context, *connect_go.Request[gen.SearchUserRequest]) (*connect_go.Response[gen.SearchUserResponse], error)
-	// CreateGroup creates a new group
+	// / 创建群组
+	// / 创建新的协作群组或团队，设置名称、描述和头像
+	// / HTTP POST /common.TeamsAPI/CreateGroup
+	// / 请求体：CreateGroupRequest (JSON，包含群组名称、描述和头像)
+	// / 响应：CreateGroupResponse (JSON，返回创建的群组信息)
 	CreateGroup(context.Context, *connect_go.Request[gen.CreateGroupRequest]) (*connect_go.Response[gen.CreateGroupResponse], error)
-	// GetGroup retrieves information about a specific group
+	// / 获取群组信息
+	// / 获取指定群组的详细信息，支持同时获取资料信息
+	// / HTTP POST /common.TeamsAPI/GetGroup
+	// / 请求体：GetGroupRequest (JSON，包含群组ID和是否获取资料标志)
+	// / 响应：GetGroupResponse (JSON，返回群组详细信息)
 	GetGroup(context.Context, *connect_go.Request[gen.GetGroupRequest]) (*connect_go.Response[gen.GetGroupResponse], error)
-	// GetGroupActives returns recent activities within a group
+	// / 获取群组动态
+	// / 获取群组内的最新活动动态
+	// / HTTP POST /common.TeamsAPI/GetGroupActives
+	// / 请求体：GetGroupActivesRequest (JSON，包含群组ID和分页参数)
+	// / 响应：GetGroupActivesResponse (JSON，返回群组活动列表)
 	GetGroupActives(context.Context, *connect_go.Request[gen.GetGroupActivesRequest]) (*connect_go.Response[gen.GetGroupActivesResponse], error)
-	// UpdateGroupInfo updates the group's information
+	// / 更新群组信息
+	// / 更新群组的基本信息，如名称、描述等
+	// / HTTP POST /common.TeamsAPI/UpdateGroupInfo
+	// / 请求体：UpdateGroupInfoRequest (JSON，包含群组ID和更新信息)
+	// / 响应：UpdateGroupInfoResponse (JSON，返回更新后的群组信息)
 	UpdateGroupInfo(context.Context, *connect_go.Request[gen.UpdateGroupInfoRequest]) (*connect_go.Response[gen.UpdateGroupInfoResponse], error)
 	// GetGroupProfile retrieves the group's profile information
 	GetGroupProfile(context.Context, *connect_go.Request[gen.GetGroupProfileRequest]) (*connect_go.Response[gen.GetGroupProfileResponse], error)
@@ -2379,117 +4459,1062 @@ type TeamsAPIHandler interface {
 	UpdateGroupProfile(context.Context, *connect_go.Request[gen.UpdateGroupProfileRequest]) (*connect_go.Response[gen.UpdateGroupProfileResponse], error)
 	// DeleteGroup removes a group
 	DeleteGroup(context.Context, *connect_go.Request[gen.DeleteGroupRequest]) (*connect_go.Response[gen.DeleteGroupResponse], error)
-	// FetchGroupMembers retrieves the list of members in a group
+	// / 获取群组成员列表
+	// / 分页获取指定群组的所有成员用户列表
+	// / HTTP POST /common.TeamsAPI/FetchGroupMembers
+	// / 请求体：FetchGroupMembersRequest (JSON，包含群组ID和分页参数)
+	// / 响应：FetchGroupMembersResponse (JSON，返回成员列表和总数)
 	FetchGroupMembers(context.Context, *connect_go.Request[gen.FetchGroupMembersRequest]) (*connect_go.Response[gen.FetchGroupMembersResponse], error)
-	// JoinGroup adds a user to a group
+	// / 加入群组
+	// / 用户申请加入指定群组，成为群组成员
+	// / HTTP POST /common.TeamsAPI/JoinGroup
+	// / 请求体：JoinGroupRequest (JSON，包含群组ID和用户ID)
+	// / 响应：JoinGroupResponse (JSON)
 	JoinGroup(context.Context, *connect_go.Request[gen.JoinGroupRequest]) (*connect_go.Response[gen.JoinGroupResponse], error)
-	// LeaveGroup removes a user from a group
+	// / 离开群组
+	// / 用户退出指定群组，解除成员关系
+	// / HTTP POST /common.TeamsAPI/LeaveGroup
+	// / 请求体：LeaveGroupRequest (JSON，包含群组ID和用户ID)
+	// / 响应：LeaveGroupResponse (JSON)
 	LeaveGroup(context.Context, *connect_go.Request[gen.LeaveGroupRequest]) (*connect_go.Response[gen.LeaveGroupResponse], error)
-	// 创建故事
+	// / 创建故事
+	// /
+	// / 【功能说明】
+	// / 创建一个新的故事，设置基本信息和初始配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStory
+	// / - 请求体：CreateStoryRequest (JSON)
+	// / - 响应：CreateStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 创建者用户ID
+	// /   "group_id": 456,             // [可选] 所属群组ID
+	// /   "title": "故事标题",         // [必填] 故事名称
+	// /   "description": "故事简介",   // [可选] 故事描述
+	// /   "cover": "封面URL",          // [可选] 封面图片
+	// /   "is_public": true            // [可选] 是否公开，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 创建的故事对象
+	// / - story_id: 故事ID
 	CreateStory(context.Context, *connect_go.Request[gen.CreateStoryRequest]) (*connect_go.Response[gen.CreateStoryResponse], error)
-	// 获取故事信息
+	// / 获取故事信息
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的详细信息，包括统计数据
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryInfo
+	// / - 请求体：GetStoryInfoRequest (JSON)
+	// / - 响应：GetStoryInfoResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,     // [必填] 故事ID
+	// /   "user_id": 456       // [必填] 请求用户ID（用于权限验证）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 故事详细信息
+	// / - stats: 统计数据（浏览、点赞、评论数等）
 	GetStoryInfo(context.Context, *connect_go.Request[gen.GetStoryInfoRequest]) (*connect_go.Response[gen.GetStoryInfoResponse], error)
-	// 渲染故事
+	// / 渲染故事
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事生成内容、角色、场景等
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStory
+	// / - 请求体：RenderStoryRequest (JSON)
+	// / - 响应：RenderStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "prompt": "渲染提示词",      // [可选] AI生成提示
+	// /   "render_type": 1             // [可选] 渲染类型（1-完整，2-增量）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - render_id: 渲染任务ID
+	// / - status: 任务状态
 	RenderStory(context.Context, *connect_go.Request[gen.RenderStoryRequest]) (*connect_go.Response[gen.RenderStoryResponse], error)
-	// 更新故事
+	// / 更新故事
+	// /
+	// / 【功能说明】
+	// / 更新故事的基本信息和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStory
+	// / - 请求体：UpdateStoryRequest (JSON)
+	// / - 响应：UpdateStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 故事标题
+	// /   "description": "新简介",     // [可选] 故事描述
+	// /   "cover": "新封面URL",        // [可选] 封面图片
+	// /   "is_public": true            // [可选] 公开状态
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - story: 更新后的故事信息
 	UpdateStory(context.Context, *connect_go.Request[gen.UpdateStoryRequest]) (*connect_go.Response[gen.UpdateStoryResponse], error)
-	// 关注故事
+	// / 关注故事
+	// /
+	// / 【功能说明】
+	// / 关注指定故事，接收该故事的更新通知
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/WatchStory
+	// / - 请求体：WatchStoryRequest (JSON)
+	// / - 响应：WatchStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,     // [必填] 要关注的故事ID
+	// /   "user_id": 456       // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - is_watching: 关注状态（true表示已关注）
 	WatchStory(context.Context, *connect_go.Request[gen.WatchStoryRequest]) (*connect_go.Response[gen.WatchStoryResponse], error)
-	// 收藏故事
+	// / 收藏故事
+	// / 将故事添加到用户的个人收藏夹，方便后续查看
+	// / HTTP POST /common.TeamsAPI/ArchiveStory
+	// / 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID)
+	// / 响应：ArchiveStoryResponse (JSON)
 	ArchiveStory(context.Context, *connect_go.Request[gen.ArchiveStoryRequest]) (*connect_go.Response[gen.ArchiveStoryResponse], error)
-	// 创建故事板
+	// / 创建故事板
+	// /
+	// / 【功能说明】
+	// / 在故事中创建新的故事板（分支剧情）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStoryboard
+	// / - 请求体：CreateStoryboardRequest (JSON)
+	// / - 响应：CreateStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 所属故事ID
+	// /   "user_id": 456,              // [必填] 创建者用户ID
+	// /   "parent_board_id": 789,      // [可选] 父故事板ID（分支时提供）
+	// /   "title": "故事板标题",       // [必填] 故事板名称
+	// /   "content": "剧情内容"        // [可选] 故事板内容
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 创建的故事板对象
+	// / - storyboard_id: 故事板ID
 	CreateStoryboard(context.Context, *connect_go.Request[gen.CreateStoryboardRequest]) (*connect_go.Response[gen.CreateStoryboardResponse], error)
-	// 获取故事板
+	// / 获取故事板
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板的详细信息和内容
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryboard
+	// / - 请求体：GetStoryboardRequest (JSON)
+	// / - 响应：GetStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 请求用户ID
+	// /   "include_scenes": true   // [可选] 是否包含场景信息，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 故事板详细信息
+	// / - scenes: 场景列表（如果 include_scenes=true）
 	GetStoryboard(context.Context, *connect_go.Request[gen.GetStoryboardRequest]) (*connect_go.Response[gen.GetStoryboardResponse], error)
-	// 渲染故事板
+	// / 渲染故事板
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板生成场景、对话和图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryboard
+	// / - 请求体：RenderStoryboardRequest (JSON)
+	// / - 响应：RenderStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "prompt": "渲染提示",        // [可选] AI生成提示词
+	// /   "render_scenes": true,       // [可选] 是否渲染场景，默认true
+	// /   "render_images": true        // [可选] 是否生成图片，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - render_id: 渲染任务ID
+	// / - status: 渲染状态
+	// / - progress: 渲染进度（0-100）
 	RenderStoryboard(context.Context, *connect_go.Request[gen.RenderStoryboardRequest]) (*connect_go.Response[gen.RenderStoryboardResponse], error)
-	// 生成故事板文本
+	// / 生成故事板文本
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板生成文本内容（场景描述、对话等）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenStoryboardText
+	// / - 请求体：GenStoryboardTextRequest (JSON)
+	// / - 响应：GenStoryboardTextResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "prompt": "生成提示",        // [可选] AI生成提示词
+	// /   "language": "zh-CN",         // [可选] 语言代码，默认zh-CN
+	// /   "style": "现代",             // [可选] 写作风格
+	// /   "length": "medium"           // [可选] 文本长度（short/medium/long）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - generated_text: 生成的文本内容
+	// / - task_id: 生成任务ID
 	GenStoryboardText(context.Context, *connect_go.Request[gen.GenStoryboardTextRequest]) (*connect_go.Response[gen.GenStoryboardTextResponse], error)
-	// 生成故事板图片
+	// / 生成故事板图片
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板的场景生成配图
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenStoryboardImages
+	// / - 请求体：GenStoryboardImagesRequest (JSON)
+	// / - 响应：GenStoryboardImagesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "scene_ids": [1, 2, 3],      // [可选] 要生成图片的场景ID列表
+	// /   "style_id": 5,               // [可选] 图片风格ID
+	// /   "quality": "high",           // [可选] 图片质量（low/medium/high）
+	// /   "aspect_ratio": "16:9"       // [可选] 宽高比，默认16:9
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - task_ids: 图片生成任务ID列表
+	// / - estimated_time: 预计完成时间（秒）
 	GenStoryboardImages(context.Context, *connect_go.Request[gen.GenStoryboardImagesRequest]) (*connect_go.Response[gen.GenStoryboardImagesResponse], error)
-	// 获取故事板
+	// / 获取故事板列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的所有故事板列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryboards
+	// / - 请求体：GetStoryboardsRequest (JSON)
+	// / - 响应：GetStoryboardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,         // [必填] 故事ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "status": 1,             // [可选] 状态筛选（0-全部，1-已发布，2-草稿）
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20          // [可选] 每页数量，默认20
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboards: 故事板列表
+	// / - total: 总数量
+	// / - have_more: 是否有更多数据
 	GetStoryboards(context.Context, *connect_go.Request[gen.GetStoryboardsRequest]) (*connect_go.Response[gen.GetStoryboardsResponse], error)
-	// 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
+	// / 删除故事板
+	// /
+	// / 【功能说明】
+	// / 删除指定的故事板
+	// /
+	// / 【删除规则】
+	// / 1. 最后一个故事板可以被删除
+	// / 2. 如果故事板是多分支之一则可以被删除
+	// / 3. 有子分支的故事板不能直接删除
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DelStoryboard
+	// / - 请求体：DelStoryboardRequest (JSON)
+	// / - 响应：DelStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要删除的故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID（权限验证）
+	// /   "story_id": 789,         // [必填] 所属故事ID
+	// /   "force": false           // [可选] 是否强制删除，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	DelStoryboard(context.Context, *connect_go.Request[gen.DelStoryboardRequest]) (*connect_go.Response[gen.DelStoryboardResponse], error)
-	// 复制故事板
+	// / 复制故事板（分叉）
+	// /
+	// / 【功能说明】
+	// / 基于现有故事板创建分支版本，开启新的剧情线
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ForkStoryboard
+	// / - 请求体：ForkStoryboardRequest (JSON)
+	// / - 响应：ForkStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "source_board_id": 123,      // [必填] 源故事板ID（要分叉的故事板）
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "new_title": "分支标题",     // [可选] 新故事板标题
+	// /   "copy_content": true         // [可选] 是否复制内容，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - new_storyboard: 新创建的分支故事板
+	// / - new_storyboard_id: 新故事板ID
 	ForkStoryboard(context.Context, *connect_go.Request[gen.ForkStoryboardRequest]) (*connect_go.Response[gen.ForkStoryboardResponse], error)
-	// 更新故事板
+	// / 更新故事板
+	// /
+	// / 【功能说明】
+	// / 更新故事板的内容和配置信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryboard
+	// / - 请求体：UpdateStoryboardRequest (JSON)
+	// / - 响应：UpdateStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 故事板标题
+	// /   "content": "新内容",         // [可选] 故事板内容
+	// /   "status": 1                  // [可选] 状态（1-草稿，2-已发布）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - storyboard: 更新后的故事板信息
 	UpdateStoryboard(context.Context, *connect_go.Request[gen.UpdateStoryboardRequest]) (*connect_go.Response[gen.UpdateStoryboardResponse], error)
-	// 喜欢故事板
+	// / 点赞故事板
+	// /
+	// / 【功能说明】
+	// / 为故事板点赞，表达对内容的喜欢
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/LikeStoryboard
+	// / - 请求体：LikeStoryboardRequest (JSON)
+	// / - 响应：LikeStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 点赞用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - like_count: 最新点赞总数
 	LikeStoryboard(context.Context, *connect_go.Request[gen.LikeStoryboardRequest]) (*connect_go.Response[gen.LikeStoryboardResponse], error)
-	// 取消喜欢故事板
+	// / 取消点赞故事板
+	// /
+	// / 【功能说明】
+	// / 取消对故事板的点赞
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UnLikeStoryboard
+	// / - 请求体：UnLikeStoryboardRequest (JSON)
+	// / - 响应：UnLikeStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - like_count: 最新点赞总数
 	UnLikeStoryboard(context.Context, *connect_go.Request[gen.UnLikeStoryboardRequest]) (*connect_go.Response[gen.UnLikeStoryboardResponse], error)
-	// 分享故事板
+	// / 分享故事板
+	// /
+	// / 【功能说明】
+	// / 生成故事板的分享链接，便于在社交媒体传播
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ShareStoryboard
+	// / - 请求体：ShareStoryboardRequest (JSON)
+	// / - 响应：ShareStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 分享用户ID
+	// /   "platform": "wechat",        // [可选] 分享平台（wechat/weibo/twitter等）
+	// /   "include_images": true       // [可选] 是否包含图片预览，默认true
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - share_url: 分享链接URL
+	// / - qr_code: 二维码图片URL（可选）
+	// / - share_id: 分享记录ID
 	ShareStoryboard(context.Context, *connect_go.Request[gen.ShareStoryboardRequest]) (*connect_go.Response[gen.ShareStoryboardResponse], error)
-	// 获取组织故事
+	// / 获取群组故事列表
+	// /
+	// / 【功能说明】
+	// / 获取指定群组内的所有故事
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/FetchGroupStorys
+	// / - 请求体：FetchGroupStorysRequest (JSON)
+	// / - 响应：FetchGroupStorysResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "group_id": 123,         // [必填] 群组ID
+	// /   "user_id": 456,          // [必填] 请求用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20,         // [可选] 每页数量，默认20
+	// /   "status": 0              // [可选] 状态筛选（0-全部）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - stories: 故事列表
+	// / - total: 总数量
 	FetchGroupStorys(context.Context, *connect_go.Request[gen.FetchGroupStorysRequest]) (*connect_go.Response[gen.FetchGroupStorysResponse], error)
-	// 用来上传文件的proto 接口
+	// / 上传图片文件
+	// /
+	// / 【功能说明】
+	// / 上传图片到服务器，支持多种图片格式
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UploadImageFile
+	// / - 请求体：UploadImageRequest (JSON，使用 base64 编码的图片数据)
+	// / - 响应：UploadImageResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "image_data": "base64编码的图片数据",  // [必填] 图片二进制数据（最大10MB）
+	// /   "filename": "avatar.jpg",             // [必填] 文件名（含扩展名）
+	// /   "content_type": "image/jpeg"          // [必填] MIME类型
+	// / }
+	// / ```
+	// /
+	// / 【支持的图片格式】
+	// / - image/jpeg, image/jpg
+	// / - image/png
+	// / - image/gif
+	// / - image/webp
+	// / - image/bmp
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - url: 上传后的图片URL
+	// / - file_id: 文件ID
+	// / - size: 文件大小（字节）
 	UploadImageFile(context.Context, *connect_go.Request[gen.UploadImageRequest]) (*connect_go.Response[gen.UploadImageResponse], error)
-	// 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+	// / 获取故事渲染记录
+	// /
+	// / 【功能说明】
+	// / 获取故事的所有AI渲染记录和历史
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/StoryRender/list
+	// / - 请求体：GetStoryRenderRequest (JSON)
+	// / - 响应：GetStoryRenderResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "render_status": 0,          // [可选] 渲染状态筛选（0-全部，1-进行中，2-完成，3-失败）
+	// /   "render_type": 0,            // [可选] 渲染类型筛选（0-全部，1-角色，2-场景，3-文本）
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20              // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - renders: 渲染记录列表
+	// / - total: 总数量
 	GetStoryRender(context.Context, *connect_go.Request[gen.GetStoryRenderRequest]) (*connect_go.Response[gen.GetStoryRenderResponse], error)
-	// 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+	// / 获取故事板渲染记录
+	// /
+	// / 【功能说明】
+	// / 获取故事板的所有AI渲染记录和历史
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/StoryBoardRender/list
+	// / - 请求体：GetStoryBoardRenderRequest (JSON)
+	// / - 响应：GetStoryBoardRenderResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "render_status": 0,          // [可选] 渲染状态筛选
+	// /   "render_type": 0,            // [可选] 渲染类型筛选
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20              // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - renders: 渲染记录列表
+	// / - total: 总数量
 	GetStoryBoardRender(context.Context, *connect_go.Request[gen.GetStoryBoardRenderRequest]) (*connect_go.Response[gen.GetStoryBoardRenderResponse], error)
-	// 获取故事的贡献者
+	// / 获取故事贡献者列表
+	// / 获取参与故事创作的所有贡献者，按贡献度排序
+	// / HTTP POST /common.TeamsAPI/GetStoryContributors
+	// / 请求体：GetStoryContributorsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryContributorsResponse (JSON，返回贡献者列表和VIP等级信息)
 	GetStoryContributors(context.Context, *connect_go.Request[gen.GetStoryContributorsRequest]) (*connect_go.Response[gen.GetStoryContributorsResponse], error)
-	// 继续渲染故事
+	// / 继续渲染故事
+	// /
+	// / 【功能说明】
+	// / 在现有基础上继续使用AI生成故事内容
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/ContinueRenderStory
+	// / - 请求体：ContinueRenderStoryRequest (JSON)
+	// / - 响应：ContinueRenderStoryResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "last_board_id": 789,        // [可选] 上一个故事板ID
+	// /   "continue_prompt": "继续...", // [可选] 继续的提示词
+	// /   "generate_count": 3          // [可选] 生成场景数量，默认3
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - new_boards: 新生成的故事板列表
+	// / - render_id: 渲染任务ID
 	ContinueRenderStory(context.Context, *connect_go.Request[gen.ContinueRenderStoryRequest]) (*connect_go.Response[gen.ContinueRenderStoryResponse], error)
 	// 渲���故事角色
 	RenderStoryRoles(context.Context, *connect_go.Request[gen.RenderStoryRolesRequest]) (*connect_go.Response[gen.RenderStoryRolesResponse], error)
-	// 更新 story role
+	// / 更新故事角色
+	// /
+	// / 【功能说明】
+	// / 更新故事角色的基本信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRole
+	// / - 请求体：UpdateStoryRoleRequest (JSON)
+	// / - 响应：UpdateStoryRoleResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "name": "新角色名",          // [可选] 角色名称
+	// /   "description": "角色描述",   // [可选] 角色描述
+	// /   "avatar": "头像URL"          // [可选] 角色头像
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - role: 更新后的角色信息
 	UpdateStoryRole(context.Context, *connect_go.Request[gen.UpdateStoryRoleRequest]) (*connect_go.Response[gen.UpdateStoryRoleResponse], error)
-	// 渲染故事角色详情
+	// / 渲染故事角色详情
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成详细的背景故事和性格特征
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryRoleDetail
+	// / - 请求体：RenderStoryRoleDetailRequest (JSON)
+	// / - 响应：RenderStoryRoleDetailResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "detail_type": 1,            // [可选] 详情类型（1-完整，2-简要）
+	// /   "prompt": "生成提示"         // [可选] AI生成提示词
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - character_detail: 角色详细信息对象
+	// / - render_id: 渲染任务ID
 	RenderStoryRoleDetail(context.Context, *connect_go.Request[gen.RenderStoryRoleDetailRequest]) (*connect_go.Response[gen.RenderStoryRoleDetailResponse], error)
-	// 获取 story roles 的列表
+	// / 获取故事角色列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事的所有角色列表
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryRoles
+	// / - 请求体：GetStoryRolesRequest (JSON)
+	// / - 响应：GetStoryRolesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,         // [必填] 故事ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量，默认0
+	// /   "page_size": 20,         // [可选] 每页数量，默认20
+	// /   "include_detail": false  // [可选] 是否包含详细信息，默认false
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - roles: 角色列表
+	// / - total: 总数量
 	GetStoryRoles(context.Context, *connect_go.Request[gen.GetStoryRolesRequest]) (*connect_go.Response[gen.GetStoryRolesResponse], error)
-	// 获取 story board roles 的列表
+	// / 获取故事板角色列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板中出现的所有角色
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardRoles
+	// / - 请求体：GetStoryBoardRolesRequest (JSON)
+	// / - 响应：GetStoryBoardRolesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "story_id": 789          // [必填] 所属故事ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - roles: 角色列表
+	// / - total: 角色总数
 	GetStoryBoardRoles(context.Context, *connect_go.Request[gen.GetStoryBoardRolesRequest]) (*connect_go.Response[gen.GetStoryBoardRolesResponse], error)
-	// 获取用户的 profile
+	// / 获取用户资料
+	// / 获取指定用户的详细个人资料信息
+	// / HTTP POST /common.TeamsAPI/GetUserProfile
+	// / 请求体：GetUserProfileRequest (JSON，包含用户ID)
+	// / 响应：GetUserProfileResponse (JSON，返回用户完整资料)
 	GetUserProfile(context.Context, *connect_go.Request[gen.GetUserProfileRequest]) (*connect_go.Response[gen.GetUserProfileResponse], error)
-	// 更新用户的 profile
+	// / 更新用户资料
+	// / 更新用户的个人资料信息，包括昵称、描述、位置等
+	// / HTTP POST /common.TeamsAPI/UpdateUserProfile
+	// / 请求体：UpdateUserProfileRequest (JSON，包含要更新的资料字段)
+	// / 响应：UpdateUserProfileResponse (JSON)
 	UpdateUserProfile(context.Context, *connect_go.Request[gen.UpdateUserProfileRequest]) (*connect_go.Response[gen.UpdateUserProfileResponse], error)
-	// 更新用户的背景图片
+	// / 更新用户背景图片
+	// / 更新用户个人主页的背景图片
+	// / HTTP POST /common.TeamsAPI/UpdateUserBackgroundImage
+	// / 请求体：UpdateUserBackgroundImageRequest (JSON，包含背景图片URL)
+	// / 响应：UpdateUserBackgroundImageResponse (JSON)
 	UpdateUserBackgroundImage(context.Context, *connect_go.Request[gen.UpdateUserBackgroundImageRequest]) (*connect_go.Response[gen.UpdateUserBackgroundImageResponse], error)
-	// 创建新的故事角色
+	// / 创建新的故事角色
+	// / 在故事中创建一个新的角色，设置角色的基本信息
+	// / HTTP POST /common.TeamsAPI/CreateStoryRole
+	// / 请求体：CreateStoryRoleRequest (JSON，包含角色详细信息)
+	// / 响应：CreateStoryRoleResponse (JSON)
 	CreateStoryRole(context.Context, *connect_go.Request[gen.CreateStoryRoleRequest]) (*connect_go.Response[gen.CreateStoryRoleResponse], error)
-	// 获取角色详情
+	// / 获取角色详情
+	// / 获取故事角色的完整详细信息
+	// / HTTP POST /common.TeamsAPI/GetStoryRoleDetail
+	// / 请求体：GetStoryRoleDetailRequest (JSON，包含角色ID)
+	// / 响应：GetStoryRoleDetailResponse (JSON，返回角色完整信息)
 	GetStoryRoleDetail(context.Context, *connect_go.Request[gen.GetStoryRoleDetailRequest]) (*connect_go.Response[gen.GetStoryRoleDetailResponse], error)
-	// 生成角色的图片
+	// / 渲染生成角色图片
+	// / 使用AI为故事角色生成高质量的形象图片
+	// / HTTP POST /common.TeamsAPI/RenderStoryRole
+	// / 请求体：RenderStoryRoleRequest (JSON，包含渲染提示词和参考图片)
+	// / 响应：RenderStoryRoleResponse (JSON，返回渲染详情和图片URL)
 	RenderStoryRole(context.Context, *connect_go.Request[gen.RenderStoryRoleRequest]) (*connect_go.Response[gen.RenderStoryRoleResponse], error)
-	// 喜欢故事
+	// / 点赞故事
+	// / 为故事点赞表示喜欢，增加故事人气
+	// / HTTP POST /common.TeamsAPI/LikeStory
+	// / 请求体：LikeStoryRequest (JSON，包含故事ID和用户ID)
+	// / 响应：LikeStoryResponse (JSON)
 	LikeStory(context.Context, *connect_go.Request[gen.LikeStoryRequest]) (*connect_go.Response[gen.LikeStoryResponse], error)
-	// 取消喜欢故事
+	// / 取消点赞故事
+	// / 取消对故事的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStory
+	// / 请求体：UnLikeStoryRequest (JSON)
+	// / 响应：UnLikeStoryResponse (JSON)
 	UnLikeStory(context.Context, *connect_go.Request[gen.UnLikeStoryRequest]) (*connect_go.Response[gen.UnLikeStoryResponse], error)
-	// 获取故事板场景
+	// / 获取故事板场景列表
+	// /
+	// / 【功能说明】
+	// / 获取指定故事板的所有场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardSences
+	// / - 请求体：GetStoryBoardSencesRequest (JSON)
+	// / - 响应：GetStoryBoardSencesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456           // [必填] 用户ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scenes: 场景列表（按顺序排列）
 	GetStoryBoardSences(context.Context, *connect_go.Request[gen.GetStoryBoardSencesRequest]) (*connect_go.Response[gen.GetStoryBoardSencesResponse], error)
-	// 创建故事板场景
+	// / 创建故事板场景
+	// /
+	// / 【功能说明】
+	// / 在故事板中创建新的场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CreateStoryBoardSence
+	// / - 请求体：CreateStoryBoardSenceRequest (JSON)
+	// / - 响应：CreateStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "场景标题",         // [必填] 场景名称
+	// /   "description": "场景描述",   // [必填] 场景内容
+	// /   "order": 1                   // [可选] 场景顺序
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scene: 创建的场景对象
+	// / - scene_id: 场景ID
 	CreateStoryBoardSence(context.Context, *connect_go.Request[gen.CreateStoryBoardSenceRequest]) (*connect_go.Response[gen.CreateStoryBoardSenceResponse], error)
-	// 更新故事板场景
+	// / 更新故事板场景
+	// /
+	// / 【功能说明】
+	// / 更新场景的内容和配置
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryBoardSence
+	// / - 请求体：UpdateStoryBoardSenceRequest (JSON)
+	// / - 响应：UpdateStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,             // [必填] 场景ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "title": "新标题",           // [可选] 场景标题
+	// /   "description": "新描述",     // [可选] 场景描述
+	// /   "image_url": "新图片URL"     // [可选] 场景图片
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - scene: 更新后的场景信息
 	UpdateStoryBoardSence(context.Context, *connect_go.Request[gen.UpdateStoryBoardSenceRequest]) (*connect_go.Response[gen.UpdateStoryBoardSenceResponse], error)
-	// 删除故事板场景
+	// / 删除故事板场景
+	// /
+	// / 【功能说明】
+	// / 删除指定的故事板场景
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DeleteStoryBoardSence
+	// / - 请求体：DeleteStoryBoardSenceRequest (JSON)
+	// / - 响应：DeleteStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,         // [必填] 要删除的场景ID
+	// /   "user_id": 456,          // [必填] 用户ID（权限验证）
+	// /   "storyboard_id": 789     // [必填] 所属故事板ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	DeleteStoryBoardSence(context.Context, *connect_go.Request[gen.DeleteStoryBoardSenceRequest]) (*connect_go.Response[gen.DeleteStoryBoardSenceResponse], error)
-	// 渲染故事板指定场景
+	// / 渲染故事板指定场景
+	// /
+	// / 【功能说明】
+	// / 使用AI为单个场景生成图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryBoardSence
+	// / - 请求体：RenderStoryBoardSenceRequest (JSON)
+	// / - 响应：RenderStoryBoardSenceResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,             // [必填] 场景ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "storyboard_id": 789,        // [必填] 所属故事板ID
+	// /   "prompt": "渲染提示",        // [可选] AI生成提示词
+	// /   "style_id": 5,               // [可选] 图片风格ID
+	// /   "quality": "high"            // [可选] 图片质量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - image_url: 生成的场景图片URL
+	// / - task_id: 渲染任务ID
 	RenderStoryBoardSence(context.Context, *connect_go.Request[gen.RenderStoryBoardSenceRequest]) (*connect_go.Response[gen.RenderStoryBoardSenceResponse], error)
-	// 渲染故事板的所有场景
+	// / 批量渲染故事板场景
+	// /
+	// / 【功能说明】
+	// / 使用AI为故事板的所有场景批量生成图片
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryBoardSences
+	// / - 请求体：RenderStoryBoardSencesRequest (JSON)
+	// / - 响应：RenderStoryBoardSencesResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "scene_ids": [1, 2, 3],      // [可选] 要渲染的场景ID列表（不提供则渲染全部）
+	// /   "style_id": 5,               // [可选] 统一图片风格ID
+	// /   "quality": "high"            // [可选] 图片质量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - task_ids: 批量渲染任务ID列表
+	// / - estimated_time: 预计完成时间（秒）
 	RenderStoryBoardSences(context.Context, *connect_go.Request[gen.RenderStoryBoardSencesRequest]) (*connect_go.Response[gen.RenderStoryBoardSencesResponse], error)
-	// 获取故事板场景生成状态
+	// / 获取场景生成状态
+	// /
+	// / 【功能说明】
+	// / 查询场景AI生成任务的实时状态和进度
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardSenceGenerate
+	// / - 请求体：GetStoryBoardSenceGenerateRequest (JSON)
+	// / - 响应：GetStoryBoardSenceGenerateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "scene_id": 123,         // [必填] 场景ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "task_id": "task_789"    // [可选] 任务ID（查询特定任务）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 生成状态（0-队列中，1-生成中，2-完成，3-失败）
+	// / - progress: 进度百分比（0-100）
+	// / - result_url: 生成结果URL（完成时）
 	GetStoryBoardSenceGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardSenceGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardSenceGenerateResponse], error)
-	// 获取故事板生成状态
+	// / 获取故事板生成状态
+	// /
+	// / 【功能说明】
+	// / 查询故事板整体AI生成任务的状态
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetStoryBoardGenerate
+	// / - 请求体：GetStoryBoardGenerateRequest (JSON)
+	// / - 响应：GetStoryBoardGenerateResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 故事板ID
+	// /   "user_id": 456,          // [必填] 用户ID
+	// /   "task_id": "task_789"    // [可选] 任务ID
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 整体生成状态
+	// / - progress: 总体进度百分比
+	// / - scene_status: 各场景的生成状态列表
 	GetStoryBoardGenerate(context.Context, *connect_go.Request[gen.GetStoryBoardGenerateRequest]) (*connect_go.Response[gen.GetStoryBoardGenerateResponse], error)
-	// 点赞故事角色
+	// / 点赞故事角色
+	// / 为故事角色点赞，表达对角色的喜爱
+	// / HTTP POST /common.TeamsAPI/LikeStoryRole
+	// / 请求体：LikeStoryRoleRequest (JSON，包含角色ID和用户ID)
+	// / 响应：LikeStoryRoleResponse (JSON)
 	LikeStoryRole(context.Context, *connect_go.Request[gen.LikeStoryRoleRequest]) (*connect_go.Response[gen.LikeStoryRoleResponse], error)
-	// 取消点赞故事角色
+	// / 取消点赞故事角色
+	// / 取消对故事角色的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStoryRole
+	// / 请求体：UnLikeStoryRoleRequest (JSON)
+	// / 响应：UnLikeStoryRoleResponse (JSON)
 	UnLikeStoryRole(context.Context, *connect_go.Request[gen.UnLikeStoryRoleRequest]) (*connect_go.Response[gen.UnLikeStoryRoleResponse], error)
-	// 关注故事角色
+	// / 关注故事角色
+	// / 关注指定的故事角色，接收该角色的最新动态通知
+	// / HTTP POST /common.TeamsAPI/FollowStoryRole
+	// / 请求体：FollowStoryRoleRequest (JSON)
+	// / 响应：FollowStoryRoleResponse (JSON)
 	FollowStoryRole(context.Context, *connect_go.Request[gen.FollowStoryRoleRequest]) (*connect_go.Response[gen.FollowStoryRoleResponse], error)
-	// 取消关注故事角色
+	// / 取消关注故事角色
+	// / 取消对故事角色的关注，停止接收动态通知
+	// / HTTP POST /common.TeamsAPI/UnFollowStoryRole
+	// / 请求体：UnFollowStoryRoleRequest (JSON)
+	// / 响应：UnFollowStoryRoleResponse (JSON)
 	UnFollowStoryRole(context.Context, *connect_go.Request[gen.UnFollowStoryRoleRequest]) (*connect_go.Response[gen.UnFollowStoryRoleResponse], error)
-	// 根据关键字查询故事
+	// / 搜索故事
+	// / 根据关键词搜索故事，支持全局搜索和群组内搜索
+	// / HTTP POST /common.TeamsAPI/SearchStories
+	// / 请求体：SearchStoriesRequest (JSON，包含关键词、范围和分页参数)
+	// / 响应：SearchStoriesResponse (JSON，返回匹配的故事列表)
 	SearchStories(context.Context, *connect_go.Request[gen.SearchStoriesRequest]) (*connect_go.Response[gen.SearchStoriesResponse], error)
-	// 搜索组织
+	// / 搜索群组
+	// / 根据名称搜索群组，支持模糊搜索
+	// / HTTP POST /common.TeamsAPI/SearchGroup
+	// / 请求体：SearchGroupRequest (JSON，包含搜索关键词和范围)
+	// / 响应：SearchGroupResponse (JSON，返回匹配的群组列表)
 	SearchGroup(context.Context, *connect_go.Request[gen.SearchGroupRequest]) (*connect_go.Response[gen.SearchGroupResponse], error)
-	// 搜索角色
+	// / 搜索故事角色
+	// / 根据关键词搜索故事角色，支持在故事内或全局搜索
+	// / HTTP POST /common.TeamsAPI/SearchRoles
+	// / 请求体：SearchRolesRequest (JSON，包含关键词、范围和分页参数)
+	// / 响应：SearchRolesResponse (JSON，返回匹配的角色列表)
 	SearchRoles(context.Context, *connect_go.Request[gen.SearchRolesRequest]) (*connect_go.Response[gen.SearchRolesResponse], error)
-	// 恢复故事板的状态
+	// / 恢复故事板状态
+	// / 从草稿或历史版本恢复故事板到指定状态
+	// / HTTP POST /common.TeamsAPI/RestoreStoryboard
+	// / 请求体：RestoreStoryboardRequest (JSON，包含故事板ID和版本信息)
+	// / 响应：RestoreStoryboardResponse (JSON，返回恢复后的完整故事板数据)
 	RestoreStoryboard(context.Context, *connect_go.Request[gen.RestoreStoryboardRequest]) (*connect_go.Response[gen.RestoreStoryboardResponse], error)
 	// 获取用户创建的故事板
 	GetUserCreatedStoryboards(context.Context, *connect_go.Request[gen.GetUserCreatedStoryboardsRequest]) (*connect_go.Response[gen.GetUserCreatedStoryboardsResponse], error)
@@ -2499,48 +5524,372 @@ type TeamsAPIHandler interface {
 	GetStoryRoleStoryboards(context.Context, *connect_go.Request[gen.GetStoryRoleStoryboardsRequest]) (*connect_go.Response[gen.GetStoryRoleStoryboardsResponse], error)
 	// 获取角色参与的故事
 	GetStoryRoleStories(context.Context, *connect_go.Request[gen.GetStoryRoleStoriesRequest]) (*connect_go.Response[gen.GetStoryRoleStoriesResponse], error)
-	// 创建与角色的对话
+	// / 创建与角色的对话
+	// / 开始一个新的与故事角色的AI聊天会话
+	// / HTTP POST /common.TeamsAPI/CreateStoryRoleChat
+	// / 请求体：CreateStoryRoleChatRequest (JSON，包含角色ID和用户ID)
+	// / 响应：CreateStoryRoleChatResponse (JSON，返回聊天上下文信息)
 	CreateStoryRoleChat(context.Context, *connect_go.Request[gen.CreateStoryRoleChatRequest]) (*connect_go.Response[gen.CreateStoryRoleChatResponse], error)
-	// 与角色聊天
+	// / 与角色聊天
+	// / 发送消息并获取AI角色的智能回复
+	// / HTTP POST /common.TeamsAPI/ChatWithStoryRole
+	// / 请求体：ChatWithStoryRoleRequest (JSON，包含历史消息列表)
+	// / 响应：ChatWithStoryRoleResponse (JSON，返回角色的回复消息)
 	ChatWithStoryRole(context.Context, *connect_go.Request[gen.ChatWithStoryRoleRequest]) (*connect_go.Response[gen.ChatWithStoryRoleResponse], error)
-	// 更新角色头像
+	// / 更新角色头像
+	// / 更新故事角色的头像图片
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleAvator
+	// / 请求体：UpdateStoryRoleAvatorRequest (JSON，包含新头像URL)
+	// / 响应：UpdateStoryRoleAvatorResponse (JSON)
 	UpdateStoryRoleAvator(context.Context, *connect_go.Request[gen.UpdateStoryRoleAvatorRequest]) (*connect_go.Response[gen.UpdateStoryRoleAvatorResponse], error)
-	// 更新角色详情
+	// / 更新角色详情
+	// / 更新故事角色的完整信息，包括描述、性格、能力等
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRoleDetail
+	// / 请求体：UpdateStoryRoleDetailRequest (JSON，包含角色完整信息)
+	// / 响应：UpdateStoryRoleDetailResponse (JSON)
 	UpdateStoryRoleDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDetailResponse], error)
-	// 获取用户的对话列表
+	// / 获取用户的对话列表
+	// / 获取用户与各个角色的所有聊天会话列表
+	// / HTTP POST /common.TeamsAPI/GetUserWithRoleChatList
+	// / 请求体：GetUserWithRoleChatListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetUserWithRoleChatListResponse (JSON，返回聊天会话列表)
 	GetUserWithRoleChatList(context.Context, *connect_go.Request[gen.GetUserWithRoleChatListRequest]) (*connect_go.Response[gen.GetUserWithRoleChatListResponse], error)
-	// 获取用户与角色的对话
+	// / 获取用户与角色的对话
+	// / 获取用户与指定角色的完整聊天记录
+	// / HTTP POST /common.TeamsAPI/GetUserChatWithRole
+	// / 请求体：GetUserChatWithRoleRequest (JSON，包含角色ID和用户ID)
+	// / 响应：GetUserChatWithRoleResponse (JSON，返回聊天消息列表和上下文)
 	GetUserChatWithRole(context.Context, *connect_go.Request[gen.GetUserChatWithRoleRequest]) (*connect_go.Response[gen.GetUserChatWithRoleResponse], error)
-	// 获取用户的消息
+	// / 获取用户的消息列表
+	// / 获取指定聊天会话中的所有消息记录
+	// / HTTP POST /common.TeamsAPI/GetUserChatMessages
+	// / 请求体：GetUserChatMessagesRequest (JSON，包含聊天ID和时间戳)
+	// / 响应：GetUserChatMessagesResponse (JSON，返回消息列表)
 	GetUserChatMessages(context.Context, *connect_go.Request[gen.GetUserChatMessagesRequest]) (*connect_go.Response[gen.GetUserChatMessagesResponse], error)
-	// 活动信息
+	// / 获取活动动态列表
+	// / 获取用户、群组或故事的最新活动动态信息
+	// / HTTP POST /common.TeamsAPI/FetchActives
+	// / 请求体：FetchActivesRequest (JSON，包含筛选条件和分页参数)
+	// / 响应：FetchActivesResponse (JSON，返回活动动态列表)
 	FetchActives(context.Context, *connect_go.Request[gen.FetchActivesRequest]) (*connect_go.Response[gen.FetchActivesResponse], error)
-	// 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+	// / 获取下一个故事板
+	// /
+	// / 【功能说明】
+	// / 根据当前故事板ID获取后续的故事板，支持多分支场景
+	// /
+	// / 【多分支说明】
+	// / - 如果有多个分叉，则返回所有分支
+	// / - 返回is_multi_branch标记位，标识是否为多分支
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetNextStoryboards
+	// / - 请求体：GetNextStoryboardRequest (JSON)
+	// / - 响应：GetNextStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,        // [必填] 当前故事板ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 所属故事ID
+	// /   "is_multi_branch": false,    // [可选] 是否多分支模式
+	// /   "offset": 0,                 // [可选] 分页偏移量（多分支时使用）
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "order_by": "CREATE_TIME"    // [可选] 排序方式
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - storyboards: 后续故事板列表
+	// / - is_multi_branch: 是否为多分支
+	// / - total: 分支总数
 	GetNextStoryboard(context.Context, *connect_go.Request[gen.GetNextStoryboardRequest]) (*connect_go.Response[gen.GetNextStoryboardResponse], error)
-	// 持续渲染故事角色
+	// / 持续渲染故事角色
+	// /
+	// / 【功能说明】
+	// / 持续优化和迭代角色形象，直到达到满意效果
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/RenderStoryRoleContinuously
+	// / - 请求体：RenderStoryRoleContinuouslyRequest (JSON)
+	// / - 响应：RenderStoryRoleContinuouslyResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "role_id": 123,              // [必填] 角色ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "story_id": 789,             // [必填] 故事ID
+	// /   "prompt": "优化提示",        // [可选] 优化方向的提示词
+	// /   "reference_image": "参考图"  // [可选] 参考图片URL
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - detail: 渲染详情对象
+	// / - have_more: 是否还有更多迭代空间
 	RenderStoryRoleContinuously(context.Context, *connect_go.Request[gen.RenderStoryRoleContinuouslyRequest]) (*connect_go.Response[gen.RenderStoryRoleContinuouslyResponse], error)
-	// 发布故事板
+	// / 发布故事板
+	// /
+	// / 【功能说明】
+	// / 将草稿状态的故事板正式发布，其他用户可见
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/PublishStoryboard
+	// / - 请求体：PublishStoryboardRequest (JSON)
+	// / - 响应：PublishStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要发布的故事板ID
+	// /   "user_id": 456           // [必填] 用户ID（仅所有者可发布）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - publish_time: 发布时间戳
 	PublishStoryboard(context.Context, *connect_go.Request[gen.PublishStoryboardRequest]) (*connect_go.Response[gen.PublishStoryboardResponse], error)
-	// 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+	// / 撤销故事板
+	// /
+	// / 【功能说明】
+	// / 撤销已发布的故事板，保留文本但隐藏场景和图片
+	// /
+	// / 【撤销规则】
+	// / - 保留AI生成的故事板文本内容，用来给用户展示
+	// / - 场景和图片不会展示，以保证故事的连贯性
+	// / - 可以重新编辑后再次发布
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/CancelStoryboard
+	// / - 请求体：CancelStoryboardRequest (JSON)
+	// / - 响应：CancelStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "storyboard_id": 123,    // [必填] 要撤销的故事板ID
+	// /   "user_id": 456           // [必填] 用户ID（仅所有者可撤销）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
 	CancelStoryboard(context.Context, *connect_go.Request[gen.CancelStoryboardRequest]) (*connect_go.Response[gen.CancelStoryboardResponse], error)
+	// / 获取用户关注故事的活跃故事板
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的故事中最近活跃的故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards
+	// / - 请求体：GetUserWatchStoryActiveStoryBoardsRequest (JSON)
+	// / - 响应：GetUserWatchStoryActiveStoryBoardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "story_id": 456,             // [必填] 故事ID
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "filter": "published"        // [可选] 筛选条件（published/draft）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboards: 活跃故事板列表
+	// / - total: 总数量
 	GetUserWatchStoryActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchStoryActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchStoryActiveStoryBoardsResponse], error)
+	// / 获取用户关注角色的活跃故事板
+	// /
+	// / 【功能说明】
+	// / 获取用户关注的角色参与的最近活跃故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards
+	// / - 请求体：GetUserWatchRoleActiveStoryBoardsRequest (JSON)
+	// / - 响应：GetUserWatchRoleActiveStoryBoardsResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "offset": 0,                 // [可选] 分页偏移量
+	// /   "page_size": 20,             // [可选] 每页数量
+	// /   "filter": "all"              // [可选] 筛选条件
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboards: 活跃故事板列表
+	// / - total: 总数量
 	GetUserWatchRoleActiveStoryBoards(context.Context, *connect_go.Request[gen.GetUserWatchRoleActiveStoryBoardsRequest]) (*connect_go.Response[gen.GetUserWatchRoleActiveStoryBoardsResponse], error)
+	// / 获取未发布故事板列表
+	// /
+	// / 【功能说明】
+	// / 获取用户所有未发布（草稿）状态的故事板
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GetUnPublishStoryboard
+	// / - 请求体：GetUnPublishStoryboardRequest (JSON)
+	// / - 响应：GetUnPublishStoryboardResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,          // [必填] 用户ID
+	// /   "offset": 0,             // [可选] 分页偏移量
+	// /   "page_size": 20          // [可选] 每页数量
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - storyboardactives: 草稿故事板列表
+	// / - total: 总数量
 	GetUnPublishStoryboard(context.Context, *connect_go.Request[gen.GetUnPublishStoryboardRequest]) (*connect_go.Response[gen.GetUnPublishStoryboardResponse], error)
+	// / 生成角色描述
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成详细的背景描述和性格特征
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenerateRoleDescription
+	// / - 请求体：GenerateRoleDescriptionRequest (JSON)
+	// / - 响应：GenerateRoleDescriptionResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "role_id": 789,              // [必填] 角色ID
+	// /   "description": "基础描述"    // [可选] 基础描述（AI会扩展）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - character_detail: AI生成的详细角色描述
 	GenerateRoleDescription(context.Context, *connect_go.Request[gen.GenerateRoleDescriptionRequest]) (*connect_go.Response[gen.GenerateRoleDescriptionResponse], error)
+	// / 更新角色描述
+	// /
+	// / 【功能说明】
+	// / 更新角色的文本描述信息
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateRoleDescription
+	// / - 请求体：UpdateRoleDescriptionRequest (JSON)
+	// / - 响应：UpdateRoleDescriptionResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "description": "新的描述"    // [必填] 新的角色描述（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateRoleDescription(context.Context, *connect_go.Request[gen.UpdateRoleDescriptionRequest]) (*connect_go.Response[gen.UpdateRoleDescriptionResponse], error)
+	// / 生成角色提示词
+	// /
+	// / 【功能说明】
+	// / 使用AI为角色生成优化的图片生成提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GenerateRolePrompt
+	// / - 请求体：GenerateRolePromptRequest (JSON)
+	// / - 响应：GenerateRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "role_id": 789,              // [必填] 角色ID
+	// /   "prompt": "基础提示词"       // [可选] 基础提示词（AI会优化）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - prompt: AI生成的优化提示词
 	GenerateRolePrompt(context.Context, *connect_go.Request[gen.GenerateRolePromptRequest]) (*connect_go.Response[gen.GenerateRolePromptResponse], error)
+	// / 更新角色提示词
+	// /
+	// / 【功能说明】
+	// / 更新角色的AI图片生成提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateRolePrompt
+	// / - 请求体：UpdateRolePromptRequest (JSON)
+	// / - 响应：UpdateRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "user_id": 123,              // [必填] 用户ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateRolePrompt(context.Context, *connect_go.Request[gen.UpdateRolePromptRequest]) (*connect_go.Response[gen.UpdateRolePromptResponse], error)
-	// 创建故事评论
+	// / 创建故事评论
+	// / 在故事下发表新的评论，支持富文本内容
+	// / HTTP POST /common.TeamsAPI/CreateStoryComment
+	// / 请求体：CreateStoryCommentRequest (JSON，包含故事ID和评论内容)
+	// / 响应：CreateStoryCommentResponse (JSON，返回创建的评论信息)
 	CreateStoryComment(context.Context, *connect_go.Request[gen.CreateStoryCommentRequest]) (*connect_go.Response[gen.CreateStoryCommentResponse], error)
-	// 获取故事评论
+	// / 获取故事评论列表
+	// / 分页获取指定故事的所有评论
+	// / HTTP POST /common.TeamsAPI/GetStoryComments
+	// / 请求体：GetStoryCommentsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryCommentsResponse (JSON，返回评论列表和分页信息)
 	GetStoryComments(context.Context, *connect_go.Request[gen.GetStoryCommentsRequest]) (*connect_go.Response[gen.GetStoryCommentsResponse], error)
-	// 删除故事评论
+	// / 删除故事评论
+	// / 删除指定的故事评论，仅评论作者或管理员可删除
+	// / HTTP POST /common.TeamsAPI/DeleteStoryComment
+	// / 请求体：DeleteStoryCommentRequest (JSON)
+	// / 响应：DeleteStoryCommentResponse (JSON)
 	DeleteStoryComment(context.Context, *connect_go.Request[gen.DeleteStoryCommentRequest]) (*connect_go.Response[gen.DeleteStoryCommentResponse], error)
-	// 获取故事评论回复
+	// / 获取故事评论回复列表
+	// / 获取指定评论的所有回复
+	// / HTTP POST /common.TeamsAPI/GetStoryCommentReplies
+	// / 请求体：GetStoryCommentRepliesRequest (JSON，包含评论ID和分页参数)
+	// / 响应：GetStoryCommentRepliesResponse (JSON，返回回复列表)
 	GetStoryCommentReplies(context.Context, *connect_go.Request[gen.GetStoryCommentRepliesRequest]) (*connect_go.Response[gen.GetStoryCommentRepliesResponse], error)
-	// 创建故事评论回复
+	// / 创建故事评论回复
+	// / 回复指定的故事评论
+	// / HTTP POST /common.TeamsAPI/CreateStoryCommentReply
+	// / 请求体：CreateStoryCommentReplyRequest (JSON，包含评论ID和回复内容)
+	// / 响应：CreateStoryCommentReplyResponse (JSON，返回创建的回复信息)
 	CreateStoryCommentReply(context.Context, *connect_go.Request[gen.CreateStoryCommentReplyRequest]) (*connect_go.Response[gen.CreateStoryCommentReplyResponse], error)
-	// 删除故事评论回复
+	// / 删除故事评论回复
+	// / 删除指定的评论回复，仅回复作者或管理员可删除
+	// / HTTP POST /common.TeamsAPI/DeleteStoryCommentReply
+	// / 请求体：DeleteStoryCommentReplyRequest (JSON)
+	// / 响应：DeleteStoryCommentReplyResponse (JSON)
 	DeleteStoryCommentReply(context.Context, *connect_go.Request[gen.DeleteStoryCommentReplyRequest]) (*connect_go.Response[gen.DeleteStoryCommentReplyResponse], error)
 	// 获取故事板评论
 	GetStoryBoardComments(context.Context, *connect_go.Request[gen.GetStoryBoardCommentsRequest]) (*connect_go.Response[gen.GetStoryBoardCommentsResponse], error)
@@ -2554,58 +5903,342 @@ type TeamsAPIHandler interface {
 	LikeComment(context.Context, *connect_go.Request[gen.LikeCommentRequest]) (*connect_go.Response[gen.LikeCommentResponse], error)
 	// 取消点赞故事评论
 	DislikeComment(context.Context, *connect_go.Request[gen.DislikeCommentRequest]) (*connect_go.Response[gen.DislikeCommentResponse], error)
-	// 获取故事角色列表
+	// / 获取故事角色列表
+	// / 获取指定故事的所有角色列表，支持搜索和筛选
+	// / HTTP POST /common.TeamsAPI/GetStoryRoleList
+	// / 请求体：GetStoryRoleListRequest (JSON，包含故事ID、搜索关键词和分页参数)
+	// / 响应：GetStoryRoleListResponse (JSON，返回角色列表和总数)
 	GetStoryRoleList(context.Context, *connect_go.Request[gen.GetStoryRoleListRequest]) (*connect_go.Response[gen.GetStoryRoleListResponse], error)
-	// 热门故事
+	// / 获取热门故事
+	// / 获取指定时间段内最热门的故事列表，按热度排序
+	// / HTTP POST /common.TeamsAPI/TrendingStory
+	// / 请求体：TrendingStoryRequest (JSON，包含时间范围和分页参数)
+	// / 响应：TrendingStoryResponse (JSON，返回热门故事列表)
 	TrendingStory(context.Context, *connect_go.Request[gen.TrendingStoryRequest]) (*connect_go.Response[gen.TrendingStoryResponse], error)
-	// 热门角色
+	// / 获取热门角色
+	// / 获取指定时间段内最热门的故事角色列表，按人气排序
+	// / HTTP POST /common.TeamsAPI/TrendingStoryRole
+	// / 请求体：TrendingStoryRoleRequest (JSON，包含时间范围和分页参数)
+	// / 响应：TrendingStoryRoleResponse (JSON，返回热门角色列表)
 	TrendingStoryRole(context.Context, *connect_go.Request[gen.TrendingStoryRoleRequest]) (*connect_go.Response[gen.TrendingStoryRoleResponse], error)
-	// 关注另一个用户
+	// / 关注用户
+	// / 关注另一个用户，建立关注关系并接收其动态
+	// / HTTP POST /common.TeamsAPI/FollowUser
+	// / 请求体：FollowUserRequest (JSON，包含被关注用户的ID)
+	// / 响应：FollowUserResponse (JSON)
 	FollowUser(context.Context, *connect_go.Request[gen.FollowUserRequest]) (*connect_go.Response[gen.FollowUserResponse], error)
-	// 取消关注另一个用户
+	// / 取消关注用户
+	// / 取消对另一个用户的关注，停止接收其动态
+	// / HTTP POST /common.TeamsAPI/UnfollowUser
+	// / 请求体：UnfollowUserRequest (JSON)
+	// / 响应：UnfollowUserResponse (JSON)
 	UnfollowUser(context.Context, *connect_go.Request[gen.UnfollowUserRequest]) (*connect_go.Response[gen.UnfollowUserResponse], error)
-	// 获取关注列表
+	// / 获取用户关注列表
+	// / 获取用户关注的所有其他用户列表
+	// / HTTP POST /common.TeamsAPI/GetFollowList
+	// / 请求体：GetFollowListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetFollowListResponse (JSON，返回关注的用户列表)
 	GetFollowList(context.Context, *connect_go.Request[gen.GetFollowListRequest]) (*connect_go.Response[gen.GetFollowListResponse], error)
-	// 获取粉丝列表
+	// / 获取用户粉丝列表
+	// / 获取关注该用户的所有粉丝列表
+	// / HTTP POST /common.TeamsAPI/GetFollowerList
+	// / 请求体：GetFollowerListRequest (JSON，包含用户ID和分页参数)
+	// / 响应：GetFollowerListResponse (JSON，返回粉丝用户列表)
 	GetFollowerList(context.Context, *connect_go.Request[gen.GetFollowerListRequest]) (*connect_go.Response[gen.GetFollowerListResponse], error)
-	// 更新角色的提示词
+	// / 更新故事角色提示词
+	// /
+	// / 【功能说明】
+	// / 更新角色AI生成时使用的提示词
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRolePrompt
+	// / - 请求体：UpdateStoryRolePromptRequest (JSON)
+	// / - 响应：UpdateStoryRolePromptResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "user_id": 789,              // [必填] 用户ID
+	// /   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateStoryRolePrompt(context.Context, *connect_go.Request[gen.UpdateStoryRolePromptRequest]) (*connect_go.Response[gen.UpdateStoryRolePromptResponse], error)
-	// 更新角色的描述
+	// / 更新故事角色描述详情
+	// /
+	// / 【功能说明】
+	// / 更新角色的完整详细描述信息（CharacterDetail对象）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UpdateStoryRoleDescriptionDetail
+	// / - 请求体：UpdateStoryRoleDescriptionDetailRequest (JSON)
+	// / - 响应：UpdateStoryRoleDescriptionDetailResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "story_id": 123,             // [必填] 故事ID
+	// /   "role_id": 456,              // [必填] 角色ID
+	// /   "user_id": 789,              // [必填] 用户ID
+	// /   "character_detail": {        // [必填] 角色详细信息对象
+	// /     "personality": "性格特征",
+	// /     "background": "背景故事",
+	// /     "abilities": "能力列表"
+	// /   }
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
 	UpdateStoryRoleDescriptionDetail(context.Context, *connect_go.Request[gen.UpdateStoryRoleDescriptionDetailRequest]) (*connect_go.Response[gen.UpdateStoryRoleDescriptionDetailResponse], error)
-	// 获取生成任务状态
+	// / 查询任务状态
+	// /
+	// / 【功能说明】
+	// / 查询AI生成任务的实时状态和进度
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/QueryTaskStatus
+	// / - 请求体：QueryTaskStatusRequest (JSON)
+	// / - 响应：QueryTaskStatusResponse (JSON)
+	// /
+	// / 【请求体字段】
+	// / ```json
+	// / {
+	// /   "task_id": "task_12345",     // [必填] 任务ID
+	// /   "user_id": 456,              // [必填] 用户ID
+	// /   "task_type": 1               // [可选] 任务类型（1-图片，2-视频，3-文本）
+	// / }
+	// / ```
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - status: 任务状态（0-队列中，1-进行中，2-完成，3-失败）
+	// / - progress: 进度百分比（0-100）
+	// / - result_data: 任务结果数据（完成时）
+	// / - error_message: 错误消息（失败时）
 	QueryTaskStatus(context.Context, *connect_go.Request[gen.QueryTaskStatusRequest]) (*connect_go.Response[gen.QueryTaskStatusResponse], error)
-	// 获取故事的风格
+	// / 获取故事图片风格
+	// / 获取故事可用的所有图片生成风格列表
+	// / HTTP POST /common.TeamsAPI/GetStoryImageStyle
+	// / 请求体：GetStoryImageStyleRequest (JSON，包含故事ID)
+	// / 响应：GetStoryImageStyleResponse (JSON，返回风格列表和描述)
 	GetStoryImageStyle(context.Context, *connect_go.Request[gen.GetStoryImageStyleRequest]) (*connect_go.Response[gen.GetStoryImageStyleResponse], error)
-	// 更新故事的风格
+	// / 更新故事图片风格
+	// / 设置故事使用的图片生成风格
+	// / HTTP POST /common.TeamsAPI/UpdateStoryImageStyle
+	// / 请求体：UpdateStoryImageStyleRequest (JSON，包含风格ID和名称)
+	// / 响应：UpdateStoryImageStyleResponse (JSON)
 	UpdateStoryImageStyle(context.Context, *connect_go.Request[gen.UpdateStoryImageStyleRequest]) (*connect_go.Response[gen.UpdateStoryImageStyleResponse], error)
-	// 更新故事的场景数量
+	// / 更新故事最大场景数
+	// / 设置故事允许创建的最大场景数量限制
+	// / HTTP POST /common.TeamsAPI/UpdateStorySenceMaxNumber
+	// / 请求体：UpdateStorySenceMaxNumberRequest (JSON，包含最大场景数)
+	// / 响应：UpdateStorySenceMaxNumberResponse (JSON)
 	UpdateStorySenceMaxNumber(context.Context, *connect_go.Request[gen.UpdateStorySenceMaxNumberRequest]) (*connect_go.Response[gen.UpdateStorySenceMaxNumberResponse], error)
-	// 更新故事头像
+	// / 更新故事头像
+	// / 更新故事的头像图片，用于故事展示
+	// / HTTP POST /common.TeamsAPI/UpdateStoryAvatar
+	// / 请求体：UpdateStoryAvatarRequest (JSON，包含新头像URL)
+	// / 响应：UpdateStoryAvatarResponse (JSON)
 	UpdateStoryAvatar(context.Context, *connect_go.Request[gen.UpdateStoryAvatarRequest]) (*connect_go.Response[gen.UpdateStoryAvatarResponse], error)
-	// 更新故事封面
+	// / 更新故事封面
+	// / 更新故事的封面图片，支持使用AI生成的封面
+	// / HTTP POST /common.TeamsAPI/UpdateStoryCover
+	// / 请求体：UpdateStoryCoverRequest (JSON，包含封面URL和AI生成标志)
+	// / 响应：UpdateStoryCoverResponse (JSON)
 	UpdateStoryCover(context.Context, *connect_go.Request[gen.UpdateStoryCoverRequest]) (*connect_go.Response[gen.UpdateStoryCoverResponse], error)
-	// 保存故事板草稿
+	// / 保存故事板草稿
+	// / 将当前故事板保存为草稿，便于后续继续编辑
+	// / HTTP POST /common.TeamsAPI/SaveStoryboardCraft
+	// / 请求体：SaveStoryboardCraftRequest (JSON，包含故事板ID)
+	// / 响应：SaveStoryboardCraftResponse (JSON)
 	SaveStoryboardCraft(context.Context, *connect_go.Request[gen.SaveStoryboardCraftRequest]) (*connect_go.Response[gen.SaveStoryboardCraftResponse], error)
-	// 获取故事参与者，参与故事版创建
+	// / 获取故事参与者列表
+	// / 获取参与故事创作和编辑的所有用户列表
+	// / HTTP POST /common.TeamsAPI/GetStoryParticipants
+	// / 请求体：GetStoryParticipantsRequest (JSON，包含故事ID和分页参数)
+	// / 响应：GetStoryParticipantsResponse (JSON，返回参与者用户列表)
 	GetStoryParticipants(context.Context, *connect_go.Request[gen.GetStoryParticipantsRequest]) (*connect_go.Response[gen.GetStoryParticipantsResponse], error)
-	// 为故事场景生成视频
+	// / 生成故事场景视频
+	// / 为指定的故事场景生成动态视频内容，支持自定义提示词和风格
+	// / HTTP POST /common.TeamsAPI/GenerateStorySceneVideo
+	// / 请求体：GenerateStorySceneVideoRequest (JSON，包含场景ID、提示词和token来源)
+	// / 响应：GenerateStorySceneVideoResponse (JSON，返回生成任务详情和视频URL)
 	GenerateStorySceneVideo(context.Context, *connect_go.Request[gen.GenerateStorySceneVideoRequest]) (*connect_go.Response[gen.GenerateStorySceneVideoResponse], error)
+	// / 生成角色头像
+	// / 使用AI为故事角色生成个性化头像图片
+	// / HTTP POST /common.TeamsAPI/GenerateRoleAvatar
+	// / 请求体：GenerateRoleAvatarRequest (JSON，包含角色描述和风格)
+	// / 响应：GenerateRoleAvatarResponse (JSON，返回头像URL)
 	GenerateRoleAvatar(context.Context, *connect_go.Request[gen.GenerateRoleAvatarRequest]) (*connect_go.Response[gen.GenerateRoleAvatarResponse], error)
+	// / 查询用户生成任务状态
+	// / 获取用户的所有AI生成任务的实时状态和进度
+	// / HTTP POST /common.TeamsAPI/QueryGenTaskStatus
+	// / 请求体：FetchUserGenTaskStatusRequest (JSON)
+	// / 响应：FetchUserGenTaskStatusResponse (JSON，包含任务列表和状态)
 	FetchUserGenTaskStatus(context.Context, *connect_go.Request[gen.FetchUserGenTaskStatusRequest]) (*connect_go.Response[gen.FetchUserGenTaskStatusResponse], error)
-	// 生成角色的海报图片
+	// / 生成角色海报图片
+	// / 为故事角色生成精美的宣传海报
+	// / HTTP POST /common.TeamsAPI/GenerateStoryRolePoster
+	// / 请求体：GenerateStoryRolePosterRequest (JSON，包含生成参数和风格)
+	// / 响应：GenerateStoryRolePosterResponse (JSON，返回海报URL和ID)
 	GenerateStoryRolePoster(context.Context, *connect_go.Request[gen.GenerateStoryRolePosterRequest]) (*connect_go.Response[gen.GenerateStoryRolePosterResponse], error)
-	// 更新角色的海报图片
+	// / 更新角色海报图片
+	// / 更新角色海报的图片或可见性设置
+	// / HTTP POST /common.TeamsAPI/UpdateStoryRolePoster
+	// / 请求体：UpdateStoryRolePosterRequest (JSON)
+	// / 响应：UpdateStoryRolePosterResponse (JSON)
 	UpdateStoryRolePoster(context.Context, *connect_go.Request[gen.UpdateStoryRolePosterRequest]) (*connect_go.Response[gen.UpdateStoryRolePosterResponse], error)
+	// / 点赞角色海报
+	// / 为角色海报点赞，增加人气值
+	// / HTTP POST /common.TeamsAPI/LikeStoryRolePoster
+	// / 请求体：LikeStoryRolePosterRequest (JSON)
+	// / 响应：LikeStoryRolePosterResponse (JSON，返回最新点赞数)
 	LikeStoryRolePoster(context.Context, *connect_go.Request[gen.LikeStoryRolePosterRequest]) (*connect_go.Response[gen.LikeStoryRolePosterResponse], error)
+	// / 取消点赞角色海报
+	// / 取消对角色海报的点赞
+	// / HTTP POST /common.TeamsAPI/UnLikeStoryRolePoster
+	// / 请求体：UnLikeStoryRolePosterRequest (JSON)
+	// / 响应：UnLikeStoryRolePosterResponse (JSON，返回最新点赞数)
 	UnLikeStoryRolePoster(context.Context, *connect_go.Request[gen.UnLikeStoryRolePosterRequest]) (*connect_go.Response[gen.UnLikeStoryRolePosterResponse], error)
+	// / 获取角色海报列表
+	// / 获取指定故事角色的所有海报图片列表
+	// / HTTP POST /common.TeamsAPI/GetStoryRolePosterList
+	// / 请求体：GetStoryRolePosterListRequest (JSON，包含分页参数)
+	// / 响应：GetStoryRolePosterListResponse (JSON，返回海报列表)
 	GetStoryRolePosterList(context.Context, *connect_go.Request[gen.GetStoryRolePosterListRequest]) (*connect_go.Response[gen.GetStoryRolePosterListResponse], error)
-	// 为故事角色生成视频
+	// / 生成故事角色视频
+	// / 为故事角色生成动态宣传视频
+	// / HTTP POST /common.TeamsAPI/GenerateStoryRoleVideo
+	// / 请求体：GenerateStoryRoleVideoRequest (JSON，包含视频参数和风格)
+	// / 响应：GenerateStoryRoleVideoResponse (JSON，返回任务详情和视频URL)
 	GenerateStoryRoleVideo(context.Context, *connect_go.Request[gen.GenerateStoryRoleVideoRequest]) (*connect_go.Response[gen.GenerateStoryRoleVideoResponse], error)
+	// / 更新故事板分叉权限
+	// / 设置故事板是否允许其他用户进行分叉创建分支
+	// / HTTP POST /common.TeamsAPI/UpdateStoryboardForkAble
+	// / 请求体：UpdateStoryboardForkAbleRequest (JSON)
+	// / 响应：UpdateStoryboardForkAbleResponse (JSON)
 	UpdateStoryboardForkAble(context.Context, *connect_go.Request[gen.UpdateStoryboardForkAbleRequest]) (*connect_go.Response[gen.UpdateStoryboardForkAbleResponse], error)
+	// / 获取用户故事板草稿列表
+	// / 分页获取指定用户的所有故事板草稿，支持按故事筛选
+	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftlist
+	// / 请求体：UserStoryboardDraftlistRequest (JSON)
+	// / 响应：UserStoryboardDraftlistResponse (JSON)
 	UserStoryboardDraftlist(context.Context, *connect_go.Request[gen.UserStoryboardDraftlistRequest]) (*connect_go.Response[gen.UserStoryboardDraftlistResponse], error)
+	// / 获取用户故事板草稿详情
+	// / 获取指定草稿的完整详细信息，包括内容、角色、场景等
+	// / HTTP POST /common.TeamsAPI/UserStoryboardDraftDetail
+	// / 请求体：UserDraftStoryboardDetailRequest (JSON)
+	// / 响应：UserDraftStoryboardDetailResponse (JSON)
 	UserStoryboardDraftDetail(context.Context, *connect_go.Request[gen.UserDraftStoryboardDetailRequest]) (*connect_go.Response[gen.UserDraftStoryboardDetailResponse], error)
+	// / 删除用户故事板草稿
+	// /
+	// / 【功能说明】
+	// / 删除指定用户的故事板草稿，释放存储空间
+	// /
+	// / 【权限要求】
+	// / - 仅草稿所有者可以删除自己的草稿
+	// / - 删除后不可恢复，请谨慎操作
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft
+	// / - 请求体：DeleteUserStoryboardDraftRequest (JSON)
+	// / - 响应：DeleteUserStoryboardDraftResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - user_id: [必填] 用户ID（所有者ID）
+	// / - draft_id: [必填] 草稿ID（要删除的草稿）
+	// / - story_id: [可选] 故事ID（用于权限验证）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码（0表示成功）
+	// / - message: 响应消息描述
+	// /
+	// / 【使用示例】
+	// / ```json
+	// / {
+	// /   "user_id": 123,
+	// /   "draft_id": 456,
+	// /   "story_id": 789
+	// / }
+	// / ```
 	DeleteUserStoryboardDraft(context.Context, *connect_go.Request[gen.DeleteUserStoryboardDraftRequest]) (*connect_go.Response[gen.DeleteUserStoryboardDraftResponse], error)
+	// / 获取用户活跃热力图
+	// /
+	// / 【功能说明】
+	// / 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示
+	// /
+	// / 【数据统计】
+	// / - 统计用户的创建、更新、评论等所有活跃操作
+	// / - 按天聚合活跃度数据
+	// / - 自动计算热力等级（0-4级）
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/UserActiveHeatmap
+	// / - 请求体：UserActiveHeamapRequest (JSON)
+	// / - 响应：UserActiveHeamapResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - user_id: [必填] 用户ID
+	// / - start_time: [必填] 开始时间戳（秒）
+	// / - end_time: [必填] 结束时间戳（秒）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - data: 热力图数据数组（每天一条记录）
+	// / - total_count: 时间范围内的总活跃次数
+	// /
+	// / 【使用场景】
+	// / - 用户个人主页展示活跃度
+	// / - 统计用户贡献度
+	// / - 活跃度排行榜
 	UserActiveHeatmap(context.Context, *connect_go.Request[gen.UserActiveHeamapRequest]) (*connect_go.Response[gen.UserActiveHeamapResponse], error)
+	// / 获取群组活跃热力图
+	// /
+	// / 【功能说明】
+	// / 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况
+	// /
+	// / 【数据统计】
+	// / - 统计群组内所有成员的活跃操作
+	// / - 包括故事创建、故事板发布、评论互动等
+	// / - 返回活跃成员数量统计
+	// /
+	// / 【HTTP API】
+	// / - 方法：POST
+	// / - 路径：/common.TeamsAPI/GroupActiveHeatmap
+	// / - 请求体：GroupActiveHeamapRequest (JSON)
+	// / - 响应：GroupActiveHeamapResponse (JSON)
+	// /
+	// / 【请求参数】
+	// / - group_id: [必填] 群组ID
+	// / - user_id: [必填] 请求用户ID（用于权限验证）
+	// / - start_time: [必填] 开始时间戳（秒）
+	// / - end_time: [必填] 结束时间戳（秒）
+	// /
+	// / 【响应字段】
+	// / - code: 响应状态码
+	// / - message: 响应消息
+	// / - data: 热力图数据数组
+	// / - total_count: 群组总活跃次数
+	// / - member_count: 参与活跃的成员数量
+	// /
+	// / 【权限要求】
+	// / - 用户必须是群组成员才能查看
+	// /
+	// / 【使用场景】
+	// / - 群组主页展示活跃度
+	// / - 分析群组健康度
+	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect_go.Request[gen.GroupActiveHeamapRequest]) (*connect_go.Response[gen.GroupActiveHeamapResponse], error)
 }
 

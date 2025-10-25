@@ -11,88 +11,152 @@ public interface ChatContextOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 聊天会话ID
+   * </pre>
+   *
    * <code>int64 chat_id = 1 [json_name = "chatId"];</code>
    * @return The chatId.
    */
   long getChatId();
 
   /**
+   * <pre>
+   * &#47; 角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 2 [json_name = "roleId"];</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 3 [json_name = "userId"];</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 会话开始时间戳
+   * </pre>
+   *
    * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
    * @return The timestamp.
    */
   long getTimestamp();
 
   /**
+   * <pre>
+   * &#47; 最后更新时间戳
+   * </pre>
+   *
    * <code>int64 last_update_time = 5 [json_name = "lastUpdateTime"];</code>
    * @return The lastUpdateTime.
    */
   long getLastUpdateTime();
 
   /**
+   * <pre>
+   * &#47; 总消耗token数
+   * </pre>
+   *
    * <code>int64 total_tokens = 6 [json_name = "totalTokens"];</code>
    * @return The totalTokens.
    */
   long getTotalTokens();
 
   /**
+   * <pre>
+   * &#47; 总消息数
+   * </pre>
+   *
    * <code>int64 total_messages = 7 [json_name = "totalMessages"];</code>
    * @return The totalMessages.
    */
   long getTotalMessages();
 
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    * @return Whether the lastMessage field is set.
    */
   boolean hasLastMessage();
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    * @return The lastMessage.
    */
   com.rankquantity.voyager.api.ChatMessage getLastMessage();
   /**
+   * <pre>
+   * &#47; 最后一条消息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatMessage last_message = 8 [json_name = "lastMessage"];</code>
    */
   com.rankquantity.voyager.api.ChatMessageOrBuilder getLastMessageOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    * @return Whether the user field is set.
    */
   boolean hasUser();
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    * @return The user.
    */
   com.rankquantity.voyager.api.UserInfo getUser();
   /**
+   * <pre>
+   * &#47; 用户信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserInfo user = 9 [json_name = "user"];</code>
    */
   com.rankquantity.voyager.api.UserInfoOrBuilder getUserOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    * @return Whether the role field is set.
    */
   boolean hasRole();
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    * @return The role.
    */
   com.rankquantity.voyager.api.StoryRole getRole();
   /**
+   * <pre>
+   * &#47; 角色信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryRole role = 10 [json_name = "role"];</code>
    */
   com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder();

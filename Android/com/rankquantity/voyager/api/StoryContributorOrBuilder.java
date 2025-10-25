@@ -11,17 +11,29 @@ public interface StoryContributorOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 贡献者用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 贡献者用户名
+   * </pre>
+   *
    * <code>string username = 2 [json_name = "username"];</code>
    * @return The username.
    */
   java.lang.String getUsername();
   /**
+   * <pre>
+   * &#47; 贡献者用户名
+   * </pre>
+   *
    * <code>string username = 2 [json_name = "username"];</code>
    * @return The bytes for username.
    */
@@ -29,11 +41,19 @@ public interface StoryContributorOrBuilder extends
       getUsernameBytes();
 
   /**
+   * <pre>
+   * &#47; 贡献者头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The avatar.
    */
   java.lang.String getAvatar();
   /**
+   * <pre>
+   * &#47; 贡献者头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The bytes for avatar.
    */
@@ -41,6 +61,10 @@ public interface StoryContributorOrBuilder extends
       getAvatarBytes();
 
   /**
+   * <pre>
+   * &#47; VIP等级，0表示普通用户
+   * </pre>
+   *
    * <code>int64 viplevel = 4 [json_name = "viplevel"];</code>
    * @return The viplevel.
    */

@@ -7,7 +7,8 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 群组活跃热力图响应
+ * &#47; 群组活跃热力图响应
+ * / 返回群组在指定时间范围内的活跃度热力图数据及统计信息
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.GroupActiveHeamapResponse}
@@ -54,7 +55,7 @@ private static final long serialVersionUID = 0L;
   private int code_ = 0;
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -65,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -81,7 +82,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object message_ = "";
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -102,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -128,7 +129,7 @@ private static final long serialVersionUID = 0L;
   private java.util.List<com.rankquantity.voyager.api.HeatmapDataItem> data_;
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -139,7 +140,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -151,7 +152,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -162,7 +163,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -173,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 热力图数据列表
+   * &#47; 热力图数据列表，包含每日的群组活跃度信息
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -188,10 +189,10 @@ private static final long serialVersionUID = 0L;
   private long totalCount_ = 0L;
   /**
    * <pre>
-   * 总活跃次数
+   * &#47; 总活跃次数统计
    * </pre>
    *
-   * <code>int64 total_count = 4 [json_name = "totalCount"];</code>
+   * <code>int64 total_count = 4 [json_name = "totalCount", (.validate.rules) = { ... }</code>
    * @return The totalCount.
    */
   @java.lang.Override
@@ -203,10 +204,10 @@ private static final long serialVersionUID = 0L;
   private long memberCount_ = 0L;
   /**
    * <pre>
-   * 活跃成员数量
+   * &#47; 参与活跃的成员数量
    * </pre>
    *
-   * <code>int64 member_count = 5 [json_name = "memberCount"];</code>
+   * <code>int64 member_count = 5 [json_name = "memberCount", (.validate.rules) = { ... }</code>
    * @return The memberCount.
    */
   @java.lang.Override
@@ -419,7 +420,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 群组活跃热力图响应
+   * &#47; 群组活跃热力图响应
+   * / 返回群组在指定时间范围内的活跃度热力图数据及统计信息
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.GroupActiveHeamapResponse}
@@ -657,7 +659,7 @@ private static final long serialVersionUID = 0L;
     private int code_ = 0;
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -668,7 +670,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -683,7 +685,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -696,7 +698,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -712,7 +714,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -728,7 +730,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -748,7 +750,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -769,7 +771,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -786,7 +788,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -800,7 +802,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -831,7 +833,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -845,7 +847,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -859,7 +861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -873,7 +875,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -894,7 +896,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -912,7 +914,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -932,7 +934,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -953,7 +955,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -971,7 +973,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -989,7 +991,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1008,7 +1010,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1025,7 +1027,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1042,7 +1044,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1053,7 +1055,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1067,7 +1069,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1082,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1093,7 +1095,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1105,7 +1107,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 热力图数据列表
+     * &#47; 热力图数据列表，包含每日的群组活跃度信息
      * </pre>
      *
      * <code>repeated .rankquantity.voyager.api.HeatmapDataItem data = 3 [json_name = "data"];</code>
@@ -1132,10 +1134,10 @@ private static final long serialVersionUID = 0L;
     private long totalCount_ ;
     /**
      * <pre>
-     * 总活跃次数
+     * &#47; 总活跃次数统计
      * </pre>
      *
-     * <code>int64 total_count = 4 [json_name = "totalCount"];</code>
+     * <code>int64 total_count = 4 [json_name = "totalCount", (.validate.rules) = { ... }</code>
      * @return The totalCount.
      */
     @java.lang.Override
@@ -1144,10 +1146,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 总活跃次数
+     * &#47; 总活跃次数统计
      * </pre>
      *
-     * <code>int64 total_count = 4 [json_name = "totalCount"];</code>
+     * <code>int64 total_count = 4 [json_name = "totalCount", (.validate.rules) = { ... }</code>
      * @param value The totalCount to set.
      * @return This builder for chaining.
      */
@@ -1160,10 +1162,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 总活跃次数
+     * &#47; 总活跃次数统计
      * </pre>
      *
-     * <code>int64 total_count = 4 [json_name = "totalCount"];</code>
+     * <code>int64 total_count = 4 [json_name = "totalCount", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTotalCount() {
@@ -1176,10 +1178,10 @@ private static final long serialVersionUID = 0L;
     private long memberCount_ ;
     /**
      * <pre>
-     * 活跃成员数量
+     * &#47; 参与活跃的成员数量
      * </pre>
      *
-     * <code>int64 member_count = 5 [json_name = "memberCount"];</code>
+     * <code>int64 member_count = 5 [json_name = "memberCount", (.validate.rules) = { ... }</code>
      * @return The memberCount.
      */
     @java.lang.Override
@@ -1188,10 +1190,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 活跃成员数量
+     * &#47; 参与活跃的成员数量
      * </pre>
      *
-     * <code>int64 member_count = 5 [json_name = "memberCount"];</code>
+     * <code>int64 member_count = 5 [json_name = "memberCount", (.validate.rules) = { ... }</code>
      * @param value The memberCount to set.
      * @return This builder for chaining.
      */
@@ -1204,10 +1206,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 活跃成员数量
+     * &#47; 参与活跃的成员数量
      * </pre>
      *
-     * <code>int64 member_count = 5 [json_name = "memberCount"];</code>
+     * <code>int64 member_count = 5 [json_name = "memberCount", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearMemberCount() {

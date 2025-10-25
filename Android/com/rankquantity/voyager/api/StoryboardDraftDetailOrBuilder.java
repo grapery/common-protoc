@@ -12,7 +12,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 草稿ID
+   * &#47; 草稿ID，唯一标识符
    * </pre>
    *
    * <code>int64 draft_id = 1 [json_name = "draftId"];</code>
@@ -22,7 +22,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 故事ID
+   * &#47; 所属故事ID
    * </pre>
    *
    * <code>int64 story_id = 2 [json_name = "storyId"];</code>
@@ -32,7 +32,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 故事板ID
+   * &#47; 关联的故事板ID
    * </pre>
    *
    * <code>int64 storyboard_id = 3 [json_name = "storyboardId"];</code>
@@ -42,19 +42,19 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 标题
+   * &#47; 草稿标题，最大长度200字符
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title"];</code>
+   * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
    * @return The title.
    */
   java.lang.String getTitle();
   /**
    * <pre>
-   * 标题
+   * &#47; 草稿标题，最大长度200字符
    * </pre>
    *
-   * <code>string title = 4 [json_name = "title"];</code>
+   * <code>string title = 4 [json_name = "title", (.validate.rules) = { ... }</code>
    * @return The bytes for title.
    */
   com.google.protobuf.ByteString
@@ -62,19 +62,19 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 内容
+   * &#47; 草稿内容，最大长度10000字符
    * </pre>
    *
-   * <code>string content = 5 [json_name = "content"];</code>
+   * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The content.
    */
   java.lang.String getContent();
   /**
    * <pre>
-   * 内容
+   * &#47; 草稿内容，最大长度10000字符
    * </pre>
    *
-   * <code>string content = 5 [json_name = "content"];</code>
+   * <code>string content = 5 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   com.google.protobuf.ByteString
@@ -82,7 +82,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 背景
+   * &#47; 背景描述
    * </pre>
    *
    * <code>string background = 6 [json_name = "background"];</code>
@@ -91,7 +91,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   java.lang.String getBackground();
   /**
    * <pre>
-   * 背景
+   * &#47; 背景描述
    * </pre>
    *
    * <code>string background = 6 [json_name = "background"];</code>
@@ -102,7 +102,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -111,7 +111,7 @@ public interface StoryboardDraftDetailOrBuilder extends
       getRolesList();
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -119,7 +119,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   com.rankquantity.voyager.api.StoryRole getRoles(int index);
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -127,7 +127,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   int getRolesCount();
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -136,7 +136,7 @@ public interface StoryboardDraftDetailOrBuilder extends
       getRolesOrBuilderList();
   /**
    * <pre>
-   * 角色列表
+   * &#47; 参与的角色列表
    * </pre>
    *
    * <code>repeated .rankquantity.voyager.api.StoryRole roles = 7 [json_name = "roles"];</code>
@@ -146,7 +146,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -155,7 +155,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   boolean hasSences();
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -164,7 +164,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   com.rankquantity.voyager.api.StoryBoardSences getSences();
   /**
    * <pre>
-   * 场景列表
+   * &#47; 场景列表
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 8 [json_name = "sences"];</code>
@@ -173,7 +173,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -182,7 +182,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   boolean hasParams();
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -191,7 +191,7 @@ public interface StoryboardDraftDetailOrBuilder extends
   com.rankquantity.voyager.api.StoryBoardParams getParams();
   /**
    * <pre>
-   * 故事板参数
+   * &#47; 故事板渲染参数
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryBoardParams params = 9 [json_name = "params"];</code>
@@ -200,7 +200,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 创建时间戳
+   * &#47; 创建时间戳（秒）
    * </pre>
    *
    * <code>int64 created_at = 10 [json_name = "createdAt"];</code>
@@ -210,7 +210,7 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 更新时间戳
+   * &#47; 最后更新时间戳（秒）
    * </pre>
    *
    * <code>int64 updated_at = 11 [json_name = "updatedAt"];</code>
@@ -220,17 +220,26 @@ public interface StoryboardDraftDetailOrBuilder extends
 
   /**
    * <pre>
-   * 版本号
+   * &#47; 生成阶段状态
    * </pre>
    *
-   * <code>int64 version = 12 [json_name = "version"];</code>
-   * @return The version.
+   * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+   * @return The enum numeric value on the wire for stage.
    */
-  long getVersion();
+  int getStageValue();
+  /**
+   * <pre>
+   * &#47; 生成阶段状态
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryboardStage stage = 12 [json_name = "stage"];</code>
+   * @return The stage.
+   */
+  com.rankquantity.voyager.api.StoryboardStage getStage();
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; 草稿所有者用户ID
    * </pre>
    *
    * <code>int64 user_id = 13 [json_name = "userId"];</code>

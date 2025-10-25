@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 搜索故事请求
+ * / 根据关键词搜索故事，支持不同范围的搜索
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.SearchStoriesRequest}
  */
 @com.google.protobuf.Generated
@@ -48,7 +53,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 请求用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -60,7 +69,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object keyword_ = "";
   /**
-   * <code>string keyword = 2 [json_name = "keyword"];</code>
+   * <pre>
+   * &#47; 搜索关键词，长度1-200字符
+   * </pre>
+   *
+   * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
    * @return The keyword.
    */
   @java.lang.Override
@@ -77,7 +90,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string keyword = 2 [json_name = "keyword"];</code>
+   * <pre>
+   * &#47; 搜索关键词，长度1-200字符
+   * </pre>
+   *
+   * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
    * @return The bytes for keyword.
    */
   @java.lang.Override
@@ -98,7 +115,11 @@ private static final long serialVersionUID = 0L;
   public static final int OFFSET_FIELD_NUMBER = 3;
   private long offset_ = 0L;
   /**
-   * <code>int64 offset = 3 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   @java.lang.Override
@@ -109,7 +130,11 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 4;
   private long pageSize_ = 0L;
   /**
-   * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -120,6 +145,10 @@ private static final long serialVersionUID = 0L;
   public static final int SCOPE_FIELD_NUMBER = 5;
   private int scope_ = 0;
   /**
+   * <pre>
+   * &#47; 搜索范围类型：全局、群组内等
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
    * @return The enum numeric value on the wire for scope.
    */
@@ -127,6 +156,10 @@ private static final long serialVersionUID = 0L;
     return scope_;
   }
   /**
+   * <pre>
+   * &#47; 搜索范围类型：全局、群组内等
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
    * @return The scope.
    */
@@ -138,7 +171,11 @@ private static final long serialVersionUID = 0L;
   public static final int GROUP_ID_FIELD_NUMBER = 7;
   private long groupId_ = 0L;
   /**
-   * <code>int64 group_id = 7 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; 群组ID（可选），用于在特定群组内搜索
+   * </pre>
+   *
+   * <code>int64 group_id = 7 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   @java.lang.Override
@@ -361,6 +398,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 搜索故事请求
+   * / 根据关键词搜索故事，支持不同范围的搜索
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.SearchStoriesRequest}
    */
   public static final class Builder extends
@@ -560,7 +602,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -568,7 +614,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -580,7 +630,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 请求用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -592,7 +646,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object keyword_ = "";
     /**
-     * <code>string keyword = 2 [json_name = "keyword"];</code>
+     * <pre>
+     * &#47; 搜索关键词，长度1-200字符
+     * </pre>
+     *
+     * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
      * @return The keyword.
      */
     public java.lang.String getKeyword() {
@@ -608,7 +666,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string keyword = 2 [json_name = "keyword"];</code>
+     * <pre>
+     * &#47; 搜索关键词，长度1-200字符
+     * </pre>
+     *
+     * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
      * @return The bytes for keyword.
      */
     public com.google.protobuf.ByteString
@@ -625,7 +687,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string keyword = 2 [json_name = "keyword"];</code>
+     * <pre>
+     * &#47; 搜索关键词，长度1-200字符
+     * </pre>
+     *
+     * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
      * @param value The keyword to set.
      * @return This builder for chaining.
      */
@@ -638,7 +704,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string keyword = 2 [json_name = "keyword"];</code>
+     * <pre>
+     * &#47; 搜索关键词，长度1-200字符
+     * </pre>
+     *
+     * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearKeyword() {
@@ -648,7 +718,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string keyword = 2 [json_name = "keyword"];</code>
+     * <pre>
+     * &#47; 搜索关键词，长度1-200字符
+     * </pre>
+     *
+     * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
      * @param value The bytes for keyword to set.
      * @return This builder for chaining.
      */
@@ -664,7 +738,11 @@ private static final long serialVersionUID = 0L;
 
     private long offset_ ;
     /**
-     * <code>int64 offset = 3 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -672,7 +750,11 @@ private static final long serialVersionUID = 0L;
       return offset_;
     }
     /**
-     * <code>int64 offset = 3 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @param value The offset to set.
      * @return This builder for chaining.
      */
@@ -684,7 +766,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 offset = 3 [json_name = "offset"];</code>
+     * <pre>
+     * &#47; 偏移量，用于分页，必须大于等于0
+     * </pre>
+     *
+     * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
@@ -696,7 +782,11 @@ private static final long serialVersionUID = 0L;
 
     private long pageSize_ ;
     /**
-     * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -704,7 +794,11 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -716,7 +810,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+     * <pre>
+     * &#47; 每页数量，范围1-100
+     * </pre>
+     *
+     * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
@@ -728,6 +826,10 @@ private static final long serialVersionUID = 0L;
 
     private int scope_ = 0;
     /**
+     * <pre>
+     * &#47; 搜索范围类型：全局、群组内等
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
      * @return The enum numeric value on the wire for scope.
      */
@@ -735,6 +837,10 @@ private static final long serialVersionUID = 0L;
       return scope_;
     }
     /**
+     * <pre>
+     * &#47; 搜索范围类型：全局、群组内等
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
      * @param value The enum numeric value on the wire for scope to set.
      * @return This builder for chaining.
@@ -746,6 +852,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 搜索范围类型：全局、群组内等
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
      * @return The scope.
      */
@@ -755,6 +865,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ScopeType.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 搜索范围类型：全局、群组内等
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
      * @param value The scope to set.
      * @return This builder for chaining.
@@ -767,6 +881,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 搜索范围类型：全局、群组内等
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
      * @return This builder for chaining.
      */
@@ -779,7 +897,11 @@ private static final long serialVersionUID = 0L;
 
     private long groupId_ ;
     /**
-     * <code>int64 group_id = 7 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID（可选），用于在特定群组内搜索
+     * </pre>
+     *
+     * <code>int64 group_id = 7 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return The groupId.
      */
     @java.lang.Override
@@ -787,7 +909,11 @@ private static final long serialVersionUID = 0L;
       return groupId_;
     }
     /**
-     * <code>int64 group_id = 7 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID（可选），用于在特定群组内搜索
+     * </pre>
+     *
+     * <code>int64 group_id = 7 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @param value The groupId to set.
      * @return This builder for chaining.
      */
@@ -799,7 +925,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 group_id = 7 [json_name = "groupId"];</code>
+     * <pre>
+     * &#47; 群组ID（可选），用于在特定群组内搜索
+     * </pre>
+     *
+     * <code>int64 group_id = 7 [json_name = "groupId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearGroupId() {

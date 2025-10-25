@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 发布故事板请求
+ * / 将故事板发布为正式版本，其他用户可见
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.PublishStoryboardRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORYBOARD_ID_FIELD_NUMBER = 1;
   private long storyboardId_ = 0L;
   /**
-   * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
    * @return The storyboardId.
    */
   @java.lang.Override
@@ -57,7 +66,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -236,6 +249,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 发布故事板请求
+   * / 将故事板发布为正式版本，其他用户可见
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.PublishStoryboardRequest}
    */
   public static final class Builder extends
@@ -385,7 +403,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyboardId_ ;
     /**
-     * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @return The storyboardId.
      */
     @java.lang.Override
@@ -393,7 +415,11 @@ private static final long serialVersionUID = 0L;
       return storyboardId_;
     }
     /**
-     * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @param value The storyboardId to set.
      * @return This builder for chaining.
      */
@@ -405,7 +431,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+     * <pre>
+     * &#47; 故事板ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryboardId() {
@@ -417,7 +447,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -425,7 +459,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -437,7 +475,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {

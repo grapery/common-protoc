@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事最大场景数请求
+ * / 设置故事允许的最大场景数量
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStorySenceMaxNumberRequest}
  */
 @com.google.protobuf.Generated
@@ -46,7 +51,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,10 +67,10 @@ private static final long serialVersionUID = 0L;
   private long maxNumber_ = 0L;
   /**
    * <pre>
-   * 最大场景数
+   * &#47; 最大场景数，范围1-1000
    * </pre>
    *
-   * <code>int64 max_number = 2 [json_name = "maxNumber"];</code>
+   * <code>int64 max_number = 2 [json_name = "maxNumber", (.validate.rules) = { ... }</code>
    * @return The maxNumber.
    */
   @java.lang.Override
@@ -73,10 +82,10 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -267,6 +276,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事最大场景数请求
+   * / 设置故事允许的最大场景数量
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStorySenceMaxNumberRequest}
    */
   public static final class Builder extends
@@ -428,7 +442,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -436,7 +454,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -448,7 +470,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -461,10 +487,10 @@ private static final long serialVersionUID = 0L;
     private long maxNumber_ ;
     /**
      * <pre>
-     * 最大场景数
+     * &#47; 最大场景数，范围1-1000
      * </pre>
      *
-     * <code>int64 max_number = 2 [json_name = "maxNumber"];</code>
+     * <code>int64 max_number = 2 [json_name = "maxNumber", (.validate.rules) = { ... }</code>
      * @return The maxNumber.
      */
     @java.lang.Override
@@ -473,10 +499,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 最大场景数
+     * &#47; 最大场景数，范围1-1000
      * </pre>
      *
-     * <code>int64 max_number = 2 [json_name = "maxNumber"];</code>
+     * <code>int64 max_number = 2 [json_name = "maxNumber", (.validate.rules) = { ... }</code>
      * @param value The maxNumber to set.
      * @return This builder for chaining.
      */
@@ -489,10 +515,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 最大场景数
+     * &#47; 最大场景数，范围1-1000
      * </pre>
      *
-     * <code>int64 max_number = 2 [json_name = "maxNumber"];</code>
+     * <code>int64 max_number = 2 [json_name = "maxNumber", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxNumber() {
@@ -505,10 +531,10 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -517,10 +543,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -533,10 +559,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {

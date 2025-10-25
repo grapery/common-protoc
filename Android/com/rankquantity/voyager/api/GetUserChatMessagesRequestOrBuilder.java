@@ -11,25 +11,41 @@ public interface GetUserChatMessagesRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 chat_id = 2 [json_name = "chatId"];</code>
+   * <pre>
+   * &#47; 聊天会话ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 chat_id = 2 [json_name = "chatId", (.validate.rules) = { ... }</code>
    * @return The chatId.
    */
   long getChatId();
 
   /**
-   * <code>int64 role_id = 3 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 3 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 timestamp = 4 [json_name = "timestamp"];</code>
+   * <pre>
+   * &#47; 时间戳，用于获取指定时间之前的消息
+   * </pre>
+   *
+   * <code>int64 timestamp = 4 [json_name = "timestamp", (.validate.rules) = { ... }</code>
    * @return The timestamp.
    */
   long getTimestamp();

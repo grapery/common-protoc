@@ -11,22 +11,38 @@ public interface ChatWithStoryRoleResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,36 +50,64 @@ public interface ChatWithStoryRoleResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 角色回复的消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage reply_messages = 3 [json_name = "replyMessages"];</code>
    */
   java.util.List<com.rankquantity.voyager.api.ChatMessage> 
       getReplyMessagesList();
   /**
+   * <pre>
+   * &#47; 角色回复的消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage reply_messages = 3 [json_name = "replyMessages"];</code>
    */
   com.rankquantity.voyager.api.ChatMessage getReplyMessages(int index);
   /**
+   * <pre>
+   * &#47; 角色回复的消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage reply_messages = 3 [json_name = "replyMessages"];</code>
    */
   int getReplyMessagesCount();
   /**
+   * <pre>
+   * &#47; 角色回复的消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage reply_messages = 3 [json_name = "replyMessages"];</code>
    */
   java.util.List<? extends com.rankquantity.voyager.api.ChatMessageOrBuilder> 
       getReplyMessagesOrBuilderList();
   /**
+   * <pre>
+   * &#47; 角色回复的消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage reply_messages = 3 [json_name = "replyMessages"];</code>
    */
   com.rankquantity.voyager.api.ChatMessageOrBuilder getReplyMessagesOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * &#47; 总消息数
+   * </pre>
+   *
    * <code>int64 total = 4 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 是否还有更多消息
+   * </pre>
+   *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */

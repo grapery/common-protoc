@@ -11,22 +11,38 @@ public interface GetUserChatWithRoleResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,51 +50,91 @@ public interface GetUserChatWithRoleResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 聊天消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
    */
   java.util.List<com.rankquantity.voyager.api.ChatMessage> 
       getMessagesList();
   /**
+   * <pre>
+   * &#47; 聊天消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
    */
   com.rankquantity.voyager.api.ChatMessage getMessages(int index);
   /**
+   * <pre>
+   * &#47; 聊天消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
    */
   int getMessagesCount();
   /**
+   * <pre>
+   * &#47; 聊天消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
    */
   java.util.List<? extends com.rankquantity.voyager.api.ChatMessageOrBuilder> 
       getMessagesOrBuilderList();
   /**
+   * <pre>
+   * &#47; 聊天消息列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.ChatMessage messages = 3 [json_name = "messages"];</code>
    */
   com.rankquantity.voyager.api.ChatMessageOrBuilder getMessagesOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 4 [json_name = "chatContext"];</code>
    * @return Whether the chatContext field is set.
    */
   boolean hasChatContext();
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 4 [json_name = "chatContext"];</code>
    * @return The chatContext.
    */
   com.rankquantity.voyager.api.ChatContext getChatContext();
   /**
+   * <pre>
+   * &#47; 聊天上下文信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ChatContext chat_context = 4 [json_name = "chatContext"];</code>
    */
   com.rankquantity.voyager.api.ChatContextOrBuilder getChatContextOrBuilder();
 
   /**
+   * <pre>
+   * &#47; 消息总数
+   * </pre>
+   *
    * <code>int64 total = 5 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 是否有更多历史消息
+   * </pre>
+   *
    * <code>bool have_more = 6 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */

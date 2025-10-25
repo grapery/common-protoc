@@ -7,7 +7,8 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 用户故事板草稿列表响应
+ * &#47; 用户故事板草稿列表响应
+ * / 返回用户的故事板草稿列表及分页信息
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UserStoryboardDraftlistResponse}
@@ -54,7 +55,7 @@ private static final long serialVersionUID = 0L;
   private int code_ = 0;
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -65,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -81,7 +82,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object message_ = "";
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -102,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -125,36 +126,36 @@ private static final long serialVersionUID = 0L;
 
   public static final int DRAFTS_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem> drafts_;
+  private java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail> drafts_;
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   @java.lang.Override
-  public java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem> getDraftsList() {
+  public java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail> getDraftsList() {
     return drafts_;
   }
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   @java.lang.Override
-  public java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder> 
+  public java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> 
       getDraftsOrBuilderList() {
     return drafts_;
   }
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   @java.lang.Override
   public int getDraftsCount() {
@@ -162,24 +163,24 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   @java.lang.Override
-  public com.rankquantity.voyager.api.StoryboardDraftItem getDrafts(int index) {
+  public com.rankquantity.voyager.api.StoryboardDraftDetail getDrafts(int index) {
     return drafts_.get(index);
   }
   /**
    * <pre>
-   * 草稿列表
+   * &#47; 草稿列表，包含草稿的详细信息
    * </pre>
    *
-   * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+   * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
    */
   @java.lang.Override
-  public com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder getDraftsOrBuilder(
+  public com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder getDraftsOrBuilder(
       int index) {
     return drafts_.get(index);
   }
@@ -188,10 +189,10 @@ private static final long serialVersionUID = 0L;
   private long total_ = 0L;
   /**
    * <pre>
-   * 草稿总数
+   * &#47; 草稿总数
    * </pre>
    *
-   * <code>int64 total = 4 [json_name = "total"];</code>
+   * <code>int64 total = 4 [json_name = "total", (.validate.rules) = { ... }</code>
    * @return The total.
    */
   @java.lang.Override
@@ -203,7 +204,7 @@ private static final long serialVersionUID = 0L;
   private boolean haveMore_ = false;
   /**
    * <pre>
-   * 是否有更多
+   * &#47; 是否有更多数据
    * </pre>
    *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>
@@ -419,7 +420,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 用户故事板草稿列表响应
+   * &#47; 用户故事板草稿列表响应
+   * / 返回用户的故事板草稿列表及分页信息
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UserStoryboardDraftlistResponse}
@@ -615,9 +617,9 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 18
             case 26: {
-              com.rankquantity.voyager.api.StoryboardDraftItem m =
+              com.rankquantity.voyager.api.StoryboardDraftDetail m =
                   input.readMessage(
-                      com.rankquantity.voyager.api.StoryboardDraftItem.parser(),
+                      com.rankquantity.voyager.api.StoryboardDraftDetail.parser(),
                       extensionRegistry);
               if (draftsBuilder_ == null) {
                 ensureDraftsIsMutable();
@@ -657,7 +659,7 @@ private static final long serialVersionUID = 0L;
     private int code_ = 0;
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -668,7 +670,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -683,7 +685,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -696,7 +698,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -712,7 +714,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -728,7 +730,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -748,7 +750,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -769,7 +771,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -786,7 +788,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -800,7 +802,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -817,26 +819,26 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem> drafts_ =
+    private java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail> drafts_ =
       java.util.Collections.emptyList();
     private void ensureDraftsIsMutable() {
       if (!((bitField0_ & 0x00000004) != 0)) {
-        drafts_ = new java.util.ArrayList<com.rankquantity.voyager.api.StoryboardDraftItem>(drafts_);
+        drafts_ = new java.util.ArrayList<com.rankquantity.voyager.api.StoryboardDraftDetail>(drafts_);
         bitField0_ |= 0x00000004;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilder<
-        com.rankquantity.voyager.api.StoryboardDraftItem, com.rankquantity.voyager.api.StoryboardDraftItem.Builder, com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder> draftsBuilder_;
+        com.rankquantity.voyager.api.StoryboardDraftDetail, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder, com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> draftsBuilder_;
 
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem> getDraftsList() {
+    public java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail> getDraftsList() {
       if (draftsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(drafts_);
       } else {
@@ -845,10 +847,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public int getDraftsCount() {
       if (draftsBuilder_ == null) {
@@ -859,12 +861,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public com.rankquantity.voyager.api.StoryboardDraftItem getDrafts(int index) {
+    public com.rankquantity.voyager.api.StoryboardDraftDetail getDrafts(int index) {
       if (draftsBuilder_ == null) {
         return drafts_.get(index);
       } else {
@@ -873,13 +875,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder setDrafts(
-        int index, com.rankquantity.voyager.api.StoryboardDraftItem value) {
+        int index, com.rankquantity.voyager.api.StoryboardDraftDetail value) {
       if (draftsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -894,13 +896,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder setDrafts(
-        int index, com.rankquantity.voyager.api.StoryboardDraftItem.Builder builderForValue) {
+        int index, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder builderForValue) {
       if (draftsBuilder_ == null) {
         ensureDraftsIsMutable();
         drafts_.set(index, builderForValue.build());
@@ -912,12 +914,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public Builder addDrafts(com.rankquantity.voyager.api.StoryboardDraftItem value) {
+    public Builder addDrafts(com.rankquantity.voyager.api.StoryboardDraftDetail value) {
       if (draftsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -932,13 +934,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder addDrafts(
-        int index, com.rankquantity.voyager.api.StoryboardDraftItem value) {
+        int index, com.rankquantity.voyager.api.StoryboardDraftDetail value) {
       if (draftsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -953,13 +955,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder addDrafts(
-        com.rankquantity.voyager.api.StoryboardDraftItem.Builder builderForValue) {
+        com.rankquantity.voyager.api.StoryboardDraftDetail.Builder builderForValue) {
       if (draftsBuilder_ == null) {
         ensureDraftsIsMutable();
         drafts_.add(builderForValue.build());
@@ -971,13 +973,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder addDrafts(
-        int index, com.rankquantity.voyager.api.StoryboardDraftItem.Builder builderForValue) {
+        int index, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder builderForValue) {
       if (draftsBuilder_ == null) {
         ensureDraftsIsMutable();
         drafts_.add(index, builderForValue.build());
@@ -989,13 +991,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder addAllDrafts(
-        java.lang.Iterable<? extends com.rankquantity.voyager.api.StoryboardDraftItem> values) {
+        java.lang.Iterable<? extends com.rankquantity.voyager.api.StoryboardDraftDetail> values) {
       if (draftsBuilder_ == null) {
         ensureDraftsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1008,10 +1010,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder clearDrafts() {
       if (draftsBuilder_ == null) {
@@ -1025,10 +1027,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
     public Builder removeDrafts(int index) {
       if (draftsBuilder_ == null) {
@@ -1042,23 +1044,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public com.rankquantity.voyager.api.StoryboardDraftItem.Builder getDraftsBuilder(
+    public com.rankquantity.voyager.api.StoryboardDraftDetail.Builder getDraftsBuilder(
         int index) {
       return internalGetDraftsFieldBuilder().getBuilder(index);
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder getDraftsOrBuilder(
+    public com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder getDraftsOrBuilder(
         int index) {
       if (draftsBuilder_ == null) {
         return drafts_.get(index);  } else {
@@ -1067,12 +1069,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder> 
+    public java.util.List<? extends com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> 
          getDraftsOrBuilderList() {
       if (draftsBuilder_ != null) {
         return draftsBuilder_.getMessageOrBuilderList();
@@ -1082,44 +1084,44 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public com.rankquantity.voyager.api.StoryboardDraftItem.Builder addDraftsBuilder() {
+    public com.rankquantity.voyager.api.StoryboardDraftDetail.Builder addDraftsBuilder() {
       return internalGetDraftsFieldBuilder().addBuilder(
-          com.rankquantity.voyager.api.StoryboardDraftItem.getDefaultInstance());
+          com.rankquantity.voyager.api.StoryboardDraftDetail.getDefaultInstance());
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public com.rankquantity.voyager.api.StoryboardDraftItem.Builder addDraftsBuilder(
+    public com.rankquantity.voyager.api.StoryboardDraftDetail.Builder addDraftsBuilder(
         int index) {
       return internalGetDraftsFieldBuilder().addBuilder(
-          index, com.rankquantity.voyager.api.StoryboardDraftItem.getDefaultInstance());
+          index, com.rankquantity.voyager.api.StoryboardDraftDetail.getDefaultInstance());
     }
     /**
      * <pre>
-     * 草稿列表
+     * &#47; 草稿列表，包含草稿的详细信息
      * </pre>
      *
-     * <code>repeated .rankquantity.voyager.api.StoryboardDraftItem drafts = 3 [json_name = "drafts"];</code>
+     * <code>repeated .rankquantity.voyager.api.StoryboardDraftDetail drafts = 3 [json_name = "drafts"];</code>
      */
-    public java.util.List<com.rankquantity.voyager.api.StoryboardDraftItem.Builder> 
+    public java.util.List<com.rankquantity.voyager.api.StoryboardDraftDetail.Builder> 
          getDraftsBuilderList() {
       return internalGetDraftsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
-        com.rankquantity.voyager.api.StoryboardDraftItem, com.rankquantity.voyager.api.StoryboardDraftItem.Builder, com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder> 
+        com.rankquantity.voyager.api.StoryboardDraftDetail, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder, com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> 
         internalGetDraftsFieldBuilder() {
       if (draftsBuilder_ == null) {
         draftsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-            com.rankquantity.voyager.api.StoryboardDraftItem, com.rankquantity.voyager.api.StoryboardDraftItem.Builder, com.rankquantity.voyager.api.StoryboardDraftItemOrBuilder>(
+            com.rankquantity.voyager.api.StoryboardDraftDetail, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder, com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder>(
                 drafts_,
                 ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
@@ -1132,10 +1134,10 @@ private static final long serialVersionUID = 0L;
     private long total_ ;
     /**
      * <pre>
-     * 草稿总数
+     * &#47; 草稿总数
      * </pre>
      *
-     * <code>int64 total = 4 [json_name = "total"];</code>
+     * <code>int64 total = 4 [json_name = "total", (.validate.rules) = { ... }</code>
      * @return The total.
      */
     @java.lang.Override
@@ -1144,10 +1146,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿总数
+     * &#47; 草稿总数
      * </pre>
      *
-     * <code>int64 total = 4 [json_name = "total"];</code>
+     * <code>int64 total = 4 [json_name = "total", (.validate.rules) = { ... }</code>
      * @param value The total to set.
      * @return This builder for chaining.
      */
@@ -1160,10 +1162,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿总数
+     * &#47; 草稿总数
      * </pre>
      *
-     * <code>int64 total = 4 [json_name = "total"];</code>
+     * <code>int64 total = 4 [json_name = "total", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTotal() {
@@ -1176,7 +1178,7 @@ private static final long serialVersionUID = 0L;
     private boolean haveMore_ ;
     /**
      * <pre>
-     * 是否有更多
+     * &#47; 是否有更多数据
      * </pre>
      *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
@@ -1188,7 +1190,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否有更多
+     * &#47; 是否有更多数据
      * </pre>
      *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
@@ -1204,7 +1206,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 是否有更多
+     * &#47; 是否有更多数据
      * </pre>
      *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>

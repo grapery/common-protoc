@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 搜索用户响应
+ * / 返回匹配的用户列表
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.SearchUserResponse}
  */
 @com.google.protobuf.Generated
@@ -50,54 +55,94 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     java.util.List<com.rankquantity.voyager.api.UserInfo> 
         getListList();
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     com.rankquantity.voyager.api.UserInfo getList(int index);
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     int getListCount();
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     java.util.List<? extends com.rankquantity.voyager.api.UserInfoOrBuilder> 
         getListOrBuilderList();
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     com.rankquantity.voyager.api.UserInfoOrBuilder getListOrBuilder(
         int index);
 
     /**
+     * <pre>
+     * &#47; 当前偏移量
+     * </pre>
+     *
      * <code>int64 offset = 2 [json_name = "offset"];</code>
      * @return The offset.
      */
     long getOffset();
 
     /**
+     * <pre>
+     * &#47; 每页数量
+     * </pre>
+     *
      * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
      * @return The pageSize.
      */
     long getPageSize();
 
     /**
+     * <pre>
+     * &#47; 总数量
+     * </pre>
+     *
      * <code>int32 total = 4 [json_name = "total"];</code>
      * @return The total.
      */
     int getTotal();
 
     /**
+     * <pre>
+     * &#47; 是否有更多数据
+     * </pre>
+     *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
      * @return The haveMore.
      */
     boolean getHaveMore();
   }
   /**
+   * <pre>
+   * &#47; 返回数据
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.SearchUserResponse.Data}
    */
   public static final class Data extends
@@ -139,6 +184,10 @@ private static final long serialVersionUID = 0L;
     @SuppressWarnings("serial")
     private java.util.List<com.rankquantity.voyager.api.UserInfo> list_;
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     @java.lang.Override
@@ -146,6 +195,10 @@ private static final long serialVersionUID = 0L;
       return list_;
     }
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     @java.lang.Override
@@ -154,6 +207,10 @@ private static final long serialVersionUID = 0L;
       return list_;
     }
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     @java.lang.Override
@@ -161,6 +218,10 @@ private static final long serialVersionUID = 0L;
       return list_.size();
     }
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     @java.lang.Override
@@ -168,6 +229,10 @@ private static final long serialVersionUID = 0L;
       return list_.get(index);
     }
     /**
+     * <pre>
+     * &#47; 用户信息列表
+     * </pre>
+     *
      * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
      */
     @java.lang.Override
@@ -179,6 +244,10 @@ private static final long serialVersionUID = 0L;
     public static final int OFFSET_FIELD_NUMBER = 2;
     private long offset_ = 0L;
     /**
+     * <pre>
+     * &#47; 当前偏移量
+     * </pre>
+     *
      * <code>int64 offset = 2 [json_name = "offset"];</code>
      * @return The offset.
      */
@@ -190,6 +259,10 @@ private static final long serialVersionUID = 0L;
     public static final int PAGE_SIZE_FIELD_NUMBER = 3;
     private long pageSize_ = 0L;
     /**
+     * <pre>
+     * &#47; 每页数量
+     * </pre>
+     *
      * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
      * @return The pageSize.
      */
@@ -201,6 +274,10 @@ private static final long serialVersionUID = 0L;
     public static final int TOTAL_FIELD_NUMBER = 4;
     private int total_ = 0;
     /**
+     * <pre>
+     * &#47; 总数量
+     * </pre>
+     *
      * <code>int32 total = 4 [json_name = "total"];</code>
      * @return The total.
      */
@@ -212,6 +289,10 @@ private static final long serialVersionUID = 0L;
     public static final int HAVE_MORE_FIELD_NUMBER = 5;
     private boolean haveMore_ = false;
     /**
+     * <pre>
+     * &#47; 是否有更多数据
+     * </pre>
+     *
      * <code>bool have_more = 5 [json_name = "haveMore"];</code>
      * @return The haveMore.
      */
@@ -427,6 +508,10 @@ private static final long serialVersionUID = 0L;
       return builder;
     }
     /**
+     * <pre>
+     * &#47; 返回数据
+     * </pre>
+     *
      * Protobuf type {@code rankquantity.voyager.api.SearchUserResponse.Data}
      */
     public static final class Builder extends
@@ -670,6 +755,10 @@ private static final long serialVersionUID = 0L;
           com.rankquantity.voyager.api.UserInfo, com.rankquantity.voyager.api.UserInfo.Builder, com.rankquantity.voyager.api.UserInfoOrBuilder> listBuilder_;
 
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public java.util.List<com.rankquantity.voyager.api.UserInfo> getListList() {
@@ -680,6 +769,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public int getListCount() {
@@ -690,6 +783,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public com.rankquantity.voyager.api.UserInfo getList(int index) {
@@ -700,6 +797,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder setList(
@@ -717,6 +818,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder setList(
@@ -731,6 +836,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder addList(com.rankquantity.voyager.api.UserInfo value) {
@@ -747,6 +856,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder addList(
@@ -764,6 +877,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder addList(
@@ -778,6 +895,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder addList(
@@ -792,6 +913,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder addAllList(
@@ -807,6 +932,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder clearList() {
@@ -820,6 +949,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public Builder removeList(int index) {
@@ -833,6 +966,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public com.rankquantity.voyager.api.UserInfo.Builder getListBuilder(
@@ -840,6 +977,10 @@ private static final long serialVersionUID = 0L;
         return internalGetListFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public com.rankquantity.voyager.api.UserInfoOrBuilder getListOrBuilder(
@@ -850,6 +991,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public java.util.List<? extends com.rankquantity.voyager.api.UserInfoOrBuilder> 
@@ -861,6 +1006,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public com.rankquantity.voyager.api.UserInfo.Builder addListBuilder() {
@@ -868,6 +1017,10 @@ private static final long serialVersionUID = 0L;
             com.rankquantity.voyager.api.UserInfo.getDefaultInstance());
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public com.rankquantity.voyager.api.UserInfo.Builder addListBuilder(
@@ -876,6 +1029,10 @@ private static final long serialVersionUID = 0L;
             index, com.rankquantity.voyager.api.UserInfo.getDefaultInstance());
       }
       /**
+       * <pre>
+       * &#47; 用户信息列表
+       * </pre>
+       *
        * <code>repeated .rankquantity.voyager.api.UserInfo list = 1 [json_name = "list"];</code>
        */
       public java.util.List<com.rankquantity.voyager.api.UserInfo.Builder> 
@@ -899,6 +1056,10 @@ private static final long serialVersionUID = 0L;
 
       private long offset_ ;
       /**
+       * <pre>
+       * &#47; 当前偏移量
+       * </pre>
+       *
        * <code>int64 offset = 2 [json_name = "offset"];</code>
        * @return The offset.
        */
@@ -907,6 +1068,10 @@ private static final long serialVersionUID = 0L;
         return offset_;
       }
       /**
+       * <pre>
+       * &#47; 当前偏移量
+       * </pre>
+       *
        * <code>int64 offset = 2 [json_name = "offset"];</code>
        * @param value The offset to set.
        * @return This builder for chaining.
@@ -919,6 +1084,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 当前偏移量
+       * </pre>
+       *
        * <code>int64 offset = 2 [json_name = "offset"];</code>
        * @return This builder for chaining.
        */
@@ -931,6 +1100,10 @@ private static final long serialVersionUID = 0L;
 
       private long pageSize_ ;
       /**
+       * <pre>
+       * &#47; 每页数量
+       * </pre>
+       *
        * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
        * @return The pageSize.
        */
@@ -939,6 +1112,10 @@ private static final long serialVersionUID = 0L;
         return pageSize_;
       }
       /**
+       * <pre>
+       * &#47; 每页数量
+       * </pre>
+       *
        * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
        * @param value The pageSize to set.
        * @return This builder for chaining.
@@ -951,6 +1128,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 每页数量
+       * </pre>
+       *
        * <code>int64 page_size = 3 [json_name = "pageSize"];</code>
        * @return This builder for chaining.
        */
@@ -963,6 +1144,10 @@ private static final long serialVersionUID = 0L;
 
       private int total_ ;
       /**
+       * <pre>
+       * &#47; 总数量
+       * </pre>
+       *
        * <code>int32 total = 4 [json_name = "total"];</code>
        * @return The total.
        */
@@ -971,6 +1156,10 @@ private static final long serialVersionUID = 0L;
         return total_;
       }
       /**
+       * <pre>
+       * &#47; 总数量
+       * </pre>
+       *
        * <code>int32 total = 4 [json_name = "total"];</code>
        * @param value The total to set.
        * @return This builder for chaining.
@@ -983,6 +1172,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 总数量
+       * </pre>
+       *
        * <code>int32 total = 4 [json_name = "total"];</code>
        * @return This builder for chaining.
        */
@@ -995,6 +1188,10 @@ private static final long serialVersionUID = 0L;
 
       private boolean haveMore_ ;
       /**
+       * <pre>
+       * &#47; 是否有更多数据
+       * </pre>
+       *
        * <code>bool have_more = 5 [json_name = "haveMore"];</code>
        * @return The haveMore.
        */
@@ -1003,6 +1200,10 @@ private static final long serialVersionUID = 0L;
         return haveMore_;
       }
       /**
+       * <pre>
+       * &#47; 是否有更多数据
+       * </pre>
+       *
        * <code>bool have_more = 5 [json_name = "haveMore"];</code>
        * @param value The haveMore to set.
        * @return This builder for chaining.
@@ -1015,6 +1216,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 是否有更多数据
+       * </pre>
+       *
        * <code>bool have_more = 5 [json_name = "haveMore"];</code>
        * @return This builder for chaining.
        */
@@ -1080,6 +1285,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -1087,6 +1296,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -1099,6 +1312,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object msg_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The msg.
    */
@@ -1116,6 +1333,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The bytes for msg.
    */
@@ -1343,6 +1564,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 搜索用户响应
+   * / 返回匹配的用户列表
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.SearchUserResponse}
    */
   public static final class Builder extends
@@ -1523,6 +1749,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -1530,6 +1760,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -1541,6 +1775,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -1550,6 +1788,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -1562,6 +1804,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -1574,6 +1820,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object msg_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The msg.
      */
@@ -1590,6 +1840,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The bytes for msg.
      */
@@ -1607,6 +1861,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The msg to set.
      * @return This builder for chaining.
@@ -1620,6 +1878,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return This builder for chaining.
      */
@@ -1630,6 +1892,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The bytes for msg to set.
      * @return This builder for chaining.

@@ -12,30 +12,41 @@ public interface UserActiveHeamapRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; [必填] 用户ID
+   * / 
+   * / 要查询活跃度的用户唯一标识
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 开始时间戳（秒）
+   * &#47; [必填] 开始时间
+   * / 
+   * / 查询时间范围的起始时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0
+   * / 示例：1640995200（表示 2022-01-01 00:00:00 UTC）
    * </pre>
    *
-   * <code>int64 start_time = 2 [json_name = "startTime"];</code>
+   * <code>int64 start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
    * @return The startTime.
    */
   long getStartTime();
 
   /**
    * <pre>
-   * 结束时间戳（秒）
+   * &#47; [必填] 结束时间
+   * / 
+   * / 查询时间范围的结束时间戳（Unix时间戳，秒）
+   * / 验证规则：必须大于 0，且应大于 start_time
+   * / 建议范围：不超过1年
    * </pre>
    *
-   * <code>int64 end_time = 3 [json_name = "endTime"];</code>
+   * <code>int64 end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
    * @return The endTime.
    */
   long getEndTime();

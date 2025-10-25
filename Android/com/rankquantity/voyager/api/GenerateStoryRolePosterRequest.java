@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 生成故事角色海报请求
+ * / 为角色生成海报图片
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRolePosterRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 2;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -69,7 +82,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 3;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -80,7 +97,11 @@ private static final long serialVersionUID = 0L;
   public static final int PARAMS_FIELD_NUMBER = 4;
   private com.rankquantity.voyager.api.GenerateStoryRoleParams params_;
   /**
-   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+   * <pre>
+   * &#47; 生成参数，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
    * @return Whether the params field is set.
    */
   @java.lang.Override
@@ -88,7 +109,11 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+   * <pre>
+   * &#47; 生成参数，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
    * @return The params.
    */
   @java.lang.Override
@@ -96,7 +121,11 @@ private static final long serialVersionUID = 0L;
     return params_ == null ? com.rankquantity.voyager.api.GenerateStoryRoleParams.getDefaultInstance() : params_;
   }
   /**
-   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+   * <pre>
+   * &#47; 生成参数，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.rankquantity.voyager.api.GenerateStoryRoleParamsOrBuilder getParamsOrBuilder() {
@@ -302,6 +331,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 生成故事角色海报请求
+   * / 为角色生成海报图片
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.GenerateStoryRolePosterRequest}
    */
   public static final class Builder extends
@@ -492,7 +526,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -500,7 +538,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -512,7 +554,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -524,7 +570,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -532,7 +582,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -544,7 +598,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -556,7 +614,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -564,7 +626,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -576,7 +642,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 3 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -590,14 +660,22 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.GenerateStoryRoleParams, com.rankquantity.voyager.api.GenerateStoryRoleParams.Builder, com.rankquantity.voyager.api.GenerateStoryRoleParamsOrBuilder> paramsBuilder_;
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      * @return Whether the params field is set.
      */
     public boolean hasParams() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      * @return The params.
      */
     public com.rankquantity.voyager.api.GenerateStoryRoleParams getParams() {
@@ -608,7 +686,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public Builder setParams(com.rankquantity.voyager.api.GenerateStoryRoleParams value) {
       if (paramsBuilder_ == null) {
@@ -624,7 +706,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public Builder setParams(
         com.rankquantity.voyager.api.GenerateStoryRoleParams.Builder builderForValue) {
@@ -638,7 +724,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public Builder mergeParams(com.rankquantity.voyager.api.GenerateStoryRoleParams value) {
       if (paramsBuilder_ == null) {
@@ -659,7 +749,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public Builder clearParams() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -672,7 +766,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.GenerateStoryRoleParams.Builder getParamsBuilder() {
       bitField0_ |= 0x00000008;
@@ -680,7 +778,11 @@ private static final long serialVersionUID = 0L;
       return internalGetParamsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     public com.rankquantity.voyager.api.GenerateStoryRoleParamsOrBuilder getParamsOrBuilder() {
       if (paramsBuilder_ != null) {
@@ -691,7 +793,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params"];</code>
+     * <pre>
+     * &#47; 生成参数，必填
+     * </pre>
+     *
+     * <code>.rankquantity.voyager.api.GenerateStoryRoleParams params = 4 [json_name = "params", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.GenerateStoryRoleParams, com.rankquantity.voyager.api.GenerateStoryRoleParams.Builder, com.rankquantity.voyager.api.GenerateStoryRoleParamsOrBuilder> 

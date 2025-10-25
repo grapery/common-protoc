@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 创建故事评论回复请求
+ * / 回复指定的故事评论
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.CreateStoryCommentReplyRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int COMMENT_ID_FIELD_NUMBER = 1;
   private long commentId_ = 0L;
   /**
-   * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
+   * <pre>
+   * &#47; 评论ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 comment_id = 1 [json_name = "commentId", (.validate.rules) = { ... }</code>
    * @return The commentId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 回复者用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,7 +83,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object content_ = "";
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; 回复内容，必填且长度1-2000字符
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The content.
    */
   @java.lang.Override
@@ -87,7 +104,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; 回复内容，必填且长度1-2000字符
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   @java.lang.Override
@@ -286,6 +307,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 创建故事评论回复请求
+   * / 回复指定的故事评论
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.CreateStoryCommentReplyRequest}
    */
   public static final class Builder extends
@@ -449,7 +475,11 @@ private static final long serialVersionUID = 0L;
 
     private long commentId_ ;
     /**
-     * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 1 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @return The commentId.
      */
     @java.lang.Override
@@ -457,7 +487,11 @@ private static final long serialVersionUID = 0L;
       return commentId_;
     }
     /**
-     * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 1 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @param value The commentId to set.
      * @return This builder for chaining.
      */
@@ -469,7 +503,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 comment_id = 1 [json_name = "commentId"];</code>
+     * <pre>
+     * &#47; 评论ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 comment_id = 1 [json_name = "commentId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearCommentId() {
@@ -481,7 +519,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 回复者用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -489,7 +531,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 回复者用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -501,7 +547,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 回复者用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -513,7 +563,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object content_ = "";
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; 回复内容，必填且长度1-2000字符
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return The content.
      */
     public java.lang.String getContent() {
@@ -529,7 +583,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; 回复内容，必填且长度1-2000字符
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return The bytes for content.
      */
     public com.google.protobuf.ByteString
@@ -546,7 +604,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; 回复内容，必填且长度1-2000字符
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
      * @param value The content to set.
      * @return This builder for chaining.
      */
@@ -559,7 +621,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; 回复内容，必填且长度1-2000字符
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContent() {
@@ -569,7 +635,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; 回复内容，必填且长度1-2000字符
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.validate.rules) = { ... }</code>
      * @param value The bytes for content to set.
      * @return This builder for chaining.
      */

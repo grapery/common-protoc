@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 渲染故事角色详情
+ * / 包含角色渲染后的完整特征信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleDetail}
  */
 @com.google.protobuf.Generated
@@ -56,6 +61,10 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
+   * <pre>
+   * &#47; 角色ID
+   * </pre>
+   *
    * <code>int64 role_id = 1 [json_name = "roleId"];</code>
    * @return The roleId.
    */
@@ -67,6 +76,10 @@ private static final long serialVersionUID = 0L;
   public static final int GEN_ID_FIELD_NUMBER = 2;
   private long genId_ = 0L;
   /**
+   * <pre>
+   * &#47; 生成任务ID
+   * </pre>
+   *
    * <code>int64 gen_id = 2 [json_name = "genId"];</code>
    * @return The genId.
    */
@@ -78,6 +91,10 @@ private static final long serialVersionUID = 0L;
   public static final int IS_FINISHED_FIELD_NUMBER = 3;
   private boolean isFinished_ = false;
   /**
+   * <pre>
+   * &#47; 是否渲染完成
+   * </pre>
+   *
    * <code>bool is_finished = 3 [json_name = "isFinished"];</code>
    * @return The isFinished.
    */
@@ -90,6 +107,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object roleDescription_ = "";
   /**
+   * <pre>
+   * &#47; 角色描述
+   * </pre>
+   *
    * <code>string role_description = 4 [json_name = "roleDescription"];</code>
    * @return The roleDescription.
    */
@@ -107,6 +128,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 角色描述
+   * </pre>
+   *
    * <code>string role_description = 4 [json_name = "roleDescription"];</code>
    * @return The bytes for roleDescription.
    */
@@ -129,6 +154,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object roleCharacter_ = "";
   /**
+   * <pre>
+   * &#47; 角色性格特征
+   * </pre>
+   *
    * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
    * @return The roleCharacter.
    */
@@ -146,6 +175,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 角色性格特征
+   * </pre>
+   *
    * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
    * @return The bytes for roleCharacter.
    */
@@ -168,6 +201,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object roleBehavior_ = "";
   /**
+   * <pre>
+   * &#47; 角色行为特点
+   * </pre>
+   *
    * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
    * @return The roleBehavior.
    */
@@ -185,6 +222,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 角色行为特点
+   * </pre>
+   *
    * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
    * @return The bytes for roleBehavior.
    */
@@ -207,6 +248,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object roleGoal_ = "";
   /**
+   * <pre>
+   * &#47; 角色目标
+   * </pre>
+   *
    * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
    * @return The roleGoal.
    */
@@ -224,6 +269,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 角色目标
+   * </pre>
+   *
    * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
    * @return The bytes for roleGoal.
    */
@@ -246,6 +295,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object backgroundImage_ = "";
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
@@ -263,6 +316,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */
@@ -285,6 +342,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avatarImage_ = "";
   /**
+   * <pre>
+   * &#47; 头像图片URL
+   * </pre>
+   *
    * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
    * @return The avatarImage.
    */
@@ -302,6 +363,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 头像图片URL
+   * </pre>
+   *
    * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
    * @return The bytes for avatarImage.
    */
@@ -324,6 +389,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object background_ = "";
   /**
+   * <pre>
+   * &#47; 背景故事
+   * </pre>
+   *
    * <code>string background = 10 [json_name = "background"];</code>
    * @return The background.
    */
@@ -341,6 +410,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 背景故事
+   * </pre>
+   *
    * <code>string background = 10 [json_name = "background"];</code>
    * @return The bytes for background.
    */
@@ -363,6 +436,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object appearance_ = "";
   /**
+   * <pre>
+   * &#47; 外观描述
+   * </pre>
+   *
    * <code>string appearance = 11 [json_name = "appearance"];</code>
    * @return The appearance.
    */
@@ -380,6 +457,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 外观描述
+   * </pre>
+   *
    * <code>string appearance = 11 [json_name = "appearance"];</code>
    * @return The bytes for appearance.
    */
@@ -402,6 +483,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object personality_ = "";
   /**
+   * <pre>
+   * &#47; 性格描述
+   * </pre>
+   *
    * <code>string personality = 12 [json_name = "personality"];</code>
    * @return The personality.
    */
@@ -419,6 +504,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 性格描述
+   * </pre>
+   *
    * <code>string personality = 12 [json_name = "personality"];</code>
    * @return The bytes for personality.
    */
@@ -441,6 +530,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object abilityFeatures_ = "";
   /**
+   * <pre>
+   * &#47; 能力特征
+   * </pre>
+   *
    * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
    * @return The abilityFeatures.
    */
@@ -458,6 +551,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 能力特征
+   * </pre>
+   *
    * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
    * @return The bytes for abilityFeatures.
    */
@@ -759,6 +856,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 渲染故事角色详情
+   * / 包含角色渲染后的完整特征信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleDetail}
    */
   public static final class Builder extends
@@ -1060,6 +1162,10 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 1 [json_name = "roleId"];</code>
      * @return The roleId.
      */
@@ -1068,6 +1174,10 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 1 [json_name = "roleId"];</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
@@ -1080,6 +1190,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色ID
+     * </pre>
+     *
      * <code>int64 role_id = 1 [json_name = "roleId"];</code>
      * @return This builder for chaining.
      */
@@ -1092,6 +1206,10 @@ private static final long serialVersionUID = 0L;
 
     private long genId_ ;
     /**
+     * <pre>
+     * &#47; 生成任务ID
+     * </pre>
+     *
      * <code>int64 gen_id = 2 [json_name = "genId"];</code>
      * @return The genId.
      */
@@ -1100,6 +1218,10 @@ private static final long serialVersionUID = 0L;
       return genId_;
     }
     /**
+     * <pre>
+     * &#47; 生成任务ID
+     * </pre>
+     *
      * <code>int64 gen_id = 2 [json_name = "genId"];</code>
      * @param value The genId to set.
      * @return This builder for chaining.
@@ -1112,6 +1234,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成任务ID
+     * </pre>
+     *
      * <code>int64 gen_id = 2 [json_name = "genId"];</code>
      * @return This builder for chaining.
      */
@@ -1124,6 +1250,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean isFinished_ ;
     /**
+     * <pre>
+     * &#47; 是否渲染完成
+     * </pre>
+     *
      * <code>bool is_finished = 3 [json_name = "isFinished"];</code>
      * @return The isFinished.
      */
@@ -1132,6 +1262,10 @@ private static final long serialVersionUID = 0L;
       return isFinished_;
     }
     /**
+     * <pre>
+     * &#47; 是否渲染完成
+     * </pre>
+     *
      * <code>bool is_finished = 3 [json_name = "isFinished"];</code>
      * @param value The isFinished to set.
      * @return This builder for chaining.
@@ -1144,6 +1278,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否渲染完成
+     * </pre>
+     *
      * <code>bool is_finished = 3 [json_name = "isFinished"];</code>
      * @return This builder for chaining.
      */
@@ -1156,6 +1294,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object roleDescription_ = "";
     /**
+     * <pre>
+     * &#47; 角色描述
+     * </pre>
+     *
      * <code>string role_description = 4 [json_name = "roleDescription"];</code>
      * @return The roleDescription.
      */
@@ -1172,6 +1314,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色描述
+     * </pre>
+     *
      * <code>string role_description = 4 [json_name = "roleDescription"];</code>
      * @return The bytes for roleDescription.
      */
@@ -1189,6 +1335,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色描述
+     * </pre>
+     *
      * <code>string role_description = 4 [json_name = "roleDescription"];</code>
      * @param value The roleDescription to set.
      * @return This builder for chaining.
@@ -1202,6 +1352,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色描述
+     * </pre>
+     *
      * <code>string role_description = 4 [json_name = "roleDescription"];</code>
      * @return This builder for chaining.
      */
@@ -1212,6 +1366,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色描述
+     * </pre>
+     *
      * <code>string role_description = 4 [json_name = "roleDescription"];</code>
      * @param value The bytes for roleDescription to set.
      * @return This builder for chaining.
@@ -1228,6 +1386,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object roleCharacter_ = "";
     /**
+     * <pre>
+     * &#47; 角色性格特征
+     * </pre>
+     *
      * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
      * @return The roleCharacter.
      */
@@ -1244,6 +1406,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色性格特征
+     * </pre>
+     *
      * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
      * @return The bytes for roleCharacter.
      */
@@ -1261,6 +1427,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色性格特征
+     * </pre>
+     *
      * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
      * @param value The roleCharacter to set.
      * @return This builder for chaining.
@@ -1274,6 +1444,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色性格特征
+     * </pre>
+     *
      * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
      * @return This builder for chaining.
      */
@@ -1284,6 +1458,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色性格特征
+     * </pre>
+     *
      * <code>string role_character = 5 [json_name = "roleCharacter"];</code>
      * @param value The bytes for roleCharacter to set.
      * @return This builder for chaining.
@@ -1300,6 +1478,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object roleBehavior_ = "";
     /**
+     * <pre>
+     * &#47; 角色行为特点
+     * </pre>
+     *
      * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
      * @return The roleBehavior.
      */
@@ -1316,6 +1498,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色行为特点
+     * </pre>
+     *
      * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
      * @return The bytes for roleBehavior.
      */
@@ -1333,6 +1519,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色行为特点
+     * </pre>
+     *
      * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
      * @param value The roleBehavior to set.
      * @return This builder for chaining.
@@ -1346,6 +1536,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色行为特点
+     * </pre>
+     *
      * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
      * @return This builder for chaining.
      */
@@ -1356,6 +1550,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色行为特点
+     * </pre>
+     *
      * <code>string role_behavior = 6 [json_name = "roleBehavior"];</code>
      * @param value The bytes for roleBehavior to set.
      * @return This builder for chaining.
@@ -1372,6 +1570,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object roleGoal_ = "";
     /**
+     * <pre>
+     * &#47; 角色目标
+     * </pre>
+     *
      * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
      * @return The roleGoal.
      */
@@ -1388,6 +1590,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色目标
+     * </pre>
+     *
      * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
      * @return The bytes for roleGoal.
      */
@@ -1405,6 +1611,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 角色目标
+     * </pre>
+     *
      * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
      * @param value The roleGoal to set.
      * @return This builder for chaining.
@@ -1418,6 +1628,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色目标
+     * </pre>
+     *
      * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
      * @return This builder for chaining.
      */
@@ -1428,6 +1642,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 角色目标
+     * </pre>
+     *
      * <code>string role_goal = 7 [json_name = "roleGoal"];</code>
      * @param value The bytes for roleGoal to set.
      * @return This builder for chaining.
@@ -1444,6 +1662,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object backgroundImage_ = "";
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
      * @return The backgroundImage.
      */
@@ -1460,6 +1682,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
      * @return The bytes for backgroundImage.
      */
@@ -1477,6 +1703,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
      * @param value The backgroundImage to set.
      * @return This builder for chaining.
@@ -1490,6 +1720,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
      * @return This builder for chaining.
      */
@@ -1500,6 +1734,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景图片URL
+     * </pre>
+     *
      * <code>string background_image = 8 [json_name = "backgroundImage"];</code>
      * @param value The bytes for backgroundImage to set.
      * @return This builder for chaining.
@@ -1516,6 +1754,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avatarImage_ = "";
     /**
+     * <pre>
+     * &#47; 头像图片URL
+     * </pre>
+     *
      * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
      * @return The avatarImage.
      */
@@ -1532,6 +1774,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 头像图片URL
+     * </pre>
+     *
      * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
      * @return The bytes for avatarImage.
      */
@@ -1549,6 +1795,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 头像图片URL
+     * </pre>
+     *
      * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
      * @param value The avatarImage to set.
      * @return This builder for chaining.
@@ -1562,6 +1812,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 头像图片URL
+     * </pre>
+     *
      * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
      * @return This builder for chaining.
      */
@@ -1572,6 +1826,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 头像图片URL
+     * </pre>
+     *
      * <code>string avatar_image = 9 [json_name = "avatarImage"];</code>
      * @param value The bytes for avatarImage to set.
      * @return This builder for chaining.
@@ -1588,6 +1846,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object background_ = "";
     /**
+     * <pre>
+     * &#47; 背景故事
+     * </pre>
+     *
      * <code>string background = 10 [json_name = "background"];</code>
      * @return The background.
      */
@@ -1604,6 +1866,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景故事
+     * </pre>
+     *
      * <code>string background = 10 [json_name = "background"];</code>
      * @return The bytes for background.
      */
@@ -1621,6 +1887,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 背景故事
+     * </pre>
+     *
      * <code>string background = 10 [json_name = "background"];</code>
      * @param value The background to set.
      * @return This builder for chaining.
@@ -1634,6 +1904,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景故事
+     * </pre>
+     *
      * <code>string background = 10 [json_name = "background"];</code>
      * @return This builder for chaining.
      */
@@ -1644,6 +1918,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 背景故事
+     * </pre>
+     *
      * <code>string background = 10 [json_name = "background"];</code>
      * @param value The bytes for background to set.
      * @return This builder for chaining.
@@ -1660,6 +1938,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object appearance_ = "";
     /**
+     * <pre>
+     * &#47; 外观描述
+     * </pre>
+     *
      * <code>string appearance = 11 [json_name = "appearance"];</code>
      * @return The appearance.
      */
@@ -1676,6 +1958,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 外观描述
+     * </pre>
+     *
      * <code>string appearance = 11 [json_name = "appearance"];</code>
      * @return The bytes for appearance.
      */
@@ -1693,6 +1979,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 外观描述
+     * </pre>
+     *
      * <code>string appearance = 11 [json_name = "appearance"];</code>
      * @param value The appearance to set.
      * @return This builder for chaining.
@@ -1706,6 +1996,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 外观描述
+     * </pre>
+     *
      * <code>string appearance = 11 [json_name = "appearance"];</code>
      * @return This builder for chaining.
      */
@@ -1716,6 +2010,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 外观描述
+     * </pre>
+     *
      * <code>string appearance = 11 [json_name = "appearance"];</code>
      * @param value The bytes for appearance to set.
      * @return This builder for chaining.
@@ -1732,6 +2030,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object personality_ = "";
     /**
+     * <pre>
+     * &#47; 性格描述
+     * </pre>
+     *
      * <code>string personality = 12 [json_name = "personality"];</code>
      * @return The personality.
      */
@@ -1748,6 +2050,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 性格描述
+     * </pre>
+     *
      * <code>string personality = 12 [json_name = "personality"];</code>
      * @return The bytes for personality.
      */
@@ -1765,6 +2071,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 性格描述
+     * </pre>
+     *
      * <code>string personality = 12 [json_name = "personality"];</code>
      * @param value The personality to set.
      * @return This builder for chaining.
@@ -1778,6 +2088,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 性格描述
+     * </pre>
+     *
      * <code>string personality = 12 [json_name = "personality"];</code>
      * @return This builder for chaining.
      */
@@ -1788,6 +2102,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 性格描述
+     * </pre>
+     *
      * <code>string personality = 12 [json_name = "personality"];</code>
      * @param value The bytes for personality to set.
      * @return This builder for chaining.
@@ -1804,6 +2122,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object abilityFeatures_ = "";
     /**
+     * <pre>
+     * &#47; 能力特征
+     * </pre>
+     *
      * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
      * @return The abilityFeatures.
      */
@@ -1820,6 +2142,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 能力特征
+     * </pre>
+     *
      * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
      * @return The bytes for abilityFeatures.
      */
@@ -1837,6 +2163,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 能力特征
+     * </pre>
+     *
      * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
      * @param value The abilityFeatures to set.
      * @return This builder for chaining.
@@ -1850,6 +2180,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 能力特征
+     * </pre>
+     *
      * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
      * @return This builder for chaining.
      */
@@ -1860,6 +2194,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 能力特征
+     * </pre>
+     *
      * <code>string ability_features = 13 [json_name = "abilityFeatures"];</code>
      * @param value The bytes for abilityFeatures to set.
      * @return This builder for chaining.

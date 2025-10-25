@@ -11,43 +11,71 @@ public interface GetStoryRoleListRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 请求用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 board_id = 3 [json_name = "boardId"];</code>
+   * <pre>
+   * &#47; 故事板ID（可选），用于筛选特定故事板的角色
+   * </pre>
+   *
+   * <code>int64 board_id = 3 [json_name = "boardId", (.validate.rules) = { ... }</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
-   * <code>string search_key = 4 [json_name = "searchKey"];</code>
+   * <pre>
+   * &#47; 搜索关键词（可选），用于搜索角色名称
+   * </pre>
+   *
+   * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
    * @return The searchKey.
    */
   java.lang.String getSearchKey();
   /**
-   * <code>string search_key = 4 [json_name = "searchKey"];</code>
+   * <pre>
+   * &#47; 搜索关键词（可选），用于搜索角色名称
+   * </pre>
+   *
+   * <code>string search_key = 4 [json_name = "searchKey", (.validate.rules) = { ... }</code>
    * @return The bytes for searchKey.
    */
   com.google.protobuf.ByteString
       getSearchKeyBytes();
 
   /**
-   * <code>int64 offset = 5 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 5 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 6 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();

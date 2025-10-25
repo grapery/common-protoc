@@ -21,16 +21,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+//// Token来源枚举
+//// 指定生成任务使用的额度来源
 public enum Rankquantity_Voyager_Api_TokenSource: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
-  /// 用户自己的token
+  //// 使用用户自己的token额度
   case userSelf // = 0
 
-  /// 故事存储的token
+  //// 使用故事存储的token额度
   case storyStore // = 1
 
-  /// 三方赞助的token
+  //// 使用第三方赞助的token额度
   case thirdParty // = 2
   case UNRECOGNIZED(Int)
 
@@ -147,15 +149,33 @@ public struct Rankquantity_Voyager_Api_ActiveInfo: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 用户登录请求
+//// 
+//// 支持多种登录方式的用户认证，包括密码登录、验证码登录和第三方登录
 public struct Rankquantity_Voyager_Api_LoginRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 账号
+  //// 
+  //// 支持邮箱、手机号或用户名
+  //// 长度限制：3-100 字符
   public var account: String = String()
 
+  //// [必填] 密码
+  //// 
+  //// 用户登录密码
+  //// 长度限制：6-128 字符
   public var password: String = String()
 
+  //// [必填] 登录类型
+  //// 
+  //// 指定使用的登录方式：
+  //// - 1: 密码登录
+  //// - 2: 验证码登录
+  //// - 3: 第三方登录
+  //// 取值范围：1-3
   public var loginType: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -163,13 +183,17 @@ public struct Rankquantity_Voyager_Api_LoginRequest: Sendable {
   public init() {}
 }
 
+//// 用户登录响应
+//// 返回登录结果和会话信息
 public struct Rankquantity_Voyager_Api_LoginResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var msg: String = String()
 
   public var data: Rankquantity_Voyager_Api_LoginResponse.DataMessage {
@@ -183,19 +207,25 @@ public struct Rankquantity_Voyager_Api_LoginResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 登录成功返回的数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 用户ID
     public var userID: Int64 = 0
 
+    //// 访问令牌
     public var token: String = String()
 
+    //// 当前时间戳
     public var timestamp: Int64 = 0
 
+    //// 令牌过期时间戳
     public var expireAt: Int64 = 0
 
+    //// 账号状态：0-正常，1-冻结，2-待激活
     public var status: Int32 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -262,19 +292,44 @@ public struct Rankquantity_Voyager_Api_RefreshTokenResponse: Sendable {
   public init() {}
 }
 
+//// 用户注册请求
+//// 
+//// 创建新用户账号，需要提供完整的注册信息
 public struct Rankquantity_Voyager_Api_RegisterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 账号
+  //// 
+  //// 用户登录账号，用于身份标识
+  //// 长度限制：3-50 字符
+  //// 格式要求：字母、数字、下划线
   public var account: String = String()
 
+  //// [必填] 密码
+  //// 
+  //// 用户登录密码
+  //// 长度限制：6-128 字符
+  //// 安全建议：包含字母、数字和特殊字符
   public var password: String = String()
 
+  //// [必填] 用户昵称
+  //// 
+  //// 显示名称，用于界面展示
+  //// 长度限制：1-50 字符
   public var name: String = String()
 
+  //// [必填] 邮箱地址
+  //// 
+  //// 用于接收通知和找回密码
+  //// 格式要求：符合邮箱格式规范（如 user@example.com）
   public var email: String = String()
 
+  //// [必填] 手机号
+  //// 
+  //// 用于接收验证码和通知
+  //// 长度限制：8-20 字符
   public var phone: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -282,13 +337,17 @@ public struct Rankquantity_Voyager_Api_RegisterRequest: Sendable {
   public init() {}
 }
 
+//// 用户注册响应
+//// 返回注册结果
 public struct Rankquantity_Voyager_Api_RegisterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var msg: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -725,25 +784,35 @@ public struct Rankquantity_Voyager_Api_UserUpdateResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_UserUpdateResponse.DataMessage? = nil
 }
 
+//// 获取动态列表请求
+//// 获取用户、群组或故事的活动动态
 public struct Rankquantity_Voyager_Api_FetchActivesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 群组ID，可选，用于筛选特定群组的动态
   public var groupID: Int64 = 0
 
+  //// 故事ID，可选，用于筛选特定故事的动态
   public var storyID: Int64 = 0
 
+  //// 故事板ID，可选，用于筛选特定故事板的动态
   public var boardID: Int64 = 0
 
+  //// 动态流类型，指定要获取的动态类型
   public var atype: Rankquantity_Voyager_Api_ActiveFlowType = .allFlowType
 
+  //// 时间戳，用于时间范围筛选，必须大于0
   public var timestamp: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -751,13 +820,17 @@ public struct Rankquantity_Voyager_Api_FetchActivesRequest: Sendable {
   public init() {}
 }
 
+//// 获取动态列表响应
+//// 返回活动动态列表
 public struct Rankquantity_Voyager_Api_FetchActivesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var msg: String = String()
 
   public var data: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage {
@@ -771,21 +844,28 @@ public struct Rankquantity_Voyager_Api_FetchActivesResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 动态信息列表
     public var list: [Rankquantity_Voyager_Api_ActiveInfo] = []
 
+    //// 当前时间戳
     public var timestamp: Int64 = 0
 
+    //// 当前偏移量
     public var offset: Int64 = 0
 
+    //// 每页数量
     public var pageSize: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
+    //// 总数量
     public var total: Int64 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -798,19 +878,48 @@ public struct Rankquantity_Voyager_Api_FetchActivesResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_FetchActivesResponse.DataMessage? = nil
 }
 
+//// 搜索用户请求
+//// 
+//// 根据名称搜索用户，支持模糊搜索和精确搜索，可在群组范围内搜索
 public struct Rankquantity_Voyager_Api_SearchUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 搜索关键词
+  //// 
+  //// 用户名或昵称的搜索关键词
+  //// 长度限制：1-100 字符
+  //// 支持：中文、英文、数字
   public var name: String = String()
 
+  //// [可选] 群组ID
+  //// 
+  //// 限定在特定群组内搜索用户
+  //// 验证规则：如果提供则必须大于等于 0
+  //// 默认值：0（全局搜索）
   public var groupID: Int64 = 0
 
+  //// [可选] 模糊搜索标志
+  //// 
+  //// 搜索模式选择
+  //// 取值说明：
+  //// - true: 模糊搜索（包含关键词即可）
+  //// - false: 精确匹配（完全相同）
+  //// 默认值：true
   public var isFuzzy: Bool = false
 
+  //// [必填] 偏移量
+  //// 
+  //// 分页查询的起始位置
+  //// 验证规则：必须大于等于 0
   public var offset: Int64 = 0
 
+  //// [必填] 每页数量
+  //// 
+  //// 单页返回的最大记录数
+  //// 验证规则：1-100
+  //// 建议值：20
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -818,13 +927,17 @@ public struct Rankquantity_Voyager_Api_SearchUserRequest: Sendable {
   public init() {}
 }
 
+//// 搜索用户响应
+//// 返回匹配的用户列表
 public struct Rankquantity_Voyager_Api_SearchUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var msg: String = String()
 
   public var data: Rankquantity_Voyager_Api_SearchUserResponse.DataMessage {
@@ -838,19 +951,25 @@ public struct Rankquantity_Voyager_Api_SearchUserResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 用户信息列表
     public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
+    //// 当前偏移量
     public var offset: Int64 = 0
 
+    //// 每页数量
     public var pageSize: Int64 = 0
 
+    //// 总数量
     public var total: Int32 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1351,17 +1470,23 @@ public struct Rankquantity_Voyager_Api_LikeItemResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_LikeItemResponse.DataMessage? = nil
 }
 
+//// 创建群组请求
+//// 创建新的协作群组或团队
 public struct Rankquantity_Voyager_Api_CreateGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 创建者用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 群组名称，必填且长度1-100字符
   public var name: String = String()
 
+  //// 群组描述，最大长度1000字符
   public var description_p: String = String()
 
+  //// 群组头像URL
   public var avatar: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1369,13 +1494,17 @@ public struct Rankquantity_Voyager_Api_CreateGroupRequest: Sendable {
   public init() {}
 }
 
+//// 创建群组响应
+//// 返回创建的群组信息
 public struct Rankquantity_Voyager_Api_CreateGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_CreateGroupResponse.DataMessage {
@@ -1389,11 +1518,13 @@ public struct Rankquantity_Voyager_Api_CreateGroupResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 创建的群组信息
     public var info: Rankquantity_Voyager_Api_GroupInfo {
       get {return _info ?? Rankquantity_Voyager_Api_GroupInfo()}
       set {_info = newValue}
@@ -1660,15 +1791,20 @@ public struct Rankquantity_Voyager_Api_DeleteGroupResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_DeleteGroupResponse.DataMessage? = nil
 }
 
+//// 获取群组成员列表请求
+//// 分页获取指定群组的所有成员
 public struct Rankquantity_Voyager_Api_FetchGroupMembersRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 群组ID，必须大于0
   public var groupID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1676,13 +1812,17 @@ public struct Rankquantity_Voyager_Api_FetchGroupMembersRequest: Sendable {
   public init() {}
 }
 
+//// 获取群组成员列表响应
+//// 返回群组的成员列表及分页信息
 public struct Rankquantity_Voyager_Api_FetchGroupMembersResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage {
@@ -1696,17 +1836,22 @@ public struct Rankquantity_Voyager_Api_FetchGroupMembersResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 成员信息列表
     public var list: [Rankquantity_Voyager_Api_UserInfo] = []
 
+    //// 当前偏移量
     public var offset: Int64 = 0
 
+    //// 成员总数
     public var total: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1719,23 +1864,32 @@ public struct Rankquantity_Voyager_Api_FetchGroupMembersResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_FetchGroupMembersResponse.DataMessage? = nil
 }
 
+//// 搜索群组请求
+//// 根据名称搜索群组，支持不同范围的搜索
 public struct Rankquantity_Voyager_Api_SearchGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 搜索关键词，群组名称，长度1-100字符
   public var name: String = String()
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 搜索范围类型
   public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
+  //// 故事ID（可选），用于在特定故事相关的群组中搜索
   public var storyID: Int64 = 0
 
+  //// 群组ID（可选），用于在特定群组内搜索
   public var groupID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1743,13 +1897,17 @@ public struct Rankquantity_Voyager_Api_SearchGroupRequest: Sendable {
   public init() {}
 }
 
+//// 搜索群组响应
+//// 返回匹配的群组列表
 public struct Rankquantity_Voyager_Api_SearchGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage {
@@ -1763,19 +1921,25 @@ public struct Rankquantity_Voyager_Api_SearchGroupResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 群组信息列表
     public var list: [Rankquantity_Voyager_Api_GroupInfo] = []
 
+    //// 当前偏移量
     public var offset: Int64 = 0
 
+    //// 每页数量
     public var pageSize: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
+    //// 总数量
     public var total: Int64 = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1788,13 +1952,17 @@ public struct Rankquantity_Voyager_Api_SearchGroupResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_SearchGroupResponse.DataMessage? = nil
 }
 
+//// 加入群组请求
+//// 用户申请加入指定群组
 public struct Rankquantity_Voyager_Api_JoinGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 群组ID，必须大于0
   public var groupID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1802,13 +1970,17 @@ public struct Rankquantity_Voyager_Api_JoinGroupRequest: Sendable {
   public init() {}
 }
 
+//// 加入群组响应
+//// 返回加入群组的结果
 public struct Rankquantity_Voyager_Api_JoinGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage {
@@ -1822,6 +1994,7 @@ public struct Rankquantity_Voyager_Api_JoinGroupResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1837,13 +2010,17 @@ public struct Rankquantity_Voyager_Api_JoinGroupResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_JoinGroupResponse.DataMessage? = nil
 }
 
+//// 离开群组请求
+//// 用户退出指定群组
 public struct Rankquantity_Voyager_Api_LeaveGroupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 群组ID，必须大于0
   public var groupID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1851,13 +2028,17 @@ public struct Rankquantity_Voyager_Api_LeaveGroupRequest: Sendable {
   public init() {}
 }
 
+//// 离开群组响应
+//// 返回离开群组的结果
 public struct Rankquantity_Voyager_Api_LeaveGroupResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_LeaveGroupResponse.DataMessage {
@@ -1871,6 +2052,7 @@ public struct Rankquantity_Voyager_Api_LeaveGroupResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2210,15 +2392,39 @@ public struct Rankquantity_Voyager_Api_GetProjectWatcherResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_GetProjectWatcherResponse.DataMessage? = nil
 }
 
+//// 上传图片请求
+//// 
+//// 上传图片文件到服务器，支持多种常见图片格式
 public struct Rankquantity_Voyager_Api_UploadImageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 图片数据
+  //// 
+  //// 图片的二进制内容
+  //// 大小限制：最大 10MB (10485760 字节)
+  //// 支持格式：JPEG、PNG、GIF、WebP、BMP
+  //// 建议：上传前进行客户端压缩以提高速度
   public var imageData: Data = Data()
 
+  //// [必填] 文件名
+  //// 
+  //// 包含扩展名的文件名
+  //// 长度限制：1-255 字符
+  //// 示例：avatar.jpg, cover.png
   public var filename: String = String()
 
+  //// [必填] 文件MIME类型
+  //// 
+  //// 图片的内容类型标识
+  //// 格式要求：必须为有效的图片MIME类型
+  //// 允许值：
+  //// - image/jpeg 或 image/jpg
+  //// - image/png
+  //// - image/gif
+  //// - image/webp
+  //// - image/bmp
   public var contentType: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2226,13 +2432,17 @@ public struct Rankquantity_Voyager_Api_UploadImageRequest: Sendable {
   public init() {}
 }
 
+//// 上传图片响应
+//// 返回上传成功的图片信息
 public struct Rankquantity_Voyager_Api_UploadImageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage {
@@ -2246,13 +2456,16 @@ public struct Rankquantity_Voyager_Api_UploadImageResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 文件唯一标识符
     public var fileID: String = String()
 
+    //// 图片访问URL
     public var url: String = String()
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2265,17 +2478,23 @@ public struct Rankquantity_Voyager_Api_UploadImageResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_UploadImageResponse.DataMessage? = nil
 }
 
+//// 获取故事贡献者请求
+//// 获取参与故事创作的所有贡献者列表
 public struct Rankquantity_Voyager_Api_GetStoryContributorsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2283,17 +2502,23 @@ public struct Rankquantity_Voyager_Api_GetStoryContributorsRequest: Sendable {
   public init() {}
 }
 
+//// 故事贡献者信息
+//// 表示参与故事创作的用户信息
 public struct Rankquantity_Voyager_Api_StoryContributor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 贡献者用户ID
   public var userID: Int64 = 0
 
+  //// 贡献者用户名
   public var username: String = String()
 
+  //// 贡献者头像URL
   public var avatar: String = String()
 
+  //// VIP等级，0表示普通用户
   public var viplevel: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2301,13 +2526,17 @@ public struct Rankquantity_Voyager_Api_StoryContributor: Sendable {
   public init() {}
 }
 
+//// 获取故事贡献者响应
+//// 返回故事的贡献者列表
 public struct Rankquantity_Voyager_Api_GetStoryContributorsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_GetStoryContributorsResponse.DataMessage {
@@ -2321,15 +2550,19 @@ public struct Rankquantity_Voyager_Api_GetStoryContributorsResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 贡献者列表
     public var list: [Rankquantity_Voyager_Api_StoryContributor] = []
 
+    //// 贡献者总数
     public var total: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2441,19 +2674,26 @@ public struct Rankquantity_Voyager_Api_UpdateGroupProfileResponse: Sendable {
   public init() {}
 }
 
+//// 获取故事角色海报列表请求
+//// 获取指定角色的所有海报图片列表
 public struct Rankquantity_Voyager_Api_GetStoryRolePosterListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2461,46 +2701,56 @@ public struct Rankquantity_Voyager_Api_GetStoryRolePosterListRequest: Sendable {
   public init() {}
 }
 
+//// 角色海报详细信息
+//// 表示角色海报图片的完整信息
 public struct Rankquantity_Voyager_Api_RolePosterDetail: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 海报ID
   public var id: Int64 {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
+  //// 所属故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
+  //// 所属角色ID
   public var roleID: Int64 {
     get {return _storage._roleID}
     set {_uniqueStorage()._roleID = newValue}
   }
 
+  //// 海报图片URL
   public var posterURL: String {
     get {return _storage._posterURL}
     set {_uniqueStorage()._posterURL = newValue}
   }
 
+  //// 生成提示词
   public var prompt: String {
     get {return _storage._prompt}
     set {_uniqueStorage()._prompt = newValue}
   }
 
+  //// 点赞数
   public var likeCount: Int64 {
     get {return _storage._likeCount}
     set {_uniqueStorage()._likeCount = newValue}
   }
 
+  //// 当前用户是否已点赞
   public var isLikedByUser: Bool {
     get {return _storage._isLikedByUser}
     set {_uniqueStorage()._isLikedByUser = newValue}
   }
 
+  //// 海报创建者信息
   public var creator: Rankquantity_Voyager_Api_UserInfo {
     get {return _storage._creator ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._creator = newValue}
@@ -2510,11 +2760,13 @@ public struct Rankquantity_Voyager_Api_RolePosterDetail: @unchecked Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
 
+  //// 创建时间戳
   public var createdAt: Int64 {
     get {return _storage._createdAt}
     set {_uniqueStorage()._createdAt = newValue}
   }
 
+  //// 更新时间戳
   public var updatedAt: Int64 {
     get {return _storage._updatedAt}
     set {_uniqueStorage()._updatedAt = newValue}
@@ -2527,19 +2779,26 @@ public struct Rankquantity_Voyager_Api_RolePosterDetail: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 获取故事角色海报列表响应
+//// 返回角色的海报列表及分页信息
 public struct Rankquantity_Voyager_Api_GetStoryRolePosterListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 海报列表
   public var posters: [Rankquantity_Voyager_Api_RolePosterDetail] = []
 
+  //// 海报总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2547,17 +2806,23 @@ public struct Rankquantity_Voyager_Api_GetStoryRolePosterListResponse: Sendable 
   public init() {}
 }
 
+//// 点赞角色海报请求
+//// 为角色海报点赞
 public struct Rankquantity_Voyager_Api_LikeStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 海报ID，必须大于0
   public var posterID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2565,15 +2830,20 @@ public struct Rankquantity_Voyager_Api_LikeStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
+//// 点赞角色海报响应
+//// 返回点赞后的最新点赞数
 public struct Rankquantity_Voyager_Api_LikeStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 当前点赞总数
   public var currentLikeCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2581,17 +2851,23 @@ public struct Rankquantity_Voyager_Api_LikeStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
+//// 取消点赞角色海报请求
+//// 取消对角色海报的点赞
 public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 海报ID，必须大于0
   public var posterID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2599,15 +2875,20 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
+//// 取消点赞角色海报响应
+//// 返回取消点赞后的最新点赞数
 public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 当前点赞总数
   public var currentLikeCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2615,19 +2896,26 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
+//// 获取用户生成任务状态请求
+//// 查询用户的所有生成任务状态
 public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 任务ID（可选），用于查询特定任务
   public var taskID: String = String()
 
+  //// 时间戳，用于时间筛选
   public var timestamp: Int64 = 0
 
+  //// 页码，从1开始
   public var pageNum: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2635,35 +2923,50 @@ public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusRequest: Sendable {
   public init() {}
 }
 
+//// 故事生成任务详情
+//// 包含故事生成任务的详细参数和结果
 public struct Rankquantity_Voyager_Api_StoryGentaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID
   public var storyID: Int64 = 0
 
+  //// 故事板ID
   public var boardID: Int64 = 0
 
+  //// 故事板描述
   public var storyboardDesc: String = String()
 
+  //// 场景ID
   public var senceID: Int64 = 0
 
+  //// 场景描述
   public var senceDesc: String = String()
 
+  //// 生成提示词
   public var prompt: String = String()
 
+  //// 任务类型：1-图片，2-视频，3-音频
   public var taskType: Int64 = 0
 
+  //// 任务阶段
   public var taskStage: Int64 = 0
 
+  //// 起始图片URL
   public var startImageURL: String = String()
 
+  //// 结束图片URL
   public var endImageURL: String = String()
 
+  //// 生成的视频URL
   public var videoURL: String = String()
 
+  //// 参考图片URL
   public var regImageURL: String = String()
 
+  //// 生成风格
   public var style: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2671,26 +2974,32 @@ public struct Rankquantity_Voyager_Api_StoryGentaskDetail: Sendable {
   public init() {}
 }
 
+//// 用户生成任务状态信息
+//// 表示单个生成任务的完整状态
 public struct Rankquantity_Voyager_Api_UserGenTaskStatus: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 任务ID，唯一标识符
   public var taskID: String {
     get {return _storage._taskID}
     set {_uniqueStorage()._taskID = newValue}
   }
 
+  //// 用户ID
   public var userID: Int64 {
     get {return _storage._userID}
     set {_uniqueStorage()._userID = newValue}
   }
 
+  //// 任务状态：pending, running, success, failed
   public var status: String {
     get {return _storage._status}
     set {_uniqueStorage()._status = newValue}
   }
 
+  //// 任务详情
   public var detail: Rankquantity_Voyager_Api_StoryGentaskDetail {
     get {return _storage._detail ?? Rankquantity_Voyager_Api_StoryGentaskDetail()}
     set {_uniqueStorage()._detail = newValue}
@@ -2700,11 +3009,13 @@ public struct Rankquantity_Voyager_Api_UserGenTaskStatus: @unchecked Sendable {
   /// Clears the value of `detail`. Subsequent reads from it will return its default value.
   public mutating func clearDetail() {_uniqueStorage()._detail = nil}
 
+  //// 创建时间戳
   public var createTime: Int64 {
     get {return _storage._createTime}
     set {_uniqueStorage()._createTime = newValue}
   }
 
+  //// 更新时间戳
   public var updateTime: Int64 {
     get {return _storage._updateTime}
     set {_uniqueStorage()._updateTime = newValue}
@@ -2717,19 +3028,26 @@ public struct Rankquantity_Voyager_Api_UserGenTaskStatus: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 获取用户生成任务状态响应
+//// 返回用户的生成任务列表
 public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 任务状态列表
   public var tasks: [Rankquantity_Voyager_Api_UserGenTaskStatus] = []
 
+  //// 任务总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2737,21 +3055,29 @@ public struct Rankquantity_Voyager_Api_FetchUserGenTaskStatusResponse: Sendable 
   public init() {}
 }
 
+//// 生成角色头像请求
+//// 使用AI为角色生成个性化头像
 public struct Rankquantity_Voyager_Api_GenerateRoleAvatarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 参考头像URL（可选）
   public var refAvatarURL: String = String()
 
+  //// 角色描述，用于生成头像，最大长度1000字符
   public var description_p: String = String()
 
+  //// 头像风格
   public var style: String = String()
 
+  //// 图片宽高比设置
   public var imageRatios: Rankquantity_Voyager_Api_ImageRatios = .ratio11
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2759,15 +3085,20 @@ public struct Rankquantity_Voyager_Api_GenerateRoleAvatarRequest: Sendable {
   public init() {}
 }
 
+//// 生成角色头像响应
+//// 返回生成的头像URL
 public struct Rankquantity_Voyager_Api_GenerateRoleAvatarResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 生成的头像URL
   public var avatarURL: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2775,23 +3106,61 @@ public struct Rankquantity_Voyager_Api_GenerateRoleAvatarResponse: Sendable {
   public init() {}
 }
 
+//// 生成故事场景视频请求
+//// 
+//// 为指定的故事场景生成AI视频内容，支持自定义提示词和风格
 public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 故事ID
+  //// 
+  //// 场景所属的故事ID
+  //// 验证规则：必须大于 0
   public var storyID: Int64 = 0
 
+  //// [必填] 故事板ID
+  //// 
+  //// 场景所属的故事板ID
+  //// 验证规则：必须大于 0
   public var boardID: Int64 = 0
 
+  //// [必填] 场景ID
+  //// 
+  //// 要生成视频的场景唯一标识
+  //// 验证规则：必须大于 0
   public var senceID: Int64 = 0
 
+  //// [必填] 用户ID
+  //// 
+  //// 发起生成请求的用户ID
+  //// 验证规则：必须大于 0
+  //// 用途：用于计费和权限验证
   public var userID: Int64 = 0
 
+  //// [必填] Token来源
+  //// 
+  //// 指定使用哪种额度来支付生成费用
+  //// 取值说明：
+  //// - TOKEN_SOURCE_USER_SELF: 使用用户自己的token
+  //// - TOKEN_SOURCE_STORY_STORE: 使用故事存储的token
+  //// - TOKEN_SOURCE_THIRD_PARTY: 使用第三方赞助token
   public var tokenSource: Rankquantity_Voyager_Api_TokenSource = .userSelf
 
+  //// [可选] 生成提示词
+  //// 
+  //// 视频生成的提示词描述
+  //// 长度限制：最大 2000 字符
+  //// 用途：控制视频的内容、风格和细节
+  //// 默认值：使用场景描述自动生成
   public var prompt: String = String()
 
+  //// [可选] 负面提示词
+  //// 
+  //// 指定不希望出现的元素
+  //// 长度限制：最大 1000 字符
+  //// 用途：避免生成不想要的内容（如暴力、血腥等）
   public var negativePrompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2799,23 +3168,32 @@ public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoRequest: Sendable 
   public init() {}
 }
 
+//// 生成故事场景视频任务详情
+//// 包含视频生成任务的状态和结果信息
 public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 任务ID，唯一标识符
   public var taskID: String = String()
 
+  //// 任务状态
   public var taskStatus: Rankquantity_Voyager_Api_StoryGenStatus = .unspecified
 
+  //// 生成的视频URL
   public var videoURL: String = String()
 
+  //// 视频缩略图URL
   public var videoThumbnailURL: String = String()
 
+  //// 视频时长（秒）
   public var duration: Int64 = 0
 
+  //// 视频分辨率，如 1920x1080
   public var resolution: String = String()
 
+  //// 视频格式，如 mp4, webm
   public var videoFormat: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2823,15 +3201,20 @@ public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail: Sendab
   public init() {}
 }
 
+//// 生成故事场景视频响应
+//// 返回视频生成任务的详细信息
 public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 任务详情
   public var detail: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail {
     get {return _detail ?? Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail()}
     set {_detail = newValue}
@@ -2848,27 +3231,38 @@ public struct Rankquantity_Voyager_Api_GenerateStorySceneVideoResponse: Sendable
   fileprivate var _detail: Rankquantity_Voyager_Api_GenerateStorySceneVideoTaskDetail? = nil
 }
 
+//// 生成故事角色视频请求
+//// 为指定的故事角色生成宣传视频
 public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 海报ID，必须大于0
   public var posterID: Int64 = 0
 
+  //// 参考背景图片URL
   public var refBackgroundURL: String = String()
 
+  //// 参考头像图片URL
   public var refAvatarURL: String = String()
 
+  //// 文本提示词，最大长度2000字符
   public var textPrompt: String = String()
 
+  //// 图片宽高比设置
   public var imageRatios: Rankquantity_Voyager_Api_ImageRatios = .ratio11
 
+  //// 视频风格
   public var style: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2876,23 +3270,32 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoRequest: Sendable {
   public init() {}
 }
 
+//// 生成故事角色视频任务详情
+//// 包含角色视频生成任务的状态和结果信息
 public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 任务ID，唯一标识符
   public var taskID: String = String()
 
+  //// 任务状态
   public var taskStatus: Rankquantity_Voyager_Api_StoryGenStatus = .unspecified
 
+  //// 生成的视频URL
   public var videoURL: String = String()
 
+  //// 视频缩略图URL
   public var videoThumbnailURL: String = String()
 
+  //// 视频时长（秒）
   public var duration: Int64 = 0
 
+  //// 视频分辨率，如 1920x1080
   public var resolution: String = String()
 
+  //// 视频格式，如 mp4, webm
   public var videoFormat: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2900,15 +3303,20 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail: Sendabl
   public init() {}
 }
 
+//// 生成故事角色视频响应
+//// 返回角色视频生成任务的详细信息
 public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 任务详情
   public var detail: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail {
     get {return _detail ?? Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail()}
     set {_detail = newValue}
@@ -2925,15 +3333,20 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRoleVideoResponse: Sendable 
   fileprivate var _detail: Rankquantity_Voyager_Api_GenerateStoryRoleVideoTaskDetail? = nil
 }
 
+//// 获取故事参与者请求
+//// 获取参与故事创作的所有用户列表
 public struct Rankquantity_Voyager_Api_GetStoryParticipantsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2941,19 +3354,26 @@ public struct Rankquantity_Voyager_Api_GetStoryParticipantsRequest: Sendable {
   public init() {}
 }
 
+//// 获取故事参与者响应
+//// 返回故事的参与者列表
 public struct Rankquantity_Voyager_Api_GetStoryParticipantsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 参与者列表
   public var participants: [Rankquantity_Voyager_Api_UserInfo] = []
 
+  //// 参与者总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2961,15 +3381,20 @@ public struct Rankquantity_Voyager_Api_GetStoryParticipantsResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事头像请求
+//// 更新故事的头像图片
 public struct Rankquantity_Voyager_Api_UpdateStoryAvatarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 头像图片URL，必填
   public var avatarURL: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2977,13 +3402,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryAvatarRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事头像响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryAvatarResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2991,17 +3420,23 @@ public struct Rankquantity_Voyager_Api_UpdateStoryAvatarResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事封面请求
+//// 更新故事的封面图片
 public struct Rankquantity_Voyager_Api_UpdateStoryCoverRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 封面图片URL
   public var coverURL: String = String()
 
+  //// 是否使用AI生成的封面
   public var useAiCover: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3009,13 +3444,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryCoverRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事封面响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryCoverResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3023,11 +3462,14 @@ public struct Rankquantity_Voyager_Api_UpdateStoryCoverResponse: Sendable {
   public init() {}
 }
 
+//// 获取故事图片风格请求
+//// 获取故事可用的图片风格列表
 public struct Rankquantity_Voyager_Api_GetStoryImageStyleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3035,18 +3477,20 @@ public struct Rankquantity_Voyager_Api_GetStoryImageStyleRequest: Sendable {
   public init() {}
 }
 
+//// 故事风格描述
+//// 表示一个图片风格的信息
 public struct Rankquantity_Voyager_Api_StoryStyleDesc: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 风格ID
+  //// 风格ID
   public var id: Int64 = 0
 
-  /// 风格名称
+  //// 风格名称
   public var style: String = String()
 
-  /// 风格描述
+  //// 风格描述
   public var description_p: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3054,15 +3498,20 @@ public struct Rankquantity_Voyager_Api_StoryStyleDesc: Sendable {
   public init() {}
 }
 
+//// 获取故事图片风格响应
+//// 返回可用的风格列表
 public struct Rankquantity_Voyager_Api_GetStoryImageStyleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 风格列表
   public var style: [Rankquantity_Voyager_Api_StoryStyleDesc] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3070,20 +3519,23 @@ public struct Rankquantity_Voyager_Api_GetStoryImageStyleResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事图片风格请求
+//// 设置故事使用的图片风格
 public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
-  /// 风格ID
+  //// 风格ID，必须大于0
   public var styleID: Int64 = 0
 
-  /// 风格名称
+  //// 风格名称
   public var style: String = String()
 
-  /// 用户ID
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3091,13 +3543,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事图片风格响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3105,17 +3561,20 @@ public struct Rankquantity_Voyager_Api_UpdateStoryImageStyleResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事最大场景数请求
+//// 设置故事允许的最大场景数量
 public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
-  /// 最大场景数
+  //// 最大场景数，范围1-1000
   public var maxNumber: Int64 = 0
 
-  /// 用户ID
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3123,13 +3582,17 @@ public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberRequest: Sendabl
   public init() {}
 }
 
+//// 更新故事最大场景数响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3137,17 +3600,23 @@ public struct Rankquantity_Voyager_Api_UpdateStorySenceMaxNumberResponse: Sendab
   public init() {}
 }
 
+//// 更新故事角色提示词请求
+//// 更新角色AI生成时使用的提示词
 public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 新的提示词，最大长度2000字符
   public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3155,13 +3624,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事角色提示词响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3169,17 +3642,23 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRolePromptResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事角色描述详情请求
+//// 更新角色的详细描述信息
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色详细描述，必填
   public var characterDetail: Rankquantity_Voyager_Api_CharacterDetail {
     get {return _characterDetail ?? Rankquantity_Voyager_Api_CharacterDetail()}
     set {_characterDetail = newValue}
@@ -3196,13 +3675,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailRequest: 
   fileprivate var _characterDetail: Rankquantity_Voyager_Api_CharacterDetail? = nil
 }
 
+//// 更新故事角色描述详情响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3210,19 +3693,26 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleDescriptionDetailResponse:
   public init() {}
 }
 
+//// 生成故事角色参数
+//// 包含角色海报生成所需的所有参数
 public struct Rankquantity_Voyager_Api_GenerateStoryRoleParams: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 原始参考图片URL
   public var originImageURL: String = String()
 
+  //// 附加参考图片URL列表，最多5张
   public var additionalImageUrls: [String] = []
 
+  //// 文本提示词，最大长度2000字符
   public var textPrompt: String = String()
 
+  //// 负面提示词，最大长度1000字符
   public var negativePrompt: String = String()
 
+  //// 生成风格
   public var style: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3230,17 +3720,23 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRoleParams: Sendable {
   public init() {}
 }
 
+//// 生成故事角色海报请求
+//// 为角色生成海报图片
 public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 生成参数，必填
   public var params: Rankquantity_Voyager_Api_GenerateStoryRoleParams {
     get {return _params ?? Rankquantity_Voyager_Api_GenerateStoryRoleParams()}
     set {_params = newValue}
@@ -3257,17 +3753,23 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterRequest: Sendable 
   fileprivate var _params: Rankquantity_Voyager_Api_GenerateStoryRoleParams? = nil
 }
 
+//// 生成故事角色海报响应
+//// 返回生成的海报信息
 public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 生成的海报图片URL
   public var imageURL: String = String()
 
+  //// 海报ID
   public var posterID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3275,21 +3777,29 @@ public struct Rankquantity_Voyager_Api_GenerateStoryRolePosterResponse: Sendable
   public init() {}
 }
 
+//// 更新故事角色海报请求
+//// 更新角色海报的信息或可见性
 public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 海报ID，必须大于0
   public var posterID: Int64 = 0
 
+  //// 新的图片URL
   public var imageURL: String = String()
 
+  //// 是否公开，true表示公开可见
   public var isPublic: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3297,15 +3807,20 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事角色海报响应
+//// 返回更新后的海报ID
 public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 海报ID
   public var posterID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3313,15 +3828,20 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRolePosterResponse: Sendable {
   public init() {}
 }
 
+//// 获取关注列表请求
+//// 获取用户关注的其他用户列表
 public struct Rankquantity_Voyager_Api_GetFollowListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3329,19 +3849,26 @@ public struct Rankquantity_Voyager_Api_GetFollowListRequest: Sendable {
   public init() {}
 }
 
+//// 获取关注列表响应
+//// 返回用户关注的用户列表
 public struct Rankquantity_Voyager_Api_GetFollowListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 关注的用户列表
   public var followers: [Rankquantity_Voyager_Api_UserInfo] = []
 
+  //// 关注总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3349,15 +3876,20 @@ public struct Rankquantity_Voyager_Api_GetFollowListResponse: Sendable {
   public init() {}
 }
 
+//// 获取粉丝列表请求
+//// 获取关注该用户的粉丝列表
 public struct Rankquantity_Voyager_Api_GetFollowerListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3365,19 +3897,26 @@ public struct Rankquantity_Voyager_Api_GetFollowerListRequest: Sendable {
   public init() {}
 }
 
+//// 获取粉丝列表响应
+//// 返回关注该用户的粉丝列表
 public struct Rankquantity_Voyager_Api_GetFollowerListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 粉丝用户列表
   public var followers: [Rankquantity_Voyager_Api_UserInfo] = []
 
+  //// 粉丝总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3385,13 +3924,17 @@ public struct Rankquantity_Voyager_Api_GetFollowerListResponse: Sendable {
   public init() {}
 }
 
+//// 关注用户请求
+//// 关注另一个用户，建立关注关系
 public struct Rankquantity_Voyager_Api_FollowUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 发起关注的用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 被关注的用户ID，必须大于0
   public var followerID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3399,13 +3942,17 @@ public struct Rankquantity_Voyager_Api_FollowUserRequest: Sendable {
   public init() {}
 }
 
+//// 关注用户响应
+//// 返回关注操作的结果
 public struct Rankquantity_Voyager_Api_FollowUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3413,13 +3960,17 @@ public struct Rankquantity_Voyager_Api_FollowUserResponse: Sendable {
   public init() {}
 }
 
+//// 取消关注用户请求
+//// 取消对另一个用户的关注
 public struct Rankquantity_Voyager_Api_UnfollowUserRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 发起取消关注的用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 被取消关注的用户ID，必须大于0
   public var followerID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3427,13 +3978,17 @@ public struct Rankquantity_Voyager_Api_UnfollowUserRequest: Sendable {
   public init() {}
 }
 
+//// 取消关注用户响应
+//// 返回取消关注操作的结果
 public struct Rankquantity_Voyager_Api_UnfollowUserResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3441,17 +3996,23 @@ public struct Rankquantity_Voyager_Api_UnfollowUserResponse: Sendable {
   public init() {}
 }
 
+//// 热门故事角色请求
+//// 获取指定时间范围内的热门角色列表
 public struct Rankquantity_Voyager_Api_TrendingStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 开始时间戳（秒），必须大于0
   public var start: Int64 = 0
 
+  //// 结束时间戳（秒），必须大于开始时间
   public var end: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 页码，从1开始
   public var pageNumber: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3459,13 +4020,17 @@ public struct Rankquantity_Voyager_Api_TrendingStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 热门故事角色响应
+//// 返回热门角色列表及分页信息
 public struct Rankquantity_Voyager_Api_TrendingStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage {
@@ -3479,19 +4044,25 @@ public struct Rankquantity_Voyager_Api_TrendingStoryRoleResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 热门角色列表
     public var list: [Rankquantity_Voyager_Api_StoryRole] = []
 
+    //// 每页数量
     public var pageSize: Int64 = 0
 
+    //// 当前页码
     public var pageNumber: Int64 = 0
 
+    //// 总数量
     public var total: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3504,17 +4075,23 @@ public struct Rankquantity_Voyager_Api_TrendingStoryRoleResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_TrendingStoryRoleResponse.DataMessage? = nil
 }
 
+//// 热门故事请求
+//// 获取指定时间范围内的热门故事列表
 public struct Rankquantity_Voyager_Api_TrendingStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 开始时间戳（秒），必须大于0
   public var start: Int64 = 0
 
+  //// 结束时间戳（秒），必须大于开始时间
   public var end: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 页码，从1开始
   public var pageNumber: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3522,13 +4099,17 @@ public struct Rankquantity_Voyager_Api_TrendingStoryRequest: Sendable {
   public init() {}
 }
 
+//// 热门故事响应
+//// 返回热门故事列表及分页信息
 public struct Rankquantity_Voyager_Api_TrendingStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var data: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage {
@@ -3542,19 +4123,25 @@ public struct Rankquantity_Voyager_Api_TrendingStoryResponse: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  //// 返回数据
   public struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    //// 热门故事列表
     public var list: [Rankquantity_Voyager_Api_Story] = []
 
+    //// 每页数量
     public var pageSize: Int64 = 0
 
+    //// 当前页码
     public var pageNumber: Int64 = 0
 
+    //// 总数量
     public var total: Int64 = 0
 
+    //// 是否有更多数据
     public var haveMore: Bool = false
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3567,21 +4154,29 @@ public struct Rankquantity_Voyager_Api_TrendingStoryResponse: Sendable {
   fileprivate var _data: Rankquantity_Voyager_Api_TrendingStoryResponse.DataMessage? = nil
 }
 
+//// 获取故事角色列表请求
+//// 获取指定故事的角色列表，支持搜索筛选
 public struct Rankquantity_Voyager_Api_GetStoryRoleListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事板ID（可选），用于筛选特定故事板的角色
   public var boardID: Int64 = 0
 
+  //// 搜索关键词（可选），用于搜索角色名称
   public var searchKey: String = String()
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3589,19 +4184,26 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleListRequest: Sendable {
   public init() {}
 }
 
+//// 获取故事角色列表响应
+//// 返回故事的角色列表
 public struct Rankquantity_Voyager_Api_GetStoryRoleListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 角色列表
   public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
+  //// 角色总数
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3609,13 +4211,17 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleListResponse: Sendable {
   public init() {}
 }
 
+//// 收藏故事请求
+//// 将故事添加到用户的收藏夹
 public struct Rankquantity_Voyager_Api_ArchiveStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3623,13 +4229,17 @@ public struct Rankquantity_Voyager_Api_ArchiveStoryRequest: Sendable {
   public init() {}
 }
 
+//// 收藏故事响应
+//// 返回收藏操作的结果
 public struct Rankquantity_Voyager_Api_ArchiveStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3637,15 +4247,33 @@ public struct Rankquantity_Voyager_Api_ArchiveStoryResponse: Sendable {
   public init() {}
 }
 
+//// 创建故事评论请求
+//// 
+//// 在故事下创建新的评论，支持富文本内容和@提及功能
 public struct Rankquantity_Voyager_Api_CreateStoryCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// [必填] 故事ID
+  //// 
+  //// 要评论的故事唯一标识
+  //// 验证规则：必须大于 0
   public var storyID: Int64 = 0
 
+  //// [必填] 评论者用户ID
+  //// 
+  //// 发表评论的用户ID
+  //// 验证规则：必须大于 0
+  //// 权限要求：用户必须已登录
   public var userID: Int64 = 0
 
+  //// [必填] 评论内容
+  //// 
+  //// 评论的文本内容
+  //// 长度限制：1-2000 字符
+  //// 支持：纯文本、Markdown、@用户提及
+  //// 内容要求：不能包含违规内容
   public var content: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3653,21 +4281,26 @@ public struct Rankquantity_Voyager_Api_CreateStoryCommentRequest: Sendable {
   public init() {}
 }
 
+//// 创建故事评论响应
+//// 返回创建的评论信息
 public struct Rankquantity_Voyager_Api_CreateStoryCommentResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
 
+  //// 响应消息
   public var message: String {
     get {return _storage._message}
     set {_uniqueStorage()._message = newValue}
   }
 
+  //// 创建的评论信息
   public var comment: Rankquantity_Voyager_Api_CommentInfo {
     get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
@@ -3684,17 +4317,23 @@ public struct Rankquantity_Voyager_Api_CreateStoryCommentResponse: @unchecked Se
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 获取故事评论列表请求
+//// 分页获取指定故事的评论列表
 public struct Rankquantity_Voyager_Api_GetStoryCommentsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3702,76 +4341,92 @@ public struct Rankquantity_Voyager_Api_GetStoryCommentsRequest: Sendable {
   public init() {}
 }
 
+//// 故事评论信息
+//// 表示单条评论的完整信息
 public struct Rankquantity_Voyager_Api_StoryComment: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID
   public var commentID: Int64 {
     get {return _storage._commentID}
     set {_uniqueStorage()._commentID = newValue}
   }
 
+  //// 所属故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
+  //// 所属故事板ID（可选）
   public var boardID: Int64 {
     get {return _storage._boardID}
     set {_uniqueStorage()._boardID = newValue}
   }
 
+  //// 相关角色ID（可选）
   public var roleID: Int64 {
     get {return _storage._roleID}
     set {_uniqueStorage()._roleID = newValue}
   }
 
+  //// 上一条评论ID（用于回复链）
   public var prevID: Int64 {
     get {return _storage._prevID}
     set {_uniqueStorage()._prevID = newValue}
   }
 
+  //// 根评论ID（用于楼层结构）
   public var rootCommentID: Int64 {
     get {return _storage._rootCommentID}
     set {_uniqueStorage()._rootCommentID = newValue}
   }
 
+  //// 评论者用户ID
   public var userID: Int64 {
     get {return _storage._userID}
     set {_uniqueStorage()._userID = newValue}
   }
 
+  //// 评论内容
   public var content: String {
     get {return _storage._content}
     set {_uniqueStorage()._content = newValue}
   }
 
+  //// 创建时间
   public var createdAt: Int64 {
     get {return _storage._createdAt}
     set {_uniqueStorage()._createdAt = newValue}
   }
 
+  //// 更新时间
   public var updatedAt: Int64 {
     get {return _storage._updatedAt}
     set {_uniqueStorage()._updatedAt = newValue}
   }
 
+  //// 点赞数
   public var likeCount: Int64 {
     get {return _storage._likeCount}
     set {_uniqueStorage()._likeCount = newValue}
   }
 
+  //// 回复数
   public var replyCount: Int64 {
     get {return _storage._replyCount}
     set {_uniqueStorage()._replyCount = newValue}
   }
 
+  //// 当前用户是否已点赞，1-已点赞，0-未点赞
   public var isLiked: Int64 {
     get {return _storage._isLiked}
     set {_uniqueStorage()._isLiked = newValue}
   }
 
+  //// 评论创建者信息
   public var creator: Rankquantity_Voyager_Api_UserInfo {
     get {return _storage._creator ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._creator = newValue}
@@ -3781,6 +4436,7 @@ public struct Rankquantity_Voyager_Api_StoryComment: @unchecked Sendable {
   /// Clears the value of `creator`. Subsequent reads from it will return its default value.
   public mutating func clearCreator() {_uniqueStorage()._creator = nil}
 
+  //// 创建时间戳
   public var createdAtTimestamp: Int64 {
     get {return _storage._createdAtTimestamp}
     set {_uniqueStorage()._createdAtTimestamp = newValue}
@@ -3793,23 +4449,32 @@ public struct Rankquantity_Voyager_Api_StoryComment: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 获取故事评论列表响应
+//// 返回故事的评论列表及分页信息
 public struct Rankquantity_Voyager_Api_GetStoryCommentsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 评论列表
   public var comments: [Rankquantity_Voyager_Api_StoryComment] = []
 
+  //// 评论总数
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3817,13 +4482,17 @@ public struct Rankquantity_Voyager_Api_GetStoryCommentsResponse: Sendable {
   public init() {}
 }
 
+//// 删除故事评论请求
+//// 删除指定的故事评论
 public struct Rankquantity_Voyager_Api_DeleteStoryCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3831,13 +4500,17 @@ public struct Rankquantity_Voyager_Api_DeleteStoryCommentRequest: Sendable {
   public init() {}
 }
 
+//// 删除故事评论响应
+//// 返回删除操作的结果
 public struct Rankquantity_Voyager_Api_DeleteStoryCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3845,17 +4518,23 @@ public struct Rankquantity_Voyager_Api_DeleteStoryCommentResponse: Sendable {
   public init() {}
 }
 
+//// 获取故事评论回复列表请求
+//// 获取指定评论的所有回复
 public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3863,23 +4542,32 @@ public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesRequest: Sendable {
   public init() {}
 }
 
+//// 获取故事评论回复列表响应
+//// 返回评论的回复列表
 public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 回复列表
   public var replies: [Rankquantity_Voyager_Api_StoryComment] = []
 
+  //// 回复总数
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3887,15 +4575,20 @@ public struct Rankquantity_Voyager_Api_GetStoryCommentRepliesResponse: Sendable 
   public init() {}
 }
 
+//// 创建故事评论回复请求
+//// 回复指定的故事评论
 public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 回复者用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 回复内容，必填且长度1-2000字符
   public var content: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3903,21 +4596,26 @@ public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyRequest: Sendable 
   public init() {}
 }
 
+//// 创建故事评论回复响应
+//// 返回创建的回复信息
 public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
 
+  //// 响应消息
   public var message: String {
     get {return _storage._message}
     set {_uniqueStorage()._message = newValue}
   }
 
+  //// 创建的回复信息
   public var comment: Rankquantity_Voyager_Api_CommentInfo {
     get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
@@ -3934,13 +4632,17 @@ public struct Rankquantity_Voyager_Api_CreateStoryCommentReplyResponse: @uncheck
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 删除故事评论回复请求
+//// 删除指定的评论回复
 public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 回复ID，必须大于0
   public var replyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3948,13 +4650,17 @@ public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyRequest: Sendable 
   public init() {}
 }
 
+//// 删除故事评论回复响应
+//// 返回删除操作的结果
 public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3962,17 +4668,23 @@ public struct Rankquantity_Voyager_Api_DeleteStoryCommentReplyResponse: Sendable
   public init() {}
 }
 
+//// 获取故事板评论列表请求
+//// 分页获取指定故事板的所有评论
 public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var boardID: Int64 = 0
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3980,23 +4692,32 @@ public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsRequest: Sendable {
   public init() {}
 }
 
+//// 获取故事板评论列表响应
+//// 返回故事板的评论列表及分页信息
 public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 评论列表
   public var comments: [Rankquantity_Voyager_Api_StoryComment] = []
 
+  //// 评论总数
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4004,15 +4725,20 @@ public struct Rankquantity_Voyager_Api_GetStoryBoardCommentsResponse: Sendable {
   public init() {}
 }
 
+//// 创建故事板评论请求
+//// 在故事板下创建新的评论
 public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var boardID: Int64 = 0
 
+  //// 评论者用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 评论内容，必填且长度1-2000字符
   public var content: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4020,21 +4746,26 @@ public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentRequest: Sendable 
   public init() {}
 }
 
+//// 创建故事板评论响应
+//// 返回创建的评论信息
 public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode {
     get {return _storage._code}
     set {_uniqueStorage()._code = newValue}
   }
 
+  //// 响应消息
   public var message: String {
     get {return _storage._message}
     set {_uniqueStorage()._message = newValue}
   }
 
+  //// 创建的评论信息
   public var comment: Rankquantity_Voyager_Api_CommentInfo {
     get {return _storage._comment ?? Rankquantity_Voyager_Api_CommentInfo()}
     set {_uniqueStorage()._comment = newValue}
@@ -4051,15 +4782,20 @@ public struct Rankquantity_Voyager_Api_CreateStoryBoardCommentResponse: @uncheck
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 删除故事板评论请求
+//// 删除指定的故事板评论
 public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var boardID: Int64 = 0
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4067,13 +4803,17 @@ public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentRequest: Sendable 
   public init() {}
 }
 
+//// 删除故事板评论响应
+//// 返回删除操作的结果
 public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4081,17 +4821,23 @@ public struct Rankquantity_Voyager_Api_DeleteStoryBoardCommentResponse: Sendable
   public init() {}
 }
 
+//// 获取故事板评论回复列表请求
+//// 获取指定故事板评论的所有回复
 public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4099,23 +4845,32 @@ public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesRequest: Senda
   public init() {}
 }
 
+//// 获取故事板评论回复列表响应
+//// 返回评论的回复列表
 public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 回复列表
   public var replies: [Rankquantity_Voyager_Api_StoryComment] = []
 
+  //// 回复总数
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4123,13 +4878,17 @@ public struct Rankquantity_Voyager_Api_GetStoryBoardCommentRepliesResponse: Send
   public init() {}
 }
 
+//// 点赞评论请求
+//// 为评论点赞
 public struct Rankquantity_Voyager_Api_LikeCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4137,13 +4896,17 @@ public struct Rankquantity_Voyager_Api_LikeCommentRequest: Sendable {
   public init() {}
 }
 
+//// 点赞评论响应
+//// 返回点赞操作的结果
 public struct Rankquantity_Voyager_Api_LikeCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4151,13 +4914,17 @@ public struct Rankquantity_Voyager_Api_LikeCommentResponse: Sendable {
   public init() {}
 }
 
+//// 取消点赞评论请求
+//// 取消对评论的点赞
 public struct Rankquantity_Voyager_Api_DislikeCommentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 评论ID，必须大于0
   public var commentID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4165,13 +4932,17 @@ public struct Rankquantity_Voyager_Api_DislikeCommentRequest: Sendable {
   public init() {}
 }
 
+//// 取消点赞评论响应
+//// 返回取消点赞操作的结果
 public struct Rankquantity_Voyager_Api_DislikeCommentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4179,15 +4950,20 @@ public struct Rankquantity_Voyager_Api_DislikeCommentResponse: Sendable {
   public init() {}
 }
 
+//// 更新角色提示词请求
+//// 更新角色的生成提示词
 public struct Rankquantity_Voyager_Api_UpdateRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 新的提示词，最大长度2000字符
   public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4195,13 +4971,17 @@ public struct Rankquantity_Voyager_Api_UpdateRolePromptRequest: Sendable {
   public init() {}
 }
 
+//// 更新角色提示词响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4209,17 +4989,23 @@ public struct Rankquantity_Voyager_Api_UpdateRolePromptResponse: Sendable {
   public init() {}
 }
 
+//// 生成角色提示词请求
+//// 使用AI为角色生成优化的提示词
 public struct Rankquantity_Voyager_Api_GenerateRolePromptRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 基础提示词，最大长度2000字符
   public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4227,15 +5013,20 @@ public struct Rankquantity_Voyager_Api_GenerateRolePromptRequest: Sendable {
   public init() {}
 }
 
+//// 生成角色提示词响应
+//// 返回AI生成的优化提示词
 public struct Rankquantity_Voyager_Api_GenerateRolePromptResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 生成的提示词
   public var prompt: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4243,15 +5034,20 @@ public struct Rankquantity_Voyager_Api_GenerateRolePromptResponse: Sendable {
   public init() {}
 }
 
+//// 更新角色描述请求
+//// 更新角色的文本描述
 public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 新的描述内容，最大长度2000字符
   public var description_p: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4259,13 +5055,17 @@ public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionRequest: Sendable {
   public init() {}
 }
 
+//// 更新角色描述响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4273,17 +5073,23 @@ public struct Rankquantity_Voyager_Api_UpdateRoleDescriptionResponse: Sendable {
   public init() {}
 }
 
+//// 生成角色描述请求
+//// 使用AI为角色生成详细的描述信息
 public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 基础描述，最大长度2000字符
   public var description_p: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4291,15 +5097,20 @@ public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionRequest: Sendable 
   public init() {}
 }
 
+//// 生成角色描述响应
+//// 返回AI生成的详细角色描述
 public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 生成的角色详细信息
   public var characterDetail: Rankquantity_Voyager_Api_CharacterDetail {
     get {return _characterDetail ?? Rankquantity_Voyager_Api_CharacterDetail()}
     set {_characterDetail = newValue}
@@ -4316,15 +5127,20 @@ public struct Rankquantity_Voyager_Api_GenerateRoleDescriptionResponse: Sendable
   fileprivate var _characterDetail: Rankquantity_Voyager_Api_CharacterDetail? = nil
 }
 
+//// 获取未发布故事板请求
+//// 获取用户所有未发布状态的故事板列表
 public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4332,23 +5148,32 @@ public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardRequest: Sendable {
   public init() {}
 }
 
+//// 获取未发布故事板响应
+//// 返回未发布的故事板列表
 public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板活动列表
   public var storyboardactives: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4356,19 +5181,26 @@ public struct Rankquantity_Voyager_Api_GetUnPublishStoryboardResponse: Sendable 
   public init() {}
 }
 
+//// 获取用户关注角色的活跃故事板请求
+//// 获取用户关注的角色参与的活跃故事板列表
 public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 筛选条件，如 "published", "draft" 等
   public var filter: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4376,23 +5208,32 @@ public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsRequest:
   public init() {}
 }
 
+//// 获取用户关注角色的活跃故事板响应
+//// 返回角色参与的活跃故事板列表
 public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板列表
   public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4400,19 +5241,26 @@ public struct Rankquantity_Voyager_Api_GetUserWatchRoleActiveStoryBoardsResponse
   public init() {}
 }
 
+//// 获取用户关注故事的活跃故事板请求
+//// 获取用户关注的故事中的活跃故事板列表
 public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 筛选条件，如 "published", "draft" 等
   public var filter: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4420,23 +5268,32 @@ public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRequest
   public init() {}
 }
 
+//// 获取用户关注故事的活跃故事板响应
+//// 返回故事中的活跃故事板列表
 public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板列表
   public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4444,13 +5301,17 @@ public struct Rankquantity_Voyager_Api_GetUserWatchStoryActiveStoryBoardsRespons
   public init() {}
 }
 
+//// 保存故事板草稿请求
+//// 将当前故事板保存为草稿状态，便于后续继续编辑
 public struct Rankquantity_Voyager_Api_SaveStoryboardCraftRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var storyboardID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4458,13 +5319,17 @@ public struct Rankquantity_Voyager_Api_SaveStoryboardCraftRequest: Sendable {
   public init() {}
 }
 
+//// 保存故事板草稿响应
+//// 返回保存操作的结果
 public struct Rankquantity_Voyager_Api_SaveStoryboardCraftResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4472,13 +5337,17 @@ public struct Rankquantity_Voyager_Api_SaveStoryboardCraftResponse: Sendable {
   public init() {}
 }
 
+//// 发布故事板请求
+//// 将故事板发布为正式版本，其他用户可见
 public struct Rankquantity_Voyager_Api_PublishStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var storyboardID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4486,13 +5355,17 @@ public struct Rankquantity_Voyager_Api_PublishStoryboardRequest: Sendable {
   public init() {}
 }
 
+//// 发布故事板响应
+//// 返回发布操作的结果
 public struct Rankquantity_Voyager_Api_PublishStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4500,13 +5373,17 @@ public struct Rankquantity_Voyager_Api_PublishStoryboardResponse: Sendable {
   public init() {}
 }
 
+//// 撤销故事板请求
+//// 撤销已发布的故事板，保留AI生成内容但隐藏场景和图片
 public struct Rankquantity_Voyager_Api_CancelStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var storyboardID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4514,13 +5391,17 @@ public struct Rankquantity_Voyager_Api_CancelStoryboardRequest: Sendable {
   public init() {}
 }
 
+//// 撤销故事板响应
+//// 返回撤销操作的结果
 public struct Rankquantity_Voyager_Api_CancelStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4528,19 +5409,26 @@ public struct Rankquantity_Voyager_Api_CancelStoryboardResponse: Sendable {
   public init() {}
 }
 
+//// 持续渲染故事角色请求
+//// 持续优化和渲染角色形象，直到达到满意效果
 public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 渲染提示词，最大长度2000字符
   public var prompt: String = String()
 
+  //// 参考图片URL
   public var referenceImage: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4548,15 +5436,20 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyRequest: Senda
   public init() {}
 }
 
+//// 持续渲染故事角色响应
+//// 返回渲染结果和是否需要继续渲染的标志
 public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 渲染详情
   public var detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail {
     get {return _detail ?? Rankquantity_Voyager_Api_RenderStoryRoleDetail()}
     set {_detail = newValue}
@@ -4566,6 +5459,7 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse: Send
   /// Clears the value of `detail`. Subsequent reads from it will return its default value.
   public mutating func clearDetail() {self._detail = nil}
 
+  //// 是否还有更多渲染步骤
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4575,25 +5469,35 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleContinuouslyResponse: Send
   fileprivate var _detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail? = nil
 }
 
+//// 获取下一个故事板请求
+//// 获取当前故事板的后续故事板，支持多分支场景
 public struct Rankquantity_Voyager_Api_GetNextStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 当前故事板ID，必须大于0
   public var storyboardID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 是否多分支模式
   public var isMultiBranch: Bool = false
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 多分支排序方式
   public var orderBy: Rankquantity_Voyager_Api_MultiBranchOrderBy = .unspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4601,25 +5505,35 @@ public struct Rankquantity_Voyager_Api_GetNextStoryboardRequest: Sendable {
   public init() {}
 }
 
+//// 获取下一个故事板响应
+//// 返回后续故事板列表，支持多分支场景
 public struct Rankquantity_Voyager_Api_GetNextStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 后续故事板列表
   public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 是否为多分支
   public var isMultiBranch: Bool = false
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4627,17 +5541,23 @@ public struct Rankquantity_Voyager_Api_GetNextStoryboardResponse: Sendable {
   public init() {}
 }
 
+//// 获取用户聊天消息请求
+//// 获取指定聊天会话中的消息记录
 public struct Rankquantity_Voyager_Api_GetUserChatMessagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 聊天会话ID，必须大于0
   public var chatID: Int64 = 0
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 时间戳，用于获取指定时间之前的消息
   public var timestamp: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4645,21 +5565,29 @@ public struct Rankquantity_Voyager_Api_GetUserChatMessagesRequest: Sendable {
   public init() {}
 }
 
+//// 获取用户聊天消息响应
+//// 返回聊天消息列表
 public struct Rankquantity_Voyager_Api_GetUserChatMessagesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 消息列表
   public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
+  //// 当前时间戳
   public var timestamp: Int64 = 0
 
+  //// 消息总数
   public var total: Int64 = 0
 
+  //// 是否有更多历史消息
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4667,13 +5595,17 @@ public struct Rankquantity_Voyager_Api_GetUserChatMessagesResponse: Sendable {
   public init() {}
 }
 
+//// 获取用户与角色对话请求
+//// 获取用户与指定角色的完整聊天会话
 public struct Rankquantity_Voyager_Api_GetUserChatWithRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4681,17 +5613,23 @@ public struct Rankquantity_Voyager_Api_GetUserChatWithRoleRequest: Sendable {
   public init() {}
 }
 
+//// 获取用户与角色对话响应
+//// 返回完整的聊天记录和上下文信息
 public struct Rankquantity_Voyager_Api_GetUserChatWithRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 聊天消息列表
   public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
+  //// 聊天上下文信息
   public var chatContext: Rankquantity_Voyager_Api_ChatContext {
     get {return _chatContext ?? Rankquantity_Voyager_Api_ChatContext()}
     set {_chatContext = newValue}
@@ -4701,8 +5639,10 @@ public struct Rankquantity_Voyager_Api_GetUserChatWithRoleResponse: Sendable {
   /// Clears the value of `chatContext`. Subsequent reads from it will return its default value.
   public mutating func clearChatContext() {self._chatContext = nil}
 
+  //// 消息总数
   public var total: Int64 = 0
 
+  //// 是否有更多历史消息
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4712,21 +5652,29 @@ public struct Rankquantity_Voyager_Api_GetUserChatWithRoleResponse: Sendable {
   fileprivate var _chatContext: Rankquantity_Voyager_Api_ChatContext? = nil
 }
 
+//// 获取角色参与的故事板请求
+//// 获取指定角色参与的所有故事板列表
 public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 筛选条件，最大长度50字符
   public var filter: String = String()
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4734,23 +5682,32 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsRequest: Sendable 
   public init() {}
 }
 
+//// 获取角色参与的故事板响应
+//// 返回角色参与的故事板列表
 public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板活动列表
   public var storyboardactives: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4758,19 +5715,26 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleStoryboardsResponse: Sendable
   public init() {}
 }
 
+//// 获取角色参与的故事请求
+//// 获取指定角色出现的所有故事列表
 public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 筛选条件，最大长度50字符
   public var filter: String = String()
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4778,23 +5742,32 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesRequest: Sendable {
   public init() {}
 }
 
+//// 获取角色参与的故事响应
+//// 返回角色出现的故事列表
 public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事列表
   public var stories: [Rankquantity_Voyager_Api_Story] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4802,13 +5775,17 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleStoriesResponse: Sendable {
   public init() {}
 }
 
+//// 创建与角色的对话请求
+//// 开始一个新的与故事角色的聊天会话
 public struct Rankquantity_Voyager_Api_CreateStoryRoleChatRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4816,46 +5793,56 @@ public struct Rankquantity_Voyager_Api_CreateStoryRoleChatRequest: Sendable {
   public init() {}
 }
 
+//// 聊天上下文信息
+//// 表示一个聊天会话的完整状态
 public struct Rankquantity_Voyager_Api_ChatContext: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 聊天会话ID
   public var chatID: Int64 {
     get {return _storage._chatID}
     set {_uniqueStorage()._chatID = newValue}
   }
 
+  //// 角色ID
   public var roleID: Int64 {
     get {return _storage._roleID}
     set {_uniqueStorage()._roleID = newValue}
   }
 
+  //// 用户ID
   public var userID: Int64 {
     get {return _storage._userID}
     set {_uniqueStorage()._userID = newValue}
   }
 
+  //// 会话开始时间戳
   public var timestamp: Int64 {
     get {return _storage._timestamp}
     set {_uniqueStorage()._timestamp = newValue}
   }
 
+  //// 最后更新时间戳
   public var lastUpdateTime: Int64 {
     get {return _storage._lastUpdateTime}
     set {_uniqueStorage()._lastUpdateTime = newValue}
   }
 
+  //// 总消耗token数
   public var totalTokens: Int64 {
     get {return _storage._totalTokens}
     set {_uniqueStorage()._totalTokens = newValue}
   }
 
+  //// 总消息数
   public var totalMessages: Int64 {
     get {return _storage._totalMessages}
     set {_uniqueStorage()._totalMessages = newValue}
   }
 
+  //// 最后一条消息
   public var lastMessage: Rankquantity_Voyager_Api_ChatMessage {
     get {return _storage._lastMessage ?? Rankquantity_Voyager_Api_ChatMessage()}
     set {_uniqueStorage()._lastMessage = newValue}
@@ -4865,6 +5852,7 @@ public struct Rankquantity_Voyager_Api_ChatContext: @unchecked Sendable {
   /// Clears the value of `lastMessage`. Subsequent reads from it will return its default value.
   public mutating func clearLastMessage() {_uniqueStorage()._lastMessage = nil}
 
+  //// 用户信息
   public var user: Rankquantity_Voyager_Api_UserInfo {
     get {return _storage._user ?? Rankquantity_Voyager_Api_UserInfo()}
     set {_uniqueStorage()._user = newValue}
@@ -4874,6 +5862,7 @@ public struct Rankquantity_Voyager_Api_ChatContext: @unchecked Sendable {
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
   public mutating func clearUser() {_uniqueStorage()._user = nil}
 
+  //// 角色信息
   public var role: Rankquantity_Voyager_Api_StoryRole {
     get {return _storage._role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_uniqueStorage()._role = newValue}
@@ -4890,15 +5879,20 @@ public struct Rankquantity_Voyager_Api_ChatContext: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+//// 创建与角色的对话响应
+//// 返回创建的聊天会话信息
 public struct Rankquantity_Voyager_Api_CreateStoryRoleChatResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 聊天上下文信息
   public var chatContext: Rankquantity_Voyager_Api_ChatContext {
     get {return _chatContext ?? Rankquantity_Voyager_Api_ChatContext()}
     set {_chatContext = newValue}
@@ -4915,19 +5909,26 @@ public struct Rankquantity_Voyager_Api_CreateStoryRoleChatResponse: Sendable {
   fileprivate var _chatContext: Rankquantity_Voyager_Api_ChatContext? = nil
 }
 
+//// 与故事角色聊天请求
+//// 发送消息并获取角色的回复
 public struct Rankquantity_Voyager_Api_ChatWithStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 历史消息列表，最多包含最近50条消息
   public var messages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
+  //// 总消息数
   public var total: Int64 = 0
 
+  //// 是否还有更多历史消息
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4935,19 +5936,26 @@ public struct Rankquantity_Voyager_Api_ChatWithStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 与故事角色聊天响应
+//// 返回角色的回复消息
 public struct Rankquantity_Voyager_Api_ChatWithStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 角色回复的消息列表
   public var replyMessages: [Rankquantity_Voyager_Api_ChatMessage] = []
 
+  //// 总消息数
   public var total: Int64 = 0
 
+  //// 是否还有更多消息
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4955,13 +5963,17 @@ public struct Rankquantity_Voyager_Api_ChatWithStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事角色详情请求
+//// 更新角色的完整详细信息
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 角色信息，必填
   public var role: Rankquantity_Voyager_Api_StoryRole {
     get {return _role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_role = newValue}
@@ -4971,10 +5983,13 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest: Sendable {
   /// Clears the value of `role`. Subsequent reads from it will return its default value.
   public mutating func clearRole() {self._role = nil}
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 是否需要重新生成
   public var needRegen: Bool = false
 
+  //// 背景图片URL
   public var backgroundImage: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4984,13 +5999,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailRequest: Sendable {
   fileprivate var _role: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
+//// 更新故事角色详情响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4998,15 +6017,20 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleDetailResponse: Sendable {
   public init() {}
 }
 
+//// 更新故事角色头像请求
+//// 更新角色的头像图片
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 头像URL，必填
   public var avator: String = String()
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5014,13 +6038,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorRequest: Sendable {
   public init() {}
 }
 
+//// 更新故事角色头像响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5028,17 +6056,23 @@ public struct Rankquantity_Voyager_Api_UpdateStoryRoleAvatorResponse: Sendable {
   public init() {}
 }
 
+//// 获取用户与角色对话列表请求
+//// 获取用户与各个角色的所有聊天会话列表
 public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID（可选），用于筛选特定故事的角色对话
   public var storyID: Int64 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5046,23 +6080,32 @@ public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListRequest: Sendable 
   public init() {}
 }
 
+//// 获取用户与角色对话列表响应
+//// 返回聊天会话列表
 public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 聊天上下文列表
   public var chats: [Rankquantity_Voyager_Api_ChatContext] = []
 
+  //// 对话总数
   public var total: Int64 = 0
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5070,19 +6113,26 @@ public struct Rankquantity_Voyager_Api_GetUserWithRoleChatListResponse: Sendable
   public init() {}
 }
 
+//// 获取用户创建的故事板请求
+//// 获取指定用户创建的所有故事板列表
 public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID（可选），用于筛选特定故事的故事板
   public var storyID: Int32 = 0
 
+  //// 阶段状态筛选，0表示不筛选
   public var stage: Int32 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5090,23 +6140,32 @@ public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsRequest: Sendabl
   public init() {}
 }
 
+//// 获取用户创建的故事板响应
+//// 返回用户创建的故事板列表
 public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板列表
   public var storyboards: [Rankquantity_Voyager_Api_StoryBoardActive] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5114,19 +6173,26 @@ public struct Rankquantity_Voyager_Api_GetUserCreatedStoryboardsResponse: Sendab
   public init() {}
 }
 
+//// 获取用户创建的角色请求
+//// 获取指定用户创建的所有故事角色列表
 public struct Rankquantity_Voyager_Api_GetUserCreatedRolesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID（可选），用于筛选特定故事的角色
   public var storyID: Int32 = 0
 
+  //// 阶段状态筛选，0表示不筛选
   public var stage: Int32 = 0
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5134,23 +6200,32 @@ public struct Rankquantity_Voyager_Api_GetUserCreatedRolesRequest: Sendable {
   public init() {}
 }
 
+//// 获取用户创建的角色响应
+//// 返回用户创建的角色列表
 public struct Rankquantity_Voyager_Api_GetUserCreatedRolesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 角色列表
   public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
+  //// 当前偏移量
   public var offset: Int64 = 0
 
+  //// 每页数量
   public var pageSize: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5158,15 +6233,20 @@ public struct Rankquantity_Voyager_Api_GetUserCreatedRolesResponse: Sendable {
   public init() {}
 }
 
+//// 点赞故事角色请求
+//// 为故事角色点赞
 public struct Rankquantity_Voyager_Api_LikeStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5174,13 +6254,17 @@ public struct Rankquantity_Voyager_Api_LikeStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 点赞故事角色响应
+//// 返回点赞操作的结果
 public struct Rankquantity_Voyager_Api_LikeStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5188,15 +6272,20 @@ public struct Rankquantity_Voyager_Api_LikeStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 取消点赞故事角色请求
+//// 取消对故事角色的点赞
 public struct Rankquantity_Voyager_Api_UnLikeStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5204,13 +6293,17 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 取消点赞故事角色响应
+//// 返回取消点赞操作的结果
 public struct Rankquantity_Voyager_Api_UnLikeStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5218,15 +6311,20 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 关注故事角色请求
+//// 关注指定的故事角色，接收该角色的动态
 public struct Rankquantity_Voyager_Api_FollowStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5234,13 +6332,17 @@ public struct Rankquantity_Voyager_Api_FollowStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 关注故事角色响应
+//// 返回关注操作的结果
 public struct Rankquantity_Voyager_Api_FollowStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5248,15 +6350,20 @@ public struct Rankquantity_Voyager_Api_FollowStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 取消关注故事角色请求
+//// 取消对故事角色的关注
 public struct Rankquantity_Voyager_Api_UnFollowStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5264,13 +6371,17 @@ public struct Rankquantity_Voyager_Api_UnFollowStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 取消关注故事角色响应
+//// 返回取消关注操作的结果
 public struct Rankquantity_Voyager_Api_UnFollowStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5278,21 +6389,29 @@ public struct Rankquantity_Voyager_Api_UnFollowStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 搜索故事请求
+//// 根据关键词搜索故事，支持不同范围的搜索
 public struct Rankquantity_Voyager_Api_SearchStoriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 搜索关键词，长度1-200字符
   public var keyword: String = String()
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 搜索范围类型：全局、群组内等
   public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
+  //// 群组ID（可选），用于在特定群组内搜索
   public var groupID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5300,19 +6419,26 @@ public struct Rankquantity_Voyager_Api_SearchStoriesRequest: Sendable {
   public init() {}
 }
 
+//// 搜索故事响应
+//// 返回匹配的故事列表
 public struct Rankquantity_Voyager_Api_SearchStoriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 匹配的故事列表
   public var stories: [Rankquantity_Voyager_Api_Story] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5320,23 +6446,32 @@ public struct Rankquantity_Voyager_Api_SearchStoriesResponse: Sendable {
   public init() {}
 }
 
+//// 搜索角色请求
+//// 根据关键词搜索故事角色，支持不同范围的搜索
 public struct Rankquantity_Voyager_Api_SearchRolesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 请求用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 搜索关键词，角色名称或描述，长度1-200字符
   public var keyword: String = String()
 
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
+  //// 搜索范围类型：全局、群组内、故事内等
   public var scope: Rankquantity_Voyager_Api_ScopeType = .protectScope
 
+  //// 故事ID（可选），用于在特定故事内搜索
   public var storyID: Int64 = 0
 
+  //// 群组ID（可选），用于在特定群组内搜索
   public var groupID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5344,19 +6479,26 @@ public struct Rankquantity_Voyager_Api_SearchRolesRequest: Sendable {
   public init() {}
 }
 
+//// 搜索角色响应
+//// 返回匹配的角色列表
 public struct Rankquantity_Voyager_Api_SearchRolesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 匹配的角色列表
   public var roles: [Rankquantity_Voyager_Api_StoryRole] = []
 
+  //// 总数量
   public var total: Int64 = 0
 
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5364,15 +6506,20 @@ public struct Rankquantity_Voyager_Api_SearchRolesResponse: Sendable {
   public init() {}
 }
 
+//// 恢复故事板请求
+//// 从草稿或历史版本恢复故事板状态
 public struct Rankquantity_Voyager_Api_RestoreStoryboardRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板ID，必须大于0
   public var storyboardID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5380,15 +6527,20 @@ public struct Rankquantity_Voyager_Api_RestoreStoryboardRequest: Sendable {
   public init() {}
 }
 
+//// 恢复故事板响应
+//// 返回恢复的故事板完整信息
 public struct Rankquantity_Voyager_Api_RestoreStoryboardResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 故事板状态存储信息
   public var store: Rankquantity_Voyager_Api_StoryboardStageStore {
     get {return _store ?? Rankquantity_Voyager_Api_StoryboardStageStore()}
     set {_store = newValue}
@@ -5405,11 +6557,14 @@ public struct Rankquantity_Voyager_Api_RestoreStoryboardResponse: Sendable {
   fileprivate var _store: Rankquantity_Voyager_Api_StoryboardStageStore? = nil
 }
 
+//// 故事板阶段存储信息
+//// 包含故事板的完整状态和版本信息
 public struct Rankquantity_Voyager_Api_StoryboardStageStore: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事板信息
   public var storyboard: Rankquantity_Voyager_Api_StoryBoard {
     get {return _storyboard ?? Rankquantity_Voyager_Api_StoryBoard()}
     set {_storyboard = newValue}
@@ -5419,6 +6574,7 @@ public struct Rankquantity_Voyager_Api_StoryboardStageStore: Sendable {
   /// Clears the value of `storyboard`. Subsequent reads from it will return its default value.
   public mutating func clearStoryboard() {self._storyboard = nil}
 
+  //// 场景列表
   public var sences: Rankquantity_Voyager_Api_StoryBoardSences {
     get {return _sences ?? Rankquantity_Voyager_Api_StoryBoardSences()}
     set {_sences = newValue}
@@ -5428,12 +6584,16 @@ public struct Rankquantity_Voyager_Api_StoryboardStageStore: Sendable {
   /// Clears the value of `sences`. Subsequent reads from it will return its default value.
   public mutating func clearSences() {self._sences = nil}
 
+  //// 当前阶段状态
   public var stage: Rankquantity_Voyager_Api_StoryboardStage = .unspecified
 
+  //// 最后更新时间戳
   public var lastUpdateTime: Int64 = 0
 
+  //// 版本号
   public var version: Int64 = 0
 
+  //// 用户ID
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5444,11 +6604,14 @@ public struct Rankquantity_Voyager_Api_StoryboardStageStore: Sendable {
   fileprivate var _sences: Rankquantity_Voyager_Api_StoryBoardSences? = nil
 }
 
+//// 获取用户资料请求
+//// 获取指定用户的详细资料信息
 public struct Rankquantity_Voyager_Api_GetUserProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5456,15 +6619,20 @@ public struct Rankquantity_Voyager_Api_GetUserProfileRequest: Sendable {
   public init() {}
 }
 
+//// 获取用户资料响应
+//// 返回用户的详细资料
 public struct Rankquantity_Voyager_Api_GetUserProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 用户资料信息
   public var info: Rankquantity_Voyager_Api_UserProfileInfo {
     get {return _info ?? Rankquantity_Voyager_Api_UserProfileInfo()}
     set {_info = newValue}
@@ -5481,23 +6649,32 @@ public struct Rankquantity_Voyager_Api_GetUserProfileResponse: Sendable {
   fileprivate var _info: Rankquantity_Voyager_Api_UserProfileInfo? = nil
 }
 
+//// 更新用户资料请求
+//// 更新用户的个人资料信息
 public struct Rankquantity_Voyager_Api_UpdateUserProfileRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 背景图片URL
   public var backgroundImage: String = String()
 
+  //// 头像URL
   public var avatar: String = String()
 
+  //// 用户昵称，最大长度50字符
   public var name: String = String()
 
+  //// 个人描述，最大长度500字符
   public var description_p: String = String()
 
+  //// 所在地，最大长度100字符
   public var location: String = String()
 
+  //// 邮箱地址，如果提供则必须符合邮箱格式
   public var email: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5505,13 +6682,17 @@ public struct Rankquantity_Voyager_Api_UpdateUserProfileRequest: Sendable {
   public init() {}
 }
 
+//// 更新用户资料响应
+//// 返回更新操作的结果
 public struct Rankquantity_Voyager_Api_UpdateUserProfileResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5547,13 +6728,17 @@ public struct Rankquantity_Voyager_Api_UpdateUserBackgroundImageResponse: Sendab
   public init() {}
 }
 
+//// 创建故事角色请求
+//// 在故事中创建新的角色
 public struct Rankquantity_Voyager_Api_CreateStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 创建者用户ID，必须大于0
   public var userID: Int64 = 0
 
+  //// 角色信息，必填
   public var role: Rankquantity_Voyager_Api_StoryRole {
     get {return _role ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_role = newValue}
@@ -5570,13 +6755,17 @@ public struct Rankquantity_Voyager_Api_CreateStoryRoleRequest: Sendable {
   fileprivate var _role: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
+//// 创建故事角色响应
+//// 返回创建操作的结果
 public struct Rankquantity_Voyager_Api_CreateStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5584,11 +6773,14 @@ public struct Rankquantity_Voyager_Api_CreateStoryRoleResponse: Sendable {
   public init() {}
 }
 
+//// 获取故事角色详情请求
+//// 获取指定角色的详细信息
 public struct Rankquantity_Voyager_Api_GetStoryRoleDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5596,15 +6788,20 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleDetailRequest: Sendable {
   public init() {}
 }
 
+//// 获取故事角色详情响应
+//// 返回角色的详细信息
 public struct Rankquantity_Voyager_Api_GetStoryRoleDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 角色详细信息
   public var info: Rankquantity_Voyager_Api_StoryRole {
     get {return _info ?? Rankquantity_Voyager_Api_StoryRole()}
     set {_info = newValue}
@@ -5621,17 +6818,23 @@ public struct Rankquantity_Voyager_Api_GetStoryRoleDetailResponse: Sendable {
   fileprivate var _info: Rankquantity_Voyager_Api_StoryRole? = nil
 }
 
+//// 渲染故事角色请求
+//// 使用AI渲染角色的形象和特征
 public struct Rankquantity_Voyager_Api_RenderStoryRoleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID，必须大于0
   public var roleID: Int64 = 0
 
+  //// 渲染提示词，最大长度2000字符
   public var prompt: String = String()
 
+  //// 参考图片URL列表，最多10张
   public var refImages: [String] = []
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5639,35 +6842,50 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleRequest: Sendable {
   public init() {}
 }
 
+//// 渲染故事角色详情
+//// 包含角色渲染后的完整特征信息
 public struct Rankquantity_Voyager_Api_RenderStoryRoleDetail: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 角色ID
   public var roleID: Int64 = 0
 
+  //// 生成任务ID
   public var genID: Int64 = 0
 
+  //// 是否渲染完成
   public var isFinished: Bool = false
 
+  //// 角色描述
   public var roleDescription: String = String()
 
+  //// 角色性格特征
   public var roleCharacter: String = String()
 
+  //// 角色行为特点
   public var roleBehavior: String = String()
 
+  //// 角色目标
   public var roleGoal: String = String()
 
+  //// 背景图片URL
   public var backgroundImage: String = String()
 
+  //// 头像图片URL
   public var avatarImage: String = String()
 
+  //// 背景故事
   public var background: String = String()
 
+  //// 外观描述
   public var appearance: String = String()
 
+  //// 性格描述
   public var personality: String = String()
 
+  //// 能力特征
   public var abilityFeatures: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5675,15 +6893,20 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleDetail: Sendable {
   public init() {}
 }
 
+//// 渲染故事角色响应
+//// 返回角色渲染的详细结果
 public struct Rankquantity_Voyager_Api_RenderStoryRoleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
+  //// 渲染详情
   public var detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail {
     get {return _detail ?? Rankquantity_Voyager_Api_RenderStoryRoleDetail()}
     set {_detail = newValue}
@@ -5700,13 +6923,17 @@ public struct Rankquantity_Voyager_Api_RenderStoryRoleResponse: Sendable {
   fileprivate var _detail: Rankquantity_Voyager_Api_RenderStoryRoleDetail? = nil
 }
 
+//// 点赞故事请求
+//// 为故事点赞表示喜欢
 public struct Rankquantity_Voyager_Api_LikeStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5714,13 +6941,17 @@ public struct Rankquantity_Voyager_Api_LikeStoryRequest: Sendable {
   public init() {}
 }
 
+//// 点赞故事响应
+//// 返回点赞操作的结果
 public struct Rankquantity_Voyager_Api_LikeStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5728,13 +6959,17 @@ public struct Rankquantity_Voyager_Api_LikeStoryResponse: Sendable {
   public init() {}
 }
 
+//// 取消点赞故事请求
+//// 取消对故事的点赞
 public struct Rankquantity_Voyager_Api_UnLikeStoryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 故事ID，必须大于0
   public var storyID: Int64 = 0
 
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5742,13 +6977,17 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryRequest: Sendable {
   public init() {}
 }
 
+//// 取消点赞故事响应
+//// 返回取消点赞操作的结果
 public struct Rankquantity_Voyager_Api_UnLikeStoryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
+  //// 响应消息
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5757,19 +6996,31 @@ public struct Rankquantity_Voyager_Api_UnLikeStoryResponse: Sendable {
 }
 
 /// ==================== 删除用户故事板草稿 ====================
-/// 删除用户故事板草稿请求
+//// 删除用户故事板草稿请求
+//// 
+//// 用于删除指定用户的故事板草稿，支持批量删除操作
 public struct Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 用户ID
+  //// [必填] 用户ID
+  //// 
+  //// 草稿所有者的用户ID
+  //// 验证规则：必须大于 0
   public var userID: Int64 = 0
 
-  /// 草稿ID
+  //// [必填] 草稿ID
+  //// 
+  //// 要删除的草稿唯一标识符
+  //// 验证规则：必须大于 0
   public var draftID: Int64 = 0
 
-  /// 故事ID（可选）
+  //// [可选] 故事ID
+  //// 
+  //// 所属故事的ID，用于权限验证
+  //// 验证规则：如果提供则必须大于等于 0
+  //// 默认值：0（不筛选）
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5777,16 +7028,17 @@ public struct Rankquantity_Voyager_Api_DeleteUserStoryboardDraftRequest: Sendabl
   public init() {}
 }
 
-/// 删除用户故事板草稿响应
+//// 删除用户故事板草稿响应
+//// 返回删除操作的结果状态
 public struct Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5795,19 +7047,38 @@ public struct Rankquantity_Voyager_Api_DeleteUserStoryboardDraftResponse: Sendab
 }
 
 /// ==================== 用户活跃热力图 ====================
-/// 用户活跃热力图数据项
+//// 热力图数据项
+//// 
+//// 表示单个日期的活跃度数据，用于生成GitHub风格的热力图可视化
 public struct Rankquantity_Voyager_Api_HeatmapDataItem: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 日期，格式：YYYY-MM-DD
+  //// [必填] 日期
+  //// 
+  //// 活跃度数据对应的日期
+  //// 格式要求：YYYY-MM-DD（如 2024-01-15）
+  //// 验证规则：必须符合日期格式正则表达式
   public var date: String = String()
 
-  /// 活跃次数/数量
+  //// [必填] 活跃次数
+  //// 
+  //// 该日期的活跃操作次数（如创建、更新、评论等）
+  //// 验证规则：必须大于等于 0
+  //// 默认值：0
   public var count: Int64 = 0
 
-  /// 热力等级（0-4，用于显示不同颜色深度）
+  //// [必填] 热力等级
+  //// 
+  //// 用于显示不同颜色深度的等级值
+  //// 取值说明：
+  //// - 0: 无活跃（灰色）
+  //// - 1: 低活跃（浅绿）
+  //// - 2: 中活跃（绿色）
+  //// - 3: 高活跃（深绿）
+  //// - 4: 极高活跃（最深绿）
+  //// 验证规则：0-4
   public var level: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5815,19 +7086,32 @@ public struct Rankquantity_Voyager_Api_HeatmapDataItem: Sendable {
   public init() {}
 }
 
-/// 用户活跃热力图请求
+//// 用户活跃热力图请求
+//// 
+//// 获取指定时间范围内用户的活跃度热力图数据，用于展示用户贡献度
 public struct Rankquantity_Voyager_Api_UserActiveHeamapRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 用户ID
+  //// [必填] 用户ID
+  //// 
+  //// 要查询活跃度的用户唯一标识
+  //// 验证规则：必须大于 0
   public var userID: Int64 = 0
 
-  /// 开始时间戳（秒）
+  //// [必填] 开始时间
+  //// 
+  //// 查询时间范围的起始时间戳（Unix时间戳，秒）
+  //// 验证规则：必须大于 0
+  //// 示例：1640995200（表示 2022-01-01 00:00:00 UTC）
   public var startTime: Int64 = 0
 
-  /// 结束时间戳（秒）
+  //// [必填] 结束时间
+  //// 
+  //// 查询时间范围的结束时间戳（Unix时间戳，秒）
+  //// 验证规则：必须大于 0，且应大于 start_time
+  //// 建议范围：不超过1年
   public var endTime: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5835,22 +7119,23 @@ public struct Rankquantity_Voyager_Api_UserActiveHeamapRequest: Sendable {
   public init() {}
 }
 
-/// 用户活跃热力图响应
+//// 用户活跃热力图响应
+//// 返回用户在指定时间范围内的活跃度热力图数据
 public struct Rankquantity_Voyager_Api_UserActiveHeamapResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
-  /// 热力图数据列表
+  //// 热力图数据列表，包含每日的活跃度信息
   public var data: [Rankquantity_Voyager_Api_HeatmapDataItem] = []
 
-  /// 总活跃次数
+  //// 总活跃次数统计
   public var totalCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5859,22 +7144,38 @@ public struct Rankquantity_Voyager_Api_UserActiveHeamapResponse: Sendable {
 }
 
 /// ==================== 群组活跃热力图 ====================
-/// 群组活跃热力图请求
+//// 群组活跃热力图请求
+//// 
+//// 获取指定群组在指定时间范围内的活跃度热力图数据，展示群组整体活跃情况
 public struct Rankquantity_Voyager_Api_GroupActiveHeamapRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 群组ID
+  //// [必填] 群组ID
+  //// 
+  //// 要查询活跃度的群组唯一标识
+  //// 验证规则：必须大于 0
   public var groupID: Int64 = 0
 
-  /// 请求用户ID（用于权限验证）
+  //// [必填] 请求用户ID
+  //// 
+  //// 发起请求的用户ID，用于权限验证
+  //// 验证规则：必须大于 0
+  //// 用途：确认用户有权查看该群组的活跃数据
   public var userID: Int64 = 0
 
-  /// 开始时间戳（秒）
+  //// [必填] 开始时间
+  //// 
+  //// 查询时间范围的起始时间戳（Unix时间戳，秒）
+  //// 验证规则：必须大于 0
   public var startTime: Int64 = 0
 
-  /// 结束时间戳（秒）
+  //// [必填] 结束时间
+  //// 
+  //// 查询时间范围的结束时间戳（Unix时间戳，秒）
+  //// 验证规则：必须大于 0，且应大于 start_time
+  //// 建议范围：不超过1年
   public var endTime: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5882,25 +7183,26 @@ public struct Rankquantity_Voyager_Api_GroupActiveHeamapRequest: Sendable {
   public init() {}
 }
 
-/// 群组活跃热力图响应
+//// 群组活跃热力图响应
+//// 返回群组在指定时间范围内的活跃度热力图数据及统计信息
 public struct Rankquantity_Voyager_Api_GroupActiveHeamapResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
-  /// 热力图数据列表
+  //// 热力图数据列表，包含每日的群组活跃度信息
   public var data: [Rankquantity_Voyager_Api_HeatmapDataItem] = []
 
-  /// 总活跃次数
+  //// 总活跃次数统计
   public var totalCount: Int64 = 0
 
-  /// 活跃成员数量
+  //// 参与活跃的成员数量
   public var memberCount: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5909,19 +7211,34 @@ public struct Rankquantity_Voyager_Api_GroupActiveHeamapResponse: Sendable {
 }
 
 /// ==================== 更新故事板是否可分叉 ====================
-/// 更新故事板是否可分叉请求
+//// 更新故事板分叉权限请求
+//// 
+//// 设置故事板的分叉权限，控制其他用户是否可以基于此故事板创建分支版本
 public struct Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 用户ID
+  //// [必填] 用户ID
+  //// 
+  //// 故事板所有者的用户ID
+  //// 验证规则：必须大于 0
+  //// 权限要求：仅所有者可修改分叉权限
   public var userID: Int64 = 0
 
-  /// 故事板ID
+  //// [必填] 故事板ID
+  //// 
+  //// 要设置权限的故事板唯一标识
+  //// 验证规则：必须大于 0
   public var storyboardID: Int64 = 0
 
-  /// 是否可分叉
+  //// [必填] 是否允许分叉
+  //// 
+  //// 分叉权限开关
+  //// 取值说明：
+  //// - true: 允许其他用户分叉此故事板
+  //// - false: 禁止分叉，仅所有者可访问
+  //// 默认值：false
   public var forkAble: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5929,16 +7246,17 @@ public struct Rankquantity_Voyager_Api_UpdateStoryboardForkAbleRequest: Sendable
   public init() {}
 }
 
-/// 更新故事板是否可分叉响应
+//// 更新故事板是否可分叉响应
+//// 返回更新操作的结果状态
 public struct Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5947,60 +7265,23 @@ public struct Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse: Sendabl
 }
 
 /// ==================== 用户故事板草稿列表 ====================
-/// 故事板草稿简要信息
-public struct Rankquantity_Voyager_Api_StoryboardDraftItem: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  /// 草稿ID
-  public var draftID: Int64 = 0
-
-  /// 故事ID
-  public var storyID: Int64 = 0
-
-  /// 故事板ID
-  public var storyboardID: Int64 = 0
-
-  /// 标题
-  public var title: String = String()
-
-  /// 内容摘要
-  public var content: String = String()
-
-  /// 封面图片
-  public var coverImage: String = String()
-
-  /// 创建时间戳
-  public var createdAt: Int64 = 0
-
-  /// 更新时间戳
-  public var updatedAt: Int64 = 0
-
-  /// 版本号
-  public var version: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-/// 用户故事板草稿列表请求
+//// 用户故事板草稿列表请求
+//// 分页获取指定用户的故事板草稿列表，支持按故事ID筛选
 public struct Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 用户ID
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
-  /// 偏移量
+  //// 偏移量，用于分页，必须大于等于0
   public var offset: Int64 = 0
 
-  /// 每页数量
+  //// 每页数量，范围1-100
   public var pageSize: Int64 = 0
 
-  /// 故事ID（可选，用于筛选特定故事的草稿）
+  //// 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
   public var storyID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6008,25 +7289,26 @@ public struct Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest: Sendable 
   public init() {}
 }
 
-/// 用户故事板草稿列表响应
+//// 用户故事板草稿列表响应
+//// 返回用户的故事板草稿列表及分页信息
 public struct Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
-  /// 草稿列表
-  public var drafts: [Rankquantity_Voyager_Api_StoryboardDraftItem] = []
+  //// 草稿列表，包含草稿的详细信息
+  public var drafts: [Rankquantity_Voyager_Api_StoryboardDraftDetail] = []
 
-  /// 草稿总数
+  //// 草稿总数
   public var total: Int64 = 0
 
-  /// 是否有更多
+  //// 是否有更多数据
   public var haveMore: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6035,55 +7317,56 @@ public struct Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse: Sendable
 }
 
 /// ==================== 用户故事板草稿详情 ====================
-/// 故事板草稿详细信息
+//// 故事板草稿详细信息
+//// 包含故事板草稿的完整信息，包括内容、角色、场景等
 public struct Rankquantity_Voyager_Api_StoryboardDraftDetail: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 草稿ID
+  //// 草稿ID，唯一标识符
   public var draftID: Int64 {
     get {return _storage._draftID}
     set {_uniqueStorage()._draftID = newValue}
   }
 
-  /// 故事ID
+  //// 所属故事ID
   public var storyID: Int64 {
     get {return _storage._storyID}
     set {_uniqueStorage()._storyID = newValue}
   }
 
-  /// 故事板ID
+  //// 关联的故事板ID
   public var storyboardID: Int64 {
     get {return _storage._storyboardID}
     set {_uniqueStorage()._storyboardID = newValue}
   }
 
-  /// 标题
+  //// 草稿标题，最大长度200字符
   public var title: String {
     get {return _storage._title}
     set {_uniqueStorage()._title = newValue}
   }
 
-  /// 内容
+  //// 草稿内容，最大长度10000字符
   public var content: String {
     get {return _storage._content}
     set {_uniqueStorage()._content = newValue}
   }
 
-  /// 背景
+  //// 背景描述
   public var background: String {
     get {return _storage._background}
     set {_uniqueStorage()._background = newValue}
   }
 
-  /// 角色列表
+  //// 参与的角色列表
   public var roles: [Rankquantity_Voyager_Api_StoryRole] {
     get {return _storage._roles}
     set {_uniqueStorage()._roles = newValue}
   }
 
-  /// 场景列表
+  //// 场景列表
   public var sences: Rankquantity_Voyager_Api_StoryBoardSences {
     get {return _storage._sences ?? Rankquantity_Voyager_Api_StoryBoardSences()}
     set {_uniqueStorage()._sences = newValue}
@@ -6093,7 +7376,7 @@ public struct Rankquantity_Voyager_Api_StoryboardDraftDetail: @unchecked Sendabl
   /// Clears the value of `sences`. Subsequent reads from it will return its default value.
   public mutating func clearSences() {_uniqueStorage()._sences = nil}
 
-  /// 故事板参数
+  //// 故事板渲染参数
   public var params: Rankquantity_Voyager_Api_StoryBoardParams {
     get {return _storage._params ?? Rankquantity_Voyager_Api_StoryBoardParams()}
     set {_uniqueStorage()._params = newValue}
@@ -6103,25 +7386,25 @@ public struct Rankquantity_Voyager_Api_StoryboardDraftDetail: @unchecked Sendabl
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
   public mutating func clearParams() {_uniqueStorage()._params = nil}
 
-  /// 创建时间戳
+  //// 创建时间戳（秒）
   public var createdAt: Int64 {
     get {return _storage._createdAt}
     set {_uniqueStorage()._createdAt = newValue}
   }
 
-  /// 更新时间戳
+  //// 最后更新时间戳（秒）
   public var updatedAt: Int64 {
     get {return _storage._updatedAt}
     set {_uniqueStorage()._updatedAt = newValue}
   }
 
-  /// 版本号
-  public var version: Int64 {
-    get {return _storage._version}
-    set {_uniqueStorage()._version = newValue}
+  //// 生成阶段状态
+  public var stage: Rankquantity_Voyager_Api_StoryboardStage {
+    get {return _storage._stage}
+    set {_uniqueStorage()._stage = newValue}
   }
 
-  /// 用户ID
+  //// 草稿所有者用户ID
   public var userID: Int64 {
     get {return _storage._userID}
     set {_uniqueStorage()._userID = newValue}
@@ -6134,16 +7417,17 @@ public struct Rankquantity_Voyager_Api_StoryboardDraftDetail: @unchecked Sendabl
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-/// 用户故事板草稿详情请求
+//// 用户故事板草稿详情请求
+//// 获取指定草稿的完整详细信息
 public struct Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 用户ID
+  //// 用户ID，必须大于0
   public var userID: Int64 = 0
 
-  /// 草稿ID
+  //// 草稿ID，必须大于0
   public var draftID: Int64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6151,19 +7435,20 @@ public struct Rankquantity_Voyager_Api_UserDraftStoryboardDetailRequest: Sendabl
   public init() {}
 }
 
-/// 用户故事板草稿详情响应
+//// 用户故事板草稿详情响应
+//// 返回草稿的完整详细信息
 public struct Rankquantity_Voyager_Api_UserDraftStoryboardDetailResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// 响应码
+  //// 响应状态码
   public var code: Rankquantity_Voyager_Api_ResponseCode = .ok
 
-  /// 响应消息
+  //// 响应消息描述
   public var message: String = String()
 
-  /// 草稿详情
+  //// 草稿详细信息
   public var detail: Rankquantity_Voyager_Api_StoryboardDraftDetail {
     get {return _detail ?? Rankquantity_Voyager_Api_StoryboardDraftDetail()}
     set {_detail = newValue}
@@ -19243,76 +20528,6 @@ extension Rankquantity_Voyager_Api_UpdateStoryboardForkAbleResponse: SwiftProtob
   }
 }
 
-extension Rankquantity_Voyager_Api_StoryboardDraftItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".StoryboardDraftItem"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}draft_id\0\u{3}story_id\0\u{3}storyboard_id\0\u{1}title\0\u{1}content\0\u{3}cover_image\0\u{3}created_at\0\u{3}updated_at\0\u{1}version\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.draftID) }()
-      case 2: try { try decoder.decodeSingularInt64Field(value: &self.storyID) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.storyboardID) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.title) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.content) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self.coverImage) }()
-      case 7: try { try decoder.decodeSingularInt64Field(value: &self.createdAt) }()
-      case 8: try { try decoder.decodeSingularInt64Field(value: &self.updatedAt) }()
-      case 9: try { try decoder.decodeSingularInt64Field(value: &self.version) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.draftID != 0 {
-      try visitor.visitSingularInt64Field(value: self.draftID, fieldNumber: 1)
-    }
-    if self.storyID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyID, fieldNumber: 2)
-    }
-    if self.storyboardID != 0 {
-      try visitor.visitSingularInt64Field(value: self.storyboardID, fieldNumber: 3)
-    }
-    if !self.title.isEmpty {
-      try visitor.visitSingularStringField(value: self.title, fieldNumber: 4)
-    }
-    if !self.content.isEmpty {
-      try visitor.visitSingularStringField(value: self.content, fieldNumber: 5)
-    }
-    if !self.coverImage.isEmpty {
-      try visitor.visitSingularStringField(value: self.coverImage, fieldNumber: 6)
-    }
-    if self.createdAt != 0 {
-      try visitor.visitSingularInt64Field(value: self.createdAt, fieldNumber: 7)
-    }
-    if self.updatedAt != 0 {
-      try visitor.visitSingularInt64Field(value: self.updatedAt, fieldNumber: 8)
-    }
-    if self.version != 0 {
-      try visitor.visitSingularInt64Field(value: self.version, fieldNumber: 9)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: Rankquantity_Voyager_Api_StoryboardDraftItem, rhs: Rankquantity_Voyager_Api_StoryboardDraftItem) -> Bool {
-    if lhs.draftID != rhs.draftID {return false}
-    if lhs.storyID != rhs.storyID {return false}
-    if lhs.storyboardID != rhs.storyboardID {return false}
-    if lhs.title != rhs.title {return false}
-    if lhs.content != rhs.content {return false}
-    if lhs.coverImage != rhs.coverImage {return false}
-    if lhs.createdAt != rhs.createdAt {return false}
-    if lhs.updatedAt != rhs.updatedAt {return false}
-    if lhs.version != rhs.version {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension Rankquantity_Voyager_Api_UserStoryboardDraftlistRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UserStoryboardDraftlistRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}user_id\0\u{1}offset\0\u{3}page_size\0\u{3}story_id\0")
@@ -19410,7 +20625,7 @@ extension Rankquantity_Voyager_Api_UserStoryboardDraftlistResponse: SwiftProtobu
 
 extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StoryboardDraftDetail"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}draft_id\0\u{3}story_id\0\u{3}storyboard_id\0\u{1}title\0\u{1}content\0\u{1}background\0\u{1}roles\0\u{1}sences\0\u{1}params\0\u{3}created_at\0\u{3}updated_at\0\u{1}version\0\u{3}user_id\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}draft_id\0\u{3}story_id\0\u{3}storyboard_id\0\u{1}title\0\u{1}content\0\u{1}background\0\u{1}roles\0\u{1}sences\0\u{1}params\0\u{3}created_at\0\u{3}updated_at\0\u{1}stage\0\u{3}user_id\0")
 
   fileprivate class _StorageClass {
     var _draftID: Int64 = 0
@@ -19424,7 +20639,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
     var _params: Rankquantity_Voyager_Api_StoryBoardParams? = nil
     var _createdAt: Int64 = 0
     var _updatedAt: Int64 = 0
-    var _version: Int64 = 0
+    var _stage: Rankquantity_Voyager_Api_StoryboardStage = .unspecified
     var _userID: Int64 = 0
 
       // This property is used as the initial default value for new instances of the type.
@@ -19447,7 +20662,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
       _params = source._params
       _createdAt = source._createdAt
       _updatedAt = source._updatedAt
-      _version = source._version
+      _stage = source._stage
       _userID = source._userID
     }
   }
@@ -19478,7 +20693,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
         case 9: try { try decoder.decodeSingularMessageField(value: &_storage._params) }()
         case 10: try { try decoder.decodeSingularInt64Field(value: &_storage._createdAt) }()
         case 11: try { try decoder.decodeSingularInt64Field(value: &_storage._updatedAt) }()
-        case 12: try { try decoder.decodeSingularInt64Field(value: &_storage._version) }()
+        case 12: try { try decoder.decodeSingularEnumField(value: &_storage._stage) }()
         case 13: try { try decoder.decodeSingularInt64Field(value: &_storage._userID) }()
         default: break
         }
@@ -19525,8 +20740,8 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
       if _storage._updatedAt != 0 {
         try visitor.visitSingularInt64Field(value: _storage._updatedAt, fieldNumber: 11)
       }
-      if _storage._version != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._version, fieldNumber: 12)
+      if _storage._stage != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._stage, fieldNumber: 12)
       }
       if _storage._userID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._userID, fieldNumber: 13)
@@ -19551,7 +20766,7 @@ extension Rankquantity_Voyager_Api_StoryboardDraftDetail: SwiftProtobuf.Message,
         if _storage._params != rhs_storage._params {return false}
         if _storage._createdAt != rhs_storage._createdAt {return false}
         if _storage._updatedAt != rhs_storage._updatedAt {return false}
-        if _storage._version != rhs_storage._version {return false}
+        if _storage._stage != rhs_storage._stage {return false}
         if _storage._userID != rhs_storage._userID {return false}
         return true
       }

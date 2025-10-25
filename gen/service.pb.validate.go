@@ -311,11 +311,38 @@ func (m *LoginRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Account
+	if l := utf8.RuneCountInString(m.GetAccount()); l < 3 || l > 100 {
+		err := LoginRequestValidationError{
+			field:  "Account",
+			reason: "value length must be between 3 and 100 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Password
+	if l := utf8.RuneCountInString(m.GetPassword()); l < 6 || l > 128 {
+		err := LoginRequestValidationError{
+			field:  "Password",
+			reason: "value length must be between 6 and 128 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for LoginType
+	if val := m.GetLoginType(); val < 1 || val > 3 {
+		err := LoginRequestValidationError{
+			field:  "LoginType",
+			reason: "value must be inside range [1, 3]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LoginRequestMultiError(errors)
@@ -967,21 +994,117 @@ func (m *RegisterRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Account
+	if l := utf8.RuneCountInString(m.GetAccount()); l < 3 || l > 50 {
+		err := RegisterRequestValidationError{
+			field:  "Account",
+			reason: "value length must be between 3 and 50 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Password
+	if l := utf8.RuneCountInString(m.GetPassword()); l < 6 || l > 128 {
+		err := RegisterRequestValidationError{
+			field:  "Password",
+			reason: "value length must be between 6 and 128 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 50 {
+		err := RegisterRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 50 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Email
+	if err := m._validateEmail(m.GetEmail()); err != nil {
+		err = RegisterRequestValidationError{
+			field:  "Email",
+			reason: "value must be a valid email address",
+			cause:  err,
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Phone
+	if l := utf8.RuneCountInString(m.GetPhone()); l < 8 || l > 20 {
+		err := RegisterRequestValidationError{
+			field:  "Phone",
+			reason: "value length must be between 8 and 20 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return RegisterRequestMultiError(errors)
 	}
 
 	return nil
+}
+
+func (m *RegisterRequest) _validateHostname(host string) error {
+	s := strings.ToLower(strings.TrimSuffix(host, "."))
+
+	if len(host) > 253 {
+		return errors.New("hostname cannot exceed 253 characters")
+	}
+
+	for _, part := range strings.Split(s, ".") {
+		if l := len(part); l == 0 || l > 63 {
+			return errors.New("hostname part must be non-empty and cannot exceed 63 characters")
+		}
+
+		if part[0] == '-' {
+			return errors.New("hostname parts cannot begin with hyphens")
+		}
+
+		if part[len(part)-1] == '-' {
+			return errors.New("hostname parts cannot end with hyphens")
+		}
+
+		for _, r := range part {
+			if (r < 'a' || r > 'z') && (r < '0' || r > '9') && r != '-' {
+				return fmt.Errorf("hostname parts can only contain alphanumeric characters or hyphens, got %q", string(r))
+			}
+		}
+	}
+
+	return nil
+}
+
+func (m *RegisterRequest) _validateEmail(addr string) error {
+	a, err := mail.ParseAddress(addr)
+	if err != nil {
+		return err
+	}
+	addr = a.Address
+
+	if len(addr) > 254 {
+		return errors.New("email addresses cannot exceed 254 characters")
+	}
+
+	parts := strings.SplitN(addr, "@", 2)
+
+	if len(parts[0]) > 64 {
+		return errors.New("email address local phrase cannot exceed 64 characters")
+	}
+
+	return m._validateHostname(parts[1])
 }
 
 // RegisterRequestMultiError is an error wrapping multiple validation errors
@@ -3059,21 +3182,84 @@ func (m *FetchActivesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for GroupId
+	if m.GetGroupId() < 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for BoardId
+	if m.GetBoardId() < 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Atype
 
-	// no validation rules for Timestamp
+	if m.GetTimestamp() <= 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "Timestamp",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := FetchActivesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := FetchActivesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return FetchActivesRequestMultiError(errors)
@@ -3312,15 +3498,51 @@ func (m *SearchUserRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 100 {
+		err := SearchUserRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 100 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for GroupId
+	if m.GetGroupId() < 0 {
+		err := SearchUserRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for IsFuzzy
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := SearchUserRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := SearchUserRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return SearchUserRequestMultiError(errors)
@@ -5534,11 +5756,38 @@ func (m *CreateGroupRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateGroupRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 100 {
+		err := CreateGroupRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 100 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Description
+	if utf8.RuneCountInString(m.GetDescription()) > 1000 {
+		err := CreateGroupRequestValidationError{
+			field:  "Description",
+			reason: "value length must be at most 1000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Avatar
 
@@ -6774,11 +7023,38 @@ func (m *FetchGroupMembersRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for GroupId
+	if m.GetGroupId() <= 0 {
+		err := FetchGroupMembersRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := FetchGroupMembersRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := FetchGroupMembersRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return FetchGroupMembersRequestMultiError(errors)
@@ -7017,19 +7293,73 @@ func (m *SearchGroupRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 100 {
+		err := SearchGroupRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 100 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := SearchGroupRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := SearchGroupRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := SearchGroupRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Scope
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := SearchGroupRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for GroupId
+	if m.GetGroupId() < 0 {
+		err := SearchGroupRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return SearchGroupRequestMultiError(errors)
@@ -7268,9 +7598,27 @@ func (m *JoinGroupRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for GroupId
+	if m.GetGroupId() <= 0 {
+		err := JoinGroupRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := JoinGroupRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return JoinGroupRequestMultiError(errors)
@@ -7507,9 +7855,27 @@ func (m *LeaveGroupRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for GroupId
+	if m.GetGroupId() <= 0 {
+		err := LeaveGroupRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := LeaveGroupRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LeaveGroupRequestMultiError(errors)
@@ -9465,11 +9831,38 @@ func (m *UploadImageRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for ImageData
+	if len(m.GetImageData()) > 10485760 {
+		err := UploadImageRequestValidationError{
+			field:  "ImageData",
+			reason: "value length must be at most 10485760 bytes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Filename
+	if l := utf8.RuneCountInString(m.GetFilename()); l < 1 || l > 255 {
+		err := UploadImageRequestValidationError{
+			field:  "Filename",
+			reason: "value length must be between 1 and 255 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for ContentType
+	if !_UploadImageRequest_ContentType_Pattern.MatchString(m.GetContentType()) {
+		err := UploadImageRequestValidationError{
+			field:  "ContentType",
+			reason: "value does not match regex pattern \"^image/(jpeg|jpg|png|gif|webp|bmp)$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UploadImageRequestMultiError(errors)
@@ -9550,6 +9943,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = UploadImageRequestValidationError{}
+
+var _UploadImageRequest_ContentType_Pattern = regexp.MustCompile("^image/(jpeg|jpg|png|gif|webp|bmp)$")
 
 // Validate checks the field values on UploadImageResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -9708,13 +10103,49 @@ func (m *GetStoryContributorsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryContributorsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryContributorsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryContributorsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryContributorsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryContributorsRequestMultiError(errors)
@@ -10545,15 +10976,60 @@ func (m *GetStoryRolePosterListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryRolePosterListRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetStoryRolePosterListRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryRolePosterListRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryRolePosterListRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryRolePosterListRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryRolePosterListRequestMultiError(errors)
@@ -10950,13 +11426,49 @@ func (m *LikeStoryRolePosterRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := LikeStoryRolePosterRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := LikeStoryRolePosterRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := LikeStoryRolePosterRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PosterId
+	if m.GetPosterId() <= 0 {
+		err := LikeStoryRolePosterRequestValidationError{
+			field:  "PosterId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LikeStoryRolePosterRequestMultiError(errors)
@@ -11169,13 +11681,49 @@ func (m *UnLikeStoryRolePosterRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UnLikeStoryRolePosterRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UnLikeStoryRolePosterRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UnLikeStoryRolePosterRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PosterId
+	if m.GetPosterId() <= 0 {
+		err := UnLikeStoryRolePosterRequestValidationError{
+			field:  "PosterId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UnLikeStoryRolePosterRequestMultiError(errors)
@@ -11389,15 +11937,51 @@ func (m *FetchUserGenTaskStatusRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := FetchUserGenTaskStatusRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for TaskId
 
-	// no validation rules for Timestamp
+	if m.GetTimestamp() < 0 {
+		err := FetchUserGenTaskStatusRequestValidationError{
+			field:  "Timestamp",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageNum
+	if m.GetPageNum() < 1 {
+		err := FetchUserGenTaskStatusRequestValidationError{
+			field:  "PageNum",
+			reason: "value must be greater than or equal to 1",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := FetchUserGenTaskStatusRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return FetchUserGenTaskStatusRequestMultiError(errors)
@@ -11916,13 +12500,40 @@ func (m *GenerateRoleAvatarRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GenerateRoleAvatarRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateRoleAvatarRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for RefAvatarUrl
 
-	// no validation rules for Description
+	if utf8.RuneCountInString(m.GetDescription()) > 1000 {
+		err := GenerateRoleAvatarRequestValidationError{
+			field:  "Description",
+			reason: "value length must be at most 1000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Style
 
@@ -12138,19 +12749,73 @@ func (m *GenerateStorySceneVideoRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for BoardId
+	if m.GetBoardId() <= 0 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for SenceId
+	if m.GetSenceId() <= 0 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "SenceId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for TokenSource
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NegativePrompt
+	if utf8.RuneCountInString(m.GetNegativePrompt()) > 1000 {
+		err := GenerateStorySceneVideoRequestValidationError{
+			field:  "NegativePrompt",
+			reason: "value length must be at most 1000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GenerateStorySceneVideoRequestMultiError(errors)
@@ -12510,19 +13175,64 @@ func (m *GenerateStoryRoleVideoRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GenerateStoryRoleVideoRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GenerateStoryRoleVideoRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateStoryRoleVideoRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PosterId
+	if m.GetPosterId() <= 0 {
+		err := GenerateStoryRoleVideoRequestValidationError{
+			field:  "PosterId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for RefBackgroundUrl
 
 	// no validation rules for RefAvatarUrl
 
-	// no validation rules for TextPrompt
+	if utf8.RuneCountInString(m.GetTextPrompt()) > 2000 {
+		err := GenerateStoryRoleVideoRequestValidationError{
+			field:  "TextPrompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for ImageRatios
 
@@ -12886,11 +13596,38 @@ func (m *GetStoryParticipantsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryParticipantsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryParticipantsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryParticipantsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryParticipantsRequestMultiError(errors)
@@ -13140,11 +13877,38 @@ func (m *UpdateStoryAvatarRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryAvatarRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryAvatarRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for AvatarUrl
+	if utf8.RuneCountInString(m.GetAvatarUrl()) < 1 {
+		err := UpdateStoryAvatarRequestValidationError{
+			field:  "AvatarUrl",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateStoryAvatarRequestMultiError(errors)
@@ -13354,9 +14118,27 @@ func (m *UpdateStoryCoverRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryCoverRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryCoverRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for CoverUrl
 
@@ -13570,7 +14352,16 @@ func (m *GetStoryImageStyleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryImageStyleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryImageStyleRequestMultiError(errors)
@@ -13920,13 +14711,40 @@ func (m *UpdateStoryImageStyleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryImageStyleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StyleId
+	if m.GetStyleId() <= 0 {
+		err := UpdateStoryImageStyleRequestValidationError{
+			field:  "StyleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Style
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryImageStyleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateStoryImageStyleRequestMultiError(errors)
@@ -14139,11 +14957,38 @@ func (m *UpdateStorySenceMaxNumberRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStorySenceMaxNumberRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for MaxNumber
+	if val := m.GetMaxNumber(); val < 1 || val > 1000 {
+		err := UpdateStorySenceMaxNumberRequestValidationError{
+			field:  "MaxNumber",
+			reason: "value must be inside range [1, 1000]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStorySenceMaxNumberRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateStorySenceMaxNumberRequestMultiError(errors)
@@ -14358,13 +15203,49 @@ func (m *UpdateStoryRolePromptRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryRolePromptRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateStoryRolePromptRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryRolePromptRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := UpdateStoryRolePromptRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateStoryRolePromptRequestMultiError(errors)
@@ -14578,11 +15459,49 @@ func (m *UpdateStoryRoleDescriptionDetailRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryRoleDescriptionDetailRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateStoryRoleDescriptionDetailRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryRoleDescriptionDetailRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetCharacterDetail() == nil {
+		err := UpdateStoryRoleDescriptionDetailRequestValidationError{
+			field:  "CharacterDetail",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if all {
 		switch v := interface{}(m.GetCharacterDetail()).(type) {
@@ -14829,9 +15748,38 @@ func (m *GenerateStoryRoleParams) validate(all bool) error {
 
 	// no validation rules for OriginImageUrl
 
-	// no validation rules for TextPrompt
+	if len(m.GetAdditionalImageUrls()) > 5 {
+		err := GenerateStoryRoleParamsValidationError{
+			field:  "AdditionalImageUrls",
+			reason: "value must contain no more than 5 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NegativePrompt
+	if utf8.RuneCountInString(m.GetTextPrompt()) > 2000 {
+		err := GenerateStoryRoleParamsValidationError{
+			field:  "TextPrompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetNegativePrompt()) > 1000 {
+		err := GenerateStoryRoleParamsValidationError{
+			field:  "NegativePrompt",
+			reason: "value length must be at most 1000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Style
 
@@ -14937,11 +15885,49 @@ func (m *GenerateStoryRolePosterRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GenerateStoryRolePosterRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GenerateStoryRolePosterRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateStoryRolePosterRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetParams() == nil {
+		err := GenerateStoryRolePosterRequestValidationError{
+			field:  "Params",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if all {
 		switch v := interface{}(m.GetParams()).(type) {
@@ -15186,13 +16172,49 @@ func (m *UpdateStoryRolePosterRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UpdateStoryRolePosterRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateStoryRolePosterRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryRolePosterRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PosterId
+	if m.GetPosterId() <= 0 {
+		err := UpdateStoryRolePosterRequestValidationError{
+			field:  "PosterId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for ImageUrl
 
@@ -15410,11 +16432,38 @@ func (m *GetFollowListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetFollowListRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetFollowListRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetFollowListRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetFollowListRequestMultiError(errors)
@@ -15662,11 +16711,38 @@ func (m *GetFollowerListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetFollowerListRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetFollowerListRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetFollowerListRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetFollowerListRequestMultiError(errors)
@@ -15914,9 +16990,27 @@ func (m *FollowUserRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := FollowUserRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for FollowerId
+	if m.GetFollowerId() <= 0 {
+		err := FollowUserRequestValidationError{
+			field:  "FollowerId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return FollowUserRequestMultiError(errors)
@@ -16126,9 +17220,27 @@ func (m *UnfollowUserRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UnfollowUserRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for FollowerId
+	if m.GetFollowerId() <= 0 {
+		err := UnfollowUserRequestValidationError{
+			field:  "FollowerId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UnfollowUserRequestMultiError(errors)
@@ -16338,13 +17450,49 @@ func (m *TrendingStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Start
+	if m.GetStart() <= 0 {
+		err := TrendingStoryRoleRequestValidationError{
+			field:  "Start",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for End
+	if m.GetEnd() <= 0 {
+		err := TrendingStoryRoleRequestValidationError{
+			field:  "End",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := TrendingStoryRoleRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageNumber
+	if m.GetPageNumber() < 1 {
+		err := TrendingStoryRoleRequestValidationError{
+			field:  "PageNumber",
+			reason: "value must be greater than or equal to 1",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return TrendingStoryRoleRequestMultiError(errors)
@@ -16583,13 +17731,49 @@ func (m *TrendingStoryRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Start
+	if m.GetStart() <= 0 {
+		err := TrendingStoryRequestValidationError{
+			field:  "Start",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for End
+	if m.GetEnd() <= 0 {
+		err := TrendingStoryRequestValidationError{
+			field:  "End",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := TrendingStoryRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageNumber
+	if m.GetPageNumber() < 1 {
+		err := TrendingStoryRequestValidationError{
+			field:  "PageNumber",
+			reason: "value must be greater than or equal to 1",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return TrendingStoryRequestMultiError(errors)
@@ -16828,17 +18012,71 @@ func (m *GetStoryRoleListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for BoardId
+	if m.GetBoardId() < 0 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for SearchKey
+	if utf8.RuneCountInString(m.GetSearchKey()) > 100 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "SearchKey",
+			reason: "value length must be at most 100 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryRoleListRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryRoleListRequestMultiError(errors)
@@ -17086,9 +18324,27 @@ func (m *ArchiveStoryRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := ArchiveStoryRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := ArchiveStoryRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ArchiveStoryRequestMultiError(errors)
@@ -17298,11 +18554,38 @@ func (m *CreateStoryCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := CreateStoryCommentRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateStoryCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Content
+	if l := utf8.RuneCountInString(m.GetContent()); l < 1 || l > 2000 {
+		err := CreateStoryCommentRequestValidationError{
+			field:  "Content",
+			reason: "value length must be between 1 and 2000 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CreateStoryCommentRequestMultiError(errors)
@@ -17541,13 +18824,49 @@ func (m *GetStoryCommentsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryCommentsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryCommentsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryCommentsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryCommentsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryCommentsRequestMultiError(errors)
@@ -17955,9 +19274,27 @@ func (m *DeleteStoryCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := DeleteStoryCommentRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := DeleteStoryCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DeleteStoryCommentRequestMultiError(errors)
@@ -18167,13 +19504,49 @@ func (m *GetStoryCommentRepliesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := GetStoryCommentRepliesRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryCommentRepliesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryCommentRepliesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryCommentRepliesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryCommentRepliesRequestMultiError(errors)
@@ -18427,11 +19800,38 @@ func (m *CreateStoryCommentReplyRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := CreateStoryCommentReplyRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateStoryCommentReplyRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Content
+	if l := utf8.RuneCountInString(m.GetContent()); l < 1 || l > 2000 {
+		err := CreateStoryCommentReplyRequestValidationError{
+			field:  "Content",
+			reason: "value length must be between 1 and 2000 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CreateStoryCommentReplyRequestMultiError(errors)
@@ -18672,9 +20072,27 @@ func (m *DeleteStoryCommentReplyRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for ReplyId
+	if m.GetReplyId() <= 0 {
+		err := DeleteStoryCommentReplyRequestValidationError{
+			field:  "ReplyId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := DeleteStoryCommentReplyRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DeleteStoryCommentReplyRequestMultiError(errors)
@@ -18886,13 +20304,49 @@ func (m *GetStoryBoardCommentsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for BoardId
+	if m.GetBoardId() <= 0 {
+		err := GetStoryBoardCommentsRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryBoardCommentsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryBoardCommentsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryBoardCommentsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryBoardCommentsRequestMultiError(errors)
@@ -19146,11 +20600,38 @@ func (m *CreateStoryBoardCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for BoardId
+	if m.GetBoardId() <= 0 {
+		err := CreateStoryBoardCommentRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateStoryBoardCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Content
+	if l := utf8.RuneCountInString(m.GetContent()); l < 1 || l > 2000 {
+		err := CreateStoryBoardCommentRequestValidationError{
+			field:  "Content",
+			reason: "value length must be between 1 and 2000 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CreateStoryBoardCommentRequestMultiError(errors)
@@ -19391,11 +20872,38 @@ func (m *DeleteStoryBoardCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for BoardId
+	if m.GetBoardId() <= 0 {
+		err := DeleteStoryBoardCommentRequestValidationError{
+			field:  "BoardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := DeleteStoryBoardCommentRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := DeleteStoryBoardCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DeleteStoryBoardCommentRequestMultiError(errors)
@@ -19608,13 +21116,49 @@ func (m *GetStoryBoardCommentRepliesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := GetStoryBoardCommentRepliesRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryBoardCommentRepliesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryBoardCommentRepliesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryBoardCommentRepliesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryBoardCommentRepliesRequestMultiError(errors)
@@ -19871,9 +21415,27 @@ func (m *LikeCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := LikeCommentRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := LikeCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LikeCommentRequestMultiError(errors)
@@ -20083,9 +21645,27 @@ func (m *DislikeCommentRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for CommentId
+	if m.GetCommentId() <= 0 {
+		err := DislikeCommentRequestValidationError{
+			field:  "CommentId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := DislikeCommentRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DislikeCommentRequestMultiError(errors)
@@ -20295,11 +21875,38 @@ func (m *UpdateRolePromptRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateRolePromptRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateRolePromptRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := UpdateRolePromptRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateRolePromptRequestMultiError(errors)
@@ -20509,13 +22116,49 @@ func (m *GenerateRolePromptRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GenerateRolePromptRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateRolePromptRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GenerateRolePromptRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := GenerateRolePromptRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GenerateRolePromptRequestMultiError(errors)
@@ -20727,11 +22370,38 @@ func (m *UpdateRoleDescriptionRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateRoleDescriptionRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateRoleDescriptionRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Description
+	if utf8.RuneCountInString(m.GetDescription()) > 2000 {
+		err := UpdateRoleDescriptionRequestValidationError{
+			field:  "Description",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateRoleDescriptionRequestMultiError(errors)
@@ -20943,13 +22613,49 @@ func (m *GenerateRoleDescriptionRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GenerateRoleDescriptionRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GenerateRoleDescriptionRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GenerateRoleDescriptionRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Description
+	if utf8.RuneCountInString(m.GetDescription()) > 2000 {
+		err := GenerateRoleDescriptionRequestValidationError{
+			field:  "Description",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GenerateRoleDescriptionRequestMultiError(errors)
@@ -21190,11 +22896,38 @@ func (m *GetUnPublishStoryboardRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUnPublishStoryboardRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUnPublishStoryboardRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUnPublishStoryboardRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUnPublishStoryboardRequestMultiError(errors)
@@ -21450,15 +23183,60 @@ func (m *GetUserWatchRoleActiveStoryBoardsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserWatchRoleActiveStoryBoardsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetUserWatchRoleActiveStoryBoardsRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUserWatchRoleActiveStoryBoardsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUserWatchRoleActiveStoryBoardsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Filter
+	if utf8.RuneCountInString(m.GetFilter()) > 50 {
+		err := GetUserWatchRoleActiveStoryBoardsRequestValidationError{
+			field:  "Filter",
+			reason: "value length must be at most 50 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserWatchRoleActiveStoryBoardsRequestMultiError(errors)
@@ -21718,15 +23496,60 @@ func (m *GetUserWatchStoryActiveStoryBoardsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserWatchStoryActiveStoryBoardsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetUserWatchStoryActiveStoryBoardsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUserWatchStoryActiveStoryBoardsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUserWatchStoryActiveStoryBoardsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Filter
+	if utf8.RuneCountInString(m.GetFilter()) > 50 {
+		err := GetUserWatchStoryActiveStoryBoardsRequestValidationError{
+			field:  "Filter",
+			reason: "value length must be at most 50 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserWatchStoryActiveStoryBoardsRequestMultiError(errors)
@@ -21984,9 +23807,27 @@ func (m *SaveStoryboardCraftRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := SaveStoryboardCraftRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := SaveStoryboardCraftRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return SaveStoryboardCraftRequestMultiError(errors)
@@ -22197,9 +24038,27 @@ func (m *PublishStoryboardRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := PublishStoryboardRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := PublishStoryboardRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return PublishStoryboardRequestMultiError(errors)
@@ -22409,9 +24268,27 @@ func (m *CancelStoryboardRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := CancelStoryboardRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CancelStoryboardRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CancelStoryboardRequestMultiError(errors)
@@ -22622,13 +24499,49 @@ func (m *RenderStoryRoleContinuouslyRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := RenderStoryRoleContinuouslyRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := RenderStoryRoleContinuouslyRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := RenderStoryRoleContinuouslyRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := RenderStoryRoleContinuouslyRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for ReferenceImage
 
@@ -22876,17 +24789,62 @@ func (m *GetNextStoryboardRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := GetNextStoryboardRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetNextStoryboardRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetNextStoryboardRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for IsMultiBranch
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetNextStoryboardRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetNextStoryboardRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Total
 
@@ -23144,13 +25102,49 @@ func (m *GetUserChatMessagesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserChatMessagesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for ChatId
+	if m.GetChatId() <= 0 {
+		err := GetUserChatMessagesRequestValidationError{
+			field:  "ChatId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetUserChatMessagesRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Timestamp
+	if m.GetTimestamp() < 0 {
+		err := GetUserChatMessagesRequestValidationError{
+			field:  "Timestamp",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserChatMessagesRequestMultiError(errors)
@@ -23401,9 +25395,27 @@ func (m *GetUserChatWithRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetUserChatWithRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserChatWithRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserChatWithRoleRequestMultiError(errors)
@@ -23681,17 +25693,71 @@ func (m *GetStoryRoleStoryboardsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Filter
+	if utf8.RuneCountInString(m.GetFilter()) > 50 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "Filter",
+			reason: "value length must be at most 50 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryRoleStoryboardsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryRoleStoryboardsRequestMultiError(errors)
@@ -23945,15 +26011,60 @@ func (m *GetStoryRoleStoriesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetStoryRoleStoriesRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetStoryRoleStoriesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Filter
+	if utf8.RuneCountInString(m.GetFilter()) > 50 {
+		err := GetStoryRoleStoriesRequestValidationError{
+			field:  "Filter",
+			reason: "value length must be at most 50 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetStoryRoleStoriesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetStoryRoleStoriesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryRoleStoriesRequestMultiError(errors)
@@ -24206,9 +26317,27 @@ func (m *CreateStoryRoleChatRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := CreateStoryRoleChatRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateStoryRoleChatRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CreateStoryRoleChatRequestMultiError(errors)
@@ -24648,9 +26777,38 @@ func (m *ChatWithStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := ChatWithStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := ChatWithStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(m.GetMessages()) > 50 {
+		err := ChatWithStoryRoleRequestValidationError{
+			field:  "Messages",
+			reason: "value must contain no more than 50 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	for idx, item := range m.GetMessages() {
 		_, _ = idx, item
@@ -24936,7 +27094,27 @@ func (m *UpdateStoryRoleDetailRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateStoryRoleDetailRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetRole() == nil {
+		err := UpdateStoryRoleDetailRequestValidationError{
+			field:  "Role",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if all {
 		switch v := interface{}(m.GetRole()).(type) {
@@ -24967,7 +27145,16 @@ func (m *UpdateStoryRoleDetailRequest) validate(all bool) error {
 		}
 	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryRoleDetailRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for NeedRegen
 
@@ -25183,11 +27370,38 @@ func (m *UpdateStoryRoleAvatorRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UpdateStoryRoleAvatorRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Avator
+	if utf8.RuneCountInString(m.GetAvator()) < 1 {
+		err := UpdateStoryRoleAvatorRequestValidationError{
+			field:  "Avator",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryRoleAvatorRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateStoryRoleAvatorRequestMultiError(errors)
@@ -25399,13 +27613,49 @@ func (m *GetUserWithRoleChatListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserWithRoleChatListRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := GetUserWithRoleChatListRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUserWithRoleChatListRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUserWithRoleChatListRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserWithRoleChatListRequestMultiError(errors)
@@ -25660,15 +27910,60 @@ func (m *GetUserCreatedStoryboardsRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserCreatedStoryboardsRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := GetUserCreatedStoryboardsRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Stage
+	if m.GetStage() < 0 {
+		err := GetUserCreatedStoryboardsRequestValidationError{
+			field:  "Stage",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUserCreatedStoryboardsRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUserCreatedStoryboardsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserCreatedStoryboardsRequestMultiError(errors)
@@ -25925,15 +28220,60 @@ func (m *GetUserCreatedRolesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserCreatedRolesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := GetUserCreatedRolesRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Stage
+	if m.GetStage() < 0 {
+		err := GetUserCreatedRolesRequestValidationError{
+			field:  "Stage",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := GetUserCreatedRolesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := GetUserCreatedRolesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserCreatedRolesRequestMultiError(errors)
@@ -26186,11 +28526,38 @@ func (m *LikeStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := LikeStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := LikeStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := LikeStoryRoleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LikeStoryRoleRequestMultiError(errors)
@@ -26400,11 +28767,38 @@ func (m *UnLikeStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UnLikeStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UnLikeStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UnLikeStoryRoleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UnLikeStoryRoleRequestMultiError(errors)
@@ -26614,11 +29008,38 @@ func (m *FollowStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := FollowStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := FollowStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := FollowStoryRoleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return FollowStoryRoleRequestMultiError(errors)
@@ -26828,11 +29249,38 @@ func (m *UnFollowStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := UnFollowStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UnFollowStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UnFollowStoryRoleRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UnFollowStoryRoleRequestMultiError(errors)
@@ -27042,17 +29490,62 @@ func (m *SearchStoriesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := SearchStoriesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Keyword
+	if l := utf8.RuneCountInString(m.GetKeyword()); l < 1 || l > 200 {
+		err := SearchStoriesRequestValidationError{
+			field:  "Keyword",
+			reason: "value length must be between 1 and 200 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := SearchStoriesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := SearchStoriesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Scope
 
-	// no validation rules for GroupId
+	if m.GetGroupId() < 0 {
+		err := SearchStoriesRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return SearchStoriesRequestMultiError(errors)
@@ -27300,19 +29793,73 @@ func (m *SearchRolesRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := SearchRolesRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Keyword
+	if l := utf8.RuneCountInString(m.GetKeyword()); l < 1 || l > 200 {
+		err := SearchRolesRequestValidationError{
+			field:  "Keyword",
+			reason: "value length must be between 1 and 200 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := SearchRolesRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := SearchRolesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Scope
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := SearchRolesRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for GroupId
+	if m.GetGroupId() < 0 {
+		err := SearchRolesRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return SearchRolesRequestMultiError(errors)
@@ -27560,11 +30107,38 @@ func (m *RestoreStoryboardRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := RestoreStoryboardRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := RestoreStoryboardRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := RestoreStoryboardRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return RestoreStoryboardRequestMultiError(errors)
@@ -27971,7 +30545,16 @@ func (m *GetUserProfileRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GetUserProfileRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetUserProfileRequestMultiError(errors)
@@ -28210,25 +30793,121 @@ func (m *UpdateUserProfileRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateUserProfileRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for BackgroundImage
 
 	// no validation rules for Avatar
 
-	// no validation rules for Name
+	if utf8.RuneCountInString(m.GetName()) > 50 {
+		err := UpdateUserProfileRequestValidationError{
+			field:  "Name",
+			reason: "value length must be at most 50 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Description
+	if utf8.RuneCountInString(m.GetDescription()) > 500 {
+		err := UpdateUserProfileRequestValidationError{
+			field:  "Description",
+			reason: "value length must be at most 500 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Location
+	if utf8.RuneCountInString(m.GetLocation()) > 100 {
+		err := UpdateUserProfileRequestValidationError{
+			field:  "Location",
+			reason: "value length must be at most 100 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Email
+	if err := m._validateEmail(m.GetEmail()); err != nil {
+		err = UpdateUserProfileRequestValidationError{
+			field:  "Email",
+			reason: "value must be a valid email address",
+			cause:  err,
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UpdateUserProfileRequestMultiError(errors)
 	}
 
 	return nil
+}
+
+func (m *UpdateUserProfileRequest) _validateHostname(host string) error {
+	s := strings.ToLower(strings.TrimSuffix(host, "."))
+
+	if len(host) > 253 {
+		return errors.New("hostname cannot exceed 253 characters")
+	}
+
+	for _, part := range strings.Split(s, ".") {
+		if l := len(part); l == 0 || l > 63 {
+			return errors.New("hostname part must be non-empty and cannot exceed 63 characters")
+		}
+
+		if part[0] == '-' {
+			return errors.New("hostname parts cannot begin with hyphens")
+		}
+
+		if part[len(part)-1] == '-' {
+			return errors.New("hostname parts cannot end with hyphens")
+		}
+
+		for _, r := range part {
+			if (r < 'a' || r > 'z') && (r < '0' || r > '9') && r != '-' {
+				return fmt.Errorf("hostname parts can only contain alphanumeric characters or hyphens, got %q", string(r))
+			}
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateUserProfileRequest) _validateEmail(addr string) error {
+	a, err := mail.ParseAddress(addr)
+	if err != nil {
+		return err
+	}
+	addr = a.Address
+
+	if len(addr) > 254 {
+		return errors.New("email addresses cannot exceed 254 characters")
+	}
+
+	parts := strings.SplitN(addr, "@", 2)
+
+	if len(parts[0]) > 64 {
+		return errors.New("email address local phrase cannot exceed 64 characters")
+	}
+
+	return m._validateHostname(parts[1])
 }
 
 // UpdateUserProfileRequestMultiError is an error wrapping multiple validation
@@ -28650,7 +31329,27 @@ func (m *CreateStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := CreateStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetRole() == nil {
+		err := CreateStoryRoleRequestValidationError{
+			field:  "Role",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if all {
 		switch v := interface{}(m.GetRole()).(type) {
@@ -28889,7 +31588,16 @@ func (m *GetStoryRoleDetailRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := GetStoryRoleDetailRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GetStoryRoleDetailRequestMultiError(errors)
@@ -29128,11 +31836,49 @@ func (m *RenderStoryRoleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleId
+	if m.GetRoleId() <= 0 {
+		err := RenderStoryRoleRequestValidationError{
+			field:  "RoleId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Prompt
+	if utf8.RuneCountInString(m.GetPrompt()) > 2000 {
+		err := RenderStoryRoleRequestValidationError{
+			field:  "Prompt",
+			reason: "value length must be at most 2000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if len(m.GetRefImages()) > 10 {
+		err := RenderStoryRoleRequestValidationError{
+			field:  "RefImages",
+			reason: "value must contain no more than 10 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetUserId() <= 0 {
+		err := RenderStoryRoleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return RenderStoryRoleRequestMultiError(errors)
@@ -29499,9 +32245,27 @@ func (m *LikeStoryRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := LikeStoryRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := LikeStoryRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return LikeStoryRequestMultiError(errors)
@@ -29709,9 +32473,27 @@ func (m *UnLikeStoryRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for StoryId
+	if m.GetStoryId() <= 0 {
+		err := UnLikeStoryRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UnLikeStoryRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UnLikeStoryRequestMultiError(errors)
@@ -29922,11 +32704,38 @@ func (m *DeleteUserStoryboardDraftRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := DeleteUserStoryboardDraftRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for DraftId
+	if m.GetDraftId() <= 0 {
+		err := DeleteUserStoryboardDraftRequestValidationError{
+			field:  "DraftId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := DeleteUserStoryboardDraftRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DeleteUserStoryboardDraftRequestMultiError(errors)
@@ -30141,11 +32950,38 @@ func (m *HeatmapDataItem) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Date
+	if !_HeatmapDataItem_Date_Pattern.MatchString(m.GetDate()) {
+		err := HeatmapDataItemValidationError{
+			field:  "Date",
+			reason: "value does not match regex pattern \"^\\\\d{4}-\\\\d{2}-\\\\d{2}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Count
+	if m.GetCount() < 0 {
+		err := HeatmapDataItemValidationError{
+			field:  "Count",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Level
+	if val := m.GetLevel(); val < 0 || val > 4 {
+		err := HeatmapDataItemValidationError{
+			field:  "Level",
+			reason: "value must be inside range [0, 4]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return HeatmapDataItemMultiError(errors)
@@ -30225,6 +33061,8 @@ var _ interface {
 	ErrorName() string
 } = HeatmapDataItemValidationError{}
 
+var _HeatmapDataItem_Date_Pattern = regexp.MustCompile("^\\d{4}-\\d{2}-\\d{2}$")
+
 // Validate checks the field values on UserActiveHeamapRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -30247,11 +33085,38 @@ func (m *UserActiveHeamapRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UserActiveHeamapRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StartTime
+	if m.GetStartTime() <= 0 {
+		err := UserActiveHeamapRequestValidationError{
+			field:  "StartTime",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for EndTime
+	if m.GetEndTime() <= 0 {
+		err := UserActiveHeamapRequestValidationError{
+			field:  "EndTime",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UserActiveHeamapRequestMultiError(errors)
@@ -30393,7 +33258,16 @@ func (m *UserActiveHeamapResponse) validate(all bool) error {
 
 	}
 
-	// no validation rules for TotalCount
+	if m.GetTotalCount() < 0 {
+		err := UserActiveHeamapResponseValidationError{
+			field:  "TotalCount",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UserActiveHeamapResponseMultiError(errors)
@@ -30497,13 +33371,49 @@ func (m *GroupActiveHeamapRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for GroupId
+	if m.GetGroupId() <= 0 {
+		err := GroupActiveHeamapRequestValidationError{
+			field:  "GroupId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := GroupActiveHeamapRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StartTime
+	if m.GetStartTime() <= 0 {
+		err := GroupActiveHeamapRequestValidationError{
+			field:  "StartTime",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for EndTime
+	if m.GetEndTime() <= 0 {
+		err := GroupActiveHeamapRequestValidationError{
+			field:  "EndTime",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GroupActiveHeamapRequestMultiError(errors)
@@ -30645,9 +33555,27 @@ func (m *GroupActiveHeamapResponse) validate(all bool) error {
 
 	}
 
-	// no validation rules for TotalCount
+	if m.GetTotalCount() < 0 {
+		err := GroupActiveHeamapResponseValidationError{
+			field:  "TotalCount",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for MemberCount
+	if m.GetMemberCount() < 0 {
+		err := GroupActiveHeamapResponseValidationError{
+			field:  "MemberCount",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return GroupActiveHeamapResponseMultiError(errors)
@@ -30751,9 +33679,27 @@ func (m *UpdateStoryboardForkAbleRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UpdateStoryboardForkAbleRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryboardId
+	if m.GetStoryboardId() <= 0 {
+		err := UpdateStoryboardForkAbleRequestValidationError{
+			field:  "StoryboardId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for ForkAble
 
@@ -30947,126 +33893,6 @@ var _ interface {
 	ErrorName() string
 } = UpdateStoryboardForkAbleResponseValidationError{}
 
-// Validate checks the field values on StoryboardDraftItem with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *StoryboardDraftItem) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on StoryboardDraftItem with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// StoryboardDraftItemMultiError, or nil if none found.
-func (m *StoryboardDraftItem) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *StoryboardDraftItem) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	// no validation rules for DraftId
-
-	// no validation rules for StoryId
-
-	// no validation rules for StoryboardId
-
-	// no validation rules for Title
-
-	// no validation rules for Content
-
-	// no validation rules for CoverImage
-
-	// no validation rules for CreatedAt
-
-	// no validation rules for UpdatedAt
-
-	// no validation rules for Version
-
-	if len(errors) > 0 {
-		return StoryboardDraftItemMultiError(errors)
-	}
-
-	return nil
-}
-
-// StoryboardDraftItemMultiError is an error wrapping multiple validation
-// errors returned by StoryboardDraftItem.ValidateAll() if the designated
-// constraints aren't met.
-type StoryboardDraftItemMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m StoryboardDraftItemMultiError) Error() string {
-	msgs := make([]string, 0, len(m))
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m StoryboardDraftItemMultiError) AllErrors() []error { return m }
-
-// StoryboardDraftItemValidationError is the validation error returned by
-// StoryboardDraftItem.Validate if the designated constraints aren't met.
-type StoryboardDraftItemValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e StoryboardDraftItemValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e StoryboardDraftItemValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e StoryboardDraftItemValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e StoryboardDraftItemValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e StoryboardDraftItemValidationError) ErrorName() string {
-	return "StoryboardDraftItemValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e StoryboardDraftItemValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sStoryboardDraftItem.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = StoryboardDraftItemValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = StoryboardDraftItemValidationError{}
-
 // Validate checks the field values on UserStoryboardDraftlistRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -31089,13 +33915,49 @@ func (m *UserStoryboardDraftlistRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UserStoryboardDraftlistRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Offset
+	if m.GetOffset() < 0 {
+		err := UserStoryboardDraftlistRequestValidationError{
+			field:  "Offset",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for PageSize
+	if val := m.GetPageSize(); val < 1 || val > 100 {
+		err := UserStoryboardDraftlistRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be inside range [1, 100]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for StoryId
+	if m.GetStoryId() < 0 {
+		err := UserStoryboardDraftlistRequestValidationError{
+			field:  "StoryId",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UserStoryboardDraftlistRequestMultiError(errors)
@@ -31238,7 +34100,16 @@ func (m *UserStoryboardDraftlistResponse) validate(all bool) error {
 
 	}
 
-	// no validation rules for Total
+	if m.GetTotal() < 0 {
+		err := UserStoryboardDraftlistResponseValidationError{
+			field:  "Total",
+			reason: "value must be greater than or equal to 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for HaveMore
 
@@ -31351,9 +34222,27 @@ func (m *StoryboardDraftDetail) validate(all bool) error {
 
 	// no validation rules for StoryboardId
 
-	// no validation rules for Title
+	if utf8.RuneCountInString(m.GetTitle()) > 200 {
+		err := StoryboardDraftDetailValidationError{
+			field:  "Title",
+			reason: "value length must be at most 200 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Content
+	if utf8.RuneCountInString(m.GetContent()) > 10000 {
+		err := StoryboardDraftDetailValidationError{
+			field:  "Content",
+			reason: "value length must be at most 10000 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Background
 
@@ -31453,7 +34342,7 @@ func (m *StoryboardDraftDetail) validate(all bool) error {
 
 	// no validation rules for UpdatedAt
 
-	// no validation rules for Version
+	// no validation rules for Stage
 
 	// no validation rules for UserId
 
@@ -31560,9 +34449,27 @@ func (m *UserDraftStoryboardDetailRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if m.GetUserId() <= 0 {
+		err := UserDraftStoryboardDetailRequestValidationError{
+			field:  "UserId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for DraftId
+	if m.GetDraftId() <= 0 {
+		err := UserDraftStoryboardDetailRequestValidationError{
+			field:  "DraftId",
+			reason: "value must be greater than 0",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return UserDraftStoryboardDetailRequestMultiError(errors)

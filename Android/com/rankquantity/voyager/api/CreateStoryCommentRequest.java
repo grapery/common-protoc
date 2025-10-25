@@ -6,6 +6,12 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 创建故事评论请求
+ * / 
+ * / 在故事下创建新的评论，支持富文本内容和&#64;提及功能
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.CreateStoryCommentRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +53,14 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; [必填] 故事ID
+   * / 
+   * / 要评论的故事唯一标识
+   * / 验证规则：必须大于 0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +71,15 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; [必填] 评论者用户ID
+   * / 
+   * / 发表评论的用户ID
+   * / 验证规则：必须大于 0
+   * / 权限要求：用户必须已登录
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,7 +91,16 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object content_ = "";
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; [必填] 评论内容
+   * / 
+   * / 评论的文本内容
+   * / 长度限制：1-2000 字符
+   * / 支持：纯文本、Markdown、&#64;用户提及
+   * / 内容要求：不能包含违规内容
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The content.
    */
   @java.lang.Override
@@ -87,7 +117,16 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string content = 3 [json_name = "content"];</code>
+   * <pre>
+   * &#47; [必填] 评论内容
+   * / 
+   * / 评论的文本内容
+   * / 长度限制：1-2000 字符
+   * / 支持：纯文本、Markdown、&#64;用户提及
+   * / 内容要求：不能包含违规内容
+   * </pre>
+   *
+   * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for content.
    */
   @java.lang.Override
@@ -286,6 +325,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 创建故事评论请求
+   * / 
+   * / 在故事下创建新的评论，支持富文本内容和&#64;提及功能
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.CreateStoryCommentRequest}
    */
   public static final class Builder extends
@@ -449,7 +494,14 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; [必填] 故事ID
+     * / 
+     * / 要评论的故事唯一标识
+     * / 验证规则：必须大于 0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -457,7 +509,14 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; [必填] 故事ID
+     * / 
+     * / 要评论的故事唯一标识
+     * / 验证规则：必须大于 0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -469,7 +528,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; [必填] 故事ID
+     * / 
+     * / 要评论的故事唯一标识
+     * / 验证规则：必须大于 0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -481,7 +547,15 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; [必填] 评论者用户ID
+     * / 
+     * / 发表评论的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：用户必须已登录
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -489,7 +563,15 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; [必填] 评论者用户ID
+     * / 
+     * / 发表评论的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：用户必须已登录
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -501,7 +583,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; [必填] 评论者用户ID
+     * / 
+     * / 发表评论的用户ID
+     * / 验证规则：必须大于 0
+     * / 权限要求：用户必须已登录
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -513,7 +603,16 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object content_ = "";
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; [必填] 评论内容
+     * / 
+     * / 评论的文本内容
+     * / 长度限制：1-2000 字符
+     * / 支持：纯文本、Markdown、&#64;用户提及
+     * / 内容要求：不能包含违规内容
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The content.
      */
     public java.lang.String getContent() {
@@ -529,7 +628,16 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; [必填] 评论内容
+     * / 
+     * / 评论的文本内容
+     * / 长度限制：1-2000 字符
+     * / 支持：纯文本、Markdown、&#64;用户提及
+     * / 内容要求：不能包含违规内容
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for content.
      */
     public com.google.protobuf.ByteString
@@ -546,7 +654,16 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; [必填] 评论内容
+     * / 
+     * / 评论的文本内容
+     * / 长度限制：1-2000 字符
+     * / 支持：纯文本、Markdown、&#64;用户提及
+     * / 内容要求：不能包含违规内容
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The content to set.
      * @return This builder for chaining.
      */
@@ -559,7 +676,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; [必填] 评论内容
+     * / 
+     * / 评论的文本内容
+     * / 长度限制：1-2000 字符
+     * / 支持：纯文本、Markdown、&#64;用户提及
+     * / 内容要求：不能包含违规内容
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContent() {
@@ -569,7 +695,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content = 3 [json_name = "content"];</code>
+     * <pre>
+     * &#47; [必填] 评论内容
+     * / 
+     * / 评论的文本内容
+     * / 长度限制：1-2000 字符
+     * / 支持：纯文本、Markdown、&#64;用户提及
+     * / 内容要求：不能包含违规内容
+     * </pre>
+     *
+     * <code>string content = 3 [json_name = "content", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for content to set.
      * @return This builder for chaining.
      */

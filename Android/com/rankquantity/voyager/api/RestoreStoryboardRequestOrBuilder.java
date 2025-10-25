@@ -11,19 +11,31 @@ public interface RestoreStoryboardRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 storyboard_id = 1 [json_name = "storyboardId"];</code>
+   * <pre>
+   * &#47; 故事板ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 storyboard_id = 1 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
    * @return The storyboardId.
    */
   long getStoryboardId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();

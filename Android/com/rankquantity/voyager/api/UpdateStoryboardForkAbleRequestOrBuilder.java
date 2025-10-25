@@ -12,27 +12,40 @@ public interface UpdateStoryboardForkAbleRequestOrBuilder extends
 
   /**
    * <pre>
-   * 用户ID
+   * &#47; [必填] 用户ID
+   * / 
+   * / 故事板所有者的用户ID
+   * / 验证规则：必须大于 0
+   * / 权限要求：仅所有者可修改分叉权限
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
    * <pre>
-   * 故事板ID
+   * &#47; [必填] 故事板ID
+   * / 
+   * / 要设置权限的故事板唯一标识
+   * / 验证规则：必须大于 0
    * </pre>
    *
-   * <code>int64 storyboard_id = 2 [json_name = "storyboardId"];</code>
+   * <code>int64 storyboard_id = 2 [json_name = "storyboardId", (.validate.rules) = { ... }</code>
    * @return The storyboardId.
    */
   long getStoryboardId();
 
   /**
    * <pre>
-   * 是否可分叉
+   * &#47; [必填] 是否允许分叉
+   * / 
+   * / 分叉权限开关
+   * / 取值说明：
+   * / - true: 允许其他用户分叉此故事板
+   * / - false: 禁止分叉，仅所有者可访问
+   * / 默认值：false
    * </pre>
    *
    * <code>bool fork_able = 3 [json_name = "forkAble"];</code>

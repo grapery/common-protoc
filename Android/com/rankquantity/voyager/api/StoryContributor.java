@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 故事贡献者信息
+ * / 表示参与故事创作的用户信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.StoryContributor}
  */
 @com.google.protobuf.Generated
@@ -48,6 +53,10 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 1;
   private long userId_ = 0L;
   /**
+   * <pre>
+   * &#47; 贡献者用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
@@ -60,6 +69,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object username_ = "";
   /**
+   * <pre>
+   * &#47; 贡献者用户名
+   * </pre>
+   *
    * <code>string username = 2 [json_name = "username"];</code>
    * @return The username.
    */
@@ -77,6 +90,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 贡献者用户名
+   * </pre>
+   *
    * <code>string username = 2 [json_name = "username"];</code>
    * @return The bytes for username.
    */
@@ -99,6 +116,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avatar_ = "";
   /**
+   * <pre>
+   * &#47; 贡献者头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The avatar.
    */
@@ -116,6 +137,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 贡献者头像URL
+   * </pre>
+   *
    * <code>string avatar = 3 [json_name = "avatar"];</code>
    * @return The bytes for avatar.
    */
@@ -137,6 +162,10 @@ private static final long serialVersionUID = 0L;
   public static final int VIPLEVEL_FIELD_NUMBER = 4;
   private long viplevel_ = 0L;
   /**
+   * <pre>
+   * &#47; VIP等级，0表示普通用户
+   * </pre>
+   *
    * <code>int64 viplevel = 4 [json_name = "viplevel"];</code>
    * @return The viplevel.
    */
@@ -336,6 +365,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 故事贡献者信息
+   * / 表示参与故事创作的用户信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.StoryContributor}
    */
   public static final class Builder extends
@@ -513,6 +547,10 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
+     * <pre>
+     * &#47; 贡献者用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
@@ -521,6 +559,10 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
@@ -533,6 +575,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
@@ -545,6 +591,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object username_ = "";
     /**
+     * <pre>
+     * &#47; 贡献者用户名
+     * </pre>
+     *
      * <code>string username = 2 [json_name = "username"];</code>
      * @return The username.
      */
@@ -561,6 +611,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户名
+     * </pre>
+     *
      * <code>string username = 2 [json_name = "username"];</code>
      * @return The bytes for username.
      */
@@ -578,6 +632,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户名
+     * </pre>
+     *
      * <code>string username = 2 [json_name = "username"];</code>
      * @param value The username to set.
      * @return This builder for chaining.
@@ -591,6 +649,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户名
+     * </pre>
+     *
      * <code>string username = 2 [json_name = "username"];</code>
      * @return This builder for chaining.
      */
@@ -601,6 +663,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 贡献者用户名
+     * </pre>
+     *
      * <code>string username = 2 [json_name = "username"];</code>
      * @param value The bytes for username to set.
      * @return This builder for chaining.
@@ -617,6 +683,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avatar_ = "";
     /**
+     * <pre>
+     * &#47; 贡献者头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return The avatar.
      */
@@ -633,6 +703,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 贡献者头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return The bytes for avatar.
      */
@@ -650,6 +724,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 贡献者头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @param value The avatar to set.
      * @return This builder for chaining.
@@ -663,6 +741,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 贡献者头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @return This builder for chaining.
      */
@@ -673,6 +755,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 贡献者头像URL
+     * </pre>
+     *
      * <code>string avatar = 3 [json_name = "avatar"];</code>
      * @param value The bytes for avatar to set.
      * @return This builder for chaining.
@@ -689,6 +775,10 @@ private static final long serialVersionUID = 0L;
 
     private long viplevel_ ;
     /**
+     * <pre>
+     * &#47; VIP等级，0表示普通用户
+     * </pre>
+     *
      * <code>int64 viplevel = 4 [json_name = "viplevel"];</code>
      * @return The viplevel.
      */
@@ -697,6 +787,10 @@ private static final long serialVersionUID = 0L;
       return viplevel_;
     }
     /**
+     * <pre>
+     * &#47; VIP等级，0表示普通用户
+     * </pre>
+     *
      * <code>int64 viplevel = 4 [json_name = "viplevel"];</code>
      * @param value The viplevel to set.
      * @return This builder for chaining.
@@ -709,6 +803,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; VIP等级，0表示普通用户
+     * </pre>
+     *
      * <code>int64 viplevel = 4 [json_name = "viplevel"];</code>
      * @return This builder for chaining.
      */

@@ -11,22 +11,38 @@ public interface GetUserProfileResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,16 +50,28 @@ public interface GetUserProfileResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 用户资料信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserProfileInfo info = 3 [json_name = "info"];</code>
    * @return Whether the info field is set.
    */
   boolean hasInfo();
   /**
+   * <pre>
+   * &#47; 用户资料信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserProfileInfo info = 3 [json_name = "info"];</code>
    * @return The info.
    */
   com.rankquantity.voyager.api.UserProfileInfo getInfo();
   /**
+   * <pre>
+   * &#47; 用户资料信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.UserProfileInfo info = 3 [json_name = "info"];</code>
    */
   com.rankquantity.voyager.api.UserProfileInfoOrBuilder getInfoOrBuilder();

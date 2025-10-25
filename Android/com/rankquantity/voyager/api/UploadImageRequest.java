@@ -6,6 +6,12 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 上传图片请求
+ * / 
+ * / 上传图片文件到服务器，支持多种常见图片格式
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UploadImageRequest}
  */
 @com.google.protobuf.Generated
@@ -49,7 +55,16 @@ private static final long serialVersionUID = 0L;
   public static final int IMAGE_DATA_FIELD_NUMBER = 1;
   private com.google.protobuf.ByteString imageData_ = com.google.protobuf.ByteString.EMPTY;
   /**
-   * <code>bytes image_data = 1 [json_name = "imageData"];</code>
+   * <pre>
+   * &#47; [必填] 图片数据
+   * / 
+   * / 图片的二进制内容
+   * / 大小限制：最大 10MB (10485760 字节)
+   * / 支持格式：JPEG、PNG、GIF、WebP、BMP
+   * / 建议：上传前进行客户端压缩以提高速度
+   * </pre>
+   *
+   * <code>bytes image_data = 1 [json_name = "imageData", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The imageData.
    */
   @java.lang.Override
@@ -61,7 +76,15 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object filename_ = "";
   /**
-   * <code>string filename = 2 [json_name = "filename"];</code>
+   * <pre>
+   * &#47; [必填] 文件名
+   * / 
+   * / 包含扩展名的文件名
+   * / 长度限制：1-255 字符
+   * / 示例：avatar.jpg, cover.png
+   * </pre>
+   *
+   * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The filename.
    */
   @java.lang.Override
@@ -78,7 +101,15 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string filename = 2 [json_name = "filename"];</code>
+   * <pre>
+   * &#47; [必填] 文件名
+   * / 
+   * / 包含扩展名的文件名
+   * / 长度限制：1-255 字符
+   * / 示例：avatar.jpg, cover.png
+   * </pre>
+   *
+   * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for filename.
    */
   @java.lang.Override
@@ -100,7 +131,20 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contentType_ = "";
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <pre>
+   * &#47; [必填] 文件MIME类型
+   * / 
+   * / 图片的内容类型标识
+   * / 格式要求：必须为有效的图片MIME类型
+   * / 允许值：
+   * / - image/jpeg 或 image/jpg
+   * / - image/png
+   * / - image/gif
+   * / - image/webp
+   * / - image/bmp
+   * </pre>
+   *
+   * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The contentType.
    */
   @java.lang.Override
@@ -117,7 +161,20 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string content_type = 3 [json_name = "contentType"];</code>
+   * <pre>
+   * &#47; [必填] 文件MIME类型
+   * / 
+   * / 图片的内容类型标识
+   * / 格式要求：必须为有效的图片MIME类型
+   * / 允许值：
+   * / - image/jpeg 或 image/jpg
+   * / - image/png
+   * / - image/gif
+   * / - image/webp
+   * / - image/bmp
+   * </pre>
+   *
+   * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
    * @return The bytes for contentType.
    */
   @java.lang.Override
@@ -313,6 +370,12 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 上传图片请求
+   * / 
+   * / 上传图片文件到服务器，支持多种常见图片格式
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UploadImageRequest}
    */
   public static final class Builder extends
@@ -478,7 +541,16 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.ByteString imageData_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes image_data = 1 [json_name = "imageData"];</code>
+     * <pre>
+     * &#47; [必填] 图片数据
+     * / 
+     * / 图片的二进制内容
+     * / 大小限制：最大 10MB (10485760 字节)
+     * / 支持格式：JPEG、PNG、GIF、WebP、BMP
+     * / 建议：上传前进行客户端压缩以提高速度
+     * </pre>
+     *
+     * <code>bytes image_data = 1 [json_name = "imageData", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The imageData.
      */
     @java.lang.Override
@@ -486,7 +558,16 @@ private static final long serialVersionUID = 0L;
       return imageData_;
     }
     /**
-     * <code>bytes image_data = 1 [json_name = "imageData"];</code>
+     * <pre>
+     * &#47; [必填] 图片数据
+     * / 
+     * / 图片的二进制内容
+     * / 大小限制：最大 10MB (10485760 字节)
+     * / 支持格式：JPEG、PNG、GIF、WebP、BMP
+     * / 建议：上传前进行客户端压缩以提高速度
+     * </pre>
+     *
+     * <code>bytes image_data = 1 [json_name = "imageData", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The imageData to set.
      * @return This builder for chaining.
      */
@@ -498,7 +579,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bytes image_data = 1 [json_name = "imageData"];</code>
+     * <pre>
+     * &#47; [必填] 图片数据
+     * / 
+     * / 图片的二进制内容
+     * / 大小限制：最大 10MB (10485760 字节)
+     * / 支持格式：JPEG、PNG、GIF、WebP、BMP
+     * / 建议：上传前进行客户端压缩以提高速度
+     * </pre>
+     *
+     * <code>bytes image_data = 1 [json_name = "imageData", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearImageData() {
@@ -510,7 +600,15 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object filename_ = "";
     /**
-     * <code>string filename = 2 [json_name = "filename"];</code>
+     * <pre>
+     * &#47; [必填] 文件名
+     * / 
+     * / 包含扩展名的文件名
+     * / 长度限制：1-255 字符
+     * / 示例：avatar.jpg, cover.png
+     * </pre>
+     *
+     * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The filename.
      */
     public java.lang.String getFilename() {
@@ -526,7 +624,15 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string filename = 2 [json_name = "filename"];</code>
+     * <pre>
+     * &#47; [必填] 文件名
+     * / 
+     * / 包含扩展名的文件名
+     * / 长度限制：1-255 字符
+     * / 示例：avatar.jpg, cover.png
+     * </pre>
+     *
+     * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for filename.
      */
     public com.google.protobuf.ByteString
@@ -543,7 +649,15 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string filename = 2 [json_name = "filename"];</code>
+     * <pre>
+     * &#47; [必填] 文件名
+     * / 
+     * / 包含扩展名的文件名
+     * / 长度限制：1-255 字符
+     * / 示例：avatar.jpg, cover.png
+     * </pre>
+     *
+     * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The filename to set.
      * @return This builder for chaining.
      */
@@ -556,7 +670,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string filename = 2 [json_name = "filename"];</code>
+     * <pre>
+     * &#47; [必填] 文件名
+     * / 
+     * / 包含扩展名的文件名
+     * / 长度限制：1-255 字符
+     * / 示例：avatar.jpg, cover.png
+     * </pre>
+     *
+     * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearFilename() {
@@ -566,7 +688,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string filename = 2 [json_name = "filename"];</code>
+     * <pre>
+     * &#47; [必填] 文件名
+     * / 
+     * / 包含扩展名的文件名
+     * / 长度限制：1-255 字符
+     * / 示例：avatar.jpg, cover.png
+     * </pre>
+     *
+     * <code>string filename = 2 [json_name = "filename", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for filename to set.
      * @return This builder for chaining.
      */
@@ -582,7 +712,20 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contentType_ = "";
     /**
-     * <code>string content_type = 3 [json_name = "contentType"];</code>
+     * <pre>
+     * &#47; [必填] 文件MIME类型
+     * / 
+     * / 图片的内容类型标识
+     * / 格式要求：必须为有效的图片MIME类型
+     * / 允许值：
+     * / - image/jpeg 或 image/jpg
+     * / - image/png
+     * / - image/gif
+     * / - image/webp
+     * / - image/bmp
+     * </pre>
+     *
+     * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The contentType.
      */
     public java.lang.String getContentType() {
@@ -598,7 +741,20 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content_type = 3 [json_name = "contentType"];</code>
+     * <pre>
+     * &#47; [必填] 文件MIME类型
+     * / 
+     * / 图片的内容类型标识
+     * / 格式要求：必须为有效的图片MIME类型
+     * / 允许值：
+     * / - image/jpeg 或 image/jpg
+     * / - image/png
+     * / - image/gif
+     * / - image/webp
+     * / - image/bmp
+     * </pre>
+     *
+     * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return The bytes for contentType.
      */
     public com.google.protobuf.ByteString
@@ -615,7 +771,20 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string content_type = 3 [json_name = "contentType"];</code>
+     * <pre>
+     * &#47; [必填] 文件MIME类型
+     * / 
+     * / 图片的内容类型标识
+     * / 格式要求：必须为有效的图片MIME类型
+     * / 允许值：
+     * / - image/jpeg 或 image/jpg
+     * / - image/png
+     * / - image/gif
+     * / - image/webp
+     * / - image/bmp
+     * </pre>
+     *
+     * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The contentType to set.
      * @return This builder for chaining.
      */
@@ -628,7 +797,20 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content_type = 3 [json_name = "contentType"];</code>
+     * <pre>
+     * &#47; [必填] 文件MIME类型
+     * / 
+     * / 图片的内容类型标识
+     * / 格式要求：必须为有效的图片MIME类型
+     * / 允许值：
+     * / - image/jpeg 或 image/jpg
+     * / - image/png
+     * / - image/gif
+     * / - image/webp
+     * / - image/bmp
+     * </pre>
+     *
+     * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContentType() {
@@ -638,7 +820,20 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string content_type = 3 [json_name = "contentType"];</code>
+     * <pre>
+     * &#47; [必填] 文件MIME类型
+     * / 
+     * / 图片的内容类型标识
+     * / 格式要求：必须为有效的图片MIME类型
+     * / 允许值：
+     * / - image/jpeg 或 image/jpg
+     * / - image/png
+     * / - image/gif
+     * / - image/webp
+     * / - image/bmp
+     * </pre>
+     *
+     * <code>string content_type = 3 [json_name = "contentType", (.google.api.field_behavior) = REQUIRED, (.validate.rules) = { ... }</code>
      * @param value The bytes for contentType to set.
      * @return This builder for chaining.
      */

@@ -11,35 +11,59 @@ public interface GenerateStoryRoleVideoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 role_id = 2 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 2 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 poster_id = 4 [json_name = "posterId"];</code>
+   * <pre>
+   * &#47; 海报ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 poster_id = 4 [json_name = "posterId", (.validate.rules) = { ... }</code>
    * @return The posterId.
    */
   long getPosterId();
 
   /**
+   * <pre>
+   * &#47; 参考背景图片URL
+   * </pre>
+   *
    * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
    * @return The refBackgroundUrl.
    */
   java.lang.String getRefBackgroundUrl();
   /**
+   * <pre>
+   * &#47; 参考背景图片URL
+   * </pre>
+   *
    * <code>string ref_background_url = 5 [json_name = "refBackgroundUrl"];</code>
    * @return The bytes for refBackgroundUrl.
    */
@@ -47,11 +71,19 @@ public interface GenerateStoryRoleVideoRequestOrBuilder extends
       getRefBackgroundUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 参考头像图片URL
+   * </pre>
+   *
    * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
    * @return The refAvatarUrl.
    */
   java.lang.String getRefAvatarUrl();
   /**
+   * <pre>
+   * &#47; 参考头像图片URL
+   * </pre>
+   *
    * <code>string ref_avatar_url = 6 [json_name = "refAvatarUrl"];</code>
    * @return The bytes for refAvatarUrl.
    */
@@ -59,34 +91,58 @@ public interface GenerateStoryRoleVideoRequestOrBuilder extends
       getRefAvatarUrlBytes();
 
   /**
-   * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The textPrompt.
    */
   java.lang.String getTextPrompt();
   /**
-   * <code>string text_prompt = 7 [json_name = "textPrompt"];</code>
+   * <pre>
+   * &#47; 文本提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string text_prompt = 7 [json_name = "textPrompt", (.validate.rules) = { ... }</code>
    * @return The bytes for textPrompt.
    */
   com.google.protobuf.ByteString
       getTextPromptBytes();
 
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
    * @return The enum numeric value on the wire for imageRatios.
    */
   int getImageRatiosValue();
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 8 [json_name = "imageRatios"];</code>
    * @return The imageRatios.
    */
   com.rankquantity.voyager.api.ImageRatios getImageRatios();
 
   /**
+   * <pre>
+   * &#47; 视频风格
+   * </pre>
+   *
    * <code>string style = 9 [json_name = "style"];</code>
    * @return The style.
    */
   java.lang.String getStyle();
   /**
+   * <pre>
+   * &#47; 视频风格
+   * </pre>
+   *
    * <code>string style = 9 [json_name = "style"];</code>
    * @return The bytes for style.
    */

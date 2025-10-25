@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 故事板阶段存储信息
+ * / 包含故事板的完整状态和版本信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.StoryboardStageStore}
  */
 @com.google.protobuf.Generated
@@ -48,6 +53,10 @@ private static final long serialVersionUID = 0L;
   public static final int STORYBOARD_FIELD_NUMBER = 1;
   private com.rankquantity.voyager.api.StoryBoard storyboard_;
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    * @return Whether the storyboard field is set.
    */
@@ -56,6 +65,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    * @return The storyboard.
    */
@@ -64,6 +77,10 @@ private static final long serialVersionUID = 0L;
     return storyboard_ == null ? com.rankquantity.voyager.api.StoryBoard.getDefaultInstance() : storyboard_;
   }
   /**
+   * <pre>
+   * &#47; 故事板信息
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
    */
   @java.lang.Override
@@ -74,6 +91,10 @@ private static final long serialVersionUID = 0L;
   public static final int SENCES_FIELD_NUMBER = 2;
   private com.rankquantity.voyager.api.StoryBoardSences sences_;
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    * @return Whether the sences field is set.
    */
@@ -82,6 +103,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    * @return The sences.
    */
@@ -90,6 +115,10 @@ private static final long serialVersionUID = 0L;
     return sences_ == null ? com.rankquantity.voyager.api.StoryBoardSences.getDefaultInstance() : sences_;
   }
   /**
+   * <pre>
+   * &#47; 场景列表
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
    */
   @java.lang.Override
@@ -100,6 +129,10 @@ private static final long serialVersionUID = 0L;
   public static final int STAGE_FIELD_NUMBER = 3;
   private int stage_ = 0;
   /**
+   * <pre>
+   * &#47; 当前阶段状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
    * @return The enum numeric value on the wire for stage.
    */
@@ -107,6 +140,10 @@ private static final long serialVersionUID = 0L;
     return stage_;
   }
   /**
+   * <pre>
+   * &#47; 当前阶段状态
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
    * @return The stage.
    */
@@ -118,6 +155,10 @@ private static final long serialVersionUID = 0L;
   public static final int LAST_UPDATE_TIME_FIELD_NUMBER = 4;
   private long lastUpdateTime_ = 0L;
   /**
+   * <pre>
+   * &#47; 最后更新时间戳
+   * </pre>
+   *
    * <code>int64 last_update_time = 4 [json_name = "lastUpdateTime"];</code>
    * @return The lastUpdateTime.
    */
@@ -129,6 +170,10 @@ private static final long serialVersionUID = 0L;
   public static final int VERSION_FIELD_NUMBER = 5;
   private long version_ = 0L;
   /**
+   * <pre>
+   * &#47; 版本号
+   * </pre>
+   *
    * <code>int64 version = 5 [json_name = "version"];</code>
    * @return The version.
    */
@@ -140,6 +185,10 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 6;
   private long userId_ = 0L;
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 6 [json_name = "userId"];</code>
    * @return The userId.
    */
@@ -373,6 +422,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 故事板阶段存储信息
+   * / 包含故事板的完整状态和版本信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.StoryboardStageStore}
    */
   public static final class Builder extends
@@ -599,6 +653,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryBoard, com.rankquantity.voyager.api.StoryBoard.Builder, com.rankquantity.voyager.api.StoryBoardOrBuilder> storyboardBuilder_;
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      * @return Whether the storyboard field is set.
      */
@@ -606,6 +664,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      * @return The storyboard.
      */
@@ -617,6 +679,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public Builder setStoryboard(com.rankquantity.voyager.api.StoryBoard value) {
@@ -633,6 +699,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public Builder setStoryboard(
@@ -647,6 +717,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public Builder mergeStoryboard(com.rankquantity.voyager.api.StoryBoard value) {
@@ -668,6 +742,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public Builder clearStoryboard() {
@@ -681,6 +759,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public com.rankquantity.voyager.api.StoryBoard.Builder getStoryboardBuilder() {
@@ -689,6 +771,10 @@ private static final long serialVersionUID = 0L;
       return internalGetStoryboardFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     public com.rankquantity.voyager.api.StoryBoardOrBuilder getStoryboardOrBuilder() {
@@ -700,6 +786,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 故事板信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoard storyboard = 1 [json_name = "storyboard"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -720,6 +810,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryBoardSences, com.rankquantity.voyager.api.StoryBoardSences.Builder, com.rankquantity.voyager.api.StoryBoardSencesOrBuilder> sencesBuilder_;
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      * @return Whether the sences field is set.
      */
@@ -727,6 +821,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      * @return The sences.
      */
@@ -738,6 +836,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public Builder setSences(com.rankquantity.voyager.api.StoryBoardSences value) {
@@ -754,6 +856,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public Builder setSences(
@@ -768,6 +874,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public Builder mergeSences(com.rankquantity.voyager.api.StoryBoardSences value) {
@@ -789,6 +899,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public Builder clearSences() {
@@ -802,6 +916,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public com.rankquantity.voyager.api.StoryBoardSences.Builder getSencesBuilder() {
@@ -810,6 +928,10 @@ private static final long serialVersionUID = 0L;
       return internalGetSencesFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     public com.rankquantity.voyager.api.StoryBoardSencesOrBuilder getSencesOrBuilder() {
@@ -821,6 +943,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 场景列表
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryBoardSences sences = 2 [json_name = "sences"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -839,6 +965,10 @@ private static final long serialVersionUID = 0L;
 
     private int stage_ = 0;
     /**
+     * <pre>
+     * &#47; 当前阶段状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
      * @return The enum numeric value on the wire for stage.
      */
@@ -846,6 +976,10 @@ private static final long serialVersionUID = 0L;
       return stage_;
     }
     /**
+     * <pre>
+     * &#47; 当前阶段状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
      * @param value The enum numeric value on the wire for stage to set.
      * @return This builder for chaining.
@@ -857,6 +991,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 当前阶段状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
      * @return The stage.
      */
@@ -866,6 +1004,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.StoryboardStage.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 当前阶段状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
      * @param value The stage to set.
      * @return This builder for chaining.
@@ -878,6 +1020,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 当前阶段状态
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryboardStage stage = 3 [json_name = "stage"];</code>
      * @return This builder for chaining.
      */
@@ -890,6 +1036,10 @@ private static final long serialVersionUID = 0L;
 
     private long lastUpdateTime_ ;
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 4 [json_name = "lastUpdateTime"];</code>
      * @return The lastUpdateTime.
      */
@@ -898,6 +1048,10 @@ private static final long serialVersionUID = 0L;
       return lastUpdateTime_;
     }
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 4 [json_name = "lastUpdateTime"];</code>
      * @param value The lastUpdateTime to set.
      * @return This builder for chaining.
@@ -910,6 +1064,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 最后更新时间戳
+     * </pre>
+     *
      * <code>int64 last_update_time = 4 [json_name = "lastUpdateTime"];</code>
      * @return This builder for chaining.
      */
@@ -922,6 +1080,10 @@ private static final long serialVersionUID = 0L;
 
     private long version_ ;
     /**
+     * <pre>
+     * &#47; 版本号
+     * </pre>
+     *
      * <code>int64 version = 5 [json_name = "version"];</code>
      * @return The version.
      */
@@ -930,6 +1092,10 @@ private static final long serialVersionUID = 0L;
       return version_;
     }
     /**
+     * <pre>
+     * &#47; 版本号
+     * </pre>
+     *
      * <code>int64 version = 5 [json_name = "version"];</code>
      * @param value The version to set.
      * @return This builder for chaining.
@@ -942,6 +1108,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 版本号
+     * </pre>
+     *
      * <code>int64 version = 5 [json_name = "version"];</code>
      * @return This builder for chaining.
      */
@@ -954,6 +1124,10 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 6 [json_name = "userId"];</code>
      * @return The userId.
      */
@@ -962,6 +1136,10 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 6 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
@@ -974,6 +1152,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 6 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */

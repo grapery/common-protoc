@@ -12,7 +12,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -21,7 +21,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
   int getCodeValue();
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -31,7 +31,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
 
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -40,7 +40,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
   java.lang.String getMessage();
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -51,7 +51,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
 
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -60,7 +60,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
   boolean hasDetail();
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -69,7 +69,7 @@ public interface UserDraftStoryboardDetailResponseOrBuilder extends
   com.rankquantity.voyager.api.StoryboardDraftDetail getDetail();
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>

@@ -11,23 +11,39 @@ public interface GenerateRoleAvatarRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 参考头像URL（可选）
+   * </pre>
+   *
    * <code>string ref_avatar_url = 3 [json_name = "refAvatarUrl"];</code>
    * @return The refAvatarUrl.
    */
   java.lang.String getRefAvatarUrl();
   /**
+   * <pre>
+   * &#47; 参考头像URL（可选）
+   * </pre>
+   *
    * <code>string ref_avatar_url = 3 [json_name = "refAvatarUrl"];</code>
    * @return The bytes for refAvatarUrl.
    */
@@ -35,23 +51,39 @@ public interface GenerateRoleAvatarRequestOrBuilder extends
       getRefAvatarUrlBytes();
 
   /**
-   * <code>string description = 4 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 角色描述，用于生成头像，最大长度1000字符
+   * </pre>
+   *
+   * <code>string description = 4 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 4 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 角色描述，用于生成头像，最大长度1000字符
+   * </pre>
+   *
+   * <code>string description = 4 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
+   * <pre>
+   * &#47; 头像风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The style.
    */
   java.lang.String getStyle();
   /**
+   * <pre>
+   * &#47; 头像风格
+   * </pre>
+   *
    * <code>string style = 5 [json_name = "style"];</code>
    * @return The bytes for style.
    */
@@ -59,11 +91,19 @@ public interface GenerateRoleAvatarRequestOrBuilder extends
       getStyleBytes();
 
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 6 [json_name = "imageRatios"];</code>
    * @return The enum numeric value on the wire for imageRatios.
    */
   int getImageRatiosValue();
   /**
+   * <pre>
+   * &#47; 图片宽高比设置
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ImageRatios image_ratios = 6 [json_name = "imageRatios"];</code>
    * @return The imageRatios.
    */

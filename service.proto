@@ -2,10 +2,14 @@ syntax = "proto3";
 package rankquantity.voyager.api;
 
 import "google/api/annotations.proto";
+import "google/api/field_behavior.proto";
+import "google/api/resource.proto";
+import "google/protobuf/descriptor.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "validate/validate.proto";
 import "base.proto";
 import "group.proto";
 import "item.proto";
@@ -33,20 +37,65 @@ message ActiveInfo {
 }
 
 
+/// 用户登录请求
+/// 
+/// 支持多种登录方式的用户认证，包括密码登录、验证码登录和第三方登录
 message LoginRequest {
-  string account = 1;
-  string password = 2;
-  int32 login_type =3;
+  /// [必填] 账号
+  /// 
+  /// 支持邮箱、手机号或用户名
+  /// 长度限制：3-100 字符
+  string account = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 3, max_len: 100}
+  ];
+  
+  /// [必填] 密码
+  /// 
+  /// 用户登录密码
+  /// 长度限制：6-128 字符
+  string password = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 6, max_len: 128}
+  ];
+  
+  /// [必填] 登录类型
+  /// 
+  /// 指定使用的登录方式：
+  /// - 1: 密码登录
+  /// - 2: 验证码登录
+  /// - 3: 第三方登录
+  /// 取值范围：1-3
+  int32 login_type = 3 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int32 = {gte: 1, lte: 3}
+  ];
 }
 
+/// 用户登录响应
+/// 返回登录结果和会话信息
 message LoginResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string msg = 2;
+  
+  /// 登录成功返回的数据
   message Data {
+    /// 用户ID
     int64 user_id = 1;
+    
+    /// 访问令牌
     string token = 2;
+    
+    /// 当前时间戳
     int64 timestamp = 3;
+    
+    /// 令牌过期时间戳
     int64 expire_at = 4;
+    
+    /// 账号状态：0-正常，1-冻结，2-待激活
     int32 status = 5;
   }
   Data data = 3;
@@ -71,16 +120,65 @@ message RefreshTokenResponse {
   int64 user_id = 2;
 }
 
+/// 用户注册请求
+/// 
+/// 创建新用户账号，需要提供完整的注册信息
 message RegisterRequest {
-  string account = 1;
-  string password = 2;
-  string name = 3;
-  string email = 4;
-  string phone = 5;
+  /// [必填] 账号
+  /// 
+  /// 用户登录账号，用于身份标识
+  /// 长度限制：3-50 字符
+  /// 格式要求：字母、数字、下划线
+  string account = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 3, max_len: 50}
+  ];
+  
+  /// [必填] 密码
+  /// 
+  /// 用户登录密码
+  /// 长度限制：6-128 字符
+  /// 安全建议：包含字母、数字和特殊字符
+  string password = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 6, max_len: 128}
+  ];
+  
+  /// [必填] 用户昵称
+  /// 
+  /// 显示名称，用于界面展示
+  /// 长度限制：1-50 字符
+  string name = 3 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 1, max_len: 50}
+  ];
+  
+  /// [必填] 邮箱地址
+  /// 
+  /// 用于接收通知和找回密码
+  /// 格式要求：符合邮箱格式规范（如 user@example.com）
+  string email = 4 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string.email = true
+  ];
+  
+  /// [必填] 手机号
+  /// 
+  /// 用于接收验证码和通知
+  /// 长度限制：8-20 字符
+  string phone = 5 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 8, max_len: 20}
+  ];
 }
 
+/// 用户注册响应
+/// 返回注册结果
 message RegisterResponse { 
-  ResponseCode code = 1; 
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
   string msg = 2;
 }
 
@@ -209,46 +307,142 @@ message UserUpdateResponse {
   } Data data = 3;
 }
 
+/// 获取动态列表请求
+/// 获取用户、群组或故事的活动动态
 message FetchActivesRequest {
-  int64 user_id = 1;
-  int64 group_id = 2;
-  int64 story_id = 3;
-  int64 board_id = 4;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 群组ID，可选，用于筛选特定群组的动态
+  int64 group_id = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 故事ID，可选，用于筛选特定故事的动态
+  int64 story_id = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 故事板ID，可选，用于筛选特定故事板的动态
+  int64 board_id = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 动态流类型，指定要获取的动态类型
   ActiveFlowType atype = 5;
-  int64 timestamp = 6;
-  int64 offset = 7;
-  int64 page_size = 8;
+  
+  /// 时间戳，用于时间范围筛选，必须大于0
+  int64 timestamp = 6 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 7 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 8 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取动态列表响应
+/// 返回活动动态列表
 message FetchActivesResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string msg = 2;
+  
+  /// 返回数据
   message Data {
+    /// 动态信息列表
     repeated ActiveInfo list = 1;
+    
+    /// 当前时间戳
     int64 timestamp = 2;
+    
+    /// 当前偏移量
     int64 offset = 3;
+    
+    /// 每页数量
     int64 page_size = 4;
+    
+    /// 是否有更多数据
     bool have_more = 5;
+    
+    /// 总数量
     int64 total = 6;
   }
   Data data = 3;
 }
+/// 搜索用户请求
+/// 
+/// 根据名称搜索用户，支持模糊搜索和精确搜索，可在群组范围内搜索
 message SearchUserRequest {
-  string name = 1;
-  int64 group_id = 2;
-  bool is_fuzzy = 3;
-  int64 offset = 7;
-  int64 page_size = 8;
+  /// [必填] 搜索关键词
+  /// 
+  /// 用户名或昵称的搜索关键词
+  /// 长度限制：1-100 字符
+  /// 支持：中文、英文、数字
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 1, max_len: 100}
+  ];
+  
+  /// [可选] 群组ID
+  /// 
+  /// 限定在特定群组内搜索用户
+  /// 验证规则：如果提供则必须大于等于 0
+  /// 默认值：0（全局搜索）
+  int64 group_id = 2 [
+    (google.api.field_behavior) = OPTIONAL,
+    (validate.rules).int64 = {gte: 0}
+  ];
+  
+  /// [可选] 模糊搜索标志
+  /// 
+  /// 搜索模式选择
+  /// 取值说明：
+  /// - true: 模糊搜索（包含关键词即可）
+  /// - false: 精确匹配（完全相同）
+  /// 默认值：true
+  bool is_fuzzy = 3 [(google.api.field_behavior) = OPTIONAL];
+  
+  /// [必填] 偏移量
+  /// 
+  /// 分页查询的起始位置
+  /// 验证规则：必须大于等于 0
+  int64 offset = 7 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gte: 0}
+  ];
+  
+  /// [必填] 每页数量
+  /// 
+  /// 单页返回的最大记录数
+  /// 验证规则：1-100
+  /// 建议值：20
+  int64 page_size = 8 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gte: 1, lte: 100}
+  ];
 }
 
+/// 搜索用户响应
+/// 返回匹配的用户列表
 message SearchUserResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string msg = 2;
+  
+  /// 返回数据
   message Data {
+    /// 用户信息列表
     repeated UserInfo list = 1;
+    
+    /// 当前偏移量
     int64 offset = 2;
+    
+    /// 每页数量
     int64 page_size = 3;
+    
+    /// 总数量
     int32 total = 4;
+    
+    /// 是否有更多数据
     bool have_more = 5;
   }
   Data data = 3;
@@ -385,18 +579,35 @@ message LikeItemResponse {
   } Data data = 3;
 }
 
+/// 创建群组请求
+/// 创建新的协作群组或团队
 message CreateGroupRequest {
-  int64 user_id = 1;
-  string name = 2;
-  string description = 3;
+  /// 创建者用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 群组名称，必填且长度1-100字符
+  string name = 2 [(validate.rules).string = {min_len: 1, max_len: 100}];
+  
+  /// 群组描述，最大长度1000字符
+  string description = 3 [(validate.rules).string = {max_len: 1000}];
+  
+  /// 群组头像URL
   string avatar = 4;
 }
 
+/// 创建群组响应
+/// 返回创建的群组信息
 message CreateGroupResponse { 
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
-   GroupInfo info = 1; 
+    /// 创建的群组信息
+    GroupInfo info = 1; 
   } Data data = 3;
 }
 
@@ -454,66 +665,142 @@ message DeleteGroupResponse {
   message Data {
   } Data data = 3;
 }
+/// 获取群组成员列表请求
+/// 分页获取指定群组的所有成员
 message FetchGroupMembersRequest {
-  int64 group_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  /// 群组ID，必须大于0
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取群组成员列表响应
+/// 返回群组的成员列表及分页信息
 message FetchGroupMembersResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
+    /// 成员信息列表
     repeated UserInfo list = 1;
+    
+    /// 当前偏移量
     int64 offset = 2;
+    
+    /// 成员总数
     int64 total = 3;
+    
+    /// 是否有更多数据
     bool have_more = 4;
   } Data data = 3;
 }
 
+/// 搜索群组请求
+/// 根据名称搜索群组，支持不同范围的搜索
 message SearchGroupRequest { 
-  string name = 1;
-  int64 user_id = 2; 
-  int64 offset = 3;
-  int64 page_size = 4;
+  /// 搜索关键词，群组名称，长度1-100字符
+  string name = 1 [(validate.rules).string = {min_len: 1, max_len: 100}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 搜索范围类型
   ScopeType scope = 5;
-  int64 story_id = 6;
-  int64 group_id = 7;
+  
+  /// 故事ID（可选），用于在特定故事相关的群组中搜索
+  int64 story_id = 6 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 群组ID（可选），用于在特定群组内搜索
+  int64 group_id = 7 [(validate.rules).int64 = {gte: 0}];
 }
 
+/// 搜索群组响应
+/// 返回匹配的群组列表
 message SearchGroupResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
+    /// 群组信息列表
     repeated GroupInfo list = 1;
+    
+    /// 当前偏移量
     int64 offset = 2;
+    
+    /// 每页数量
     int64 page_size = 3;
+    
+    /// 是否有更多数据
     bool have_more = 4;
+    
+    /// 总数量
     int64 total = 5;
   } Data data = 3;
 }
 
 
+/// 加入群组请求
+/// 用户申请加入指定群组
 message JoinGroupRequest {
-  int64 group_id = 1;
-  int64 user_id = 2;
+  /// 群组ID，必须大于0
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 加入群组响应
+/// 返回加入群组的结果
 message JoinGroupResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
   } Data data = 3;
 }
 
+/// 离开群组请求
+/// 用户退出指定群组
 message LeaveGroupRequest {
-  int64 group_id = 1;
-  int64 user_id = 2;
+  /// 群组ID，必须大于0
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 离开群组响应
+/// 返回离开群组的结果
 message LeaveGroupResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
   } Data data = 3;
 }
@@ -590,41 +877,118 @@ message GetProjectWatcherResponse{
   } Data data = 3;
 }
 
+/// 上传图片请求
+/// 
+/// 上传图片文件到服务器，支持多种常见图片格式
 message UploadImageRequest {
-  bytes image_data = 1;
-  string filename = 2;
-  string content_type = 3;
+  /// [必填] 图片数据
+  /// 
+  /// 图片的二进制内容
+  /// 大小限制：最大 10MB (10485760 字节)
+  /// 支持格式：JPEG、PNG、GIF、WebP、BMP
+  /// 建议：上传前进行客户端压缩以提高速度
+  bytes image_data = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).bytes = {max_len: 10485760}
+  ];
+  
+  /// [必填] 文件名
+  /// 
+  /// 包含扩展名的文件名
+  /// 长度限制：1-255 字符
+  /// 示例：avatar.jpg, cover.png
+  string filename = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 1, max_len: 255}
+  ];
+  
+  /// [必填] 文件MIME类型
+  /// 
+  /// 图片的内容类型标识
+  /// 格式要求：必须为有效的图片MIME类型
+  /// 允许值：
+  /// - image/jpeg 或 image/jpg
+  /// - image/png
+  /// - image/gif
+  /// - image/webp
+  /// - image/bmp
+  string content_type = 3 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {
+      pattern: "^image/(jpeg|jpg|png|gif|webp|bmp)$"
+    }
+  ];
 }
 
+/// 上传图片响应
+/// 返回上传成功的图片信息
 message UploadImageResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
+    /// 文件唯一标识符
     string file_id = 1;
+    
+    /// 图片访问URL
     string url = 2;
   }Data data = 3;
 }
 
+/// 获取故事贡献者请求
+/// 获取参与故事创作的所有贡献者列表
 message GetStoryContributorsRequest{
-  int64 story_id = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 故事贡献者信息
+/// 表示参与故事创作的用户信息
 message StoryContributor{
+  /// 贡献者用户ID
   int64 user_id = 1;
+  
+  /// 贡献者用户名
   string username = 2;
+  
+  /// 贡献者头像URL
   string avatar = 3;
+  
+  /// VIP等级，0表示普通用户
   int64 viplevel = 4;
 }
 
+/// 获取故事贡献者响应
+/// 返回故事的贡献者列表
 message GetStoryContributorsResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 返回数据
   message Data {
+    /// 贡献者列表
     repeated StoryContributor list = 1;
+    
+    /// 贡献者总数
     int64 total = 2;
+    
+    /// 是否有更多数据
     bool have_more = 3;
   }Data data = 3;
 }
@@ -653,30 +1017,76 @@ message UpdateGroupProfileResponse{
   string message = 2;
 }
 
-// TeamsAPI provides a comprehensive set of services for managing teams, stories, and user interactions
+/// TeamsAPI - 团队协作服务API
+/// 提供完整的团队、故事、角色管理和用户交互功能
+/// 支持故事创作、角色聊天、AI生成、评论互动等功能
 service TeamsAPI {
-  // Explore returns trending and recommended content for users to discover
+  /// 探索推荐内容
+  /// 获取平台推荐的热门和优质内容，帮助用户发现有趣的故事和角色
+  /// HTTP GET /common.TeamsAPI/Explore
+  /// 响应：ExploreResponse (JSON，返回推荐内容列表)
   rpc Explore(ExploreRequest) returns (ExploreResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Explore"
     };
   }
 
-  // Version returns the current API version and build information
+  /// 获取API版本信息
+  /// 返回当前API的版本号和构建时间信息
+  /// HTTP GET /common.TeamsAPI/Version
+  /// 响应：VersionResponse (JSON，包含version和build_time)
   rpc Version(VersionRequest) returns (VersionResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/Version"
     };
   }
 
-  // About returns information about the service
+  /// 获取服务关于信息
+  /// 返回服务的基本介绍和说明信息
+  /// HTTP GET /common.TeamsAPI/About
+  /// 响应：AboutResponse (JSON，包含服务描述)
   rpc About(AboutRequest) returns (AboutResponse) {
     option (google.api.http) = {
       get : "/common.TeamsAPI/About"
     };
   }
 
-  // Login authenticates a user and returns a session token
+  /// 用户登录
+  /// 
+  /// 【功能说明】
+  /// 验证用户凭据并创建会话，支持多种登录方式
+  /// 
+  /// 【支持的登录方式】
+  /// - 密码登录：使用账号+密码
+  /// - 验证码登录：使用手机号+验证码
+  /// - 第三方登录：OAuth2.0授权登录
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/Login
+  /// - 请求体：LoginRequest (JSON)
+  /// - 响应：LoginResponse (JSON)
+  /// 
+  /// 【请求参数】
+  /// - account: [必填] 账号（邮箱/手机号/用户名）
+  /// - password: [必填] 密码
+  /// - login_type: [必填] 登录类型（1-3）
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - msg: 响应消息
+  /// - data.user_id: 用户ID
+  /// - data.token: 访问令牌（JWT格式）
+  /// - data.expire_at: token过期时间戳
+  /// 
+  /// 【使用示例】
+  /// ```json
+  /// {
+  ///   "account": "user@example.com",
+  ///   "password": "password123",
+  ///   "login_type": 1
+  /// }
+  /// ```
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Login"
@@ -684,7 +1094,11 @@ service TeamsAPI {
     };
   }
 
-  // Logout invalidates the user's current session token
+  /// 用户登出
+  /// 使当前会话token失效，退出登录状态
+  /// HTTP POST /common.TeamsAPI/Logout
+  /// 请求体：LogoutRequest (JSON，包含token和用户ID)
+  /// 响应：LogoutResponse (JSON)
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Logout"
@@ -692,7 +1106,11 @@ service TeamsAPI {
     };
   }
 
-  // RefreshToken generates a new session token using the current valid token
+  /// 刷新访问令牌
+  /// 使用当前有效token生成新的访问令牌，延长会话时间
+  /// HTTP POST /common.TeamsAPI/RefreshToken
+  /// 请求体：RefreshTokenRequest (JSON，包含当前token)
+  /// 响应：RefreshTokenResponse (JSON，返回新的token和用户ID)
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RefreshToken"
@@ -700,7 +1118,11 @@ service TeamsAPI {
     };
   }
 
-  // Register creates a new user account
+  /// 用户注册
+  /// 创建新的用户账号，需要提供账号、密码、邮箱等信息
+  /// HTTP POST /common.TeamsAPI/Register
+  /// 请求体：RegisterRequest (JSON，包含账号、密码、昵称、邮箱、手机号)
+  /// 响应：RegisterResponse (JSON)
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/Register"
@@ -708,7 +1130,30 @@ service TeamsAPI {
     };
   }
 
-  // ResetPwd allows users to reset their password
+  /// 重置密码
+  /// 
+  /// 【功能说明】
+  /// 允许用户重置登录密码，需要验证原密码
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/ResetPwd
+  /// - 请求体：ResetPasswordRequest (JSON)
+  /// - 响应：ResetPasswordResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "account": "用户账号（邮箱/手机号/用户名）",
+  ///   "oldPwd": "原密码（用于验证身份）",
+  ///   "newPwd": "新密码（6-128字符）"
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - account: 用户账号
+  /// - status: 重置状态（0-成功）
+  /// - timestamp: 操作时间戳
   rpc ResetPwd(ResetPasswordRequest) returns (ResetPasswordResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ResetPwd"
@@ -716,7 +1161,31 @@ service TeamsAPI {
     };
   }
 
-  // UserInit performs initial setup for a new user
+  /// 用户初始化
+  /// 
+  /// 【功能说明】
+  /// 为新注册用户执行初始化设置，创建默认资料和配置
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserInit
+  /// - 请求体：UserInitRequest (JSON)
+  /// - 响应：UserInitResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,        // [必填] 用户ID
+  ///   "name": "用户昵称",     // [可选] 显示名称
+  ///   "avatar": "头像URL",   // [可选] 头像地址
+  ///   "timezone": "时区"     // [可选] 用户时区
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - user: 初始化后的用户信息
   rpc UserInit(UserInitRequest) returns (UserInitResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInit"
@@ -724,7 +1193,29 @@ service TeamsAPI {
     };
   }
 
-  // UserInfo retrieves detailed information about a user
+  /// 获取用户信息
+  /// 
+  /// 【功能说明】
+  /// 获取指定用户的详细信息，包括基本资料、统计数据等
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserInfo
+  /// - 请求体：UserInfoRequest (JSON)
+  /// - 响应：UserInfoResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "account": "user@email.com"  // [可选] 用户账号（二选一）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - user: 用户详细信息对象
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserInfo"
@@ -732,7 +1223,28 @@ service TeamsAPI {
     };
   }
 
-  // UpdateUserAvator updates the user's profile picture
+  /// 更新用户头像
+  /// 
+  /// 【功能说明】
+  /// 更新用户的个人头像图片
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateUserAvator
+  /// - 请求体：UpdateUserAvatorRequest (JSON)
+  /// - 响应：UpdateUserAvatorResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,                      // [必填] 用户ID
+  ///   "avator": "https://cdn.com/img.jpg"  // [必填] 新头像URL
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
   rpc UpdateUserAvator(UpdateUserAvatorRequest) returns (UpdateUserAvatorResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateUserAvator"
@@ -740,7 +1252,31 @@ service TeamsAPI {
     };
   }
 
-  // UserWatching returns a list of projects the user is following
+  /// 获取用户关注的项目
+  /// 
+  /// 【功能说明】
+  /// 获取用户关注的所有项目（故事）列表
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserWatching
+  /// - 请求体：UserWatchingRequest (JSON)
+  /// - 响应：UserWatchingResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,      // [必填] 用户ID
+  ///   "offset": 0,         // [可选] 分页偏移量，默认0
+  ///   "page_size": 20      // [可选] 每页数量，默认20
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - projects: 关注的项目列表
+  /// - total: 总数量
   rpc UserWatching(UserWatchingRequest) returns (UserWatchingResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserWatching"
@@ -748,7 +1284,31 @@ service TeamsAPI {
     };
   }
 
-  // UserGroup returns a list of groups the user belongs to
+  /// 获取用户所属群组
+  /// 
+  /// 【功能说明】
+  /// 获取用户加入的所有群组列表
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserGroup
+  /// - 请求体：UserGroupRequest (JSON)
+  /// - 响应：UserGroupResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,      // [必填] 用户ID
+  ///   "offset": 0,         // [可选] 分页偏移量
+  ///   "page_size": 20      // [可选] 每页数量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - groups: 群组列表
+  /// - total: 总数量
   rpc UserGroup(UserGroupRequest) returns (UserGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserGroup"
@@ -756,7 +1316,31 @@ service TeamsAPI {
     };
   }
 
-  // UserFollowingGroup returns a list of groups the user is following
+  /// 获取用户关注的群组
+  /// 
+  /// 【功能说明】
+  /// 获取用户关注但未加入的群组列表
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserFollowingGroup
+  /// - 请求体：UserFollowingGroupRequest (JSON)
+  /// - 响应：UserFollowingGroupResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,      // [必填] 用户ID
+  ///   "offset": 0,         // [可选] 分页偏移量
+  ///   "page_size": 20      // [可选] 每页数量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - groups: 关注的群组列表
+  /// - total: 总数量
   rpc UserFollowingGroup(UserFollowingGroupRequest) returns (UserFollowingGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserFollowingGroup"
@@ -764,7 +1348,32 @@ service TeamsAPI {
     };
   }
 
-  // UserUpdate updates the user's profile information
+  /// 更新用户信息
+  /// 
+  /// 【功能说明】
+  /// 更新用户的基本资料信息
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserUpdate
+  /// - 请求体：UserUpdateRequest (JSON)
+  /// - 响应：UserUpdateResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "name": "新昵称",            // [可选] 用户昵称
+  ///   "description": "个人简介",   // [可选] 个人描述
+  ///   "location": "所在地",        // [可选] 地理位置
+  ///   "email": "new@email.com"     // [可选] 邮箱地址
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - user: 更新后的用户信息
   rpc UserUpdate(UserUpdateRequest) returns (UserUpdateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserUpdate"
@@ -772,7 +1381,11 @@ service TeamsAPI {
     };
   }
 
-  // SearchUser searches for users based on specified criteria
+  /// 搜索用户
+  /// 根据名称搜索用户，支持模糊搜索和精确匹配
+  /// HTTP POST /common.TeamsAPI/SearchUser
+  /// 请求体：SearchUserRequest (JSON，包含搜索关键词、群组ID和分页参数)
+  /// 响应：SearchUserResponse (JSON，返回匹配的用户列表)
   rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchUser"
@@ -780,7 +1393,11 @@ service TeamsAPI {
     };
   }
 
-  // CreateGroup creates a new group
+  /// 创建群组
+  /// 创建新的协作群组或团队，设置名称、描述和头像
+  /// HTTP POST /common.TeamsAPI/CreateGroup
+  /// 请求体：CreateGroupRequest (JSON，包含群组名称、描述和头像)
+  /// 响应：CreateGroupResponse (JSON，返回创建的群组信息)
   rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateGroup"
@@ -788,7 +1405,11 @@ service TeamsAPI {
     };
   }
 
-  // GetGroup retrieves information about a specific group
+  /// 获取群组信息
+  /// 获取指定群组的详细信息，支持同时获取资料信息
+  /// HTTP POST /common.TeamsAPI/GetGroup
+  /// 请求体：GetGroupRequest (JSON，包含群组ID和是否获取资料标志)
+  /// 响应：GetGroupResponse (JSON，返回群组详细信息)
   rpc GetGroup(GetGroupRequest) returns (GetGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroup"
@@ -796,7 +1417,11 @@ service TeamsAPI {
     };
   }
 
-  // GetGroupActives returns recent activities within a group
+  /// 获取群组动态
+  /// 获取群组内的最新活动动态
+  /// HTTP POST /common.TeamsAPI/GetGroupActives
+  /// 请求体：GetGroupActivesRequest (JSON，包含群组ID和分页参数)
+  /// 响应：GetGroupActivesResponse (JSON，返回群组活动列表)
   rpc GetGroupActives(GetGroupActivesRequest) returns (GetGroupActivesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetGroupActives"
@@ -804,7 +1429,11 @@ service TeamsAPI {
     };
   }
 
-  // UpdateGroupInfo updates the group's information
+  /// 更新群组信息
+  /// 更新群组的基本信息，如名称、描述等
+  /// HTTP POST /common.TeamsAPI/UpdateGroupInfo
+  /// 请求体：UpdateGroupInfoRequest (JSON，包含群组ID和更新信息)
+  /// 响应：UpdateGroupInfoResponse (JSON，返回更新后的群组信息)
   rpc UpdateGroupInfo(UpdateGroupInfoRequest) returns (UpdateGroupInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateGroupInfo"
@@ -836,7 +1465,11 @@ service TeamsAPI {
     };
   }
 
-  // FetchGroupMembers retrieves the list of members in a group
+  /// 获取群组成员列表
+  /// 分页获取指定群组的所有成员用户列表
+  /// HTTP POST /common.TeamsAPI/FetchGroupMembers
+  /// 请求体：FetchGroupMembersRequest (JSON，包含群组ID和分页参数)
+  /// 响应：FetchGroupMembersResponse (JSON，返回成员列表和总数)
   rpc FetchGroupMembers(FetchGroupMembersRequest) returns (FetchGroupMembersResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupMembers"
@@ -845,7 +1478,11 @@ service TeamsAPI {
   }
 
 
-  // JoinGroup adds a user to a group
+  /// 加入群组
+  /// 用户申请加入指定群组，成为群组成员
+  /// HTTP POST /common.TeamsAPI/JoinGroup
+  /// 请求体：JoinGroupRequest (JSON，包含群组ID和用户ID)
+  /// 响应：JoinGroupResponse (JSON)
   rpc JoinGroup(JoinGroupRequest) returns (JoinGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/JoinGroup"
@@ -853,7 +1490,11 @@ service TeamsAPI {
     };
   }
 
-  // LeaveGroup removes a user from a group
+  /// 离开群组
+  /// 用户退出指定群组，解除成员关系
+  /// HTTP POST /common.TeamsAPI/LeaveGroup
+  /// 请求体：LeaveGroupRequest (JSON，包含群组ID和用户ID)
+  /// 响应：LeaveGroupResponse (JSON)
   rpc LeaveGroup(LeaveGroupRequest) returns (LeaveGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LeaveGroup"
@@ -861,7 +1502,34 @@ service TeamsAPI {
     };
   }
 
-  // 创建故事
+  /// 创建故事
+  /// 
+  /// 【功能说明】
+  /// 创建一个新的故事，设置基本信息和初始配置
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/CreateStory
+  /// - 请求体：CreateStoryRequest (JSON)
+  /// - 响应：CreateStoryResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 创建者用户ID
+  ///   "group_id": 456,             // [可选] 所属群组ID
+  ///   "title": "故事标题",         // [必填] 故事名称
+  ///   "description": "故事简介",   // [可选] 故事描述
+  ///   "cover": "封面URL",          // [可选] 封面图片
+  ///   "is_public": true            // [可选] 是否公开，默认true
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - story: 创建的故事对象
+  /// - story_id: 故事ID
   rpc CreateStory(CreateStoryRequest) returns (CreateStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStory"
@@ -869,7 +1537,30 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事信息
+  /// 获取故事信息
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事的详细信息，包括统计数据
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryInfo
+  /// - 请求体：GetStoryInfoRequest (JSON)
+  /// - 响应：GetStoryInfoResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,     // [必填] 故事ID
+  ///   "user_id": 456       // [必填] 请求用户ID（用于权限验证）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - story: 故事详细信息
+  /// - stats: 统计数据（浏览、点赞、评论数等）
   rpc GetStoryInfo(GetStoryInfoRequest) returns (GetStoryInfoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryInfo"
@@ -877,7 +1568,32 @@ service TeamsAPI {
     };
   }
 
-  // 渲染故事
+  /// 渲染故事
+  /// 
+  /// 【功能说明】
+  /// 使用AI为故事生成内容、角色、场景等
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStory
+  /// - 请求体：RenderStoryRequest (JSON)
+  /// - 响应：RenderStoryResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "prompt": "渲染提示词",      // [可选] AI生成提示
+  ///   "render_type": 1             // [可选] 渲染类型（1-完整，2-增量）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - render_id: 渲染任务ID
+  /// - status: 任务状态
   rpc RenderStory(RenderStoryRequest) returns (RenderStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStory"
@@ -886,7 +1602,33 @@ service TeamsAPI {
   }
 
 
-  // 更新故事
+  /// 更新故事
+  /// 
+  /// 【功能说明】
+  /// 更新故事的基本信息和配置
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStory
+  /// - 请求体：UpdateStoryRequest (JSON)
+  /// - 响应：UpdateStoryResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "title": "新标题",           // [可选] 故事标题
+  ///   "description": "新简介",     // [可选] 故事描述
+  ///   "cover": "新封面URL",        // [可选] 封面图片
+  ///   "is_public": true            // [可选] 公开状态
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - story: 更新后的故事信息
   rpc UpdateStory(UpdateStoryRequest) returns (UpdateStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStory"
@@ -895,7 +1637,29 @@ service TeamsAPI {
   }
 
 
-  // 关注故事
+  /// 关注故事
+  /// 
+  /// 【功能说明】
+  /// 关注指定故事，接收该故事的更新通知
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/WatchStory
+  /// - 请求体：WatchStoryRequest (JSON)
+  /// - 响应：WatchStoryResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,     // [必填] 要关注的故事ID
+  ///   "user_id": 456       // [必填] 用户ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - is_watching: 关注状态（true表示已关注）
   rpc WatchStory(WatchStoryRequest) returns (WatchStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/WatchStory"
@@ -903,7 +1667,11 @@ service TeamsAPI {
     };
   }
 
-  // 收藏故事
+  /// 收藏故事
+  /// 将故事添加到用户的个人收藏夹，方便后续查看
+  /// HTTP POST /common.TeamsAPI/ArchiveStory
+  /// 请求体：ArchiveStoryRequest (JSON，包含故事ID和用户ID)
+  /// 响应：ArchiveStoryResponse (JSON)
   rpc ArchiveStory(ArchiveStoryRequest) returns (ArchiveStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ArchiveStory"
@@ -912,7 +1680,33 @@ service TeamsAPI {
   }
 
 
-  // 创建故事板
+  /// 创建故事板
+  /// 
+  /// 【功能说明】
+  /// 在故事中创建新的故事板（分支剧情）
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/CreateStoryboard
+  /// - 请求体：CreateStoryboardRequest (JSON)
+  /// - 响应：CreateStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 所属故事ID
+  ///   "user_id": 456,              // [必填] 创建者用户ID
+  ///   "parent_board_id": 789,      // [可选] 父故事板ID（分支时提供）
+  ///   "title": "故事板标题",       // [必填] 故事板名称
+  ///   "content": "剧情内容"        // [可选] 故事板内容
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - storyboard: 创建的故事板对象
+  /// - storyboard_id: 故事板ID
   rpc CreateStoryboard(CreateStoryboardRequest) returns (CreateStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryboard"
@@ -920,7 +1714,31 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事板
+  /// 获取故事板
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事板的详细信息和内容
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryboard
+  /// - 请求体：GetStoryboardRequest (JSON)
+  /// - 响应：GetStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456,          // [必填] 请求用户ID
+  ///   "include_scenes": true   // [可选] 是否包含场景信息，默认false
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - storyboard: 故事板详细信息
+  /// - scenes: 场景列表（如果 include_scenes=true）
   rpc GetStoryboard(GetStoryboardRequest) returns (GetStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryboard"
@@ -928,7 +1746,35 @@ service TeamsAPI {
     };
   }
 
-  // 渲染故事板
+  /// 渲染故事板
+  /// 
+  /// 【功能说明】
+  /// 使用AI为故事板生成场景、对话和图片
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStoryboard
+  /// - 请求体：RenderStoryboardRequest (JSON)
+  /// - 响应：RenderStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "story_id": 789,             // [必填] 所属故事ID
+  ///   "prompt": "渲染提示",        // [可选] AI生成提示词
+  ///   "render_scenes": true,       // [可选] 是否渲染场景，默认true
+  ///   "render_images": true        // [可选] 是否生成图片，默认true
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - render_id: 渲染任务ID
+  /// - status: 渲染状态
+  /// - progress: 渲染进度（0-100）
   rpc RenderStoryboard(RenderStoryboardRequest) returns (RenderStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryboard"
@@ -936,7 +1782,34 @@ service TeamsAPI {
     };
   }
 
-  // 生成故事板文本
+  /// 生成故事板文本
+  /// 
+  /// 【功能说明】
+  /// 使用AI为故事板生成文本内容（场景描述、对话等）
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GenStoryboardText
+  /// - 请求体：GenStoryboardTextRequest (JSON)
+  /// - 响应：GenStoryboardTextResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "prompt": "生成提示",        // [可选] AI生成提示词
+  ///   "language": "zh-CN",         // [可选] 语言代码，默认zh-CN
+  ///   "style": "现代",             // [可选] 写作风格
+  ///   "length": "medium"           // [可选] 文本长度（short/medium/long）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - generated_text: 生成的文本内容
+  /// - task_id: 生成任务ID
   rpc GenStoryboardText(GenStoryboardTextRequest) returns (GenStoryboardTextResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenStoryboardText"
@@ -944,7 +1817,34 @@ service TeamsAPI {
     };
   }
 
-  // 生成故事板图片
+  /// 生成故事板图片
+  /// 
+  /// 【功能说明】
+  /// 使用AI为故事板的场景生成配图
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GenStoryboardImages
+  /// - 请求体：GenStoryboardImagesRequest (JSON)
+  /// - 响应：GenStoryboardImagesResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "scene_ids": [1, 2, 3],      // [可选] 要生成图片的场景ID列表
+  ///   "style_id": 5,               // [可选] 图片风格ID
+  ///   "quality": "high",           // [可选] 图片质量（low/medium/high）
+  ///   "aspect_ratio": "16:9"       // [可选] 宽高比，默认16:9
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - task_ids: 图片生成任务ID列表
+  /// - estimated_time: 预计完成时间（秒）
   rpc GenStoryboardImages(GenStoryboardImagesRequest) returns (GenStoryboardImagesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenStoryboardImages"
@@ -953,7 +1853,34 @@ service TeamsAPI {
   }
 
 
-  // 获取故事板
+  /// 获取故事板列表
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事的所有故事板列表
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryboards
+  /// - 请求体：GetStoryboardsRequest (JSON)
+  /// - 响应：GetStoryboardsResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,         // [必填] 故事ID
+  ///   "user_id": 456,          // [必填] 用户ID
+  ///   "status": 1,             // [可选] 状态筛选（0-全部，1-已发布，2-草稿）
+  ///   "offset": 0,             // [可选] 分页偏移量，默认0
+  ///   "page_size": 20          // [可选] 每页数量，默认20
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - storyboards: 故事板列表
+  /// - total: 总数量
+  /// - have_more: 是否有更多数据
   rpc GetStoryboards(GetStoryboardsRequest) returns (GetStoryboardsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryboards"
@@ -962,7 +1889,35 @@ service TeamsAPI {
   }
 
 
-  // 删除故事板,1.最后一个故事板可以被删除，2.如果故事板是多分支之一的可以被删除
+  /// 删除故事板
+  /// 
+  /// 【功能说明】
+  /// 删除指定的故事板
+  /// 
+  /// 【删除规则】
+  /// 1. 最后一个故事板可以被删除
+  /// 2. 如果故事板是多分支之一则可以被删除
+  /// 3. 有子分支的故事板不能直接删除
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/DelStoryboard
+  /// - 请求体：DelStoryboardRequest (JSON)
+  /// - 响应：DelStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 要删除的故事板ID
+  ///   "user_id": 456,          // [必填] 用户ID（权限验证）
+  ///   "story_id": 789,         // [必填] 所属故事ID
+  ///   "force": false           // [可选] 是否强制删除，默认false
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
   rpc DelStoryboard(DelStoryboardRequest) returns (DelStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DelStoryboard"
@@ -970,7 +1925,33 @@ service TeamsAPI {
     };
   }
 
-  // 复制故事板
+  /// 复制故事板（分叉）
+  /// 
+  /// 【功能说明】
+  /// 基于现有故事板创建分支版本，开启新的剧情线
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/ForkStoryboard
+  /// - 请求体：ForkStoryboardRequest (JSON)
+  /// - 响应：ForkStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "source_board_id": 123,      // [必填] 源故事板ID（要分叉的故事板）
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "story_id": 789,             // [必填] 所属故事ID
+  ///   "new_title": "分支标题",     // [可选] 新故事板标题
+  ///   "copy_content": true         // [可选] 是否复制内容，默认true
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - new_storyboard: 新创建的分支故事板
+  /// - new_storyboard_id: 新故事板ID
   rpc ForkStoryboard(ForkStoryboardRequest) returns (ForkStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ForkStoryboard"
@@ -979,7 +1960,32 @@ service TeamsAPI {
   }
 
 
-  // 更新故事板
+  /// 更新故事板
+  /// 
+  /// 【功能说明】
+  /// 更新故事板的内容和配置信息
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStoryboard
+  /// - 请求体：UpdateStoryboardRequest (JSON)
+  /// - 响应：UpdateStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "title": "新标题",           // [可选] 故事板标题
+  ///   "content": "新内容",         // [可选] 故事板内容
+  ///   "status": 1                  // [可选] 状态（1-草稿，2-已发布）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - storyboard: 更新后的故事板信息
   rpc UpdateStoryboard(UpdateStoryboardRequest) returns (UpdateStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryboard"
@@ -987,14 +1993,59 @@ service TeamsAPI {
     };
   }
 
-  // 喜欢故事板
+  /// 点赞故事板
+  /// 
+  /// 【功能说明】
+  /// 为故事板点赞，表达对内容的喜欢
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/LikeStoryboard
+  /// - 请求体：LikeStoryboardRequest (JSON)
+  /// - 响应：LikeStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456           // [必填] 点赞用户ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - like_count: 最新点赞总数
   rpc LikeStoryboard(LikeStoryboardRequest) returns (LikeStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeStoryboard"
       body : "*"
     };
   }
-  // 取消喜欢故事板
+  
+  /// 取消点赞故事板
+  /// 
+  /// 【功能说明】
+  /// 取消对故事板的点赞
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UnLikeStoryboard
+  /// - 请求体：UnLikeStoryboardRequest (JSON)
+  /// - 响应：UnLikeStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456           // [必填] 用户ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - like_count: 最新点赞总数
   rpc UnLikeStoryboard(UnLikeStoryboardRequest) returns (UnLikeStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnLikeStoryboard"
@@ -1002,7 +2053,33 @@ service TeamsAPI {
     };
   }
 
-  // 分享故事板
+  /// 分享故事板
+  /// 
+  /// 【功能说明】
+  /// 生成故事板的分享链接，便于在社交媒体传播
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/ShareStoryboard
+  /// - 请求体：ShareStoryboardRequest (JSON)
+  /// - 响应：ShareStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 分享用户ID
+  ///   "platform": "wechat",        // [可选] 分享平台（wechat/weibo/twitter等）
+  ///   "include_images": true       // [可选] 是否包含图片预览，默认true
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - share_url: 分享链接URL
+  /// - qr_code: 二维码图片URL（可选）
+  /// - share_id: 分享记录ID
   rpc ShareStoryboard(ShareStoryboardRequest) returns (ShareStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ShareStoryboard"
@@ -1010,28 +2087,142 @@ service TeamsAPI {
     };
   }
 
-  // 获取组织故事
+  /// 获取群组故事列表
+  /// 
+  /// 【功能说明】
+  /// 获取指定群组内的所有故事
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/FetchGroupStorys
+  /// - 请求体：FetchGroupStorysRequest (JSON)
+  /// - 响应：FetchGroupStorysResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "group_id": 123,         // [必填] 群组ID
+  ///   "user_id": 456,          // [必填] 请求用户ID
+  ///   "offset": 0,             // [可选] 分页偏移量，默认0
+  ///   "page_size": 20,         // [可选] 每页数量，默认20
+  ///   "status": 0              // [可选] 状态筛选（0-全部）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - stories: 故事列表
+  /// - total: 总数量
   rpc FetchGroupStorys(FetchGroupStorysRequest) returns (FetchGroupStorysResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchGroupStorys"
       body : "*"
     };
   }
-  // 用来上传文件的proto 接口
+  
+  /// 上传图片文件
+  /// 
+  /// 【功能说明】
+  /// 上传图片到服务器，支持多种图片格式
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UploadImageFile
+  /// - 请求体：UploadImageRequest (JSON，使用 base64 编码的图片数据)
+  /// - 响应：UploadImageResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "image_data": "base64编码的图片数据",  // [必填] 图片二进制数据（最大10MB）
+  ///   "filename": "avatar.jpg",             // [必填] 文件名（含扩展名）
+  ///   "content_type": "image/jpeg"          // [必填] MIME类型
+  /// }
+  /// ```
+  /// 
+  /// 【支持的图片格式】
+  /// - image/jpeg, image/jpg
+  /// - image/png
+  /// - image/gif
+  /// - image/webp
+  /// - image/bmp
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - url: 上传后的图片URL
+  /// - file_id: 文件ID
+  /// - size: 文件大小（字节）
   rpc UploadImageFile(UploadImageRequest) returns (UploadImageResponse) {
     option (google.api.http) = {
       post: "/common.TeamsAPI/UploadImageFile"
       body: "*"
     };
   }
-  // 用来获取Story的Render 的记录，需要 StoryID，Render status，RenderType
+  /// 获取故事渲染记录
+  /// 
+  /// 【功能说明】
+  /// 获取故事的所有AI渲染记录和历史
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/StoryRender/list
+  /// - 请求体：GetStoryRenderRequest (JSON)
+  /// - 响应：GetStoryRenderResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "render_status": 0,          // [可选] 渲染状态筛选（0-全部，1-进行中，2-完成，3-失败）
+  ///   "render_type": 0,            // [可选] 渲染类型筛选（0-全部，1-角色，2-场景，3-文本）
+  ///   "offset": 0,                 // [可选] 分页偏移量
+  ///   "page_size": 20              // [可选] 每页数量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - renders: 渲染记录列表
+  /// - total: 总数量
   rpc GetStoryRender(GetStoryRenderRequest) returns (GetStoryRenderResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/StoryRender/list"
       body : "*"
     };
   }
-  // 用来获取StoryBoard的Render 的记录，需要 StoryBoardID，Render status，RenderType
+  
+  /// 获取故事板渲染记录
+  /// 
+  /// 【功能说明】
+  /// 获取故事板的所有AI渲染记录和历史
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/StoryBoardRender/list
+  /// - 请求体：GetStoryBoardRenderRequest (JSON)
+  /// - 响应：GetStoryBoardRenderResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "render_status": 0,          // [可选] 渲染状态筛选
+  ///   "render_type": 0,            // [可选] 渲染类型筛选
+  ///   "offset": 0,                 // [可选] 分页偏移量
+  ///   "page_size": 20              // [可选] 每页数量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - renders: 渲染记录列表
+  /// - total: 总数量
   rpc GetStoryBoardRender(GetStoryBoardRenderRequest) returns (GetStoryBoardRenderResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/StoryBoardRender/list"
@@ -1039,14 +2230,44 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事的贡献者
+  /// 获取故事贡献者列表
+  /// 获取参与故事创作的所有贡献者，按贡献度排序
+  /// HTTP POST /common.TeamsAPI/GetStoryContributors
+  /// 请求体：GetStoryContributorsRequest (JSON，包含故事ID和分页参数)
+  /// 响应：GetStoryContributorsResponse (JSON，返回贡献者列表和VIP等级信息)
   rpc GetStoryContributors(GetStoryContributorsRequest) returns (GetStoryContributorsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryContributors"
       body : "*"
     };
   }
-  // 继续渲染故事
+  /// 继续渲染故事
+  /// 
+  /// 【功能说明】
+  /// 在现有基础上继续使用AI生成故事内容
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/ContinueRenderStory
+  /// - 请求体：ContinueRenderStoryRequest (JSON)
+  /// - 响应：ContinueRenderStoryResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "last_board_id": 789,        // [可选] 上一个故事板ID
+  ///   "continue_prompt": "继续...", // [可选] 继续的提示词
+  ///   "generate_count": 3          // [可选] 生成场景数量，默认3
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - new_boards: 新生成的故事板列表
+  /// - render_id: 渲染任务ID
   rpc ContinueRenderStory(ContinueRenderStoryRequest) returns (ContinueRenderStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ContinueRenderStory"
@@ -1062,7 +2283,32 @@ service TeamsAPI {
     };
   }
 
-  // 更新 story role
+  /// 更新故事角色
+  /// 
+  /// 【功能说明】
+  /// 更新故事角色的基本信息
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStoryRole
+  /// - 请求体：UpdateStoryRoleRequest (JSON)
+  /// - 响应：UpdateStoryRoleResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "role_id": 123,              // [必填] 角色ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "name": "新角色名",          // [可选] 角色名称
+  ///   "description": "角色描述",   // [可选] 角色描述
+  ///   "avatar": "头像URL"          // [可选] 角色头像
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - role: 更新后的角色信息
   rpc UpdateStoryRole(UpdateStoryRoleRequest) returns (UpdateStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRole"
@@ -1070,7 +2316,33 @@ service TeamsAPI {
     };
   }
 
-  // 渲染故事角色详情
+  /// 渲染故事角色详情
+  /// 
+  /// 【功能说明】
+  /// 使用AI为角色生成详细的背景故事和性格特征
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStoryRoleDetail
+  /// - 请求体：RenderStoryRoleDetailRequest (JSON)
+  /// - 响应：RenderStoryRoleDetailResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "role_id": 123,              // [必填] 角色ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "story_id": 789,             // [必填] 所属故事ID
+  ///   "detail_type": 1,            // [可选] 详情类型（1-完整，2-简要）
+  ///   "prompt": "生成提示"         // [可选] AI生成提示词
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - character_detail: 角色详细信息对象
+  /// - render_id: 渲染任务ID
   rpc RenderStoryRoleDetail(RenderStoryRoleDetailRequest) returns (RenderStoryRoleDetailResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRoleDetail"
@@ -1078,7 +2350,33 @@ service TeamsAPI {
     };
   }
 
-  // 获取 story roles 的列表
+  /// 获取故事角色列表
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事的所有角色列表
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryRoles
+  /// - 请求体：GetStoryRolesRequest (JSON)
+  /// - 响应：GetStoryRolesResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,         // [必填] 故事ID
+  ///   "user_id": 456,          // [必填] 用户ID
+  ///   "offset": 0,             // [可选] 分页偏移量，默认0
+  ///   "page_size": 20,         // [可选] 每页数量，默认20
+  ///   "include_detail": false  // [可选] 是否包含详细信息，默认false
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - roles: 角色列表
+  /// - total: 总数量
   rpc GetStoryRoles(GetStoryRolesRequest) returns (GetStoryRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryRoles"
@@ -1086,7 +2384,31 @@ service TeamsAPI {
     };
   }
 
-  // 获取 story board roles 的列表 
+  /// 获取故事板角色列表
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事板中出现的所有角色
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryBoardRoles
+  /// - 请求体：GetStoryBoardRolesRequest (JSON)
+  /// - 响应：GetStoryBoardRolesResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456,          // [必填] 用户ID
+  ///   "story_id": 789          // [必填] 所属故事ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - roles: 角色列表
+  /// - total: 角色总数
   rpc GetStoryBoardRoles(GetStoryBoardRolesRequest) returns (GetStoryBoardRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryBoardRoles"
@@ -1094,7 +2416,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取用户的 profile
+  /// 获取用户资料
+  /// 获取指定用户的详细个人资料信息
+  /// HTTP POST /common.TeamsAPI/GetUserProfile
+  /// 请求体：GetUserProfileRequest (JSON，包含用户ID)
+  /// 响应：GetUserProfileResponse (JSON，返回用户完整资料)
   rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserProfile"
@@ -1102,7 +2428,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新用户的 profile
+  /// 更新用户资料
+  /// 更新用户的个人资料信息，包括昵称、描述、位置等
+  /// HTTP POST /common.TeamsAPI/UpdateUserProfile
+  /// 请求体：UpdateUserProfileRequest (JSON，包含要更新的资料字段)
+  /// 响应：UpdateUserProfileResponse (JSON)
   rpc UpdateUserProfile(UpdateUserProfileRequest) returns (UpdateUserProfileResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateUserProfile"
@@ -1110,14 +2440,23 @@ service TeamsAPI {
     };
   }
 
-  // 更新用户的背景图片
+  /// 更新用户背景图片
+  /// 更新用户个人主页的背景图片
+  /// HTTP POST /common.TeamsAPI/UpdateUserBackgroundImage
+  /// 请求体：UpdateUserBackgroundImageRequest (JSON，包含背景图片URL)
+  /// 响应：UpdateUserBackgroundImageResponse (JSON)
   rpc UpdateUserBackgroundImage(UpdateUserBackgroundImageRequest) returns (UpdateUserBackgroundImageResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateUserBackgroundImage"
       body : "*"
     };
   }
-  // 创建新的故事角色
+  
+  /// 创建新的故事角色
+  /// 在故事中创建一个新的角色，设置角色的基本信息
+  /// HTTP POST /common.TeamsAPI/CreateStoryRole
+  /// 请求体：CreateStoryRoleRequest (JSON，包含角色详细信息)
+  /// 响应：CreateStoryRoleResponse (JSON)
   rpc CreateStoryRole(CreateStoryRoleRequest) returns (CreateStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryRole"
@@ -1125,7 +2464,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取角色详情
+  /// 获取角色详情
+  /// 获取故事角色的完整详细信息
+  /// HTTP POST /common.TeamsAPI/GetStoryRoleDetail
+  /// 请求体：GetStoryRoleDetailRequest (JSON，包含角色ID)
+  /// 响应：GetStoryRoleDetailResponse (JSON，返回角色完整信息)
   rpc GetStoryRoleDetail(GetStoryRoleDetailRequest) returns (GetStoryRoleDetailResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryRoleDetail"
@@ -1133,7 +2476,11 @@ service TeamsAPI {
     };
   }
 
-  // 生成角色的图片
+  /// 渲染生成角色图片
+  /// 使用AI为故事角色生成高质量的形象图片
+  /// HTTP POST /common.TeamsAPI/RenderStoryRole
+  /// 请求体：RenderStoryRoleRequest (JSON，包含渲染提示词和参考图片)
+  /// 响应：RenderStoryRoleResponse (JSON，返回渲染详情和图片URL)
   rpc RenderStoryRole(RenderStoryRoleRequest) returns (RenderStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRole"
@@ -1165,7 +2512,11 @@ service TeamsAPI {
   //   };
   // }
 
-  // 喜欢故事
+  /// 点赞故事
+  /// 为故事点赞表示喜欢，增加故事人气
+  /// HTTP POST /common.TeamsAPI/LikeStory
+  /// 请求体：LikeStoryRequest (JSON，包含故事ID和用户ID)
+  /// 响应：LikeStoryResponse (JSON)
   rpc LikeStory(LikeStoryRequest) returns (LikeStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeStory"
@@ -1173,7 +2524,11 @@ service TeamsAPI {
     };
   }
 
-  // 取消喜欢故事
+  /// 取消点赞故事
+  /// 取消对故事的点赞
+  /// HTTP POST /common.TeamsAPI/UnLikeStory
+  /// 请求体：UnLikeStoryRequest (JSON)
+  /// 响应：UnLikeStoryResponse (JSON)
   rpc UnLikeStory(UnLikeStoryRequest) returns (UnLikeStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnLikeStory"
@@ -1181,35 +2536,156 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事板场景
+  /// 获取故事板场景列表
+  /// 
+  /// 【功能说明】
+  /// 获取指定故事板的所有场景
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryBoardSences
+  /// - 请求体：GetStoryBoardSencesRequest (JSON)
+  /// - 响应：GetStoryBoardSencesResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456           // [必填] 用户ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - scenes: 场景列表（按顺序排列）
   rpc GetStoryBoardSences(GetStoryBoardSencesRequest) returns (GetStoryBoardSencesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryBoardSences"
       body : "*"
     };
   }
-  // 创建故事板场景
+  
+  /// 创建故事板场景
+  /// 
+  /// 【功能说明】
+  /// 在故事板中创建新的场景
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/CreateStoryBoardSence
+  /// - 请求体：CreateStoryBoardSenceRequest (JSON)
+  /// - 响应：CreateStoryBoardSenceResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "title": "场景标题",         // [必填] 场景名称
+  ///   "description": "场景描述",   // [必填] 场景内容
+  ///   "order": 1                   // [可选] 场景顺序
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - scene: 创建的场景对象
+  /// - scene_id: 场景ID
   rpc CreateStoryBoardSence(CreateStoryBoardSenceRequest) returns (CreateStoryBoardSenceResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryBoardSence"
       body : "*"
     };
   }
-  // 更新故事板场景
+  
+  /// 更新故事板场景
+  /// 
+  /// 【功能说明】
+  /// 更新场景的内容和配置
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStoryBoardSence
+  /// - 请求体：UpdateStoryBoardSenceRequest (JSON)
+  /// - 响应：UpdateStoryBoardSenceResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "scene_id": 123,             // [必填] 场景ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "title": "新标题",           // [可选] 场景标题
+  ///   "description": "新描述",     // [可选] 场景描述
+  ///   "image_url": "新图片URL"     // [可选] 场景图片
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - scene: 更新后的场景信息
   rpc UpdateStoryBoardSence(UpdateStoryBoardSenceRequest) returns (UpdateStoryBoardSenceResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryBoardSence"
       body : "*"
     };
   }
-  // 删除故事板场景
+  
+  /// 删除故事板场景
+  /// 
+  /// 【功能说明】
+  /// 删除指定的故事板场景
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/DeleteStoryBoardSence
+  /// - 请求体：DeleteStoryBoardSenceRequest (JSON)
+  /// - 响应：DeleteStoryBoardSenceResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "scene_id": 123,         // [必填] 要删除的场景ID
+  ///   "user_id": 456,          // [必填] 用户ID（权限验证）
+  ///   "storyboard_id": 789     // [必填] 所属故事板ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
   rpc DeleteStoryBoardSence(DeleteStoryBoardSenceRequest) returns (DeleteStoryBoardSenceResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteStoryBoardSence"
       body : "*"
     };
   }
-  // 渲染故事板指定场景
+  /// 渲染故事板指定场景
+  /// 
+  /// 【功能说明】
+  /// 使用AI为单个场景生成图片
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStoryBoardSence
+  /// - 请求体：RenderStoryBoardSenceRequest (JSON)
+  /// - 响应：RenderStoryBoardSenceResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "scene_id": 123,             // [必填] 场景ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "storyboard_id": 789,        // [必填] 所属故事板ID
+  ///   "prompt": "渲染提示",        // [可选] AI生成提示词
+  ///   "style_id": 5,               // [可选] 图片风格ID
+  ///   "quality": "high"            // [可选] 图片质量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - image_url: 生成的场景图片URL
+  /// - task_id: 渲染任务ID
   rpc RenderStoryBoardSence(RenderStoryBoardSenceRequest) returns (RenderStoryBoardSenceResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryBoardSence"
@@ -1217,7 +2693,32 @@ service TeamsAPI {
     };
   }
   
-  // 渲染故事板的所有场景
+  /// 批量渲染故事板场景
+  /// 
+  /// 【功能说明】
+  /// 使用AI为故事板的所有场景批量生成图片
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStoryBoardSences
+  /// - 请求体：RenderStoryBoardSencesRequest (JSON)
+  /// - 响应：RenderStoryBoardSencesResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "scene_ids": [1, 2, 3],      // [可选] 要渲染的场景ID列表（不提供则渲染全部）
+  ///   "style_id": 5,               // [可选] 统一图片风格ID
+  ///   "quality": "high"            // [可选] 图片质量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - task_ids: 批量渲染任务ID列表
+  /// - estimated_time: 预计完成时间（秒）
   rpc RenderStoryBoardSences(RenderStoryBoardSencesRequest) returns (RenderStoryBoardSencesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryBoardSences"
@@ -1225,7 +2726,31 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事板场景生成状态
+  /// 获取场景生成状态
+  /// 
+  /// 【功能说明】
+  /// 查询场景AI生成任务的实时状态和进度
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryBoardSenceGenerate
+  /// - 请求体：GetStoryBoardSenceGenerateRequest (JSON)
+  /// - 响应：GetStoryBoardSenceGenerateResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "scene_id": 123,         // [必填] 场景ID
+  ///   "user_id": 456,          // [必填] 用户ID
+  ///   "task_id": "task_789"    // [可选] 任务ID（查询特定任务）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - status: 生成状态（0-队列中，1-生成中，2-完成，3-失败）
+  /// - progress: 进度百分比（0-100）
+  /// - result_url: 生成结果URL（完成时）
   rpc GetStoryBoardSenceGenerate(GetStoryBoardSenceGenerateRequest) returns (GetStoryBoardSenceGenerateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryBoardSenceGenerate"
@@ -1233,7 +2758,31 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事板生成状态
+  /// 获取故事板生成状态
+  /// 
+  /// 【功能说明】
+  /// 查询故事板整体AI生成任务的状态
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetStoryBoardGenerate
+  /// - 请求体：GetStoryBoardGenerateRequest (JSON)
+  /// - 响应：GetStoryBoardGenerateResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 故事板ID
+  ///   "user_id": 456,          // [必填] 用户ID
+  ///   "task_id": "task_789"    // [可选] 任务ID
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - status: 整体生成状态
+  /// - progress: 总体进度百分比
+  /// - scene_status: 各场景的生成状态列表
   rpc GetStoryBoardGenerate(GetStoryBoardGenerateRequest) returns (GetStoryBoardGenerateResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryBoardGenerate"
@@ -1241,35 +2790,59 @@ service TeamsAPI {
     };
   }
 
-  // 点赞故事角色
+  /// 点赞故事角色
+  /// 为故事角色点赞，表达对角色的喜爱
+  /// HTTP POST /common.TeamsAPI/LikeStoryRole
+  /// 请求体：LikeStoryRoleRequest (JSON，包含角色ID和用户ID)
+  /// 响应：LikeStoryRoleResponse (JSON)
   rpc LikeStoryRole(LikeStoryRoleRequest) returns (LikeStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeStoryRole"
       body : "*"
     };
   }
-  // 取消点赞故事角色
+  
+  /// 取消点赞故事角色
+  /// 取消对故事角色的点赞
+  /// HTTP POST /common.TeamsAPI/UnLikeStoryRole
+  /// 请求体：UnLikeStoryRoleRequest (JSON)
+  /// 响应：UnLikeStoryRoleResponse (JSON)
   rpc UnLikeStoryRole(UnLikeStoryRoleRequest) returns (UnLikeStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnLikeStoryRole"
       body : "*"
     };
   }
-  // 关注故事角色
+  
+  /// 关注故事角色
+  /// 关注指定的故事角色，接收该角色的最新动态通知
+  /// HTTP POST /common.TeamsAPI/FollowStoryRole
+  /// 请求体：FollowStoryRoleRequest (JSON)
+  /// 响应：FollowStoryRoleResponse (JSON)
   rpc FollowStoryRole(FollowStoryRoleRequest) returns (FollowStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FollowStoryRole"
       body : "*"
     };
   }
-  // 取消关注故事角色
+  
+  /// 取消关注故事角色
+  /// 取消对故事角色的关注，停止接收动态通知
+  /// HTTP POST /common.TeamsAPI/UnFollowStoryRole
+  /// 请求体：UnFollowStoryRoleRequest (JSON)
+  /// 响应：UnFollowStoryRoleResponse (JSON)
   rpc UnFollowStoryRole(UnFollowStoryRoleRequest) returns (UnFollowStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnFollowStoryRole"
       body : "*"
     };
   }
-  // 根据关键字查询故事
+  
+  /// 搜索故事
+  /// 根据关键词搜索故事，支持全局搜索和群组内搜索
+  /// HTTP POST /common.TeamsAPI/SearchStories
+  /// 请求体：SearchStoriesRequest (JSON，包含关键词、范围和分页参数)
+  /// 响应：SearchStoriesResponse (JSON，返回匹配的故事列表)
   rpc SearchStories(SearchStoriesRequest) returns (SearchStoriesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchStories"
@@ -1277,7 +2850,11 @@ service TeamsAPI {
     };
   }
 
-  // 搜索组织
+  /// 搜索群组
+  /// 根据名称搜索群组，支持模糊搜索
+  /// HTTP POST /common.TeamsAPI/SearchGroup
+  /// 请求体：SearchGroupRequest (JSON，包含搜索关键词和范围)
+  /// 响应：SearchGroupResponse (JSON，返回匹配的群组列表)
   rpc SearchGroup(SearchGroupRequest) returns (SearchGroupResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchGroup"
@@ -1285,7 +2862,11 @@ service TeamsAPI {
     };
   }
 
-  // 搜索角色
+  /// 搜索故事角色
+  /// 根据关键词搜索故事角色，支持在故事内或全局搜索
+  /// HTTP POST /common.TeamsAPI/SearchRoles
+  /// 请求体：SearchRolesRequest (JSON，包含关键词、范围和分页参数)
+  /// 响应：SearchRolesResponse (JSON，返回匹配的角色列表)
   rpc SearchRoles(SearchRolesRequest) returns (SearchRolesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SearchRoles"
@@ -1293,7 +2874,11 @@ service TeamsAPI {
     };
   }
 
-  // 恢复故事板的状态
+  /// 恢复故事板状态
+  /// 从草稿或历史版本恢复故事板到指定状态
+  /// HTTP POST /common.TeamsAPI/RestoreStoryboard
+  /// 请求体：RestoreStoryboardRequest (JSON，包含故事板ID和版本信息)
+  /// 响应：RestoreStoryboardResponse (JSON，返回恢复后的完整故事板数据)
   rpc RestoreStoryboard(RestoreStoryboardRequest) returns (RestoreStoryboardResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/RestoreStoryboard"
@@ -1332,14 +2917,23 @@ service TeamsAPI {
       body : "*"
     };
   }
-  // 创建与角色的对话
+  /// 创建与角色的对话
+  /// 开始一个新的与故事角色的AI聊天会话
+  /// HTTP POST /common.TeamsAPI/CreateStoryRoleChat
+  /// 请求体：CreateStoryRoleChatRequest (JSON，包含角色ID和用户ID)
+  /// 响应：CreateStoryRoleChatResponse (JSON，返回聊天上下文信息)
   rpc CreateStoryRoleChat(CreateStoryRoleChatRequest) returns (CreateStoryRoleChatResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryRoleChat"
       body : "*"
     };
   }
-  // 与角色聊天
+  
+  /// 与角色聊天
+  /// 发送消息并获取AI角色的智能回复
+  /// HTTP POST /common.TeamsAPI/ChatWithStoryRole
+  /// 请求体：ChatWithStoryRoleRequest (JSON，包含历史消息列表)
+  /// 响应：ChatWithStoryRoleResponse (JSON，返回角色的回复消息)
   rpc ChatWithStoryRole(ChatWithStoryRoleRequest) returns (ChatWithStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/ChatWithStoryRole"
@@ -1347,7 +2941,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新角色头像
+  /// 更新角色头像
+  /// 更新故事角色的头像图片
+  /// HTTP POST /common.TeamsAPI/UpdateStoryRoleAvator
+  /// 请求体：UpdateStoryRoleAvatorRequest (JSON，包含新头像URL)
+  /// 响应：UpdateStoryRoleAvatorResponse (JSON)
   rpc UpdateStoryRoleAvator(UpdateStoryRoleAvatorRequest) returns (UpdateStoryRoleAvatorResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRoleAvator"
@@ -1355,7 +2953,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新角色详情
+  /// 更新角色详情
+  /// 更新故事角色的完整信息，包括描述、性格、能力等
+  /// HTTP POST /common.TeamsAPI/UpdateStoryRoleDetail
+  /// 请求体：UpdateStoryRoleDetailRequest (JSON，包含角色完整信息)
+  /// 响应：UpdateStoryRoleDetailResponse (JSON)
   rpc UpdateStoryRoleDetail(UpdateStoryRoleDetailRequest) returns (UpdateStoryRoleDetailResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRoleDetail"
@@ -1363,7 +2965,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取用户的对话列表
+  /// 获取用户的对话列表
+  /// 获取用户与各个角色的所有聊天会话列表
+  /// HTTP POST /common.TeamsAPI/GetUserWithRoleChatList
+  /// 请求体：GetUserWithRoleChatListRequest (JSON，包含用户ID和分页参数)
+  /// 响应：GetUserWithRoleChatListResponse (JSON，返回聊天会话列表)
   rpc GetUserWithRoleChatList(GetUserWithRoleChatListRequest) returns (GetUserWithRoleChatListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserWithRoleChatList"
@@ -1371,7 +2977,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取用户与角色的对话
+  /// 获取用户与角色的对话
+  /// 获取用户与指定角色的完整聊天记录
+  /// HTTP POST /common.TeamsAPI/GetUserChatWithRole
+  /// 请求体：GetUserChatWithRoleRequest (JSON，包含角色ID和用户ID)
+  /// 响应：GetUserChatWithRoleResponse (JSON，返回聊天消息列表和上下文)
   rpc GetUserChatWithRole(GetUserChatWithRoleRequest) returns (GetUserChatWithRoleResponse ) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserChatWithRole"
@@ -1379,7 +2989,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取用户的消息
+  /// 获取用户的消息列表
+  /// 获取指定聊天会话中的所有消息记录
+  /// HTTP POST /common.TeamsAPI/GetUserChatMessages
+  /// 请求体：GetUserChatMessagesRequest (JSON，包含聊天ID和时间戳)
+  /// 响应：GetUserChatMessagesResponse (JSON，返回消息列表)
   rpc GetUserChatMessages(GetUserChatMessagesRequest) returns (GetUserChatMessagesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserChatMessages"
@@ -1387,7 +3001,11 @@ service TeamsAPI {
     };
   }
 
-  // 活动信息
+  /// 获取活动动态列表
+  /// 获取用户、群组或故事的最新活动动态信息
+  /// HTTP POST /common.TeamsAPI/FetchActives
+  /// 请求体：FetchActivesRequest (JSON，包含筛选条件和分页参数)
+  /// 响应：FetchActivesResponse (JSON，返回活动动态列表)
   rpc FetchActives(FetchActivesRequest) returns (FetchActivesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FetchActives"
@@ -1395,7 +3013,39 @@ service TeamsAPI {
     };
   }
 
-  // 根据boardId 获取 下一个 storyboard,如果是多个分叉，则返回多个，同时返回是否多分支的标记位
+  /// 获取下一个故事板
+  /// 
+  /// 【功能说明】
+  /// 根据当前故事板ID获取后续的故事板，支持多分支场景
+  /// 
+  /// 【多分支说明】
+  /// - 如果有多个分叉，则返回所有分支
+  /// - 返回is_multi_branch标记位，标识是否为多分支
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetNextStoryboards
+  /// - 请求体：GetNextStoryboardRequest (JSON)
+  /// - 响应：GetNextStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,        // [必填] 当前故事板ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "story_id": 789,             // [必填] 所属故事ID
+  ///   "is_multi_branch": false,    // [可选] 是否多分支模式
+  ///   "offset": 0,                 // [可选] 分页偏移量（多分支时使用）
+  ///   "page_size": 20,             // [可选] 每页数量
+  ///   "order_by": "CREATE_TIME"    // [可选] 排序方式
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - storyboards: 后续故事板列表
+  /// - is_multi_branch: 是否为多分支
+  /// - total: 分支总数
   rpc GetNextStoryboard(GetNextStoryboardRequest) returns (GetNextStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetNextStoryboards"
@@ -1403,7 +3053,32 @@ service TeamsAPI {
     };
   }
 
-  // 持续渲染故事角色
+  /// 持续渲染故事角色
+  /// 
+  /// 【功能说明】
+  /// 持续优化和迭代角色形象，直到达到满意效果
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/RenderStoryRoleContinuously
+  /// - 请求体：RenderStoryRoleContinuouslyRequest (JSON)
+  /// - 响应：RenderStoryRoleContinuouslyResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "role_id": 123,              // [必填] 角色ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "story_id": 789,             // [必填] 故事ID
+  ///   "prompt": "优化提示",        // [可选] 优化方向的提示词
+  ///   "reference_image": "参考图"  // [可选] 参考图片URL
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - detail: 渲染详情对象
+  /// - have_more: 是否还有更多迭代空间
   rpc RenderStoryRoleContinuously(RenderStoryRoleContinuouslyRequest) returns (RenderStoryRoleContinuouslyResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/RenderStoryRoleContinuously"
@@ -1411,14 +3086,63 @@ service TeamsAPI {
     };
   }
 
-  // 发布故事板
+  /// 发布故事板
+  /// 
+  /// 【功能说明】
+  /// 将草稿状态的故事板正式发布，其他用户可见
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/PublishStoryboard
+  /// - 请求体：PublishStoryboardRequest (JSON)
+  /// - 响应：PublishStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 要发布的故事板ID
+  ///   "user_id": 456           // [必填] 用户ID（仅所有者可发布）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - publish_time: 发布时间戳
   rpc PublishStoryboard(PublishStoryboardRequest) returns (PublishStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/PublishStoryboard"
       body : "*"
     };
   }
-  // 撤销故事板，撤销后，故事板只会保留AI生成的故事板内容，用来给用户展示，场景和图片不会展示。以保证故事的连贯性。
+  
+  /// 撤销故事板
+  /// 
+  /// 【功能说明】
+  /// 撤销已发布的故事板，保留文本但隐藏场景和图片
+  /// 
+  /// 【撤销规则】
+  /// - 保留AI生成的故事板文本内容，用来给用户展示
+  /// - 场景和图片不会展示，以保证故事的连贯性
+  /// - 可以重新编辑后再次发布
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/CancelStoryboard
+  /// - 请求体：CancelStoryboardRequest (JSON)
+  /// - 响应：CancelStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "storyboard_id": 123,    // [必填] 要撤销的故事板ID
+  ///   "user_id": 456           // [必填] 用户ID（仅所有者可撤销）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
   rpc CancelStoryboard(CancelStoryboardRequest) returns (CancelStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CancelStoryboard"
@@ -1426,6 +3150,31 @@ service TeamsAPI {
     };
   }
 
+  /// 获取用户关注故事的活跃故事板
+  /// 
+  /// 【功能说明】
+  /// 获取用户关注的故事中最近活跃的故事板
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards
+  /// - 请求体：GetUserWatchStoryActiveStoryBoardsRequest (JSON)
+  /// - 响应：GetUserWatchStoryActiveStoryBoardsResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "story_id": 456,             // [必填] 故事ID
+  ///   "offset": 0,                 // [可选] 分页偏移量
+  ///   "page_size": 20,             // [可选] 每页数量
+  ///   "filter": "published"        // [可选] 筛选条件（published/draft）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - storyboards: 活跃故事板列表
+  /// - total: 总数量
   rpc GetUserWatchStoryActiveStoryBoards(GetUserWatchStoryActiveStoryBoardsRequest) returns (GetUserWatchStoryActiveStoryBoardsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserWatchStoryActiveStoryBoards"
@@ -1433,6 +3182,31 @@ service TeamsAPI {
     };
   }
 
+  /// 获取用户关注角色的活跃故事板
+  /// 
+  /// 【功能说明】
+  /// 获取用户关注的角色参与的最近活跃故事板
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards
+  /// - 请求体：GetUserWatchRoleActiveStoryBoardsRequest (JSON)
+  /// - 响应：GetUserWatchRoleActiveStoryBoardsResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "role_id": 456,              // [必填] 角色ID
+  ///   "offset": 0,                 // [可选] 分页偏移量
+  ///   "page_size": 20,             // [可选] 每页数量
+  ///   "filter": "all"              // [可选] 筛选条件
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - storyboards: 活跃故事板列表
+  /// - total: 总数量
   rpc GetUserWatchRoleActiveStoryBoards(GetUserWatchRoleActiveStoryBoardsRequest) returns (GetUserWatchRoleActiveStoryBoardsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUserWatchRoleActiveStoryBoards"
@@ -1440,6 +3214,29 @@ service TeamsAPI {
     };
   }
 
+  /// 获取未发布故事板列表
+  /// 
+  /// 【功能说明】
+  /// 获取用户所有未发布（草稿）状态的故事板
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GetUnPublishStoryboard
+  /// - 请求体：GetUnPublishStoryboardRequest (JSON)
+  /// - 响应：GetUnPublishStoryboardResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,          // [必填] 用户ID
+  ///   "offset": 0,             // [可选] 分页偏移量
+  ///   "page_size": 20          // [可选] 每页数量
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - storyboardactives: 草稿故事板列表
+  /// - total: 总数量
   rpc GetUnPublishStoryboard(GetUnPublishStoryboardRequest) returns (GetUnPublishStoryboardResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetUnPublishStoryboard"
@@ -1447,6 +3244,29 @@ service TeamsAPI {
     };
   }
 
+  /// 生成角色描述
+  /// 
+  /// 【功能说明】
+  /// 使用AI为角色生成详细的背景描述和性格特征
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GenerateRoleDescription
+  /// - 请求体：GenerateRoleDescriptionRequest (JSON)
+  /// - 响应：GenerateRoleDescriptionResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "role_id": 789,              // [必填] 角色ID
+  ///   "description": "基础描述"    // [可选] 基础描述（AI会扩展）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - character_detail: AI生成的详细角色描述
   rpc GenerateRoleDescription(GenerateRoleDescriptionRequest) returns (GenerateRoleDescriptionResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateRoleDescription"
@@ -1454,6 +3274,28 @@ service TeamsAPI {
     };
   }
 
+  /// 更新角色描述
+  /// 
+  /// 【功能说明】
+  /// 更新角色的文本描述信息
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateRoleDescription
+  /// - 请求体：UpdateRoleDescriptionRequest (JSON)
+  /// - 响应：UpdateRoleDescriptionResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "role_id": 456,              // [必填] 角色ID
+  ///   "description": "新的描述"    // [必填] 新的角色描述（最大2000字符）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
   rpc UpdateRoleDescription(UpdateRoleDescriptionRequest) returns (UpdateRoleDescriptionResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateRoleDescription"
@@ -1461,6 +3303,29 @@ service TeamsAPI {
     };
   }
 
+  /// 生成角色提示词
+  /// 
+  /// 【功能说明】
+  /// 使用AI为角色生成优化的图片生成提示词
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GenerateRolePrompt
+  /// - 请求体：GenerateRolePromptRequest (JSON)
+  /// - 响应：GenerateRolePromptResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "role_id": 789,              // [必填] 角色ID
+  ///   "prompt": "基础提示词"       // [可选] 基础提示词（AI会优化）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - prompt: AI生成的优化提示词
   rpc GenerateRolePrompt(GenerateRolePromptRequest) returns (GenerateRolePromptResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateRolePrompt"
@@ -1468,13 +3333,39 @@ service TeamsAPI {
     };
   }
 
+  /// 更新角色提示词
+  /// 
+  /// 【功能说明】
+  /// 更新角色的AI图片生成提示词
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateRolePrompt
+  /// - 请求体：UpdateRolePromptRequest (JSON)
+  /// - 响应：UpdateRolePromptResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "user_id": 123,              // [必填] 用户ID
+  ///   "role_id": 456,              // [必填] 角色ID
+  ///   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
   rpc UpdateRolePrompt(UpdateRolePromptRequest) returns (UpdateRolePromptResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateRolePrompt"
       body : "*"
     };
   }
-  // 创建故事评论
+  /// 创建故事评论
+  /// 在故事下发表新的评论，支持富文本内容
+  /// HTTP POST /common.TeamsAPI/CreateStoryComment
+  /// 请求体：CreateStoryCommentRequest (JSON，包含故事ID和评论内容)
+  /// 响应：CreateStoryCommentResponse (JSON，返回创建的评论信息)
   rpc CreateStoryComment(CreateStoryCommentRequest) returns (CreateStoryCommentResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryComment"
@@ -1482,7 +3373,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事评论
+  /// 获取故事评论列表
+  /// 分页获取指定故事的所有评论
+  /// HTTP POST /common.TeamsAPI/GetStoryComments
+  /// 请求体：GetStoryCommentsRequest (JSON，包含故事ID和分页参数)
+  /// 响应：GetStoryCommentsResponse (JSON，返回评论列表和分页信息)
   rpc GetStoryComments(GetStoryCommentsRequest) returns (GetStoryCommentsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryComments"
@@ -1490,7 +3385,11 @@ service TeamsAPI {
     };
   }
 
-  // 删除故事评论
+  /// 删除故事评论
+  /// 删除指定的故事评论，仅评论作者或管理员可删除
+  /// HTTP POST /common.TeamsAPI/DeleteStoryComment
+  /// 请求体：DeleteStoryCommentRequest (JSON)
+  /// 响应：DeleteStoryCommentResponse (JSON)
   rpc DeleteStoryComment(DeleteStoryCommentRequest) returns (DeleteStoryCommentResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteStoryComment"
@@ -1498,7 +3397,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事评论回复
+  /// 获取故事评论回复列表
+  /// 获取指定评论的所有回复
+  /// HTTP POST /common.TeamsAPI/GetStoryCommentReplies
+  /// 请求体：GetStoryCommentRepliesRequest (JSON，包含评论ID和分页参数)
+  /// 响应：GetStoryCommentRepliesResponse (JSON，返回回复列表)
   rpc GetStoryCommentReplies(GetStoryCommentRepliesRequest) returns (GetStoryCommentRepliesResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryCommentReplies"
@@ -1506,7 +3409,11 @@ service TeamsAPI {
     };
   }
 
-  // 创建故事评论回复
+  /// 创建故事评论回复
+  /// 回复指定的故事评论
+  /// HTTP POST /common.TeamsAPI/CreateStoryCommentReply
+  /// 请求体：CreateStoryCommentReplyRequest (JSON，包含评论ID和回复内容)
+  /// 响应：CreateStoryCommentReplyResponse (JSON，返回创建的回复信息)
   rpc CreateStoryCommentReply(CreateStoryCommentReplyRequest) returns (CreateStoryCommentReplyResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/CreateStoryCommentReply"
@@ -1514,7 +3421,11 @@ service TeamsAPI {
     };
   }
 
-  // 删除故事评论回复
+  /// 删除故事评论回复
+  /// 删除指定的评论回复，仅回复作者或管理员可删除
+  /// HTTP POST /common.TeamsAPI/DeleteStoryCommentReply
+  /// 请求体：DeleteStoryCommentReplyRequest (JSON)
+  /// 响应：DeleteStoryCommentReplyResponse (JSON)
   rpc DeleteStoryCommentReply(DeleteStoryCommentReplyRequest) returns (DeleteStoryCommentReplyResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteStoryCommentReply"
@@ -1570,7 +3481,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事角色列表
+  /// 获取故事角色列表
+  /// 获取指定故事的所有角色列表，支持搜索和筛选
+  /// HTTP POST /common.TeamsAPI/GetStoryRoleList
+  /// 请求体：GetStoryRoleListRequest (JSON，包含故事ID、搜索关键词和分页参数)
+  /// 响应：GetStoryRoleListResponse (JSON，返回角色列表和总数)
   rpc GetStoryRoleList(GetStoryRoleListRequest) returns (GetStoryRoleListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryRoleList"
@@ -1578,14 +3493,23 @@ service TeamsAPI {
     };
   }
 
-  // 热门故事
+  /// 获取热门故事
+  /// 获取指定时间段内最热门的故事列表，按热度排序
+  /// HTTP POST /common.TeamsAPI/TrendingStory
+  /// 请求体：TrendingStoryRequest (JSON，包含时间范围和分页参数)
+  /// 响应：TrendingStoryResponse (JSON，返回热门故事列表)
   rpc TrendingStory(TrendingStoryRequest) returns (TrendingStoryResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/TrendingStory"
       body : "*"
     };
   }
-  //热门角色
+  
+  /// 获取热门角色
+  /// 获取指定时间段内最热门的故事角色列表，按人气排序
+  /// HTTP POST /common.TeamsAPI/TrendingStoryRole
+  /// 请求体：TrendingStoryRoleRequest (JSON，包含时间范围和分页参数)
+  /// 响应：TrendingStoryRoleResponse (JSON，返回热门角色列表)
   rpc TrendingStoryRole(TrendingStoryRoleRequest) returns (TrendingStoryRoleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/TrendingStoryRole"
@@ -1593,7 +3517,11 @@ service TeamsAPI {
     };
   }
 
-  // 关注另一个用户
+  /// 关注用户
+  /// 关注另一个用户，建立关注关系并接收其动态
+  /// HTTP POST /common.TeamsAPI/FollowUser
+  /// 请求体：FollowUserRequest (JSON，包含被关注用户的ID)
+  /// 响应：FollowUserResponse (JSON)
   rpc FollowUser(FollowUserRequest) returns (FollowUserResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/FollowUser"
@@ -1601,7 +3529,11 @@ service TeamsAPI {
     };
   }
 
-  // 取消关注另一个用户
+  /// 取消关注用户
+  /// 取消对另一个用户的关注，停止接收其动态
+  /// HTTP POST /common.TeamsAPI/UnfollowUser
+  /// 请求体：UnfollowUserRequest (JSON)
+  /// 响应：UnfollowUserResponse (JSON)
   rpc UnfollowUser(UnfollowUserRequest) returns (UnfollowUserResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnfollowUser"
@@ -1609,7 +3541,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取关注列表
+  /// 获取用户关注列表
+  /// 获取用户关注的所有其他用户列表
+  /// HTTP POST /common.TeamsAPI/GetFollowList
+  /// 请求体：GetFollowListRequest (JSON，包含用户ID和分页参数)
+  /// 响应：GetFollowListResponse (JSON，返回关注的用户列表)
   rpc GetFollowList(GetFollowListRequest) returns (GetFollowListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetFollowList"
@@ -1617,7 +3553,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取粉丝列表
+  /// 获取用户粉丝列表
+  /// 获取关注该用户的所有粉丝列表
+  /// HTTP POST /common.TeamsAPI/GetFollowerList
+  /// 请求体：GetFollowerListRequest (JSON，包含用户ID和分页参数)
+  /// 响应：GetFollowerListResponse (JSON，返回粉丝用户列表)
   rpc GetFollowerList(GetFollowerListRequest) returns (GetFollowerListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetFollowerList"
@@ -1625,7 +3565,29 @@ service TeamsAPI {
     };
   }
 
-  // 更新角色的提示词
+  /// 更新故事角色提示词
+  /// 
+  /// 【功能说明】
+  /// 更新角色AI生成时使用的提示词
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStoryRolePrompt
+  /// - 请求体：UpdateStoryRolePromptRequest (JSON)
+  /// - 响应：UpdateStoryRolePromptResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "role_id": 456,              // [必填] 角色ID
+  ///   "user_id": 789,              // [必填] 用户ID
+  ///   "prompt": "新提示词"         // [必填] 新的提示词（最大2000字符）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
   rpc UpdateStoryRolePrompt(UpdateStoryRolePromptRequest) returns (UpdateStoryRolePromptResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRolePrompt"
@@ -1633,7 +3595,33 @@ service TeamsAPI {
     };
   }
 
-  // 更新角色的描述
+  /// 更新故事角色描述详情
+  /// 
+  /// 【功能说明】
+  /// 更新角色的完整详细描述信息（CharacterDetail对象）
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UpdateStoryRoleDescriptionDetail
+  /// - 请求体：UpdateStoryRoleDescriptionDetailRequest (JSON)
+  /// - 响应：UpdateStoryRoleDescriptionDetailResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "story_id": 123,             // [必填] 故事ID
+  ///   "role_id": 456,              // [必填] 角色ID
+  ///   "user_id": 789,              // [必填] 用户ID
+  ///   "character_detail": {        // [必填] 角色详细信息对象
+  ///     "personality": "性格特征",
+  ///     "background": "背景故事",
+  ///     "abilities": "能力列表"
+  ///   }
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
   rpc UpdateStoryRoleDescriptionDetail(UpdateStoryRoleDescriptionDetailRequest) returns (UpdateStoryRoleDescriptionDetailResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRoleDescriptionDetail"
@@ -1641,7 +3629,32 @@ service TeamsAPI {
     };
   }
 
-  // 获取生成任务状态
+  /// 查询任务状态
+  /// 
+  /// 【功能说明】
+  /// 查询AI生成任务的实时状态和进度
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/QueryTaskStatus
+  /// - 请求体：QueryTaskStatusRequest (JSON)
+  /// - 响应：QueryTaskStatusResponse (JSON)
+  /// 
+  /// 【请求体字段】
+  /// ```json
+  /// {
+  ///   "task_id": "task_12345",     // [必填] 任务ID
+  ///   "user_id": 456,              // [必填] 用户ID
+  ///   "task_type": 1               // [可选] 任务类型（1-图片，2-视频，3-文本）
+  /// }
+  /// ```
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - status: 任务状态（0-队列中，1-进行中，2-完成，3-失败）
+  /// - progress: 进度百分比（0-100）
+  /// - result_data: 任务结果数据（完成时）
+  /// - error_message: 错误消息（失败时）
   rpc QueryTaskStatus(QueryTaskStatusRequest) returns (QueryTaskStatusResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/QueryTaskStatus"
@@ -1649,21 +3662,35 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事的风格
+  /// 获取故事图片风格
+  /// 获取故事可用的所有图片生成风格列表
+  /// HTTP POST /common.TeamsAPI/GetStoryImageStyle
+  /// 请求体：GetStoryImageStyleRequest (JSON，包含故事ID)
+  /// 响应：GetStoryImageStyleResponse (JSON，返回风格列表和描述)
   rpc GetStoryImageStyle(GetStoryImageStyleRequest) returns (GetStoryImageStyleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryImageStyle"
       body : "*"
     };
   }
-  // 更新故事的风格
+  
+  /// 更新故事图片风格
+  /// 设置故事使用的图片生成风格
+  /// HTTP POST /common.TeamsAPI/UpdateStoryImageStyle
+  /// 请求体：UpdateStoryImageStyleRequest (JSON，包含风格ID和名称)
+  /// 响应：UpdateStoryImageStyleResponse (JSON)
   rpc UpdateStoryImageStyle(UpdateStoryImageStyleRequest) returns (UpdateStoryImageStyleResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryImageStyle"
       body : "*"
     };
   }
-  // 更新故事的场景数量
+  
+  /// 更新故事最大场景数
+  /// 设置故事允许创建的最大场景数量限制
+  /// HTTP POST /common.TeamsAPI/UpdateStorySenceMaxNumber
+  /// 请求体：UpdateStorySenceMaxNumberRequest (JSON，包含最大场景数)
+  /// 响应：UpdateStorySenceMaxNumberResponse (JSON)
   rpc UpdateStorySenceMaxNumber(UpdateStorySenceMaxNumberRequest) returns (UpdateStorySenceMaxNumberResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStorySenceMaxNumber"
@@ -1671,7 +3698,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新故事头像
+  /// 更新故事头像
+  /// 更新故事的头像图片，用于故事展示
+  /// HTTP POST /common.TeamsAPI/UpdateStoryAvatar
+  /// 请求体：UpdateStoryAvatarRequest (JSON，包含新头像URL)
+  /// 响应：UpdateStoryAvatarResponse (JSON)
   rpc UpdateStoryAvatar(UpdateStoryAvatarRequest) returns (UpdateStoryAvatarResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryAvatar"
@@ -1679,7 +3710,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新故事封面
+  /// 更新故事封面
+  /// 更新故事的封面图片，支持使用AI生成的封面
+  /// HTTP POST /common.TeamsAPI/UpdateStoryCover
+  /// 请求体：UpdateStoryCoverRequest (JSON，包含封面URL和AI生成标志)
+  /// 响应：UpdateStoryCoverResponse (JSON)
   rpc UpdateStoryCover(UpdateStoryCoverRequest) returns (UpdateStoryCoverResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryCover"
@@ -1687,7 +3722,11 @@ service TeamsAPI {
     };
   }
 
-  // 保存故事板草稿
+  /// 保存故事板草稿
+  /// 将当前故事板保存为草稿，便于后续继续编辑
+  /// HTTP POST /common.TeamsAPI/SaveStoryboardCraft
+  /// 请求体：SaveStoryboardCraftRequest (JSON，包含故事板ID)
+  /// 响应：SaveStoryboardCraftResponse (JSON)
   rpc SaveStoryboardCraft(SaveStoryboardCraftRequest) returns (SaveStoryboardCraftResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/SaveStoryboardCraft"
@@ -1695,7 +3734,11 @@ service TeamsAPI {
     };
   }
 
-  // 获取故事参与者，参与故事版创建
+  /// 获取故事参与者列表
+  /// 获取参与故事创作和编辑的所有用户列表
+  /// HTTP POST /common.TeamsAPI/GetStoryParticipants
+  /// 请求体：GetStoryParticipantsRequest (JSON，包含故事ID和分页参数)
+  /// 响应：GetStoryParticipantsResponse (JSON，返回参与者用户列表)
   rpc GetStoryParticipants(GetStoryParticipantsRequest) returns (GetStoryParticipantsResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryParticipants"
@@ -1703,7 +3746,11 @@ service TeamsAPI {
     };
   }
 
-  // 为故事场景生成视频
+  /// 生成故事场景视频
+  /// 为指定的故事场景生成动态视频内容，支持自定义提示词和风格
+  /// HTTP POST /common.TeamsAPI/GenerateStorySceneVideo
+  /// 请求体：GenerateStorySceneVideoRequest (JSON，包含场景ID、提示词和token来源)
+  /// 响应：GenerateStorySceneVideoResponse (JSON，返回生成任务详情和视频URL)
   rpc GenerateStorySceneVideo(GenerateStorySceneVideoRequest) returns (GenerateStorySceneVideoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateStorySceneVideo"
@@ -1711,6 +3758,11 @@ service TeamsAPI {
     };
   }
 
+  /// 生成角色头像
+  /// 使用AI为故事角色生成个性化头像图片
+  /// HTTP POST /common.TeamsAPI/GenerateRoleAvatar
+  /// 请求体：GenerateRoleAvatarRequest (JSON，包含角色描述和风格)
+  /// 响应：GenerateRoleAvatarResponse (JSON，返回头像URL)
   rpc GenerateRoleAvatar(GenerateRoleAvatarRequest) returns (GenerateRoleAvatarResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateRoleAvatar"
@@ -1718,6 +3770,11 @@ service TeamsAPI {
     };
   }
 
+  /// 查询用户生成任务状态
+  /// 获取用户的所有AI生成任务的实时状态和进度
+  /// HTTP POST /common.TeamsAPI/QueryGenTaskStatus
+  /// 请求体：FetchUserGenTaskStatusRequest (JSON)
+  /// 响应：FetchUserGenTaskStatusResponse (JSON，包含任务列表和状态)
   rpc FetchUserGenTaskStatus(FetchUserGenTaskStatusRequest) returns (FetchUserGenTaskStatusResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/QueryGenTaskStatus"
@@ -1725,7 +3782,11 @@ service TeamsAPI {
     };
   }
 
-   // 生成角色的海报图片
+  /// 生成角色海报图片
+  /// 为故事角色生成精美的宣传海报
+  /// HTTP POST /common.TeamsAPI/GenerateStoryRolePoster
+  /// 请求体：GenerateStoryRolePosterRequest (JSON，包含生成参数和风格)
+  /// 响应：GenerateStoryRolePosterResponse (JSON，返回海报URL和ID)
   rpc GenerateStoryRolePoster(GenerateStoryRolePosterRequest) returns (GenerateStoryRolePosterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateStoryRolePoster"
@@ -1733,7 +3794,11 @@ service TeamsAPI {
     };
   }
 
-  // 更新角色的海报图片
+  /// 更新角色海报图片
+  /// 更新角色海报的图片或可见性设置
+  /// HTTP POST /common.TeamsAPI/UpdateStoryRolePoster
+  /// 请求体：UpdateStoryRolePosterRequest (JSON)
+  /// 响应：UpdateStoryRolePosterResponse (JSON)
   rpc UpdateStoryRolePoster(UpdateStoryRolePosterRequest) returns (UpdateStoryRolePosterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryRolePoster"
@@ -1741,6 +3806,11 @@ service TeamsAPI {
     };
   }
 
+  /// 点赞角色海报
+  /// 为角色海报点赞，增加人气值
+  /// HTTP POST /common.TeamsAPI/LikeStoryRolePoster
+  /// 请求体：LikeStoryRolePosterRequest (JSON)
+  /// 响应：LikeStoryRolePosterResponse (JSON，返回最新点赞数)
   rpc LikeStoryRolePoster(LikeStoryRolePosterRequest) returns (LikeStoryRolePosterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/LikeStoryRolePoster"
@@ -1748,6 +3818,11 @@ service TeamsAPI {
     };
   }
 
+  /// 取消点赞角色海报
+  /// 取消对角色海报的点赞
+  /// HTTP POST /common.TeamsAPI/UnLikeStoryRolePoster
+  /// 请求体：UnLikeStoryRolePosterRequest (JSON)
+  /// 响应：UnLikeStoryRolePosterResponse (JSON，返回最新点赞数)
   rpc UnLikeStoryRolePoster(UnLikeStoryRolePosterRequest) returns (UnLikeStoryRolePosterResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/UnLikeStoryRolePoster"
@@ -1755,6 +3830,11 @@ service TeamsAPI {
     };
   }
 
+  /// 获取角色海报列表
+  /// 获取指定故事角色的所有海报图片列表
+  /// HTTP POST /common.TeamsAPI/GetStoryRolePosterList
+  /// 请求体：GetStoryRolePosterListRequest (JSON，包含分页参数)
+  /// 响应：GetStoryRolePosterListResponse (JSON，返回海报列表)
   rpc GetStoryRolePosterList(GetStoryRolePosterListRequest) returns (GetStoryRolePosterListResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GetStoryRolePosterList"
@@ -1762,7 +3842,11 @@ service TeamsAPI {
     };
   }
 
-  // 为故事角色生成视频
+  /// 生成故事角色视频
+  /// 为故事角色生成动态宣传视频
+  /// HTTP POST /common.TeamsAPI/GenerateStoryRoleVideo
+  /// 请求体：GenerateStoryRoleVideoRequest (JSON，包含视频参数和风格)
+  /// 响应：GenerateStoryRoleVideoResponse (JSON，返回任务详情和视频URL)
   rpc GenerateStoryRoleVideo(GenerateStoryRoleVideoRequest) returns (GenerateStoryRoleVideoResponse) {
     option (google.api.http) = {
       post : "/common.TeamsAPI/GenerateStoryRoleVideo"
@@ -1770,6 +3854,11 @@ service TeamsAPI {
     };
   }
 
+  /// 更新故事板分叉权限
+  /// 设置故事板是否允许其他用户进行分叉创建分支
+  /// HTTP POST /common.TeamsAPI/UpdateStoryboardForkAble
+  /// 请求体：UpdateStoryboardForkAbleRequest (JSON)
+  /// 响应：UpdateStoryboardForkAbleResponse (JSON)
   rpc UpdateStoryboardForkAble(UpdateStoryboardForkAbleRequest) returns (UpdateStoryboardForkAbleResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/UpdateStoryboardForkAble"
@@ -1777,6 +3866,11 @@ service TeamsAPI {
     };
   }
 
+  /// 获取用户故事板草稿列表
+  /// 分页获取指定用户的所有故事板草稿，支持按故事筛选
+  /// HTTP POST /common.TeamsAPI/UserStoryboardDraftlist
+  /// 请求体：UserStoryboardDraftlistRequest (JSON)
+  /// 响应：UserStoryboardDraftlistResponse (JSON)
   rpc UserStoryboardDraftlist(UserStoryboardDraftlistRequest) returns (UserStoryboardDraftlistResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserStoryboardDraftlist"
@@ -1784,6 +3878,11 @@ service TeamsAPI {
     };
   }
 
+  /// 获取用户故事板草稿详情
+  /// 获取指定草稿的完整详细信息，包括内容、角色、场景等
+  /// HTTP POST /common.TeamsAPI/UserStoryboardDraftDetail
+  /// 请求体：UserDraftStoryboardDetailRequest (JSON)
+  /// 响应：UserDraftStoryboardDetailResponse (JSON)
   rpc UserStoryboardDraftDetail(UserDraftStoryboardDetailRequest) returns (UserDraftStoryboardDetailResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserStoryboardDraftDetail"
@@ -1791,6 +3890,38 @@ service TeamsAPI {
     };
   }
 
+  /// 删除用户故事板草稿
+  /// 
+  /// 【功能说明】
+  /// 删除指定用户的故事板草稿，释放存储空间
+  /// 
+  /// 【权限要求】
+  /// - 仅草稿所有者可以删除自己的草稿
+  /// - 删除后不可恢复，请谨慎操作
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft
+  /// - 请求体：DeleteUserStoryboardDraftRequest (JSON)
+  /// - 响应：DeleteUserStoryboardDraftResponse (JSON)
+  /// 
+  /// 【请求参数】
+  /// - user_id: [必填] 用户ID（所有者ID）
+  /// - draft_id: [必填] 草稿ID（要删除的草稿）
+  /// - story_id: [可选] 故事ID（用于权限验证）
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码（0表示成功）
+  /// - message: 响应消息描述
+  /// 
+  /// 【使用示例】
+  /// ```json
+  /// {
+  ///   "user_id": 123,
+  ///   "draft_id": 456,
+  ///   "story_id": 789
+  /// }
+  /// ```
   rpc DeleteUserStoryboardDraft(DeleteUserStoryboardDraftRequest) returns (DeleteUserStoryboardDraftResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/DeleteStoryboardUserDraft"
@@ -1798,6 +3929,37 @@ service TeamsAPI {
     };
   }
 
+  /// 获取用户活跃热力图
+  /// 
+  /// 【功能说明】
+  /// 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示
+  /// 
+  /// 【数据统计】
+  /// - 统计用户的创建、更新、评论等所有活跃操作
+  /// - 按天聚合活跃度数据
+  /// - 自动计算热力等级（0-4级）
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/UserActiveHeatmap
+  /// - 请求体：UserActiveHeamapRequest (JSON)
+  /// - 响应：UserActiveHeamapResponse (JSON)
+  /// 
+  /// 【请求参数】
+  /// - user_id: [必填] 用户ID
+  /// - start_time: [必填] 开始时间戳（秒）
+  /// - end_time: [必填] 结束时间戳（秒）
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - data: 热力图数据数组（每天一条记录）
+  /// - total_count: 时间范围内的总活跃次数
+  /// 
+  /// 【使用场景】
+  /// - 用户个人主页展示活跃度
+  /// - 统计用户贡献度
+  /// - 活跃度排行榜
   rpc UserActiveHeatmap(UserActiveHeamapRequest) returns (UserActiveHeamapResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/UserActiveHeatmap"
@@ -1805,6 +3967,42 @@ service TeamsAPI {
     };
   }
 
+  /// 获取群组活跃热力图
+  /// 
+  /// 【功能说明】
+  /// 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况
+  /// 
+  /// 【数据统计】
+  /// - 统计群组内所有成员的活跃操作
+  /// - 包括故事创建、故事板发布、评论互动等
+  /// - 返回活跃成员数量统计
+  /// 
+  /// 【HTTP API】
+  /// - 方法：POST
+  /// - 路径：/common.TeamsAPI/GroupActiveHeatmap
+  /// - 请求体：GroupActiveHeamapRequest (JSON)
+  /// - 响应：GroupActiveHeamapResponse (JSON)
+  /// 
+  /// 【请求参数】
+  /// - group_id: [必填] 群组ID
+  /// - user_id: [必填] 请求用户ID（用于权限验证）
+  /// - start_time: [必填] 开始时间戳（秒）
+  /// - end_time: [必填] 结束时间戳（秒）
+  /// 
+  /// 【响应字段】
+  /// - code: 响应状态码
+  /// - message: 响应消息
+  /// - data: 热力图数据数组
+  /// - total_count: 群组总活跃次数
+  /// - member_count: 参与活跃的成员数量
+  /// 
+  /// 【权限要求】
+  /// - 用户必须是群组成员才能查看
+  /// 
+  /// 【使用场景】
+  /// - 群组主页展示活跃度
+  /// - 分析群组健康度
+  /// - 活跃群组排行
   rpc GroupActiveHeatmap(GroupActiveHeamapRequest) returns (GroupActiveHeamapResponse){
     option (google.api.http) = {
       post : "/common.TeamsAPI/GroupActiveHeatmap"
@@ -1813,869 +4011,2042 @@ service TeamsAPI {
   }
 }
 
+/// 获取故事角色海报列表请求
+/// 获取指定角色的所有海报图片列表
 message GetStoryRolePosterListRequest{
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 5 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 角色海报详细信息
+/// 表示角色海报图片的完整信息
 message RolePosterDetail {
+  /// 海报ID
   int64 id = 1;
+  
+  /// 所属故事ID
   int64 story_id = 2;
+  
+  /// 所属角色ID
   int64 role_id = 3;
+  
+  /// 海报图片URL
   string poster_url = 4;
+  
+  /// 生成提示词
   string prompt = 5;
+  
+  /// 点赞数
   int64 like_count = 6;
+  
+  /// 当前用户是否已点赞
   bool is_liked_by_user = 7;
+  
+  /// 海报创建者信息
   UserInfo creator = 8;
+  
+  /// 创建时间戳
   int64 created_at = 9;
+  
+  /// 更新时间戳
   int64 updated_at = 10;
 }
 
+/// 获取故事角色海报列表响应
+/// 返回角色的海报列表及分页信息
 message GetStoryRolePosterListResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 海报列表
   repeated RolePosterDetail posters = 3;
+  
+  /// 海报总数
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
 }
 
 
+/// 点赞角色海报请求
+/// 为角色海报点赞
 message LikeStoryRolePosterRequest{
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  int64 poster_id = 4;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 海报ID，必须大于0
+  int64 poster_id = 4 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 点赞角色海报响应
+/// 返回点赞后的最新点赞数
 message LikeStoryRolePosterResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 当前点赞总数
   int64 current_like_count = 3;
 }
 
+/// 取消点赞角色海报请求
+/// 取消对角色海报的点赞
 message UnLikeStoryRolePosterRequest{
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  int64 poster_id = 4;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 海报ID，必须大于0
+  int64 poster_id = 4 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 取消点赞角色海报响应
+/// 返回取消点赞后的最新点赞数
 message UnLikeStoryRolePosterResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 当前点赞总数
   int64 current_like_count = 3;
 }
 
 
 
+/// 获取用户生成任务状态请求
+/// 查询用户的所有生成任务状态
 message FetchUserGenTaskStatusRequest{
-  int64 user_id = 1;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 任务ID（可选），用于查询特定任务
   string task_id = 2;
-  int64 timestamp = 3;
-  int64 page_num = 4;
-  int64 page_size = 5;
+  
+  /// 时间戳，用于时间筛选
+  int64 timestamp = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 页码，从1开始
+  int64 page_num = 4 [(validate.rules).int64 = {gte: 1}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 5 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 故事生成任务详情
+/// 包含故事生成任务的详细参数和结果
 message StoryGentaskDetail{
+  /// 故事ID
   int64 story_id = 1;
+  
+  /// 故事板ID
   int64 board_id = 2;
+  
+  /// 故事板描述
   string storyboard_desc = 3;
+  
+  /// 场景ID
   int64 sence_id = 4;
+  
+  /// 场景描述
   string sence_desc = 5;
+  
+  /// 生成提示词
   string prompt = 6;
+  
+  /// 任务类型：1-图片，2-视频，3-音频
   int64 task_type = 7;
+  
+  /// 任务阶段
   int64 task_stage = 8;
+  
+  /// 起始图片URL
   string start_image_url = 9;
+  
+  /// 结束图片URL
   string end_image_url = 10;
+  
+  /// 生成的视频URL
   string video_url = 11;
+  
+  /// 参考图片URL
   string reg_image_url = 12;
+  
+  /// 生成风格
   string style = 13;
 }
 
+/// 用户生成任务状态信息
+/// 表示单个生成任务的完整状态
 message UserGenTaskStatus{
+  /// 任务ID，唯一标识符
   string task_id = 1;
+  
+  /// 用户ID
   int64 user_id = 2;
+  
+  /// 任务状态：pending, running, success, failed
   string status = 3;
+  
+  /// 任务详情
   StoryGentaskDetail detail = 4;
+  
+  /// 创建时间戳
   int64 create_time = 5;
+  
+  /// 更新时间戳
   int64 update_time = 6;
 }
 
+/// 获取用户生成任务状态响应
+/// 返回用户的生成任务列表
 message FetchUserGenTaskStatusResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 任务状态列表
   repeated UserGenTaskStatus tasks = 3;
+  
+  /// 任务总数
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
 }
 
+/// 生成角色头像请求
+/// 使用AI为角色生成个性化头像
 message GenerateRoleAvatarRequest{
-  int64 role_id = 1;
-  int64 user_id = 2;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 参考头像URL（可选）
   string ref_avatar_url = 3;
-  string description = 4;
+  
+  /// 角色描述，用于生成头像，最大长度1000字符
+  string description = 4 [(validate.rules).string = {max_len: 1000}];
+  
+  /// 头像风格
   string style = 5;
+  
+  /// 图片宽高比设置
   ImageRatios image_ratios = 6;
 }
 
+/// 生成角色头像响应
+/// 返回生成的头像URL
 message GenerateRoleAvatarResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 生成的头像URL
   string avatar_url = 3;
 }
 
+/// Token来源枚举
+/// 指定生成任务使用的额度来源
 enum TokenSource{
-  // 用户自己的token
+  /// 使用用户自己的token额度
   TOKEN_SOURCE_USER_SELF = 0;
-  // 故事存储的token
+  
+  /// 使用故事存储的token额度
   TOKEN_SOURCE_STORY_STORE = 1;
-  // 三方赞助的token
+  
+  /// 使用第三方赞助的token额度
   TOKEN_SOURCE_THIRD_PARTY = 2;
 }
 
+/// 生成故事场景视频请求
+/// 
+/// 为指定的故事场景生成AI视频内容，支持自定义提示词和风格
 message GenerateStorySceneVideoRequest{
-  int64 story_id = 1;
-  int64 board_id = 2;
-  int64 sence_id = 3;
-  int64 user_id = 4;
-  TokenSource token_source = 5;
-  string prompt = 6;
-  string negative_prompt = 7;
+  /// [必填] 故事ID
+  /// 
+  /// 场景所属的故事ID
+  /// 验证规则：必须大于 0
+  int64 story_id = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 故事板ID
+  /// 
+  /// 场景所属的故事板ID
+  /// 验证规则：必须大于 0
+  int64 board_id = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 场景ID
+  /// 
+  /// 要生成视频的场景唯一标识
+  /// 验证规则：必须大于 0
+  int64 sence_id = 3 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 用户ID
+  /// 
+  /// 发起生成请求的用户ID
+  /// 验证规则：必须大于 0
+  /// 用途：用于计费和权限验证
+  int64 user_id = 4 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] Token来源
+  /// 
+  /// 指定使用哪种额度来支付生成费用
+  /// 取值说明：
+  /// - TOKEN_SOURCE_USER_SELF: 使用用户自己的token
+  /// - TOKEN_SOURCE_STORY_STORE: 使用故事存储的token
+  /// - TOKEN_SOURCE_THIRD_PARTY: 使用第三方赞助token
+  TokenSource token_source = 5 [(google.api.field_behavior) = REQUIRED];
+  
+  /// [可选] 生成提示词
+  /// 
+  /// 视频生成的提示词描述
+  /// 长度限制：最大 2000 字符
+  /// 用途：控制视频的内容、风格和细节
+  /// 默认值：使用场景描述自动生成
+  string prompt = 6 [
+    (google.api.field_behavior) = OPTIONAL,
+    (validate.rules).string = {max_len: 2000}
+  ];
+  
+  /// [可选] 负面提示词
+  /// 
+  /// 指定不希望出现的元素
+  /// 长度限制：最大 1000 字符
+  /// 用途：避免生成不想要的内容（如暴力、血腥等）
+  string negative_prompt = 7 [
+    (google.api.field_behavior) = OPTIONAL,
+    (validate.rules).string = {max_len: 1000}
+  ];
 }
 
+/// 生成故事场景视频任务详情
+/// 包含视频生成任务的状态和结果信息
 message GenerateStorySceneVideoTaskDetail {
+  /// 任务ID，唯一标识符
   string task_id = 1;
+  
+  /// 任务状态
   StoryGenStatus task_status = 2;
+  
+  /// 生成的视频URL
   string video_url = 3;
+  
+  /// 视频缩略图URL
   string video_thumbnail_url = 4;
+  
+  /// 视频时长（秒）
   int64 duration = 5;
+  
+  /// 视频分辨率，如 1920x1080
   string resolution = 6;
+  
+  /// 视频格式，如 mp4, webm
   string video_format = 7;
 }
 
+/// 生成故事场景视频响应
+/// 返回视频生成任务的详细信息
 message GenerateStorySceneVideoResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 任务详情
   GenerateStorySceneVideoTaskDetail detail = 3;
 }
 
+/// 生成故事角色视频请求
+/// 为指定的故事角色生成宣传视频
 message GenerateStoryRoleVideoRequest {
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  int64 poster_id = 4;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 海报ID，必须大于0
+  int64 poster_id = 4 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 参考背景图片URL
   string ref_background_url = 5;
+  
+  /// 参考头像图片URL
   string ref_avatar_url = 6;
-  string text_prompt = 7;
+  
+  /// 文本提示词，最大长度2000字符
+  string text_prompt = 7 [(validate.rules).string = {max_len: 2000}];
 
+  /// 图片宽高比设置
   ImageRatios image_ratios = 8;
+  
+  /// 视频风格
   string style = 9;
 }
 
+/// 生成故事角色视频任务详情
+/// 包含角色视频生成任务的状态和结果信息
 message GenerateStoryRoleVideoTaskDetail {
+  /// 任务ID，唯一标识符
   string task_id = 1;
+  
+  /// 任务状态
   StoryGenStatus task_status = 2;
+  
+  /// 生成的视频URL
   string video_url = 3;
+  
+  /// 视频缩略图URL
   string video_thumbnail_url = 4;
+  
+  /// 视频时长（秒）
   int64 duration = 5;
+  
+  /// 视频分辨率，如 1920x1080
   string resolution = 6;
+  
+  /// 视频格式，如 mp4, webm
   string video_format = 7;
 }
 
+/// 生成故事角色视频响应
+/// 返回角色视频生成任务的详细信息
 message GenerateStoryRoleVideoResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 任务详情
   GenerateStoryRoleVideoTaskDetail detail = 3;
 }
 
+/// 获取故事参与者请求
+/// 获取参与故事创作的所有用户列表
 message GetStoryParticipantsRequest {
-  int64 story_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取故事参与者响应
+/// 返回故事的参与者列表
 message GetStoryParticipantsResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 参与者列表
   repeated UserInfo participants = 3;
+  
+  /// 参与者总数
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
 }
 
+/// 更新故事头像请求
+/// 更新故事的头像图片
 message UpdateStoryAvatarRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  string avatar_url = 3;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 头像图片URL，必填
+  string avatar_url = 3 [(validate.rules).string = {min_len: 1}];
 }
 
+/// 更新故事头像响应
+/// 返回更新操作的结果
 message UpdateStoryAvatarResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 更新故事封面请求
+/// 更新故事的封面图片
 message UpdateStoryCoverRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 封面图片URL
   string cover_url = 3;
+  
+  /// 是否使用AI生成的封面
   bool use_ai_cover = 4;
 }
 
+/// 更新故事封面响应
+/// 返回更新操作的结果
 message UpdateStoryCoverResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 获取故事图片风格请求
+/// 获取故事可用的图片风格列表
 message GetStoryImageStyleRequest {
-  int64 story_id = 1;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 故事风格描述
+/// 表示一个图片风格的信息
 message StoryStyleDesc{
-  int64 id = 1; // 风格ID
-  string style = 2; // 风格名称
-  string description = 3; // 风格描述
-}
-
-message GetStoryImageStyleResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryStyleDesc style = 3;
-}
-
-message UpdateStoryImageStyleRequest {
-  int64 story_id = 1;
-  int64 style_id = 2; // 风格ID
-  string style = 3; // 风格名称
-  int64 user_id = 4; // 用户ID
-}
-
-message UpdateStoryImageStyleResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message UpdateStorySenceMaxNumberRequest {
-  int64 story_id = 1;
-  int64 max_number = 2; // 最大场景数
-  int64 user_id = 3; // 用户ID
-}
-
-message UpdateStorySenceMaxNumberResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message UpdateStoryRolePromptRequest {
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  string prompt = 4;
-}
-
-message UpdateStoryRolePromptResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message UpdateStoryRoleDescriptionDetailRequest {
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  CharacterDetail character_detail = 4;
-}
-
-message UpdateStoryRoleDescriptionDetailResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-
-message GenerateStoryRoleParams{
-  string origin_image_url = 1;
-  repeated string additional_image_urls = 2;
-  string text_prompt = 3;
-  string negative_prompt = 4;
-  string style = 5;
-}
-
-message GenerateStoryRolePosterRequest {
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  GenerateStoryRoleParams params = 4;
-}
-
-message GenerateStoryRolePosterResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  string image_url = 3;
-  int64 poster_id = 4;
-}
-
-message UpdateStoryRolePosterRequest {
-  int64 story_id = 1;
-  int64 role_id = 2;
-  int64 user_id = 3;
-  int64 poster_id = 4;
-  string image_url = 5;
-  bool is_public = 6;
-}
-
-message UpdateStoryRolePosterResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  int64 poster_id = 3;
-}
-
-message GetFollowListRequest {
-  int64 user_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
-}
-
-message GetFollowListResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated UserInfo followers = 3;
-  int64 total = 4;
-  bool have_more = 5;
-}
-
-message GetFollowerListRequest {
-  int64 user_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
-}
-
-message GetFollowerListResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated UserInfo followers = 3;
-  int64 total = 4;
-  bool have_more = 5;
-}
-
-message FollowUserRequest {
-  int64 user_id = 1;
-  int64 follower_id = 2;
-}
-
-message FollowUserResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message UnfollowUserRequest {
-  int64 user_id = 1;
-  int64 follower_id = 2;
-}
-
-message UnfollowUserResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message TrendingStoryRoleRequest {
-  int64 start = 1;
-  int64 end = 2;
-  int64 page_size = 3;
-  int64 page_number = 4;
-}
-
-message TrendingStoryRoleResponse{
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    repeated StoryRole list = 1;
-    int64 page_size = 2;
-    int64 page_number = 3;
-    int64 total = 4;
-    bool have_more = 5;
-  } Data data = 3;
-}
-
-
-message TrendingStoryRequest {
-  int64 start = 1;
-  int64 end = 2;
-  int64 page_size = 3;
-  int64 page_number = 4;
-}
-message TrendingStoryResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  message Data {
-    repeated Story list = 1;
-    int64 page_size = 2;
-    int64 page_number = 3;
-    int64 total = 4;
-    bool have_more = 5;
-  } Data data = 3;
-}
-
-message GetStoryRoleListRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  int64 board_id = 3;
-  string search_key = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-}
-
-message GetStoryRoleListResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryRole roles = 3;
-  int64 total = 4;
-  bool have_more = 5;
-}
-
-message ArchiveStoryRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-}
-
-message ArchiveStoryResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-
-message CreateStoryCommentRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  string content = 3;
-}
-
-message CreateStoryCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  CommentInfo comment = 3;
-}
-
-message GetStoryCommentsRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message StoryComment {
-  int64 comment_id = 1;
-  int64 story_id = 2;
-  int64 board_id = 3;
-  int64 role_id = 4;
-  int64 prev_id = 5;
-  int64 root_comment_id = 6;
-  int64 user_id = 7;
-
-  string content = 8;
-  int64 created_at = 9;
-  int64 updated_at = 10;
-  int64 like_count = 11;
-  int64 reply_count = 12;
-  int64 is_liked = 13;
-  UserInfo creator = 14;
-  int64 created_at_timestamp = 15;
-}
-
-message GetStoryCommentsResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryComment comments = 3;
-  int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool have_more = 7;
-}
-
-message DeleteStoryCommentRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-}
-
-message DeleteStoryCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message GetStoryCommentRepliesRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message GetStoryCommentRepliesResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryComment replies = 3;
-  int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool have_more = 7;
-}
-
-message CreateStoryCommentReplyRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-  string content = 3;
-}
-
-
-message CreateStoryCommentReplyResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  CommentInfo comment = 3;
-}
-
-message DeleteStoryCommentReplyRequest {
-  int64 reply_id = 1;
-  int64 user_id = 2;
-}
-
-message DeleteStoryCommentReplyResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message GetStoryBoardCommentsRequest {
-  int64 board_id = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message GetStoryBoardCommentsResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryComment comments = 3;
-  int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool have_more = 7;
-}
-
-message CreateStoryBoardCommentRequest {
-  int64 board_id = 1;
-  int64 user_id = 2;
-  string content = 3;
-}
-
-message CreateStoryBoardCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  CommentInfo comment = 3;
-}
-
-message DeleteStoryBoardCommentRequest {
-  int64 board_id = 1;
-  int64 comment_id = 2;
-  int64 user_id = 3;
-}
-
-message DeleteStoryBoardCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message GetStoryBoardCommentRepliesRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-}
-
-message GetStoryBoardCommentRepliesResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  repeated StoryComment replies = 3;
-  int64 total = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
-  bool have_more = 7;
-}
-
-message LikeCommentRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-}
-
-message LikeCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message DislikeCommentRequest {
-  int64 comment_id = 1;
-  int64 user_id = 2;
-}
-
-message DislikeCommentResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-
-message UpdateRolePromptRequest{
-  int64 user_id = 1;
-  int64 role_id = 2;
-  string prompt = 3;
-}
-
-message UpdateRolePromptResponse {
-  ResponseCode code = 1;
-  string message = 2;
-}
-
-message GenerateRolePromptRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  int64 role_id = 3;
-  string prompt = 4;
-}
-
-message GenerateRolePromptResponse {
-  ResponseCode code = 1;
-  string message = 2;
-  string prompt = 3;
-}
-
-message UpdateRoleDescriptionRequest {
-  int64 user_id = 1;
-  int64 role_id = 2;
+  /// 风格ID
+  int64 id = 1;
+  
+  /// 风格名称
+  string style = 2;
+  
+  /// 风格描述
   string description = 3;
 }
 
+/// 获取故事图片风格响应
+/// 返回可用的风格列表
+message GetStoryImageStyleResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 风格列表
+  repeated StoryStyleDesc style = 3;
+}
+
+/// 更新故事图片风格请求
+/// 设置故事使用的图片风格
+message UpdateStoryImageStyleRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 风格ID，必须大于0
+  int64 style_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 风格名称
+  string style = 3;
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 4 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 更新故事图片风格响应
+/// 返回更新操作的结果
+message UpdateStoryImageStyleResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 更新故事最大场景数请求
+/// 设置故事允许的最大场景数量
+message UpdateStorySenceMaxNumberRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 最大场景数，范围1-1000
+  int64 max_number = 2 [(validate.rules).int64 = {gte: 1, lte: 1000}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 更新故事最大场景数响应
+/// 返回更新操作的结果
+message UpdateStorySenceMaxNumberResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 更新故事角色提示词请求
+/// 更新角色AI生成时使用的提示词
+message UpdateStoryRolePromptRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 新的提示词，最大长度2000字符
+  string prompt = 4 [(validate.rules).string = {max_len: 2000}];
+}
+
+/// 更新故事角色提示词响应
+/// 返回更新操作的结果
+message UpdateStoryRolePromptResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 更新故事角色描述详情请求
+/// 更新角色的详细描述信息
+message UpdateStoryRoleDescriptionDetailRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色详细描述，必填
+  CharacterDetail character_detail = 4 [(validate.rules).message.required = true];
+}
+
+/// 更新故事角色描述详情响应
+/// 返回更新操作的结果
+message UpdateStoryRoleDescriptionDetailResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+
+/// 生成故事角色参数
+/// 包含角色海报生成所需的所有参数
+message GenerateStoryRoleParams{
+  /// 原始参考图片URL
+  string origin_image_url = 1;
+  
+  /// 附加参考图片URL列表，最多5张
+  repeated string additional_image_urls = 2 [(validate.rules).repeated = {max_items: 5}];
+  
+  /// 文本提示词，最大长度2000字符
+  string text_prompt = 3 [(validate.rules).string = {max_len: 2000}];
+  
+  /// 负面提示词，最大长度1000字符
+  string negative_prompt = 4 [(validate.rules).string = {max_len: 1000}];
+  
+  /// 生成风格
+  string style = 5;
+}
+
+/// 生成故事角色海报请求
+/// 为角色生成海报图片
+message GenerateStoryRolePosterRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 生成参数，必填
+  GenerateStoryRoleParams params = 4 [(validate.rules).message.required = true];
+}
+
+/// 生成故事角色海报响应
+/// 返回生成的海报信息
+message GenerateStoryRolePosterResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 生成的海报图片URL
+  string image_url = 3;
+  
+  /// 海报ID
+  int64 poster_id = 4;
+}
+
+/// 更新故事角色海报请求
+/// 更新角色海报的信息或可见性
+message UpdateStoryRolePosterRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 海报ID，必须大于0
+  int64 poster_id = 4 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 新的图片URL
+  string image_url = 5;
+  
+  /// 是否公开，true表示公开可见
+  bool is_public = 6;
+}
+
+/// 更新故事角色海报响应
+/// 返回更新后的海报ID
+message UpdateStoryRolePosterResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 海报ID
+  int64 poster_id = 3;
+}
+
+/// 获取关注列表请求
+/// 获取用户关注的其他用户列表
+message GetFollowListRequest {
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取关注列表响应
+/// 返回用户关注的用户列表
+message GetFollowListResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 关注的用户列表
+  repeated UserInfo followers = 3;
+  
+  /// 关注总数
+  int64 total = 4;
+  
+  /// 是否有更多数据
+  bool have_more = 5;
+}
+
+/// 获取粉丝列表请求
+/// 获取关注该用户的粉丝列表
+message GetFollowerListRequest {
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取粉丝列表响应
+/// 返回关注该用户的粉丝列表
+message GetFollowerListResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 粉丝用户列表
+  repeated UserInfo followers = 3;
+  
+  /// 粉丝总数
+  int64 total = 4;
+  
+  /// 是否有更多数据
+  bool have_more = 5;
+}
+
+/// 关注用户请求
+/// 关注另一个用户，建立关注关系
+message FollowUserRequest {
+  /// 发起关注的用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 被关注的用户ID，必须大于0
+  int64 follower_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 关注用户响应
+/// 返回关注操作的结果
+message FollowUserResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 取消关注用户请求
+/// 取消对另一个用户的关注
+message UnfollowUserRequest {
+  /// 发起取消关注的用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 被取消关注的用户ID，必须大于0
+  int64 follower_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 取消关注用户响应
+/// 返回取消关注操作的结果
+message UnfollowUserResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 热门故事角色请求
+/// 获取指定时间范围内的热门角色列表
+message TrendingStoryRoleRequest {
+  /// 开始时间戳（秒），必须大于0
+  int64 start = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 结束时间戳（秒），必须大于开始时间
+  int64 end = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 页码，从1开始
+  int64 page_number = 4 [(validate.rules).int64 = {gte: 1}];
+}
+
+/// 热门故事角色响应
+/// 返回热门角色列表及分页信息
+message TrendingStoryRoleResponse{
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 返回数据
+  message Data {
+    /// 热门角色列表
+    repeated StoryRole list = 1;
+    
+    /// 每页数量
+    int64 page_size = 2;
+    
+    /// 当前页码
+    int64 page_number = 3;
+    
+    /// 总数量
+    int64 total = 4;
+    
+    /// 是否有更多数据
+    bool have_more = 5;
+  } Data data = 3;
+}
+
+
+/// 热门故事请求
+/// 获取指定时间范围内的热门故事列表
+message TrendingStoryRequest {
+  /// 开始时间戳（秒），必须大于0
+  int64 start = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 结束时间戳（秒），必须大于开始时间
+  int64 end = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 页码，从1开始
+  int64 page_number = 4 [(validate.rules).int64 = {gte: 1}];
+}
+
+/// 热门故事响应
+/// 返回热门故事列表及分页信息
+message TrendingStoryResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 返回数据
+  message Data {
+    /// 热门故事列表
+    repeated Story list = 1;
+    
+    /// 每页数量
+    int64 page_size = 2;
+    
+    /// 当前页码
+    int64 page_number = 3;
+    
+    /// 总数量
+    int64 total = 4;
+    
+    /// 是否有更多数据
+    bool have_more = 5;
+  } Data data = 3;
+}
+
+/// 获取故事角色列表请求
+/// 获取指定故事的角色列表，支持搜索筛选
+message GetStoryRoleListRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事板ID（可选），用于筛选特定故事板的角色
+  int64 board_id = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 搜索关键词（可选），用于搜索角色名称
+  string search_key = 4 [(validate.rules).string = {max_len: 100}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 5 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 6 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取故事角色列表响应
+/// 返回故事的角色列表
+message GetStoryRoleListResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 角色列表
+  repeated StoryRole roles = 3;
+  
+  /// 角色总数
+  int64 total = 4;
+  
+  /// 是否有更多数据
+  bool have_more = 5;
+}
+
+/// 收藏故事请求
+/// 将故事添加到用户的收藏夹
+message ArchiveStoryRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 收藏故事响应
+/// 返回收藏操作的结果
+message ArchiveStoryResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+
+/// 创建故事评论请求
+/// 
+/// 在故事下创建新的评论，支持富文本内容和@提及功能
+message CreateStoryCommentRequest {
+  /// [必填] 故事ID
+  /// 
+  /// 要评论的故事唯一标识
+  /// 验证规则：必须大于 0
+  int64 story_id = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 评论者用户ID
+  /// 
+  /// 发表评论的用户ID
+  /// 验证规则：必须大于 0
+  /// 权限要求：用户必须已登录
+  int64 user_id = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 评论内容
+  /// 
+  /// 评论的文本内容
+  /// 长度限制：1-2000 字符
+  /// 支持：纯文本、Markdown、@用户提及
+  /// 内容要求：不能包含违规内容
+  string content = 3 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).string = {min_len: 1, max_len: 2000}
+  ];
+}
+
+/// 创建故事评论响应
+/// 返回创建的评论信息
+message CreateStoryCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 创建的评论信息
+  CommentInfo comment = 3;
+}
+
+/// 获取故事评论列表请求
+/// 分页获取指定故事的评论列表
+message GetStoryCommentsRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 故事评论信息
+/// 表示单条评论的完整信息
+message StoryComment {
+  /// 评论ID
+  int64 comment_id = 1;
+  
+  /// 所属故事ID
+  int64 story_id = 2;
+  
+  /// 所属故事板ID（可选）
+  int64 board_id = 3;
+  
+  /// 相关角色ID（可选）
+  int64 role_id = 4;
+  
+  /// 上一条评论ID（用于回复链）
+  int64 prev_id = 5;
+  
+  /// 根评论ID（用于楼层结构）
+  int64 root_comment_id = 6;
+  
+  /// 评论者用户ID
+  int64 user_id = 7;
+
+  /// 评论内容
+  string content = 8;
+  
+  /// 创建时间
+  int64 created_at = 9;
+  
+  /// 更新时间
+  int64 updated_at = 10;
+  
+  /// 点赞数
+  int64 like_count = 11;
+  
+  /// 回复数
+  int64 reply_count = 12;
+  
+  /// 当前用户是否已点赞，1-已点赞，0-未点赞
+  int64 is_liked = 13;
+  
+  /// 评论创建者信息
+  UserInfo creator = 14;
+  
+  /// 创建时间戳
+  int64 created_at_timestamp = 15;
+}
+
+/// 获取故事评论列表响应
+/// 返回故事的评论列表及分页信息
+message GetStoryCommentsResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 评论列表
+  repeated StoryComment comments = 3;
+  
+  /// 评论总数
+  int64 total = 4;
+  
+  /// 当前偏移量
+  int64 offset = 5;
+  
+  /// 每页数量
+  int64 page_size = 6;
+  
+  /// 是否有更多数据
+  bool have_more = 7;
+}
+
+/// 删除故事评论请求
+/// 删除指定的故事评论
+message DeleteStoryCommentRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 删除故事评论响应
+/// 返回删除操作的结果
+message DeleteStoryCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 获取故事评论回复列表请求
+/// 获取指定评论的所有回复
+message GetStoryCommentRepliesRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取故事评论回复列表响应
+/// 返回评论的回复列表
+message GetStoryCommentRepliesResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 回复列表
+  repeated StoryComment replies = 3;
+  
+  /// 回复总数
+  int64 total = 4;
+  
+  /// 当前偏移量
+  int64 offset = 5;
+  
+  /// 每页数量
+  int64 page_size = 6;
+  
+  /// 是否有更多数据
+  bool have_more = 7;
+}
+
+/// 创建故事评论回复请求
+/// 回复指定的故事评论
+message CreateStoryCommentReplyRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 回复者用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 回复内容，必填且长度1-2000字符
+  string content = 3 [(validate.rules).string = {min_len: 1, max_len: 2000}];
+}
+
+
+/// 创建故事评论回复响应
+/// 返回创建的回复信息
+message CreateStoryCommentReplyResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 创建的回复信息
+  CommentInfo comment = 3;
+}
+
+/// 删除故事评论回复请求
+/// 删除指定的评论回复
+message DeleteStoryCommentReplyRequest {
+  /// 回复ID，必须大于0
+  int64 reply_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 删除故事评论回复响应
+/// 返回删除操作的结果
+message DeleteStoryCommentReplyResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 获取故事板评论列表请求
+/// 分页获取指定故事板的所有评论
+message GetStoryBoardCommentsRequest {
+  /// 故事板ID，必须大于0
+  int64 board_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 请求用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取故事板评论列表响应
+/// 返回故事板的评论列表及分页信息
+message GetStoryBoardCommentsResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 评论列表
+  repeated StoryComment comments = 3;
+  
+  /// 评论总数
+  int64 total = 4;
+  
+  /// 当前偏移量
+  int64 offset = 5;
+  
+  /// 每页数量
+  int64 page_size = 6;
+  
+  /// 是否有更多数据
+  bool have_more = 7;
+}
+
+/// 创建故事板评论请求
+/// 在故事板下创建新的评论
+message CreateStoryBoardCommentRequest {
+  /// 故事板ID，必须大于0
+  int64 board_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 评论者用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 评论内容，必填且长度1-2000字符
+  string content = 3 [(validate.rules).string = {min_len: 1, max_len: 2000}];
+}
+
+/// 创建故事板评论响应
+/// 返回创建的评论信息
+message CreateStoryBoardCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 创建的评论信息
+  CommentInfo comment = 3;
+}
+
+/// 删除故事板评论请求
+/// 删除指定的故事板评论
+message DeleteStoryBoardCommentRequest {
+  /// 故事板ID，必须大于0
+  int64 board_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 评论ID，必须大于0
+  int64 comment_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 删除故事板评论响应
+/// 返回删除操作的结果
+message DeleteStoryBoardCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 获取故事板评论回复列表请求
+/// 获取指定故事板评论的所有回复
+message GetStoryBoardCommentRepliesRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+}
+
+/// 获取故事板评论回复列表响应
+/// 返回评论的回复列表
+message GetStoryBoardCommentRepliesResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 回复列表
+  repeated StoryComment replies = 3;
+  
+  /// 回复总数
+  int64 total = 4;
+  
+  /// 当前偏移量
+  int64 offset = 5;
+  
+  /// 每页数量
+  int64 page_size = 6;
+  
+  /// 是否有更多数据
+  bool have_more = 7;
+}
+
+/// 点赞评论请求
+/// 为评论点赞
+message LikeCommentRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 点赞评论响应
+/// 返回点赞操作的结果
+message LikeCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 取消点赞评论请求
+/// 取消对评论的点赞
+message DislikeCommentRequest {
+  /// 评论ID，必须大于0
+  int64 comment_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+}
+
+/// 取消点赞评论响应
+/// 返回取消点赞操作的结果
+message DislikeCommentResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+
+/// 更新角色提示词请求
+/// 更新角色的生成提示词
+message UpdateRolePromptRequest{
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 新的提示词，最大长度2000字符
+  string prompt = 3 [(validate.rules).string = {max_len: 2000}];
+}
+
+/// 更新角色提示词响应
+/// 返回更新操作的结果
+message UpdateRolePromptResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+}
+
+/// 生成角色提示词请求
+/// 使用AI为角色生成优化的提示词
+message GenerateRolePromptRequest {
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 基础提示词，最大长度2000字符
+  string prompt = 4 [(validate.rules).string = {max_len: 2000}];
+}
+
+/// 生成角色提示词响应
+/// 返回AI生成的优化提示词
+message GenerateRolePromptResponse {
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息
+  string message = 2;
+  
+  /// 生成的提示词
+  string prompt = 3;
+}
+
+/// 更新角色描述请求
+/// 更新角色的文本描述
+message UpdateRoleDescriptionRequest {
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 新的描述内容，最大长度2000字符
+  string description = 3 [(validate.rules).string = {max_len: 2000}];
+}
+
+/// 更新角色描述响应
+/// 返回更新操作的结果
 message UpdateRoleDescriptionResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 生成角色描述请求
+/// 使用AI为角色生成详细的描述信息
 message GenerateRoleDescriptionRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
-  int64 role_id = 3;
-  string description = 4;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 基础描述，最大长度2000字符
+  string description = 4 [(validate.rules).string = {max_len: 2000}];
 }
 
+/// 生成角色描述响应
+/// 返回AI生成的详细角色描述
 message GenerateRoleDescriptionResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 生成的角色详细信息
   CharacterDetail character_detail = 3;
 }
 
+/// 获取未发布故事板请求
+/// 获取用户所有未发布状态的故事板列表
 message GetUnPublishStoryboardRequest {
-  int64 user_id = 1;
-  int64 offset = 2;
-  int64 page_size = 3;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取未发布故事板响应
+/// 返回未发布的故事板列表
 message GetUnPublishStoryboardResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板活动列表
   repeated StoryBoardActive storyboardactives = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
 
 
+/// 获取用户关注角色的活跃故事板请求
+/// 获取用户关注的角色参与的活跃故事板列表
 message GetUserWatchRoleActiveStoryBoardsRequest {
-  int64 user_id = 1;
-  int64 role_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-  string filter = 5;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 筛选条件，如 "published", "draft" 等
+  string filter = 5 [(validate.rules).string = {max_len: 50}];
 }
 
+/// 获取用户关注角色的活跃故事板响应
+/// 返回角色参与的活跃故事板列表
 message GetUserWatchRoleActiveStoryBoardsResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板列表
   repeated StoryBoardActive storyboards = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
+/// 获取用户关注故事的活跃故事板请求
+/// 获取用户关注的故事中的活跃故事板列表
 message GetUserWatchStoryActiveStoryBoardsRequest {
-  int64 user_id = 1;
-  int64 story_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
-  string filter = 5;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 筛选条件，如 "published", "draft" 等
+  string filter = 5 [(validate.rules).string = {max_len: 50}];
 }
 
+/// 获取用户关注故事的活跃故事板响应
+/// 返回故事中的活跃故事板列表
 message GetUserWatchStoryActiveStoryBoardsResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板列表
   repeated StoryBoardActive storyboards = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
+/// 保存故事板草稿请求
+/// 将当前故事板保存为草稿状态，便于后续继续编辑
 message SaveStoryboardCraftRequest {
-  int64 storyboard_id = 1;
-  int64 user_id = 2;
+  /// 故事板ID，必须大于0
+  int64 storyboard_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 保存故事板草稿响应
+/// 返回保存操作的结果
 message SaveStoryboardCraftResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 发布故事板请求
+/// 将故事板发布为正式版本，其他用户可见
 message PublishStoryboardRequest {
-  int64 storyboard_id = 1;
-  int64 user_id = 2;
+  /// 故事板ID，必须大于0
+  int64 storyboard_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 发布故事板响应
+/// 返回发布操作的结果
 message PublishStoryboardResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 撤销故事板请求
+/// 撤销已发布的故事板，保留AI生成内容但隐藏场景和图片
 message CancelStoryboardRequest {
-  int64 storyboard_id = 1;
-  int64 user_id = 2;
+  /// 故事板ID，必须大于0
+  int64 storyboard_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 撤销故事板响应
+/// 返回撤销操作的结果
 message CancelStoryboardResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 持续渲染故事角色请求
+/// 持续优化和渲染角色形象，直到达到满意效果
 message RenderStoryRoleContinuouslyRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
-  string prompt = 4;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 渲染提示词，最大长度2000字符
+  string prompt = 4 [(validate.rules).string = {max_len: 2000}];
+  
+  /// 参考图片URL
   string reference_image = 5;
 }
 
+/// 持续渲染故事角色响应
+/// 返回渲染结果和是否需要继续渲染的标志
 message RenderStoryRoleContinuouslyResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 渲染详情
   RenderStoryRoleDetail detail = 3;
+  
+  /// 是否还有更多渲染步骤
   bool have_more = 4;
 } 
 
+/// 获取下一个故事板请求
+/// 获取当前故事板的后续故事板，支持多分支场景
 message GetNextStoryboardRequest {
-  int64 storyboard_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 当前故事板ID，必须大于0
+  int64 storyboard_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 是否多分支模式
   bool is_multi_branch = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 5 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 6 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 总数量
   int64 total = 7;
+  
+  /// 多分支排序方式
   MultiBranchOrderBy order_by = 8;
 }
 
+/// 获取下一个故事板响应
+/// 返回后续故事板列表，支持多分支场景
 message GetNextStoryboardResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 后续故事板列表
   repeated StoryBoardActive storyboards = 3;
+  
+  /// 是否为多分支
   bool is_multi_branch = 4;
+  
+  /// 总数量
   int64 total = 5;
+  
+  /// 当前偏移量
   int64 offset = 6;
+  
+  /// 每页数量
   int64 page_size = 7;
+  
+  /// 是否有更多数据
   bool have_more = 8;
 }
 
+/// 获取用户聊天消息请求
+/// 获取指定聊天会话中的消息记录
 message GetUserChatMessagesRequest {
-  int64 user_id = 1;
-  int64 chat_id = 2;
-  int64 role_id = 3;
-  int64 timestamp = 4;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 聊天会话ID，必须大于0
+  int64 chat_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色ID，必须大于0
+  int64 role_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 时间戳，用于获取指定时间之前的消息
+  int64 timestamp = 4 [(validate.rules).int64 = {gte: 0}];
 }
 
+/// 获取用户聊天消息响应
+/// 返回聊天消息列表
 message GetUserChatMessagesResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 消息列表
   repeated ChatMessage messages = 3;
+  
+  /// 当前时间戳
   int64 timestamp = 4;
+  
+  /// 消息总数
   int64 total = 5;
+  
+  /// 是否有更多历史消息
   bool have_more = 6;
 }
 
+/// 获取用户与角色对话请求
+/// 获取用户与指定角色的完整聊天会话
 message GetUserChatWithRoleRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 获取用户与角色对话响应
+/// 返回完整的聊天记录和上下文信息
 message GetUserChatWithRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 聊天消息列表
   repeated ChatMessage messages = 3;
+  
+  /// 聊天上下文信息
   ChatContext chat_context = 4;
+  
+  /// 消息总数
   int64 total = 5;
+  
+  /// 是否有更多历史消息
   bool have_more = 6;
 }
 
+/// 获取角色参与的故事板请求
+/// 获取指定角色参与的所有故事板列表
 message GetStoryRoleStoryboardsRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
-  string filter = 4;
-  int64 offset = 5;
-  int64 page_size = 6;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 筛选条件，最大长度50字符
+  string filter = 4 [(validate.rules).string = {max_len: 50}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 5 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 6 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取角色参与的故事板响应
+/// 返回角色参与的故事板列表
 message GetStoryRoleStoryboardsResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板活动列表
   repeated StoryBoardActive storyboardactives = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
+/// 获取角色参与的故事请求
+/// 获取指定角色出现的所有故事列表
 message GetStoryRoleStoriesRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  string filter = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 筛选条件，最大长度50字符
+  string filter = 3 [(validate.rules).string = {max_len: 50}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 5 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取角色参与的故事响应
+/// 返回角色出现的故事列表
 message GetStoryRoleStoriesResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事列表
   repeated Story stories = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
+/// 创建与角色的对话请求
+/// 开始一个新的与故事角色的聊天会话
 message CreateStoryRoleChatRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 聊天上下文信息
+/// 表示一个聊天会话的完整状态
 message ChatContext{
+  /// 聊天会话ID
   int64 chat_id = 1;
+  
+  /// 角色ID
   int64 role_id = 2;
+  
+  /// 用户ID
   int64 user_id = 3;
+  
+  /// 会话开始时间戳
   int64 timestamp = 4;
+  
+  /// 最后更新时间戳
   int64 last_update_time = 5;
+  
+  /// 总消耗token数
   int64 total_tokens = 6;
+  
+  /// 总消息数
   int64 total_messages = 7;
+  
+  /// 最后一条消息
   ChatMessage last_message = 8;
+  
+  /// 用户信息
   UserInfo user = 9;
+  
+  /// 角色信息
   StoryRole role = 10;
 }
 
+/// 创建与角色的对话响应
+/// 返回创建的聊天会话信息
 message CreateStoryRoleChatResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 聊天上下文信息
   ChatContext chat_context = 3;
 }
 
@@ -2692,222 +6063,503 @@ message CreateStoryRoleChatResponse {
 //   string uuid = 10;
 // }
 
+/// 与故事角色聊天请求
+/// 发送消息并获取角色的回复
 message ChatWithStoryRoleRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  repeated ChatMessage messages = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 历史消息列表，最多包含最近50条消息
+  repeated ChatMessage messages = 3 [(validate.rules).repeated = {max_items: 50}];
+  
+  /// 总消息数
   int64 total = 4;
+  
+  /// 是否还有更多历史消息
   bool have_more = 5;
 }
 
+/// 与故事角色聊天响应
+/// 返回角色的回复消息
 message ChatWithStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 角色回复的消息列表
   repeated ChatMessage reply_messages = 3;
+  
+  /// 总消息数
   int64 total = 4;
+  
+  /// 是否还有更多消息
   bool have_more = 5;
 }
 
+/// 更新故事角色详情请求
+/// 更新角色的完整详细信息
 message UpdateStoryRoleDetailRequest {
-  int64 role_id = 1;
-  StoryRole role = 2;
-  int64 user_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色信息，必填
+  StoryRole role = 2 [(validate.rules).message.required = true];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 是否需要重新生成
   bool need_regen = 4;
+  
+  /// 背景图片URL
   string background_image = 5;
 }
 
+/// 更新故事角色详情响应
+/// 返回更新操作的结果
 message UpdateStoryRoleDetailResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 更新故事角色头像请求
+/// 更新角色的头像图片
 message UpdateStoryRoleAvatorRequest {
-  int64 role_id = 1;
-  string avator = 2;
-  int64 user_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 头像URL，必填
+  string avator = 2 [(validate.rules).string = {min_len: 1}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 更新故事角色头像响应
+/// 返回更新操作的结果
 message UpdateStoryRoleAvatorResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
 
+/// 获取用户与角色对话列表请求
+/// 获取用户与各个角色的所有聊天会话列表
 message GetUserWithRoleChatListRequest {
-  int64 user_id = 1;
-  int64 story_id = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID（可选），用于筛选特定故事的角色对话
+  int64 story_id = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取用户与角色对话列表响应
+/// 返回聊天会话列表
 message GetUserWithRoleChatListResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 聊天上下文列表
   repeated ChatContext chats = 3;
+  
+  /// 对话总数
   int64 total = 4;
+  
+  /// 当前偏移量
   int64 offset = 5;
+  
+  /// 每页数量
   int64 page_size = 6;
+  
+  /// 是否有更多数据
   bool have_more = 7;
 }
 
+/// 获取用户创建的故事板请求
+/// 获取指定用户创建的所有故事板列表
 message GetUserCreatedStoryboardsRequest {
-  int64 user_id = 1;
-  int32 story_id = 2;
-  int32 stage = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID（可选），用于筛选特定故事的故事板
+  int32 story_id = 2 [(validate.rules).int32 = {gte: 0}];
+  
+  /// 阶段状态筛选，0表示不筛选
+  int32 stage = 3 [(validate.rules).int32 = {gte: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 5 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取用户创建的故事板响应
+/// 返回用户创建的故事板列表
 message GetUserCreatedStoryboardsResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板列表
   repeated StoryBoardActive storyboards = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
+  
+  /// 当前偏移量
   int64 offset = 6;
+  
+  /// 每页数量
   int64 page_size = 8;
 }
 
+/// 获取用户创建的角色请求
+/// 获取指定用户创建的所有故事角色列表
 message GetUserCreatedRolesRequest {
-  int64 user_id = 1;
-  int32 story_id = 2;
-  int32 stage = 3;
-  int64 offset = 4;
-  int64 page_size = 5;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID（可选），用于筛选特定故事的角色
+  int32 story_id = 2 [(validate.rules).int32 = {gte: 0}];
+  
+  /// 阶段状态筛选，0表示不筛选
+  int32 stage = 3 [(validate.rules).int32 = {gte: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 5 [(validate.rules).int64 = {gte: 1, lte: 100}];
 }
 
+/// 获取用户创建的角色响应
+/// 返回用户创建的角色列表
 message GetUserCreatedRolesResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 角色列表
   repeated StoryRole roles = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
+  
+  /// 当前偏移量
   int64 offset = 6;
+  
+  /// 每页数量
   int64 page_size = 8;
 }
 
+/// 点赞故事角色请求
+/// 为故事角色点赞
 message LikeStoryRoleRequest{
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 点赞故事角色响应
+/// 返回点赞操作的结果
 message LikeStoryRoleResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 取消点赞故事角色请求
+/// 取消对故事角色的点赞
 message UnLikeStoryRoleRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 取消点赞故事角色响应
+/// 返回取消点赞操作的结果
 message UnLikeStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 关注故事角色请求
+/// 关注指定的故事角色，接收该角色的动态
 message FollowStoryRoleRequest{
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 关注故事角色响应
+/// 返回关注操作的结果
 message FollowStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 取消关注故事角色请求
+/// 取消对故事角色的关注
 message UnFollowStoryRoleRequest {
-  int64 role_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 取消关注故事角色响应
+/// 返回取消关注操作的结果
 message UnFollowStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 搜索故事请求
+/// 根据关键词搜索故事，支持不同范围的搜索
 message SearchStoriesRequest{
-  int64 user_id = 1;
-  string keyword = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  /// 请求用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 搜索关键词，长度1-200字符
+  string keyword = 2 [(validate.rules).string = {min_len: 1, max_len: 200}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 搜索范围类型：全局、群组内等
   ScopeType scope = 5;
-  int64 group_id = 7;
+  
+  /// 群组ID（可选），用于在特定群组内搜索
+  int64 group_id = 7 [(validate.rules).int64 = {gte: 0}];
 }
 
+/// 搜索故事响应
+/// 返回匹配的故事列表
 message SearchStoriesResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 匹配的故事列表
   repeated Story stories = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
 }
 
+/// 搜索角色请求
+/// 根据关键词搜索故事角色，支持不同范围的搜索
 message SearchRolesRequest {
-  int64 user_id = 1;
-  string keyword = 2;
-  int64 offset = 3;
-  int64 page_size = 4;
+  /// 请求用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 搜索关键词，角色名称或描述，长度1-200字符
+  string keyword = 2 [(validate.rules).string = {min_len: 1, max_len: 200}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 3 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 4 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 搜索范围类型：全局、群组内、故事内等
   ScopeType scope = 5;
-  int64 story_id = 6;
-  int64 group_id = 7;
+  
+  /// 故事ID（可选），用于在特定故事内搜索
+  int64 story_id = 6 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 群组ID（可选），用于在特定群组内搜索
+  int64 group_id = 7 [(validate.rules).int64 = {gte: 0}];
 }
 
+/// 搜索角色响应
+/// 返回匹配的角色列表
 message SearchRolesResponse{
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 匹配的角色列表
   repeated StoryRole roles = 3;
+  
+  /// 总数量
   int64 total = 4;
+  
+  /// 是否有更多数据
   bool have_more = 5;
 }
 
+/// 恢复故事板请求
+/// 从草稿或历史版本恢复故事板状态
 message RestoreStoryboardRequest {
-  int64 storyboard_id = 1;
-  int64 user_id = 2;
-  int64 story_id = 3;
+  /// 故事板ID，必须大于0
+  int64 storyboard_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 故事ID，必须大于0
+  int64 story_id = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 恢复故事板响应
+/// 返回恢复的故事板完整信息
 message RestoreStoryboardResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 故事板状态存储信息
   StoryboardStageStore store = 3;
 }
 
+/// 故事板阶段存储信息
+/// 包含故事板的完整状态和版本信息
 message StoryboardStageStore{
+  /// 故事板信息
   StoryBoard storyboard = 1;
+  
+  /// 场景列表
   StoryBoardSences sences = 2;
+  
+  /// 当前阶段状态
   StoryboardStage stage = 3;
+  
+  /// 最后更新时间戳
   int64 last_update_time = 4;
+  
+  /// 版本号
   int64 version = 5;
+  
+  /// 用户ID
   int64 user_id = 6;
 }
 
+/// 获取用户资料请求
+/// 获取指定用户的详细资料信息
 message GetUserProfileRequest {
-  int64 user_id = 1;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 获取用户资料响应
+/// 返回用户的详细资料
 message GetUserProfileResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 用户资料信息
   UserProfileInfo info = 3;
 }
 
+/// 更新用户资料请求
+/// 更新用户的个人资料信息
 message UpdateUserProfileRequest {
-  int64 user_id = 1;
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 背景图片URL
   string background_image = 2;
+  
+  /// 头像URL
   string avatar = 3;
-  string name = 4;
-  string description = 5;
-  string location = 6;
-  string email = 7;
+  
+  /// 用户昵称，最大长度50字符
+  string name = 4 [(validate.rules).string = {max_len: 50}];
+  
+  /// 个人描述，最大长度500字符
+  string description = 5 [(validate.rules).string = {max_len: 500}];
+  
+  /// 所在地，最大长度100字符
+  string location = 6 [(validate.rules).string = {max_len: 100}];
+  
+  /// 邮箱地址，如果提供则必须符合邮箱格式
+  string email = 7 [(validate.rules).string.email = true];
 }
 
+/// 更新用户资料响应
+/// 返回更新操作的结果
 message UpdateUserProfileResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
@@ -2921,202 +6573,463 @@ message UpdateUserBackgroundImageResponse {
   string message = 2;
 }
 
+/// 创建故事角色请求
+/// 在故事中创建新的角色
 message CreateStoryRoleRequest {
-  int64 user_id = 1;
-  StoryRole role = 2;
+  /// 创建者用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 角色信息，必填
+  StoryRole role = 2 [(validate.rules).message.required = true];
 }
 
+/// 创建故事角色响应
+/// 返回创建操作的结果
 message CreateStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 获取故事角色详情请求
+/// 获取指定角色的详细信息
 message GetStoryRoleDetailRequest {
-  int64 role_id = 1;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 获取故事角色详情响应
+/// 返回角色的详细信息
 message GetStoryRoleDetailResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 角色详细信息
   StoryRole info = 3;
 }
 
+/// 渲染故事角色请求
+/// 使用AI渲染角色的形象和特征
 message RenderStoryRoleRequest {
-  int64 role_id = 1;
-  string prompt = 2;
-  repeated string ref_images = 3;
-  int64 user_id = 4;
+  /// 角色ID，必须大于0
+  int64 role_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 渲染提示词，最大长度2000字符
+  string prompt = 2 [(validate.rules).string = {max_len: 2000}];
+  
+  /// 参考图片URL列表，最多10张
+  repeated string ref_images = 3 [(validate.rules).repeated = {max_items: 10}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 4 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 渲染故事角色详情
+/// 包含角色渲染后的完整特征信息
 message RenderStoryRoleDetail {
+  /// 角色ID
   int64 role_id = 1;
+  
+  /// 生成任务ID
   int64 gen_id = 2;
+  
+  /// 是否渲染完成
   bool is_finished = 3;
+  
+  /// 角色描述
   string role_description = 4;
+  
+  /// 角色性格特征
   string role_character = 5;
+  
+  /// 角色行为特点
   string role_behavior = 6;
+  
+  /// 角色目标
   string role_goal = 7;
+  
+  /// 背景图片URL
   string background_image = 8;
+  
+  /// 头像图片URL
   string avatar_image = 9;
+  
+  /// 背景故事
   string background = 10; 
+  
+  /// 外观描述
   string appearance = 11;
+  
+  /// 性格描述
   string personality = 12;
+  
+  /// 能力特征
   string ability_features = 13;
 }
 
+/// 渲染故事角色响应
+/// 返回角色渲染的详细结果
 message RenderStoryRoleResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
+  
+  /// 渲染详情
   RenderStoryRoleDetail detail = 3;
 }
 
+/// 点赞故事请求
+/// 为故事点赞表示喜欢
 message LikeStoryRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 点赞故事响应
+/// 返回点赞操作的结果
 message LikeStoryResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
+/// 取消点赞故事请求
+/// 取消对故事的点赞
 message UnLikeStoryRequest {
-  int64 story_id = 1;
-  int64 user_id = 2;
+  /// 故事ID，必须大于0
+  int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 用户ID，必须大于0
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
+/// 取消点赞故事响应
+/// 返回取消点赞操作的结果
 message UnLikeStoryResponse {
+  /// 响应状态码
   ResponseCode code = 1;
+  
+  /// 响应消息
   string message = 2;
 }
 
 // ==================== 删除用户故事板草稿 ====================
-// 删除用户故事板草稿请求
+/// 删除用户故事板草稿请求
+/// 
+/// 用于删除指定用户的故事板草稿，支持批量删除操作
 message DeleteUserStoryboardDraftRequest {
-  int64 user_id = 1;         // 用户ID
-  int64 draft_id = 2;        // 草稿ID
-  int64 story_id = 3;        // 故事ID（可选）
+  /// [必填] 用户ID
+  /// 
+  /// 草稿所有者的用户ID
+  /// 验证规则：必须大于 0
+  int64 user_id = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [必填] 草稿ID
+  /// 
+  /// 要删除的草稿唯一标识符
+  /// 验证规则：必须大于 0
+  int64 draft_id = 2 [
+    (google.api.field_behavior) = REQUIRED,
+    (validate.rules).int64 = {gt: 0}
+  ];
+  
+  /// [可选] 故事ID
+  /// 
+  /// 所属故事的ID，用于权限验证
+  /// 验证规则：如果提供则必须大于等于 0
+  /// 默认值：0（不筛选）
+  int64 story_id = 3 [
+    (google.api.field_behavior) = OPTIONAL,
+    (validate.rules).int64 = {gte: 0}
+  ];
 }
 
-// 删除用户故事板草稿响应
+/// 删除用户故事板草稿响应
+/// 返回删除操作的结果状态
 message DeleteUserStoryboardDraftResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
 }
 
 // ==================== 用户活跃热力图 ====================
-// 用户活跃热力图数据项
+/// 热力图数据项
+/// 
+/// 表示单个日期的活跃度数据，用于生成GitHub风格的热力图可视化
 message HeatmapDataItem {
-  string date = 1;           // 日期，格式：YYYY-MM-DD
-  int64 count = 2;           // 活跃次数/数量
-  int64 level = 3;           // 热力等级（0-4，用于显示不同颜色深度）
+  /// [必填] 日期
+  /// 
+  /// 活跃度数据对应的日期
+  /// 格式要求：YYYY-MM-DD（如 2024-01-15）
+  /// 验证规则：必须符合日期格式正则表达式
+  string date = 1 [(validate.rules).string = {pattern: "^\\d{4}-\\d{2}-\\d{2}$"}];
+  
+  /// [必填] 活跃次数
+  /// 
+  /// 该日期的活跃操作次数（如创建、更新、评论等）
+  /// 验证规则：必须大于等于 0
+  /// 默认值：0
+  int64 count = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// [必填] 热力等级
+  /// 
+  /// 用于显示不同颜色深度的等级值
+  /// 取值说明：
+  /// - 0: 无活跃（灰色）
+  /// - 1: 低活跃（浅绿）
+  /// - 2: 中活跃（绿色）
+  /// - 3: 高活跃（深绿）
+  /// - 4: 极高活跃（最深绿）
+  /// 验证规则：0-4
+  int64 level = 3 [(validate.rules).int64 = {gte: 0, lte: 4}];
 }
 
-// 用户活跃热力图请求
+/// 用户活跃热力图请求
+/// 
+/// 获取指定时间范围内用户的活跃度热力图数据，用于展示用户贡献度
 message UserActiveHeamapRequest {
-  int64 user_id = 1;         // 用户ID
-  int64 start_time = 2;      // 开始时间戳（秒）
-  int64 end_time = 3;        // 结束时间戳（秒）
+  /// [必填] 用户ID
+  /// 
+  /// 要查询活跃度的用户唯一标识
+  /// 验证规则：必须大于 0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 开始时间
+  /// 
+  /// 查询时间范围的起始时间戳（Unix时间戳，秒）
+  /// 验证规则：必须大于 0
+  /// 示例：1640995200（表示 2022-01-01 00:00:00 UTC）
+  int64 start_time = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 结束时间
+  /// 
+  /// 查询时间范围的结束时间戳（Unix时间戳，秒）
+  /// 验证规则：必须大于 0，且应大于 start_time
+  /// 建议范围：不超过1年
+  int64 end_time = 3 [(validate.rules).int64 = {gt: 0}];
 }
 
-// 用户活跃热力图响应
+/// 用户活跃热力图响应
+/// 返回用户在指定时间范围内的活跃度热力图数据
 message UserActiveHeamapResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
-  repeated HeatmapDataItem data = 3;  // 热力图数据列表
-  int64 total_count = 4;     // 总活跃次数
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
+  
+  /// 热力图数据列表，包含每日的活跃度信息
+  repeated HeatmapDataItem data = 3;
+  
+  /// 总活跃次数统计
+  int64 total_count = 4 [(validate.rules).int64 = {gte: 0}];
 }
 
 // ==================== 群组活跃热力图 ====================
-// 群组活跃热力图请求
+/// 群组活跃热力图请求
+/// 
+/// 获取指定群组在指定时间范围内的活跃度热力图数据，展示群组整体活跃情况
 message GroupActiveHeamapRequest {
-  int64 group_id = 1;        // 群组ID
-  int64 user_id = 2;         // 请求用户ID（用于权限验证）
-  int64 start_time = 3;      // 开始时间戳（秒）
-  int64 end_time = 4;        // 结束时间戳（秒）
+  /// [必填] 群组ID
+  /// 
+  /// 要查询活跃度的群组唯一标识
+  /// 验证规则：必须大于 0
+  int64 group_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 请求用户ID
+  /// 
+  /// 发起请求的用户ID，用于权限验证
+  /// 验证规则：必须大于 0
+  /// 用途：确认用户有权查看该群组的活跃数据
+  int64 user_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 开始时间
+  /// 
+  /// 查询时间范围的起始时间戳（Unix时间戳，秒）
+  /// 验证规则：必须大于 0
+  int64 start_time = 3 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 结束时间
+  /// 
+  /// 查询时间范围的结束时间戳（Unix时间戳，秒）
+  /// 验证规则：必须大于 0，且应大于 start_time
+  /// 建议范围：不超过1年
+  int64 end_time = 4 [(validate.rules).int64 = {gt: 0}];
 }
 
-// 群组活跃热力图响应
+/// 群组活跃热力图响应
+/// 返回群组在指定时间范围内的活跃度热力图数据及统计信息
 message GroupActiveHeamapResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
-  repeated HeatmapDataItem data = 3;  // 热力图数据列表
-  int64 total_count = 4;     // 总活跃次数
-  int64 member_count = 5;    // 活跃成员数量
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
+  
+  /// 热力图数据列表，包含每日的群组活跃度信息
+  repeated HeatmapDataItem data = 3;
+  
+  /// 总活跃次数统计
+  int64 total_count = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 参与活跃的成员数量
+  int64 member_count = 5 [(validate.rules).int64 = {gte: 0}];
 }
 
 // ==================== 更新故事板是否可分叉 ====================
-// 更新故事板是否可分叉请求
+/// 更新故事板分叉权限请求
+/// 
+/// 设置故事板的分叉权限，控制其他用户是否可以基于此故事板创建分支版本
 message UpdateStoryboardForkAbleRequest {
-  int64 user_id = 1;         // 用户ID
-  int64 storyboard_id = 2;   // 故事板ID
-  bool fork_able = 3;        // 是否可分叉
+  /// [必填] 用户ID
+  /// 
+  /// 故事板所有者的用户ID
+  /// 验证规则：必须大于 0
+  /// 权限要求：仅所有者可修改分叉权限
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 故事板ID
+  /// 
+  /// 要设置权限的故事板唯一标识
+  /// 验证规则：必须大于 0
+  int64 storyboard_id = 2 [(validate.rules).int64 = {gt: 0}];
+  
+  /// [必填] 是否允许分叉
+  /// 
+  /// 分叉权限开关
+  /// 取值说明：
+  /// - true: 允许其他用户分叉此故事板
+  /// - false: 禁止分叉，仅所有者可访问
+  /// 默认值：false
+  bool fork_able = 3;
 }
 
-// 更新故事板是否可分叉响应
+/// 更新故事板是否可分叉响应
+/// 返回更新操作的结果状态
 message UpdateStoryboardForkAbleResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
 }
 
 // ==================== 用户故事板草稿列表 ====================
-// 故事板草稿简要信息
-message StoryboardDraftItem {
-  int64 draft_id = 1;        // 草稿ID
-  int64 story_id = 2;        // 故事ID
-  int64 storyboard_id = 3;   // 故事板ID
-  string title = 4;          // 标题
-  string content = 5;        // 内容摘要
-  string cover_image = 6;    // 封面图片
-  int64 created_at = 7;      // 创建时间戳
-  int64 updated_at = 8;      // 更新时间戳
-  int64 version = 9;         // 版本号
-}
-
-// 用户故事板草稿列表请求
+/// 用户故事板草稿列表请求
+/// 分页获取指定用户的故事板草稿列表，支持按故事ID筛选
 message UserStoryboardDraftlistRequest {
-  int64 user_id = 1;         // 用户ID
-  int64 offset = 2;          // 偏移量
-  int64 page_size = 3;       // 每页数量
-  int64 story_id = 4;        // 故事ID（可选，用于筛选特定故事的草稿）
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 偏移量，用于分页，必须大于等于0
+  int64 offset = 2 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 每页数量，范围1-100
+  int64 page_size = 3 [(validate.rules).int64 = {gte: 1, lte: 100}];
+  
+  /// 故事ID（可选，用于筛选特定故事的草稿），如果提供则必须大于0
+  int64 story_id = 4 [(validate.rules).int64 = {gte: 0}];
 }
 
-// 用户故事板草稿列表响应
+/// 用户故事板草稿列表响应
+/// 返回用户的故事板草稿列表及分页信息
 message UserStoryboardDraftlistResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
-  repeated StoryboardDraftItem drafts = 3;  // 草稿列表
-  int64 total = 4;           // 草稿总数
-  bool have_more = 5;        // 是否有更多
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
+  
+  /// 草稿列表，包含草稿的详细信息
+  repeated StoryboardDraftDetail drafts = 3;
+  
+  /// 草稿总数
+  int64 total = 4 [(validate.rules).int64 = {gte: 0}];
+  
+  /// 是否有更多数据
+  bool have_more = 5;
 }
 
 // ==================== 用户故事板草稿详情 ====================
-// 故事板草稿详细信息
+/// 故事板草稿详细信息
+/// 包含故事板草稿的完整信息，包括内容、角色、场景等
 message StoryboardDraftDetail {
-  int64 draft_id = 1;        // 草稿ID
-  int64 story_id = 2;        // 故事ID
-  int64 storyboard_id = 3;   // 故事板ID
-  string title = 4;          // 标题
-  string content = 5;        // 内容
-  string background = 6;     // 背景
-  repeated StoryRole roles = 7;  // 角色列表
-  StoryBoardSences sences = 8;   // 场景列表
-  StoryBoardParams params = 9;   // 故事板参数
-  int64 created_at = 10;     // 创建时间戳
-  int64 updated_at = 11;     // 更新时间戳
-  int64 version = 12;        // 版本号
-  int64 user_id = 13;        // 用户ID
+  /// 草稿ID，唯一标识符
+  int64 draft_id = 1;
+  
+  /// 所属故事ID
+  int64 story_id = 2;
+  
+  /// 关联的故事板ID
+  int64 storyboard_id = 3;
+  
+  /// 草稿标题，最大长度200字符
+  string title = 4 [(validate.rules).string = {max_len: 200}];
+  
+  /// 草稿内容，最大长度10000字符
+  string content = 5 [(validate.rules).string = {max_len: 10000}];
+  
+  /// 背景描述
+  string background = 6;
+  
+  /// 参与的角色列表
+  repeated StoryRole roles = 7;
+  
+  /// 场景列表
+  StoryBoardSences sences = 8;
+  
+  /// 故事板渲染参数
+  StoryBoardParams params = 9;
+  
+  /// 创建时间戳（秒）
+  int64 created_at = 10;
+  
+  /// 最后更新时间戳（秒）
+  int64 updated_at = 11;
+  
+  /// 生成阶段状态
+  StoryboardStage stage = 12;
+  
+  /// 草稿所有者用户ID
+  int64 user_id = 13;
 }
 
-// 用户故事板草稿详情请求
+/// 用户故事板草稿详情请求
+/// 获取指定草稿的完整详细信息
 message UserDraftStoryboardDetailRequest {
-  int64 user_id = 1;         // 用户ID
-  int64 draft_id = 2;        // 草稿ID
+  /// 用户ID，必须大于0
+  int64 user_id = 1 [(validate.rules).int64 = {gt: 0}];
+  
+  /// 草稿ID，必须大于0
+  int64 draft_id = 2 [(validate.rules).int64 = {gt: 0}];
 }
 
-// 用户故事板草稿详情响应
+/// 用户故事板草稿详情响应
+/// 返回草稿的完整详细信息
 message UserDraftStoryboardDetailResponse {
-  ResponseCode code = 1;     // 响应码
-  string message = 2;        // 响应消息
-  StoryboardDraftDetail detail = 3;  // 草稿详情
+  /// 响应状态码
+  ResponseCode code = 1;
+  
+  /// 响应消息描述
+  string message = 2;
+  
+  /// 草稿详细信息
+  StoryboardDraftDetail detail = 3;
 }

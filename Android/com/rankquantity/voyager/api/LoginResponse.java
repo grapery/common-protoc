@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 用户登录响应
+ * / 返回登录结果和会话信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.LoginResponse}
  */
 @com.google.protobuf.Generated
@@ -50,17 +55,29 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     long getUserId();
 
     /**
+     * <pre>
+     * &#47; 访问令牌
+     * </pre>
+     *
      * <code>string token = 2 [json_name = "token"];</code>
      * @return The token.
      */
     java.lang.String getToken();
     /**
+     * <pre>
+     * &#47; 访问令牌
+     * </pre>
+     *
      * <code>string token = 2 [json_name = "token"];</code>
      * @return The bytes for token.
      */
@@ -68,24 +85,40 @@ private static final long serialVersionUID = 0L;
         getTokenBytes();
 
     /**
+     * <pre>
+     * &#47; 当前时间戳
+     * </pre>
+     *
      * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
      * @return The timestamp.
      */
     long getTimestamp();
 
     /**
+     * <pre>
+     * &#47; 令牌过期时间戳
+     * </pre>
+     *
      * <code>int64 expire_at = 4 [json_name = "expireAt"];</code>
      * @return The expireAt.
      */
     long getExpireAt();
 
     /**
+     * <pre>
+     * &#47; 账号状态：0-正常，1-冻结，2-待激活
+     * </pre>
+     *
      * <code>int32 status = 5 [json_name = "status"];</code>
      * @return The status.
      */
     int getStatus();
   }
   /**
+   * <pre>
+   * &#47; 登录成功返回的数据
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.LoginResponse.Data}
    */
   public static final class Data extends
@@ -126,6 +159,10 @@ private static final long serialVersionUID = 0L;
     public static final int USER_ID_FIELD_NUMBER = 1;
     private long userId_ = 0L;
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
@@ -138,6 +175,10 @@ private static final long serialVersionUID = 0L;
     @SuppressWarnings("serial")
     private volatile java.lang.Object token_ = "";
     /**
+     * <pre>
+     * &#47; 访问令牌
+     * </pre>
+     *
      * <code>string token = 2 [json_name = "token"];</code>
      * @return The token.
      */
@@ -155,6 +196,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 访问令牌
+     * </pre>
+     *
      * <code>string token = 2 [json_name = "token"];</code>
      * @return The bytes for token.
      */
@@ -176,6 +221,10 @@ private static final long serialVersionUID = 0L;
     public static final int TIMESTAMP_FIELD_NUMBER = 3;
     private long timestamp_ = 0L;
     /**
+     * <pre>
+     * &#47; 当前时间戳
+     * </pre>
+     *
      * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
      * @return The timestamp.
      */
@@ -187,6 +236,10 @@ private static final long serialVersionUID = 0L;
     public static final int EXPIRE_AT_FIELD_NUMBER = 4;
     private long expireAt_ = 0L;
     /**
+     * <pre>
+     * &#47; 令牌过期时间戳
+     * </pre>
+     *
      * <code>int64 expire_at = 4 [json_name = "expireAt"];</code>
      * @return The expireAt.
      */
@@ -198,6 +251,10 @@ private static final long serialVersionUID = 0L;
     public static final int STATUS_FIELD_NUMBER = 5;
     private int status_ = 0;
     /**
+     * <pre>
+     * &#47; 账号状态：0-正常，1-冻结，2-待激活
+     * </pre>
+     *
      * <code>int32 status = 5 [json_name = "status"];</code>
      * @return The status.
      */
@@ -410,6 +467,10 @@ private static final long serialVersionUID = 0L;
       return builder;
     }
     /**
+     * <pre>
+     * &#47; 登录成功返回的数据
+     * </pre>
+     *
      * Protobuf type {@code rankquantity.voyager.api.LoginResponse.Data}
      */
     public static final class Builder extends
@@ -597,6 +658,10 @@ private static final long serialVersionUID = 0L;
 
       private long userId_ ;
       /**
+       * <pre>
+       * &#47; 用户ID
+       * </pre>
+       *
        * <code>int64 user_id = 1 [json_name = "userId"];</code>
        * @return The userId.
        */
@@ -605,6 +670,10 @@ private static final long serialVersionUID = 0L;
         return userId_;
       }
       /**
+       * <pre>
+       * &#47; 用户ID
+       * </pre>
+       *
        * <code>int64 user_id = 1 [json_name = "userId"];</code>
        * @param value The userId to set.
        * @return This builder for chaining.
@@ -617,6 +686,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 用户ID
+       * </pre>
+       *
        * <code>int64 user_id = 1 [json_name = "userId"];</code>
        * @return This builder for chaining.
        */
@@ -629,6 +702,10 @@ private static final long serialVersionUID = 0L;
 
       private java.lang.Object token_ = "";
       /**
+       * <pre>
+       * &#47; 访问令牌
+       * </pre>
+       *
        * <code>string token = 2 [json_name = "token"];</code>
        * @return The token.
        */
@@ -645,6 +722,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 访问令牌
+       * </pre>
+       *
        * <code>string token = 2 [json_name = "token"];</code>
        * @return The bytes for token.
        */
@@ -662,6 +743,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 访问令牌
+       * </pre>
+       *
        * <code>string token = 2 [json_name = "token"];</code>
        * @param value The token to set.
        * @return This builder for chaining.
@@ -675,6 +760,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 访问令牌
+       * </pre>
+       *
        * <code>string token = 2 [json_name = "token"];</code>
        * @return This builder for chaining.
        */
@@ -685,6 +774,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 访问令牌
+       * </pre>
+       *
        * <code>string token = 2 [json_name = "token"];</code>
        * @param value The bytes for token to set.
        * @return This builder for chaining.
@@ -701,6 +794,10 @@ private static final long serialVersionUID = 0L;
 
       private long timestamp_ ;
       /**
+       * <pre>
+       * &#47; 当前时间戳
+       * </pre>
+       *
        * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
        * @return The timestamp.
        */
@@ -709,6 +806,10 @@ private static final long serialVersionUID = 0L;
         return timestamp_;
       }
       /**
+       * <pre>
+       * &#47; 当前时间戳
+       * </pre>
+       *
        * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
        * @param value The timestamp to set.
        * @return This builder for chaining.
@@ -721,6 +822,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 当前时间戳
+       * </pre>
+       *
        * <code>int64 timestamp = 3 [json_name = "timestamp"];</code>
        * @return This builder for chaining.
        */
@@ -733,6 +838,10 @@ private static final long serialVersionUID = 0L;
 
       private long expireAt_ ;
       /**
+       * <pre>
+       * &#47; 令牌过期时间戳
+       * </pre>
+       *
        * <code>int64 expire_at = 4 [json_name = "expireAt"];</code>
        * @return The expireAt.
        */
@@ -741,6 +850,10 @@ private static final long serialVersionUID = 0L;
         return expireAt_;
       }
       /**
+       * <pre>
+       * &#47; 令牌过期时间戳
+       * </pre>
+       *
        * <code>int64 expire_at = 4 [json_name = "expireAt"];</code>
        * @param value The expireAt to set.
        * @return This builder for chaining.
@@ -753,6 +866,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 令牌过期时间戳
+       * </pre>
+       *
        * <code>int64 expire_at = 4 [json_name = "expireAt"];</code>
        * @return This builder for chaining.
        */
@@ -765,6 +882,10 @@ private static final long serialVersionUID = 0L;
 
       private int status_ ;
       /**
+       * <pre>
+       * &#47; 账号状态：0-正常，1-冻结，2-待激活
+       * </pre>
+       *
        * <code>int32 status = 5 [json_name = "status"];</code>
        * @return The status.
        */
@@ -773,6 +894,10 @@ private static final long serialVersionUID = 0L;
         return status_;
       }
       /**
+       * <pre>
+       * &#47; 账号状态：0-正常，1-冻结，2-待激活
+       * </pre>
+       *
        * <code>int32 status = 5 [json_name = "status"];</code>
        * @param value The status to set.
        * @return This builder for chaining.
@@ -785,6 +910,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 账号状态：0-正常，1-冻结，2-待激活
+       * </pre>
+       *
        * <code>int32 status = 5 [json_name = "status"];</code>
        * @return This builder for chaining.
        */
@@ -850,6 +979,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -857,6 +990,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -869,6 +1006,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object msg_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The msg.
    */
@@ -886,6 +1027,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string msg = 2 [json_name = "msg"];</code>
    * @return The bytes for msg.
    */
@@ -1113,6 +1258,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 用户登录响应
+   * / 返回登录结果和会话信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.LoginResponse}
    */
   public static final class Builder extends
@@ -1293,6 +1443,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -1300,6 +1454,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -1311,6 +1469,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -1320,6 +1482,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -1332,6 +1498,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -1344,6 +1514,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object msg_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The msg.
      */
@@ -1360,6 +1534,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return The bytes for msg.
      */
@@ -1377,6 +1555,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The msg to set.
      * @return This builder for chaining.
@@ -1390,6 +1572,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @return This builder for chaining.
      */
@@ -1400,6 +1586,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string msg = 2 [json_name = "msg"];</code>
      * @param value The bytes for msg to set.
      * @return This builder for chaining.

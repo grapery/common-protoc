@@ -12,7 +12,7 @@ public interface StoryStyleDescOrBuilder extends
 
   /**
    * <pre>
-   * 风格ID
+   * &#47; 风格ID
    * </pre>
    *
    * <code>int64 id = 1 [json_name = "id"];</code>
@@ -22,7 +22,7 @@ public interface StoryStyleDescOrBuilder extends
 
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 2 [json_name = "style"];</code>
@@ -31,7 +31,7 @@ public interface StoryStyleDescOrBuilder extends
   java.lang.String getStyle();
   /**
    * <pre>
-   * 风格名称
+   * &#47; 风格名称
    * </pre>
    *
    * <code>string style = 2 [json_name = "style"];</code>
@@ -42,7 +42,7 @@ public interface StoryStyleDescOrBuilder extends
 
   /**
    * <pre>
-   * 风格描述
+   * &#47; 风格描述
    * </pre>
    *
    * <code>string description = 3 [json_name = "description"];</code>
@@ -51,7 +51,7 @@ public interface StoryStyleDescOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * 风格描述
+   * &#47; 风格描述
    * </pre>
    *
    * <code>string description = 3 [json_name = "description"];</code>

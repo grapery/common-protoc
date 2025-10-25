@@ -7,7 +7,8 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 更新故事板是否可分叉响应
+ * &#47; 更新故事板是否可分叉响应
+ * / 返回更新操作的结果状态
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryboardForkAbleResponse}
@@ -53,7 +54,7 @@ private static final long serialVersionUID = 0L;
   private int code_ = 0;
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -64,7 +65,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -80,7 +81,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object message_ = "";
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -101,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -290,7 +291,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新故事板是否可分叉响应
+   * &#47; 更新故事板是否可分叉响应
+   * / 返回更新操作的结果状态
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryboardForkAbleResponse}
@@ -445,7 +447,7 @@ private static final long serialVersionUID = 0L;
     private int code_ = 0;
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -456,7 +458,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -471,7 +473,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -484,7 +486,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -500,7 +502,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -516,7 +518,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -536,7 +538,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -557,7 +559,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -574,7 +576,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -588,7 +590,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>

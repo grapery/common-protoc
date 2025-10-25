@@ -11,22 +11,38 @@ public interface FetchUserGenTaskStatusResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.rankquantity.voyager.api.ResponseCode getCode();
 
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -34,36 +50,64 @@ public interface FetchUserGenTaskStatusResponseOrBuilder extends
       getMessageBytes();
 
   /**
+   * <pre>
+   * &#47; 任务状态列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.UserGenTaskStatus tasks = 3 [json_name = "tasks"];</code>
    */
   java.util.List<com.rankquantity.voyager.api.UserGenTaskStatus> 
       getTasksList();
   /**
+   * <pre>
+   * &#47; 任务状态列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.UserGenTaskStatus tasks = 3 [json_name = "tasks"];</code>
    */
   com.rankquantity.voyager.api.UserGenTaskStatus getTasks(int index);
   /**
+   * <pre>
+   * &#47; 任务状态列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.UserGenTaskStatus tasks = 3 [json_name = "tasks"];</code>
    */
   int getTasksCount();
   /**
+   * <pre>
+   * &#47; 任务状态列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.UserGenTaskStatus tasks = 3 [json_name = "tasks"];</code>
    */
   java.util.List<? extends com.rankquantity.voyager.api.UserGenTaskStatusOrBuilder> 
       getTasksOrBuilderList();
   /**
+   * <pre>
+   * &#47; 任务状态列表
+   * </pre>
+   *
    * <code>repeated .rankquantity.voyager.api.UserGenTaskStatus tasks = 3 [json_name = "tasks"];</code>
    */
   com.rankquantity.voyager.api.UserGenTaskStatusOrBuilder getTasksOrBuilder(
       int index);
 
   /**
+   * <pre>
+   * &#47; 任务总数
+   * </pre>
+   *
    * <code>int64 total = 4 [json_name = "total"];</code>
    * @return The total.
    */
   long getTotal();
 
   /**
+   * <pre>
+   * &#47; 是否有更多数据
+   * </pre>
+   *
    * <code>bool have_more = 5 [json_name = "haveMore"];</code>
    * @return The haveMore.
    */

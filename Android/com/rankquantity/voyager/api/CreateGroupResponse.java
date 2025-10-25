@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 创建群组响应
+ * / 返回创建的群组信息
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.CreateGroupResponse}
  */
 @com.google.protobuf.Generated
@@ -50,21 +55,37 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      * @return Whether the info field is set.
      */
     boolean hasInfo();
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      * @return The info.
      */
     com.rankquantity.voyager.api.GroupInfo getInfo();
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      */
     com.rankquantity.voyager.api.GroupInfoOrBuilder getInfoOrBuilder();
   }
   /**
+   * <pre>
+   * &#47; 返回数据
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.CreateGroupResponse.Data}
    */
   public static final class Data extends
@@ -105,6 +126,10 @@ private static final long serialVersionUID = 0L;
     public static final int INFO_FIELD_NUMBER = 1;
     private com.rankquantity.voyager.api.GroupInfo info_;
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      * @return Whether the info field is set.
      */
@@ -113,6 +138,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      * @return The info.
      */
@@ -121,6 +150,10 @@ private static final long serialVersionUID = 0L;
       return info_ == null ? com.rankquantity.voyager.api.GroupInfo.getDefaultInstance() : info_;
     }
     /**
+     * <pre>
+     * &#47; 创建的群组信息
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
      */
     @java.lang.Override
@@ -291,6 +324,10 @@ private static final long serialVersionUID = 0L;
       return builder;
     }
     /**
+     * <pre>
+     * &#47; 返回数据
+     * </pre>
+     *
      * Protobuf type {@code rankquantity.voyager.api.CreateGroupResponse.Data}
      */
     public static final class Builder extends
@@ -447,6 +484,10 @@ private static final long serialVersionUID = 0L;
       private com.google.protobuf.SingleFieldBuilder<
           com.rankquantity.voyager.api.GroupInfo, com.rankquantity.voyager.api.GroupInfo.Builder, com.rankquantity.voyager.api.GroupInfoOrBuilder> infoBuilder_;
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        * @return Whether the info field is set.
        */
@@ -454,6 +495,10 @@ private static final long serialVersionUID = 0L;
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        * @return The info.
        */
@@ -465,6 +510,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public Builder setInfo(com.rankquantity.voyager.api.GroupInfo value) {
@@ -481,6 +530,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public Builder setInfo(
@@ -495,6 +548,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public Builder mergeInfo(com.rankquantity.voyager.api.GroupInfo value) {
@@ -516,6 +573,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public Builder clearInfo() {
@@ -529,6 +590,10 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public com.rankquantity.voyager.api.GroupInfo.Builder getInfoBuilder() {
@@ -537,6 +602,10 @@ private static final long serialVersionUID = 0L;
         return internalGetInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       public com.rankquantity.voyager.api.GroupInfoOrBuilder getInfoOrBuilder() {
@@ -548,6 +617,10 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * &#47; 创建的群组信息
+       * </pre>
+       *
        * <code>.rankquantity.voyager.api.GroupInfo info = 1 [json_name = "info"];</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
@@ -619,6 +692,10 @@ private static final long serialVersionUID = 0L;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_ = 0;
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
@@ -626,6 +703,10 @@ private static final long serialVersionUID = 0L;
     return code_;
   }
   /**
+   * <pre>
+   * &#47; 响应状态码
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
@@ -638,6 +719,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object message_ = "";
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
@@ -655,6 +740,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 响应消息
+   * </pre>
+   *
    * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
@@ -882,6 +971,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 创建群组响应
+   * / 返回创建的群组信息
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.CreateGroupResponse}
    */
   public static final class Builder extends
@@ -1062,6 +1156,10 @@ private static final long serialVersionUID = 0L;
 
     private int code_ = 0;
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The enum numeric value on the wire for code.
      */
@@ -1069,6 +1167,10 @@ private static final long serialVersionUID = 0L;
       return code_;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The enum numeric value on the wire for code to set.
      * @return This builder for chaining.
@@ -1080,6 +1182,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return The code.
      */
@@ -1089,6 +1195,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.rankquantity.voyager.api.ResponseCode.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
@@ -1101,6 +1211,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应状态码
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
@@ -1113,6 +1227,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object message_ = "";
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
@@ -1129,6 +1247,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
@@ -1146,6 +1268,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
@@ -1159,6 +1285,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
@@ -1169,6 +1299,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 响应消息
+     * </pre>
+     *
      * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.

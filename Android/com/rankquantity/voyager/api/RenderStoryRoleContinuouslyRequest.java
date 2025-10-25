@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 持续渲染故事角色请求
+ * / 持续优化和渲染角色形象，直到达到满意效果
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleContinuouslyRequest}
  */
 @com.google.protobuf.Generated
@@ -48,7 +53,11 @@ private static final long serialVersionUID = 0L;
   public static final int ROLE_ID_FIELD_NUMBER = 1;
   private long roleId_ = 0L;
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   @java.lang.Override
@@ -59,7 +68,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,7 +83,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 3;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -82,7 +99,11 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object prompt_ = "";
   /**
-   * <code>string prompt = 4 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The prompt.
    */
   @java.lang.Override
@@ -99,7 +120,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string prompt = 4 [json_name = "prompt"];</code>
+   * <pre>
+   * &#47; 渲染提示词，最大长度2000字符
+   * </pre>
+   *
+   * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
    * @return The bytes for prompt.
    */
   @java.lang.Override
@@ -121,6 +146,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object referenceImage_ = "";
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
    * @return The referenceImage.
    */
@@ -138,6 +167,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
    * @return The bytes for referenceImage.
    */
@@ -359,6 +392,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 持续渲染故事角色请求
+   * / 持续优化和渲染角色形象，直到达到满意效果
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.RenderStoryRoleContinuouslyRequest}
    */
   public static final class Builder extends
@@ -548,7 +586,11 @@ private static final long serialVersionUID = 0L;
 
     private long roleId_ ;
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return The roleId.
      */
     @java.lang.Override
@@ -556,7 +598,11 @@ private static final long serialVersionUID = 0L;
       return roleId_;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @param value The roleId to set.
      * @return This builder for chaining.
      */
@@ -568,7 +614,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+     * <pre>
+     * &#47; 角色ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
@@ -580,7 +630,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -588,7 +642,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -600,7 +658,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -612,7 +674,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -620,7 +686,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -632,7 +702,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 3 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 3 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -644,7 +718,11 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object prompt_ = "";
     /**
-     * <code>string prompt = 4 [json_name = "prompt"];</code>
+     * <pre>
+     * &#47; 渲染提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
      * @return The prompt.
      */
     public java.lang.String getPrompt() {
@@ -660,7 +738,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string prompt = 4 [json_name = "prompt"];</code>
+     * <pre>
+     * &#47; 渲染提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
      * @return The bytes for prompt.
      */
     public com.google.protobuf.ByteString
@@ -677,7 +759,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string prompt = 4 [json_name = "prompt"];</code>
+     * <pre>
+     * &#47; 渲染提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
      * @param value The prompt to set.
      * @return This builder for chaining.
      */
@@ -690,7 +776,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string prompt = 4 [json_name = "prompt"];</code>
+     * <pre>
+     * &#47; 渲染提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPrompt() {
@@ -700,7 +790,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string prompt = 4 [json_name = "prompt"];</code>
+     * <pre>
+     * &#47; 渲染提示词，最大长度2000字符
+     * </pre>
+     *
+     * <code>string prompt = 4 [json_name = "prompt", (.validate.rules) = { ... }</code>
      * @param value The bytes for prompt to set.
      * @return This builder for chaining.
      */
@@ -716,6 +810,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object referenceImage_ = "";
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
      * @return The referenceImage.
      */
@@ -732,6 +830,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
      * @return The bytes for referenceImage.
      */
@@ -749,6 +851,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
      * @param value The referenceImage to set.
      * @return This builder for chaining.
@@ -762,6 +868,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
      * @return This builder for chaining.
      */
@@ -772,6 +882,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reference_image = 5 [json_name = "referenceImage"];</code>
      * @param value The bytes for referenceImage to set.
      * @return This builder for chaining.

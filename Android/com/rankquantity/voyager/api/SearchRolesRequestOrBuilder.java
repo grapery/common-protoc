@@ -11,54 +11,90 @@ public interface SearchRolesRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 请求用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string keyword = 2 [json_name = "keyword"];</code>
+   * <pre>
+   * &#47; 搜索关键词，角色名称或描述，长度1-200字符
+   * </pre>
+   *
+   * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
    * @return The keyword.
    */
   java.lang.String getKeyword();
   /**
-   * <code>string keyword = 2 [json_name = "keyword"];</code>
+   * <pre>
+   * &#47; 搜索关键词，角色名称或描述，长度1-200字符
+   * </pre>
+   *
+   * <code>string keyword = 2 [json_name = "keyword", (.validate.rules) = { ... }</code>
    * @return The bytes for keyword.
    */
   com.google.protobuf.ByteString
       getKeywordBytes();
 
   /**
-   * <code>int64 offset = 3 [json_name = "offset"];</code>
+   * <pre>
+   * &#47; 偏移量，用于分页，必须大于等于0
+   * </pre>
+   *
+   * <code>int64 offset = 3 [json_name = "offset", (.validate.rules) = { ... }</code>
    * @return The offset.
    */
   long getOffset();
 
   /**
-   * <code>int64 page_size = 4 [json_name = "pageSize"];</code>
+   * <pre>
+   * &#47; 每页数量，范围1-100
+   * </pre>
+   *
+   * <code>int64 page_size = 4 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */
   long getPageSize();
 
   /**
+   * <pre>
+   * &#47; 搜索范围类型：全局、群组内、故事内等
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
    * @return The enum numeric value on the wire for scope.
    */
   int getScopeValue();
   /**
+   * <pre>
+   * &#47; 搜索范围类型：全局、群组内、故事内等
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.ScopeType scope = 5 [json_name = "scope"];</code>
    * @return The scope.
    */
   com.rankquantity.voyager.api.ScopeType getScope();
 
   /**
-   * <code>int64 story_id = 6 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID（可选），用于在特定故事内搜索
+   * </pre>
+   *
+   * <code>int64 story_id = 6 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
-   * <code>int64 group_id = 7 [json_name = "groupId"];</code>
+   * <pre>
+   * &#47; 群组ID（可选），用于在特定群组内搜索
+   * </pre>
+   *
+   * <code>int64 group_id = 7 [json_name = "groupId", (.validate.rules) = { ... }</code>
    * @return The groupId.
    */
   long getGroupId();

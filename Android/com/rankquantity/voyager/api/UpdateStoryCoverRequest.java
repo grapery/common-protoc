@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 更新故事封面请求
+ * / 更新故事的封面图片
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UpdateStoryCoverRequest}
  */
 @com.google.protobuf.Generated
@@ -47,7 +52,11 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
-   * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+   * <pre>
+   * &#47; 故事ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
    * @return The storyId.
    */
   @java.lang.Override
@@ -58,7 +67,11 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -70,6 +83,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object coverUrl_ = "";
   /**
+   * <pre>
+   * &#47; 封面图片URL
+   * </pre>
+   *
    * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
    * @return The coverUrl.
    */
@@ -87,6 +104,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 封面图片URL
+   * </pre>
+   *
    * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
    * @return The bytes for coverUrl.
    */
@@ -108,6 +129,10 @@ private static final long serialVersionUID = 0L;
   public static final int USE_AI_COVER_FIELD_NUMBER = 4;
   private boolean useAiCover_ = false;
   /**
+   * <pre>
+   * &#47; 是否使用AI生成的封面
+   * </pre>
+   *
    * <code>bool use_ai_cover = 4 [json_name = "useAiCover"];</code>
    * @return The useAiCover.
    */
@@ -309,6 +334,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 更新故事封面请求
+   * / 更新故事的封面图片
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UpdateStoryCoverRequest}
    */
   public static final class Builder extends
@@ -484,7 +514,11 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return The storyId.
      */
     @java.lang.Override
@@ -492,7 +526,11 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
      */
@@ -504,7 +542,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 story_id = 1 [json_name = "storyId"];</code>
+     * <pre>
+     * &#47; 故事ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 story_id = 1 [json_name = "storyId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearStoryId() {
@@ -516,7 +558,11 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -524,7 +570,11 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -536,7 +586,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <pre>
+     * &#47; 用户ID，必须大于0
+     * </pre>
+     *
+     * <code>int64 user_id = 2 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -548,6 +602,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object coverUrl_ = "";
     /**
+     * <pre>
+     * &#47; 封面图片URL
+     * </pre>
+     *
      * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
      * @return The coverUrl.
      */
@@ -564,6 +622,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 封面图片URL
+     * </pre>
+     *
      * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
      * @return The bytes for coverUrl.
      */
@@ -581,6 +643,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 封面图片URL
+     * </pre>
+     *
      * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
      * @param value The coverUrl to set.
      * @return This builder for chaining.
@@ -594,6 +660,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 封面图片URL
+     * </pre>
+     *
      * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
      * @return This builder for chaining.
      */
@@ -604,6 +674,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 封面图片URL
+     * </pre>
+     *
      * <code>string cover_url = 3 [json_name = "coverUrl"];</code>
      * @param value The bytes for coverUrl to set.
      * @return This builder for chaining.
@@ -620,6 +694,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean useAiCover_ ;
     /**
+     * <pre>
+     * &#47; 是否使用AI生成的封面
+     * </pre>
+     *
      * <code>bool use_ai_cover = 4 [json_name = "useAiCover"];</code>
      * @return The useAiCover.
      */
@@ -628,6 +706,10 @@ private static final long serialVersionUID = 0L;
       return useAiCover_;
     }
     /**
+     * <pre>
+     * &#47; 是否使用AI生成的封面
+     * </pre>
+     *
      * <code>bool use_ai_cover = 4 [json_name = "useAiCover"];</code>
      * @param value The useAiCover to set.
      * @return This builder for chaining.
@@ -640,6 +722,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 是否使用AI生成的封面
+     * </pre>
+     *
      * <code>bool use_ai_cover = 4 [json_name = "useAiCover"];</code>
      * @return This builder for chaining.
      */

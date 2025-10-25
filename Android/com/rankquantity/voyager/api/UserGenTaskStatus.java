@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 用户生成任务状态信息
+ * / 表示单个生成任务的完整状态
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.UserGenTaskStatus}
  */
 @com.google.protobuf.Generated
@@ -50,6 +55,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object taskId_ = "";
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The taskId.
    */
@@ -67,6 +76,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 任务ID，唯一标识符
+   * </pre>
+   *
    * <code>string task_id = 1 [json_name = "taskId"];</code>
    * @return The bytes for taskId.
    */
@@ -88,6 +101,10 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ID_FIELD_NUMBER = 2;
   private long userId_ = 0L;
   /**
+   * <pre>
+   * &#47; 用户ID
+   * </pre>
+   *
    * <code>int64 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
@@ -100,6 +117,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object status_ = "";
   /**
+   * <pre>
+   * &#47; 任务状态：pending, running, success, failed
+   * </pre>
+   *
    * <code>string status = 3 [json_name = "status"];</code>
    * @return The status.
    */
@@ -117,6 +138,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 任务状态：pending, running, success, failed
+   * </pre>
+   *
    * <code>string status = 3 [json_name = "status"];</code>
    * @return The bytes for status.
    */
@@ -138,6 +163,10 @@ private static final long serialVersionUID = 0L;
   public static final int DETAIL_FIELD_NUMBER = 4;
   private com.rankquantity.voyager.api.StoryGentaskDetail detail_;
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    * @return Whether the detail field is set.
    */
@@ -146,6 +175,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    * @return The detail.
    */
@@ -154,6 +187,10 @@ private static final long serialVersionUID = 0L;
     return detail_ == null ? com.rankquantity.voyager.api.StoryGentaskDetail.getDefaultInstance() : detail_;
   }
   /**
+   * <pre>
+   * &#47; 任务详情
+   * </pre>
+   *
    * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
    */
   @java.lang.Override
@@ -164,6 +201,10 @@ private static final long serialVersionUID = 0L;
   public static final int CREATE_TIME_FIELD_NUMBER = 5;
   private long createTime_ = 0L;
   /**
+   * <pre>
+   * &#47; 创建时间戳
+   * </pre>
+   *
    * <code>int64 create_time = 5 [json_name = "createTime"];</code>
    * @return The createTime.
    */
@@ -175,6 +216,10 @@ private static final long serialVersionUID = 0L;
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
   private long updateTime_ = 0L;
   /**
+   * <pre>
+   * &#47; 更新时间戳
+   * </pre>
+   *
    * <code>int64 update_time = 6 [json_name = "updateTime"];</code>
    * @return The updateTime.
    */
@@ -402,6 +447,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 用户生成任务状态信息
+   * / 表示单个生成任务的完整状态
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.UserGenTaskStatus}
    */
   public static final class Builder extends
@@ -620,6 +670,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object taskId_ = "";
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return The taskId.
      */
@@ -636,6 +690,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return The bytes for taskId.
      */
@@ -653,6 +711,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @param value The taskId to set.
      * @return This builder for chaining.
@@ -666,6 +728,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @return This builder for chaining.
      */
@@ -676,6 +742,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务ID，唯一标识符
+     * </pre>
+     *
      * <code>string task_id = 1 [json_name = "taskId"];</code>
      * @param value The bytes for taskId to set.
      * @return This builder for chaining.
@@ -692,6 +762,10 @@ private static final long serialVersionUID = 0L;
 
     private long userId_ ;
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 2 [json_name = "userId"];</code>
      * @return The userId.
      */
@@ -700,6 +774,10 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 2 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
@@ -712,6 +790,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 用户ID
+     * </pre>
+     *
      * <code>int64 user_id = 2 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
@@ -724,6 +806,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object status_ = "";
     /**
+     * <pre>
+     * &#47; 任务状态：pending, running, success, failed
+     * </pre>
+     *
      * <code>string status = 3 [json_name = "status"];</code>
      * @return The status.
      */
@@ -740,6 +826,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务状态：pending, running, success, failed
+     * </pre>
+     *
      * <code>string status = 3 [json_name = "status"];</code>
      * @return The bytes for status.
      */
@@ -757,6 +847,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务状态：pending, running, success, failed
+     * </pre>
+     *
      * <code>string status = 3 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
@@ -770,6 +864,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务状态：pending, running, success, failed
+     * </pre>
+     *
      * <code>string status = 3 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
@@ -780,6 +878,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务状态：pending, running, success, failed
+     * </pre>
+     *
      * <code>string status = 3 [json_name = "status"];</code>
      * @param value The bytes for status to set.
      * @return This builder for chaining.
@@ -798,6 +900,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.rankquantity.voyager.api.StoryGentaskDetail, com.rankquantity.voyager.api.StoryGentaskDetail.Builder, com.rankquantity.voyager.api.StoryGentaskDetailOrBuilder> detailBuilder_;
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      * @return Whether the detail field is set.
      */
@@ -805,6 +911,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      * @return The detail.
      */
@@ -816,6 +926,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public Builder setDetail(com.rankquantity.voyager.api.StoryGentaskDetail value) {
@@ -832,6 +946,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public Builder setDetail(
@@ -846,6 +964,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public Builder mergeDetail(com.rankquantity.voyager.api.StoryGentaskDetail value) {
@@ -867,6 +989,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public Builder clearDetail() {
@@ -880,6 +1006,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public com.rankquantity.voyager.api.StoryGentaskDetail.Builder getDetailBuilder() {
@@ -888,6 +1018,10 @@ private static final long serialVersionUID = 0L;
       return internalGetDetailFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     public com.rankquantity.voyager.api.StoryGentaskDetailOrBuilder getDetailOrBuilder() {
@@ -899,6 +1033,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 任务详情
+     * </pre>
+     *
      * <code>.rankquantity.voyager.api.StoryGentaskDetail detail = 4 [json_name = "detail"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
@@ -917,6 +1055,10 @@ private static final long serialVersionUID = 0L;
 
     private long createTime_ ;
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 create_time = 5 [json_name = "createTime"];</code>
      * @return The createTime.
      */
@@ -925,6 +1067,10 @@ private static final long serialVersionUID = 0L;
       return createTime_;
     }
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 create_time = 5 [json_name = "createTime"];</code>
      * @param value The createTime to set.
      * @return This builder for chaining.
@@ -937,6 +1083,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 创建时间戳
+     * </pre>
+     *
      * <code>int64 create_time = 5 [json_name = "createTime"];</code>
      * @return This builder for chaining.
      */
@@ -949,6 +1099,10 @@ private static final long serialVersionUID = 0L;
 
     private long updateTime_ ;
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 update_time = 6 [json_name = "updateTime"];</code>
      * @return The updateTime.
      */
@@ -957,6 +1111,10 @@ private static final long serialVersionUID = 0L;
       return updateTime_;
     }
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 update_time = 6 [json_name = "updateTime"];</code>
      * @param value The updateTime to set.
      * @return This builder for chaining.
@@ -969,6 +1127,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 更新时间戳
+     * </pre>
+     *
      * <code>int64 update_time = 6 [json_name = "updateTime"];</code>
      * @return This builder for chaining.
      */

@@ -11,41 +11,69 @@ public interface CreateGroupRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 创建者用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 群组名称，必填且长度1-100字符
+   * </pre>
+   *
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <pre>
+   * &#47; 群组名称，必填且长度1-100字符
+   * </pre>
+   *
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string description = 3 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 群组描述，最大长度1000字符
+   * </pre>
+   *
+   * <code>string description = 3 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 3 [json_name = "description"];</code>
+   * <pre>
+   * &#47; 群组描述，最大长度1000字符
+   * </pre>
+   *
+   * <code>string description = 3 [json_name = "description", (.validate.rules) = { ... }</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
+   * <pre>
+   * &#47; 群组头像URL
+   * </pre>
+   *
    * <code>string avatar = 4 [json_name = "avatar"];</code>
    * @return The avatar.
    */
   java.lang.String getAvatar();
   /**
+   * <pre>
+   * &#47; 群组头像URL
+   * </pre>
+   *
    * <code>string avatar = 4 [json_name = "avatar"];</code>
    * @return The bytes for avatar.
    */

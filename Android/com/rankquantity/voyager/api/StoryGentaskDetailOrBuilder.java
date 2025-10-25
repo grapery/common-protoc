@@ -11,23 +11,39 @@ public interface StoryGentaskDetailOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * &#47; 故事ID
+   * </pre>
+   *
    * <code>int64 story_id = 1 [json_name = "storyId"];</code>
    * @return The storyId.
    */
   long getStoryId();
 
   /**
+   * <pre>
+   * &#47; 故事板ID
+   * </pre>
+   *
    * <code>int64 board_id = 2 [json_name = "boardId"];</code>
    * @return The boardId.
    */
   long getBoardId();
 
   /**
+   * <pre>
+   * &#47; 故事板描述
+   * </pre>
+   *
    * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
    * @return The storyboardDesc.
    */
   java.lang.String getStoryboardDesc();
   /**
+   * <pre>
+   * &#47; 故事板描述
+   * </pre>
+   *
    * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
    * @return The bytes for storyboardDesc.
    */
@@ -35,17 +51,29 @@ public interface StoryGentaskDetailOrBuilder extends
       getStoryboardDescBytes();
 
   /**
+   * <pre>
+   * &#47; 场景ID
+   * </pre>
+   *
    * <code>int64 sence_id = 4 [json_name = "senceId"];</code>
    * @return The senceId.
    */
   long getSenceId();
 
   /**
+   * <pre>
+   * &#47; 场景描述
+   * </pre>
+   *
    * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
    * @return The senceDesc.
    */
   java.lang.String getSenceDesc();
   /**
+   * <pre>
+   * &#47; 场景描述
+   * </pre>
+   *
    * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
    * @return The bytes for senceDesc.
    */
@@ -53,11 +81,19 @@ public interface StoryGentaskDetailOrBuilder extends
       getSenceDescBytes();
 
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 6 [json_name = "prompt"];</code>
    * @return The prompt.
    */
   java.lang.String getPrompt();
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 6 [json_name = "prompt"];</code>
    * @return The bytes for prompt.
    */
@@ -65,23 +101,39 @@ public interface StoryGentaskDetailOrBuilder extends
       getPromptBytes();
 
   /**
+   * <pre>
+   * &#47; 任务类型：1-图片，2-视频，3-音频
+   * </pre>
+   *
    * <code>int64 task_type = 7 [json_name = "taskType"];</code>
    * @return The taskType.
    */
   long getTaskType();
 
   /**
+   * <pre>
+   * &#47; 任务阶段
+   * </pre>
+   *
    * <code>int64 task_stage = 8 [json_name = "taskStage"];</code>
    * @return The taskStage.
    */
   long getTaskStage();
 
   /**
+   * <pre>
+   * &#47; 起始图片URL
+   * </pre>
+   *
    * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
    * @return The startImageUrl.
    */
   java.lang.String getStartImageUrl();
   /**
+   * <pre>
+   * &#47; 起始图片URL
+   * </pre>
+   *
    * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
    * @return The bytes for startImageUrl.
    */
@@ -89,11 +141,19 @@ public interface StoryGentaskDetailOrBuilder extends
       getStartImageUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 结束图片URL
+   * </pre>
+   *
    * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
    * @return The endImageUrl.
    */
   java.lang.String getEndImageUrl();
   /**
+   * <pre>
+   * &#47; 结束图片URL
+   * </pre>
+   *
    * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
    * @return The bytes for endImageUrl.
    */
@@ -101,11 +161,19 @@ public interface StoryGentaskDetailOrBuilder extends
       getEndImageUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 11 [json_name = "videoUrl"];</code>
    * @return The videoUrl.
    */
   java.lang.String getVideoUrl();
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 11 [json_name = "videoUrl"];</code>
    * @return The bytes for videoUrl.
    */
@@ -113,11 +181,19 @@ public interface StoryGentaskDetailOrBuilder extends
       getVideoUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
    * @return The regImageUrl.
    */
   java.lang.String getRegImageUrl();
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
    * @return The bytes for regImageUrl.
    */
@@ -125,11 +201,19 @@ public interface StoryGentaskDetailOrBuilder extends
       getRegImageUrlBytes();
 
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 13 [json_name = "style"];</code>
    * @return The style.
    */
   java.lang.String getStyle();
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 13 [json_name = "style"];</code>
    * @return The bytes for style.
    */

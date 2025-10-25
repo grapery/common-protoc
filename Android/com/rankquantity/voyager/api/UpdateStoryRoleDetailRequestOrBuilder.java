@@ -11,44 +11,76 @@ public interface UpdateStoryRoleDetailRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 role_id = 1 [json_name = "roleId"];</code>
+   * <pre>
+   * &#47; 角色ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 role_id = 1 [json_name = "roleId", (.validate.rules) = { ... }</code>
    * @return The roleId.
    */
   long getRoleId();
 
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return Whether the role field is set.
    */
   boolean hasRole();
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    * @return The role.
    */
   com.rankquantity.voyager.api.StoryRole getRole();
   /**
-   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role"];</code>
+   * <pre>
+   * &#47; 角色信息，必填
+   * </pre>
+   *
+   * <code>.rankquantity.voyager.api.StoryRole role = 2 [json_name = "role", (.validate.rules) = { ... }</code>
    */
   com.rankquantity.voyager.api.StoryRoleOrBuilder getRoleOrBuilder();
 
   /**
-   * <code>int64 user_id = 3 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 3 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
+   * <pre>
+   * &#47; 是否需要重新生成
+   * </pre>
+   *
    * <code>bool need_regen = 4 [json_name = "needRegen"];</code>
    * @return The needRegen.
    */
   boolean getNeedRegen();
 
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
    * @return The backgroundImage.
    */
   java.lang.String getBackgroundImage();
   /**
+   * <pre>
+   * &#47; 背景图片URL
+   * </pre>
+   *
    * <code>string background_image = 5 [json_name = "backgroundImage"];</code>
    * @return The bytes for backgroundImage.
    */

@@ -11,13 +11,21 @@ public interface FollowUserRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <pre>
+   * &#47; 发起关注的用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 follower_id = 2 [json_name = "followerId"];</code>
+   * <pre>
+   * &#47; 被关注的用户ID，必须大于0
+   * </pre>
+   *
+   * <code>int64 follower_id = 2 [json_name = "followerId", (.validate.rules) = { ... }</code>
    * @return The followerId.
    */
   long getFollowerId();

@@ -7,7 +7,8 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 用户故事板草稿详情请求
+ * &#47; 用户故事板草稿详情请求
+ * / 获取指定草稿的完整详细信息
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UserDraftStoryboardDetailRequest}
@@ -51,10 +52,10 @@ private static final long serialVersionUID = 0L;
   private long userId_ = 0L;
   /**
    * <pre>
-   * 用户ID
+   * &#47; 用户ID，必须大于0
    * </pre>
    *
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -66,10 +67,10 @@ private static final long serialVersionUID = 0L;
   private long draftId_ = 0L;
   /**
    * <pre>
-   * 草稿ID
+   * &#47; 草稿ID，必须大于0
    * </pre>
    *
-   * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+   * <code>int64 draft_id = 2 [json_name = "draftId", (.validate.rules) = { ... }</code>
    * @return The draftId.
    */
   @java.lang.Override
@@ -249,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 用户故事板草稿详情请求
+   * &#47; 用户故事板草稿详情请求
+   * / 获取指定草稿的完整详细信息
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UserDraftStoryboardDetailRequest}
@@ -402,10 +404,10 @@ private static final long serialVersionUID = 0L;
     private long userId_ ;
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -414,10 +416,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -430,10 +432,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 用户ID
+     * &#47; 用户ID，必须大于0
      * </pre>
      *
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -446,10 +448,10 @@ private static final long serialVersionUID = 0L;
     private long draftId_ ;
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，必须大于0
      * </pre>
      *
-     * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+     * <code>int64 draft_id = 2 [json_name = "draftId", (.validate.rules) = { ... }</code>
      * @return The draftId.
      */
     @java.lang.Override
@@ -458,10 +460,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，必须大于0
      * </pre>
      *
-     * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+     * <code>int64 draft_id = 2 [json_name = "draftId", (.validate.rules) = { ... }</code>
      * @param value The draftId to set.
      * @return This builder for chaining.
      */
@@ -474,10 +476,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿ID
+     * &#47; 草稿ID，必须大于0
      * </pre>
      *
-     * <code>int64 draft_id = 2 [json_name = "draftId"];</code>
+     * <code>int64 draft_id = 2 [json_name = "draftId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDraftId() {

@@ -6,6 +6,11 @@
 package com.rankquantity.voyager.api;
 
 /**
+ * <pre>
+ * &#47; 故事生成任务详情
+ * / 包含故事生成任务的详细参数和结果
+ * </pre>
+ *
  * Protobuf type {@code rankquantity.voyager.api.StoryGentaskDetail}
  */
 @com.google.protobuf.Generated
@@ -54,6 +59,10 @@ private static final long serialVersionUID = 0L;
   public static final int STORY_ID_FIELD_NUMBER = 1;
   private long storyId_ = 0L;
   /**
+   * <pre>
+   * &#47; 故事ID
+   * </pre>
+   *
    * <code>int64 story_id = 1 [json_name = "storyId"];</code>
    * @return The storyId.
    */
@@ -65,6 +74,10 @@ private static final long serialVersionUID = 0L;
   public static final int BOARD_ID_FIELD_NUMBER = 2;
   private long boardId_ = 0L;
   /**
+   * <pre>
+   * &#47; 故事板ID
+   * </pre>
+   *
    * <code>int64 board_id = 2 [json_name = "boardId"];</code>
    * @return The boardId.
    */
@@ -77,6 +90,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object storyboardDesc_ = "";
   /**
+   * <pre>
+   * &#47; 故事板描述
+   * </pre>
+   *
    * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
    * @return The storyboardDesc.
    */
@@ -94,6 +111,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 故事板描述
+   * </pre>
+   *
    * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
    * @return The bytes for storyboardDesc.
    */
@@ -115,6 +136,10 @@ private static final long serialVersionUID = 0L;
   public static final int SENCE_ID_FIELD_NUMBER = 4;
   private long senceId_ = 0L;
   /**
+   * <pre>
+   * &#47; 场景ID
+   * </pre>
+   *
    * <code>int64 sence_id = 4 [json_name = "senceId"];</code>
    * @return The senceId.
    */
@@ -127,6 +152,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object senceDesc_ = "";
   /**
+   * <pre>
+   * &#47; 场景描述
+   * </pre>
+   *
    * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
    * @return The senceDesc.
    */
@@ -144,6 +173,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 场景描述
+   * </pre>
+   *
    * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
    * @return The bytes for senceDesc.
    */
@@ -166,6 +199,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object prompt_ = "";
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 6 [json_name = "prompt"];</code>
    * @return The prompt.
    */
@@ -183,6 +220,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成提示词
+   * </pre>
+   *
    * <code>string prompt = 6 [json_name = "prompt"];</code>
    * @return The bytes for prompt.
    */
@@ -204,6 +245,10 @@ private static final long serialVersionUID = 0L;
   public static final int TASK_TYPE_FIELD_NUMBER = 7;
   private long taskType_ = 0L;
   /**
+   * <pre>
+   * &#47; 任务类型：1-图片，2-视频，3-音频
+   * </pre>
+   *
    * <code>int64 task_type = 7 [json_name = "taskType"];</code>
    * @return The taskType.
    */
@@ -215,6 +260,10 @@ private static final long serialVersionUID = 0L;
   public static final int TASK_STAGE_FIELD_NUMBER = 8;
   private long taskStage_ = 0L;
   /**
+   * <pre>
+   * &#47; 任务阶段
+   * </pre>
+   *
    * <code>int64 task_stage = 8 [json_name = "taskStage"];</code>
    * @return The taskStage.
    */
@@ -227,6 +276,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object startImageUrl_ = "";
   /**
+   * <pre>
+   * &#47; 起始图片URL
+   * </pre>
+   *
    * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
    * @return The startImageUrl.
    */
@@ -244,6 +297,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 起始图片URL
+   * </pre>
+   *
    * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
    * @return The bytes for startImageUrl.
    */
@@ -266,6 +323,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object endImageUrl_ = "";
   /**
+   * <pre>
+   * &#47; 结束图片URL
+   * </pre>
+   *
    * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
    * @return The endImageUrl.
    */
@@ -283,6 +344,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 结束图片URL
+   * </pre>
+   *
    * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
    * @return The bytes for endImageUrl.
    */
@@ -305,6 +370,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object videoUrl_ = "";
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 11 [json_name = "videoUrl"];</code>
    * @return The videoUrl.
    */
@@ -322,6 +391,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成的视频URL
+   * </pre>
+   *
    * <code>string video_url = 11 [json_name = "videoUrl"];</code>
    * @return The bytes for videoUrl.
    */
@@ -344,6 +417,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object regImageUrl_ = "";
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
    * @return The regImageUrl.
    */
@@ -361,6 +438,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 参考图片URL
+   * </pre>
+   *
    * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
    * @return The bytes for regImageUrl.
    */
@@ -383,6 +464,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object style_ = "";
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 13 [json_name = "style"];</code>
    * @return The style.
    */
@@ -400,6 +485,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * &#47; 生成风格
+   * </pre>
+   *
    * <code>string style = 13 [json_name = "style"];</code>
    * @return The bytes for style.
    */
@@ -705,6 +794,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * &#47; 故事生成任务详情
+   * / 包含故事生成任务的详细参数和结果
+   * </pre>
+   *
    * Protobuf type {@code rankquantity.voyager.api.StoryGentaskDetail}
    */
   public static final class Builder extends
@@ -1002,6 +1096,10 @@ private static final long serialVersionUID = 0L;
 
     private long storyId_ ;
     /**
+     * <pre>
+     * &#47; 故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 1 [json_name = "storyId"];</code>
      * @return The storyId.
      */
@@ -1010,6 +1108,10 @@ private static final long serialVersionUID = 0L;
       return storyId_;
     }
     /**
+     * <pre>
+     * &#47; 故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 1 [json_name = "storyId"];</code>
      * @param value The storyId to set.
      * @return This builder for chaining.
@@ -1022,6 +1124,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事ID
+     * </pre>
+     *
      * <code>int64 story_id = 1 [json_name = "storyId"];</code>
      * @return This builder for chaining.
      */
@@ -1034,6 +1140,10 @@ private static final long serialVersionUID = 0L;
 
     private long boardId_ ;
     /**
+     * <pre>
+     * &#47; 故事板ID
+     * </pre>
+     *
      * <code>int64 board_id = 2 [json_name = "boardId"];</code>
      * @return The boardId.
      */
@@ -1042,6 +1152,10 @@ private static final long serialVersionUID = 0L;
       return boardId_;
     }
     /**
+     * <pre>
+     * &#47; 故事板ID
+     * </pre>
+     *
      * <code>int64 board_id = 2 [json_name = "boardId"];</code>
      * @param value The boardId to set.
      * @return This builder for chaining.
@@ -1054,6 +1168,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板ID
+     * </pre>
+     *
      * <code>int64 board_id = 2 [json_name = "boardId"];</code>
      * @return This builder for chaining.
      */
@@ -1066,6 +1184,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object storyboardDesc_ = "";
     /**
+     * <pre>
+     * &#47; 故事板描述
+     * </pre>
+     *
      * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
      * @return The storyboardDesc.
      */
@@ -1082,6 +1204,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 故事板描述
+     * </pre>
+     *
      * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
      * @return The bytes for storyboardDesc.
      */
@@ -1099,6 +1225,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 故事板描述
+     * </pre>
+     *
      * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
      * @param value The storyboardDesc to set.
      * @return This builder for chaining.
@@ -1112,6 +1242,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板描述
+     * </pre>
+     *
      * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
      * @return This builder for chaining.
      */
@@ -1122,6 +1256,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 故事板描述
+     * </pre>
+     *
      * <code>string storyboard_desc = 3 [json_name = "storyboardDesc"];</code>
      * @param value The bytes for storyboardDesc to set.
      * @return This builder for chaining.
@@ -1138,6 +1276,10 @@ private static final long serialVersionUID = 0L;
 
     private long senceId_ ;
     /**
+     * <pre>
+     * &#47; 场景ID
+     * </pre>
+     *
      * <code>int64 sence_id = 4 [json_name = "senceId"];</code>
      * @return The senceId.
      */
@@ -1146,6 +1288,10 @@ private static final long serialVersionUID = 0L;
       return senceId_;
     }
     /**
+     * <pre>
+     * &#47; 场景ID
+     * </pre>
+     *
      * <code>int64 sence_id = 4 [json_name = "senceId"];</code>
      * @param value The senceId to set.
      * @return This builder for chaining.
@@ -1158,6 +1304,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景ID
+     * </pre>
+     *
      * <code>int64 sence_id = 4 [json_name = "senceId"];</code>
      * @return This builder for chaining.
      */
@@ -1170,6 +1320,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object senceDesc_ = "";
     /**
+     * <pre>
+     * &#47; 场景描述
+     * </pre>
+     *
      * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
      * @return The senceDesc.
      */
@@ -1186,6 +1340,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 场景描述
+     * </pre>
+     *
      * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
      * @return The bytes for senceDesc.
      */
@@ -1203,6 +1361,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 场景描述
+     * </pre>
+     *
      * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
      * @param value The senceDesc to set.
      * @return This builder for chaining.
@@ -1216,6 +1378,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景描述
+     * </pre>
+     *
      * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
      * @return This builder for chaining.
      */
@@ -1226,6 +1392,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 场景描述
+     * </pre>
+     *
      * <code>string sence_desc = 5 [json_name = "senceDesc"];</code>
      * @param value The bytes for senceDesc to set.
      * @return This builder for chaining.
@@ -1242,6 +1412,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object prompt_ = "";
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 6 [json_name = "prompt"];</code>
      * @return The prompt.
      */
@@ -1258,6 +1432,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 6 [json_name = "prompt"];</code>
      * @return The bytes for prompt.
      */
@@ -1275,6 +1453,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 6 [json_name = "prompt"];</code>
      * @param value The prompt to set.
      * @return This builder for chaining.
@@ -1288,6 +1470,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 6 [json_name = "prompt"];</code>
      * @return This builder for chaining.
      */
@@ -1298,6 +1484,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成提示词
+     * </pre>
+     *
      * <code>string prompt = 6 [json_name = "prompt"];</code>
      * @param value The bytes for prompt to set.
      * @return This builder for chaining.
@@ -1314,6 +1504,10 @@ private static final long serialVersionUID = 0L;
 
     private long taskType_ ;
     /**
+     * <pre>
+     * &#47; 任务类型：1-图片，2-视频，3-音频
+     * </pre>
+     *
      * <code>int64 task_type = 7 [json_name = "taskType"];</code>
      * @return The taskType.
      */
@@ -1322,6 +1516,10 @@ private static final long serialVersionUID = 0L;
       return taskType_;
     }
     /**
+     * <pre>
+     * &#47; 任务类型：1-图片，2-视频，3-音频
+     * </pre>
+     *
      * <code>int64 task_type = 7 [json_name = "taskType"];</code>
      * @param value The taskType to set.
      * @return This builder for chaining.
@@ -1334,6 +1532,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务类型：1-图片，2-视频，3-音频
+     * </pre>
+     *
      * <code>int64 task_type = 7 [json_name = "taskType"];</code>
      * @return This builder for chaining.
      */
@@ -1346,6 +1548,10 @@ private static final long serialVersionUID = 0L;
 
     private long taskStage_ ;
     /**
+     * <pre>
+     * &#47; 任务阶段
+     * </pre>
+     *
      * <code>int64 task_stage = 8 [json_name = "taskStage"];</code>
      * @return The taskStage.
      */
@@ -1354,6 +1560,10 @@ private static final long serialVersionUID = 0L;
       return taskStage_;
     }
     /**
+     * <pre>
+     * &#47; 任务阶段
+     * </pre>
+     *
      * <code>int64 task_stage = 8 [json_name = "taskStage"];</code>
      * @param value The taskStage to set.
      * @return This builder for chaining.
@@ -1366,6 +1576,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 任务阶段
+     * </pre>
+     *
      * <code>int64 task_stage = 8 [json_name = "taskStage"];</code>
      * @return This builder for chaining.
      */
@@ -1378,6 +1592,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object startImageUrl_ = "";
     /**
+     * <pre>
+     * &#47; 起始图片URL
+     * </pre>
+     *
      * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
      * @return The startImageUrl.
      */
@@ -1394,6 +1612,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 起始图片URL
+     * </pre>
+     *
      * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
      * @return The bytes for startImageUrl.
      */
@@ -1411,6 +1633,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 起始图片URL
+     * </pre>
+     *
      * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
      * @param value The startImageUrl to set.
      * @return This builder for chaining.
@@ -1424,6 +1650,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 起始图片URL
+     * </pre>
+     *
      * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
      * @return This builder for chaining.
      */
@@ -1434,6 +1664,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 起始图片URL
+     * </pre>
+     *
      * <code>string start_image_url = 9 [json_name = "startImageUrl"];</code>
      * @param value The bytes for startImageUrl to set.
      * @return This builder for chaining.
@@ -1450,6 +1684,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object endImageUrl_ = "";
     /**
+     * <pre>
+     * &#47; 结束图片URL
+     * </pre>
+     *
      * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
      * @return The endImageUrl.
      */
@@ -1466,6 +1704,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 结束图片URL
+     * </pre>
+     *
      * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
      * @return The bytes for endImageUrl.
      */
@@ -1483,6 +1725,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 结束图片URL
+     * </pre>
+     *
      * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
      * @param value The endImageUrl to set.
      * @return This builder for chaining.
@@ -1496,6 +1742,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 结束图片URL
+     * </pre>
+     *
      * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
      * @return This builder for chaining.
      */
@@ -1506,6 +1756,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 结束图片URL
+     * </pre>
+     *
      * <code>string end_image_url = 10 [json_name = "endImageUrl"];</code>
      * @param value The bytes for endImageUrl to set.
      * @return This builder for chaining.
@@ -1522,6 +1776,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object videoUrl_ = "";
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 11 [json_name = "videoUrl"];</code>
      * @return The videoUrl.
      */
@@ -1538,6 +1796,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 11 [json_name = "videoUrl"];</code>
      * @return The bytes for videoUrl.
      */
@@ -1555,6 +1817,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 11 [json_name = "videoUrl"];</code>
      * @param value The videoUrl to set.
      * @return This builder for chaining.
@@ -1568,6 +1834,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 11 [json_name = "videoUrl"];</code>
      * @return This builder for chaining.
      */
@@ -1578,6 +1848,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成的视频URL
+     * </pre>
+     *
      * <code>string video_url = 11 [json_name = "videoUrl"];</code>
      * @param value The bytes for videoUrl to set.
      * @return This builder for chaining.
@@ -1594,6 +1868,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object regImageUrl_ = "";
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
      * @return The regImageUrl.
      */
@@ -1610,6 +1888,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
      * @return The bytes for regImageUrl.
      */
@@ -1627,6 +1909,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
      * @param value The regImageUrl to set.
      * @return This builder for chaining.
@@ -1640,6 +1926,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
      * @return This builder for chaining.
      */
@@ -1650,6 +1940,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 参考图片URL
+     * </pre>
+     *
      * <code>string reg_image_url = 12 [json_name = "regImageUrl"];</code>
      * @param value The bytes for regImageUrl to set.
      * @return This builder for chaining.
@@ -1666,6 +1960,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object style_ = "";
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 13 [json_name = "style"];</code>
      * @return The style.
      */
@@ -1682,6 +1980,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 13 [json_name = "style"];</code>
      * @return The bytes for style.
      */
@@ -1699,6 +2001,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 13 [json_name = "style"];</code>
      * @param value The style to set.
      * @return This builder for chaining.
@@ -1712,6 +2018,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 13 [json_name = "style"];</code>
      * @return This builder for chaining.
      */
@@ -1722,6 +2032,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * &#47; 生成风格
+     * </pre>
+     *
      * <code>string style = 13 [json_name = "style"];</code>
      * @param value The bytes for style to set.
      * @return This builder for chaining.

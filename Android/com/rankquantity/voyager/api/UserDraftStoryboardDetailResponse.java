@@ -7,7 +7,8 @@ package com.rankquantity.voyager.api;
 
 /**
  * <pre>
- * 用户故事板草稿详情响应
+ * &#47; 用户故事板草稿详情响应
+ * / 返回草稿的完整详细信息
  * </pre>
  *
  * Protobuf type {@code rankquantity.voyager.api.UserDraftStoryboardDetailResponse}
@@ -54,7 +55,7 @@ private static final long serialVersionUID = 0L;
   private int code_ = 0;
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -65,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应码
+   * &#47; 响应状态码
    * </pre>
    *
    * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -81,7 +82,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object message_ = "";
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -102,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 响应消息
+   * &#47; 响应消息描述
    * </pre>
    *
    * <code>string message = 2 [json_name = "message"];</code>
@@ -127,7 +128,7 @@ private static final long serialVersionUID = 0L;
   private com.rankquantity.voyager.api.StoryboardDraftDetail detail_;
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -139,7 +140,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -151,7 +152,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 草稿详情
+   * &#47; 草稿详细信息
    * </pre>
    *
    * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -345,7 +346,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 用户故事板草稿详情响应
+   * &#47; 用户故事板草稿详情响应
+   * / 返回草稿的完整详细信息
    * </pre>
    *
    * Protobuf type {@code rankquantity.voyager.api.UserDraftStoryboardDetailResponse}
@@ -529,7 +531,7 @@ private static final long serialVersionUID = 0L;
     private int code_ = 0;
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -540,7 +542,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -555,7 +557,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -568,7 +570,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -584,7 +586,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应码
+     * &#47; 响应状态码
      * </pre>
      *
      * <code>.rankquantity.voyager.api.ResponseCode code = 1 [json_name = "code"];</code>
@@ -600,7 +602,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -620,7 +622,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -641,7 +643,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -658,7 +660,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -672,7 +674,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 响应消息
+     * &#47; 响应消息描述
      * </pre>
      *
      * <code>string message = 2 [json_name = "message"];</code>
@@ -694,7 +696,7 @@ private static final long serialVersionUID = 0L;
         com.rankquantity.voyager.api.StoryboardDraftDetail, com.rankquantity.voyager.api.StoryboardDraftDetail.Builder, com.rankquantity.voyager.api.StoryboardDraftDetailOrBuilder> detailBuilder_;
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -705,7 +707,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -720,7 +722,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -740,7 +742,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -758,7 +760,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -783,7 +785,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -800,7 +802,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -812,7 +814,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
@@ -827,7 +829,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 草稿详情
+     * &#47; 草稿详细信息
      * </pre>
      *
      * <code>.rankquantity.voyager.api.StoryboardDraftDetail detail = 3 [json_name = "detail"];</code>
