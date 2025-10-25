@@ -1422,30 +1422,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /common.TeamsAPI/GetStoryGenerationHistory:
-        post:
-            tags:
-                - TeamsAPI
-            operationId: TeamsAPI_GetStoryGenerationHistory
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/GetStoryGenerationHistoryRequest'
-                required: true
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/GetStoryGenerationHistoryResponse'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
     /common.TeamsAPI/GetStoryImageStyle:
         post:
             tags:
@@ -1715,6 +1691,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/GetStoryboardResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /common.TeamsAPI/GetStoryboardGenerationRoadmapRequest:
+        post:
+            tags:
+                - TeamsAPI
+            operationId: TeamsAPI_GetStoryboardGenerationRoadmap
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/GetStoryboardGenerationRoadmapRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetStoryboardGenerationRoadmapResponse'
                 default:
                     description: Default error response
                     content:
@@ -6241,38 +6241,6 @@ components:
                     type: boolean
                     description: / 是否有更多数据
             description: / 返回数据
-        GetStoryGenerationHistoryRequest:
-            type: object
-            properties:
-                storyId:
-                    type: string
-                    description: / 故事ID，必须大于0
-                userId:
-                    type: string
-                    description: / 用户ID，必须大于0
-                storyboardId:
-                    type: string
-                    description: / 故事板ID，必须大于0
-            description: |-
-                / 获取故事生成历史请求
-                / 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
-        GetStoryGenerationHistoryResponse:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    description: / 响应状态码
-                    format: enum
-                message:
-                    type: string
-                    description: / 响应消息描述
-                data:
-                    allOf:
-                        - $ref: '#/components/schemas/StoryGenerationHistory'
-                    description: / 故事生成历史数据
-            description: |-
-                / 获取故事生成历史响应
-                / 返回故事的完整生成历史记录
         GetStoryImageStyleRequest:
             type: object
             properties:
@@ -6645,6 +6613,38 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/UserInfo'
+        GetStoryboardGenerationRoadmapRequest:
+            type: object
+            properties:
+                storyId:
+                    type: string
+                    description: / 故事ID，必须大于0
+                userId:
+                    type: string
+                    description: / 用户ID，必须大于0
+                storyboardId:
+                    type: string
+                    description: / 故事板ID，必须大于0
+            description: |-
+                / 获取故事生成历史请求
+                / 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
+        GetStoryboardGenerationRoadmapResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: / 响应状态码
+                    format: enum
+                message:
+                    type: string
+                    description: / 响应消息描述
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/StoryGenerationHistory'
+                    description: / 故事生成历史数据
+            description: |-
+                / 获取故事生成历史响应
+                / 返回故事的完整生成历史记录
         GetStoryboardRequest:
             type: object
             properties:

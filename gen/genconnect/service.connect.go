@@ -5,12 +5,13 @@
 package genconnect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
+
+	connect "connectrpc.com/connect"
+	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
@@ -425,9 +426,9 @@ const (
 	// TeamsAPIGroupActiveHeatmapProcedure is the fully-qualified name of the TeamsAPI's
 	// GroupActiveHeatmap RPC.
 	TeamsAPIGroupActiveHeatmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GroupActiveHeatmap"
-	// TeamsAPIGetStoryGenerationHistoryProcedure is the fully-qualified name of the TeamsAPI's
-	// GetStoryGenerationHistory RPC.
-	TeamsAPIGetStoryGenerationHistoryProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory"
+	// TeamsAPIGetStoryboardGenerationRoadmapProcedure is the fully-qualified name of the TeamsAPI's
+	// GetStoryboardGenerationRoadmap RPC.
+	TeamsAPIGetStoryboardGenerationRoadmapProcedure = "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap"
 )
 
 // TeamsAPIClient is a client for the rankquantity.voyager.api.TeamsAPI service.
@@ -2522,7 +2523,7 @@ type TeamsAPIClient interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
-	GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error)
+	GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error)
 }
 
 // NewTeamsAPIClient constructs a client for the rankquantity.voyager.api.TeamsAPI service. By
@@ -3412,10 +3413,10 @@ func NewTeamsAPIClient(httpClient connect.HTTPClient, baseURL string, opts ...co
 			connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
 			connect.WithClientOptions(opts...),
 		),
-		getStoryGenerationHistory: connect.NewClient[gen.GetStoryGenerationHistoryRequest, gen.GetStoryGenerationHistoryResponse](
+		getStoryboardGenerationRoadmap: connect.NewClient[gen.GetStoryboardGenerationRoadmapRequest, gen.GetStoryboardGenerationRoadmapResponse](
 			httpClient,
-			baseURL+TeamsAPIGetStoryGenerationHistoryProcedure,
-			connect.WithSchema(teamsAPIMethods.ByName("GetStoryGenerationHistory")),
+			baseURL+TeamsAPIGetStoryboardGenerationRoadmapProcedure,
+			connect.WithSchema(teamsAPIMethods.ByName("GetStoryboardGenerationRoadmap")),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -3569,7 +3570,7 @@ type teamsAPIClient struct {
 	deleteUserStoryboardDraft          *connect.Client[gen.DeleteUserStoryboardDraftRequest, gen.DeleteUserStoryboardDraftResponse]
 	userActiveHeatmap                  *connect.Client[gen.UserActiveHeamapRequest, gen.UserActiveHeamapResponse]
 	groupActiveHeatmap                 *connect.Client[gen.GroupActiveHeamapRequest, gen.GroupActiveHeamapResponse]
-	getStoryGenerationHistory          *connect.Client[gen.GetStoryGenerationHistoryRequest, gen.GetStoryGenerationHistoryResponse]
+	getStoryboardGenerationRoadmap     *connect.Client[gen.GetStoryboardGenerationRoadmapRequest, gen.GetStoryboardGenerationRoadmapResponse]
 }
 
 // Explore calls rankquantity.voyager.api.TeamsAPI.Explore.
@@ -4305,9 +4306,10 @@ func (c *teamsAPIClient) GroupActiveHeatmap(ctx context.Context, req *connect.Re
 	return c.groupActiveHeatmap.CallUnary(ctx, req)
 }
 
-// GetStoryGenerationHistory calls rankquantity.voyager.api.TeamsAPI.GetStoryGenerationHistory.
-func (c *teamsAPIClient) GetStoryGenerationHistory(ctx context.Context, req *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error) {
-	return c.getStoryGenerationHistory.CallUnary(ctx, req)
+// GetStoryboardGenerationRoadmap calls
+// rankquantity.voyager.api.TeamsAPI.GetStoryboardGenerationRoadmap.
+func (c *teamsAPIClient) GetStoryboardGenerationRoadmap(ctx context.Context, req *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error) {
+	return c.getStoryboardGenerationRoadmap.CallUnary(ctx, req)
 }
 
 // TeamsAPIHandler is an implementation of the rankquantity.voyager.api.TeamsAPI service.
@@ -6402,7 +6404,7 @@ type TeamsAPIHandler interface {
 	// / - 分析群组健康度
 	// / - 活跃群组排行
 	GroupActiveHeatmap(context.Context, *connect.Request[gen.GroupActiveHeamapRequest]) (*connect.Response[gen.GroupActiveHeamapResponse], error)
-	GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error)
+	GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error)
 }
 
 // NewTeamsAPIHandler builds an HTTP handler from the service implementation. It returns the path on
@@ -7288,10 +7290,10 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 		connect.WithSchema(teamsAPIMethods.ByName("GroupActiveHeatmap")),
 		connect.WithHandlerOptions(opts...),
 	)
-	teamsAPIGetStoryGenerationHistoryHandler := connect.NewUnaryHandler(
-		TeamsAPIGetStoryGenerationHistoryProcedure,
-		svc.GetStoryGenerationHistory,
-		connect.WithSchema(teamsAPIMethods.ByName("GetStoryGenerationHistory")),
+	teamsAPIGetStoryboardGenerationRoadmapHandler := connect.NewUnaryHandler(
+		TeamsAPIGetStoryboardGenerationRoadmapProcedure,
+		svc.GetStoryboardGenerationRoadmap,
+		connect.WithSchema(teamsAPIMethods.ByName("GetStoryboardGenerationRoadmap")),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/rankquantity.voyager.api.TeamsAPI/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -7588,8 +7590,8 @@ func NewTeamsAPIHandler(svc TeamsAPIHandler, opts ...connect.HandlerOption) (str
 			teamsAPIUserActiveHeatmapHandler.ServeHTTP(w, r)
 		case TeamsAPIGroupActiveHeatmapProcedure:
 			teamsAPIGroupActiveHeatmapHandler.ServeHTTP(w, r)
-		case TeamsAPIGetStoryGenerationHistoryProcedure:
-			teamsAPIGetStoryGenerationHistoryHandler.ServeHTTP(w, r)
+		case TeamsAPIGetStoryboardGenerationRoadmapProcedure:
+			teamsAPIGetStoryboardGenerationRoadmapHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -8183,6 +8185,6 @@ func (UnimplementedTeamsAPIHandler) GroupActiveHeatmap(context.Context, *connect
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GroupActiveHeatmap is not implemented"))
 }
 
-func (UnimplementedTeamsAPIHandler) GetStoryGenerationHistory(context.Context, *connect.Request[gen.GetStoryGenerationHistoryRequest]) (*connect.Response[gen.GetStoryGenerationHistoryResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryGenerationHistory is not implemented"))
+func (UnimplementedTeamsAPIHandler) GetStoryboardGenerationRoadmap(context.Context, *connect.Request[gen.GetStoryboardGenerationRoadmapRequest]) (*connect.Response[gen.GetStoryboardGenerationRoadmapResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("rankquantity.voyager.api.TeamsAPI.GetStoryboardGenerationRoadmap is not implemented"))
 }

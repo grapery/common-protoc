@@ -35625,23 +35625,23 @@ var _ interface {
 	ErrorName() string
 } = StoryGenerationHistoryValidationError{}
 
-// Validate checks the field values on GetStoryGenerationHistoryRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *GetStoryGenerationHistoryRequest) Validate() error {
+// Validate checks the field values on GetStoryboardGenerationRoadmapRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *GetStoryboardGenerationRoadmapRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on GetStoryGenerationHistoryRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// GetStoryGenerationHistoryRequestMultiError, or nil if none found.
-func (m *GetStoryGenerationHistoryRequest) ValidateAll() error {
+// ValidateAll checks the field values on GetStoryboardGenerationRoadmapRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetStoryboardGenerationRoadmapRequestMultiError, or nil if none found.
+func (m *GetStoryboardGenerationRoadmapRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
+func (m *GetStoryboardGenerationRoadmapRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -35649,7 +35649,7 @@ func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
 	var errors []error
 
 	if m.GetStoryId() <= 0 {
-		err := GetStoryGenerationHistoryRequestValidationError{
+		err := GetStoryboardGenerationRoadmapRequestValidationError{
 			field:  "StoryId",
 			reason: "value must be greater than 0",
 		}
@@ -35660,7 +35660,7 @@ func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
 	}
 
 	if m.GetUserId() <= 0 {
-		err := GetStoryGenerationHistoryRequestValidationError{
+		err := GetStoryboardGenerationRoadmapRequestValidationError{
 			field:  "UserId",
 			reason: "value must be greater than 0",
 		}
@@ -35671,7 +35671,7 @@ func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
 	}
 
 	if m.GetStoryboardId() <= 0 {
-		err := GetStoryGenerationHistoryRequestValidationError{
+		err := GetStoryboardGenerationRoadmapRequestValidationError{
 			field:  "StoryboardId",
 			reason: "value must be greater than 0",
 		}
@@ -35682,20 +35682,20 @@ func (m *GetStoryGenerationHistoryRequest) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return GetStoryGenerationHistoryRequestMultiError(errors)
+		return GetStoryboardGenerationRoadmapRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// GetStoryGenerationHistoryRequestMultiError is an error wrapping multiple
-// validation errors returned by
-// GetStoryGenerationHistoryRequest.ValidateAll() if the designated
+// GetStoryboardGenerationRoadmapRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// GetStoryboardGenerationRoadmapRequest.ValidateAll() if the designated
 // constraints aren't met.
-type GetStoryGenerationHistoryRequestMultiError []error
+type GetStoryboardGenerationRoadmapRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m GetStoryGenerationHistoryRequestMultiError) Error() string {
+func (m GetStoryboardGenerationRoadmapRequestMultiError) Error() string {
 	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -35704,12 +35704,12 @@ func (m GetStoryGenerationHistoryRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m GetStoryGenerationHistoryRequestMultiError) AllErrors() []error { return m }
+func (m GetStoryboardGenerationRoadmapRequestMultiError) AllErrors() []error { return m }
 
-// GetStoryGenerationHistoryRequestValidationError is the validation error
-// returned by GetStoryGenerationHistoryRequest.Validate if the designated
-// constraints aren't met.
-type GetStoryGenerationHistoryRequestValidationError struct {
+// GetStoryboardGenerationRoadmapRequestValidationError is the validation error
+// returned by GetStoryboardGenerationRoadmapRequest.Validate if the
+// designated constraints aren't met.
+type GetStoryboardGenerationRoadmapRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -35717,24 +35717,24 @@ type GetStoryGenerationHistoryRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetStoryGenerationHistoryRequestValidationError) Field() string { return e.field }
+func (e GetStoryboardGenerationRoadmapRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetStoryGenerationHistoryRequestValidationError) Reason() string { return e.reason }
+func (e GetStoryboardGenerationRoadmapRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetStoryGenerationHistoryRequestValidationError) Cause() error { return e.cause }
+func (e GetStoryboardGenerationRoadmapRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetStoryGenerationHistoryRequestValidationError) Key() bool { return e.key }
+func (e GetStoryboardGenerationRoadmapRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetStoryGenerationHistoryRequestValidationError) ErrorName() string {
-	return "GetStoryGenerationHistoryRequestValidationError"
+func (e GetStoryboardGenerationRoadmapRequestValidationError) ErrorName() string {
+	return "GetStoryboardGenerationRoadmapRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetStoryGenerationHistoryRequestValidationError) Error() string {
+func (e GetStoryboardGenerationRoadmapRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -35746,14 +35746,14 @@ func (e GetStoryGenerationHistoryRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetStoryGenerationHistoryRequest.%s: %s%s",
+		"invalid %sGetStoryboardGenerationRoadmapRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetStoryGenerationHistoryRequestValidationError{}
+var _ error = GetStoryboardGenerationRoadmapRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -35761,25 +35761,26 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetStoryGenerationHistoryRequestValidationError{}
+} = GetStoryboardGenerationRoadmapRequestValidationError{}
 
-// Validate checks the field values on GetStoryGenerationHistoryResponse with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *GetStoryGenerationHistoryResponse) Validate() error {
+// Validate checks the field values on GetStoryboardGenerationRoadmapResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *GetStoryboardGenerationRoadmapResponse) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on GetStoryGenerationHistoryResponse
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// GetStoryGenerationHistoryResponseMultiError, or nil if none found.
-func (m *GetStoryGenerationHistoryResponse) ValidateAll() error {
+// ValidateAll checks the field values on
+// GetStoryboardGenerationRoadmapResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// GetStoryboardGenerationRoadmapResponseMultiError, or nil if none found.
+func (m *GetStoryboardGenerationRoadmapResponse) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
+func (m *GetStoryboardGenerationRoadmapResponse) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -35794,7 +35795,7 @@ func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
 		switch v := interface{}(m.GetData()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, GetStoryGenerationHistoryResponseValidationError{
+				errors = append(errors, GetStoryboardGenerationRoadmapResponseValidationError{
 					field:  "Data",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -35802,7 +35803,7 @@ func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
 			}
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
-				errors = append(errors, GetStoryGenerationHistoryResponseValidationError{
+				errors = append(errors, GetStoryboardGenerationRoadmapResponseValidationError{
 					field:  "Data",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -35811,7 +35812,7 @@ func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
 		}
 	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return GetStoryGenerationHistoryResponseValidationError{
+			return GetStoryboardGenerationRoadmapResponseValidationError{
 				field:  "Data",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -35820,20 +35821,20 @@ func (m *GetStoryGenerationHistoryResponse) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return GetStoryGenerationHistoryResponseMultiError(errors)
+		return GetStoryboardGenerationRoadmapResponseMultiError(errors)
 	}
 
 	return nil
 }
 
-// GetStoryGenerationHistoryResponseMultiError is an error wrapping multiple
-// validation errors returned by
-// GetStoryGenerationHistoryResponse.ValidateAll() if the designated
+// GetStoryboardGenerationRoadmapResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// GetStoryboardGenerationRoadmapResponse.ValidateAll() if the designated
 // constraints aren't met.
-type GetStoryGenerationHistoryResponseMultiError []error
+type GetStoryboardGenerationRoadmapResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m GetStoryGenerationHistoryResponseMultiError) Error() string {
+func (m GetStoryboardGenerationRoadmapResponseMultiError) Error() string {
 	msgs := make([]string, 0, len(m))
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -35842,12 +35843,12 @@ func (m GetStoryGenerationHistoryResponseMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m GetStoryGenerationHistoryResponseMultiError) AllErrors() []error { return m }
+func (m GetStoryboardGenerationRoadmapResponseMultiError) AllErrors() []error { return m }
 
-// GetStoryGenerationHistoryResponseValidationError is the validation error
-// returned by GetStoryGenerationHistoryResponse.Validate if the designated
-// constraints aren't met.
-type GetStoryGenerationHistoryResponseValidationError struct {
+// GetStoryboardGenerationRoadmapResponseValidationError is the validation
+// error returned by GetStoryboardGenerationRoadmapResponse.Validate if the
+// designated constraints aren't met.
+type GetStoryboardGenerationRoadmapResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -35855,24 +35856,24 @@ type GetStoryGenerationHistoryResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetStoryGenerationHistoryResponseValidationError) Field() string { return e.field }
+func (e GetStoryboardGenerationRoadmapResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetStoryGenerationHistoryResponseValidationError) Reason() string { return e.reason }
+func (e GetStoryboardGenerationRoadmapResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetStoryGenerationHistoryResponseValidationError) Cause() error { return e.cause }
+func (e GetStoryboardGenerationRoadmapResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetStoryGenerationHistoryResponseValidationError) Key() bool { return e.key }
+func (e GetStoryboardGenerationRoadmapResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetStoryGenerationHistoryResponseValidationError) ErrorName() string {
-	return "GetStoryGenerationHistoryResponseValidationError"
+func (e GetStoryboardGenerationRoadmapResponseValidationError) ErrorName() string {
+	return "GetStoryboardGenerationRoadmapResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetStoryGenerationHistoryResponseValidationError) Error() string {
+func (e GetStoryboardGenerationRoadmapResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -35884,14 +35885,14 @@ func (e GetStoryGenerationHistoryResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetStoryGenerationHistoryResponse.%s: %s%s",
+		"invalid %sGetStoryboardGenerationRoadmapResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetStoryGenerationHistoryResponseValidationError{}
+var _ error = GetStoryboardGenerationRoadmapResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -35899,7 +35900,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetStoryGenerationHistoryResponseValidationError{}
+} = GetStoryboardGenerationRoadmapResponseValidationError{}
 
 // Validate checks the field values on LoginResponse_Data with the rules
 // defined in the proto definition for this message. If any rules are

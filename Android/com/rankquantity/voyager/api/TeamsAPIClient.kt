@@ -4006,13 +4006,13 @@ public class TeamsAPIClient(
   )
 
 
-  override suspend fun getStoryGenerationHistory(request: GetStoryGenerationHistoryRequest, headers: Headers): ResponseMessage<GetStoryGenerationHistoryResponse> = client.unary(
+  override suspend fun getStoryboardGenerationRoadmap(request: GetStoryboardGenerationRoadmapRequest, headers: Headers): ResponseMessage<GetStoryboardGenerationRoadmapResponse> = client.unary(
     request,
     headers,
     MethodSpec(
-    "rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory",
-      com.rankquantity.voyager.api.GetStoryGenerationHistoryRequest::class,
-      com.rankquantity.voyager.api.GetStoryGenerationHistoryResponse::class,
+    "rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap",
+      com.rankquantity.voyager.api.GetStoryboardGenerationRoadmapRequest::class,
+      com.rankquantity.voyager.api.GetStoryboardGenerationRoadmapResponse::class,
       StreamType.UNARY,
     ),
   )

@@ -7763,7 +7763,7 @@ public struct Rankquantity_Voyager_Api_StoryGenerationHistory: @unchecked Sendab
 
 //// 获取故事生成历史请求
 //// 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
-public struct Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7784,7 +7784,7 @@ public struct Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest: Sendabl
 
 //// 获取故事生成历史响应
 //// 返回故事的完整生成历史记录
-public struct Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse: Sendable {
+public struct Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -21596,8 +21596,8 @@ extension Rankquantity_Voyager_Api_StoryGenerationHistory: SwiftProtobuf.Message
   }
 }
 
-extension Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetStoryGenerationHistoryRequest"
+extension Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryboardGenerationRoadmapRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}story_id\0\u{3}user_id\0\u{3}storyboard_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -21627,7 +21627,7 @@ extension Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest, rhs: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, rhs: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest) -> Bool {
     if lhs.storyID != rhs.storyID {return false}
     if lhs.userID != rhs.userID {return false}
     if lhs.storyboardID != rhs.storyboardID {return false}
@@ -21636,8 +21636,8 @@ extension Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest: SwiftProtob
   }
 }
 
-extension Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".GetStoryGenerationHistoryResponse"
+extension Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetStoryboardGenerationRoadmapResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}data\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -21671,7 +21671,7 @@ extension Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse: SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse, rhs: Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse) -> Bool {
+  public static func ==(lhs: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse, rhs: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse) -> Bool {
     if lhs.code != rhs.code {return false}
     if lhs.message != rhs.message {return false}
     if lhs._data != rhs._data {return false}

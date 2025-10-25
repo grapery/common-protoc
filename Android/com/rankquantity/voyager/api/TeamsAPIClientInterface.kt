@@ -2541,5 +2541,5 @@ public interface TeamsAPIClientInterface {
    */
   public suspend fun groupActiveHeatmap(request: GroupActiveHeamapRequest, headers: Headers = emptyMap()): ResponseMessage<GroupActiveHeamapResponse>
 
-  public suspend fun getStoryGenerationHistory(request: GetStoryGenerationHistoryRequest, headers: Headers = emptyMap()): ResponseMessage<GetStoryGenerationHistoryResponse>
+  public suspend fun getStoryboardGenerationRoadmap(request: GetStoryboardGenerationRoadmapRequest, headers: Headers = emptyMap()): ResponseMessage<GetStoryboardGenerationRoadmapResponse>
 }

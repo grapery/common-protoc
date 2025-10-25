@@ -381,8 +381,6 @@
     - [GetStoryContributorsRequest](#rankquantity-voyager-api-GetStoryContributorsRequest)
     - [GetStoryContributorsResponse](#rankquantity-voyager-api-GetStoryContributorsResponse)
     - [GetStoryContributorsResponse.Data](#rankquantity-voyager-api-GetStoryContributorsResponse-Data)
-    - [GetStoryGenerationHistoryRequest](#rankquantity-voyager-api-GetStoryGenerationHistoryRequest)
-    - [GetStoryGenerationHistoryResponse](#rankquantity-voyager-api-GetStoryGenerationHistoryResponse)
     - [GetStoryImageStyleRequest](#rankquantity-voyager-api-GetStoryImageStyleRequest)
     - [GetStoryImageStyleResponse](#rankquantity-voyager-api-GetStoryImageStyleResponse)
     - [GetStoryParticipantsRequest](#rankquantity-voyager-api-GetStoryParticipantsRequest)
@@ -397,6 +395,8 @@
     - [GetStoryRoleStoriesResponse](#rankquantity-voyager-api-GetStoryRoleStoriesResponse)
     - [GetStoryRoleStoryboardsRequest](#rankquantity-voyager-api-GetStoryRoleStoryboardsRequest)
     - [GetStoryRoleStoryboardsResponse](#rankquantity-voyager-api-GetStoryRoleStoryboardsResponse)
+    - [GetStoryboardGenerationRoadmapRequest](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapRequest)
+    - [GetStoryboardGenerationRoadmapResponse](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapResponse)
     - [GetUnPublishStoryboardRequest](#rankquantity-voyager-api-GetUnPublishStoryboardRequest)
     - [GetUnPublishStoryboardResponse](#rankquantity-voyager-api-GetUnPublishStoryboardResponse)
     - [GetUserChatMessagesRequest](#rankquantity-voyager-api-GetUserChatMessagesRequest)
@@ -7446,42 +7446,6 @@ AI润色内容记录
 
 
 
-<a name="rankquantity-voyager-api-GetStoryGenerationHistoryRequest"></a>
-
-### GetStoryGenerationHistoryRequest
-获取故事生成历史请求
-/ 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| story_id | [int64](#int64) |  | 故事ID，必须大于0 |
-| user_id | [int64](#int64) |  | 用户ID，必须大于0 |
-| storyboard_id | [int64](#int64) |  | 故事板ID，必须大于0 |
-
-
-
-
-
-
-<a name="rankquantity-voyager-api-GetStoryGenerationHistoryResponse"></a>
-
-### GetStoryGenerationHistoryResponse
-获取故事生成历史响应
-/ 返回故事的完整生成历史记录
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应状态码 |
-| message | [string](#string) |  | 响应消息描述 |
-| data | [StoryGenerationHistory](#rankquantity-voyager-api-StoryGenerationHistory) |  | 故事生成历史数据 |
-
-
-
-
-
-
 <a name="rankquantity-voyager-api-GetStoryImageStyleRequest"></a>
 
 ### GetStoryImageStyleRequest
@@ -7748,6 +7712,42 @@ AI润色内容记录
 | offset | [int64](#int64) |  | 当前偏移量 |
 | page_size | [int64](#int64) |  | 每页数量 |
 | have_more | [bool](#bool) |  | 是否有更多数据 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardGenerationRoadmapRequest"></a>
+
+### GetStoryboardGenerationRoadmapRequest
+获取故事生成历史请求
+/ 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| story_id | [int64](#int64) |  | 故事ID，必须大于0 |
+| user_id | [int64](#int64) |  | 用户ID，必须大于0 |
+| storyboard_id | [int64](#int64) |  | 故事板ID，必须大于0 |
+
+
+
+
+
+
+<a name="rankquantity-voyager-api-GetStoryboardGenerationRoadmapResponse"></a>
+
+### GetStoryboardGenerationRoadmapResponse
+获取故事生成历史响应
+/ 返回故事的完整生成历史记录
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [ResponseCode](#rankquantity-voyager-api-ResponseCode) |  | 响应状态码 |
+| message | [string](#string) |  | 响应消息描述 |
+| data | [StoryGenerationHistory](#rankquantity-voyager-api-StoryGenerationHistory) |  | 故事生成历史数据 |
 
 
 
@@ -11028,7 +11028,7 @@ TeamsAPI - 团队协作服务API
 | DeleteUserStoryboardDraft | [DeleteUserStoryboardDraftRequest](#rankquantity-voyager-api-DeleteUserStoryboardDraftRequest) | [DeleteUserStoryboardDraftResponse](#rankquantity-voyager-api-DeleteUserStoryboardDraftResponse) | 删除用户故事板草稿 / / 【功能说明】 / 删除指定用户的故事板草稿，释放存储空间 / / 【权限要求】 / - 仅草稿所有者可以删除自己的草稿 / - 删除后不可恢复，请谨慎操作 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/DeleteStoryboardUserDraft / - 请求体：DeleteUserStoryboardDraftRequest (JSON) / - 响应：DeleteUserStoryboardDraftResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID（所有者ID） / - draft_id: [必填] 草稿ID（要删除的草稿） / - story_id: [可选] 故事ID（用于权限验证） / / 【响应字段】 / - code: 响应状态码（0表示成功） / - message: 响应消息描述 / / 【使用示例】 / ```json / { / &#34;user_id&#34;: 123, / &#34;draft_id&#34;: 456, / &#34;story_id&#34;: 789 / } / ``` |
 | UserActiveHeatmap | [UserActiveHeamapRequest](#rankquantity-voyager-api-UserActiveHeamapRequest) | [UserActiveHeamapResponse](#rankquantity-voyager-api-UserActiveHeamapResponse) | 获取用户活跃热力图 / / 【功能说明】 / 获取指定时间范围内用户的活跃度数据，以GitHub风格的热力图展示 / / 【数据统计】 / - 统计用户的创建、更新、评论等所有活跃操作 / - 按天聚合活跃度数据 / - 自动计算热力等级（0-4级） / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/UserActiveHeatmap / - 请求体：UserActiveHeamapRequest (JSON) / - 响应：UserActiveHeamapResponse (JSON) / / 【请求参数】 / - user_id: [必填] 用户ID / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组（每天一条记录） / - total_count: 时间范围内的总活跃次数 / / 【使用场景】 / - 用户个人主页展示活跃度 / - 统计用户贡献度 / - 活跃度排行榜 |
 | GroupActiveHeatmap | [GroupActiveHeamapRequest](#rankquantity-voyager-api-GroupActiveHeamapRequest) | [GroupActiveHeamapResponse](#rankquantity-voyager-api-GroupActiveHeamapResponse) | 获取群组活跃热力图 / / 【功能说明】 / 获取指定群组在指定时间范围内的活跃度数据，展示群组整体活跃情况 / / 【数据统计】 / - 统计群组内所有成员的活跃操作 / - 包括故事创建、故事板发布、评论互动等 / - 返回活跃成员数量统计 / / 【HTTP API】 / - 方法：POST / - 路径：/common.TeamsAPI/GroupActiveHeatmap / - 请求体：GroupActiveHeamapRequest (JSON) / - 响应：GroupActiveHeamapResponse (JSON) / / 【请求参数】 / - group_id: [必填] 群组ID / - user_id: [必填] 请求用户ID（用于权限验证） / - start_time: [必填] 开始时间戳（秒） / - end_time: [必填] 结束时间戳（秒） / / 【响应字段】 / - code: 响应状态码 / - message: 响应消息 / - data: 热力图数据数组 / - total_count: 群组总活跃次数 / - member_count: 参与活跃的成员数量 / / 【权限要求】 / - 用户必须是群组成员才能查看 / / 【使用场景】 / - 群组主页展示活跃度 / - 分析群组健康度 / - 活跃群组排行 |
-| GetStoryGenerationHistory | [GetStoryGenerationHistoryRequest](#rankquantity-voyager-api-GetStoryGenerationHistoryRequest) | [GetStoryGenerationHistoryResponse](#rankquantity-voyager-api-GetStoryGenerationHistoryResponse) |  |
+| GetStoryboardGenerationRoadmap | [GetStoryboardGenerationRoadmapRequest](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapRequest) | [GetStoryboardGenerationRoadmapResponse](#rankquantity-voyager-api-GetStoryboardGenerationRoadmapResponse) |  |
 
  
 

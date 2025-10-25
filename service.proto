@@ -4015,9 +4015,9 @@ service TeamsAPI {
     };
   }
 
-  rpc GetStoryGenerationHistory(GetStoryGenerationHistoryRequest) returns (GetStoryGenerationHistoryResponse){
+  rpc GetStoryboardGenerationRoadmap(GetStoryboardGenerationRoadmapRequest) returns (GetStoryboardGenerationRoadmapResponse){
     option (google.api.http) = {
-      post : "/common.TeamsAPI/GetStoryGenerationHistory"
+      post : "/common.TeamsAPI/GetStoryboardGenerationRoadmapRequest"
       body : "*"
     };
   }
@@ -7194,7 +7194,7 @@ message StoryGenerationHistory {
 
 /// 获取故事生成历史请求
 /// 根据故事ID、用户ID和故事板ID获取完整的生成历史记录
-message GetStoryGenerationHistoryRequest {
+message GetStoryboardGenerationRoadmapRequest {
   /// 故事ID，必须大于0
   int64 story_id = 1 [(validate.rules).int64 = {gt: 0}];
   
@@ -7207,7 +7207,7 @@ message GetStoryGenerationHistoryRequest {
 
 /// 获取故事生成历史响应
 /// 返回故事的完整生成历史记录
-message GetStoryGenerationHistoryResponse {
+message GetStoryboardGenerationRoadmapResponse {
   /// 响应状态码
   ResponseCode code = 1;
   

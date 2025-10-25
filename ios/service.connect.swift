@@ -4779,10 +4779,10 @@ public protocol Rankquantity_Voyager_Api_TeamsApiClientInterface: Sendable {
     func `groupActiveHeatmap`(request: Rankquantity_Voyager_Api_GroupActiveHeamapRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GroupActiveHeamapResponse>
 
     @discardableResult
-    func `getStoryGenerationHistory`(request: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse>) -> Void) -> Connect.Cancelable
+    func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers, completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse>) -> Void) -> Connect.Cancelable
 
     @available(iOS 13, *)
-    func `getStoryGenerationHistory`(request: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse>
+    func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse>
 }
 
 /// Concrete implementation of `Rankquantity_Voyager_Api_TeamsApiClientInterface`.
@@ -6254,13 +6254,13 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
     }
 
     @discardableResult
-    public func `getStoryGenerationHistory`(request: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse>) -> Void) -> Connect.Cancelable {
-        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
+    public func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers = [:], completion: @escaping @Sendable (ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse>) -> Void) -> Connect.Cancelable {
+        return self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap", idempotencyLevel: .unknown, request: request, headers: headers, completion: completion)
     }
 
     @available(iOS 13, *)
-    public func `getStoryGenerationHistory`(request: Rankquantity_Voyager_Api_GetStoryGenerationHistoryRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryGenerationHistoryResponse> {
-        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryGenerationHistory", idempotencyLevel: .unknown, request: request, headers: headers)
+    public func `getStoryboardGenerationRoadmap`(request: Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Rankquantity_Voyager_Api_GetStoryboardGenerationRoadmapResponse> {
+        return await self.client.unary(path: "/rankquantity.voyager.api.TeamsAPI/GetStoryboardGenerationRoadmap", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     public enum Metadata {
@@ -6411,7 +6411,7 @@ public final class Rankquantity_Voyager_Api_TeamsApiClient: Rankquantity_Voyager
             public static let deleteUserStoryboardDraft = Connect.MethodSpec(name: "DeleteUserStoryboardDraft", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let userActiveHeatmap = Connect.MethodSpec(name: "UserActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
             public static let groupActiveHeatmap = Connect.MethodSpec(name: "GroupActiveHeatmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
-            public static let getStoryGenerationHistory = Connect.MethodSpec(name: "GetStoryGenerationHistory", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
+            public static let getStoryboardGenerationRoadmap = Connect.MethodSpec(name: "GetStoryboardGenerationRoadmap", service: "rankquantity.voyager.api.TeamsAPI", type: .unary)
         }
     }
 }
