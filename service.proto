@@ -1,6 +1,11 @@
 syntax = "proto3";
 package rankquantity.voyager.api;
 
+// 明确指定 Java 包名
+option java_package = "com.rankquantity.voyager.api";
+option java_outer_classname = "ServiceProto";
+option java_multiple_files = true;
+
 import "google/api/annotations.proto";
 import "google/api/field_behavior.proto";
 import "google/api/resource.proto";
@@ -19,7 +24,7 @@ import "story.proto";
 import "error.proto";
 import "message.proto";
 import "google/protobuf/timestamp.proto";
-
+ 
 // 用户为主：创建的故事板、故事，分享的故事板、故事
 // 所关注的、创建的、加入的小组的动态：创建的故事板、故事、故事角色
 

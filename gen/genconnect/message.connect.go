@@ -5,12 +5,13 @@
 package genconnect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	gen "github.com/grapery/common-protoc/gen"
 	http "net/http"
 	strings "strings"
+
+	connect "connectrpc.com/connect"
+	gen "github.com/grapery/common-protoc/gen"
 )
 
 // This is a compile-time assertion to ensure that this generated file and the connect package are
